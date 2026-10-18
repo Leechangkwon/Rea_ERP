@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "deployment_boundary": "0.21 future research; prior74-body/0.20 corpus and application code unchanged",
+  "baseline_counts_file": "$SCRATCH/aggregate-common-rea-20261018/cumulative-counts.json",
+  "baseline": {
+    "unique_bodies": 74,
+    "bytes": 17067099,
+    "static_complete": 73,
+    "static_partial": 1,
+    "semantic_complete": 71,
+    "semantic_partial": 1,
+    "semantic_unknown_timeout": 1,
+    "semantic_unknown_oom": 1
+  },
+  "added": {
+    "unique_bodies": 2,
+    "bytes": 791279,
+    "static_complete": 2,
+    "semantic_complete": 2,
+    "parse_errors": 0,
+    "timeouts": 0,
+    "OOMs": 0
+  },
+  "cumulative_research_only": {
+    "unique_bodies": 76,
+    "bytes": 17858378,
+    "static_complete": 75,
+    "static_partial": 1,
+    "semantic_complete": 73,
+    "semantic_partial": 1,
+    "semantic_unknown_timeout": 1,
+    "semantic_unknown_oom": 1
+  },
+  "new_body_actual_REA_totals": {
+    "visited_ast_nodes": 143820,
+    "callables": 2231,
+    "calls": 7958,
+    "frontiers": 7282
+  },
+  "limits": "Prior common OOM and menu timeout remain unknown. Counts are inert-source analysis coverage, not UI/button/server equivalence."
+}

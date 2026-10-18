@@ -1,0 +1,896 @@
+{
+  "schema": "plan-status-aggregate-retained82/v1",
+  "generated_at": "2026-10-18T09:58:40.592614+00:00",
+  "scope": "Read-only0.34 candidate assessment; retained82 originals and actualREA only. NewGET0,newsemantic0,browser/privateAPI0,targetexecution0,app/priorcontracts edits0,tests0.",
+  "answer": "Current original plan-status UI is V3-style by owner observation. Retained V3 widgets expose aggregate form/selection/query contracts, but current MENUTREE_002764 page definition/aggregateList/output form are absent. PurchaseV56 19axes/5slots/direction/subtotal behavior cannot be reused as original-plan parity.",
+  "owner_readonly_UI_context": {
+    "page": "발주계획현황",
+    "navigation_key": "MENUTREE_002764",
+    "observed": [
+      "Radio labels 내역/집계 with 라인별 dropdown.",
+      "Selecting 집계 exposes initially2집계조건 fields and 비교기간."
+    ],
+    "not_observed_yet": [
+      "Query results/headers",
+      "Axis candidates and maximum",
+      "Direction/subtotal control behavior",
+      "Graph checkbox availability"
+    ],
+    "input_or_save_actions": "None reported; query-page controls only, no original business values retained."
+  },
+  "binding_and_exclusions": {
+    "facts": [
+      "No MENUTREE_002764/002764/발주계획현황 literal was found in retained82. This is a bounded missing-page result, not proof feature unsupported.",
+      "Retained planList.js is ecount.page.listx.output.inventory ESG002M, pageInfo.type purchasePlan, menuSeq506, input/list forms SN230/SR230 and list actions. It is not identified as current status page. Its columns/predicates/actions cannot be relabeled as aggregate-report behavior.",
+      "Other PurchasePlan hits are load-slip/input transfer/list navigation compatibility and do not establish this report binding.",
+      "Observed radio/dropdown shape is compatible with several V3 wrappers (cmbSumFlagDate,rbReportType,aggregationType). Control DOM IDs/pageInfo are not supplied; no one wrapper is asserted active."
+    ],
+    "refs": {
+      "ESG002M.initPageDefaultData": {
+        "symbol": "ESG002M.initPageDefaultData",
+        "span": [
+          1,
+          804,
+          1,
+          5634
+        ],
+        "offsets": [
+          804,
+          5634
+        ],
+        "source": "$SCRATCH/rea-request/.artifacts/purchasing-original/planList.js",
+        "sha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+        "actual_REA_callable_id": "callable:function:804:5634",
+        "semantic_IR": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/01-planList-21833c77aa98/rea-semantic-ir.json",
+        "direct_calls": 8,
+        "direct_call_resolution": {
+          "unresolved": 7,
+          "exact": 1
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "modes_and_query_shape": {
+    "facts": [
+      "cmbSumFlagDate constants summary9,custEmailSend10,custom99. Summary/custom set TABLE_TYPE=dataView; others grid. Base radio value1 clears REPORT_CONDITION/SORT_INDEX/SORT_TYPE/SUBTOTAL_USE, comparison0,pivot/ratio/code false and target empty. settingInfo.setOptions may override control options.",
+      "aggregationType is a distinct wrapper: detail1,line3,summary9,custEmailSend10. Summary9→dataView; non-summary grid. It constructs CONDITIONS from output form ColumnSetPivot plus settingInfo.typeMappings, then normalizes several outgoing mode values to99. Do not combine wrapper codes into universal current plan mapping.",
+      "createConditions copies CODE_DES,COL_CD,CONVERT_COL_NM,RESX_SUB_DES,DATA_TYPE1/2 from dynamic pivot metadata. This is form metadata transfer, not hard-coded plan axes/server GROUPBY.",
+      "No query request/result or original business rows were collected."
+    ],
+    "refs": {
+      "cmbSumFlagDate._SUM_FLAG": {
+        "symbol": "cmbSumFlagDate._SUM_FLAG",
+        "span": [
+          1,
+          17042,
+          1,
+          17086
+        ],
+        "offsets": [
+          17042,
+          17086
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "evidence_level": "retained actualREA6.4 static/semantic corpus constant node, not callable"
+      },
+      "cmbSumFlagDate.onSetSearchParam": {
+        "symbol": "cmbSumFlagDate.onSetSearchParam",
+        "span": [
+          1,
+          21479,
+          1,
+          22703
+        ],
+        "offsets": [
+          21479,
+          22703
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:21479:22703",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "aggregationType._SUM_FLAG": {
+        "symbol": "aggregationType._SUM_FLAG",
+        "span": [
+          1,
+          45941,
+          1,
+          45993
+        ],
+        "offsets": [
+          45941,
+          45993
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "evidence_level": "retained actualREA6.4 static/semantic corpus constant node, not callable"
+      },
+      "aggregationType.onSetSearchParam": {
+        "symbol": "aggregationType.onSetSearchParam",
+        "span": [
+          1,
+          49229,
+          1,
+          50620
+        ],
+        "offsets": [
+          49229,
+          50620
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:49229:50620",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "aggregationType.createConditions": {
+        "symbol": "aggregationType.createConditions",
+        "span": [
+          1,
+          50794,
+          1,
+          51212
+        ],
+        "offsets": [
+          50794,
+          51212
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:50794:51212",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "allowed_axes_and_popup": {
+    "facts": [
+      "Wrappers pass targetList=pageOption.aggregateList. Actual plan candidate list/labels/IDs and output form metadata are not retained. No source basis identifies the purchase19axes as allowed here.",
+      "cmbSumFlagDate/summaryCondition route balanceCode_1..5 selection popups. _setBalanceCode sends output FORM_TYPE, CONTROL_INDEX, IS_CONDITION=true,IS_TARGET=false,IsUsingGroupColCd=true,REPORT_LIST with existing Seq/Index/current Selected flags.",
+      "For new type, _setCondition instead sends serialized CONDITIONS. This is a separate protocol and current isNewType is unknown.",
+      "Concrete candidate availability, duplicate exclusion, blank/gap validation, code/name resolution, autocomplete acceptance and permissions are external controls/popup/form responses. Passing selected IDs alone is not proof of popup exclusion semantics.",
+      "No hard-coded current column set, metric labels/count/amount calculation or warehouse/employee/project axis binding is established."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onInitControl": {
+        "symbol": "cmbSumFlagDate.onInitControl",
+        "span": [
+          1,
+          17559,
+          1,
+          18386
+        ],
+        "offsets": [
+          17559,
+          18386
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:17559:18386",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "rbReportType.onInitControl": {
+        "symbol": "rbReportType.onInitControl",
+        "span": [
+          1,
+          30510,
+          1,
+          31190
+        ],
+        "offsets": [
+          30510,
+          31190
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:30510:31190",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 5,
+        "direct_call_resolution": {
+          "unresolved": 5
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "summaryCondition.onInitControl": {
+        "symbol": "summaryCondition.onInitControl",
+        "span": [
+          1,
+          26544,
+          1,
+          27159
+        ],
+        "offsets": [
+          26544,
+          27159
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:26544:27159",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 1,
+        "direct_call_resolution": {
+          "unresolved": 1
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "cmbSumFlagDate.onPopupHandler": {
+        "symbol": "cmbSumFlagDate.onPopupHandler",
+        "span": [
+          1,
+          18402,
+          1,
+          18912
+        ],
+        "offsets": [
+          18402,
+          18912
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:18402:18912",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "cmbSumFlagDate._setBalanceCode": {
+        "symbol": "cmbSumFlagDate._setBalanceCode",
+        "span": [
+          1,
+          24179,
+          1,
+          24916
+        ],
+        "offsets": [
+          24179,
+          24916
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:24179:24916",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 11,
+        "direct_call_resolution": {
+          "unresolved": 11
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "summaryCondition._setBalanceCode": {
+        "symbol": "summaryCondition._setBalanceCode",
+        "span": [
+          1,
+          28472,
+          1,
+          29079
+        ],
+        "offsets": [
+          28472,
+          29079
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:28472:29079",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 8,
+        "direct_call_resolution": {
+          "unresolved": 8
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "cmbSumFlagDate._setCondition": {
+        "symbol": "cmbSumFlagDate._setCondition",
+        "span": [
+          1,
+          24931,
+          1,
+          25107
+        ],
+        "offsets": [
+          24931,
+          25107
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:24931:25107",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "aggregationType._setCondition": {
+        "symbol": "aggregationType._setCondition",
+        "span": [
+          1,
+          51466,
+          1,
+          51642
+        ],
+        "offsets": [
+          51466,
+          51642
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:51466:51642",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "condition_count_defaults": {
+    "facts": [
+      "Owner observed initial2 fields is concrete current UI evidence. Wrapper onInitControl passes5title resource entries and popup code recognizes indices1..5.",
+      "No retained implementation of the actual V3 aggregate control row-growth/state machine was identified. The5title/handler surface suggests five supported positions but does not prove current maximum,initial count or automatic addition/removal.",
+      "Initial2→dynamicN/up-to5, gap allowance, monotonic rows and defaults must remain separate from V56 Flexion getSummaryConditions (+2/max5) code. That V56 candidate is not used to fill these V3 unknowns.",
+      "Common wrapper defaultCompareValue0 is source-backed; exact current aggregate field values/selected axis defaults are unknown. sumFlag fallback selected3 is a separate widget and not asserted to be current plan default."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onInitControl": {
+        "symbol": "cmbSumFlagDate.onInitControl",
+        "span": [
+          1,
+          17559,
+          1,
+          18386
+        ],
+        "offsets": [
+          17559,
+          18386
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:17559:18386",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "summaryCondition.onPopupHandler": {
+        "symbol": "summaryCondition.onPopupHandler",
+        "span": [
+          1,
+          27175,
+          1,
+          27501
+        ],
+        "offsets": [
+          27175,
+          27501
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:27175:27501",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "aggregationType.onInitControl": {
+        "symbol": "aggregationType.onInitControl",
+        "span": [
+          1,
+          46411,
+          1,
+          47177
+        ],
+        "offsets": [
+          46411,
+          47177
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:46411:47177",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "sumFlag.onInitControl": {
+        "symbol": "sumFlag.onInitControl",
+        "span": [
+          1,
+          170272,
+          1,
+          170424
+        ],
+        "offsets": [
+          170272,
+          170424
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:170272:170424",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "direction_subtotal_sorting_and_predicates": {
+    "facts": [
+      "REPORT_SORT_INDEX,REPORT_SORT_TYPE and REPORT_SUBTOTAL_USE appear in detail-reset code; wrappers serialize form/control data. The retained bodies do not implement the V3 per-axis direction/subtotal toggle/state meaning or default.",
+      "No original-plan client comparator, ordinary aggregate group key, subtotal hierarchy/label/rounding/sum formula or backend predicate implementation is established. Do not import purchaseV56 show_subtotal/A-D consumers.",
+      "linkSort and linkSortTotal are separate output-form sort dialogs. They populate IsAppliedSort/MainsetOutSort and optional report-title/page/body/tab/Columns on pre-search; these are not the aggregate per-axis direction/subtotal controls.",
+      "cmbSumFlagDate summary mode hides formList/linkSort/linkSortTotal where outputOption exists; current plan wrapper/context may differ.",
+      "Plan ESG002M list contains list-specific search/filter plumbing; no binding proves those predicates are used by current plan status. Dynamic page/form metadata and destination request are missing."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onSetSearchParam": {
+        "symbol": "cmbSumFlagDate.onSetSearchParam",
+        "span": [
+          1,
+          21479,
+          1,
+          22703
+        ],
+        "offsets": [
+          21479,
+          22703
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:21479:22703",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "cmbSumFlagDate._formWidgetShowHide": {
+        "symbol": "cmbSumFlagDate._formWidgetShowHide",
+        "span": [
+          1,
+          22983,
+          1,
+          23634
+        ],
+        "offsets": [
+          22983,
+          23634
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:22983:23634",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 22,
+        "direct_call_resolution": {
+          "unresolved": 22
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "linkSort.onPreSearch": {
+        "symbol": "linkSort.onPreSearch",
+        "span": [
+          1,
+          69192,
+          1,
+          69635
+        ],
+        "offsets": [
+          69192,
+          69635
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:69192:69635",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "linkSortTotal.onPreSearch": {
+        "symbol": "linkSortTotal.onPreSearch",
+        "span": [
+          1,
+          73161,
+          1,
+          74130
+        ],
+        "offsets": [
+          73161,
+          74130
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:73161:74130",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "ESG002M.initPageDefaultData": {
+        "symbol": "ESG002M.initPageDefaultData",
+        "span": [
+          1,
+          804,
+          1,
+          5634
+        ],
+        "offsets": [
+          804,
+          5634
+        ],
+        "source": "$SCRATCH/rea-request/.artifacts/purchasing-original/planList.js",
+        "sha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+        "actual_REA_callable_id": "callable:function:804:5634",
+        "semantic_IR": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/01-planList-21833c77aa98/rea-semantic-ir.json",
+        "direct_calls": 8,
+        "direct_call_resolution": {
+          "unresolved": 7,
+          "exact": 1
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "comparison": {
+    "facts": [
+      "V3 wrappers supply5comparison resource labels with default0; rbReportType can replace list using pageInfo.aggregateInfo.compareResourceList. Exact current mode codes/date arithmetic remain external.",
+      "aggregationType validation rejects comparison!=string0 with pivot output form, stops asyncApiStep and reopens header ifloaded.",
+      "The existing V56 Flexion Pl keyed-union/date runtime contract is not evidence that this V3 plan-report output uses that engine. Current date/key/empty-period handling remains unknown."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onInitControl": {
+        "symbol": "cmbSumFlagDate.onInitControl",
+        "span": [
+          1,
+          17559,
+          1,
+          18386
+        ],
+        "offsets": [
+          17559,
+          18386
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:17559:18386",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "rbReportType.onInitControl": {
+        "symbol": "rbReportType.onInitControl",
+        "span": [
+          1,
+          30510,
+          1,
+          31190
+        ],
+        "offsets": [
+          30510,
+          31190
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:30510:31190",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 5,
+        "direct_call_resolution": {
+          "unresolved": 5
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "aggregationType.onValidateAfterOutputForm": {
+        "symbol": "aggregationType.onValidateAfterOutputForm",
+        "span": [
+          1,
+          48089,
+          1,
+          48548
+        ],
+        "offsets": [
+          48089,
+          48548
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:48089:48548",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "graph_existence_and_guards": {
+    "facts": [
+      "Retained V3 dataViewType widget creates checkbox dataTypeGraph and initially hidden dataTypeLink. Checked state shows link, search param normalizes graph toY/N. Source checkbox exists generically; current plan page must include this widget to expose it. No current plan availability is inferred.",
+      "Automation makes checkbox read-only; isFromCS hides row. onSearchValidate blocks IE and comparison-period control value!=0, stopping asyncApiStep.",
+      "_validate rejects pivot,BD_ITEM_SEPARATE_TF/page screen T and permits settingInfo.validate override. These are generic graph/form guards, not current plan output formulas.",
+      "Summary graph form-info request sends SUM_FLAG9,PROGRAM_ID,FORM_TYPE and serialized REPORT_* fields to GetAggregateSelectInfo; requires nonempty REPORT_CONDITION. Backend response ColumnForm/settings are external; no request was made.",
+      "Mode/balance/aggregate option change can reset shared dataViewType. Source graph metric/type/caption/data scope is not plan-bound."
+    ],
+    "refs": {
+      "dataViewType.onInitControl": {
+        "symbol": "dataViewType.onInitControl",
+        "span": [
+          1,
+          246872,
+          1,
+          247603
+        ],
+        "offsets": [
+          246872,
+          247603
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:246872:247603",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 23,
+        "direct_call_resolution": {
+          "unresolved": 23
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "dataViewType.onChangeControl": {
+        "symbol": "dataViewType.onChangeControl",
+        "span": [
+          1,
+          247620,
+          1,
+          247781
+        ],
+        "offsets": [
+          247620,
+          247781
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:247620:247781",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 5,
+        "direct_call_resolution": {
+          "unresolved": 5
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "dataViewType.onSetSearchParam": {
+        "symbol": "dataViewType.onSetSearchParam",
+        "span": [
+          1,
+          250446,
+          1,
+          250662
+        ],
+        "offsets": [
+          250446,
+          250662
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:250446:250662",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "dataViewType.onSearchValidate": {
+        "symbol": "dataViewType.onSearchValidate",
+        "span": [
+          1,
+          247799,
+          1,
+          248368
+        ],
+        "offsets": [
+          247799,
+          248368
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:247799:248368",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "dataViewType._validate": {
+        "symbol": "dataViewType._validate",
+        "span": [
+          1,
+          250942,
+          1,
+          251285
+        ],
+        "offsets": [
+          250942,
+          251285
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:250942:251285",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 8,
+        "direct_call_resolution": {
+          "unresolved": 8
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "dataViewType._requestFormInfoFromSearchApi": {
+        "symbol": "dataViewType._requestFormInfoFromSearchApi",
+        "span": [
+          1,
+          252343,
+          1,
+          253154
+        ],
+        "offsets": [
+          252343,
+          253154
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:252343:253154",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 12,
+        "direct_call_resolution": {
+          "unresolved": 12
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "cmbSumFlagDate.onChangeControl": {
+        "symbol": "cmbSumFlagDate.onChangeControl",
+        "span": [
+          1,
+          19469,
+          1,
+          19786
+        ],
+        "offsets": [
+          19469,
+          19786
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:19469:19786",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 6,
+        "direct_call_resolution": {
+          "unresolved": 6
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "search_button_boundary": {
+    "facts": [
+      "Generic V3 search.createLayout registers F8 and button BTN00113. _ON_CLICK requires visible header context and delegates searchManager.executeHeader.",
+      "Current plan Search shortcut/callback/endpoint/result columns are not observed; purchaseV56 F3 is not substituted."
+    ],
+    "refs": {
+      "search.createLayout": {
+        "symbol": "search.createLayout",
+        "span": [
+          1,
+          215787,
+          1,
+          216009
+        ],
+        "offsets": [
+          215787,
+          216009
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:215787:216009",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      },
+      "search._ON_CLICK": {
+        "symbol": "search._ON_CLICK",
+        "span": [
+          1,
+          216346,
+          1,
+          216562
+        ],
+        "offsets": [
+          216346,
+          216562
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:216346:216562",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 6,
+        "direct_call_resolution": {
+          "unresolved": 6
+        },
+        "evidence_level": "retained completed full-original actualREA6.4; dynamic/framework binding unresolved"
+      }
+    }
+  },
+  "implementation_assessment": {
+    "verdict": "Partial/source-bound implementation is feasible after owner current-axis/header observations; original full plan aggregate parity is not established.",
+    "own_policy_boundary": [
+      "Scope own plan summary to document/row type rather than reuse purchase results without an explicit plan model filter. This is an own design requirement, not an original predicate inferred here.",
+      "Enable only observed/supported own axes and explicitly declare local bucket/key/calculation/default policies. PurchaseV56 renderer slot/default/direction/subtotal contracts require separate V3 verification.",
+      "Original max/auto-growth,graph availability,comparisons,subtotal and sort behavior should remain unknown/disabled or explicitly independent until supported."
+    ],
+    "needed_evidence": [
+      "Current radio/dropdown control IDs/page widget metadata (read-only observation)",
+      "Actual axis candidate labels and result headers for chosen plan axes",
+      "Condition row expansion/max and duplicate/gap behavior",
+      "Per-axis direction/subtotal UI and resulting structural behavior",
+      "Graph/search shortcut visibility and actual report route/form binding"
+    ]
+  },
+  "unknowns": [
+    "Current MENUTREE_002764 page script/setup/pageInfo.aggregateInfo/aggregateList/typeMappings/PROGRAM_ID/output FORM_TYPE.",
+    "Allowed plan axis labels/IDs,concrete ordinary columns/metrics and original result totals/tax/rounding.",
+    "Initial state beyond owner2fields,automatic row increase/current max,duplicates/gaps/blank-axis validation.",
+    "Direction values/default/comparator and subtotal flags/default/row generation.",
+    "Plan status endpoint/filter/current document/master/date identity; list/input mappings excluded.",
+    "Current graph availability/metric/type and V3-versus-Flexion/V56 runtime engine.",
+    "Current comparison range generation/labels/row matching/missing cells,print/export/drilldown behavior."
+  ],
+  "limits": [
+    "All source interpretations are static candidates, not original runtime observation. Existing completed REA semantic member/dynamic calls remain unresolved.",
+    "Corpus remains82/23,596,477B. Prior common full OOM,Flexion full timeout and other partial states are unchanged; no semantic retries.",
+    "No company values,original query response,GET/browser/privateAPI/app/test side effects."
+  ],
+  "files": {
+    "manifest": "$SCRATCH/plan-aggregate-rea-20261018/source-manifest.json",
+    "source_spans": "$SCRATCH/plan-aggregate-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/plan-aggregate-rea-20261018/actual-rea-reference-index.json",
+    "82_discovery": "$SCRATCH/plan-aggregate-rea-20261018/corpus-discovery.json"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": "0.14.0",
+  "enabled_program": "Own purchase entry only",
+  "new_original_bodies": 0,
+  "reused_sources": [
+    "../entry-sort/footer-save-contract.json",
+    "../entry-sort/footer-precise-source-evidence.json",
+    "../entry-sort/footer-branch-order-clarification.json"
+  ],
+  "original_save_clicked": false,
+  "original_settings_saved": false,
+  "source_behavior": "saveReview/saveNew branch precedes popup close; same page request with saved key and modify/new mode. UI label binding is inferred from widget/consumer and observed label.",
+  "original_row_control_incident": {
+    "action": "Clicked empty purchase row-number/movement link to inspect it; no value typed or drag performed.",
+    "observed": "Inline numeric editor, followed by temporary autosave indication.",
+    "cleanup": "Reset/new page, removed only this new blank temporary draft. Fresh UI confirmed its banner removed.",
+    "future_boundary": "No original main-row controls; static DOM reads, read-only pages and public source only."
+  },
+  "own_conflict_policy": "Per-route source snapshot within same browser app session; stale draft is preserved but cannot save until user explicitly discards/reloads. Not cross-device concurrency control.",
+  "source_limits": [
+    "Original server saves and reloaded result not observed",
+    "Original submitPage modal implementation external",
+    "SaveNew initialization/approval/payment/hold remain separate unknowns"
+  ],
+  "hosted_business_browser_qa": false
+}

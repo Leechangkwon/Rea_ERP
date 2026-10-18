@@ -1,0 +1,565 @@
+{
+  "schema": "order-status-retained82-assessment/v1",
+  "generated_at": "2026-10-18T10:27:31.622410+00:00",
+  "scope": "82fixedbaseline read-only; new2captured in separate extension only. No browser/privateAPI/originalexecution/app/tests.",
+  "conclusion_at82": "No current MENUTREE_000515 page binding in retained82. Generic V3 aggregate/filter contracts exist. Explicit purchase_order page metadata is outstanding O/E040307 and must not be treated as ordinary order status.",
+  "aggregate_dimensions_and_columns": {
+    "status": "dynamic/unbound",
+    "facts": [
+      "V3 target axes come from pageOption.aggregateList and outputform/pivotmetadata; current plan17axes/purchaseV56 axes not imported.",
+      "Generic aggregate controls support summary/tableType dataView and CONDITIONS metadata; no currentorder fixed visible measure/header set or aggregate projection identified at82."
+    ],
+    "refs": {
+      "header-v3::cmbSumFlagDate.onInitControl@17559": {
+        "symbol": "cmbSumFlagDate.onInitControl",
+        "span": [
+          1,
+          17559,
+          1,
+          18386
+        ],
+        "offsets": [
+          17559,
+          18386
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:17559:18386",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "semantic_scope": "completed original source semantics"
+      },
+      "header-v3::aggregationType.createConditions@50794": {
+        "symbol": "aggregationType.createConditions",
+        "span": [
+          1,
+          50794,
+          1,
+          51212
+        ],
+        "offsets": [
+          50794,
+          51212
+        ],
+        "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+        "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+        "actual_REA_callable_id": "callable:function:50794:51212",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "semantic_scope": "completed original source semantics"
+      }
+    }
+  },
+  "filter_candidates": {
+    "completion_state": {
+      "facts": [
+        "txtStateFlag provides include0/exclude1/nofilter2 mode controls and PRG_ID/EXCEPT_PFLAG popup context. State values combine stateCodeMap(TAB_ID)|P_FLAG; current value labels/meaning are dynamic.",
+        "slipStatusInfo has configurable labels/values/defaults; validates against conflicting group+specific status selections, removes inactive group-specific filters and writes STATE_INFO. isNotFinish can prefill Self states HGRK_MENU_SEQ60 with IS_FINISH!=true; it does not compute receipt quantities.",
+        "txtProgressStatus can prefill non-finish states and default empty STATE_INFO toY. These are generic filter mechanisms,not current order selection proof."
+      ],
+      "refs": {
+        "header-v3::txtStateFlag.onInitControl@55333": {
+          "symbol": "txtStateFlag.onInitControl",
+          "span": [
+            1,
+            55333,
+            1,
+            56274
+          ],
+          "offsets": [
+            55333,
+            56274
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:55333:56274",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 25,
+          "direct_call_resolution": {
+            "unresolved": 25
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::txtStateFlag.onPopupHandler@58319": {
+          "symbol": "txtStateFlag.onPopupHandler",
+          "span": [
+            1,
+            58319,
+            1,
+            58476
+          ],
+          "offsets": [
+            58319,
+            58476
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:58319:58476",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 3,
+          "direct_call_resolution": {
+            "unresolved": 3
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::txtStateFlag.onPreInitPopupHandler@58499": {
+          "symbol": "txtStateFlag.onPreInitPopupHandler",
+          "span": [
+            1,
+            58499,
+            1,
+            58648
+          ],
+          "offsets": [
+            58499,
+            58648
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:58499:58648",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::slipStatusInfo.onInitControl@59079": {
+          "symbol": "slipStatusInfo.onInitControl",
+          "span": [
+            1,
+            59079,
+            1,
+            60434
+          ],
+          "offsets": [
+            59079,
+            60434
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:59079:60434",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 24,
+          "direct_call_resolution": {
+            "unresolved": 24
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::slipStatusInfo.checkConfirmValidation@60458": {
+          "symbol": "slipStatusInfo.checkConfirmValidation",
+          "span": [
+            1,
+            60458,
+            1,
+            60679
+          ],
+          "offsets": [
+            60458,
+            60679
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:60458:60679",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 5,
+          "direct_call_resolution": {
+            "unresolved": 5
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::slipStatusInfo.onSearchValidate@61122": {
+          "symbol": "slipStatusInfo.onSearchValidate",
+          "span": [
+            1,
+            61122,
+            1,
+            61312
+          ],
+          "offsets": [
+            61122,
+            61312
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:61122:61312",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::slipStatusInfo.onSetSearchParam@63233": {
+          "symbol": "slipStatusInfo.onSetSearchParam",
+          "span": [
+            1,
+            63233,
+            1,
+            63559
+          ],
+          "offsets": [
+            63233,
+            63559
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:63233:63559",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::txtProgressStatus.onLoadComplete@126664": {
+          "symbol": "txtProgressStatus.onLoadComplete",
+          "span": [
+            1,
+            126664,
+            1,
+            126959
+          ],
+          "offsets": [
+            126664,
+            126959
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:126664:126959",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 3,
+          "direct_call_resolution": {
+            "unresolved": 3
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::txtProgressStatus.onSetSearchParam@127596": {
+          "symbol": "txtProgressStatus.onSetSearchParam",
+          "span": [
+            1,
+            127596,
+            1,
+            127767
+          ],
+          "offsets": [
+            127596,
+            127767
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:127596:127767",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        }
+      }
+    },
+    "currency": {
+      "facts": [
+        "txtExCd defines EXCHANGE_CODE with CODE_CLASS S10,external code metadata,optional inactive inclusion and prior EXCHANGE_CODE/DES restoration. ddlForeignFlag offers resource-backed9999/0/1 values.",
+        "No exchange-rate date,base/foreign amount conversion or currentorder filter attachment is established."
+      ],
+      "refs": {
+        "header-v3::txtExCd.onInitControl@124539": {
+          "symbol": "txtExCd.onInitControl",
+          "span": [
+            1,
+            124539,
+            1,
+            125147
+          ],
+          "offsets": [
+            124539,
+            125147
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:124539:125147",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 10,
+          "direct_call_resolution": {
+            "unresolved": 10
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::txtExCd.onPopupHandler@125163": {
+          "symbol": "txtExCd.onPopupHandler",
+          "span": [
+            1,
+            125163,
+            1,
+            125270
+          ],
+          "offsets": [
+            125163,
+            125270
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:125163:125270",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::ddlForeignFlag.onInitControl@153571": {
+          "symbol": "ddlForeignFlag.onInitControl",
+          "span": [
+            1,
+            153571,
+            1,
+            153938
+          ],
+          "offsets": [
+            153571,
+            153938
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:153571:153938",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 7,
+          "direct_call_resolution": {
+            "unresolved": 7
+          },
+          "semantic_scope": "completed original source semantics"
+        }
+      }
+    },
+    "confirmation_vs_approval": {
+      "facts": [
+        "cbRptConfirm initializes from company.RPT_CONFIRM,not proof of electronic approval status filter. Generic process flag0..3 labels are resources.",
+        "No currentorder electronic approval selector/allowed states or workflow permissions established at82."
+      ],
+      "refs": {
+        "header-v3::cbRptConfirm.onInitControl@6810": {
+          "symbol": "cbRptConfirm.onInitControl",
+          "span": [
+            1,
+            6810,
+            1,
+            6926
+          ],
+          "offsets": [
+            6810,
+            6926
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:6810:6926",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 3,
+          "direct_call_resolution": {
+            "unresolved": 3
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::cbProcessFlag.onInitControl@16762": {
+          "symbol": "cbProcessFlag.onInitControl",
+          "span": [
+            1,
+            16762,
+            1,
+            16942
+          ],
+          "offsets": [
+            16762,
+            16942
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:16762:16942",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 4,
+          "direct_call_resolution": {
+            "unresolved": 4
+          },
+          "semantic_scope": "completed original source semantics"
+        }
+      }
+    },
+    "residual_and_source": {
+      "facts": [
+        "noResiduals writes configurable key(default MIN_NUM_CHK)1/0;cbBalFlag writes BAL_FLAG1/0. Their quantity semantics/current binding are not proven.",
+        "ddlInflow turns selectedA into empty INFLOW;rbSalePrgId targets sales program IDs E040205/E040253 and is excluded as current purchaseorder source filter. outputTranslip only supplies PARAM.",
+        "Input viewTransStatus_purchasesOrder references PurchaseOrderStatus/GET_TYPE508,not currentreport fields."
+      ],
+      "refs": {
+        "header-v3::ddlInflow.onSetSearchParam@4899": {
+          "symbol": "ddlInflow.onSetSearchParam",
+          "span": [
+            1,
+            4899,
+            1,
+            5181
+          ],
+          "offsets": [
+            4899,
+            5181
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:4899:5181",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::noResiduals.onSetSearchParam@7281": {
+          "symbol": "noResiduals.onSetSearchParam",
+          "span": [
+            1,
+            7281,
+            1,
+            7587
+          ],
+          "offsets": [
+            7281,
+            7587
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:7281:7587",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::cbBalFlag.onSetSearchParam@9020": {
+          "symbol": "cbBalFlag.onSetSearchParam",
+          "span": [
+            1,
+            9020,
+            1,
+            9282
+          ],
+          "offsets": [
+            9020,
+            9282
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:9020:9282",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::rbSalePrgId.onInitControl@15850": {
+          "symbol": "rbSalePrgId.onInitControl",
+          "span": [
+            1,
+            15850,
+            1,
+            16337
+          ],
+          "offsets": [
+            15850,
+            16337
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:15850:16337",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 8,
+          "direct_call_resolution": {
+            "unresolved": 8
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "header-v3::outputTranslip.onPopupHandler@128820": {
+          "symbol": "outputTranslip.onPopupHandler",
+          "span": [
+            1,
+            128820,
+            1,
+            128872
+          ],
+          "offsets": [
+            128820,
+            128872
+          ],
+          "source": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+          "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+          "actual_REA_callable_id": "callable:function:128820:128872",
+          "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+          "direct_calls": 1,
+          "direct_call_resolution": {
+            "unresolved": 1
+          },
+          "semantic_scope": "completed original source semantics"
+        },
+        "input-status-link::viewTransStatus_purchasesOrder._ON_CLICK@139781": {
+          "symbol": "viewTransStatus_purchasesOrder._ON_CLICK",
+          "span": [
+            1,
+            139781,
+            1,
+            139944
+          ],
+          "offsets": [
+            139781,
+            139944
+          ],
+          "source": "$SCRATCH/toolbar-loadslip-rea-20261018/bundle.eccomposite_v1.inventory.unit.widget.contentsloadslip.-1895761178460182004.20.js",
+          "sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "actual_REA_callable_id": "callable:function:139781:139944",
+          "semantic_IR": "$SCRATCH/toolbar-loadslip-rea-20261018/rea/rea-semantic-ir.json",
+          "direct_calls": 2,
+          "direct_call_resolution": {
+            "unresolved": 2
+          },
+          "semantic_scope": "completed original source semantics"
+        }
+      }
+    }
+  },
+  "quantity_boundary": {
+    "status": "unknown",
+    "facts": [
+      "purchase_order_page_meta explicitly names 미구매/미입고 outstanding E040307/menuO. StockReport ESD018R_PURCHASE_ORDER is that remaining/incoming context,not current ordinary report.",
+      "No source proves ordinary qty means fullordered versus unreceived balance,reservations,cancellations,source allocation or received/open amounts."
+    ],
+    "refs": {
+      "inventory::purchase_order_page_meta@311364": {
+        "symbol": "purchase_order_page_meta",
+        "span": [
+          6624,
+          6,
+          6641,
+          1
+        ],
+        "offsets": [
+          311364,
+          311944
+        ],
+        "source": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+        "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+        "evidence_level": "actualREA static plus inert AST metadata constant,not a callable"
+      }
+    }
+  },
+  "files": {
+    "source_spans": "$SCRATCH/order-status-rea-20261018/precise-source-evidence.json",
+    "actual_refs": "$SCRATCH/order-status-rea-20261018/actual-rea-reference-index.json",
+    "new_extension": "$SCRATCH/order-status-rea-20261018/order-status-extension-contract.json"
+  }
+}

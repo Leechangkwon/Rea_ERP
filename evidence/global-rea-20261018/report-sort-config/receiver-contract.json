@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T06:19:07.001666+00:00",
+  "question": "Current original purchase-report search-form SortConfig: Apply immediately queries, or stores criteria until later explicit Search?",
+  "verdict": {
+    "current_report_runtime_binding": "unknown",
+    "immediate_query_after_current_apply": "unknown",
+    "stores_until_later_search_for_current_popup": "unknown",
+    "narrowed_conclusion": "Captured ISortConfigPage openers/receivers are template-setup consumers that store/update configuration without explicit report query. V3 report-filter receivers also store then use on later search. Immediate local row sort belongs to a different IOpenSortGridItemPage input-detail path. None is proven the current V56 purchase-report search-form receiver.",
+    "original_Apply_executed": false
+  },
+  "scope": {
+    "retained_original_bodies": 6,
+    "new_GETs": 0,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "source_execution": false,
+    "application_edits": false,
+    "REA": "Reused actual prior pinned REA6.4 semantic IR; no new REA executions claimed."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] exclusive end",
+  "compatible_consumers": [
+    {
+      "id": "setup-v3-era",
+      "route": "SetDataSortConfigUserAction -> getSortConfigUtil$1 -> OutputSortConfigUtil$1 -> open ISortConfigPage -> util.receiver",
+      "match_to_current": "not established; requires definition_preview/item/template-setup DMC state",
+      "apply_receive": "On success && message, sets owner.prop_id to message.data, updates page_display_method, rebuilds subtotal section list, dispatches IChangeSectionDataUserAction. No explicit InventoryStatus/HEADER/search-manager query call in receiver.",
+      "options": "use_save=false for this output-template-setup caller, default page_lookup A, page_split/subtotal enabled. Do not transfer these options to current runtime popup.",
+      "query_timing": "Stores template setup values and dispatches section/UI mutation; no direct query here. Downstream behavior remains its own action binding.",
+      "evidence": [
+        "setup.SetDataSortConfigUserAction.executeAsync",
+        "setup.OutputSortConfigUtil$1",
+        "setup.OutputSortConfigUtil$1.receiver",
+        "setup.OutputSortConfigUtil$1._changeSectionData"
+      ]
+    },
+    {
+      "id": "setup-v4.1",
+      "route": "SetDataSortConfigV4_1UserAction -> getSortConfigUtil -> OutputSortConfigUtil -> open ISortConfigPage -> receiver",
+      "match_to_current": "not established; uses ISetupPageState.root_data_model_id, preview definitions and payload.setting_data_model_id",
+      "apply_receive": "Sets owner sort, synchronizes subtotal sort-prop definitions/page_display_method/section list, dispatches IChangeSectionDataV4_1UserAction. No explicit report query call in receiver.",
+      "options": "use_save=false for this template setup caller; not proof current report uses transient-only option.",
+      "query_timing": "Stores and updates template setup; no direct HEADER query here.",
+      "evidence": [
+        "setup.SetDataSortConfigV4_1UserAction.executeAsync",
+        "setup.OutputSortConfigUtil",
+        "setup.OutputSortConfigUtil.receiver",
+        "setup.OutputSortConfigUtil._changeSectionData"
+      ]
+    },
+    {
+      "id": "V3-report-filter-compatible",
+      "route": "header.linkSortTotal -> FM079P_01; or linkSort -> FM053P_01 -> onMessageHandler apply/save",
+      "match_to_current": "incompatible popup identifier/stack with observed ISortConfigPage; useful as separate report-filter contract only",
+      "apply_receive": "Stores formDesignSortData and related subtotal/page/title/column options, sets isAppliedSort, highlights control and calls popup callback. No searchManager execute call in receive handler.",
+      "later_search": "onPreSearch adds IsAppliedSort/MainsetOutSort and related form flags to next search transaction. V3 search click delegates searchManager.executeHeader.",
+      "shortcut": "V3 search wrapper registers F8. Current original V56 Search F3 was earlier parent UI observation; dialog Apply F8 is separately UI-observed. Do not equate shortcuts across these paths.",
+      "evidence": [
+        "v3.linkSortTotal.onMessageHandler_FM079P_01",
+        "v3.linkSortTotal.onPreSearch",
+        "v3.linkSort.onMessageHandler_FM053P_01",
+        "v3.linkSort.onPreSearch",
+        "v3.search._ON_CLICK",
+        "v3.search.createLayout"
+      ]
+    },
+    {
+      "id": "V56-report-search-consumer",
+      "route": "HEADER/SIMPLE -> InventoryStatusHeaderSearchResolver -> applyInventoryStatusDefaultSortSearchOption -> SelectInventoryStatusProgram",
+      "current_binding": "Compatible generic V56 report query pipeline; missing current ISortConfigPage receiver that writes its template_dmc.sort_search",
+      "sort_condition_use": "Header resolver resets quick terms/page1/limit and reapplies template sort_search.sort (or grid sort attributes). Default-sort helper turns sort attrs into search_options.sort. SelectInventoryStatusProgram passes conditions/sorts/groups to /ec56/api/inventory/action/SelectInventorySearchStatusAction.",
+      "query_timing_limit": "Proves how sort conditions are consumed WHEN explicit HEADER query runs; does not prove applying the current popup dispatches HEADER or only mutates pending template sort_search. Message->sort_search wrapper/conversion absent.",
+      "evidence": [
+        "v56.InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+        "v56.applyInventoryStatusDefaultSortSearchOption",
+        "v56.SelectInventoryStatusProgram.onExecuteAsync"
+      ]
+    }
+  ],
+  "excluded_other_behavior": {
+    "id": "inventory-input-row-local-sort",
+    "route": "OpenSortGridItemUserAction -> IOpenSortGridItemPage -> SortDataModelProgram -> replace/set detail rows",
+    "reason": "Different popup identifier, input detail DMC and legacy COL_CD/SORT_DV_CD schema. It is not observed ISortConfigPage with subtotal/page split. Its immediate local sort cannot answer current report Apply query timing.",
+    "evidence": [
+      "inventory-v56.OpenSortGridItemUserAction",
+      "inventory-actions.OpenSortGridItemUserAction"
+    ]
+  },
+  "ApplySortConfig_boundary": {
+    "source_behavior": "ApplySortConfig filters valid criteria, sends message {data,page_display_method,is_canceled_left_fixed} and closes; optional server save if option.use_save&&payload.save_tf. It never directly queries report result.",
+    "unknown_receiver": "Parent callback/route handler can decide search/update after message. Matching current form control action/owner/template_dmc binding is absent; no inferred immediate-query or defer-until-search contract.",
+    "evidence": [
+      "setup.ApplySortConfigUserAction.executeAsync"
+    ]
+  },
+  "latest_UI_observations_from_parent": {
+    "source_type": "Original UI observations supplied by owner; no worker browser operations",
+    "events": [
+      "Double-click selected candidate",
+      "Duplicate same prop excluded",
+      "Quantity selection asc button switched to desc by click",
+      "Filling3criteria appended4th row",
+      "Customer selected in row3 then up moved it to row2",
+      "Selected delete cleared row2criterion while4rows stayed",
+      "Close then reopen produced initial3emptyrows"
+    ],
+    "apply_timing_tested": false,
+    "safe_conclusion": "Observed candidate/duplicate/direction/growth/move/reset/cancel transitions are recorded. Cancel/reopen clearing is demonstrated for this unsaved edit sequence; applied-setting persistence/query timing remains untested."
+  },
+  "literal_route_scan": [
+    {
+      "source": "inventory-v56",
+      "ISortConfigPage_literals": 0,
+      "IOpenSortGridItemPage_literals": 2
+    },
+    {
+      "source": "inventory-actions",
+      "ISortConfigPage_literals": 0,
+      "IOpenSortGridItemPage_literals": 1
+    },
+    {
+      "source": "setup-actions",
+      "ISortConfigPage_literals": 2,
+      "IOpenSortGridItemPage_literals": 0
+    },
+    {
+      "source": "v3-header",
+      "ISortConfigPage_literals": 0,
+      "IOpenSortGridItemPage_literals": 0
+    },
+    {
+      "source": "v3-contents",
+      "ISortConfigPage_literals": 0,
+      "IOpenSortGridItemPage_literals": 0
+    },
+    {
+      "source": "v3-footer",
+      "ISortConfigPage_literals": 0,
+      "IOpenSortGridItemPage_literals": 0
+    }
+  ],
+  "sources": {
+    "inventory-v56": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json"
+    },
+    "inventory-actions": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json"
+    },
+    "setup-actions": {
+      "path": "$SCRATCH/report-sort-config-rea-20261018/app.setup.user_action.89567f43.20.js",
+      "sha256": "27748077d5637698ca60c8eefe91f57a97581600593670e77b1fcb6467350dfd",
+      "bytes": 1872370,
+      "actual_REA_ir": "$SCRATCH/report-sort-config-rea-20261018/inputs/27748077d5637698/rea-semantic-ir.json"
+    },
+    "v3-header": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json"
+    },
+    "v3-contents": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.contents.-1904147712028340650.20.js",
+      "sha256": "fcad48f8f56b63fe54284cb25e7a8e9f2f60db39c86234399a841cb21df981f4",
+      "bytes": 30909,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/fcad48f8f56b63fe/rea-semantic-ir.json"
+    },
+    "v3-footer": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/beca20c9cbaf4d70/rea-semantic-ir.json"
+    }
+  },
+  "evidence": {
+    "setup.SetDataSortConfigUserAction.executeAsync": {
+      "source": "setup-actions",
+      "symbol": "SetDataSortConfigUserAction.executeAsync",
+      "span": [
+        1,
+        703675,
+        1,
+        704562
+      ],
+      "actual_REA_callable_id": "callable:function:703675:704562",
+      "direct_call_count": 13,
+      "call_resolution": {
+        "unresolved": 12,
+        "exact": 1
+      }
+    },
+    "setup.ApplySortConfigUserAction.executeAsync": {
+      "source": "setup-actions",
+      "symbol": "ApplySortConfigUserAction.executeAsync",
+      "span": [
+        1,
+        136433,
+        1,
+        138009
+      ],
+      "actual_REA_callable_id": "callable:function:136433:138009",
+      "direct_call_count": 12,
+      "call_resolution": {
+        "unresolved": 9,
+        "exact": 3
+      }
+    },
+    "setup.OutputSortConfigUtil$1": {
+      "source": "setup-actions",
+      "symbol": "OutputSortConfigUtil$1",
+      "span": [
+        1,
+        665477,
+        1,
+        670535
+      ],
+      "actual_REA_callable_id": "callable:function:665477:670535",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "setup.SetDataSortConfigV4_1UserAction.executeAsync": {
+      "source": "setup-actions",
+      "symbol": "SetDataSortConfigV4_1UserAction.executeAsync",
+      "span": [
+        1,
+        825657,
+        1,
+        826542
+      ],
+      "actual_REA_callable_id": "callable:function:825657:826542",
+      "direct_call_count": 13,
+      "call_resolution": {
+        "unresolved": 12,
+        "exact": 1
+      }
+    },
+    "setup.OutputSortConfigUtil": {
+      "source": "setup-actions",
+      "symbol": "OutputSortConfigUtil",
+      "span": [
+        1,
+        811380,
+        1,
+        818843
+      ],
+      "actual_REA_callable_id": "callable:function:811380:818843",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "setup.OutputSortConfigUtil$1._changeSectionData": {
+      "source": "setup-actions",
+      "symbol": "OutputSortConfigUtil$1._changeSectionData",
+      "span": [
+        1,
+        666117,
+        1,
+        666464
+      ],
+      "actual_REA_callable_id": "callable:function:666117:666464",
+      "direct_call_count": 4,
+      "call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "setup.OutputSortConfigUtil$1.receiver": {
+      "source": "setup-actions",
+      "symbol": "OutputSortConfigUtil$1.receiver",
+      "span": [
+        1,
+        666474,
+        1,
+        667324
+      ],
+      "actual_REA_callable_id": "callable:function:666474:667324",
+      "direct_call_count": 12,
+      "call_resolution": {
+        "unresolved": 10,
+        "exact": 2
+      }
+    },
+    "setup.OutputSortConfigUtil._changeSectionData": {
+      "source": "setup-actions",
+      "symbol": "OutputSortConfigUtil._changeSectionData",
+      "span": [
+        1,
+        814463,
+        1,
+        814873
+      ],
+      "actual_REA_callable_id": "callable:function:814463:814873",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "setup.OutputSortConfigUtil.receiver": {
+      "source": "setup-actions",
+      "symbol": "OutputSortConfigUtil.receiver",
+      "span": [
+        1,
+        814935,
+        1,
+        815820
+      ],
+      "actual_REA_callable_id": "callable:function:814935:815820",
+      "direct_call_count": 13,
+      "call_resolution": {
+        "unresolved": 10,
+        "exact": 3
+      }
+    },
+    "v3.linkSortTotal.onMessageHandler_FM079P_01": {
+      "source": "v3-header",
+      "symbol": "eccomposite_v1.unit.widget.linkSortTotal.onMessageHandler_FM079P_01",
+      "span": [
+        1,
+        79420,
+        1,
+        81489
+      ],
+      "actual_REA_callable_id": "callable:function:79420:81489",
+      "direct_call_count": 17,
+      "call_resolution": {
+        "unresolved": 17
+      }
+    },
+    "v3.linkSortTotal.onPreSearch": {
+      "source": "v3-header",
+      "symbol": "eccomposite_v1.unit.widget.linkSortTotal.onPreSearch",
+      "span": [
+        1,
+        73161,
+        1,
+        74130
+      ],
+      "actual_REA_callable_id": "callable:function:73161:74130",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "v3.linkSort.onMessageHandler_FM053P_01": {
+      "source": "v3-header",
+      "symbol": "eccomposite_v1.unit.widget.linkSort.onMessageHandler_FM053P_01",
+      "span": [
+        1,
+        71986,
+        1,
+        72378
+      ],
+      "actual_REA_callable_id": "callable:function:71986:72378",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "v3.linkSort.onPreSearch": {
+      "source": "v3-header",
+      "symbol": "eccomposite_v1.unit.widget.linkSort.onPreSearch",
+      "span": [
+        1,
+        69192,
+        1,
+        69635
+      ],
+      "actual_REA_callable_id": "callable:function:69192:69635",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "v3.search._ON_CLICK": {
+      "source": "v3-header",
+      "symbol": "eccomposite_v1.unit.widget.search._ON_CLICK",
+      "span": [
+        1,
+        216346,
+        1,
+        216562
+      ],
+      "actual_REA_callable_id": "callable:function:216346:216562",
+      "direct_call_count": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    },
+    "v3.search.createLayout": {
+      "source": "v3-header",
+      "symbol": "eccomposite_v1.unit.widget.search.createLayout",
+      "span": [
+        1,
+        215787,
+        1,
+        216009
+      ],
+      "actual_REA_callable_id": "callable:function:215787:216009",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "v56.InventoryStatusHeaderSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56",
+      "symbol": "InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+      "span": [
+        2583,
+        4,
+        2603,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:124840:125726",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 2,
+        "exact": 1
+      }
+    },
+    "v56.applyInventoryStatusDefaultSortSearchOption": {
+      "source": "inventory-v56",
+      "symbol": "applyInventoryStatusDefaultSortSearchOption",
+      "span": [
+        2000,
+        0,
+        2015,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:98457:99284",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "v56.SelectInventoryStatusProgram.onExecuteAsync": {
+      "source": "inventory-v56",
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      }
+    },
+    "v56.InventoryStatusSortSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56",
+      "symbol": "InventoryStatusSortSearchResolver.OnExecuteAsync",
+      "span": [
+        2748,
+        4,
+        2803,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:131713:134416",
+      "direct_call_count": 15,
+      "call_resolution": {
+        "unresolved": 15
+      }
+    },
+    "inventory-v56.OpenSortGridItemUserAction": {
+      "source": "inventory-v56",
+      "symbol": "OpenSortGridItemUserAction.executeAsync",
+      "span": [
+        19926,
+        26,
+        20094,
+        5
+      ],
+      "actual_REA_callable_id": "callable:function:1019274:1027578",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 4,
+        "exact": 4
+      }
+    },
+    "inventory-actions.OpenSortGridItemUserAction": {
+      "source": "inventory-actions",
+      "symbol": "OpenSortGridItemUserAction.executeAsync",
+      "span": [
+        1,
+        482406,
+        1,
+        487343
+      ],
+      "actual_REA_callable_id": "callable:function:482406:487343",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 4,
+        "exact": 4
+      }
+    }
+  },
+  "unknowns": [
+    "Current report search-form control user_action identifier, owner DMC/prop, option flags and runtime popup receiver not retained.",
+    "No original Apply/default-save executed under current constraint, so immediate result refresh cannot be observed.",
+    "Absence from these6bodies does not prove a common/shared receiver absent from product; do not fetch guessed dependency URL.",
+    "Generic report/header source bindings and source-preload presence are not current original UI equivalence."
+  ]
+}

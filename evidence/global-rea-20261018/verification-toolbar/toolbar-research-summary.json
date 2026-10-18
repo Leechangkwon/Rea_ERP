@@ -1,0 +1,501 @@
+{
+  "schema": 1,
+  "scope": "Two exact parent-observed public popup script URLs; inert research only.",
+  "rea_version": "6.4.0",
+  "sources": [
+    {
+      "name": "xfm080p_02.1200061039448367638.20.js",
+      "path": "$SCRATCH/barcode-toolbar-rea-20261018/xfm080p_02.1200061039448367638.20.js",
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.popup.form/views/xfm080p_02.1200061039448367638.20.js",
+      "sha256": "dcb3ec6130686b607a44ae538018693aa77876f7488569a9c4be196b8252e578",
+      "bytes": 6357,
+      "saved_sha256_rechecked": true,
+      "earlier_corpus_match": null,
+      "parse_status": "complete",
+      "parse_errors": 0,
+      "callables": 38,
+      "call_sites": 110,
+      "frontiers": 116,
+      "call_resolution": {
+        "unresolved": 110
+      },
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      }
+    },
+    {
+      "name": "barcodeverification.3840202323517767939.20.js",
+      "path": "$SCRATCH/barcode-toolbar-rea-20261018/barcodeverification.3840202323517767939.20.js",
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.popup.common/views/barcodeverification.3840202323517767939.20.js",
+      "sha256": "f1c88733e46dcc471d07af161af6a7bf32426b5dc6c5731982ed8a455544d4a8",
+      "bytes": 7379,
+      "saved_sha256_rechecked": true,
+      "earlier_corpus_match": {
+        "sha256": "f1c88733e46dcc471d07af161af6a7bf32426b5dc6c5731982ed8a455544d4a8",
+        "bytes_match": true,
+        "paths": [
+          ".artifacts/global-rea-20261018/restored-public-originals/f1c88733e46dcc47-barcodeverification.3840202323517767939.20.js"
+        ]
+      },
+      "parse_status": "complete",
+      "parse_errors": 0,
+      "callables": 14,
+      "call_sites": 50,
+      "frontiers": 100,
+      "call_resolution": {
+        "unresolved": 50
+      },
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      }
+    }
+  ],
+  "totals": {
+    "bytes": 13736,
+    "callables": 52,
+    "call_sites": 160,
+    "frontiers": 216,
+    "parser_errors": 0,
+    "action_candidates": 33
+  },
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "findings": [
+    {
+      "area": "sort-priority-row-model",
+      "status": "partly-source-backed",
+      "finding": "Rows come from viewBag.InitDatas.RowData. Output follows grid row order and assigns SORT_SNO=1,2,... after filtering COL_CD==0. This source does not initialize or cap the number of priority rows at three.",
+      "evidence": [
+        {
+          "symbol": "onInitContents",
+          "span": [
+            1,
+            697,
+            1,
+            1516
+          ],
+          "callable_id": "callable:function:697:1516",
+          "call_count": 17,
+          "unknown_count": 17
+        },
+        {
+          "symbol": "getSaveSortData",
+          "span": [
+            1,
+            5486,
+            1,
+            6141
+          ],
+          "callable_id": "callable:function:5486:6141",
+          "call_count": 3,
+          "unknown_count": 3
+        }
+      ],
+      "unknown": "The observed three-priority initial model is supplied externally; its construction and toolbar receiving logic are not in this module."
+    },
+    {
+      "area": "sort-options",
+      "status": "source-syntax",
+      "finding": "getSortCdOption starts with option value 0 and a resource label. It includes columnList entries having realId, excluding tempColumnId, hidden columns and widget.link controls; it deduplicates realId and orders by generated A001/A002... tokens.",
+      "evidence": [
+        {
+          "symbol": "getSortCdOption",
+          "span": [
+            1,
+            3028,
+            1,
+            3427
+          ],
+          "callable_id": "callable:function:3028:3427",
+          "call_count": 5,
+          "unknown_count": 5
+        }
+      ],
+      "unknown": "Actual columnList values and resolved resource labels belong to the caller/runtime."
+    },
+    {
+      "area": "sort-direction",
+      "status": "source-syntax",
+      "finding": "Direction uses button.toggling with btn-asc/btn-desc. Changing writes SORT_DV_CD. Empty or 0 column selection disables the direction cell. Serialization maps UI value B to D and all other values to A.",
+      "evidence": [
+        {
+          "symbol": "setGridDataCustomAscDesc",
+          "span": [
+            1,
+            3813,
+            1,
+            4079
+          ],
+          "callable_id": "callable:function:3813:4079",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "symbol": "setControlDefaultValue",
+          "span": [
+            1,
+            4176,
+            1,
+            4392
+          ],
+          "callable_id": "callable:function:4176:4392",
+          "call_count": 5,
+          "unknown_count": 6
+        },
+        {
+          "symbol": "getSaveSortData",
+          "span": [
+            1,
+            5486,
+            1,
+            6141
+          ],
+          "callable_id": "callable:function:5486:6141",
+          "call_count": 3,
+          "unknown_count": 3
+        }
+      ],
+      "unknown": "The external toggling widget defines its runtime values and rendering; no button click was executed."
+    },
+    {
+      "area": "sort-duplicate-validation",
+      "status": "source-syntax",
+      "finding": "For each selected non-0 COL_CD, getSaveSortData counts equal COL_CD values across all grid rows. Any duplicate marks the cells, focuses the first error and returns null. With no duplicates it emits COL_CD,SORT_SNO,TAB_CD,SORT_DV_CD.",
+      "evidence": [
+        {
+          "symbol": "getSaveSortData",
+          "span": [
+            1,
+            5486,
+            1,
+            6141
+          ],
+          "callable_id": "callable:function:5486:6141",
+          "call_count": 3,
+          "unknown_count": 3
+        }
+      ],
+      "unknown": "Error popup presentation and grid control behavior are external."
+    },
+    {
+      "area": "sort-normal-apply",
+      "status": "source-syntax",
+      "finding": "onFooterApply checks canSaveProcess and dispatches normal mode to actionApply. It excludes COL_CD=0 rows and rejects null or an empty result; an empty result marks/focuses the first COL_CD cell. Valid data is sent as {data:sortArray,callback:close}; completeSave restores apply click availability.",
+      "evidence": [
+        {
+          "symbol": "onFooterApply",
+          "span": [
+            1,
+            1939,
+            1,
+            2038
+          ],
+          "callable_id": "callable:function:1939:2038",
+          "call_count": 3,
+          "unknown_count": 3
+        },
+        {
+          "symbol": "actionApply",
+          "span": [
+            1,
+            4405,
+            1,
+            4919
+          ],
+          "callable_id": "callable:function:4405:4919",
+          "call_count": 9,
+          "unknown_count": 11
+        },
+        {
+          "symbol": "completeSave",
+          "span": [
+            1,
+            6195,
+            1,
+            6305
+          ],
+          "callable_id": "callable:function:6195:6305",
+          "call_count": 3,
+          "unknown_count": 3
+        },
+        {
+          "symbol": "canSaveProcess",
+          "span": [
+            1,
+            6321,
+            1,
+            6354
+          ],
+          "callable_id": "callable:function:6321:6354",
+          "call_count": 0,
+          "unknown_count": 0
+        }
+      ],
+      "unknown": "The parent must receive the message and invoke the close callback; parent sorting, comparison, persistence and reset are absent."
+    },
+    {
+      "area": "sort-default-settings-save",
+      "status": "source-syntax-server-boundary",
+      "finding": "Default-settings option exists only outside input-setup and CS modes and opens the same popup with IsFromInputSetupFlag=true. actionSave permits an empty array unless validation returns null. It posts Request:{FormKey:{FORM_TYPE,FORM_SEQ,TAB_CD:[tabCd]},Datas:sortArray} to /SVC/Common/Form/SaveCofsMainsetInSort. Success sends {data:thatFormObject,callback:close}, distinct from normal apply array.",
+      "evidence": [
+        {
+          "symbol": "onInitHeader",
+          "span": [
+            1,
+            421,
+            1,
+            681
+          ],
+          "callable_id": "callable:function:421:681",
+          "call_count": 4,
+          "unknown_count": 4
+        },
+        {
+          "symbol": "onDropdownDefaultSettings",
+          "span": [
+            1,
+            2140,
+            1,
+            2408
+          ],
+          "callable_id": "callable:function:2140:2408",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "symbol": "actionSave",
+          "span": [
+            1,
+            4931,
+            1,
+            5469
+          ],
+          "callable_id": "callable:function:4931:5469",
+          "call_count": 8,
+          "unknown_count": 8
+        }
+      ],
+      "unknown": "Server acceptance, storage and the interpretation of empty Datas are unverified. No settings were saved."
+    },
+    {
+      "area": "sort-receiving-model-close-and-reset",
+      "status": "mixed-source-and-unknown",
+      "finding": "onMessageHandler receives a child defaults result at t.data, reopens/submits this popup with RowData=t.data.Datas plus existing form/tab/column context, then invokes t.callback. Close directly calls close(). F8 calls apply only when ecount.global.isDisableAlert() is truthy. No local reset handler is defined.",
+      "evidence": [
+        {
+          "symbol": "onFooterClose",
+          "span": [
+            1,
+            1900,
+            1,
+            1924
+          ],
+          "callable_id": "callable:function:1900:1924",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "symbol": "ON_KEY_F8",
+          "span": [
+            1,
+            2049,
+            1,
+            2113
+          ],
+          "callable_id": "callable:function:2049:2113",
+          "call_count": 2,
+          "unknown_count": 2
+        },
+        {
+          "symbol": "onMessageHandler",
+          "span": [
+            1,
+            2692,
+            1,
+            2932
+          ],
+          "callable_id": "callable:function:2692:2932",
+          "call_count": 2,
+          "unknown_count": 2
+        }
+      ],
+      "unknown": "This child-default receiving model is not evidence of the parent toolbar/grid receiver. The toolbar sort/reset implementation and ESC behavior remain external."
+    },
+    {
+      "area": "barcode-find-search-repeat-f3-row-highlight",
+      "status": "external-composite-unknown",
+      "finding": "BarcodeVerification declares external composite widgets searchText, sort and barcode at [1,2019,1,2036], [1,2053,1,2064] and [1,2081,1,2095]. There is no F3 literal or local search/repeat/highlight implementation in this body.",
+      "evidence": [
+        {
+          "symbol": "initProperties",
+          "span": [
+            1,
+            716,
+            1,
+            3428
+          ],
+          "callable_id": "callable:function:716:3428",
+          "call_count": 5,
+          "unknown_count": 5
+        }
+      ],
+      "unknown": "Find matching, repeat/next behavior, F3 binding, row highlighting, sort receiving model and reset semantics must be researched in the shared widget/composite or parent code. Absence here does not prove absence in ECOUNT."
+    },
+    {
+      "area": "barcode-verification-and-f8",
+      "status": "source-syntax",
+      "finding": "The verification footer registers F8. _ON_CLICK aggregates entered and original SlipRowData quantities by product code, with description/specification included according to DES_INC/SIZE_INC. It creates mismatches with SQTY and BQTY and opens /ECERP/SVC/Popup/VerificationResult with quantity-format options. If there are no mismatches it alerts MSG10398 and returns false. The empty-product branch marks/focuses a product cell.",
+      "evidence": [
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            373,
+            1,
+            642
+          ],
+          "callable_id": "callable:function:373:642",
+          "call_count": 4,
+          "unknown_count": 8
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            3490,
+            1,
+            3772
+          ],
+          "callable_id": "callable:function:3490:3772",
+          "call_count": 5,
+          "unknown_count": 5
+        },
+        {
+          "symbol": "onInitUnitWidgetFooterVerification",
+          "span": [
+            1,
+            4268,
+            1,
+            7376
+          ],
+          "callable_id": "callable:function:4268:7376",
+          "call_count": 0,
+          "unknown_count": 0
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            4374,
+            1,
+            4649
+          ],
+          "callable_id": "callable:function:4374:4649",
+          "call_count": 6,
+          "unknown_count": 6
+        },
+        {
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            4916,
+            1,
+            7374
+          ],
+          "callable_id": "callable:function:4916:7374",
+          "call_count": 14,
+          "unknown_count": 54
+        }
+      ],
+      "unknown": "This is quantity verification, not the toolbar find/search implementation. VerificationResult popup rendering and shared button dispatch remain external."
+    },
+    {
+      "area": "barcode-row-model-and-rebuild",
+      "status": "partly-source-backed",
+      "finding": "Barcode grid render sets startRowCount=3 only when it is null. A rebuildContent composite is declared with original SlipRowData, form, quantity and column-map context.",
+      "evidence": [
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            373,
+            1,
+            642
+          ],
+          "callable_id": "callable:function:373:642",
+          "call_count": 4,
+          "unknown_count": 8
+        },
+        {
+          "symbol": "initProperties",
+          "span": [
+            1,
+            716,
+            1,
+            3428
+          ],
+          "callable_id": "callable:function:716:3428",
+          "call_count": 5,
+          "unknown_count": 5
+        },
+        {
+          "symbol": "onInitGroupGridProd",
+          "span": [
+            1,
+            3449,
+            1,
+            4232
+          ],
+          "callable_id": "callable:function:3449:4232",
+          "call_count": 0,
+          "unknown_count": 0
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            3490,
+            1,
+            3772
+          ],
+          "callable_id": "callable:function:3490:3772",
+          "call_count": 5,
+          "unknown_count": 5
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            4374,
+            1,
+            4649
+          ],
+          "callable_id": "callable:function:4374:4649",
+          "call_count": 6,
+          "unknown_count": 6
+        }
+      ],
+      "unknown": "Three default barcode input rows do not establish three sort priorities. Rebuild/reset effects are implemented by an external composite, not locally."
+    }
+  ],
+  "artifacts": {
+    "capture": "capture-manifest.json",
+    "actual_rea": "inputs/<source-sha-prefix>/rea-static.json and rea-semantic-ir.json",
+    "exact_property_symbols_calls_and_unknowns": "precise-source-evidence.json",
+    "machine_action_catalog": "action-catalog-index.json"
+  },
+  "limitations": [
+    "All 160 calls are unresolved by isolated REA; the complete coverage flag refers to retained syntax, not runtime behavior recovery.",
+    "No original JavaScript was executed, no browser was controlled and no app file or original data was modified.",
+    "The parent reports original UI observations separately; this worker makes no authenticated UI observation claim.",
+    "A fresh GET of an exact versioned URL does not establish the latest provider release."
+  ],
+  "prior_source_lookup": "prior-corpus-lookup.json",
+  "needed_next_source": "An exact DOM-observed public source URL implementing the shared searchText/sort/barcode/rebuildContent composite, potentially the named inventorylib.common dependency. No URL was invented or fetched."
+}

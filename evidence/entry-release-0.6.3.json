@@ -1,0 +1,62 @@
+{
+  "version": "0.6.3",
+  "status": "local-validation-passed",
+  "automated": {
+    "total": 335,
+    "menu": 10,
+    "work_tabs": 16,
+    "inventory_core": 31,
+    "entry_core": 15,
+    "entry_ui": 12,
+    "entry_tools": 14,
+    "item_registration": 35,
+    "item_integration": 8,
+    "inventory_modal": 20,
+    "item_list": 8,
+    "inventory_dom": 7,
+    "form_core": 18,
+    "form_dom": 14,
+    "api_gateway": 26,
+    "api_dom": 8,
+    "api_manual": 8,
+    "auth": 7,
+    "self_auth": 21,
+    "self_dom": 57,
+    "release_checks": 4,
+    "large_catalog": "5000 added items, 100 entered rows, fewer than 2500 select options, selected code and quantities preserved"
+  },
+  "local_browser": {
+    "origin": "http://127.0.0.1:8782",
+    "account": "synthetic isolated fixture",
+    "checks": [
+      "item form template selector hidden until Option is opened",
+      "purchase order remaining 40, import 5, save purchase, reopen remaining 35",
+      "source number displayed and input quantity preserved on stock-column toggle",
+      "warehouse safety target 1000, stock 225, pending purchase 35, projected stock 260, shortage 740",
+      "cancel safety selection without saving a document",
+      "desktop 1280px: work-tab top 120px for inactive and active menu",
+      "mobile 600px: work-tab top 128px for inactive and active menu"
+    ],
+    "screenshots_local_only": [".artifacts/entry-safety-0.6.3.png", ".artifacts/tabs-stable-0.6.3.png"]
+  },
+  "source_analysis": {
+    "tool": "rea-agents@6.4.0",
+    "evidence": "entry-rea.json",
+    "public_bundles": 4,
+    "focused_fragments": 26,
+    "analyzed_bytes": 146758,
+    "parse_failures": 0,
+    "semantic_traces": 17,
+    "feature_traces": 4,
+    "unresolved_semantic_items": 3774,
+    "original_ui": "Read-only purchase/sales entry, source type selector and purchase-order rows, stock column toggle, safety-stock entry points. No original business save or import application."
+  },
+  "limits": [
+    "Hosted app-account workflows are not verified by local fixture tests; deployment results are recorded separately on the management Page.",
+    "Safety projection is our explicit policy, not a claim about original private-server calculations.",
+    "Our stock display uses the input date; observed original public helper uses the current date.",
+    "My-items management, slip barcode, barcode quantity verification, full amount/VAT rounding discount modes, production demand imports and profit/amount adjustment remain unimplemented.",
+    "Safety selection does not automatically create purchase orders or block ordinary saves.",
+    "Browser business records and API database business records remain separate."
+  ]
+}

@@ -1,0 +1,4473 @@
+{
+  "schema": 1,
+  "version": "0.6.0",
+  "generated_at": "2026-10-15T06:27:21.467Z",
+  "baseline_commit": "66669868c7cdddba2cef4e7172c083682da5169b",
+  "coverage_method": "모든 기존 기능군을 분류하고 원본 정적 근거·실제 변경·독립 검증·미확인 영역을 연결. 모든 줄의 재작성 또는 원본 전체 동등성을 뜻하지 않음.",
+  "counts": {
+    "menu_areas": 10,
+    "menu_groups": 59,
+    "menu_routes": 759,
+    "inventory_routes": 230,
+    "document_types": 20,
+    "inventory_commands": 18,
+    "self_routes": 31,
+    "existing_api_routes": 2,
+    "documented_api_operations": 36,
+    "documented_setting_actions": 24,
+    "provider_manual_entries": 28
+  },
+  "groups": [
+    {
+      "id": "navigation",
+      "scope": "전체 메뉴·홈·검색·즐겨찾기·최근 메뉴",
+      "original": [
+        "evidence/ui-observations.json",
+        "evidence/public-sources.json",
+        "evidence/rea-application.json"
+      ],
+      "traces": [
+        "navigation",
+        "menu-policy",
+        "navigation-handler",
+        "menu-access-policy"
+      ],
+      "changes": "759개 메뉴 계층을 재분석하고 사용자별 상태 및 권한에 따른 진입 정책을 연결했습니다. 메뉴 존재가 모든 업무 기능 완성을 뜻하지 않습니다.",
+      "tests": [
+        "tests/menu-core.cjs",
+        "tests/auth.cjs",
+        "tests/self-dom.cjs"
+      ],
+      "unknowns": [
+        "원본의 개인별 권한·위젯 서버 저장 규칙",
+        "재고 I·Self-Customizing 외 안내 화면의 업무 기능"
+      ]
+    },
+    {
+      "id": "inventory",
+      "scope": "재고 I 230개 경로·20종 전표·기초자료·조회",
+      "original": [
+        "inventory-source",
+        "inventory-vat-source",
+        "evidence/inventory-route-coverage.json"
+      ],
+      "traces": [
+        "inventory-kernel",
+        "inventory-ui",
+        "inventory-vat-calculation",
+        "inventory-commands",
+        "inventory-policy-application"
+      ],
+      "changes": "기존 검증된 계산 커널을 유지하고 명시적 명령 경계, 설정 정책 적용, 사용자별 브라우저 자료, 조회/입력 권한, 기본값 및 표시 설정의 적용 흐름을 개편했습니다.",
+      "tests": [
+        "tests/inventory-core.cjs",
+        "tests/inventory-dom.cjs",
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ],
+      "unknowns": [
+        "원본의 모든 전표별 서버 처리·회계/재고 트랜잭션 내부 규칙",
+        "브라우저 재고 자료와 서버 API 자료는 별도 저장소이며 자동 동기화되지 않음"
+      ]
+    },
+    {
+      "id": "forms",
+      "scope": "양식·Option·검색 조건·검증 규칙",
+      "original": [
+        "form-source",
+        "evidence/options-browser-verification.json"
+      ],
+      "traces": [
+        "forms-kernel",
+        "form-options",
+        "form-type-selection",
+        "form-validation"
+      ],
+      "changes": "양식 검증 커널을 재분석하고 편집할 입력·검색·조회 양식을 명시적으로 선택하도록 정리했습니다. 저장·활성화·삭제·규칙 명령에 사용자 권한과 현재 정책을 적용합니다.",
+      "tests": [
+        "tests/form-core.cjs",
+        "tests/form-dom.cjs",
+        "tests/inventory-dom.cjs",
+        "tests/self-dom.cjs"
+      ],
+      "unknowns": [
+        "원본의 모든 전표별 조건양식 및 금액조정 기능과의 완전한 동등성"
+      ]
+    },
+    {
+      "id": "integrations",
+      "scope": "API 연결·키·매핑·수신·송신·대사",
+      "original": [
+        "기존 원본 API 매뉴얼 관찰: dist/api-manual-data.js providers",
+        "evidence/public-sources.json"
+      ],
+      "traces": [
+        "api-hub",
+        "api-gateway",
+        "api-request-policy",
+        "api-authorization"
+      ],
+      "changes": "서버 앱 계정·권한 및 세션 요청 위조 방지를 API 실행 경계로 연결하고 원본 28개 항목을 한 카탈로그로 통합했습니다. API 키 권한은 별도 유지하며 설정에 따른 업무 API 중지를 적용합니다.",
+      "tests": [
+        "tests/api-gateway.cjs",
+        "tests/api-dom.cjs",
+        "tests/self-auth.cjs"
+      ],
+      "unknowns": [
+        "실제 이카운트 계정의 OAPI 호출·저장 성공",
+        "외부 ERP 어댑터·실제 외부 전송·정기 실행기 미연결"
+      ]
+    },
+    {
+      "id": "manual",
+      "scope": "사람이 읽는 전체 앱 API 매뉴얼·쌍방 기능 참조",
+      "original": [
+        "기존 원본 OAPI 매뉴얼의 공개 항목 관찰"
+      ],
+      "traces": [
+        "api-contracts",
+        "api-manual",
+        "manual-openapi-generation"
+      ],
+      "changes": "앱 인증·전체 API·설정 작업 계약을 문서화하고 원본 OAPI 제공 범위와 우리 기능의 대응·미제공·개념 참조를 구분합니다. 실제 응답 항목과 API 시험 화면을 연결합니다.",
+      "tests": [
+        "tests/api-manual.cjs",
+        "tests/api-dom.cjs",
+        "tests/self-auth.cjs"
+      ],
+      "unknowns": [
+        "기능 참조는 프로토콜 호환 또는 실제 전송 성공을 보증하지 않음"
+      ]
+    },
+    {
+      "id": "login",
+      "scope": "회사코드·앱 ID·비밀번호·로그아웃·개인 세션",
+      "original": [
+        "login-source",
+        "company-login-input",
+        "password-login-input"
+      ],
+      "traces": [
+        "app-login",
+        "own-login-request",
+        "own-auth-service",
+        "session-authorization"
+      ],
+      "changes": "ChatGPT 식별자 로그인에서 자체 사용자·비밀번호 해시·보안 쿠키 세션·CSRF·잠금·세션 폐기·현재 권한 검사로 교체했습니다. 최초 관리자만 사용자가 앱 화면에서 직접 등록합니다.",
+      "tests": [
+        "tests/auth.cjs",
+        "tests/self-auth.cjs",
+        "tests/self-dom.cjs"
+      ],
+      "unknowns": [
+        "원본의 비밀번호 저장 알고리즘·세션·잠금 내부 정책",
+        "호스팅 외부 비공개 접근 제한은 유지되며 앱 계정과 별도",
+        "최초 관리자 등록 전 운영 계정 로그인 검증은 미완료"
+      ]
+    },
+    {
+      "id": "self",
+      "scope": "Self-Customizing 31개 화면 + 기존 API 화면 2개",
+      "original": [
+        "company-source",
+        "user-source",
+        "role-source",
+        "defaults-source",
+        "sessions-source",
+        "user-permission-input",
+        "role-code-input"
+      ],
+      "traces": [
+        "self-screens",
+        "self-contracts",
+        "self-route-render",
+        "config-validation",
+        "settings-mutations"
+      ],
+      "changes": "안내 화면을 회사·사용자·권한·승인·기본값·기능·보안·세션·허용 IP·로그·백업·초기화·가져오기·편의 설정의 실제 저장 및 관리 화면으로 교체했습니다. 고객 그룹과 고객 계정별 읽기 포털을 연결합니다.",
+      "tests": [
+        "tests/self-auth.cjs",
+        "tests/self-dom.cjs"
+      ],
+      "unknowns": [
+        "Webmail·UserPay·경영요약 정기 전송은 설정 저장만 제공하며 외부 서비스는 미연결",
+        "원본의 모든 고급 설정·기능 세부 옵션을 동일하게 구현했다는 주장이 아님"
+      ]
+    }
+  ],
+  "inventory_documents": [
+    {
+      "id": "quote",
+      "title": "견적서",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "order",
+      "title": "주문서",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "sale",
+      "title": "판매",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "shippingorder",
+      "title": "출하지시서",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "shipment",
+      "title": "출하",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "request",
+      "title": "발주요청",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "plan",
+      "title": "발주계획",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "pricerequest",
+      "title": "단가요청",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "purchaseorder",
+      "title": "발주서",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "purchase",
+      "title": "구매",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "workorder",
+      "title": "작업지시서",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "issue",
+      "title": "생산불출",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "work",
+      "title": "작업내역",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "production",
+      "title": "생산입고",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "transfer",
+      "title": "창고이동",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "consume",
+      "title": "자가사용",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "defect",
+      "title": "불량처리",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "count",
+      "title": "재고실사",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "adjust",
+      "title": "재고조정",
+      "validation": "tests/inventory-core.cjs"
+    },
+    {
+      "id": "shoporder",
+      "title": "쇼핑몰주문",
+      "validation": "tests/inventory-core.cjs"
+    }
+  ],
+  "inventory_route_coverage": [
+    {
+      "id": "2-0-0",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "거래처등록"
+      ],
+      "name": "거래처등록",
+      "group": "기초등록",
+      "branch": "거래처등록",
+      "kind": "master",
+      "master": "partners"
+    },
+    {
+      "id": "2-0-1",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "창고등록"
+      ],
+      "name": "창고등록",
+      "group": "기초등록",
+      "branch": "창고등록",
+      "kind": "master",
+      "master": "warehouses"
+    },
+    {
+      "id": "2-0-2",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "부서등록"
+      ],
+      "name": "부서등록",
+      "group": "기초등록",
+      "branch": "부서등록",
+      "kind": "master",
+      "master": "departments"
+    },
+    {
+      "id": "2-0-3",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "프로젝트등록"
+      ],
+      "name": "프로젝트등록",
+      "group": "기초등록",
+      "branch": "프로젝트등록",
+      "kind": "master",
+      "master": "projects"
+    },
+    {
+      "id": "2-0-4",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "품목등록"
+      ],
+      "name": "품목등록",
+      "group": "기초등록",
+      "branch": "품목등록",
+      "kind": "master",
+      "master": "items"
+    },
+    {
+      "id": "2-0-5",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "관리항목등록"
+      ],
+      "name": "관리항목등록",
+      "group": "기초등록",
+      "branch": "관리항목등록",
+      "kind": "master",
+      "master": "controls"
+    },
+    {
+      "id": "2-0-6",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "단가관리"
+      ],
+      "name": "단가관리",
+      "group": "기초등록",
+      "branch": "단가관리",
+      "kind": "hub"
+    },
+    {
+      "id": "2-0-6-0",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "단가관리",
+        "단가적용순서설정"
+      ],
+      "name": "단가적용순서설정",
+      "group": "기초등록",
+      "branch": "단가관리",
+      "kind": "settings"
+    },
+    {
+      "id": "2-0-6-1",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "단가관리",
+        "특별단가등록"
+      ],
+      "name": "특별단가등록",
+      "group": "기초등록",
+      "branch": "단가관리",
+      "kind": "prices"
+    },
+    {
+      "id": "2-0-6-2",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "단가관리",
+        "거래처특별단가그룹등록"
+      ],
+      "name": "거래처특별단가그룹등록",
+      "group": "기초등록",
+      "branch": "단가관리",
+      "kind": "master",
+      "master": "pricegroups"
+    },
+    {
+      "id": "2-0-6-3",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "단가관리",
+        "품목별단가"
+      ],
+      "name": "품목별단가",
+      "group": "기초등록",
+      "branch": "단가관리",
+      "kind": "prices"
+    },
+    {
+      "id": "2-0-7",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "사원(담당)등록"
+      ],
+      "name": "사원(담당)등록",
+      "group": "기초등록",
+      "branch": "사원(담당)등록",
+      "kind": "master",
+      "master": "employees"
+    },
+    {
+      "id": "2-0-8",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "인쇄용결재라인등록(재고)"
+      ],
+      "name": "인쇄용결재라인등록(재고)",
+      "group": "기초등록",
+      "branch": "인쇄용결재라인등록(재고)",
+      "kind": "master",
+      "master": "approvals"
+    },
+    {
+      "id": "2-0-9",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "외화등록"
+      ],
+      "name": "외화등록",
+      "group": "기초등록",
+      "branch": "외화등록",
+      "kind": "master",
+      "master": "currencies"
+    },
+    {
+      "id": "2-0-10",
+      "path": [
+        "재고 I",
+        "기초등록",
+        "각종코드변경"
+      ],
+      "name": "각종코드변경",
+      "group": "기초등록",
+      "branch": "각종코드변경",
+      "kind": "rename"
+    },
+    {
+      "id": "2-1-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "견적서"
+      ],
+      "name": "견적서",
+      "group": "영업관리",
+      "branch": "견적서",
+      "kind": "hub"
+    },
+    {
+      "id": "2-1-0-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "견적서",
+        "견적서조회"
+      ],
+      "name": "견적서조회",
+      "group": "영업관리",
+      "branch": "견적서",
+      "kind": "list",
+      "docType": "quote"
+    },
+    {
+      "id": "2-1-0-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "견적서",
+        "견적서입력"
+      ],
+      "name": "견적서입력",
+      "group": "영업관리",
+      "branch": "견적서",
+      "kind": "form",
+      "docType": "quote"
+    },
+    {
+      "id": "2-1-0-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "견적서",
+        "견적서현황"
+      ],
+      "name": "견적서현황",
+      "group": "영업관리",
+      "branch": "견적서",
+      "kind": "report",
+      "docType": "quote"
+    },
+    {
+      "id": "2-1-0-3",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "견적서",
+        "미주문현황"
+      ],
+      "name": "미주문현황",
+      "group": "영업관리",
+      "branch": "견적서",
+      "kind": "report",
+      "docType": "quote"
+    },
+    {
+      "id": "2-1-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "주문서"
+      ],
+      "name": "주문서",
+      "group": "영업관리",
+      "branch": "주문서",
+      "kind": "hub"
+    },
+    {
+      "id": "2-1-1-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "주문서",
+        "주문서조회"
+      ],
+      "name": "주문서조회",
+      "group": "영업관리",
+      "branch": "주문서",
+      "kind": "list",
+      "docType": "order"
+    },
+    {
+      "id": "2-1-1-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "주문서",
+        "주문서입력"
+      ],
+      "name": "주문서입력",
+      "group": "영업관리",
+      "branch": "주문서",
+      "kind": "form",
+      "docType": "order"
+    },
+    {
+      "id": "2-1-1-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "주문서",
+        "주문서현황"
+      ],
+      "name": "주문서현황",
+      "group": "영업관리",
+      "branch": "주문서",
+      "kind": "report",
+      "docType": "order"
+    },
+    {
+      "id": "2-1-1-3",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "주문서",
+        "주문서출고처리"
+      ],
+      "name": "주문서출고처리",
+      "group": "영업관리",
+      "branch": "주문서",
+      "kind": "workflow",
+      "docType": "order"
+    },
+    {
+      "id": "2-1-1-4",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "주문서",
+        "미판매현황"
+      ],
+      "name": "미판매현황",
+      "group": "영업관리",
+      "branch": "주문서",
+      "kind": "report",
+      "docType": "order"
+    },
+    {
+      "id": "2-1-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매"
+      ],
+      "name": "판매",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "hub"
+    },
+    {
+      "id": "2-1-2-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "판매조회"
+      ],
+      "name": "판매조회",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "list",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-2-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "판매입력"
+      ],
+      "name": "판매입력",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "form",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-2-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "판매단가일괄변경"
+      ],
+      "name": "판매단가일괄변경",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "bulkprice",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-2-3",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "판매현황"
+      ],
+      "name": "판매현황",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-2-4",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "수금현황"
+      ],
+      "name": "수금현황",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "payment",
+      "docType": "sale",
+      "side": "receivable",
+      "discount": false
+    },
+    {
+      "id": "2-1-2-5",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "판매할인현황"
+      ],
+      "name": "판매할인현황",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "payment",
+      "docType": "sale",
+      "side": "receivable",
+      "discount": true
+    },
+    {
+      "id": "2-1-2-6",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "회계미반영현황 (판매)"
+      ],
+      "name": "회계미반영현황 (판매)",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-2-7",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "거래처별채권"
+      ],
+      "name": "거래처별채권",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "report"
+    },
+    {
+      "id": "2-1-2-8",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매",
+        "거래명세서인쇄"
+      ],
+      "name": "거래명세서인쇄",
+      "group": "영업관리",
+      "branch": "판매",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-3",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매일괄회계반영"
+      ],
+      "name": "판매일괄회계반영",
+      "group": "영업관리",
+      "branch": "판매일괄회계반영",
+      "kind": "hub"
+    },
+    {
+      "id": "2-1-3-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매일괄회계반영",
+        "판매일괄회계반영"
+      ],
+      "name": "판매일괄회계반영",
+      "group": "영업관리",
+      "branch": "판매일괄회계반영",
+      "kind": "accounting",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-3-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매일괄회계반영",
+        "매출(세금)계산서조회(재고)"
+      ],
+      "name": "매출(세금)계산서조회(재고)",
+      "group": "영업관리",
+      "branch": "판매일괄회계반영",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-3-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "판매일괄회계반영",
+        "매출(세금)계산서현황(재고)"
+      ],
+      "name": "매출(세금)계산서현황(재고)",
+      "group": "영업관리",
+      "branch": "판매일괄회계반영",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-1-4",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하지시서"
+      ],
+      "name": "출하지시서",
+      "group": "영업관리",
+      "branch": "출하지시서",
+      "kind": "hub"
+    },
+    {
+      "id": "2-1-4-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하지시서",
+        "출하지시서조회"
+      ],
+      "name": "출하지시서조회",
+      "group": "영업관리",
+      "branch": "출하지시서",
+      "kind": "list",
+      "docType": "shippingorder"
+    },
+    {
+      "id": "2-1-4-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하지시서",
+        "출하지시서입력"
+      ],
+      "name": "출하지시서입력",
+      "group": "영업관리",
+      "branch": "출하지시서",
+      "kind": "form",
+      "docType": "shippingorder"
+    },
+    {
+      "id": "2-1-4-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하지시서",
+        "출하지시서현황"
+      ],
+      "name": "출하지시서현황",
+      "group": "영업관리",
+      "branch": "출하지시서",
+      "kind": "report",
+      "docType": "shippingorder"
+    },
+    {
+      "id": "2-1-4-3",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하지시서",
+        "미출하현황"
+      ],
+      "name": "미출하현황",
+      "group": "영업관리",
+      "branch": "출하지시서",
+      "kind": "report",
+      "docType": "shippingorder"
+    },
+    {
+      "id": "2-1-5",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하"
+      ],
+      "name": "출하",
+      "group": "영업관리",
+      "branch": "출하",
+      "kind": "hub"
+    },
+    {
+      "id": "2-1-5-0",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하",
+        "출하조회"
+      ],
+      "name": "출하조회",
+      "group": "영업관리",
+      "branch": "출하",
+      "kind": "list",
+      "docType": "shipment"
+    },
+    {
+      "id": "2-1-5-1",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하",
+        "출하입력"
+      ],
+      "name": "출하입력",
+      "group": "영업관리",
+      "branch": "출하",
+      "kind": "form",
+      "docType": "shipment"
+    },
+    {
+      "id": "2-1-5-2",
+      "path": [
+        "재고 I",
+        "영업관리",
+        "출하",
+        "출하현황"
+      ],
+      "name": "출하현황",
+      "group": "영업관리",
+      "branch": "출하",
+      "kind": "report",
+      "docType": "shipment"
+    },
+    {
+      "id": "2-2-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주요청"
+      ],
+      "name": "발주요청",
+      "group": "구매관리",
+      "branch": "발주요청",
+      "kind": "hub"
+    },
+    {
+      "id": "2-2-0-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주요청",
+        "발주요청조회"
+      ],
+      "name": "발주요청조회",
+      "group": "구매관리",
+      "branch": "발주요청",
+      "kind": "list",
+      "docType": "request"
+    },
+    {
+      "id": "2-2-0-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주요청",
+        "발주요청입력"
+      ],
+      "name": "발주요청입력",
+      "group": "구매관리",
+      "branch": "발주요청",
+      "kind": "form",
+      "docType": "request"
+    },
+    {
+      "id": "2-2-0-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주요청",
+        "발주요청현황"
+      ],
+      "name": "발주요청현황",
+      "group": "구매관리",
+      "branch": "발주요청",
+      "kind": "report",
+      "docType": "request"
+    },
+    {
+      "id": "2-2-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주계획"
+      ],
+      "name": "발주계획",
+      "group": "구매관리",
+      "branch": "발주계획",
+      "kind": "hub"
+    },
+    {
+      "id": "2-2-1-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주계획",
+        "발주계획조회"
+      ],
+      "name": "발주계획조회",
+      "group": "구매관리",
+      "branch": "발주계획",
+      "kind": "list",
+      "docType": "plan"
+    },
+    {
+      "id": "2-2-1-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주계획",
+        "발주계획입력"
+      ],
+      "name": "발주계획입력",
+      "group": "구매관리",
+      "branch": "발주계획",
+      "kind": "form",
+      "docType": "plan"
+    },
+    {
+      "id": "2-2-1-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주계획",
+        "발주계획현황"
+      ],
+      "name": "발주계획현황",
+      "group": "구매관리",
+      "branch": "발주계획",
+      "kind": "report",
+      "docType": "plan"
+    },
+    {
+      "id": "2-2-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "단가요청"
+      ],
+      "name": "단가요청",
+      "group": "구매관리",
+      "branch": "단가요청",
+      "kind": "hub"
+    },
+    {
+      "id": "2-2-2-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "단가요청",
+        "단가요청조회"
+      ],
+      "name": "단가요청조회",
+      "group": "구매관리",
+      "branch": "단가요청",
+      "kind": "list",
+      "docType": "pricerequest"
+    },
+    {
+      "id": "2-2-2-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "단가요청",
+        "단가요청입력"
+      ],
+      "name": "단가요청입력",
+      "group": "구매관리",
+      "branch": "단가요청",
+      "kind": "form",
+      "docType": "pricerequest"
+    },
+    {
+      "id": "2-2-2-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "단가요청",
+        "단가요청진행단계"
+      ],
+      "name": "단가요청진행단계",
+      "group": "구매관리",
+      "branch": "단가요청",
+      "kind": "workflow",
+      "docType": "pricerequest"
+    },
+    {
+      "id": "2-2-2-3",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "단가요청",
+        "단가요청현황"
+      ],
+      "name": "단가요청현황",
+      "group": "구매관리",
+      "branch": "단가요청",
+      "kind": "report",
+      "docType": "pricerequest"
+    },
+    {
+      "id": "2-2-3",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주서"
+      ],
+      "name": "발주서",
+      "group": "구매관리",
+      "branch": "발주서",
+      "kind": "hub"
+    },
+    {
+      "id": "2-2-3-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주서",
+        "발주서조회"
+      ],
+      "name": "발주서조회",
+      "group": "구매관리",
+      "branch": "발주서",
+      "kind": "list",
+      "docType": "purchaseorder"
+    },
+    {
+      "id": "2-2-3-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주서",
+        "발주서입력"
+      ],
+      "name": "발주서입력",
+      "group": "구매관리",
+      "branch": "발주서",
+      "kind": "form",
+      "docType": "purchaseorder"
+    },
+    {
+      "id": "2-2-3-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주서",
+        "발주서현황"
+      ],
+      "name": "발주서현황",
+      "group": "구매관리",
+      "branch": "발주서",
+      "kind": "report",
+      "docType": "purchaseorder"
+    },
+    {
+      "id": "2-2-3-3",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "발주서",
+        "미구매현황"
+      ],
+      "name": "미구매현황",
+      "group": "구매관리",
+      "branch": "발주서",
+      "kind": "report",
+      "docType": "purchaseorder"
+    },
+    {
+      "id": "2-2-4",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매"
+      ],
+      "name": "구매",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "hub"
+    },
+    {
+      "id": "2-2-4-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "구매조회"
+      ],
+      "name": "구매조회",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "list",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-4-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "구매입력"
+      ],
+      "name": "구매입력",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "form",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-4-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "구매현황"
+      ],
+      "name": "구매현황",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-4-3",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "구매단가일괄변경"
+      ],
+      "name": "구매단가일괄변경",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "bulkprice",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-4-4",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "지급현황"
+      ],
+      "name": "지급현황",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "payment",
+      "docType": "purchase",
+      "side": "payable",
+      "discount": false
+    },
+    {
+      "id": "2-2-4-5",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "구매할인현황"
+      ],
+      "name": "구매할인현황",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "payment",
+      "docType": "purchase",
+      "side": "payable",
+      "discount": true
+    },
+    {
+      "id": "2-2-4-6",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "회계미반영현황 (구매)"
+      ],
+      "name": "회계미반영현황 (구매)",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-4-7",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매",
+        "거래처별채무"
+      ],
+      "name": "거래처별채무",
+      "group": "구매관리",
+      "branch": "구매",
+      "kind": "report"
+    },
+    {
+      "id": "2-2-5",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매일괄회계반영"
+      ],
+      "name": "구매일괄회계반영",
+      "group": "구매관리",
+      "branch": "구매일괄회계반영",
+      "kind": "hub"
+    },
+    {
+      "id": "2-2-5-0",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매일괄회계반영",
+        "구매일괄회계반영"
+      ],
+      "name": "구매일괄회계반영",
+      "group": "구매관리",
+      "branch": "구매일괄회계반영",
+      "kind": "accounting",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-5-1",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매일괄회계반영",
+        "매입(세금)계산서조회(재고)"
+      ],
+      "name": "매입(세금)계산서조회(재고)",
+      "group": "구매관리",
+      "branch": "구매일괄회계반영",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-2-5-2",
+      "path": [
+        "재고 I",
+        "구매관리",
+        "구매일괄회계반영",
+        "매입(세금)계산서현황(재고)"
+      ],
+      "name": "매입(세금)계산서현황(재고)",
+      "group": "구매관리",
+      "branch": "구매일괄회계반영",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-3-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "BOM(소요량)"
+      ],
+      "name": "BOM(소요량)",
+      "group": "생산/외주",
+      "branch": "BOM(소요량)",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-0-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "BOM(소요량)",
+        "BOM(소요량)조회"
+      ],
+      "name": "BOM(소요량)조회",
+      "group": "생산/외주",
+      "branch": "BOM(소요량)",
+      "kind": "bom"
+    },
+    {
+      "id": "2-3-0-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "BOM(소요량)",
+        "BOM(소요량)현황"
+      ],
+      "name": "BOM(소요량)현황",
+      "group": "생산/외주",
+      "branch": "BOM(소요량)",
+      "kind": "bom"
+    },
+    {
+      "id": "2-3-0-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "BOM(소요량)",
+        "소요량계산"
+      ],
+      "name": "소요량계산",
+      "group": "생산/외주",
+      "branch": "BOM(소요량)",
+      "kind": "mrp",
+      "time": false
+    },
+    {
+      "id": "2-3-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "공정"
+      ],
+      "name": "공정",
+      "group": "생산/외주",
+      "branch": "공정",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-1-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "공정",
+        "공정등록"
+      ],
+      "name": "공정등록",
+      "group": "생산/외주",
+      "branch": "공정",
+      "kind": "master",
+      "master": "processes"
+    },
+    {
+      "id": "2-3-1-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "공정",
+        "자원등록"
+      ],
+      "name": "자원등록",
+      "group": "생산/외주",
+      "branch": "공정",
+      "kind": "master",
+      "master": "resources"
+    },
+    {
+      "id": "2-3-1-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "공정",
+        "BOR(작업소요시간)"
+      ],
+      "name": "BOR(작업소요시간)",
+      "group": "생산/외주",
+      "branch": "공정",
+      "kind": "bor"
+    },
+    {
+      "id": "2-3-1-3",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "공정",
+        "소요시간계산"
+      ],
+      "name": "소요시간계산",
+      "group": "생산/외주",
+      "branch": "공정",
+      "kind": "mrp",
+      "time": true
+    },
+    {
+      "id": "2-3-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산계획/MRP생성"
+      ],
+      "name": "생산계획/MRP생성",
+      "group": "생산/외주",
+      "branch": "생산계획/MRP생성",
+      "kind": "mrp",
+      "time": false
+    },
+    {
+      "id": "2-3-3",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서"
+      ],
+      "name": "작업지시서",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-3-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서",
+        "작업지시서조회"
+      ],
+      "name": "작업지시서조회",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "list",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-3-3-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서",
+        "작업지시서입력"
+      ],
+      "name": "작업지시서입력",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "form",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-3-3-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서",
+        "작업지시서현황"
+      ],
+      "name": "작업지시서현황",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "report",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-3-3-3",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서",
+        "작업지시서작업처리"
+      ],
+      "name": "작업지시서작업처리",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "workflow",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-3-3-4",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서",
+        "작업지시서별진행현황"
+      ],
+      "name": "작업지시서별진행현황",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "report",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-3-3-5",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업지시서",
+        "작업지시서효율현황"
+      ],
+      "name": "작업지시서효율현황",
+      "group": "생산/외주",
+      "branch": "작업지시서",
+      "kind": "report",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-3-4",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산불출"
+      ],
+      "name": "생산불출",
+      "group": "생산/외주",
+      "branch": "생산불출",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-4-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산불출",
+        "생산불출조회"
+      ],
+      "name": "생산불출조회",
+      "group": "생산/외주",
+      "branch": "생산불출",
+      "kind": "list",
+      "docType": "issue"
+    },
+    {
+      "id": "2-3-4-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산불출",
+        "생산불출입력"
+      ],
+      "name": "생산불출입력",
+      "group": "생산/외주",
+      "branch": "생산불출",
+      "kind": "form",
+      "docType": "issue"
+    },
+    {
+      "id": "2-3-4-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산불출",
+        "생산불출현황"
+      ],
+      "name": "생산불출현황",
+      "group": "생산/외주",
+      "branch": "생산불출",
+      "kind": "report",
+      "docType": "issue"
+    },
+    {
+      "id": "2-3-5",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업"
+      ],
+      "name": "작업",
+      "group": "생산/외주",
+      "branch": "작업",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-5-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업",
+        "작업내역입력"
+      ],
+      "name": "작업내역입력",
+      "group": "생산/외주",
+      "branch": "작업",
+      "kind": "form",
+      "docType": "work"
+    },
+    {
+      "id": "2-3-5-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업",
+        "작업내역조회"
+      ],
+      "name": "작업내역조회",
+      "group": "생산/외주",
+      "branch": "작업",
+      "kind": "list",
+      "docType": "work"
+    },
+    {
+      "id": "2-3-5-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "작업",
+        "작업내역현황"
+      ],
+      "name": "작업내역현황",
+      "group": "생산/외주",
+      "branch": "작업",
+      "kind": "report",
+      "docType": "work"
+    },
+    {
+      "id": "2-3-6",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고"
+      ],
+      "name": "생산입고",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-6-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "생산입고조회"
+      ],
+      "name": "생산입고조회",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "list",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-6-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "생산입고 I"
+      ],
+      "name": "생산입고 I",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "form",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-6-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "생산입고 II"
+      ],
+      "name": "생산입고 II",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "form",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-6-3",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "생산입고 III"
+      ],
+      "name": "생산입고 III",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "form",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-6-4",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "생산입고현황"
+      ],
+      "name": "생산입고현황",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "report",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-6-5",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "생산입고/소모현황 I"
+      ],
+      "name": "생산입고/소모현황 I",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "report",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-6-6",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "지급현황"
+      ],
+      "name": "지급현황",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "payment",
+      "docType": "production",
+      "side": "payable",
+      "discount": false
+    },
+    {
+      "id": "2-3-6-7",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "외주비할인현황"
+      ],
+      "name": "외주비할인현황",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "payment",
+      "docType": "production",
+      "side": "payable",
+      "discount": true
+    },
+    {
+      "id": "2-3-6-8",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "생산입고",
+        "거래처별채무"
+      ],
+      "name": "거래처별채무",
+      "group": "생산/외주",
+      "branch": "생산입고",
+      "kind": "report"
+    },
+    {
+      "id": "2-3-7",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "외주비회계반영"
+      ],
+      "name": "외주비회계반영",
+      "group": "생산/외주",
+      "branch": "외주비회계반영",
+      "kind": "hub"
+    },
+    {
+      "id": "2-3-7-0",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "외주비회계반영",
+        "외주비일괄회계반영"
+      ],
+      "name": "외주비일괄회계반영",
+      "group": "생산/외주",
+      "branch": "외주비회계반영",
+      "kind": "accounting",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-7-1",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "외주비회계반영",
+        "매입(세금)계산서조회(재고)"
+      ],
+      "name": "매입(세금)계산서조회(재고)",
+      "group": "생산/외주",
+      "branch": "외주비회계반영",
+      "kind": "report",
+      "docType": "production"
+    },
+    {
+      "id": "2-3-7-2",
+      "path": [
+        "재고 I",
+        "생산/외주",
+        "외주비회계반영",
+        "매입(세금)계산서현황(재고)"
+      ],
+      "name": "매입(세금)계산서현황(재고)",
+      "group": "생산/외주",
+      "branch": "외주비회계반영",
+      "kind": "report",
+      "docType": "production"
+    },
+    {
+      "id": "2-4-0",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "창고이동"
+      ],
+      "name": "창고이동",
+      "group": "기타이동",
+      "branch": "창고이동",
+      "kind": "hub"
+    },
+    {
+      "id": "2-4-0-0",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "창고이동",
+        "창고이동조회"
+      ],
+      "name": "창고이동조회",
+      "group": "기타이동",
+      "branch": "창고이동",
+      "kind": "list",
+      "docType": "transfer"
+    },
+    {
+      "id": "2-4-0-1",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "창고이동",
+        "창고이동입력"
+      ],
+      "name": "창고이동입력",
+      "group": "기타이동",
+      "branch": "창고이동",
+      "kind": "form",
+      "docType": "transfer"
+    },
+    {
+      "id": "2-4-0-2",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "창고이동",
+        "창고이동현황"
+      ],
+      "name": "창고이동현황",
+      "group": "기타이동",
+      "branch": "창고이동",
+      "kind": "report",
+      "docType": "transfer"
+    },
+    {
+      "id": "2-4-1",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "자가사용"
+      ],
+      "name": "자가사용",
+      "group": "기타이동",
+      "branch": "자가사용",
+      "kind": "hub"
+    },
+    {
+      "id": "2-4-1-0",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "자가사용",
+        "자가사용조회"
+      ],
+      "name": "자가사용조회",
+      "group": "기타이동",
+      "branch": "자가사용",
+      "kind": "list",
+      "docType": "consume"
+    },
+    {
+      "id": "2-4-1-1",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "자가사용",
+        "자가사용입력"
+      ],
+      "name": "자가사용입력",
+      "group": "기타이동",
+      "branch": "자가사용",
+      "kind": "form",
+      "docType": "consume"
+    },
+    {
+      "id": "2-4-1-2",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "자가사용",
+        "자가사용현황"
+      ],
+      "name": "자가사용현황",
+      "group": "기타이동",
+      "branch": "자가사용",
+      "kind": "report",
+      "docType": "consume"
+    },
+    {
+      "id": "2-4-2",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리"
+      ],
+      "name": "불량처리",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "hub"
+    },
+    {
+      "id": "2-4-2-0",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리",
+        "불량처리조회"
+      ],
+      "name": "불량처리조회",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "list",
+      "docType": "defect"
+    },
+    {
+      "id": "2-4-2-1",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리",
+        "불량처리입력"
+      ],
+      "name": "불량처리입력",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "form",
+      "docType": "defect"
+    },
+    {
+      "id": "2-4-2-2",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리",
+        "불량처리현황"
+      ],
+      "name": "불량처리현황",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-4-2-3",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리",
+        "대체사용현황"
+      ],
+      "name": "대체사용현황",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-4-2-4",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리",
+        "폐기현황"
+      ],
+      "name": "폐기현황",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-4-2-5",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "불량처리",
+        "불량률파악보고서"
+      ],
+      "name": "불량률파악보고서",
+      "group": "기타이동",
+      "branch": "불량처리",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-4-3",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "재고조정"
+      ],
+      "name": "재고조정",
+      "group": "기타이동",
+      "branch": "재고조정",
+      "kind": "hub"
+    },
+    {
+      "id": "2-4-3-0",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "재고조정",
+        "재고조정진행단계"
+      ],
+      "name": "재고조정진행단계",
+      "group": "기타이동",
+      "branch": "재고조정",
+      "kind": "workflow",
+      "docType": "adjust"
+    },
+    {
+      "id": "2-4-3-1",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "재고조정",
+        "재고실사조회"
+      ],
+      "name": "재고실사조회",
+      "group": "기타이동",
+      "branch": "재고조정",
+      "kind": "list",
+      "docType": "count"
+    },
+    {
+      "id": "2-4-3-2",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "재고조정",
+        "재고조정조회"
+      ],
+      "name": "재고조정조회",
+      "group": "기타이동",
+      "branch": "재고조정",
+      "kind": "list",
+      "docType": "adjust"
+    },
+    {
+      "id": "2-4-3-3",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "재고조정",
+        "재고실사현황"
+      ],
+      "name": "재고실사현황",
+      "group": "기타이동",
+      "branch": "재고조정",
+      "kind": "report",
+      "docType": "count"
+    },
+    {
+      "id": "2-4-3-4",
+      "path": [
+        "재고 I",
+        "기타이동",
+        "재고조정",
+        "재고조정현황"
+      ],
+      "name": "재고조정현황",
+      "group": "기타이동",
+      "branch": "재고조정",
+      "kind": "report",
+      "docType": "adjust"
+    },
+    {
+      "id": "2-5-0",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "기초등록"
+      ],
+      "name": "기초등록",
+      "group": "쇼핑몰관리",
+      "branch": "기초등록",
+      "kind": "hub"
+    },
+    {
+      "id": "2-5-0-0",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "기초등록",
+        "쇼핑몰등록"
+      ],
+      "name": "쇼핑몰등록",
+      "group": "쇼핑몰관리",
+      "branch": "기초등록",
+      "kind": "master",
+      "master": "shops"
+    },
+    {
+      "id": "2-5-0-1",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "기초등록",
+        "쇼핑몰품목코드연결"
+      ],
+      "name": "쇼핑몰품목코드연결",
+      "group": "쇼핑몰관리",
+      "branch": "기초등록",
+      "kind": "mapping"
+    },
+    {
+      "id": "2-5-1",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리"
+      ],
+      "name": "주문관리",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "hub"
+    },
+    {
+      "id": "2-5-1-0",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "주문관리진행단계"
+      ],
+      "name": "주문관리진행단계",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-5-1-1",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "주문확인처리"
+      ],
+      "name": "주문확인처리",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-5-1-2",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "배송처리"
+      ],
+      "name": "배송처리",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-5-1-3",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "취소처리"
+      ],
+      "name": "취소처리",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-5-1-4",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "반품처리"
+      ],
+      "name": "반품처리",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-5-1-5",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "교환처리"
+      ],
+      "name": "교환처리",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-5-1-6",
+      "path": [
+        "재고 I",
+        "쇼핑몰관리",
+        "주문관리",
+        "ERP전송"
+      ],
+      "name": "ERP전송",
+      "group": "쇼핑몰관리",
+      "branch": "주문관리",
+      "kind": "shopping",
+      "docType": "shoporder"
+    },
+    {
+      "id": "2-6-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "커뮤니케이션센터"
+      ],
+      "name": "커뮤니케이션센터",
+      "group": "출력물",
+      "branch": "커뮤니케이션센터",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-0-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "커뮤니케이션센터",
+        "쪽지수발신내역"
+      ],
+      "name": "쪽지수발신내역",
+      "group": "출력물",
+      "branch": "커뮤니케이션센터",
+      "kind": "documents"
+    },
+    {
+      "id": "2-6-0-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "커뮤니케이션센터",
+        "문서발송내역"
+      ],
+      "name": "문서발송내역",
+      "group": "출력물",
+      "branch": "커뮤니케이션센터",
+      "kind": "documents"
+    },
+    {
+      "id": "2-6-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "증빙센터"
+      ],
+      "name": "증빙센터",
+      "group": "출력물",
+      "branch": "증빙센터",
+      "kind": "documents"
+    },
+    {
+      "id": "2-6-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황"
+      ],
+      "name": "재고현황",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-2-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "재고현황"
+      ],
+      "name": "재고현황",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "창고별재고현황"
+      ],
+      "name": "창고별재고현황",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "관계별재고현황"
+      ],
+      "name": "관계별재고현황",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "다규격별재고현황"
+      ],
+      "name": "다규격별재고현황",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "BOM환산재고현황"
+      ],
+      "name": "BOM환산재고현황",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "재고잔량분석표"
+      ],
+      "name": "재고잔량분석표",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "재고수불부"
+      ],
+      "name": "재고수불부",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-7",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "재고변동표"
+      ],
+      "name": "재고변동표",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-2-8",
+      "path": [
+        "재고 I",
+        "출력물",
+        "재고현황",
+        "일보"
+      ],
+      "name": "일보",
+      "group": "출력물",
+      "branch": "재고현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황"
+      ],
+      "name": "영업관리현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-3-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "판매현황"
+      ],
+      "name": "판매현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-6-3-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "견적서현황"
+      ],
+      "name": "견적서현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "quote"
+    },
+    {
+      "id": "2-6-3-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "주문서현황"
+      ],
+      "name": "주문서현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "order"
+    },
+    {
+      "id": "2-6-3-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "출하지시서현황"
+      ],
+      "name": "출하지시서현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "shippingorder"
+    },
+    {
+      "id": "2-6-3-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "출하현황"
+      ],
+      "name": "출하현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "shipment"
+    },
+    {
+      "id": "2-6-3-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "거래명세서인쇄"
+      ],
+      "name": "거래명세서인쇄",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-6-3-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "미주문현황"
+      ],
+      "name": "미주문현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3-7",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "미판매현황"
+      ],
+      "name": "미판매현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3-8",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "미출하현황"
+      ],
+      "name": "미출하현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3-9",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "거래처별채권"
+      ],
+      "name": "거래처별채권",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3-10",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "채권현황"
+      ],
+      "name": "채권현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3-11",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "거래처관리대장1(채권)"
+      ],
+      "name": "거래처관리대장1(채권)",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-3-12",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "수금현황"
+      ],
+      "name": "수금현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "payment",
+      "side": "receivable",
+      "discount": false
+    },
+    {
+      "id": "2-6-3-13",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "판매할인현황"
+      ],
+      "name": "판매할인현황",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "payment",
+      "docType": "sale",
+      "side": "receivable",
+      "discount": true
+    },
+    {
+      "id": "2-6-3-14",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "회계미반영현황 (판매)"
+      ],
+      "name": "회계미반영현황 (판매)",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-6-3-15",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "매출(세금)계산서현황(재고)"
+      ],
+      "name": "매출(세금)계산서현황(재고)",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report",
+      "docType": "sale"
+    },
+    {
+      "id": "2-6-3-16",
+      "path": [
+        "재고 I",
+        "출력물",
+        "영업관리현황",
+        "월별채권증감내역"
+      ],
+      "name": "월별채권증감내역",
+      "group": "출력물",
+      "branch": "영업관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황"
+      ],
+      "name": "구매관리현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-4-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "구매현황"
+      ],
+      "name": "구매현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-6-4-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "발주요청현황"
+      ],
+      "name": "발주요청현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report",
+      "docType": "request"
+    },
+    {
+      "id": "2-6-4-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "발주계획현황"
+      ],
+      "name": "발주계획현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report",
+      "docType": "plan"
+    },
+    {
+      "id": "2-6-4-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "발주서현황"
+      ],
+      "name": "발주서현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report",
+      "docType": "purchaseorder"
+    },
+    {
+      "id": "2-6-4-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "미구매현황"
+      ],
+      "name": "미구매현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-4-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "거래처별채무"
+      ],
+      "name": "거래처별채무",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-4-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "채무현황"
+      ],
+      "name": "채무현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-4-7",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "거래처관리대장1(채무)"
+      ],
+      "name": "거래처관리대장1(채무)",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-4-8",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "지급현황"
+      ],
+      "name": "지급현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "payment",
+      "side": "payable",
+      "discount": false
+    },
+    {
+      "id": "2-6-4-9",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "구매할인현황"
+      ],
+      "name": "구매할인현황",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "payment",
+      "docType": "purchase",
+      "side": "payable",
+      "discount": true
+    },
+    {
+      "id": "2-6-4-10",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "회계미반영현황 (구매)"
+      ],
+      "name": "회계미반영현황 (구매)",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-6-4-11",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "매입(세금)계산서현황(재고)"
+      ],
+      "name": "매입(세금)계산서현황(재고)",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report",
+      "docType": "purchase"
+    },
+    {
+      "id": "2-6-4-12",
+      "path": [
+        "재고 I",
+        "출력물",
+        "구매관리현황",
+        "월별채무증감내역"
+      ],
+      "name": "월별채무증감내역",
+      "group": "출력물",
+      "branch": "구매관리현황",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황"
+      ],
+      "name": "생산/외주현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-5-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "작업지시서현황"
+      ],
+      "name": "작업지시서현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-6-5-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "작업지시서별진행현황"
+      ],
+      "name": "작업지시서별진행현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-6-5-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "생산불출현황"
+      ],
+      "name": "생산불출현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "issue"
+    },
+    {
+      "id": "2-6-5-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "작업지시서효율현황"
+      ],
+      "name": "작업지시서효율현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "workorder"
+    },
+    {
+      "id": "2-6-5-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "작업내역현황"
+      ],
+      "name": "작업내역현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "work"
+    },
+    {
+      "id": "2-6-5-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "생산입고현황"
+      ],
+      "name": "생산입고현황",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "production"
+    },
+    {
+      "id": "2-6-5-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "생산/외주현황",
+        "생산입고/소모현황 I"
+      ],
+      "name": "생산입고/소모현황 I",
+      "group": "출력물",
+      "branch": "생산/외주현황",
+      "kind": "report",
+      "docType": "production"
+    },
+    {
+      "id": "2-6-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황"
+      ],
+      "name": "기타이동현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-6-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "창고이동현황"
+      ],
+      "name": "창고이동현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "transfer"
+    },
+    {
+      "id": "2-6-6-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "자가사용현황"
+      ],
+      "name": "자가사용현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "consume"
+    },
+    {
+      "id": "2-6-6-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "불량처리현황"
+      ],
+      "name": "불량처리현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-6-6-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "대체사용현황"
+      ],
+      "name": "대체사용현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-6-6-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "폐기현황"
+      ],
+      "name": "폐기현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-6-6-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "불량률파악보고서"
+      ],
+      "name": "불량률파악보고서",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "defect"
+    },
+    {
+      "id": "2-6-6-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "재고실사현황"
+      ],
+      "name": "재고실사현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "count"
+    },
+    {
+      "id": "2-6-6-7",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타이동현황",
+        "재고조정현황"
+      ],
+      "name": "재고조정현황",
+      "group": "출력물",
+      "branch": "기타이동현황",
+      "kind": "report",
+      "docType": "adjust"
+    },
+    {
+      "id": "2-6-7",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타"
+      ],
+      "name": "기타",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "hub"
+    },
+    {
+      "id": "2-6-7-0",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "일별재고현황"
+      ],
+      "name": "일별재고현황",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-1",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "일별이익현황"
+      ],
+      "name": "일별이익현황",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-2",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "채권/채무현황"
+      ],
+      "name": "채권/채무현황",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-3",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "거래처관리대장 I"
+      ],
+      "name": "거래처관리대장 I",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-4",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "거래처관리대장 II"
+      ],
+      "name": "거래처관리대장 II",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-5",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "판매구매집계표"
+      ],
+      "name": "판매구매집계표",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-6",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "집계표"
+      ],
+      "name": "집계표",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-7",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "단가변동표"
+      ],
+      "name": "단가변동표",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-8",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "경영자보고서"
+      ],
+      "name": "경영자보고서",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-9",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "거래처중심입력"
+      ],
+      "name": "거래처중심입력",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "form",
+      "docType": "sale"
+    },
+    {
+      "id": "2-6-7-10",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "품목중심입력"
+      ],
+      "name": "품목중심입력",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "form",
+      "docType": "sale"
+    },
+    {
+      "id": "2-6-7-11",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "현황누계표"
+      ],
+      "name": "현황누계표",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-12",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "거래이력조회(재고)"
+      ],
+      "name": "거래이력조회(재고)",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "report"
+    },
+    {
+      "id": "2-6-7-13",
+      "path": [
+        "재고 I",
+        "출력물",
+        "기타",
+        "잔량재집계"
+      ],
+      "name": "잔량재집계",
+      "group": "출력물",
+      "branch": "기타",
+      "kind": "rebuild"
+    },
+    {
+      "id": "2-6-8",
+      "path": [
+        "재고 I",
+        "출력물",
+        "출력물"
+      ],
+      "name": "출력물",
+      "group": "출력물",
+      "branch": "출력물",
+      "kind": "documents"
+    }
+  ],
+  "self_routes": [
+    {
+      "id": "1-0-0",
+      "view": "companyHub",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-0-0-0",
+      "view": "company",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-0-0-1",
+      "view": "summary",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-0-0-2",
+      "view": "branding",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-0-1",
+      "view": "dataHub",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-0-1-0",
+      "view": "data",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-0-1-1",
+      "view": "reset",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-1-0",
+      "view": "users",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-1-1",
+      "view": "roles",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-1-2",
+      "view": "approvals",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-1-3",
+      "view": "admins",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-2-0",
+      "view": "defaults",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-2-1",
+      "view": "features",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-0",
+      "view": "portalHub",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-0-0",
+      "view": "portal",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-0-1",
+      "view": "portalGroups",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-0-2",
+      "view": "portalUsers",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-1",
+      "view": "mailHub",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-1-0",
+      "view": "webmail",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-1-1",
+      "view": "mailUsers",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-2",
+      "view": "payHub",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-2-0",
+      "view": "userpay",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-3-2-1",
+      "view": "payGroups",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-4-0",
+      "view": "security",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-4-1",
+      "view": "sessions",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-4-2",
+      "view": "loginLogs",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-4-3",
+      "view": "files",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-4-4",
+      "view": "audit",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-4-5",
+      "view": "allowlist",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-5-0",
+      "view": "imports",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    },
+    {
+      "id": "1-5-1",
+      "view": "conveniences",
+      "validation": [
+        "tests/self-dom.cjs",
+        "tests/self-auth.cjs"
+      ]
+    }
+  ],
+  "api_routes": [
+    "1-0-2",
+    "1-2-2"
+  ],
+  "api_operations": [
+    {
+      "id": "status",
+      "method": "GET",
+      "path": "/api/v1/status",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "capabilities",
+      "method": "GET",
+      "path": "/api/v1/capabilities",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "openapi",
+      "method": "GET",
+      "path": "/api/v1/openapi.json",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "items-list",
+      "method": "GET",
+      "path": "/api/v1/items",
+      "scope": "read",
+      "provider_refs": [
+        "ecount-item-one",
+        "ecount-item-list"
+      ]
+    },
+    {
+      "id": "items-create",
+      "method": "POST",
+      "path": "/api/v1/items",
+      "scope": "write",
+      "provider_refs": [
+        "ecount-item"
+      ]
+    },
+    {
+      "id": "partners-list",
+      "method": "GET",
+      "path": "/api/v1/partners",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "partners-create",
+      "method": "POST",
+      "path": "/api/v1/partners",
+      "scope": "write",
+      "provider_refs": [
+        "ecount-partner"
+      ]
+    },
+    {
+      "id": "warehouses-list",
+      "method": "GET",
+      "path": "/api/v1/warehouses",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "documents-list",
+      "method": "GET",
+      "path": "/api/v1/documents",
+      "scope": "read",
+      "provider_refs": [
+        "ecount-purchase-order-list"
+      ]
+    },
+    {
+      "id": "documents-create",
+      "method": "POST",
+      "path": "/api/v1/documents",
+      "scope": "write",
+      "provider_refs": [
+        "ecount-quote",
+        "ecount-order",
+        "ecount-sale",
+        "ecount-purchase-order",
+        "ecount-purchase",
+        "ecount-workorder",
+        "ecount-issue",
+        "ecount-production",
+        "ecount-transfer",
+        "ecount-shoporder"
+      ]
+    },
+    {
+      "id": "stock-list",
+      "method": "GET",
+      "path": "/api/v1/stock",
+      "scope": "read",
+      "provider_refs": [
+        "ecount-stock-one",
+        "ecount-stock-all",
+        "ecount-warehouse-stock-one",
+        "ecount-warehouse-stock-all"
+      ]
+    },
+    {
+      "id": "events-list",
+      "method": "GET",
+      "path": "/api/v1/events",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "events-create",
+      "method": "POST",
+      "path": "/api/v1/events",
+      "scope": "write",
+      "provider_refs": []
+    },
+    {
+      "id": "events-process",
+      "method": "POST",
+      "path": "/api/v1/events/{id}/process",
+      "scope": "events:process",
+      "provider_refs": []
+    },
+    {
+      "id": "logs-list",
+      "method": "GET",
+      "path": "/api/v1/logs",
+      "scope": "read",
+      "provider_refs": []
+    },
+    {
+      "id": "admin-overview",
+      "method": "GET",
+      "path": "/api/admin/overview",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "keys-create",
+      "method": "POST",
+      "path": "/api/admin/keys",
+      "scope": "owner",
+      "provider_refs": [
+        "ecount-zone",
+        "ecount-login"
+      ]
+    },
+    {
+      "id": "keys-revoke",
+      "method": "POST",
+      "path": "/api/admin/keys/{id}/revoke",
+      "scope": "owner",
+      "provider_refs": [
+        "ecount-login"
+      ]
+    },
+    {
+      "id": "profiles-create",
+      "method": "POST",
+      "path": "/api/admin/profiles",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "mapping-preview",
+      "method": "POST",
+      "path": "/api/admin/mapping/preview",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "outbox-deliver",
+      "method": "POST",
+      "path": "/api/admin/outbox/{id}/deliver",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "snapshot",
+      "method": "GET",
+      "path": "/api/admin/snapshot",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "reconcile",
+      "method": "POST",
+      "path": "/api/admin/reconcile",
+      "scope": "owner",
+      "provider_refs": [
+        "ecount-stock-one",
+        "ecount-stock-all",
+        "ecount-warehouse-stock-one",
+        "ecount-warehouse-stock-all"
+      ]
+    },
+    {
+      "id": "bridge-preview",
+      "method": "POST",
+      "path": "/api/admin/bridge/preview",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "bridge-import",
+      "method": "POST",
+      "path": "/api/admin/bridge/import",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "seed",
+      "method": "POST",
+      "path": "/api/admin/seed",
+      "scope": "owner",
+      "provider_refs": []
+    },
+    {
+      "id": "auth-status",
+      "method": "GET",
+      "path": "/api/auth/status",
+      "scope": "public",
+      "provider_refs": [
+        "ecount-login"
+      ]
+    },
+    {
+      "id": "auth-setup",
+      "method": "POST",
+      "path": "/api/auth/setup",
+      "scope": "bootstrap",
+      "provider_refs": []
+    },
+    {
+      "id": "auth-login",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "scope": "public",
+      "provider_refs": [
+        "ecount-login"
+      ]
+    },
+    {
+      "id": "auth-logout",
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "scope": "app",
+      "provider_refs": []
+    },
+    {
+      "id": "auth-password",
+      "method": "POST",
+      "path": "/api/auth/password",
+      "scope": "app",
+      "provider_refs": []
+    },
+    {
+      "id": "self-state",
+      "method": "GET",
+      "path": "/api/self/state",
+      "scope": "app",
+      "provider_refs": []
+    },
+    {
+      "id": "self-summary",
+      "method": "GET",
+      "path": "/api/self/summary",
+      "scope": "app",
+      "provider_refs": []
+    },
+    {
+      "id": "self-backup",
+      "method": "GET",
+      "path": "/api/self/backup",
+      "scope": "app",
+      "provider_refs": []
+    },
+    {
+      "id": "self-action",
+      "method": "POST",
+      "path": "/api/self/action",
+      "scope": "app",
+      "provider_refs": []
+    },
+    {
+      "id": "portal-data",
+      "method": "GET",
+      "path": "/api/portal/data",
+      "scope": "app",
+      "provider_refs": []
+    }
+  ],
+  "setting_actions": [
+    {
+      "id": "company.save",
+      "permission": "config.write",
+      "fields": "name, businessNumber, representative, phone, email, address",
+      "title": "회사정보 저장"
+    },
+    {
+      "id": "branding.save",
+      "permission": "config.write",
+      "fields": "logo / stamp: PNG·JPEG data URL, 각 130KB 이하",
+      "title": "회사 로고·도장"
+    },
+    {
+      "id": "config.save",
+      "permission": "config.write",
+      "fields": "key: summary/defaults/features/portal/webmail/userpay/security/conveniences, value: 해당 설정 객체",
+      "title": "환경설정 저장. security는 security.manage, portal은 portal.manage도 필요"
+    },
+    {
+      "id": "user.save",
+      "permission": "users.manage",
+      "fields": "id?, loginId, name, roleId, status: active/pending/disabled, password: 신규 필수",
+      "title": "직원 등록·변경. 마지막 활성 관리자 보호"
+    },
+    {
+      "id": "approve.user",
+      "permission": "users.manage",
+      "fields": "id, approved: boolean",
+      "title": "승인 대기 직원 승인 또는 거절"
+    },
+    {
+      "id": "role.save",
+      "permission": "users.manage",
+      "fields": "id?, name, permissions: string[]",
+      "title": "권한그룹 생성·수정. 기본 그룹은 복사 후 저장"
+    },
+    {
+      "id": "role.remove",
+      "permission": "users.manage",
+      "fields": "id",
+      "title": "사용 중이 아닌 사용자 정의 그룹 삭제"
+    },
+    {
+      "id": "portalUser.save",
+      "permission": "portal.manage",
+      "fields": "id?, loginId, name, password?, status, partner, portalGroupId",
+      "title": "거래처에 귀속된 고객 ID"
+    },
+    {
+      "id": "portalGroup.save",
+      "permission": "portal.manage",
+      "fields": "id?, name, enabled, allowOrders",
+      "title": "고객 포털 그룹 저장"
+    },
+    {
+      "id": "portalGroup.remove",
+      "permission": "portal.manage",
+      "fields": "id",
+      "title": "미사용 고객 그룹 삭제"
+    },
+    {
+      "id": "mailUser.save",
+      "permission": "config.write",
+      "fields": "id?, name, enabled, userId, address",
+      "title": "메일 사용자 설정. 외부 발송 미연결"
+    },
+    {
+      "id": "mailUser.remove",
+      "permission": "config.write",
+      "fields": "id",
+      "title": "메일 사용자 설정 삭제"
+    },
+    {
+      "id": "payGroup.save",
+      "permission": "config.write",
+      "fields": "id?, name, enabled, members: 직원 ID[]",
+      "title": "급여 그룹 설정. 명세서 발송 미연결"
+    },
+    {
+      "id": "payGroup.remove",
+      "permission": "config.write",
+      "fields": "id",
+      "title": "급여 그룹 삭제"
+    },
+    {
+      "id": "allowlist.save",
+      "permission": "security.manage",
+      "fields": "id?, name, network: IPv4/CIDR/개별 IPv6, enabled",
+      "title": "IP 허용 목록. 현재 접속 차단 방지"
+    },
+    {
+      "id": "allowlist.remove",
+      "permission": "security.manage",
+      "fields": "id",
+      "title": "IP 규칙 삭제. 현재 접속 차단 방지"
+    },
+    {
+      "id": "session.revoke",
+      "permission": "security.manage",
+      "fields": "id: 접속 세션 ID",
+      "title": "활성 세션 폐기"
+    },
+    {
+      "id": "unlock.user",
+      "permission": "security.manage",
+      "fields": "id: 사용자 ID",
+      "title": "사용자 로그인 시도 잠금 해제"
+    },
+    {
+      "id": "file.record",
+      "permission": "data.manage",
+      "fields": "action, name",
+      "title": "파일 작업 메타데이터 기록"
+    },
+    {
+      "id": "import.preview",
+      "permission": "data.manage",
+      "fields": "kind: items/partners, text: CSV 또는 TSV",
+      "title": "1~500행 전체 검증, 10분 유효 미리보기 생성"
+    },
+    {
+      "id": "import.apply",
+      "permission": "data.manage",
+      "fields": "previewId",
+      "title": "동일 사용자의 검증 자료 적용. 업무 수정 번호 검사 및 중복 방지"
+    },
+    {
+      "id": "data.preview",
+      "permission": "data.manage",
+      "fields": "{}",
+      "title": "초기화 건수·차단 여부·businessRevision"
+    },
+    {
+      "id": "data.reset",
+      "permission": "data.manage",
+      "fields": "confirm: 회사코드, requestId: UUID, businessRevision",
+      "title": "API 처리 이력이 없는 자료만 백업 후 초기화"
+    },
+    {
+      "id": "data.undo",
+      "permission": "data.manage",
+      "fields": "id: 초기화 requestId",
+      "title": "초기화 후 새 업무가 없는 경우만 복구"
+    }
+  ],
+  "provider_references": [
+    {
+      "id": "ecount-zone",
+      "title": "Zone",
+      "method": "POST",
+      "path": "/OAPI/V2/Zone",
+      "ours": [
+        "keys-create"
+      ],
+      "status": "인증 개념 참조",
+      "note": "이카운트의 Zone 탐색은 우리 ERP에 필요하지 않습니다. 키 관리와 개념상 비교합니다."
+    },
+    {
+      "id": "ecount-login",
+      "title": "로그인",
+      "method": "POST",
+      "path": "/OAPI/V2/OAPILogin",
+      "ours": [
+        "auth-login",
+        "auth-status",
+        "keys-create",
+        "keys-revoke"
+      ],
+      "status": "인증 개념 참조",
+      "note": "이카운트는 인증키와 로그인 세션을 사용합니다. 우리는 앱 ID·비밀번호로 사용자 세션을 발급하고 외부 업무 호출에는 앱 키를 사용합니다. 이카운트 인증 세션과 직접 호환하지 않습니다."
+    },
+    {
+      "id": "ecount-partner",
+      "title": "거래처등록",
+      "method": "POST",
+      "path": "/OAPI/V2/AccountBasic/SaveBasicCust",
+      "ours": [
+        "partners-create"
+      ],
+      "status": "기능 대응",
+      "note": "코드·이름·분류와 사용자 항목을 별도로 변환해야 합니다."
+    },
+    {
+      "id": "ecount-item",
+      "title": "품목등록",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBasic/SaveBasicProduct",
+      "ours": [
+        "items-create"
+      ],
+      "status": "기능 대응",
+      "note": "우리 API는 신규 등록만 지원합니다. 기존 코드 수정 방식은 동일하지 않습니다."
+    },
+    {
+      "id": "ecount-item-one",
+      "title": "품목조회(단건)",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBasic/ViewBasicProduct",
+      "ours": [
+        "items-list"
+      ],
+      "status": "부분 대응",
+      "note": "우리 품목 전체 조회 결과를 code로 선택합니다. 단건 전용 API는 없습니다."
+    },
+    {
+      "id": "ecount-item-list",
+      "title": "품목조회",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBasic/GetBasicProductsList",
+      "ours": [
+        "items-list"
+      ],
+      "status": "기능 대응",
+      "note": "필터·페이지 나눔·반환 필드 구조가 다릅니다."
+    },
+    {
+      "id": "ecount-quote",
+      "title": "견적서입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Quotation/SaveQuotation",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=quote. 제공자별 세부 필드 변환 필요."
+    },
+    {
+      "id": "ecount-order",
+      "title": "주문서입력",
+      "method": "POST",
+      "path": "/OAPI/V2/SaleOrder/SaveSaleOrder",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=order. 제공자별 세부 필드 변환 필요."
+    },
+    {
+      "id": "ecount-sale",
+      "title": "판매입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Sale/SaveSale",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=sale. 아래 판매 필드 대조와 날짜·행 변환 주의사항을 확인하세요."
+    },
+    {
+      "id": "ecount-purchase-order",
+      "title": "발주서입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Purchases/SavePurchaseOrder",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=purchaseorder."
+    },
+    {
+      "id": "ecount-purchase-order-list",
+      "title": "발주서조회",
+      "method": "POST",
+      "path": "/OAPI/V2/Purchases/GetPurchasesOrderList",
+      "ours": [
+        "documents-list"
+      ],
+      "status": "기능 대응",
+      "note": "GET /api/v1/documents?type=purchaseorder. 이카운트는 POST 조회입니다."
+    },
+    {
+      "id": "ecount-purchase",
+      "title": "구매입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Purchases/SavePurchases",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=purchase."
+    },
+    {
+      "id": "ecount-workorder",
+      "title": "작업지시서입력",
+      "method": "POST",
+      "path": "/OAPI/V2/JobOrder/SaveJobOrder",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "부분 대응",
+      "note": "공통 전표 type=workorder. 생산 계획·작업 전용 모든 필드를 노출하지는 않습니다."
+    },
+    {
+      "id": "ecount-issue",
+      "title": "생산불출입력",
+      "method": "POST",
+      "path": "/OAPI/V2/GoodsIssued/SaveGoodsIssued",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=issue. 출고 재고 검증이 적용됩니다."
+    },
+    {
+      "id": "ecount-production",
+      "title": "생산입고 I",
+      "method": "POST",
+      "path": "/OAPI/V2/GoodsReceipt/SaveGoodsReceipt",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "공통 전표 type=production. BOM 자동 소모는 우리 서버 설정을 따릅니다."
+    },
+    {
+      "id": "ecount-transfer",
+      "title": "창고이동입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Others/SaveLocationTran",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "기능 대응",
+      "note": "type=transfer, warehouse와 targetWarehouse가 필요합니다."
+    },
+    {
+      "id": "ecount-as-receive",
+      "title": "A/S접수입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Others/SaveNewRepairOrder",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "별도 A/S 업무 모델과 API 개발이 필요합니다."
+    },
+    {
+      "id": "ecount-as-repair",
+      "title": "A/S수리입력",
+      "method": "POST",
+      "path": "/OAPI/V2/Others/SaveNewRepair",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "수리 이력·자재 처리 API가 없습니다."
+    },
+    {
+      "id": "ecount-stock-one",
+      "title": "재고현황(단건)",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBalance/ViewInventoryBalanceStatus",
+      "ours": [
+        "stock-list",
+        "reconcile"
+      ],
+      "status": "부분 대응",
+      "note": "item으로 조회한 뒤 창고별 행을 합산합니다. 대사 API는 표준화한 자료를 입력받습니다."
+    },
+    {
+      "id": "ecount-stock-all",
+      "title": "재고현황",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBalance/GetListInventoryBalanceStatus",
+      "ours": [
+        "stock-list",
+        "reconcile"
+      ],
+      "status": "부분 대응",
+      "note": "우리 응답은 품목·창고별 현재고입니다. 기준 일자·수량 단위·집계 기준을 맞춰야 합니다."
+    },
+    {
+      "id": "ecount-warehouse-stock-one",
+      "title": "창고별재고현황(단건)",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBalance/ViewInventoryBalanceStatusByLocation",
+      "ours": [
+        "stock-list",
+        "reconcile"
+      ],
+      "status": "기능 대응",
+      "note": "item과 warehouse 필터로 조회하고 같은 코드 체계로 대사합니다."
+    },
+    {
+      "id": "ecount-warehouse-stock-all",
+      "title": "창고별재고현황",
+      "method": "POST",
+      "path": "/OAPI/V2/InventoryBalance/GetListInventoryBalanceStatusByLocation",
+      "ours": [
+        "stock-list",
+        "reconcile"
+      ],
+      "status": "기능 대응",
+      "note": "warehouse 필터 또는 전체 품목·창고 행으로 비교합니다."
+    },
+    {
+      "id": "ecount-journal",
+      "title": "일반전표",
+      "method": "POST",
+      "path": "/OAPI/V2/GeneralJournal/SaveGeneralJournal",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "재고 전표의 회계 상태 표시는 정식 일반전표 API가 아닙니다."
+    },
+    {
+      "id": "ecount-receipt",
+      "title": "입금보고서",
+      "method": "POST",
+      "path": "/OAPI/V2/CashIn/SaveReceiptJournal",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "입금·계정과목·거래처 원장 연동 API가 없습니다."
+    },
+    {
+      "id": "ecount-invoice",
+      "title": "매출·매입전표 II 자동분개",
+      "method": "POST",
+      "path": "/OAPI/V2/InvoiceAuto/SaveInvoiceAuto",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "판매·구매 재고 전표 입력으로 세무·회계 자동분개를 대체할 수 없습니다."
+    },
+    {
+      "id": "ecount-shoporder",
+      "title": "주문API(쇼핑몰관리)",
+      "method": "POST",
+      "path": "/OAPI/V2/OpenMarket/SaveOpenMarketOrderNew",
+      "ours": [
+        "documents-create"
+      ],
+      "status": "부분 대응",
+      "note": "type=shoporder로 공통 주문 전표를 저장합니다. 채널 인증·배송 상태·쇼핑몰 전용 필드는 별도 개발이 필요합니다."
+    },
+    {
+      "id": "ecount-attendance",
+      "title": "출/퇴근기록부(사원)",
+      "method": "POST",
+      "path": "/OAPI/V2/TimeMgmt/SaveClockInOut",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "근태 업무 API가 없습니다."
+    },
+    {
+      "id": "ecount-board",
+      "title": "게시판입력",
+      "method": "POST",
+      "path": "/ec5/api/app.oapi.v3/action/CreateOApiBoardAction",
+      "ours": [],
+      "status": "우리 API 미제공",
+      "note": "게시판 업무 API가 없습니다. 이 항목은 V3 경로를 사용합니다."
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/menu-core.cjs",
+      "sha256": "c6566b19bd612141da4a673403bf723e1548c0d77d342f2a1113715dbc7c0044",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/auth.cjs",
+      "sha256": "95b36e99dfd5cc337963f42f5bcd58182e445e73eb8006e29bc21a822b1c7e7e",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/self-dom.cjs",
+      "sha256": "fe132beaedddf27cd74ab95ecc7e299e50c56a5b07fd61cdc55dbd56eaf6074c",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/inventory-core.cjs",
+      "sha256": "184d5abb717d750f59e258080791e1c67c78f2f73e3aaa64809f89da3251319f",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/inventory-dom.cjs",
+      "sha256": "916102de150bc5860758eeabdc1ad0a1cbf59218175902a7f63985017080be35",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/self-auth.cjs",
+      "sha256": "562827a325336303268ac267f063723102d1b220468e8ae724a0164c31e21c46",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/form-core.cjs",
+      "sha256": "53829bff531d35b62b60e07d5ec71ea79cba4062808be00d1b78f93c7f2a854a",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/form-dom.cjs",
+      "sha256": "cf77ab0aa98234fc366fe701b7d0a5b59794f50b49f5ed70a56f62ceccfe1cc0",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/api-gateway.cjs",
+      "sha256": "a95f9770712288eb2d7a1b06286e72bd42670a5f659a52a5f462b033ce667385",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/api-dom.cjs",
+      "sha256": "122ca8584601859e82073936b61fedeee9aabec45f3c38e5cd3ef8d7751f922d",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    },
+    {
+      "file": "tests/api-manual.cjs",
+      "sha256": "17b6a846dc457335f1b4e21fda2916371791a8f78fb3f09cda4236257424f585",
+      "execution_status": "See the release validation log; this ledger records assertions and does not run tests."
+    }
+  ],
+  "trace_record": "evidence/rea-reconstruction-traces.json",
+  "boundaries": [
+    "원본 공개 JavaScript는 실행하지 않았고 인증정보 없이 받은 CDN 파일만 정적 분석했습니다.",
+    "원본 업무 레코드·인증키·비밀번호·쿠키·세션 URL은 이 증거에 포함하지 않습니다.",
+    "운영 데이터나 비밀번호를 생성하지 않고 독립 합성 자료로 검사합니다.",
+    "실제 ECOUNT API 호출·외부 이메일 발송·급여 전송은 수행하지 않았습니다."
+  ]
+}

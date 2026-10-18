@@ -1,0 +1,333 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:37:30.315832+00:00",
+  "scope": {
+    "new_GETs": 0,
+    "new_original_bodies": 0,
+    "original_or_private_API_requests": 0,
+    "browser_operations": 0,
+    "source_execution": false,
+    "application_edits": false,
+    "prior_contract_edits": false,
+    "new_full_semantic_runs": 0,
+    "corpus": "Existing78 public originals/actualREA; own source snapshots excluded from original body totals; independent of0.23 work."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; UTF16 offsets",
+  "files": [
+    "precise-static-evidence.json",
+    "rea-reference-evidence.json"
+  ],
+  "conclusion": "All4 summary refer-type/search-target mappings are supported by retained drilldown source. Ordinary GROUPBY and SID/code/name semantics remain unknown. Own partner/project master definitions lack canonical group1/2, so enabling meaningful local group axes requires a deliberate model/UI/validation and applicable writer-path extension.",
+  "parent_UI_evidence": {
+    "candidate_labels": [
+      "거래처그룹1별",
+      "거래처그룹2별",
+      "프로젝트그룹1별",
+      "프로젝트그룹2별"
+    ],
+    "single_axis_result_headers": "Parent plans observation; not yet supplied at generation.",
+    "company_values_retained": false
+  },
+  "axes": [
+    {
+      "observed_candidate": "거래처그룹1별",
+      "source_refer_type": "summary_cust_group1",
+      "V5_drilldown_search_refer_type": "cust_group1",
+      "V5_map_span": [
+        1,
+        577140,
+        1,
+        577173
+      ],
+      "V56_drilldown_search_prop_id": "cust$cust$cust_group1",
+      "V56_map_span": [
+        83630,
+        4,
+        83630,
+        48
+      ],
+      "legacy_filter_DTO": {
+        "field": "CUST_GROUP1",
+        "span": [
+          74245,
+          12,
+          74245,
+          99
+        ],
+        "source": "CUST_GROUP1: this.getItemCode(dto.last_search_datamodel['cust$cust$cust_group1']) ?? ''",
+        "conversion": "getItemCode extracts each selected record.sid and joins with∬"
+      },
+      "current_selected_ordinary_axis_prop_id": "Unknown; template_item supplies dynamically. Search target mapping is not actual group axis prop identity.",
+      "own_master": "partners",
+      "candidate_own_new_field": "group1",
+      "own_field_status": "No canonical group1/group2 fields declared in current master UI/schema. Arbitrary extra record properties can be preserved internally; no original SID/code-name equivalence."
+    },
+    {
+      "observed_candidate": "거래처그룹2별",
+      "source_refer_type": "summary_cust_group2",
+      "V5_drilldown_search_refer_type": "cust_group2",
+      "V5_map_span": [
+        1,
+        577174,
+        1,
+        577207
+      ],
+      "V56_drilldown_search_prop_id": "cust$cust$cust_group2",
+      "V56_map_span": [
+        83631,
+        4,
+        83631,
+        48
+      ],
+      "legacy_filter_DTO": {
+        "field": "CUST_GROUP2",
+        "span": [
+          74246,
+          12,
+          74246,
+          99
+        ],
+        "source": "CUST_GROUP2: this.getItemCode(dto.last_search_datamodel['cust$cust$cust_group2']) ?? ''",
+        "conversion": "getItemCode extracts each selected record.sid and joins with∬"
+      },
+      "current_selected_ordinary_axis_prop_id": "Unknown; template_item supplies dynamically. Search target mapping is not actual group axis prop identity.",
+      "own_master": "partners",
+      "candidate_own_new_field": "group2",
+      "own_field_status": "No canonical group1/group2 fields declared in current master UI/schema. Arbitrary extra record properties can be preserved internally; no original SID/code-name equivalence."
+    },
+    {
+      "observed_candidate": "프로젝트그룹1별",
+      "source_refer_type": "summary_pjt_group1",
+      "V5_drilldown_search_refer_type": "pjt_group1",
+      "V5_map_span": [
+        1,
+        577310,
+        1,
+        577341
+      ],
+      "V56_drilldown_search_prop_id": "pjt$pjt$pjt_group1",
+      "V56_map_span": [
+        83635,
+        4,
+        83635,
+        44
+      ],
+      "legacy_filter_DTO": {
+        "field": "PJT_CODE1",
+        "span": [
+          74242,
+          12,
+          74242,
+          94
+        ],
+        "source": "PJT_CODE1: this.getItemCode(dto.last_search_datamodel['pjt$pjt$pjt_group1']) ?? ''",
+        "conversion": "getItemCode extracts each selected record.sid and joins with∬"
+      },
+      "current_selected_ordinary_axis_prop_id": "Unknown; template_item supplies dynamically. Search target mapping is not actual group axis prop identity.",
+      "own_master": "projects",
+      "candidate_own_new_field": "group1",
+      "own_field_status": "No canonical group1/group2 fields declared in current master UI/schema. Arbitrary extra record properties can be preserved internally; no original SID/code-name equivalence."
+    },
+    {
+      "observed_candidate": "프로젝트그룹2별",
+      "source_refer_type": "summary_pjt_group2",
+      "V5_drilldown_search_refer_type": "pjt_group2",
+      "V5_map_span": [
+        1,
+        577342,
+        1,
+        577373
+      ],
+      "V56_drilldown_search_prop_id": "pjt$pjt$pjt_group2",
+      "V56_map_span": [
+        83636,
+        4,
+        83636,
+        44
+      ],
+      "legacy_filter_DTO": {
+        "field": "PJT_CODE2",
+        "span": [
+          74243,
+          12,
+          74243,
+          94
+        ],
+        "source": "PJT_CODE2: this.getItemCode(dto.last_search_datamodel['pjt$pjt$pjt_group2']) ?? ''",
+        "conversion": "getItemCode extracts each selected record.sid and joins with∬"
+      },
+      "current_selected_ordinary_axis_prop_id": "Unknown; template_item supplies dynamically. Search target mapping is not actual group axis prop identity.",
+      "own_master": "projects",
+      "candidate_own_new_field": "group2",
+      "own_field_status": "No canonical group1/group2 fields declared in current master UI/schema. Arbitrary extra record properties can be preserved internally; no original SID/code-name equivalence."
+    }
+  ],
+  "drilldown_boundary": {
+    "source": "StandardUserAction keeps selected non-date conditions. V5 generateAggregateSearchDataModel resolves search target through item-meaning override or mapped refer_type; V56 uses qualified target prop ID. For $$multi_code target, nonempty clicked value.code causes returned filter[search_prop_id]=[value].",
+    "code_name_limit": "This forwards the source value object; it does not establish category name rendering, code==sid, or a group-name master lookup. Legacy conversion extracts sid in a separate compatibility DTO.",
+    "multi_axes": "Returned object may contain multiple separate group target fields. Backend combination/Boolean semantics and ordinary grouping are not defined by this helper.",
+    "blank": "This helper omits the $$multi_code filter when clicked value.code is empty. Whole blank-group navigation behavior remains unknown because other defaults/conditions/receivers can apply.",
+    "evidence": [
+      "actions.StandardUserAction.executeAsync",
+      "actions.generateAggregateSearchDataModel",
+      "common.generateAggregateSearchDataModel",
+      "common.ConvertSearchConditionV3Program.getItemCode"
+    ]
+  },
+  "aggregate_metadata_boundary": {
+    "selector": "Compatible OpenTemplateItemPopup path returns selected prop_id,label,refer_type,data_type,prop_name,item_meaning_id; concrete current template values not retained.",
+    "layout": "processFreeAggregateCondition reads selected prop_id and dynamic DMC definition/attributes and carries axis label. This is not a fixed group master ID/name mapping.",
+    "query": "Free normalization preserves condition objects and rebuilds groups with unique nonempty selected {prop_id}. Actual normal mapper/projection/current server GROUPBY is not retained.",
+    "legacy": "CUST_GROUP1/2 and PJT_CODE1/2 fields in ConvertSearchConditionV3Program are legacy search-filter conversion, not ordinary aggregate projection or source-name registry. Other journal-prefixed aliases in static discovery are excluded from current purchase mapping.",
+    "evidence": [
+      "common.getAggregateConditionData",
+      "common.processFreeAggregateCondition",
+      "common.buildNormalizedAggregate",
+      "common.rebuildAggregateGroups",
+      "query.DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+      "query.SearchModelDescriptor.toRequestDto"
+    ]
+  },
+  "own_model_findings": {
+    "partners": {
+      "current_UI_extra_fields": [
+        "kind",
+        "businessNo",
+        "contact",
+        "phone",
+        "address",
+        "priceGroup"
+      ],
+      "base_fields": [
+        "code",
+        "name",
+        "memo",
+        "disabled"
+      ],
+      "group1_group2_declared": false,
+      "UI_definition_span": [
+        103,
+        8,
+        107,
+        3
+      ],
+      "priceGroup_boundary": "Existing priceGroup is special-pricing group; do not infer it equals either original customer grouping axis."
+    },
+    "projects": {
+      "current_UI_extra_fields": [],
+      "base_fields": [
+        "code",
+        "name",
+        "memo",
+        "disabled"
+      ],
+      "group1_group2_declared": false,
+      "UI_definition_span": [
+        103,
+        8,
+        107,
+        3
+      ],
+      "source": "projects has no entry in masterFields; editor uses masterFields[key]||[]."
+    },
+    "core_save": {
+      "span": [
+        169,
+        2,
+        189,
+        3
+      ],
+      "source": "saveMaster spreads record, validates required code/name and code immutability, only specializes items/currencies, applies customization and stores record. Additional partner/project properties can survive but group type/length/default/reference rules are not defined.",
+      "meaning": "Permissive extra-property preservation is not a supported canonical group feature."
+    },
+    "backup_validation": {
+      "span": [
+        469,
+        2,
+        501,
+        3
+      ],
+      "source": "Generic masters validation checks arrays, code/name and uniqueness; no explicit partner/project group validation identified. Existing arbitrary extra keys are not evidence of populated group data; no business records were read."
+    },
+    "registration_UI_save": {
+      "line_anchors": [
+        109,
+        116,
+        118,
+        119
+      ],
+      "source": "Editor defines controls from base fields+masterFields, then returns {...initial,...controls,custom}. Existing unknown fields can be preserved, but users have no canonical group1/2 controls. Custom fields would need an explicitly chosen mapping policy."
+    },
+    "partner_creation_API": {
+      "span": [
+        17,
+        457,
+        17,
+        584
+      ],
+      "allowed": [
+        "code",
+        "name",
+        "kind",
+        "memo",
+        "custom"
+      ],
+      "group_boundary": "Top-level group1/group2 are currently excluded by the creation allowlist before core command. No request was executed."
+    },
+    "CSV_import": {
+      "span": [
+        78,
+        215,
+        78,
+        344
+      ],
+      "partner_columns": [
+        "code",
+        "name",
+        "kind",
+        "memo"
+      ],
+      "source": "import.preview accepts items/partners and extracts this fixed partner column list. New group fields would currently be omitted; projects import is not accepted by this path."
+    },
+    "project_API": {
+      "line_anchors": [
+        33,
+        69
+      ],
+      "source_file": "$SCRATCH/rea-request/worker/gateway.cjs",
+      "source": "Observed dedicated gateway collection routes cover items/partners/warehouses reads and item/partner creates; no dedicated project collection route in these path lists. Internal generic master command still supports projects."
+    },
+    "database_storage": {
+      "file": "$SCRATCH/rea-request/db/schema.js",
+      "source": "gateway_state and app_state store JSON body text. No explicit group columns/tables in read schema.",
+      "boundary": "Logical model/editor/writer/validation extension is needed; adding a relational group table or specific DB migration is not established as necessary by this read-only study."
+    }
+  },
+  "required_own_extension_assessment": {
+    "required_for_real_local_feature": [
+      "Choose canonical group1/group2 storage for both partners and projects, with explicit type/default/length and blank policy.",
+      "Expose registration/editor controls and ensure internal save/read/backup validation handles fields consistently.",
+      "If partner create API/CSV must carry the groups, extend those explicit allowlists/columns and their documentation/tests. Project import/API expansion is a separate scope decision.",
+      "Define which own partner/project reference supplies each purchase line and whether historical reports use current master or stored snapshot.",
+      "Use own group strings as an explicitly independent key/display policy if chosen; original SID/code-name mapping remains unknown."
+    ],
+    "not_required_by_evidence": "No source supports reusing priceGroup, inferring group-name fields, importing original business data, or creating an original-style SID/group master automatically.",
+    "data_scope": "No existing own data inspected; extra keys may exist through generic records/customization, but population and semantics are unknown."
+  },
+  "unknowns": [
+    "Current original selected axis prop_id/data_type/value_format/association metadata",
+    "Original ordinary GROUPBY/projection/master joins and null/blank/unassigned group handling",
+    "Original SID/code/name identity and row display/fallback/collation",
+    "Original historical/current-master semantics and group changes/disabled/deleted records",
+    "Original hierarchy/descendant expansion versus independent group1/group2",
+    "Server aggregate/subtotal/tax/rounding and ordering precedence",
+    "Current single-axis headers until parent supplies observation",
+    "Existing own data population, group semantics and chosen writer/API/import scope"
+  ],
+  "limits": [
+    "Full common semantic OOM remains unknown; fresh static AST spans and prior excerpt semantic success do not promote it.",
+    "V5 action actualREA references are existing full completed semantic output; dynamic/member calls/current bindings remain unknown.",
+    "No generic validator/comparison/sort popup behavior was used to assert ordinary original grouping equivalence.",
+    "Own code snapshots may change after parent implementation; hashes in precise-static-evidence.json pin this read-only assessment."
+  ]
+}

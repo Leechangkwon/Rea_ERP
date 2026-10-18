@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "date": "2026-10-15",
+  "environment": "Codex in-app browser, real DOM controls and navigation",
+  "checks": [
+    {
+      "name": "sale entry and save",
+      "passed": true,
+      "observed": "2 x 20,000; supply 40,000; VAT 4,000; total 44,000; sale list total 110,000"
+    },
+    {
+      "name": "saved state survives reload",
+      "passed": true,
+      "observed": "P001 W001 stock 47 to 45 after saved sale and reload"
+    },
+    {
+      "name": "existing MyPage favorite opens inventory form",
+      "passed": true,
+      "observed": "sales favorite exposes item and quantity controls"
+    },
+    {
+      "name": "receivables report linked to sales",
+      "passed": true,
+      "observed": "C001 receivable 110,000"
+    },
+    {
+      "name": "work order to material issue",
+      "passed": true,
+      "observed": "work order quantity 5; material issue consumes M001 10 and S001 5"
+    },
+    {
+      "name": "work order to production receipt",
+      "passed": true,
+      "observed": "P001 W001 45 to 50; no duplicated material consumption; M001 210, S001 95"
+    },
+    {
+      "name": "receipt/payment entry and undo",
+      "passed": true,
+      "observed": "10,000 collection changes receivable 110,000 to 100,000; undo returns 110,000"
+    },
+    {
+      "name": "voucher cancel and restore",
+      "passed": true,
+      "observed": "sales total 110,000 to 66,000; restore returns 110,000"
+    },
+    {
+      "name": "shopping order conversion",
+      "passed": true,
+      "observed": "local shop order links to a generated ORDER voucher; no external transmission"
+    },
+    {
+      "name": "CSV download",
+      "passed": true,
+      "observed": "browser download event returns an artifact path"
+    },
+    {
+      "name": "JSON backup download",
+      "passed": true,
+      "observed": "browser download event returns an artifact path"
+    },
+    {
+      "name": "desktop layout and console",
+      "passed": true,
+      "observed": "inventory status has eight rows, no page horizontal overflow, error logs empty"
+    }
+  ],
+  "screenshot": "evidence/inventory-preview.jpg",
+  "source_account_writes": false,
+  "live_external_integrations_tested": false,
+  "hashes": {
+    "dist/inventory-core.js": "d1235e2121642d82179f1305ea49013fd514b6ad7ecee48991da05408de6e91b",
+    "dist/inventory-ui.js": "fab457ea56364ff33356b10d8b7227256863d858c598ee2b063871a06ddcf6ad",
+    "dist/inventory.css": "a581da86ef9a8f978bff2666f2af436fcbc20ee913458e22b1cfaf28f74fc4b8",
+    "dist/index.html": "93c286c12f548cf8e316d2a393283a4f701ef9fe4a938fae646bbbb8ca94733b",
+    "dist/app.js": "8b66ae8810012c0ba9addf493728f2ed33a12b4abdc5a9fe2887fe4690b859fd"
+  },
+  "limits": [
+    "230 route render checks are jsdom tests, not 230 individual live browser tests.",
+    "Original ERP business/permission/financial server behavior is not verified by this independent local model.",
+    "No claim of pixel-identical or complete business-rule equivalence."
+  ]
+}

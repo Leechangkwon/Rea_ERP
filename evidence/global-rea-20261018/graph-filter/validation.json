@@ -1,0 +1,32 @@
+{
+  "version": "0.29.0",
+  "full_test_command": "NODE_OPTIONS=--test-isolation=none npm test",
+  "full_test_exit": 0,
+  "full_test_checks": 872,
+  "check_count_basis": {
+    "native_runner_tests": 614,
+    "json_checks": 127,
+    "plain_checks": 124,
+    "manual_scenarios": 9,
+    "duplicate_wrapper_tests_removed": 2
+  },
+  "new_tests": 13,
+  "focused_tests": 100,
+  "full_test_log_sha256": "2eab68b9db7d34d6125f049bb25d9199f76efa88a45ae13d3794bd5086fff6e5",
+  "completion_check": {
+    "native_tests": 614,
+    "last_stock_test_present": true
+  },
+  "release_checks": 4,
+  "worker_bytes": 1728013,
+  "embedded_assets": 51,
+  "independent_review": "Fixed missing-key normalization in successful snapshot filter; reappearing categories regression added. Final static recheck found no further concrete issue.",
+  "synthetic_tests_only": true,
+  "original_ui_observation": "Filter category/legend checkbox groups, ApplyF8/Close observed; closed without modifying selection/color or applying. Underlying quick_search input excluded from popup evidence.",
+  "original_filter_receiver_caption_color_backend_equivalence": false,
+  "hosted_authenticated_business_qa": false,
+  "managed_browser_preview": "Skipped: connected local control-browser unavailable; no alternate preview browser started.",
+  "database_schema_changed": false,
+  "stored_record_format_changed": false,
+  "source_analysis_scope": "3 exact DOM public URLs GET once without auth/cookies;451244B,3 static/semantic complete/0parsererrors.81 SHA-unique bodies19600813B; static80complete/1partial; semantic76complete/1partial/2timeout/2OOM. Source not executed."
+}

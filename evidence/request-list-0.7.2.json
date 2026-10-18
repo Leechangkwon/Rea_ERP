@@ -1,0 +1,273 @@
+{
+  "version": "0.7.2",
+  "date": "2026-10-16",
+  "scope": "Request list presentation and existing browser-local actions; not full request workflow equivalence",
+  "original_ui": {
+    "program": "E040315",
+    "observed_by": "interactive cloud browser; no company documents or settings saved/deleted/sent",
+    "tabs": [
+      "전체",
+      "결재중",
+      "미확인",
+      "확인",
+      "진행중",
+      "완료"
+    ],
+    "columns": [
+      "선택",
+      "일자-No.",
+      "창고명",
+      "거래처명",
+      "품목명(요약)",
+      "사원(담당)명",
+      "발주요청수량합계",
+      "발주요청금액합계",
+      "진행상태",
+      "최종수정자",
+      "최초작성일자"
+    ],
+    "column_widths_observed": [
+      25,
+      100,
+      157,
+      216,
+      631,
+      211,
+      126,
+      123,
+      66,
+      100,
+      100
+    ],
+    "footer": [
+      "신규(F2)",
+      "Email",
+      "진행상태변경",
+      "보내기",
+      "인쇄",
+      "바코드(품목)",
+      "다른전표생성",
+      "전자결재",
+      "선택삭제",
+      "Excel",
+      "이력조회",
+      "웹자료올리기"
+    ],
+    "interactions": [
+      {
+        "action": "진행상태변경",
+        "observed": [
+          "미확인 group → 미확인",
+          "확인 group → 진행중 / 완료",
+          "No selection → checkbox-selection alert"
+        ]
+      },
+      {
+        "action": "다른전표생성",
+        "observed": [
+          "발주계획 only; destination not invoked on a real company voucher"
+        ]
+      },
+      {
+        "action": "Email arrow",
+        "observed": [
+          "카카오톡"
+        ]
+      },
+      {
+        "action": "보내기 arrow",
+        "observed": [
+          "E Note",
+          "대화방",
+          "사용자",
+          "북마크"
+        ]
+      },
+      {
+        "action": "인쇄 arrow",
+        "observed": [
+          "프린트문제해결"
+        ]
+      },
+      {
+        "action": "바코드 arrow",
+        "observed": [
+          "바코드(전표)"
+        ]
+      },
+      {
+        "action": "Search(F3)",
+        "observed": [
+          "toggles detailed search; date range, currency type, project, partner, item, sent flag, request number, managed fields and template controls"
+        ]
+      },
+      {
+        "action": "Option → 업무설정 → 버튼설정",
+        "observed": [
+          "입력 중간버튼",
+          "입력 하단버튼",
+          "내역(조회) 하단버튼",
+          "configuration closed without saving"
+        ]
+      },
+      {
+        "action": "신규(F2)",
+        "observed": [
+          "blank input dialog; partner fields on item rows",
+          "중간: 찾기/정렬/창고별안전재고/My품목/소요/주문/전표불러오기/재고불러오기/바코드/전표바코드/검증",
+          "저장 arrow: 저장/전자결재, 저장/내용유지, 저장/신규",
+          "전표불러오기 opens menu selection; no company voucher imported"
+        ]
+      },
+      {
+        "action": "header checkbox",
+        "observed": [
+          "checks all currently displayed rows; unchecked again"
+        ]
+      }
+    ],
+    "not_observed": [
+      "real voucher state update",
+      "real deletion/restoration",
+      "outgoing mail/messages",
+      "print execution",
+      "actual external approval",
+      "all search-code picker branches",
+      "all input helper subdialogs",
+      "company-specific default/role/server rules"
+    ]
+  },
+  "rea": {
+    "package": "rea-agents@6.4.0",
+    "mode": "direct in-process static and semantic library functions on four complete public modules",
+    "modules": [
+      {
+        "name": "list",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/presentation/app.inventory/app.inventory.inventory_list/app.inventory.inventory_list.bd46ecf6.20.js",
+        "input_bytes": 735,
+        "input_sha256": "56cd16e930791c9f34f289cc9526dda485b36bea0e30f1fa5d07a99fd6f2e7b0",
+        "parse_status": "complete",
+        "parse_errors": 0,
+        "ast_nodes": 93,
+        "callables": 2,
+        "call_sites": 4,
+        "frontiers": 3,
+        "coverage": {
+          "status": "complete",
+          "omittedCount": 0
+        },
+        "ir_sha256": "58899d286cc345e25210bdcdc5b194f14eadb48200566a864e3e1ea307cd7ff4"
+      },
+      {
+        "name": "actions",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js",
+        "input_bytes": 596933,
+        "input_sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+        "parse_status": "complete",
+        "parse_errors": 0,
+        "ast_nodes": 85478,
+        "callables": 1002,
+        "call_sites": 4618,
+        "frontiers": 4942,
+        "coverage": {
+          "status": "complete",
+          "omittedCount": 0
+        },
+        "ir_sha256": "0af828ec4ee7f5bddd68e8e6865f19e445a1c5ee242ef836e11adc917a5afd40"
+      },
+      {
+        "name": "orders",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+        "input_bytes": 138464,
+        "input_sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+        "parse_status": "complete",
+        "parse_errors": 0,
+        "ast_nodes": 14001,
+        "callables": 233,
+        "call_sites": 700,
+        "frontiers": 808,
+        "coverage": {
+          "status": "complete",
+          "omittedCount": 0
+        },
+        "ir_sha256": "bf108712378fc6a9de94d89bbdaa1ffed53390f3af54169c886bf21711ac59a6"
+      },
+      {
+        "name": "usecase",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.usecase.inventory/ecount.usecase.inventory.6616c92f.20.js",
+        "input_bytes": 366457,
+        "input_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+        "parse_status": "complete",
+        "parse_errors": 0,
+        "ast_nodes": 46581,
+        "callables": 534,
+        "call_sites": 2546,
+        "frontiers": 2955,
+        "coverage": {
+          "status": "complete",
+          "omittedCount": 0
+        },
+        "ir_sha256": "a8653c965f8b5e3ca9032ed8c3cbcacbef96edb8cd4d439470796cd02067f48f"
+      }
+    ],
+    "total_input_bytes": 1102589,
+    "total_ast_nodes": 146153,
+    "target_executed": false,
+    "cli_application_graph_succeeded": false,
+    "cli_partial_evidence_id": "ev_7124db933e4c2c8ec2129ed142c411a01b67f50dd42c394c9cd6ad1fd0b95bad",
+    "cli_blocker": "procps ps ownership inspection: fatal library error, lookup self; runtime PID namespace differs from procfs; no ownership guard bypass",
+    "limitations": [
+      "Selected module parse completeness does not establish full ERP coverage.",
+      "Original list page delegates setup and data programs to external modules/server.",
+      "Confirm type and progress are separate original fields; current local status model is retained, not claimed equivalent.",
+      "Static candidates and dynamic frontiers do not prove runtime call reachability."
+    ]
+  },
+  "implementation": {
+    "files": [
+      "dist/inventory-ui.js",
+      "dist/inventory.css"
+    ],
+    "local_status_model": "unchanged",
+    "data_schema": 2,
+    "query_form_context": "request-list-v1; old list form settings retained without reinterpreting c-index meanings",
+    "audit_fields": "Only stored values shown; missing historical author/time stays empty",
+    "amount": "Existing local gross total retained; original VAT basis not claimed identical",
+    "disabled": [
+      "결재중",
+      "Email",
+      "보내기",
+      "바코드(품목)",
+      "전자결재",
+      "선택삭제",
+      "이력조회",
+      "웹자료올리기"
+    ],
+    "export": "CSV explicitly labelled Excel (CSV), not native XLSX",
+    "limits": [
+      "print/convert require one selected voucher",
+      "new input remains existing independent input screen; original per-line partner structure not implemented",
+      "other three purchasing lists unchanged"
+    ]
+  },
+  "validation": {
+    "tests": 530,
+    "new_request_tests": 9,
+    "command": "NODE_OPTIONS=--test-isolation=none npm test",
+    "test_log_sha256": "cd8af1e18d151390dc178defc94a082fede3216e4f89a6af121b31e3e6e67672",
+    "browser": "Managed supervisor preview; synthetic fixture only, not hosted app account",
+    "browser_observed": [
+      "search collapsed",
+      "footer below list and no row actions",
+      "selected progress voucher → confirmation → complete → success toast",
+      "selection survives state change",
+      "other-slip menu only plan → quantity dialog → convert save → success toast"
+    ],
+    "original_company_mutations": false
+  },
+  "source_hashes": {
+    "dist/inventory-ui.js": "981ec6b953951c1f4174683546da2441b2e3d3f9a921107620a22e56b8a41b6a",
+    "dist/inventory.css": "b0f616c28b5de8ec084ba57d8b1e26aa2af97e0905f0514d3e058d1891da61e7",
+    "AGENTS.md": "862a9f4f421370ace806fe753b13a0b3c11280487016c7c31bb47bf48c60a075"
+  }
+}

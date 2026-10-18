@@ -1,0 +1,117 @@
+{
+  "version": "0.8.0",
+  "rea": [
+    {
+      "version": "6.4.0",
+      "mode": "direct in-process static and semantic library functions; not CLI application graph",
+      "input": {
+        "path": "/workspace/scratch/bb556d5a9f94/rea-request/.artifacts/purchasing-original/planList.js",
+        "bytes": 33512,
+        "sha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe"
+      },
+      "parse_status": "complete",
+      "parse_errors": 0,
+      "visited_ast_nodes": 8783,
+      "scopes": 114,
+      "bindings": 239,
+      "callables": 81,
+      "call_sites": 509,
+      "references": 1138,
+      "frontiers": 533,
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      },
+      "limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "target_executed": false,
+      "child_processes_launched": false
+    },
+    {
+      "version": "6.4.0",
+      "mode": "direct in-process static and semantic library functions; not CLI application graph",
+      "input": {
+        "path": "/workspace/scratch/bb556d5a9f94/rea-request/.artifacts/purchasing-original/reportPage.js",
+        "bytes": 1030,
+        "sha256": "6bdc598e619328fe08e0d0fa8211b5d3c8c3ba777dc876863ed7d12621806dce"
+      },
+      "parse_status": "complete",
+      "parse_errors": 0,
+      "visited_ast_nodes": 128,
+      "scopes": 4,
+      "bindings": 9,
+      "callables": 3,
+      "call_sites": 6,
+      "references": 26,
+      "frontiers": 5,
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      },
+      "limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "target_executed": false,
+      "child_processes_launched": false
+    },
+    {
+      "version": "6.4.0",
+      "mode": "direct in-process static and semantic library functions; not CLI application graph",
+      "input": {
+        "path": "/workspace/scratch/bb556d5a9f94/rea-request/.artifacts/purchasing-original/purchaseList.js",
+        "bytes": 735,
+        "sha256": "91d2c28c453a12b3e114b570fc81e9ea59380549665a4084f6be3a0afce83a63"
+      },
+      "parse_status": "complete",
+      "parse_errors": 0,
+      "visited_ast_nodes": 93,
+      "scopes": 3,
+      "bindings": 5,
+      "callables": 2,
+      "call_sites": 4,
+      "references": 18,
+      "frontiers": 3,
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      },
+      "limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "target_executed": false,
+      "child_processes_launched": false
+    }
+  ],
+  "original_mutations": false,
+  "browser_qa": {
+    "environment": "supervisor synthetic only",
+    "verified": [
+      "plan duplicate-item single-line completion and done filter",
+      "request line supplier and separate status controls",
+      "purchase 19-column report search and results",
+      "request item supplier save → list 4 documents and persisted success message"
+    ],
+    "hosted_business_verified": false
+  },
+  "limits_document": "docs/purchasing-0.8.0.md",
+  "validation": {
+    "command": "NODE_OPTIONS=--test-isolation=none npm test",
+    "exit_code": 0,
+    "checks": 574,
+    "release_checks": 4,
+    "assets": 47
+  }
+}

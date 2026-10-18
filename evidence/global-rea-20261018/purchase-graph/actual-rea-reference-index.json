@@ -1,0 +1,3049 @@
+{
+  "rea_version": "6.4.0",
+  "new_semantic_runs": 0,
+  "method": "Reuse existing actual full semantic IR where complete; pinned parser static extraction only otherwise. All original source SHA rechecked. External/dynamic calls remain unresolved.",
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "callables": 1926,
+      "call_sites": 7148,
+      "frontiers": 8012
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "full_semantic_status": "OOM at2GB; no retry or full IR",
+      "evidence_level": "Static original AST only for graph symbols, not successful full common semantic analysis"
+    },
+    {
+      "id": "v3-header",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+      "callables": 1233,
+      "call_sites": 3881,
+      "frontiers": 4155
+    },
+    {
+      "id": "v3-footer",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/beca20c9cbaf4d70/rea-semantic-ir.json",
+      "callables": 1254,
+      "call_sites": 4715,
+      "frontiers": 4980
+    },
+    {
+      "id": "v3-graph",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_4.-1784347108654919872.20.js",
+      "sha256": "8fec93a16b0eb2bb8829d29bc6e249b8580b573ab60c42b0ab8cd072288ef004",
+      "bytes": 84158,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/8fec93a16b0eb2bb/rea-semantic-ir.json",
+      "callables": 253,
+      "call_sites": 936,
+      "frontiers": 1207
+    },
+    {
+      "id": "own-core",
+      "path": "$SCRATCH/rea-request/dist/purchasing-report-core.js",
+      "sha256": "d57b91fe1ee0ef7e4fb3e32c46892ecb4a30603f3d0953aeb903b608e5de161f",
+      "bytes": 18636,
+      "parse_error_count": 0,
+      "evidence_level": "Own implementation static AST only; no execution/behavioral tests",
+      "excluded_from_original_corpus": true
+    },
+    {
+      "id": "own-ui",
+      "path": "$SCRATCH/rea-request/dist/purchasing-report-ui.js",
+      "sha256": "5e09efebae8f5031d8266a07c200b229be1f6ede6d1d16c46189544deee68665",
+      "bytes": 16615,
+      "evidence_level": "Own source line spans, read-only; not original corpus"
+    }
+  ],
+  "references": {
+    "inventory::InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.constructor": {
+      "symbol": "InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.constructor",
+      "span": [
+        1613,
+        4,
+        1615,
+        5
+      ],
+      "offsets": [
+        80149,
+        80239
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:80149:80239",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+      "span": [
+        1616,
+        4,
+        1678,
+        5
+      ],
+      "offsets": [
+        80244,
+        83467
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:80244:83467",
+      "direct_call_count": 19,
+      "direct_call_resolution": {
+        "unresolved": 19
+      },
+      "frontiers_including_nested": 19
+    },
+    "inventory::resolveStatusGraphContext": {
+      "symbol": "resolveStatusGraphContext",
+      "span": [
+        1933,
+        0,
+        1937,
+        1
+      ],
+      "offsets": [
+        95374,
+        95735
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:95374:95735",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "exact": 2
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::toGraphXTemplateInfo": {
+      "symbol": "toGraphXTemplateInfo",
+      "span": [
+        1990,
+        0,
+        1996,
+        1
+      ],
+      "offsets": [
+        98062,
+        98333
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:98062:98333",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 1
+    },
+    "inventory::InventorySumStatusGraphGetContextResolver.constructor": {
+      "symbol": "InventorySumStatusGraphGetContextResolver.constructor",
+      "span": [
+        2390,
+        4,
+        2392,
+        5
+      ],
+      "offsets": [
+        115009,
+        115099
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:115009:115099",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusGraphGetContextResolver.OnExecuteAsync": {
+      "symbol": "InventorySumStatusGraphGetContextResolver.OnExecuteAsync",
+      "span": [
+        2393,
+        4,
+        2403,
+        5
+      ],
+      "offsets": [
+        115104,
+        115848
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:115104:115848",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 4,
+        "exact": 1
+      },
+      "frontiers_including_nested": 5
+    },
+    "inventory::InventoryStatusGraphGetContextResolver.constructor": {
+      "symbol": "InventoryStatusGraphGetContextResolver.constructor",
+      "span": [
+        2470,
+        4,
+        2472,
+        5
+      ],
+      "offsets": [
+        119205,
+        119295
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:119205:119295",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphGetContextResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusGraphGetContextResolver.OnExecuteAsync",
+      "span": [
+        2473,
+        4,
+        2495,
+        5
+      ],
+      "offsets": [
+        119300,
+        120531
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:119300:120531",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      },
+      "frontiers_including_nested": 13
+    },
+    "inventory::InventoryStatusGraphGetDataModelIdResover.constructor": {
+      "symbol": "InventoryStatusGraphGetDataModelIdResover.constructor",
+      "span": [
+        2498,
+        4,
+        2500,
+        5
+      ],
+      "offsets": [
+        120610,
+        120700
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:120610:120700",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphGetDataModelIdResover.OnExecuteAsync": {
+      "symbol": "InventoryStatusGraphGetDataModelIdResover.OnExecuteAsync",
+      "span": [
+        2501,
+        4,
+        2514,
+        5
+      ],
+      "offsets": [
+        120705,
+        121658
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:120705:121658",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "inventory::InventorySumStatusGraphGetDataModelIdResover.constructor": {
+      "symbol": "InventorySumStatusGraphGetDataModelIdResover.constructor",
+      "span": [
+        2517,
+        4,
+        2519,
+        5
+      ],
+      "offsets": [
+        121740,
+        121830
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:121740:121830",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusGraphGetDataModelIdResover.OnExecuteAsync": {
+      "symbol": "InventorySumStatusGraphGetDataModelIdResover.OnExecuteAsync",
+      "span": [
+        2520,
+        4,
+        2533,
+        5
+      ],
+      "offsets": [
+        121835,
+        122795
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:121835:122795",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "inventory::InventoryStatusGraphHeaderSearchResolver.constructor": {
+      "symbol": "InventoryStatusGraphHeaderSearchResolver.constructor",
+      "span": [
+        2536,
+        4,
+        2538,
+        5
+      ],
+      "offsets": [
+        122873,
+        122963
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:122873:122963",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphHeaderSearchResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusGraphHeaderSearchResolver.OnExecuteAsync",
+      "span": [
+        2539,
+        4,
+        2555,
+        5
+      ],
+      "offsets": [
+        122968,
+        123642
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:122968:123642",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 1,
+        "exact": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "inventory::InventoryStatusGraphQuickSearchResolver.constructor": {
+      "symbol": "InventoryStatusGraphQuickSearchResolver.constructor",
+      "span": [
+        2558,
+        4,
+        2560,
+        5
+      ],
+      "offsets": [
+        123719,
+        123809
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:123719:123809",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphQuickSearchResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusGraphQuickSearchResolver.OnExecuteAsync",
+      "span": [
+        2561,
+        4,
+        2577,
+        5
+      ],
+      "offsets": [
+        123814,
+        124672
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:123814:124672",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 4
+    },
+    "inventory::InventoryStatusSetDefaultGraphSearchOptionResolver.constructor": {
+      "symbol": "InventoryStatusSetDefaultGraphSearchOptionResolver.constructor",
+      "span": [
+        2697,
+        4,
+        2699,
+        5
+      ],
+      "offsets": [
+        129930,
+        130020
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:129930:130020",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusSetDefaultGraphSearchOptionResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusSetDefaultGraphSearchOptionResolver.OnExecuteAsync",
+      "span": [
+        2700,
+        4,
+        2704,
+        5
+      ],
+      "offsets": [
+        130025,
+        130155
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:130025:130155",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphSearchDataModelResolver.constructor": {
+      "symbol": "InventoryStatusGraphSearchDataModelResolver.constructor",
+      "span": [
+        3146,
+        4,
+        3148,
+        5
+      ],
+      "offsets": [
+        149890,
+        149980
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:149890:149980",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusGraphSearchDataModelResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusGraphSearchDataModelResolver.OnExecuteAsync",
+      "span": [
+        3149,
+        4,
+        3200,
+        5
+      ],
+      "offsets": [
+        149985,
+        152912
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:149985:152912",
+      "direct_call_count": 10,
+      "direct_call_resolution": {
+        "unresolved": 9,
+        "exact": 1
+      },
+      "frontiers_including_nested": 10
+    },
+    "inventory::InventoryStatusSearchBuildProcessFeature.constructor": {
+      "symbol": "InventoryStatusSearchBuildProcessFeature.constructor",
+      "span": [
+        3369,
+        4,
+        3373,
+        5
+      ],
+      "offsets": [
+        160832,
+        161026
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:160832:161026",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusSearchBuildProcessFeature.buildSearchOptionProcess": {
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildSearchOptionProcess",
+      "span": [
+        3374,
+        4,
+        3383,
+        5
+      ],
+      "offsets": [
+        161031,
+        161441
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:161031:161441",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "exact": 3
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusSearchBuildProcessFeature.buildPrepareProcess": {
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildPrepareProcess",
+      "span": [
+        3384,
+        4,
+        3386,
+        5
+      ],
+      "offsets": [
+        161446,
+        161553
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:161446:161553",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusSearchBuildProcessFeature.buildSearchProcess": {
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildSearchProcess",
+      "span": [
+        3387,
+        4,
+        3389,
+        5
+      ],
+      "offsets": [
+        161558,
+        161644
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:161558:161644",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventoryStatusSearchBuildProcessFeature.buildPostProcess": {
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildPostProcess",
+      "span": [
+        3390,
+        4,
+        3399,
+        5
+      ],
+      "offsets": [
+        161649,
+        162026
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:161649:162026",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::getContextResolvers$1": {
+      "symbol": "getContextResolvers$1",
+      "span": [
+        3401,
+        0,
+        3407,
+        1
+      ],
+      "offsets": [
+        162029,
+        162267
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:162029:162267",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::getDataModelIdResolver$1": {
+      "symbol": "getDataModelIdResolver$1",
+      "span": [
+        3408,
+        0,
+        3414,
+        1
+      ],
+      "offsets": [
+        162268,
+        162456
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:162268:162456",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "inventory::modifySearchOptionResolvers$1": {
+      "symbol": "modifySearchOptionResolvers$1",
+      "span": [
+        3415,
+        0,
+        3439,
+        1
+      ],
+      "offsets": [
+        162457,
+        163763
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:162457:163763",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 4
+    },
+    "inventory::getPrepareProcessResolvers$2": {
+      "symbol": "getPrepareProcessResolvers$2",
+      "span": [
+        3440,
+        0,
+        3462,
+        1
+      ],
+      "offsets": [
+        163764,
+        164629
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:163764:164629",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 9
+    },
+    "inventory::getSearchProcessResolver$1": {
+      "symbol": "getSearchProcessResolver$1",
+      "span": [
+        3463,
+        0,
+        3468,
+        1
+      ],
+      "offsets": [
+        164630,
+        164865
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:164630:164865",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusSearchBuildProcessFeature.constructor": {
+      "symbol": "InventorySumStatusSearchBuildProcessFeature.constructor",
+      "span": [
+        3478,
+        4,
+        3482,
+        5
+      ],
+      "offsets": [
+        165287,
+        165481
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:165287:165481",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusSearchBuildProcessFeature.buildSearchOptionProcess": {
+      "symbol": "InventorySumStatusSearchBuildProcessFeature.buildSearchOptionProcess",
+      "span": [
+        3483,
+        4,
+        3492,
+        5
+      ],
+      "offsets": [
+        165486,
+        165890
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:165486:165890",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "exact": 3
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusSearchBuildProcessFeature.buildPrepareProcess": {
+      "symbol": "InventorySumStatusSearchBuildProcessFeature.buildPrepareProcess",
+      "span": [
+        3493,
+        4,
+        3495,
+        5
+      ],
+      "offsets": [
+        165895,
+        166002
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:165895:166002",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusSearchBuildProcessFeature.buildSearchProcess": {
+      "symbol": "InventorySumStatusSearchBuildProcessFeature.buildSearchProcess",
+      "span": [
+        3496,
+        4,
+        3498,
+        5
+      ],
+      "offsets": [
+        166007,
+        166091
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:166007:166091",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::InventorySumStatusSearchBuildProcessFeature.buildPostProcess": {
+      "symbol": "InventorySumStatusSearchBuildProcessFeature.buildPostProcess",
+      "span": [
+        3499,
+        4,
+        3508,
+        5
+      ],
+      "offsets": [
+        166096,
+        166473
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:166096:166473",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "inventory::getContextResolvers": {
+      "symbol": "getContextResolvers",
+      "span": [
+        3510,
+        0,
+        3516,
+        1
+      ],
+      "offsets": [
+        166476,
+        166718
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:166476:166718",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::getDataModelIdResolver": {
+      "symbol": "getDataModelIdResolver",
+      "span": [
+        3517,
+        0,
+        3523,
+        1
+      ],
+      "offsets": [
+        166719,
+        166908
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:166719:166908",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "inventory::modifySearchOptionResolvers": {
+      "symbol": "modifySearchOptionResolvers",
+      "span": [
+        3524,
+        0,
+        3548,
+        1
+      ],
+      "offsets": [
+        166909,
+        168217
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:166909:168217",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 4
+    },
+    "inventory::getPrepareProcessResolvers$1": {
+      "symbol": "getPrepareProcessResolvers$1",
+      "span": [
+        3549,
+        0,
+        3571,
+        1
+      ],
+      "offsets": [
+        168218,
+        169083
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:168218:169083",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 9
+    },
+    "inventory::getSearchProcessResolver": {
+      "symbol": "getSearchProcessResolver",
+      "span": [
+        3572,
+        0,
+        3577,
+        1
+      ],
+      "offsets": [
+        169084,
+        169317
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:169084:169317",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "inventory::SelectInventoryStatusUserAction.executeAsync": {
+      "symbol": "SelectInventoryStatusUserAction.executeAsync",
+      "span": [
+        21208,
+        26,
+        21458,
+        5
+      ],
+      "offsets": [
+        1091230,
+        1103279
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:1091230:1103279",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 7,
+        "exact": 2
+      },
+      "frontiers_including_nested": 21
+    },
+    "inventory::SelectInventorySumStatusUserAction.executeAsync": {
+      "symbol": "SelectInventorySumStatusUserAction.executeAsync",
+      "span": [
+        21469,
+        26,
+        21717,
+        5
+      ],
+      "offsets": [
+        1104206,
+        1117215
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:1104206:1117215",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 7,
+        "exact": 2
+      },
+      "frontiers_including_nested": 21
+    },
+    "common::createChartOption": {
+      "symbol": "createChartOption",
+      "span": [
+        8953,
+        0,
+        8991,
+        1
+      ],
+      "offsets": [
+        409865,
+        411354
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::getChartOptionByMatrix": {
+      "symbol": "getChartOptionByMatrix",
+      "span": [
+        8992,
+        0,
+        9026,
+        1
+      ],
+      "offsets": [
+        411355,
+        412615
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::getChartOptionFilter": {
+      "symbol": "getChartOptionFilter",
+      "span": [
+        9027,
+        0,
+        9180,
+        1
+      ],
+      "offsets": [
+        412616,
+        422569
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::setChartOption": {
+      "symbol": "setChartOption",
+      "span": [
+        9181,
+        0,
+        9202,
+        1
+      ],
+      "offsets": [
+        422570,
+        423363
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.constructor": {
+      "symbol": "GraphConfigBuilder.constructor",
+      "span": [
+        30654,
+        4,
+        30660,
+        5
+      ],
+      "offsets": [
+        1376454,
+        1376726
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.build": {
+      "symbol": "GraphConfigBuilder.build",
+      "span": [
+        30661,
+        4,
+        30668,
+        5
+      ],
+      "offsets": [
+        1376731,
+        1377199
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.resolveAxes": {
+      "symbol": "GraphConfigBuilder.resolveAxes",
+      "span": [
+        30670,
+        4,
+        30683,
+        5
+      ],
+      "offsets": [
+        1377225,
+        1378069
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.resolvePropAttrStates": {
+      "symbol": "GraphConfigBuilder.resolvePropAttrStates",
+      "span": [
+        30685,
+        4,
+        30699,
+        5
+      ],
+      "offsets": [
+        1378110,
+        1378654
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.buildAxisConfig": {
+      "symbol": "GraphConfigBuilder.buildAxisConfig",
+      "span": [
+        30701,
+        4,
+        30731,
+        5
+      ],
+      "offsets": [
+        1378714,
+        1380373
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.makeChartDataModels": {
+      "symbol": "GraphConfigBuilder.makeChartDataModels",
+      "span": [
+        30732,
+        4,
+        30813,
+        5
+      ],
+      "offsets": [
+        1380378,
+        1384551
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphConfigBuilder.composePlatformConfig": {
+      "symbol": "GraphConfigBuilder.composePlatformConfig",
+      "span": [
+        30815,
+        4,
+        30832,
+        5
+      ],
+      "offsets": [
+        1384606,
+        1385407
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::resolveAxisProps": {
+      "symbol": "resolveAxisProps",
+      "span": [
+        30837,
+        0,
+        30842,
+        1
+      ],
+      "offsets": [
+        1385504,
+        1385744
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::makeKey": {
+      "symbol": "makeKey",
+      "span": [
+        30843,
+        0,
+        30849,
+        1
+      ],
+      "offsets": [
+        1385745,
+        1385937
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::ChartWidgetAstInterceptor.afterConvert": {
+      "symbol": "ChartWidgetAstInterceptor.afterConvert",
+      "span": [
+        30857,
+        4,
+        30891,
+        5
+      ],
+      "offsets": [
+        1386695,
+        1388114
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::ChartWidgetAstInterceptor.registerLazyLoadModules": {
+      "symbol": "ChartWidgetAstInterceptor.registerLazyLoadModules",
+      "span": [
+        30892,
+        4,
+        30894,
+        5
+      ],
+      "offsets": [
+        1388119,
+        1388193
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::ConfigureGraphOptionsUserAction.executeAsync": {
+      "symbol": "ConfigureGraphOptionsUserAction.executeAsync",
+      "span": [
+        56159,
+        26,
+        56257,
+        5
+      ],
+      "offsets": [
+        2635404,
+        2640986
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::ConfigureGraphFilterUserAction.executeAsync": {
+      "symbol": "ConfigureGraphFilterUserAction.executeAsync",
+      "span": [
+        56268,
+        26,
+        56322,
+        5
+      ],
+      "offsets": [
+        2641917,
+        2644929
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::ChangeGraphSettingUserAction.executeAsync": {
+      "symbol": "ChangeGraphSettingUserAction.executeAsync",
+      "span": [
+        61140,
+        26,
+        61156,
+        5
+      ],
+      "offsets": [
+        2882016,
+        2882872
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::ChangeAggregateTypeUserAction.executeAsync": {
+      "symbol": "ChangeAggregateTypeUserAction.executeAsync",
+      "span": [
+        61172,
+        26,
+        61258,
+        5
+      ],
+      "offsets": [
+        2883888,
+        2888692
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphSettingValidatorAttrProgram.declareProgramContext": {
+      "symbol": "GraphSettingValidatorAttrProgram.declareProgramContext",
+      "span": [
+        62100,
+        4,
+        62106,
+        5
+      ],
+      "offsets": [
+        2931817,
+        2932054
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GraphSettingValidatorAttrProgram.onExecuteAsync": {
+      "symbol": "GraphSettingValidatorAttrProgram.onExecuteAsync",
+      "span": [
+        62107,
+        4,
+        62157,
+        5
+      ],
+      "offsets": [
+        2932059,
+        2934310
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GetGraphColumnInfoProgram.declareProgramContext": {
+      "symbol": "GetGraphColumnInfoProgram.declareProgramContext",
+      "span": [
+        71549,
+        4,
+        71555,
+        5
+      ],
+      "offsets": [
+        3391888,
+        3392125
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::GetGraphColumnInfoProgram.onExecuteAsync": {
+      "symbol": "GetGraphColumnInfoProgram.onExecuteAsync",
+      "span": [
+        71556,
+        4,
+        71627,
+        5
+      ],
+      "offsets": [
+        3392130,
+        3395907
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor.shouldExecute": {
+      "symbol": "StatusGraphWidgetAttrContributor.shouldExecute",
+      "span": [
+        85636,
+        4,
+        85641,
+        5
+      ],
+      "offsets": [
+        4123786,
+        4123960
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor.executeAsync": {
+      "symbol": "StatusGraphWidgetAttrContributor.executeAsync",
+      "span": [
+        85642,
+        4,
+        85667,
+        5
+      ],
+      "offsets": [
+        4123965,
+        4124980
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor._getGridModelId": {
+      "symbol": "StatusGraphWidgetAttrContributor._getGridModelId",
+      "span": [
+        85669,
+        4,
+        85673,
+        5
+      ],
+      "offsets": [
+        4125058,
+        4125350
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor._getTemplateModelId": {
+      "symbol": "StatusGraphWidgetAttrContributor._getTemplateModelId",
+      "span": [
+        85675,
+        4,
+        85679,
+        5
+      ],
+      "offsets": [
+        4125428,
+        4125656
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor._getDataViewFormat": {
+      "symbol": "StatusGraphWidgetAttrContributor._getDataViewFormat",
+      "span": [
+        85680,
+        4,
+        85684,
+        5
+      ],
+      "offsets": [
+        4125661,
+        4125915
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor._isGraph": {
+      "symbol": "StatusGraphWidgetAttrContributor._isGraph",
+      "span": [
+        85685,
+        4,
+        85687,
+        5
+      ],
+      "offsets": [
+        4125920,
+        4126021
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "common::StatusGraphWidgetAttrContributor._getChartViewType": {
+      "symbol": "StatusGraphWidgetAttrContributor._getChartViewType",
+      "span": [
+        85688,
+        4,
+        85702,
+        5
+      ],
+      "offsets": [
+        4126026,
+        4126748
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common OOM"
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.init": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.init",
+      "span": [
+        1,
+        246493,
+        1,
+        246740
+      ],
+      "offsets": [
+        246493,
+        246740
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:246493:246740",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 4
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.render": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.render",
+      "span": [
+        1,
+        246748,
+        1,
+        246857
+      ],
+      "offsets": [
+        246748,
+        246857
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:246748:246857",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onInitControl": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onInitControl",
+      "span": [
+        1,
+        246872,
+        1,
+        247603
+      ],
+      "offsets": [
+        246872,
+        247603
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:246872:247603",
+      "direct_call_count": 23,
+      "direct_call_resolution": {
+        "unresolved": 23
+      },
+      "frontiers_including_nested": 23
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeControl": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeControl",
+      "span": [
+        1,
+        247620,
+        1,
+        247781
+      ],
+      "offsets": [
+        247620,
+        247781
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:247620:247781",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onSearchValidate": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onSearchValidate",
+      "span": [
+        1,
+        247799,
+        1,
+        248368
+      ],
+      "offsets": [
+        247799,
+        248368
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:247799:248368",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 14
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeFormSeq": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeFormSeq",
+      "span": [
+        1,
+        248385,
+        1,
+        248434
+      ],
+      "offsets": [
+        248385,
+        248434
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:248385:248434",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeFormType": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeFormType",
+      "span": [
+        1,
+        248452,
+        1,
+        248598
+      ],
+      "offsets": [
+        248452,
+        248598
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:248452:248598",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onSaveUserTabParam": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onSaveUserTabParam",
+      "span": [
+        1,
+        248618,
+        1,
+        249145
+      ],
+      "offsets": [
+        248618,
+        249145
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:248618:249145",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 15
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onRestoreUserTabParam": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onRestoreUserTabParam",
+      "span": [
+        1,
+        249168,
+        1,
+        249669
+      ],
+      "offsets": [
+        249168,
+        249669
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:249168:249669",
+      "direct_call_count": 15,
+      "direct_call_resolution": {
+        "unresolved": 15
+      },
+      "frontiers_including_nested": 15
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onStoreState": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onStoreState",
+      "span": [
+        1,
+        249683,
+        1,
+        249897
+      ],
+      "offsets": [
+        249683,
+        249897
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:249683:249897",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onRestoreState": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onRestoreState",
+      "span": [
+        1,
+        249913,
+        1,
+        250428
+      ],
+      "offsets": [
+        249913,
+        250428
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:249913:250428",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 9
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onSetSearchParam": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onSetSearchParam",
+      "span": [
+        1,
+        250446,
+        1,
+        250662
+      ],
+      "offsets": [
+        250446,
+        250662
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:250446:250662",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 4
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._reset": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._reset",
+      "span": [
+        1,
+        250670,
+        1,
+        250931
+      ],
+      "offsets": [
+        250670,
+        250931
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:250670:250931",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._validate": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._validate",
+      "span": [
+        1,
+        250942,
+        1,
+        251285
+      ],
+      "offsets": [
+        250942,
+        251285
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:250942:251285",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "frontiers_including_nested": 8
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onHeaderDataTypeLink": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onHeaderDataTypeLink",
+      "span": [
+        1,
+        251307,
+        1,
+        251542
+      ],
+      "offsets": [
+        251307,
+        251542
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:251307:251542",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 6
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._requestFormInfo": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._requestFormInfo",
+      "span": [
+        1,
+        251560,
+        1,
+        252312
+      ],
+      "offsets": [
+        251560,
+        252312
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:251560:252312",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "frontiers_including_nested": 12
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._requestFormInfoFromSearchApi": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._requestFormInfoFromSearchApi",
+      "span": [
+        1,
+        252343,
+        1,
+        253154
+      ],
+      "offsets": [
+        252343,
+        253154
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:252343:253154",
+      "direct_call_count": 12,
+      "direct_call_resolution": {
+        "unresolved": 12
+      },
+      "frontiers_including_nested": 18
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._checkSummary": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._checkSummary",
+      "span": [
+        1,
+        253169,
+        1,
+        253319
+      ],
+      "offsets": [
+        253169,
+        253319
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:253169:253319",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 4
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup",
+      "span": [
+        1,
+        253347,
+        1,
+        253925
+      ],
+      "offsets": [
+        253347,
+        253925
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:253347:253925",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 9
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._getFormOption": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._getFormOption",
+      "span": [
+        1,
+        253941,
+        1,
+        254042
+      ],
+      "offsets": [
+        253941,
+        254042
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:253941:254042",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._getFormColumns": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._getFormColumns",
+      "span": [
+        1,
+        254059,
+        1,
+        254231
+      ],
+      "offsets": [
+        254059,
+        254231
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:254059:254231",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.onMessageHandler_XGraphSetUpSetting": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.onMessageHandler_XGraphSetUpSetting",
+      "span": [
+        1,
+        254268,
+        1,
+        254504
+      ],
+      "offsets": [
+        254268,
+        254504
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:254268:254504",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.isGraph": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.isGraph",
+      "span": [
+        1,
+        254513,
+        1,
+        254591
+      ],
+      "offsets": [
+        254513,
+        254591
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:254513:254591",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.reset": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.reset",
+      "span": [
+        1,
+        254598,
+        1,
+        254623
+      ],
+      "offsets": [
+        254598,
+        254623
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:254598:254623",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.getGraphSetting": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.getGraphSetting",
+      "span": [
+        1,
+        254640,
+        1,
+        255292
+      ],
+      "offsets": [
+        254640,
+        255292
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:254640:255292",
+      "direct_call_count": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "frontiers_including_nested": 10
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType._getSumFlagComp": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType._getSumFlagComp",
+      "span": [
+        1,
+        255309,
+        1,
+        255458
+      ],
+      "offsets": [
+        255309,
+        255458
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:255309:255458",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.getActivateGraph": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.getActivateGraph",
+      "span": [
+        1,
+        255476,
+        1,
+        255659
+      ],
+      "offsets": [
+        255476,
+        255659
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:255476:255659",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-header::eccomposite_v1.unit.widget.dataViewType.getGraphOption": {
+      "symbol": "eccomposite_v1.unit.widget.dataViewType.getGraphOption",
+      "span": [
+        1,
+        255675,
+        1,
+        255732
+      ],
+      "offsets": [
+        255675,
+        255732
+      ],
+      "source_id": "v3-header",
+      "actual_REA_callable_id": "callable:function:255675:255732",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.init": {
+      "symbol": "eccomposite_v1.unit.widget.graph.init",
+      "span": [
+        1,
+        52740,
+        1,
+        52815
+      ],
+      "offsets": [
+        52740,
+        52815
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:52740:52815",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.render": {
+      "symbol": "eccomposite_v1.unit.widget.graph.render",
+      "span": [
+        1,
+        52823,
+        1,
+        52947
+      ],
+      "offsets": [
+        52823,
+        52947
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:52823:52947",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.createLayout": {
+      "symbol": "eccomposite_v1.unit.widget.graph.createLayout",
+      "span": [
+        1,
+        52961,
+        1,
+        53113
+      ],
+      "offsets": [
+        52961,
+        53113
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:52961:53113",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 4
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.execCreateComposite": {
+      "symbol": "eccomposite_v1.unit.widget.graph.execCreateComposite",
+      "span": [
+        1,
+        53134,
+        1,
+        53376
+      ],
+      "offsets": [
+        53134,
+        53376
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:53134:53376",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.onChangeListType": {
+      "symbol": "eccomposite_v1.unit.widget.graph.onChangeListType",
+      "span": [
+        1,
+        53394,
+        1,
+        53471
+      ],
+      "offsets": [
+        53394,
+        53471
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:53394:53471",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.onPostSearch": {
+      "symbol": "eccomposite_v1.unit.widget.graph.onPostSearch",
+      "span": [
+        1,
+        53485,
+        1,
+        54129
+      ],
+      "offsets": [
+        53485,
+        54129
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:53485:54129",
+      "direct_call_count": 11,
+      "direct_call_resolution": {
+        "unresolved": 11
+      },
+      "frontiers_including_nested": 11
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph._ON_CLICK": {
+      "symbol": "eccomposite_v1.unit.widget.graph._ON_CLICK",
+      "span": [
+        1,
+        54140,
+        1,
+        55142
+      ],
+      "offsets": [
+        54140,
+        55142
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:54140:55142",
+      "direct_call_count": 24,
+      "direct_call_resolution": {
+        "unresolved": 24
+      },
+      "frontiers_including_nested": 26
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.openGraphSetupForGrid": {
+      "symbol": "eccomposite_v1.unit.widget.graph.openGraphSetupForGrid",
+      "span": [
+        1,
+        55165,
+        1,
+        56119
+      ],
+      "offsets": [
+        55165,
+        56119
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:55165:56119",
+      "direct_call_count": 15,
+      "direct_call_resolution": {
+        "unresolved": 15
+      },
+      "frontiers_including_nested": 15
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.openGraphForGrid": {
+      "symbol": "eccomposite_v1.unit.widget.graph.openGraphForGrid",
+      "span": [
+        1,
+        56137,
+        1,
+        57832
+      ],
+      "offsets": [
+        56137,
+        57832
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:56137:57832",
+      "direct_call_count": 25,
+      "direct_call_resolution": {
+        "unresolved": 25
+      },
+      "frontiers_including_nested": 33
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.openGraphSetupForDataView": {
+      "symbol": "eccomposite_v1.unit.widget.graph.openGraphSetupForDataView",
+      "span": [
+        1,
+        57859,
+        1,
+        58530
+      ],
+      "offsets": [
+        57859,
+        58530
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:57859:58530",
+      "direct_call_count": 11,
+      "direct_call_resolution": {
+        "unresolved": 11
+      },
+      "frontiers_including_nested": 11
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.openGraphForDataView": {
+      "symbol": "eccomposite_v1.unit.widget.graph.openGraphForDataView",
+      "span": [
+        1,
+        58552,
+        1,
+        59671
+      ],
+      "offsets": [
+        58552,
+        59671
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:58552:59671",
+      "direct_call_count": 17,
+      "direct_call_resolution": {
+        "unresolved": 17
+      },
+      "frontiers_including_nested": 17
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.openGraph": {
+      "symbol": "eccomposite_v1.unit.widget.graph.openGraph",
+      "span": [
+        1,
+        59682,
+        1,
+        59864
+      ],
+      "offsets": [
+        59682,
+        59864
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:59682:59864",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.getGraphData": {
+      "symbol": "eccomposite_v1.unit.widget.graph.getGraphData",
+      "span": [
+        1,
+        59878,
+        1,
+        60715
+      ],
+      "offsets": [
+        59878,
+        60715
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:59878:60715",
+      "direct_call_count": 17,
+      "direct_call_resolution": {
+        "unresolved": 13,
+        "exact": 4
+      },
+      "frontiers_including_nested": 15
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.setColumnData": {
+      "symbol": "eccomposite_v1.unit.widget.graph.setColumnData",
+      "span": [
+        1,
+        60730,
+        1,
+        60897
+      ],
+      "offsets": [
+        60730,
+        60897
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:60730:60897",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 6
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.getColumnName": {
+      "symbol": "eccomposite_v1.unit.widget.graph.getColumnName",
+      "span": [
+        1,
+        60912,
+        1,
+        61192
+      ],
+      "offsets": [
+        60912,
+        61192
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:60912:61192",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.getColumnTypeOfString": {
+      "symbol": "eccomposite_v1.unit.widget.graph.getColumnTypeOfString",
+      "span": [
+        1,
+        61215,
+        1,
+        61338
+      ],
+      "offsets": [
+        61215,
+        61338
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:61215:61338",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.getColumnTypeOfNumber": {
+      "symbol": "eccomposite_v1.unit.widget.graph.getColumnTypeOfNumber",
+      "span": [
+        1,
+        61361,
+        1,
+        61484
+      ],
+      "offsets": [
+        61361,
+        61484
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:61361:61484",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.getColumnDataForAxis": {
+      "symbol": "eccomposite_v1.unit.widget.graph.getColumnDataForAxis",
+      "span": [
+        1,
+        61506,
+        1,
+        61658
+      ],
+      "offsets": [
+        61506,
+        61658
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:61506:61658",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graph.getGroupedColumnDataForAxis": {
+      "symbol": "eccomposite_v1.unit.widget.graph.getGroupedColumnDataForAxis",
+      "span": [
+        1,
+        61687,
+        1,
+        61829
+      ],
+      "offsets": [
+        61687,
+        61829
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:61687:61829",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter.init": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.init",
+      "span": [
+        1,
+        296491,
+        1,
+        296610
+      ],
+      "offsets": [
+        296491,
+        296610
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:296491:296610",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter.render": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.render",
+      "span": [
+        1,
+        296618,
+        1,
+        296742
+      ],
+      "offsets": [
+        296618,
+        296742
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:296618:296742",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter.createLayout": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.createLayout",
+      "span": [
+        1,
+        296756,
+        1,
+        296915
+      ],
+      "offsets": [
+        296756,
+        296915
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:296756:296915",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter.execCreateComposite": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.execCreateComposite",
+      "span": [
+        1,
+        296936,
+        1,
+        297178
+      ],
+      "offsets": [
+        296936,
+        297178
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:296936:297178",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter.onPostSearch": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.onPostSearch",
+      "span": [
+        1,
+        297192,
+        1,
+        297311
+      ],
+      "offsets": [
+        297192,
+        297311
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:297192:297311",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter._ON_CLICK": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter._ON_CLICK",
+      "span": [
+        1,
+        297322,
+        1,
+        297743
+      ],
+      "offsets": [
+        297322,
+        297743
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:297322:297743",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 6
+    },
+    "v3-footer::eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter",
+      "span": [
+        1,
+        297773,
+        1,
+        298242
+      ],
+      "offsets": [
+        297773,
+        298242
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:297773:298242",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "frontiers_including_nested": 8
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.init": {
+      "symbol": "eccomposite_v1.group.graph.basic.init",
+      "span": [
+        1,
+        79593,
+        1,
+        79885
+      ],
+      "offsets": [
+        79593,
+        79885
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:79593:79885",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.render": {
+      "symbol": "eccomposite_v1.group.graph.basic.render",
+      "span": [
+        1,
+        79893,
+        1,
+        79996
+      ],
+      "offsets": [
+        79893,
+        79996
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:79893:79996",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.clear": {
+      "symbol": "eccomposite_v1.group.graph.basic.clear",
+      "span": [
+        1,
+        80003,
+        1,
+        80082
+      ],
+      "offsets": [
+        80003,
+        80082
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80003:80082",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.hide": {
+      "symbol": "eccomposite_v1.group.graph.basic.hide",
+      "span": [
+        1,
+        80088,
+        1,
+        80133
+      ],
+      "offsets": [
+        80088,
+        80133
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80088:80133",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.show": {
+      "symbol": "eccomposite_v1.group.graph.basic.show",
+      "span": [
+        1,
+        80139,
+        1,
+        80184
+      ],
+      "offsets": [
+        80139,
+        80184
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80139:80184",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.isShow": {
+      "symbol": "eccomposite_v1.group.graph.basic.isShow",
+      "span": [
+        1,
+        80192,
+        1,
+        80246
+      ],
+      "offsets": [
+        80192,
+        80246
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80192:80246",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setChartWidth": {
+      "symbol": "eccomposite_v1.group.graph.basic.setChartWidth",
+      "span": [
+        1,
+        80261,
+        1,
+        80348
+      ],
+      "offsets": [
+        80261,
+        80348
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80261:80348",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setChartHeight": {
+      "symbol": "eccomposite_v1.group.graph.basic.setChartHeight",
+      "span": [
+        1,
+        80364,
+        1,
+        80452
+      ],
+      "offsets": [
+        80364,
+        80452
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80364:80452",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setGraphData": {
+      "symbol": "eccomposite_v1.group.graph.basic.setGraphData",
+      "span": [
+        1,
+        80466,
+        1,
+        80533
+      ],
+      "offsets": [
+        80466,
+        80533
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80466:80533",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setGraphSetting": {
+      "symbol": "eccomposite_v1.group.graph.basic.setGraphSetting",
+      "span": [
+        1,
+        80550,
+        1,
+        80623
+      ],
+      "offsets": [
+        80550,
+        80623
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80550:80623",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setChartEventBind": {
+      "symbol": "eccomposite_v1.group.graph.basic.setChartEventBind",
+      "span": [
+        1,
+        80642,
+        1,
+        80997
+      ],
+      "offsets": [
+        80642,
+        80997
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:80642:80997",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 6
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setLegendEventBind": {
+      "symbol": "eccomposite_v1.group.graph.basic.setLegendEventBind",
+      "span": [
+        1,
+        81017,
+        1,
+        81316
+      ],
+      "offsets": [
+        81017,
+        81316
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:81017:81316",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 6
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setTooltipEventBind": {
+      "symbol": "eccomposite_v1.group.graph.basic.setTooltipEventBind",
+      "span": [
+        1,
+        81337,
+        1,
+        81781
+      ],
+      "offsets": [
+        81337,
+        81781
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:81337:81781",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 9
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setLineSetting": {
+      "symbol": "eccomposite_v1.group.graph.basic.setLineSetting",
+      "span": [
+        1,
+        81797,
+        1,
+        82257
+      ],
+      "offsets": [
+        81797,
+        82257
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:81797:82257",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 5
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.setLegendSetting": {
+      "symbol": "eccomposite_v1.group.graph.basic.setLegendSetting",
+      "span": [
+        1,
+        82275,
+        1,
+        82397
+      ],
+      "offsets": [
+        82275,
+        82397
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:82275:82397",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.createGraph": {
+      "symbol": "eccomposite_v1.group.graph.basic.createGraph",
+      "span": [
+        1,
+        82410,
+        1,
+        83060
+      ],
+      "offsets": [
+        82410,
+        83060
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:82410:83060",
+      "direct_call_count": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "frontiers_including_nested": 10
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getHtml": {
+      "symbol": "eccomposite_v1.group.graph.basic.getHtml",
+      "span": [
+        1,
+        83069,
+        1,
+        83141
+      ],
+      "offsets": [
+        83069,
+        83141
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83069:83141",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getRowData": {
+      "symbol": "eccomposite_v1.group.graph.basic.getRowData",
+      "span": [
+        1,
+        83153,
+        1,
+        83184
+      ],
+      "offsets": [
+        83153,
+        83184
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83153:83184",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getGraphData": {
+      "symbol": "eccomposite_v1.group.graph.basic.getGraphData",
+      "span": [
+        1,
+        83198,
+        1,
+        83231
+      ],
+      "offsets": [
+        83198,
+        83231
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83198:83231",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getGraphSetting": {
+      "symbol": "eccomposite_v1.group.graph.basic.getGraphSetting",
+      "span": [
+        1,
+        83248,
+        1,
+        83284
+      ],
+      "offsets": [
+        83248,
+        83284
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83248:83284",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getWidth": {
+      "symbol": "eccomposite_v1.group.graph.basic.getWidth",
+      "span": [
+        1,
+        83294,
+        1,
+        83336
+      ],
+      "offsets": [
+        83294,
+        83336
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83294:83336",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getChartRect": {
+      "symbol": "eccomposite_v1.group.graph.basic.getChartRect",
+      "span": [
+        1,
+        83350,
+        1,
+        83396
+      ],
+      "offsets": [
+        83350,
+        83396
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83350:83396",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getChartContainerRect": {
+      "symbol": "eccomposite_v1.group.graph.basic.getChartContainerRect",
+      "span": [
+        1,
+        83419,
+        1,
+        83474
+      ],
+      "offsets": [
+        83419,
+        83474
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83419:83474",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getLegendRect": {
+      "symbol": "eccomposite_v1.group.graph.basic.getLegendRect",
+      "span": [
+        1,
+        83489,
+        1,
+        83536
+      ],
+      "offsets": [
+        83489,
+        83536
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83489:83536",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getChartImageData": {
+      "symbol": "eccomposite_v1.group.graph.basic.getChartImageData",
+      "span": [
+        1,
+        83555,
+        1,
+        83606
+      ],
+      "offsets": [
+        83555,
+        83606
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83555:83606",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.getLegendImageData": {
+      "symbol": "eccomposite_v1.group.graph.basic.getLegendImageData",
+      "span": [
+        1,
+        83626,
+        1,
+        83678
+      ],
+      "offsets": [
+        83626,
+        83678
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83626:83678",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.isShowLegend": {
+      "symbol": "eccomposite_v1.group.graph.basic.isShowLegend",
+      "span": [
+        1,
+        83692,
+        1,
+        83738
+      ],
+      "offsets": [
+        83692,
+        83738
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83692:83738",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "v3-graph::eccomposite_v1.group.graph.basic.draw": {
+      "symbol": "eccomposite_v1.group.graph.basic.draw",
+      "span": [
+        1,
+        83744,
+        1,
+        84155
+      ],
+      "offsets": [
+        83744,
+        84155
+      ],
+      "source_id": "v3-graph",
+      "actual_REA_callable_id": "callable:function:83744:84155",
+      "direct_call_count": 12,
+      "direct_call_resolution": {
+        "unresolved": 12
+      },
+      "frontiers_including_nested": 12
+    },
+    "own-core::sortResult": {
+      "symbol": "sortResult",
+      "span": [
+        32,
+        1,
+        35,
+        2
+      ],
+      "offsets": [
+        3930,
+        4909
+      ],
+      "source_id": "own-core",
+      "actual_REA_callable_id": "own source static inspection only"
+    },
+    "own-core::search": {
+      "symbol": "search",
+      "span": [
+        42,
+        1,
+        78,
+        2
+      ],
+      "offsets": [
+        5406,
+        10414
+      ],
+      "source_id": "own-core",
+      "actual_REA_callable_id": "own source static inspection only"
+    },
+    "own-core::summarize": {
+      "symbol": "summarize",
+      "span": [
+        89,
+        1,
+        101,
+        2
+      ],
+      "offsets": [
+        12288,
+        14507
+      ],
+      "source_id": "own-core",
+      "actual_REA_callable_id": "own source static inspection only"
+    },
+    "own-ui::graph_checkbox": {
+      "symbol": "graph_checkbox",
+      "source_id": "own-ui",
+      "span": [
+        26,
+        0,
+        26,
+        215
+      ],
+      "source": "  if(spec.purchaseFilters){for(const label of ['거래유형','시리얼/로트No.','그래프']){const x=input(label,label==='그래프'?'checkbox':'text');x.disabled=true;x.title='해당 조건의 원본 하위 규칙은 직접 확인 후 연결합니다.';form.append(field(label,x));}}"
+    },
+    "own-ui::values": {
+      "symbol": "values",
+      "source_id": "own-ui",
+      "span": [
+        29,
+        0,
+        29,
+        206
+      ],
+      "source": "  const values=()=>({...Object.fromEntries(Object.entries(controls).map(([k,x])=>[k,x.value])),mode,axes:getAxes(),axisDirections:[...axisDirections],axisSlots:axisVisibleCount,sort:sort.map(r=>({...r}))});"
+    }
+  }
+}

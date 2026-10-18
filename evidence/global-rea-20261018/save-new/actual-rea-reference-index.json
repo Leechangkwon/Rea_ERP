@@ -1,0 +1,1132 @@
+{
+  "rea_version": "6.4.0",
+  "full_analyses_reused": true,
+  "new_semantic_runs": 0,
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "core",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.core.2075066825770250059.20.js",
+      "sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+      "bytes": 93934,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/d138900b87027f49/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 318,
+      "call_sites": 1021,
+      "frontiers": 1419,
+      "parse_status": "complete"
+    },
+    {
+      "id": "temporary",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_4.-1784347108654919872.20.js",
+      "sha256": "8fec93a16b0eb2bb8829d29bc6e249b8580b573ab60c42b0ab8cd072288ef004",
+      "bytes": 84158,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/8fec93a16b0eb2bb/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 253,
+      "call_sites": 936,
+      "frontiers": 1207,
+      "parse_status": "complete"
+    },
+    {
+      "id": "prod",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_3.-1691984462285639727.20.js",
+      "sha256": "457fb04dc2400a351a0a57b566b8820d657d538df9b0b2d1dbc57698f898aeba",
+      "bytes": 208059,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/457fb04dc2400a35/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 484,
+      "call_sites": 3138,
+      "frontiers": 3976,
+      "parse_status": "complete"
+    },
+    {
+      "id": "input",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_1.-538278177882630599.20.js",
+      "sha256": "e6c17edb9f101881b3f413c56d0396f40e985a1de838650c514be1b289cbadc1",
+      "bytes": 244886,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/toolbar-function-rea-20261018/inputs/e6c17edb9f101881/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 652,
+      "call_sites": 3600,
+      "frontiers": 4266,
+      "parse_status": "complete"
+    },
+    {
+      "id": "output",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/beca20c9cbaf4d70/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 1254,
+      "call_sites": 4715,
+      "frontiers": 4980,
+      "parse_status": "complete"
+    },
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 1926,
+      "call_sites": 7148,
+      "frontiers": 8012,
+      "parse_status": "complete"
+    },
+    {
+      "id": "actions",
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/actions.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "retained_full_semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/04-actions-e70f31a1ac77/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "callables": 1002,
+      "call_sites": 4618,
+      "frontiers": 4942,
+      "parse_status": "complete"
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "actual_REA": "6.4.0",
+      "full_static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "semantic_status": "OOM at 2GB; prior failure preserved, no retry/full IR",
+      "evidence_level": "original static AST only for OpenWebUploader methods"
+    }
+  ],
+  "references": {
+    "core::core-delegate.openWindow": {
+      "symbol": "core-delegate.openWindow",
+      "span": [
+        1,
+        26814,
+        1,
+        26966
+      ],
+      "offsets": [
+        26814,
+        26966
+      ],
+      "reason": "generic page-event delegation",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:26814:26966",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "core::core-delegate.fnTemporarySave": {
+      "symbol": "core-delegate.fnTemporarySave",
+      "span": [
+        1,
+        30413,
+        1,
+        30482
+      ],
+      "offsets": [
+        30413,
+        30482
+      ],
+      "reason": "generic page-event delegation",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:30413:30482",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "core::core-delegate.setTempSaveConfig": {
+      "symbol": "core-delegate.setTempSaveConfig",
+      "span": [
+        1,
+        32768,
+        1,
+        32840
+      ],
+      "offsets": [
+        32768,
+        32840
+      ],
+      "reason": "generic page-event delegation",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:32768:32840",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "core::eccomposite_v1.unit.widget.webUploader.init": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader.init",
+      "span": [
+        1,
+        54386,
+        1,
+        54461
+      ],
+      "offsets": [
+        54386,
+        54461
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:54386:54461",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "core::eccomposite_v1.unit.widget.webUploader.render": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader.render",
+      "span": [
+        1,
+        54469,
+        1,
+        54694
+      ],
+      "offsets": [
+        54469,
+        54694
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:54469:54694",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "frontiers_including_nested": 5
+    },
+    "core::eccomposite_v1.unit.widget.webUploader.createLayout": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader.createLayout",
+      "span": [
+        1,
+        54708,
+        1,
+        55384
+      ],
+      "offsets": [
+        54708,
+        55384
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:54708:55384",
+      "direct_call_count": 11,
+      "direct_call_resolution": {
+        "unresolved": 11
+      },
+      "frontiers_including_nested": 15
+    },
+    "core::eccomposite_v1.unit.widget.webUploader.upperFirstChar": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader.upperFirstChar",
+      "span": [
+        1,
+        55400,
+        1,
+        55460
+      ],
+      "offsets": [
+        55400,
+        55460
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:55400:55460",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "core::eccomposite_v1.unit.widget.webUploader.execCreateComposite": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader.execCreateComposite",
+      "span": [
+        1,
+        55481,
+        1,
+        56045
+      ],
+      "offsets": [
+        55481,
+        56045
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:55481:56045",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 4
+    },
+    "core::eccomposite_v1.unit.widget.webUploader._ON_CLICK": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader._ON_CLICK",
+      "span": [
+        1,
+        56056,
+        1,
+        57279
+      ],
+      "offsets": [
+        56056,
+        57279
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:56056:57279",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      },
+      "frontiers_including_nested": 8
+    },
+    "core::eccomposite_v1.unit.widget.webUploader.onMessageHandler_BulkUploadForm": {
+      "symbol": "eccomposite_v1.unit.widget.webUploader.onMessageHandler_BulkUploadForm",
+      "span": [
+        1,
+        57312,
+        1,
+        57492
+      ],
+      "offsets": [
+        57312,
+        57492
+      ],
+      "reason": "target class method",
+      "source_id": "core",
+      "actual_REA_callable_id": "callable:function:57312:57492",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 4
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.init": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.init",
+      "span": [
+        1,
+        53519,
+        1,
+        53596
+      ],
+      "offsets": [
+        53519,
+        53596
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:53519:53596",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.render": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.render",
+      "span": [
+        1,
+        53604,
+        1,
+        53708
+      ],
+      "offsets": [
+        53604,
+        53708
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:53604:53708",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.createLayout": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.createLayout",
+      "span": [
+        1,
+        53722,
+        1,
+        54373
+      ],
+      "offsets": [
+        53722,
+        54373
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:53722:54373",
+      "direct_call_count": 20,
+      "direct_call_resolution": {
+        "unresolved": 20
+      },
+      "frontiers_including_nested": 20
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.execCreateComposite": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.execCreateComposite",
+      "span": [
+        1,
+        54394,
+        1,
+        54556
+      ],
+      "offsets": [
+        54394,
+        54556
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:54394:54556",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.getTempSaveConfig": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.getTempSaveConfig",
+      "span": [
+        1,
+        54575,
+        1,
+        55813
+      ],
+      "offsets": [
+        54575,
+        55813
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:54575:55813",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 10
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.getCreateButtonList": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.getCreateButtonList",
+      "span": [
+        1,
+        55834,
+        1,
+        55928
+      ],
+      "offsets": [
+        55834,
+        55928
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:55834:55928",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.isGridRedraw": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.isGridRedraw",
+      "span": [
+        1,
+        55942,
+        1,
+        56477
+      ],
+      "offsets": [
+        55942,
+        56477
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:55942:56477",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "frontiers_including_nested": 11
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.acc.init": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.acc.init",
+      "span": [
+        1,
+        56593,
+        1,
+        56684
+      ],
+      "offsets": [
+        56593,
+        56684
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:56593:56684",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.acc.render": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.acc.render",
+      "span": [
+        1,
+        56692,
+        1,
+        56821
+      ],
+      "offsets": [
+        56692,
+        56821
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:56692:56821",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "temporary::eccomposite_v1.group.toolbar.temporarySave.acc.getTempSaveConfig": {
+      "symbol": "eccomposite_v1.group.toolbar.temporarySave.acc.getTempSaveConfig",
+      "span": [
+        1,
+        56840,
+        1,
+        58096
+      ],
+      "offsets": [
+        56840,
+        58096
+      ],
+      "reason": "target class method",
+      "source_id": "temporary",
+      "actual_REA_callable_id": "callable:function:56840:58096",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "frontiers_including_nested": 12
+    },
+    "input::eccomposite_v1.function.inputEvent.execSlipSaveNew": {
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSaveNew",
+      "span": [
+        1,
+        44566,
+        1,
+        44663
+      ],
+      "offsets": [
+        44566,
+        44663
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "input",
+      "actual_REA_callable_id": "callable:function:44566:44663",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "input::eccomposite_v1.function.inputEvent.callSaveApi": {
+      "symbol": "eccomposite_v1.function.inputEvent.callSaveApi",
+      "span": [
+        1,
+        115701,
+        1,
+        117035
+      ],
+      "offsets": [
+        115701,
+        117035
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "input",
+      "actual_REA_callable_id": "callable:function:115701:117035",
+      "direct_call_count": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "frontiers_including_nested": 22
+    },
+    "input::eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit": {
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit",
+      "span": [
+        1,
+        131124,
+        1,
+        133497
+      ],
+      "offsets": [
+        131124,
+        133497
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "input",
+      "actual_REA_callable_id": "callable:function:131124:133497",
+      "direct_call_count": 20,
+      "direct_call_resolution": {
+        "unresolved": 20
+      },
+      "frontiers_including_nested": 28
+    },
+    "input::eccomposite_v1.function.inputEvent.callApi": {
+      "symbol": "eccomposite_v1.function.inputEvent.callApi",
+      "span": [
+        1,
+        188291,
+        1,
+        188720
+      ],
+      "offsets": [
+        188291,
+        188720
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "input",
+      "actual_REA_callable_id": "callable:function:188291:188720",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "frontiers_including_nested": 9
+    },
+    "input::eccomposite_v1.function.ecwapi_event.callSaveApi": {
+      "symbol": "eccomposite_v1.function.ecwapi_event.callSaveApi",
+      "span": [
+        1,
+        202451,
+        1,
+        203344
+      ],
+      "offsets": [
+        202451,
+        203344
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "input",
+      "actual_REA_callable_id": "callable:function:202451:203344",
+      "direct_call_count": 13,
+      "direct_call_resolution": {
+        "unresolved": 13
+      },
+      "frontiers_including_nested": 16
+    },
+    "output::eccomposite_v1.unit.widget.purchase_transferInvoice1._ON_CLICK": {
+      "symbol": "eccomposite_v1.unit.widget.purchase_transferInvoice1._ON_CLICK",
+      "span": [
+        1,
+        3012,
+        1,
+        6289
+      ],
+      "offsets": [
+        3012,
+        6289
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "output",
+      "actual_REA_callable_id": "callable:function:3012:6289",
+      "direct_call_count": 34,
+      "direct_call_resolution": {
+        "unresolved": 33,
+        "exact": 1
+      },
+      "frontiers_including_nested": 38
+    },
+    "output::eccomposite_v1.unit.widget.purchase_transferInvoice2._ON_CLICK": {
+      "symbol": "eccomposite_v1.unit.widget.purchase_transferInvoice2._ON_CLICK",
+      "span": [
+        1,
+        8257,
+        1,
+        11744
+      ],
+      "offsets": [
+        8257,
+        11744
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "output",
+      "actual_REA_callable_id": "callable:function:8257:11744",
+      "direct_call_count": 34,
+      "direct_call_resolution": {
+        "unresolved": 33,
+        "exact": 1
+      },
+      "frontiers_including_nested": 38
+    },
+    "output::eccomposite_v1.unit.widget.purchase_transferInvoiceImport._ON_CLICK": {
+      "symbol": "eccomposite_v1.unit.widget.purchase_transferInvoiceImport._ON_CLICK",
+      "span": [
+        1,
+        13580,
+        1,
+        16911
+      ],
+      "offsets": [
+        13580,
+        16911
+      ],
+      "reason": "bounded direct keyword consumer",
+      "source_id": "output",
+      "actual_REA_callable_id": "callable:function:13580:16911",
+      "direct_call_count": 34,
+      "direct_call_resolution": {
+        "unresolved": 33,
+        "exact": 1
+      },
+      "frontiers_including_nested": 38
+    },
+    "inventory::CreateAndModifyInventoryNewSlipUserAction.executeAsync": {
+      "symbol": "CreateAndModifyInventoryNewSlipUserAction.executeAsync",
+      "span": [
+        14890,
+        26,
+        15024,
+        5
+      ],
+      "offsets": [
+        737015,
+        744767
+      ],
+      "reason": "target class method",
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:function:737015:744767",
+      "direct_call_count": 13,
+      "direct_call_resolution": {
+        "unresolved": 12,
+        "exact": 1
+      },
+      "frontiers_including_nested": 34,
+      "nested_callables": [
+        {
+          "name": "_pageMovement",
+          "id": "callable:function:739086:740533",
+          "span": [
+            14919,
+            8,
+            14950,
+            9
+          ]
+        },
+        {
+          "name": "_createPageMovement",
+          "id": "callable:function:740542:741927",
+          "span": [
+            14951,
+            8,
+            14972,
+            9
+          ]
+        },
+        {
+          "name": "_modifyPageMovement",
+          "id": "callable:function:741936:743309",
+          "span": [
+            14973,
+            8,
+            14996,
+            9
+          ]
+        },
+        {
+          "name": "_getBarcodeInfo",
+          "id": "callable:function:743318:744032",
+          "span": [
+            14997,
+            8,
+            15007,
+            9
+          ]
+        },
+        {
+          "name": null,
+          "id": "callable:function:743645:743687",
+          "span": [
+            15000,
+            82,
+            15000,
+            124
+          ]
+        },
+        {
+          "name": null,
+          "id": "callable:function:743766:743802",
+          "span": [
+            15001,
+            76,
+            15001,
+            112
+          ]
+        },
+        {
+          "name": "_AttachSlip",
+          "id": "callable:function:744041:744393",
+          "span": [
+            15008,
+            8,
+            15015,
+            9
+          ]
+        },
+        {
+          "name": "_ApprovalSlip",
+          "id": "callable:function:744402:744761",
+          "span": [
+            15016,
+            8,
+            15023,
+            9
+          ]
+        }
+      ]
+    },
+    "actions::CreateAndModifyInventoryNewSlipUserAction.executeAsync": {
+      "symbol": "CreateAndModifyInventoryNewSlipUserAction.executeAsync",
+      "span": [
+        1,
+        346030,
+        1,
+        356058
+      ],
+      "offsets": [
+        346030,
+        356058
+      ],
+      "reason": "target compiled V5 action",
+      "source_id": "actions",
+      "actual_REA_callable_id": "callable:function:346030:356058",
+      "direct_call_count": 16,
+      "direct_call_resolution": {
+        "unresolved": 15,
+        "exact": 1
+      },
+      "frontiers_including_nested": 36,
+      "nested_callables": [
+        {
+          "name": null,
+          "id": "callable:function:347009:347061",
+          "span": [
+            1,
+            347009,
+            1,
+            347061
+          ]
+        },
+        {
+          "name": "_pageMovement1",
+          "id": "callable:function:348212:349952",
+          "span": [
+            1,
+            348212,
+            1,
+            349952
+          ]
+        },
+        {
+          "name": "_createPageMovement1",
+          "id": "callable:function:349952:352671",
+          "span": [
+            1,
+            349952,
+            1,
+            352671
+          ]
+        },
+        {
+          "name": "_modifyPageMovement1",
+          "id": "callable:function:352671:354929",
+          "span": [
+            1,
+            352671,
+            1,
+            354929
+          ]
+        },
+        {
+          "name": "_getBarcodeInfo1",
+          "id": "callable:function:354929:355575",
+          "span": [
+            1,
+            354929,
+            1,
+            355575
+          ]
+        },
+        {
+          "name": "_AttachSlip1",
+          "id": "callable:function:355575:355696",
+          "span": [
+            1,
+            355575,
+            1,
+            355696
+          ]
+        },
+        {
+          "name": "_ApprovalSlip1",
+          "id": "callable:function:355696:355821",
+          "span": [
+            1,
+            355696,
+            1,
+            355821
+          ]
+        }
+      ]
+    },
+    "common::OpenWebUploaderUserAction.executeAsync": {
+      "symbol": "OpenWebUploaderUserAction.executeAsync",
+      "span": [
+        52838,
+        26,
+        52888,
+        5
+      ],
+      "offsets": [
+        2471065,
+        2473991
+      ],
+      "reason": "target class method",
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common semantic OOM; static evidence only"
+    },
+    "common::OpenWebUploaderUserAction._openWebUploaderPopupAsync": {
+      "symbol": "OpenWebUploaderUserAction._openWebUploaderPopupAsync",
+      "span": [
+        52889,
+        4,
+        52927,
+        5
+      ],
+      "offsets": [
+        2473997,
+        2475887
+      ],
+      "reason": "target class method",
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common semantic OOM; static evidence only"
+    },
+    "prior-footer::save_new._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_new._ON_CLICK",
+      "span": [
+        1,
+        103163,
+        1,
+        103224
+      ],
+      "callable_id": "callable:function:103163:103224",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipSaveNew",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "prior-footer::save_new.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_new.execCreateComposite",
+      "span": [
+        1,
+        102298,
+        1,
+        103152
+      ],
+      "callable_id": "callable:function:102298:103152",
+      "direct_call_count": 7,
+      "calls_including_nested": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      },
+      "direct_callees": [
+        "[\"E040716\",\"E010712\"].contains",
+        "[\"C061105\"].contains",
+        "this.getColumnMapByKey",
+        "ecount.common.isTrue",
+        "_.includes",
+        "$.isEmpty"
+      ],
+      "frontiers_including_nested": 8,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "prior-footer::inputEvent.execSlipSaveNew": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSaveNew",
+      "span": [
+        1,
+        44566,
+        1,
+        44663
+      ],
+      "callable_id": "callable:function:44566:44663",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "prior-footer::inputEvent.initActionSetting": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.initActionSetting",
+      "span": [
+        1,
+        42916,
+        1,
+        44075
+      ],
+      "callable_id": "callable:function:42916:44075",
+      "direct_call_count": 2,
+      "calls_including_nested": 6,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "function(n){var t=[];return function(i,r){t.includes(i)||(t.push(i),n.call(this,i,r))}.bind(this)}.bind(this,this.customAsyncListCustom)",
+        "function(n){var t=[];return function(i,r){t.includes(i)||(t.push(i),n.call(this,i,r))}.bind(this)}.bind"
+      ],
+      "frontiers_including_nested": 6,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "prior-footer::inputEvent.defaultActionFunction": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.defaultActionFunction",
+      "span": [
+        1,
+        38765,
+        1,
+        42897
+      ],
+      "callable_id": "callable:function:38765:42897",
+      "direct_call_count": 66,
+      "calls_including_nested": 67,
+      "direct_call_resolution": {
+        "unresolved": 66
+      },
+      "direct_callees": [
+        "this.initPageOption.bind",
+        "this.includePageLoadCheck.bind",
+        "this.checkForInventoryBalance.bind",
+        "this.saveValidate.bind",
+        "this.orderManageCompleteValidate.bind",
+        "this.checkInvoiceDetailAmt.bind",
+        "this.checkMultiCustDuplication.bind",
+        "this.checkEApprovalRelSlip.bind",
+        "this.checkPreinvoicingData.bind",
+        "this.checkNewInvSlip.bind",
+        "this.getCollectiveInvocingAmt.bind",
+        "this.saveValidateSecond.bind",
+        "this.saveValidateShow.bind",
+        "this.setDeleteConfirm.bind",
+        "this.checkSlipVersion.bind",
+        "this.getDocNoCreate.bind",
+        "this.getNewDocNoCreate.bind",
+        "this.fileUpload.bind",
+        "this.checkCollectiveSlip.bind",
+        "this.getLimitCheck.bind",
+        "this.getSerialCheck.bind",
+        "this.reflectProdGridVat.bind"
+      ],
+      "frontiers_including_nested": 73,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "prior-footer::inputEvent.getSaveApiParam": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.getSaveApiParam",
+      "span": [
+        1,
+        117052,
+        1,
+        119987
+      ],
+      "callable_id": "callable:function:117052:119987",
+      "direct_call_count": 10,
+      "calls_including_nested": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "direct_callees": [
+        "this.pageInfo.params.footer.save",
+        "this.publishEvent",
+        "this.getComposite(\"form\").getNowGbTypeStatus",
+        "this.getComposite",
+        "r.list.concat",
+        "f.push"
+      ],
+      "frontiers_including_nested": 26,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "prior-footer::inputEvent.saveAfterInputPageSubmit": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit",
+      "span": [
+        1,
+        131124,
+        1,
+        133497
+      ],
+      "callable_id": "callable:function:131124:133497",
+      "direct_call_count": 20,
+      "calls_including_nested": 26,
+      "direct_call_resolution": {
+        "unresolved": 20
+      },
+      "direct_callees": [
+        "this.pageOption.asyncApiStep.getTemp",
+        "[\"saveNew\",\"saveReview\",\"saveSlipPayAssistant\"].includes",
+        "$.extend",
+        "this.getComposite",
+        "t.setInputCommonParamFromManagerORderMsg",
+        "$.isEmpty",
+        "this.submitPage",
+        "ecount.link.getConfigUrlData",
+        "function(n){var t={Request:{Key:{Date:this.slipInfo.Master.IO_DATE,No:this.slipInfo.Master.IO_NO},FromProgramId:this.pageOption.FromProgramId,EditMode:ecenum.editMode.modify,RoomSeq:this.pageOption.ROOM_SEQ},IsRefNew:this.pageOption.IsRefNew};this.getParentInstance()&&this.getParentInstance()._ON_REDRAW&&this.getParentInstance()._ON_REDRAW();this.submitPage(n.url,t,this.tabIdList.main)}.bind",
+        "this.close",
+        "this.setTimeout",
+        "function(){this.close()}.bind",
+        "this.onAllSubmitSelf"
+      ],
+      "frontiers_including_nested": 28,
+      "reference_file": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    }
+  }
+}

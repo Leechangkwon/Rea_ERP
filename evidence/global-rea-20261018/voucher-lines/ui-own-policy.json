@@ -1,0 +1,37 @@
+{
+  "version": "0.23.0",
+  "original_read_only_UI": {
+    "전표별": [
+      "전표별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "라인별": [
+      "라인별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "masked_first_label_shape": {
+      "전표별": "####/##/## -#",
+      "라인별": "####/##/## -#-#"
+    },
+    "business_values_or_sessions_retained": false,
+    "save_or_input_row_actions": false
+  },
+  "own_policy": {
+    "document_key": "doc.id",
+    "line_key": "tagged JSON [doc.id,id,lineId] or [doc.id,position,original1BasedRow] for legacy missing lineId",
+    "stable_line_identity": "existing valid lineId survives date changes/reorder; legacy positional fallback has no stability guarantee",
+    "label": "own ISO date + own existing document ID; line also has current original 1-based row number before filters",
+    "default_order": "display date/document/row label with ko numeric comparison; not opaque lineId order",
+    "explicit_sort": "existing stable priority then default-axis tie order",
+    "single_line_axis": "own summary still groups distinct own rows; original checkAggregate mode flag not promoted to server equivalence",
+    "drilldown": "not linked; exact original document/row filter unknown",
+    "schema_or_stored_record_change": false
+  },
+  "full_original_equivalence": false
+}

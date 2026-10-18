@@ -1,0 +1,477 @@
+{
+  "schema": 1,
+  "method": "Actual pinned REA6.4.0 IR joined by exact source locations to inert parser-recovered export/component/method names. Static candidate relations do not prove live dispatch.",
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] exclusive end; all3original bodies one line",
+  "sources": {
+    "page": {
+      "path": "$SCRATCH/report-sort-config-rea-20261018/app.setup.SortConfigPage.a9987e89.20.js",
+      "sha256": "98d3e36ff22dfab69ad5eac85687dc0b30deff9400f02a67d37a4bd1c27b36e6",
+      "bytes": 671,
+      "actual_REA_ir": "$SCRATCH/report-sort-config-rea-20261018/inputs/98d3e36ff22dfab6/rea-semantic-ir.json"
+    },
+    "actions": {
+      "path": "$SCRATCH/report-sort-config-rea-20261018/app.setup.user_action.89567f43.20.js",
+      "sha256": "27748077d5637698ca60c8eefe91f57a97581600593670e77b1fcb6467350dfd",
+      "bytes": 1872370,
+      "actual_REA_ir": "$SCRATCH/report-sort-config-rea-20261018/inputs/27748077d5637698/rea-semantic-ir.json"
+    },
+    "component": {
+      "path": "$SCRATCH/report-sort-config-rea-20261018/app.setup.component.02e22a70.20.js",
+      "sha256": "5d2ff43ada13b535ab536d29a13f1be9657c17c39dfddf92c2b90e183d54c19b",
+      "bytes": 33949,
+      "actual_REA_ir": "$SCRATCH/report-sort-config-rea-20261018/inputs/5d2ff43ada13b535/rea-semantic-ir.json"
+    }
+  },
+  "methods": {
+    "ECSearchInputISetupTemplateItemDto": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto",
+      "span": [
+        1,
+        17318,
+        1,
+        22455
+      ],
+      "actual_REA_callable_id": "callable:function:17318:22455",
+      "direct_call_count": 6,
+      "call_resolution": {
+        "unresolved": 5,
+        "exact": 1
+      }
+    },
+    "ECInputCodeISetupTemplateItemDto": {
+      "source": "component",
+      "symbol": "ECInputCodeISetupTemplateItemDto",
+      "span": [
+        1,
+        22489,
+        1,
+        26948
+      ],
+      "actual_REA_callable_id": "callable:function:22489:26948",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 1,
+        "exact": 1
+      }
+    },
+    "ApplySortConfigUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "ApplySortConfigUserAction.executeAsync",
+      "span": [
+        1,
+        136433,
+        1,
+        138009
+      ],
+      "actual_REA_callable_id": "callable:function:136433:138009",
+      "direct_call_count": 12,
+      "call_resolution": {
+        "unresolved": 9,
+        "exact": 3
+      }
+    },
+    "ApplySubtotalConfigUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "ApplySubtotalConfigUserAction.executeAsync",
+      "span": [
+        1,
+        138421,
+        1,
+        138620
+      ],
+      "actual_REA_callable_id": "callable:function:138421:138620",
+      "direct_call_count": 4,
+      "call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "BulkRemoveSortConfigUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "BulkRemoveSortConfigUserAction.executeAsync",
+      "span": [
+        1,
+        203292,
+        1,
+        204265
+      ],
+      "actual_REA_callable_id": "callable:function:203292:204265",
+      "direct_call_count": 9,
+      "call_resolution": {
+        "unresolved": 9
+      }
+    },
+    "InitializeSortConfigUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUserAction.executeAsync",
+      "span": [
+        1,
+        322158,
+        1,
+        327537
+      ],
+      "actual_REA_callable_id": "callable:function:322158:327537",
+      "direct_call_count": 18,
+      "call_resolution": {
+        "unresolved": 11,
+        "exact": 7
+      }
+    },
+    "SetDataSortConfigUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "SetDataSortConfigUserAction.executeAsync",
+      "span": [
+        1,
+        703675,
+        1,
+        704562
+      ],
+      "actual_REA_callable_id": "callable:function:703675:704562",
+      "direct_call_count": 13,
+      "call_resolution": {
+        "unresolved": 12,
+        "exact": 1
+      }
+    },
+    "SetSortPropUserAction.getRequestDto": {
+      "source": "actions",
+      "symbol": "SetSortPropUserAction.getRequestDto",
+      "span": [
+        1,
+        728236,
+        1,
+        729946
+      ],
+      "actual_REA_callable_id": "callable:method:728236:729946",
+      "direct_call_count": 4,
+      "call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "SetSortPropUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "SetSortPropUserAction.executeAsync",
+      "span": [
+        1,
+        729979,
+        1,
+        731540
+      ],
+      "actual_REA_callable_id": "callable:function:729979:731540",
+      "direct_call_count": 12,
+      "call_resolution": {
+        "unresolved": 12
+      }
+    },
+    "SetSubtotalConfigUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "SetSubtotalConfigUserAction.executeAsync",
+      "span": [
+        1,
+        732014,
+        1,
+        733009
+      ],
+      "actual_REA_callable_id": "callable:function:732014:733009",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "save": {
+      "source": "actions",
+      "symbol": "save",
+      "span": [
+        1,
+        33698,
+        1,
+        34569
+      ],
+      "actual_REA_callable_id": "callable:function:33698:34569",
+      "direct_call_count": 5,
+      "call_resolution": {
+        "unresolved": 5
+      }
+    },
+    "save_validate": {
+      "source": "actions",
+      "symbol": "save_validate",
+      "span": [
+        1,
+        34569,
+        1,
+        34683
+      ],
+      "actual_REA_callable_id": "callable:function:34569:34683",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "apply_validate": {
+      "source": "actions",
+      "symbol": "apply_validate",
+      "span": [
+        1,
+        34683,
+        1,
+        36027
+      ],
+      "actual_REA_callable_id": "callable:function:34683:36027",
+      "direct_call_count": 12,
+      "call_resolution": {
+        "unresolved": 12
+      }
+    },
+    "getSortConfigUtil$1": {
+      "source": "actions",
+      "symbol": "getSortConfigUtil$1",
+      "span": [
+        1,
+        657951,
+        1,
+        661360
+      ],
+      "actual_REA_callable_id": "callable:function:657951:661360",
+      "direct_call_count": 5,
+      "call_resolution": {
+        "unresolved": 2,
+        "exact": 3
+      }
+    },
+    "InitializeSortConfigUtils.getSortPropDataTypeData": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.getSortPropDataTypeData",
+      "span": [
+        1,
+        327911,
+        1,
+        328111
+      ],
+      "actual_REA_callable_id": "callable:function:327911:328111",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "InitializeSortConfigUtils.isEnableSetup": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.isEnableSetup",
+      "span": [
+        1,
+        328126,
+        1,
+        328219
+      ],
+      "actual_REA_callable_id": "callable:function:328126:328219",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "InitializeSortConfigUtils.hasSubtotal": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.hasSubtotal",
+      "span": [
+        1,
+        328232,
+        1,
+        328277
+      ],
+      "actual_REA_callable_id": "callable:function:328232:328277",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "InitializeSortConfigUtils.isEnableSubtotalTf": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.isEnableSubtotalTf",
+      "span": [
+        1,
+        328297,
+        1,
+        328499
+      ],
+      "actual_REA_callable_id": "callable:function:328297:328499",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "InitializeSortConfigUtils.isEnableSubtotalStandard": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.isEnableSubtotalStandard",
+      "span": [
+        1,
+        328525,
+        1,
+        328674
+      ],
+      "actual_REA_callable_id": "callable:function:328525:328674",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "InitializeSortConfigUtils.hasPageSeparate": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.hasPageSeparate",
+      "span": [
+        1,
+        328691,
+        1,
+        328741
+      ],
+      "actual_REA_callable_id": "callable:function:328691:328741",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "InitializeSortConfigUtils.isEnablePageSeparate": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.isEnablePageSeparate",
+      "span": [
+        1,
+        328763,
+        1,
+        329076
+      ],
+      "actual_REA_callable_id": "callable:function:328763:329076",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "InitializeSortConfigUtils.getDataTypeGroup": {
+      "source": "actions",
+      "symbol": "InitializeSortConfigUtils.getDataTypeGroup",
+      "span": [
+        1,
+        329094,
+        1,
+        329280
+      ],
+      "actual_REA_callable_id": "callable:function:329094:329280",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "OutputSortConfigUtil$1": {
+      "source": "actions",
+      "symbol": "OutputSortConfigUtil$1",
+      "span": [
+        1,
+        665477,
+        1,
+        670535
+      ],
+      "actual_REA_callable_id": "callable:function:665477:670535",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "criterion.resetValue": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.resetValue",
+      "span": [
+        1,
+        18150,
+        1,
+        18210
+      ],
+      "actual_REA_callable_id": "callable:function:18150:18210",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "criterion.searchByKeyword": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.searchByKeyword",
+      "span": [
+        1,
+        18269,
+        1,
+        19351
+      ],
+      "actual_REA_callable_id": "callable:function:18269:19351",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "criterion.onChangeName": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.onChangeName",
+      "span": [
+        1,
+        19812,
+        1,
+        19859
+      ],
+      "actual_REA_callable_id": "callable:function:19812:19859",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "criterion.onKeyDown": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.onKeyDown",
+      "span": [
+        1,
+        19920,
+        1,
+        20055
+      ],
+      "actual_REA_callable_id": "callable:function:19920:20055",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "criterion.onDoubleClick": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.onDoubleClick",
+      "span": [
+        1,
+        20124,
+        1,
+        20466
+      ],
+      "actual_REA_callable_id": "callable:function:20124:20466",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "criterion.onBlurName": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.onBlurName",
+      "span": [
+        1,
+        20614,
+        1,
+        20628
+      ],
+      "actual_REA_callable_id": "callable:function:20614:20628",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "criterion.onMouseDownSearchButton": {
+      "source": "component",
+      "symbol": "ECSearchInputISetupTemplateItemDto.onMouseDownSearchButton",
+      "span": [
+        1,
+        20681,
+        1,
+        21028
+      ],
+      "actual_REA_callable_id": "callable:function:20681:21028",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    }
+  }
+}

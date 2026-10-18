@@ -1,0 +1,968 @@
+{
+  "rea_version": "6.4.0",
+  "method": "Retained full/excerpt actual REA only, no new semantic runs or original execution",
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "actual_REA": "6.4.0",
+      "full_static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "full_semantic_status": "Prior2GB OOM; no full retry/no full IR",
+      "excerpt_semantics_scope": "Existing separately analyzed mapped inert excerpts only, not full common or additional corpus bodies",
+      "SHA_rechecked": true
+    },
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "actual_REA": "6.4.0",
+      "full_semantic_status": "complete",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "callables": 1926,
+      "calls": 7148,
+      "frontiers": 8012,
+      "SHA_rechecked": true
+    }
+  ],
+  "references": {
+    "common::getAggregateConditionKeys": {
+      "symbol": "getAggregateConditionKeys",
+      "span": [
+        111,
+        0,
+        124,
+        1
+      ],
+      "offsets": [
+        4561,
+        5087
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:110:636",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::isOutputSearchType": {
+      "symbol": "isOutputSearchType",
+      "span": [
+        8469,
+        27,
+        8469,
+        67
+      ],
+      "offsets": [
+        389857,
+        389897
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::isOutputPlatform": {
+      "symbol": "isOutputPlatform",
+      "span": [
+        8471,
+        25,
+        8471,
+        59
+      ],
+      "offsets": [
+        389947,
+        389981
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::isOutputOnlyPath": {
+      "symbol": "isOutputOnlyPath",
+      "span": [
+        8478,
+        25,
+        8478,
+        112
+      ],
+      "offsets": [
+        390223,
+        390310
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveDateUnit": {
+      "symbol": "resolveDateUnit",
+      "span": [
+        20531,
+        0,
+        20554,
+        1
+      ],
+      "offsets": [
+        910616,
+        911399
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::truncateDateByUnit": {
+      "symbol": "truncateDateByUnit",
+      "span": [
+        20556,
+        0,
+        20562,
+        1
+      ],
+      "offsets": [
+        911460,
+        911668
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::buildAggregateAccumulators": {
+      "symbol": "buildAggregateAccumulators",
+      "span": [
+        20568,
+        0,
+        20598,
+        1
+      ],
+      "offsets": [
+        912032,
+        913535
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveStandardByType": {
+      "symbol": "resolveStandardByType",
+      "span": [
+        20602,
+        0,
+        20606,
+        1
+      ],
+      "offsets": [
+        913664,
+        914004
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveGroupSectionDmc": {
+      "symbol": "resolveGroupSectionDmc",
+      "span": [
+        20629,
+        0,
+        20638,
+        1
+      ],
+      "offsets": [
+        915076,
+        915444
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveTitleCustomDisplayName": {
+      "symbol": "resolveTitleCustomDisplayName",
+      "span": [
+        20639,
+        0,
+        20643,
+        1
+      ],
+      "offsets": [
+        915445,
+        915889
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::buildSortMetaMap": {
+      "symbol": "buildSortMetaMap",
+      "span": [
+        20645,
+        0,
+        20670,
+        1
+      ],
+      "offsets": [
+        915963,
+        917125
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::createValueExtractor": {
+      "symbol": "createValueExtractor",
+      "span": [
+        20672,
+        0,
+        20696,
+        1
+      ],
+      "offsets": [
+        917160,
+        918246
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::createSubtotalTitleResolver": {
+      "symbol": "createSubtotalTitleResolver",
+      "span": [
+        20702,
+        0,
+        20722,
+        1
+      ],
+      "offsets": [
+        918456,
+        919600
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveSortEntryName": {
+      "symbol": "resolveSortEntryName",
+      "span": [
+        20723,
+        0,
+        20746,
+        1
+      ],
+      "offsets": [
+        919601,
+        920628
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveDateTitle": {
+      "symbol": "resolveDateTitle",
+      "span": [
+        20748,
+        0,
+        20762,
+        1
+      ],
+      "offsets": [
+        920699,
+        921406
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveEnumTfTitle": {
+      "symbol": "resolveEnumTfTitle",
+      "span": [
+        20764,
+        0,
+        20784,
+        1
+      ],
+      "offsets": [
+        921482,
+        922286
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveCodeCdTitle": {
+      "symbol": "resolveCodeCdTitle",
+      "span": [
+        20786,
+        0,
+        20792,
+        1
+      ],
+      "offsets": [
+        922334,
+        922577
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::resolveDefaultTitle": {
+      "symbol": "resolveDefaultTitle",
+      "span": [
+        20794,
+        0,
+        20804,
+        1
+      ],
+      "offsets": [
+        922612,
+        923016
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::getGroupAggregateConfigs": {
+      "symbol": "getGroupAggregateConfigs",
+      "span": [
+        20808,
+        0,
+        20863,
+        1
+      ],
+      "offsets": [
+        923138,
+        925590
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:20807:23259",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-consumer-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/consumer-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::getFixedSectionConfig": {
+      "symbol": "getFixedSectionConfig",
+      "span": [
+        20869,
+        0,
+        20900,
+        1
+      ],
+      "offsets": [
+        925746,
+        927088
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::createSubtotalConfig": {
+      "symbol": "createSubtotalConfig",
+      "span": [
+        20967,
+        30,
+        20990,
+        1
+      ],
+      "offsets": [
+        929909,
+        930848
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::buildSubtotalAggregate": {
+      "symbol": "buildSubtotalAggregate",
+      "span": [
+        20991,
+        0,
+        21004,
+        1
+      ],
+      "offsets": [
+        930850,
+        931574
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::createSummaryConfig": {
+      "symbol": "createSummaryConfig",
+      "span": [
+        21004,
+        29,
+        21026,
+        1
+      ],
+      "offsets": [
+        931602,
+        932430
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:23429:24257",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-consumer-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 5,
+        "exact": 1
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/consumer-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::buildSummarySort": {
+      "symbol": "buildSummarySort",
+      "span": [
+        21028,
+        0,
+        21048,
+        1
+      ],
+      "offsets": [
+        932520,
+        933294
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:21540:22314",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "exact": 1,
+        "unresolved": 1
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::buildInfoForNewRow": {
+      "symbol": "buildInfoForNewRow",
+      "span": [
+        27055,
+        0,
+        27083,
+        1
+      ],
+      "offsets": [
+        1221712,
+        1222839
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::getPropDefinition": {
+      "symbol": "getPropDefinition",
+      "span": [
+        27087,
+        0,
+        27115,
+        1
+      ],
+      "offsets": [
+        1222879,
+        1223948
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::getUnwindAggregationCriteriaConfig": {
+      "symbol": "getUnwindAggregationCriteriaConfig",
+      "span": [
+        27152,
+        2,
+        27183,
+        1
+      ],
+      "offsets": [
+        1225338,
+        1226778
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::processAggregateConditions": {
+      "symbol": "processAggregateConditions",
+      "span": [
+        27184,
+        0,
+        27193,
+        1
+      ],
+      "offsets": [
+        1226779,
+        1227270
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::processFreeAggregateCondition": {
+      "symbol": "processFreeAggregateCondition",
+      "span": [
+        27194,
+        0,
+        27222,
+        1
+      ],
+      "offsets": [
+        1227271,
+        1228442
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::getNewRowInfos$1": {
+      "symbol": "getNewRowInfos$1",
+      "span": [
+        27280,
+        0,
+        27308,
+        1
+      ],
+      "offsets": [
+        1230931,
+        1232031
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::grid$aggregate_dlt_feature_config": {
+      "symbol": "grid$aggregate_dlt_feature_config",
+      "span": [
+        27484,
+        43,
+        27530,
+        1
+      ],
+      "offsets": [
+        1240710,
+        1242976
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:31943:34209",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-consumer-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 4,
+        "exact": 1
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/consumer-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::getNewRowInfos": {
+      "symbol": "getNewRowInfos",
+      "span": [
+        27538,
+        0,
+        27566,
+        1
+      ],
+      "offsets": [
+        1243243,
+        1244374
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::grid$sort_search_dlt_feature_config": {
+      "symbol": "grid$sort_search_dlt_feature_config",
+      "span": [
+        27569,
+        45,
+        27596,
+        1
+      ],
+      "offsets": [
+        1244521,
+        1245609
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::grid$ui_sort_dlt_feature_config": {
+      "symbol": "grid$ui_sort_dlt_feature_config",
+      "span": [
+        27596,
+        42,
+        27621,
+        1
+      ],
+      "offsets": [
+        1245650,
+        1246531
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::DLTMapBuilder.build": {
+      "symbol": "DLTMapBuilder.build",
+      "span": [
+        27821,
+        4,
+        27858,
+        5
+      ],
+      "offsets": [
+        1255538,
+        1257264
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::PrintSlipUserAction.executeAsync": {
+      "symbol": "PrintSlipUserAction.executeAsync",
+      "span": [
+        47960,
+        26,
+        48003,
+        5
+      ],
+      "offsets": [
+        2208714,
+        2211036
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::RenderPreviewUserAction.executeAsync": {
+      "symbol": "RenderPreviewUserAction.executeAsync",
+      "span": [
+        48014,
+        26,
+        48043,
+        5
+      ],
+      "offsets": [
+        2211905,
+        2213807
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    },
+    "common::getAggregateConditionData": {
+      "symbol": "getAggregateConditionData",
+      "span": [
+        56068,
+        0,
+        56080,
+        1
+      ],
+      "offsets": [
+        2629932,
+        2630387
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:60720:61175",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::normalizeAggregateRequest": {
+      "symbol": "normalizeAggregateRequest",
+      "span": [
+        62452,
+        0,
+        62462,
+        1
+      ],
+      "offsets": [
+        2949001,
+        2949554
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:68201:68754",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 3,
+        "exact": 2
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::buildNormalizedAggregate": {
+      "symbol": "buildNormalizedAggregate",
+      "span": [
+        62464,
+        0,
+        62487,
+        1
+      ],
+      "offsets": [
+        2949609,
+        2950461
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:68756:69608",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::buildConditionsFromDetails": {
+      "symbol": "buildConditionsFromDetails",
+      "span": [
+        62489,
+        0,
+        62504,
+        1
+      ],
+      "offsets": [
+        2950546,
+        2951118
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:69610:70182",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "common::rebuildAggregateGroups": {
+      "symbol": "rebuildAggregateGroups",
+      "span": [
+        62508,
+        0,
+        62528,
+        1
+      ],
+      "offsets": [
+        2951196,
+        2952105
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "callable:function:70186:71095",
+      "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "semantic_scope": "mapped derived excerpt only",
+      "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+      "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+    },
+    "inventory::InventoryStatusCreateDMCResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusCreateDMCResolver.OnExecuteAsync",
+      "span": [
+        363,
+        4,
+        470,
+        5
+      ],
+      "offsets": [
+        18190,
+        23895
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:18190:23895",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 25,
+      "direct_call_resolution": {
+        "unresolved": 25
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryStatusCreateDMCResolver.getAggregateModelInfo": {
+      "symbol": "InventoryStatusCreateDMCResolver.getAggregateModelInfo",
+      "span": [
+        471,
+        4,
+        497,
+        5
+      ],
+      "offsets": [
+        23900,
+        25062
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:23900:25062",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo": {
+      "symbol": "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+      "span": [
+        498,
+        4,
+        507,
+        5
+      ],
+      "offsets": [
+        25067,
+        25452
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:25067:25452",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo": {
+      "symbol": "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "span": [
+        508,
+        4,
+        518,
+        5
+      ],
+      "offsets": [
+        25457,
+        25961
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:25457:25961",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryStatusCreateDMCResolver.getFixedAggregateModelInfo": {
+      "symbol": "InventoryStatusCreateDMCResolver.getFixedAggregateModelInfo",
+      "span": [
+        519,
+        4,
+        526,
+        5
+      ],
+      "offsets": [
+        25966,
+        26422
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:25966:26422",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryStatusDownloadExcelResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusDownloadExcelResolver.OnExecuteAsync",
+      "span": [
+        572,
+        4,
+        597,
+        5
+      ],
+      "offsets": [
+        28855,
+        30296
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:28855:30296",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryExcelSearchResolver.OnExecuteAsync": {
+      "symbol": "InventoryExcelSearchResolver.OnExecuteAsync",
+      "span": [
+        2020,
+        4,
+        2042,
+        5
+      ],
+      "offsets": [
+        99443,
+        100238
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:99443:100238",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 3,
+        "exact": 1
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::InventoryStatusSortSearchResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusSortSearchResolver.OnExecuteAsync",
+      "span": [
+        2748,
+        4,
+        2803,
+        5
+      ],
+      "offsets": [
+        131713,
+        134416
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:131713:134416",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 15,
+      "direct_call_resolution": {
+        "unresolved": 15
+      },
+      "semantic_scope": "retained complete original body"
+    },
+    "inventory::SelectInventoryStatusProgram.onExecuteAsync": {
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "offsets": [
+        471751,
+        474903
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      },
+      "semantic_scope": "retained complete original body"
+    }
+  }
+}

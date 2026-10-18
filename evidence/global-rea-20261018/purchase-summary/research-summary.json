@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T05:34:34.130032+00:00",
+  "new_GET_captures": 5,
+  "distinct_capture_bodies": 5,
+  "corpus_new_unique_bodies": 3,
+  "reused_refreshed_bodies": 2,
+  "new_unique_bytes": 586127,
+  "rea_version": "6.4.0",
+  "per_body_time_budget_seconds": 30,
+  "actual_static_completed": 5,
+  "actual_semantic_completed": 5,
+  "parse_error_count": 0,
+  "timeouts": 0,
+  "new3_totals": {
+    "visited_ast_nodes": 137678,
+    "callables": 2572,
+    "call_sites": 8970,
+    "frontiers": 9539
+  },
+  "all5_execution_totals": {
+    "visited_ast_nodes": 223284,
+    "callables": 3577,
+    "call_sites": 13594,
+    "frontiers": 14486
+  },
+  "per_body": [
+    {
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 1233,
+      "call_sites": 3881,
+      "frontiers": 4155,
+      "call_resolution": {
+        "unresolved": 3877,
+        "exact": 4
+      }
+    },
+    {
+      "sha256": "fcad48f8f56b63fe54284cb25e7a8e9f2f60db39c86234399a841cb21df981f4",
+      "bytes": 30909,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 85,
+      "call_sites": 374,
+      "frontiers": 404,
+      "call_resolution": {
+        "unresolved": 374
+      }
+    },
+    {
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 1254,
+      "call_sites": 4715,
+      "frontiers": 4980,
+      "call_resolution": {
+        "unresolved": 4703,
+        "exact": 12
+      }
+    },
+    {
+      "sha256": "6bdc598e619328fe08e0d0fa8211b5d3c8c3ba777dc876863ed7d12621806dce",
+      "bytes": 1030,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 3,
+      "call_sites": 6,
+      "frontiers": 5,
+      "call_resolution": {
+        "exact": 1,
+        "unresolved": 5
+      }
+    },
+    {
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 1002,
+      "call_sites": 4618,
+      "frontiers": 4942,
+      "call_resolution": {
+        "exact": 403,
+        "unresolved": 4215
+      }
+    }
+  ],
+  "source_evidence_methods": 59,
+  "source_execution": false,
+  "application_edits": false,
+  "browser_operations": 0,
+  "real_business_records_collected": false,
+  "current_original_UI_equivalence_proven": false,
+  "outputs": [
+    "source-manifest.json",
+    "v3-widget-contracts.json",
+    "v56-report-contracts.json",
+    "precise-source-evidence.json",
+    "analysis-summary.json",
+    "current-v56-preload/analysis-summary.json"
+  ],
+  "key_boundary": "Current parent DOM is V56 purchasesXstatus/Search F3; V3 widget preload contracts do not prove active binding. Backend group/tax/amount/comparison formulas unknown."
+}

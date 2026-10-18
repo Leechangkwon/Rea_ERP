@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T08:25:00.081128+00:00",
+  "scope": {
+    "retained_original_bodies": 78,
+    "original_bytes": 19149569,
+    "new_GETs": 0,
+    "new_bodies": 0,
+    "browser_actions": 0,
+    "original_JS_execution": false,
+    "private_API_requests": 0,
+    "original_save_or_main_row_actions": false,
+    "app_or_prior_contract_changes": false,
+    "tests_executed": false,
+    "independent_from": "Owner0.27 SaveNew full checks"
+  },
+  "conclusion": {
+    "source_coverage": "Retained V56 inventory has explicit graph search/axis/default/data/widget paths; common has chart conversion and settings consumers. It is not merely a graph checkbox label.",
+    "current_purchase_binding": "unknown until owner current UI/registry/template confirms; generic retained inventory/shared graph code is compatible evidence, not purchasesXstatus-specific runtime proof. Exact purchasesXstatus literal absent in inspected78.",
+    "own_feasibility": "Own PurchasingReportCore summary returns numeric rows/records and axes suitable for a separate local graph policy without new API calls. This cannot claim original graph aggregation/rendering equivalence."
+  },
+  "owner_observation_boundary": {
+    "status": "Current purchase graph condition/response inspection pending parent; this worker performed no UI action and collected no company values.",
+    "storage_policy": "Only public source contracts and generic labels/structure; do not retain company chart points, axes values, table results, dates or screenshots with records."
+  },
+  "V56_checkbox_and_search": [
+    {
+      "topic": "Checkbox state",
+      "refs": [
+        "common::ChangeGraphSettingUserAction.executeAsync"
+      ],
+      "contract": "Reads owner data_view_format, updates IGraphOption from setting; checked returns, unchecked hides aggregate validation error. This function does not clear comparison_period or itself dispatch a query. A comment describes clearing, but executable body only hides error.",
+      "limit": "Whether current UI automatically dispatches search on checkbox change is not established; runtime event binding must be observed separately."
+    },
+    {
+      "topic": "Dispatch",
+      "refs": [
+        "inventory::SelectInventoryStatusUserAction.executeAsync",
+        "inventory::SelectInventorySumStatusUserAction.executeAsync",
+        "inventory::getContextResolvers$1",
+        "inventory::getContextResolvers",
+        "inventory::getSearchProcessResolver$1",
+        "inventory::getSearchProcessResolver"
+      ],
+      "contract": "Select action reads template_dmc.data_view_format.is_graph and passes it to status/sum-status BuildProcessFeature. Graph selects graph context/model/default/prepare/query resolvers; regular path is distinct. Both status and sum_status variants exist."
+    },
+    {
+      "topic": "Context and pagination",
+      "refs": [
+        "inventory::InventoryStatusGraphGetContextResolver.OnExecuteAsync",
+        "inventory::InventorySumStatusGraphGetContextResolver.OnExecuteAsync",
+        "inventory::resolveStatusGraphContext",
+        "inventory::toGraphXTemplateInfo",
+        "inventory::InventoryStatusSetDefaultGraphSearchOptionResolver.OnExecuteAsync"
+      ],
+      "contract": "Load graph.data + jqplot resources. Keep ctx_template_attribute for grid query but replace display template with type=chart widget for status/sum_status model. Graph default deletes search_options.page. It is not proven to render only currently visible table-page rows."
+    },
+    {
+      "topic": "Header/quick lookup",
+      "refs": [
+        "inventory::InventoryStatusGraphHeaderSearchResolver.OnExecuteAsync",
+        "inventory::InventoryStatusGraphQuickSearchResolver.OnExecuteAsync"
+      ],
+      "contract": "Header clears quick_search/condition_quick, applies configured limit and default sort helper. Quick uses payload quick_search plus common configure/validation. Limits remain menu-dependent; no unlimited-all-data claim."
+    },
+    {
+      "topic": "Graph query",
+      "refs": [
+        "inventory::InventoryStatusGraphSearchDataModelResolver.OnExecuteAsync"
+      ],
+      "contract": "If grid body_use_tf is not false, invokes inventory$SelectInventoryStatusProgram with current bizz/search_options/search DMC/model/template context and form_type/item_separate_tf. Returns data_model,total_count,date,is_aggregate. Empty data alerts, reopens search panel, throws SEARCH_FAIL. Backend selection/aggregation response is external; no private request executed."
+    }
+  ],
+  "V56_default_and_metric_candidates": {
+    "default_ref": "inventory::InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+    "defaults_when_setting_empty": {
+      "x1": "first returned X candidate ID/title",
+      "y1": "first returned Y candidate ID/title",
+      "graphType": "bar",
+      "useGrid": true,
+      "usePointLabel": true,
+      "useFormattedNumberLabel": true,
+      "useLegend": true,
+      "hasTrendlineForY1": false,
+      "hasTrendlineForY2": false,
+      "isShowHighest": false,
+      "isShowLowest": false,
+      "isShowGraphTitle": true,
+      "defaultAxisIndex": 1,
+      "isShowXTitle": true,
+      "isShowYTitle": true
+    },
+    "after_validation": "If validator false, alerts then SEARCH_FAIL. Otherwise sets IGraphOption and stores cloned data_view_format; hides search panel and exposes search button.",
+    "candidate_ref": "common::GetGraphColumnInfoProgram.onExecuteAsync",
+    "candidate_evidence_level": "common original static AST; full semantic OOM preserved",
+    "free_summary": "X candidates come from selected aggregate condition* entries with prop_id, using prop_name. No selected conditions alerts and returns empty. Y candidates are $$decimal items returned by current-template GetPropDisplayNameAction. This is metadata-dependent, not hard-coded four metrics.",
+    "fixed_detail": "Current-template decimal items plus cust_limit_term/deno_rate exceptions become Y candidates; others X. Product image excluded from X.",
+    "metric_unknown": "Current purchase template X/Y list, numeric item order and default selected metric have not been observed/retrieved. Do not infer default supply amount or exact quantity/tax/total availability merely from table headers."
+  },
+  "V56_graph_settings": {
+    "settings_ref": "common::ConfigureGraphOptionsUserAction.executeAsync",
+    "flow": "Fetch current-template axis candidates, validate, then open IConfigureGraphOptionsPage with axisInfo/current graphSetting. If returned message exists, optional callback, set IGraphOption/isAppliedGraphOption, fallback graphTitle from menu name and data_view_format={setting,is_graph:true}. Local handler does not itself dispatch result query. Popup buttons/keyboard/cancel/persistence are not captured.",
+    "axis_order_warning": "Source TODO notes popup xAxis/yAxis information reversed; current ChartWidgetAstInterceptor handles its own contract. Do not port popup field naming by assumption.",
+    "aggregate_change_ref": "common::ChangeAggregateTypeUserAction.executeAsync",
+    "aggregate_change": "When aggregate key is unchanged, aggregate type free and graph checked, changing aggregate conditions clears setting and IGraphOption. Other template changes follow additional metadata flow.",
+    "filter_ref": "common::ConfigureGraphFilterUserAction.executeAsync",
+    "filter_boundary": "Retained shared filter action opens IConfigureGraphFilterPage and applies returned filtering/chart config locally. Exact current UI affordances and renderer filter aggregation remain unknown."
+  },
+  "V56_validator": {
+    "ref": "common::GraphSettingValidatorAttrProgram.onExecuteAsync",
+    "evidence_level": "common static implementation, no full common semantic success",
+    "external_config": "GetTemplateSortConfigAction supplies template repeat/pivot/separation/page options; source path only, never called here.",
+    "reject_conditions": [
+      "repeat_tf true",
+      "fixed_pivot_tf true",
+      "item_separate_tf true",
+      "page_option.page_lookup_type=T/current page",
+      "aggregate.comparison_period is not string0/None",
+      "empty X or Y candidate list"
+    ],
+    "limit": "Generic validator existence and current original comparison-disabled UI are separate facts; applicability/binding and exact current responses pending owner observation."
+  },
+  "types_from_shared_source": [
+    {
+      "graphType": "bar",
+      "view_type": "VERTICALBAR_CHART",
+      "legacy_class": "ECVerticalBarChart"
+    },
+    {
+      "graphType": "horizontalBar",
+      "view_type": "HORIZONTALBAR_CHART",
+      "legacy_class": "ECHorizontalBarChart"
+    },
+    {
+      "graphType": "line",
+      "view_type": "LINE_CHART",
+      "legacy_class": "ECLineChart"
+    },
+    {
+      "graphType": "pie",
+      "view_type": "PIE_CHART",
+      "legacy_class": "ECPieChart"
+    },
+    {
+      "graphType": "area",
+      "view_type": "AREA_CHART",
+      "legacy_class": "ECAreaChart"
+    }
+  ],
+  "types_refs": [
+    "common::StatusGraphWidgetAttrContributor._getChartViewType",
+    "v3-graph::eccomposite_v1.group.graph.basic.createGraph"
+  ],
+  "type_limit": "Shared mappings establish supported conversion branches, not current purchase settings popup labels, available types, permissions or full original rendering behavior.",
+  "graph_data_and_external_boundaries": [
+    {
+      "refs": [
+        "common::GraphConfigBuilder.build",
+        "common::GraphConfigBuilder.resolveAxes",
+        "common::GraphConfigBuilder.buildAxisConfig",
+        "common::GraphConfigBuilder.makeChartDataModels"
+      ],
+      "contract": "Map selected x1/x2/y1/y2 IDs to DMC prop definitions. Build axis lists from DMC values and record_sid key; execute value-format feature, normalize numeric separators, map blank text fallback. Only nonempty K-E-Y rows pushed. This can change displayed source representation; no assertion that arbitrary own summary records match original record keys."
+    },
+    {
+      "refs": [
+        "common::GraphConfigBuilder.composePlatformConfig"
+      ],
+      "contract": "For highest/lowest comparator, pie uses y1; aggregate forces comparatorPropName y1, otherwise comparatorColumn. Exact top/bottom category selection and ties depend on external graph.data."
+    },
+    {
+      "refs": [
+        "common::createChartOption",
+        "common::getChartOptionByMatrix"
+      ],
+      "contract": "Choose 1x1/1x2/2x1/2x2 by secondary axis availability and delegate option/data construction to ecount.graph.data getOnoByOne/getOnoByTwo/getTwoByOne/getTwoByTwoOptionOfECChart. These invoked definitions are not retained in78; category grouping, summing/alignment, sort and row treatment are unresolved external boundaries."
+    },
+    {
+      "refs": [
+        "common::ChartWidgetAstInterceptor.afterConvert",
+        "common::ChartWidgetAstInterceptor.registerLazyLoadModules"
+      ],
+      "contract": "Create platform_config/graph_config for chart widget state, keep origin graph config; lazy-load ecount.browser.graph. Actual chart renderer, geometry, hover/click/drilldown/export/image/print parity not captured. No DLT completion claim."
+    }
+  ],
+  "V3_compatible_path_separate": {
+    "refs": [
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeControl",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onSearchValidate",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onSetSearchParam",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.getGraphSetting",
+      "v3-footer::eccomposite_v1.unit.widget.graph._ON_CLICK",
+      "v3-graph::eccomposite_v1.group.graph.basic.draw"
+    ],
+    "contract": "V3 dataViewType checkbox toggles settings-link visibility, normalizes dataTypeGraph toY/N during search and rejects comparison period. Graph settings use GraphSetupSetting popup/metadata and ecmodule.common.graph. Footer Graph can choose existing grid/dataView and opens configuration; group.graph.basic renders through external ECChart constructors. This alternate table-to-graph path must not be conflated with current V56 graph search resolver.",
+    "unknown": "Current purchase report binding to V3 global-preloaded widgets is unverified. Their presence does not establish current checkbox/search/metric behavior."
+  },
+  "own_independent_policy_feasibility": {
+    "refs": [
+      "own-core::search",
+      "own-core::summarize",
+      "own-core::sortResult",
+      "own-ui::graph_checkbox",
+      "own-ui::values"
+    ],
+    "current": "Own graph checkbox is disabled and created outside controls; values/snapshot currently do not carry that checkbox. No graph implementation is added here.",
+    "available_data": "Own summary returns axes, records(axis/labels/quantity/supply/tax/total), rows and currency. Rows/records share explicit sort ordering; currency guard rejects mixed currencies. Existing filters/status/source calculations remain own policies.",
+    "possible_bounded_policy": [
+      "Only summary mode initially; graph current validated result records, without a new query or re-reading source documents.",
+      "Use full axis tuple as category identity, joined labels as display; label equality must not merge distinct tuples.",
+      "Expose explicitly own metric choices quantity/supply/tax/total; choose and label own default, not inferred original default.",
+      "Retain report ordering and every included row unless a separate disclosed own category-limit policy applies. Avoid summing source rows again or treating already-summary rows as subtotals.",
+      "Preserve filters/date/currency/metric/check state in own snapshot; empty data/no axis and nonfinite values must have an explicit own error state. No persistence/business write on graph toggle.",
+      "Label simple own bar rendering as own policy; do not claim original5types/secondaryaxes/format/top-bottom/filter/print/drilldown equality."
+    ],
+    "verification_needed_not_run": [
+      "Chart categories and numeric selected metric exactly match own summary records after sorting/filtering; duplicate labels keep distinct axis tuples.",
+      "No local DB/sequence/source allocations/stock writes from checkbox, metric change, graph render, close or query.",
+      "State restore/reset/F3/F8 and empty/mixed-currency cases preserve correct report/query context.",
+      "Quantity versus monetary formatting, zero/negative values and long categories are handled under explicit own policy."
+    ]
+  },
+  "evidence_files": {
+    "actual_REA_refs": "$SCRATCH/purchase-graph-rea-20261018/actual-rea-reference-index.json",
+    "source_scan": "$SCRATCH/purchase-graph-rea-20261018/corpus-scan.json"
+  },
+  "unknowns": [
+    "Current original purchase checkbox reaction/settings UI/runtime action binding; no worker UI observation.",
+    "Current-template metric candidates/default order and backend data aggregation/select/grouping/formulas.",
+    "External graph.data converter implementation, chart renderer and graph popup consumers are not retained.",
+    "common full semantic OOM remains OOM; no full retry. Renderer prior timeout/OOM remain unchanged; no promotion based on graph-related tokens.",
+    "78-body total unchanged19149569B; previous totals: static77complete+1partial, semantic73complete+1partial+2timeouts+2OOM. No new analysis outcome claimed."
+  ]
+}

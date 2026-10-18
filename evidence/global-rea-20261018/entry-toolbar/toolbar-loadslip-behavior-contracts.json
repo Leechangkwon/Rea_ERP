@@ -1,0 +1,727 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T04:48:00.656600+00:00",
+  "new_source": {
+    "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/bundle/bundle.eccomposite_v1.inventory.unit.widget.contentsloadslip.-1895761178460182004.20.js",
+    "path": "$SCRATCH/toolbar-loadslip-rea-20261018/bundle.eccomposite_v1.inventory.unit.widget.contentsloadslip.-1895761178460182004.20.js",
+    "sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+    "bytes": 186243,
+    "retrieved_at": "2026-10-18T04:41:59.552927+00:00",
+    "saved_sha256_rechecked": true
+  },
+  "rea": {
+    "rea_version": "6.4.0",
+    "sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+    "bytes": 186243,
+    "parse_status": "complete",
+    "parse_error_count": 0,
+    "visited_ast_nodes": 43194,
+    "scopes": 692,
+    "bindings": 797,
+    "callables": 628,
+    "call_sites": 2801,
+    "references": 3492,
+    "frontiers": 3100,
+    "call_resolution": {
+      "unresolved": 2801
+    },
+    "frontier_kinds": {
+      "dynamic-call": 2801,
+      "dynamic-property": 299
+    },
+    "coverage": {
+      "status": "complete",
+      "omittedCount": 0
+    },
+    "static_limitations": [
+      "JavaScript syntax was parsed as data and was never evaluated."
+    ],
+    "semantic_limitations": [
+      "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+      "Return sites include only direct callable returns; nested callable returns remain separate.",
+      "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+      "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+      "Cross-function mutation and dynamic property resolution remain unknown."
+    ],
+    "elapsed_ms": 980,
+    "semantic_status": "completed",
+    "target_executed": false,
+    "semantic_error": null
+  },
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "contracts": [
+    {
+      "widget": "searchText",
+      "status": "concrete-widget-source-recovered-with-engine-boundary",
+      "contract": [
+        "Renders widget.button.search, rather than a product master/add picker. Registers settingInfo.shortCut when supplied, otherwise F3; createButtonEvent uses the base widget shortcut/click dispatch.",
+        "Enter acts only when event cid last hyphen segment equals realId and target.value is not the empty string. It forwards the unchanged value to gridComposite.searchTextCellHighlight({value:q}) and returns true. No trim or explicit match cursor is present.",
+        "Click/F3 rejects a non-current nested tab. If gridInstance.searchInputText exists it calls it with no arguments and returns; otherwise it toggles the search input via showSearchText/hideSearchText and local isShowText.",
+        "Focus-out with cindex=1 clears cell highlighting and sets local isShowText=false. The widget does not open an item-registration/master-selection popup."
+      ],
+      "evidence": [
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.searchText",
+          "symbol": "render",
+          "span": [
+            1,
+            75761,
+            1,
+            75998
+          ],
+          "callable_id": "callable:function:75761:75998",
+          "call_count": 5,
+          "unknown_count": 5
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.searchText",
+          "symbol": "createLayout",
+          "span": [
+            1,
+            76012,
+            1,
+            76205
+          ],
+          "callable_id": "callable:function:76012:76205",
+          "call_count": 5,
+          "unknown_count": 5
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.searchText",
+          "symbol": "ON_KEY_ENTER",
+          "span": [
+            1,
+            76540,
+            1,
+            76714
+          ],
+          "callable_id": "callable:function:76540:76714",
+          "call_count": 3,
+          "unknown_count": 3
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.searchText",
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            76725,
+            1,
+            77135
+          ],
+          "callable_id": "callable:function:76725:77135",
+          "call_count": 7,
+          "unknown_count": 7
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.searchText",
+          "symbol": "onFocusOutControlHandler",
+          "span": [
+            1,
+            77161,
+            1,
+            77257
+          ],
+          "callable_id": "callable:function:77161:77257",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1.unit.widget",
+          "symbol": "saveShortCutKey",
+          "span": [
+            1,
+            37397,
+            1,
+            37429
+          ],
+          "callable_id": "callable:function:37397:37429",
+          "call_count": 0,
+          "unknown_count": 0
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1.unit.widget",
+          "symbol": "createButtonEvent",
+          "span": [
+            1,
+            37448,
+            1,
+            38129
+          ],
+          "callable_id": "callable:function:37448:38129",
+          "call_count": 11,
+          "unknown_count": 14
+        }
+      ],
+      "unknowns": [
+        "Same-query repeated Enter/next-match/wrap semantics are inside the grid/search control implementation. No next-match algorithm is local to this widget.",
+        "No explicit local Escape handler, initial query value, retained query policy or complete reset policy is defined. Inherited/native control behavior remains external."
+      ],
+      "actionable": "Replace a master-add picker connection for Find with an existing-grid search/highlight flow. Keep exact repeat/Escape/default-query behavior partial until the grid implementation or original behavior is verified."
+    },
+    {
+      "widget": "sort",
+      "status": "concrete-widget-and-parent-receiver-recovered-comparator-external",
+      "contract": [
+        "init sets rowData=[]. Click builds ColumnList from active grid realId,title,isHideColumn,controlType. supply_amt/vat_amt titles may come from the current header cell. It opens FM080P_02 with FormType,FormSeq,TabCd,remembered RowData and ColumnList.",
+        "onMessageHandler_FM080P_02 stores t.data into rowData, preserves iteration order, converts each row into [SORT_DV_CD,COL_CD], calls gridComposite.toSort({o:rows}), marks page tabs as needing sync through inputMainTab.mappingTabSync, and invokes callback if supplied.",
+        "The source does not replace COL_CD with hardcoded product/name/specification/quantity aliases and does not pass a separate numeric comparator.",
+        "The group.grid toSort wrapper maps v3 tuples to {sortOrder,columnId} and delegates to body/head/foot sort. The non-v3 branch delegates first direction and first three column IDs."
+      ],
+      "evidence": [
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.sort",
+          "symbol": "init",
+          "span": [
+            1,
+            104959,
+            1,
+            105050
+          ],
+          "callable_id": "callable:function:104959:105050",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.sort",
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            105907,
+            1,
+            106819
+          ],
+          "callable_id": "callable:function:105907:106819",
+          "call_count": 6,
+          "unknown_count": 6
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.sort",
+          "symbol": "onMessageHandler_FM080P_02",
+          "span": [
+            1,
+            106847,
+            1,
+            107187
+          ],
+          "callable_id": "callable:function:106847:107187",
+          "call_count": 6,
+          "unknown_count": 8
+        },
+        {
+          "source_sha256": "2e5ed0166d338991227ef49db65173a8f8f436a724ed943b26ebbf66038a362e",
+          "registry": "eccomposite_v1.group.grid",
+          "symbol": "toSort",
+          "span": [
+            1,
+            23891,
+            1,
+            24313
+          ],
+          "callable_id": "callable:function:23891:24313",
+          "call_count": 6,
+          "unknown_count": 8
+        }
+      ],
+      "unknowns": [
+        "Actual string/numeric collation, blank-row placement, stable tie-breaking and names/spec/quantity comparison are grid-engine behavior. Current runtime gridVersion is not established by this static subtask.",
+        "No local reset/rebuild handler exists in this widget; rowData initialization alone does not prove a user Reset command."
+      ]
+    },
+    {
+      "widget": "barcode-mode-configuration-and-focus",
+      "status": "concrete-widget-source-recovered",
+      "contract": [
+        "Options1/2 are always constructed; 3/4 are added only when pageInfo.USE_UQTY is true and the mapped uqty column is in use. Invalid BarcodeValue outside1..4 hides the mode selector and disables barcode use.",
+        "Toggling off changes button style and hides options. Toggling on enables barcode, resets mode to1, optionally resets focus toP, and focuses the first eligible empty row. It does not clear existing product rows or quantities.",
+        "Focus defaults toP (product). S(serial) is optional only when a serial column is visible and settingInfo.useFocusOption is true. Mode/focus changes move focus to the first eligible empty product/serial row or key0.",
+        "For a new document with valid configured BarcodeValue, setLoadAfterBarcodeSelect restores that configured mode. getSaveLastSlipParam writes lastSlipMap.bar_code only on the main grid tab, using empty string when disabled. Disabled helper result is qty=N,uqty=N,check=N,value empty."
+      ],
+      "mode_contracts": [
+        {
+          "value": "1",
+          "label_from_parent_observation": "합산기본수량",
+          "resource_label": "LBL20861",
+          "helper_flags": {
+            "qty": "Y",
+            "uqty": "N",
+            "check": "Y",
+            "value": "1"
+          },
+          "cehckAddQty": true,
+          "new_row_preparation": {
+            "QTY": 1,
+            "UQTY": 0
+          },
+          "eligible_previous_row_accumulation": "QTY = Number(previous QTY)+1"
+        },
+        {
+          "value": "2",
+          "label_from_parent_observation": "개별기본수량",
+          "resource_label": "LBL20863",
+          "helper_flags": {
+            "qty": "N",
+            "uqty": "N",
+            "check": "Y",
+            "value": "2"
+          },
+          "cehckAddQty": false,
+          "new_row_preparation": {
+            "QTY": 1,
+            "UQTY": 0
+          },
+          "eligible_previous_row_accumulation": "No accumulation through the barcode sum helper"
+        },
+        {
+          "value": "3",
+          "label_from_parent_observation": "합산추가수량",
+          "resource_label": "LBL20862",
+          "helper_flags": {
+            "qty": "N",
+            "uqty": "Y",
+            "check": "Y",
+            "value": "3"
+          },
+          "cehckAddQty": true,
+          "new_row_preparation": {
+            "QTY": 0,
+            "UQTY": 1
+          },
+          "eligible_previous_row_accumulation": "UQTY = Number(previous UQTY)+1; QTY += getEcountCalcQty(current-row params with uqty=1).value using Decimal"
+        },
+        {
+          "value": "4",
+          "label_from_parent_observation": "개별추가수량",
+          "resource_label": "LBL20864",
+          "helper_flags": {
+            "qty": "N",
+            "uqty": "N",
+            "check": "Y",
+            "value": "4"
+          },
+          "cehckAddQty": false,
+          "new_row_preparation": {
+            "QTY": 0,
+            "UQTY": 1
+          },
+          "eligible_previous_row_accumulation": "No accumulation through the barcode sum helper"
+        }
+      ],
+      "evidence": [
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "createLayout",
+          "span": [
+            1,
+            4282,
+            1,
+            5260
+          ],
+          "callable_id": "callable:function:4282:5260",
+          "call_count": 25,
+          "unknown_count": 25
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            5271,
+            1,
+            6051
+          ],
+          "callable_id": "callable:function:5271:6051",
+          "call_count": 17,
+          "unknown_count": 17
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "setLoadAfterBarcodeSelect",
+          "span": [
+            1,
+            6862,
+            1,
+            7408
+          ],
+          "callable_id": "callable:function:6862:7408",
+          "call_count": 8,
+          "unknown_count": 8
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "getFocusSelected",
+          "span": [
+            1,
+            7546,
+            1,
+            7690
+          ],
+          "callable_id": "callable:function:7546:7690",
+          "call_count": 4,
+          "unknown_count": 4
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "getFocusColumn",
+          "span": [
+            1,
+            7706,
+            1,
+            7859
+          ],
+          "callable_id": "callable:function:7706:7859",
+          "call_count": 2,
+          "unknown_count": 3
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "setGridFocusFirst",
+          "span": [
+            1,
+            7878,
+            1,
+            8329
+          ],
+          "callable_id": "callable:function:7878:8329",
+          "call_count": 6,
+          "unknown_count": 7
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "getSaveLastSlipParam",
+          "span": [
+            1,
+            8351,
+            1,
+            8529
+          ],
+          "callable_id": "callable:function:8351:8529",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "getUseBarcodeValue",
+          "span": [
+            1,
+            8549,
+            1,
+            8793
+          ],
+          "callable_id": "callable:function:8549:8793",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.barcode",
+          "symbol": "cehckAddQty",
+          "span": [
+            1,
+            8806,
+            1,
+            8941
+          ],
+          "callable_id": "callable:function:8806:8941",
+          "call_count": 2,
+          "unknown_count": 2
+        }
+      ],
+      "unknowns": [
+        "Configuration persistence and actual device scanner events are not executed or verified.",
+        "The initial QTY/UQTY preparation in mode3/4 is not the final conversion result; subsequent calculation and product/unit metadata are external inputs."
+      ]
+    },
+    {
+      "widget": "barcode-consumer-matching-and-accumulation",
+      "status": "existing-same-session-consumer-source-joined",
+      "contract": [
+        "prod_manager.setRowKey considers the immediately preceding row of the insertion/current empty row, not an unrestricted same-product search across the entire grid. checkSameProdByRowKey compares the resolved product code with that row mapped prod_cd value.",
+        "Accumulation is blocked for transfer actions, barcode disabled/individual modes, first row, different previous product, and the serial/negative-quantity/warehouse/serial-quantity guards visible in setRowKey. Name/specification are not compared in the small product-code helper; that does not prove every upstream product path ignores them.",
+        "setProdProcess prepares mode1/2 rows with qty1/uqty0 and mode3/4 with uqty1/qty0 before later calculation. calcProdQtySum accepts only1/3 with addQty enabled; it increments basic qty by1, or additional qty by1 and basic qty by the calculated equivalent of one additional unit.",
+        "A successful accumulation can clear the origin row product code and update serial linkage. Separate serial quantity and next-focus processing remain part of the pipeline."
+      ],
+      "evidence": [
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setSerialQtyUpdate",
+          "span": [
+            1,
+            75319,
+            1,
+            77111
+          ],
+          "callable_id": "callable:function:75319:77111",
+          "call_count": 16,
+          "unknown_count": 16
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setRowKey",
+          "span": [
+            1,
+            77122,
+            1,
+            80293
+          ],
+          "callable_id": "callable:function:77122:80293",
+          "call_count": 30,
+          "unknown_count": 34
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setProdProcess",
+          "span": [
+            1,
+            81908,
+            1,
+            86691
+          ],
+          "callable_id": "callable:function:81908:86691",
+          "call_count": 24,
+          "unknown_count": 67
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "calcProdQtySum",
+          "span": [
+            1,
+            87805,
+            1,
+            89878
+          ],
+          "callable_id": "callable:function:87805:89878",
+          "call_count": 27,
+          "unknown_count": 41
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setNextFocus",
+          "span": [
+            1,
+            97749,
+            1,
+            98633
+          ],
+          "callable_id": "callable:function:97749:98633",
+          "call_count": 14,
+          "unknown_count": 14
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "getBarcodeComposite",
+          "span": [
+            1,
+            107888,
+            1,
+            108063
+          ],
+          "callable_id": "callable:function:107888:108063",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "checkSameProdByRowKey",
+          "span": [
+            1,
+            108086,
+            1,
+            108176
+          ],
+          "callable_id": "callable:function:108086:108176",
+          "call_count": 1,
+          "unknown_count": 2
+        }
+      ],
+      "callsite_bridge": "barcode-consumer-call-sites.json",
+      "unknowns": [
+        "External product/serial data, warehouse settings and quantity-conversion configuration are not observed business records. Full transaction/server behavior is not recovered."
+      ],
+      "actionable": "Do not globally merge all equal products or treat additional quantity as a blind basic QTY+1. Preserve previous-row eligibility and conversion boundaries."
+    },
+    {
+      "widget": "myProdLoadGroup-and-children",
+      "status": "concrete-child-widgets-and-generic-group-source",
+      "contract": [
+        "BarcodeVerification page model names a generic unit/widget group id myProdLoadGroup with myProdLoad and myProdLoadSettings children. It is not required to have a custom class named myProdLoadGroup.",
+        "The generic group creates the named child composites, builds a configurable group/dropdown and delegates its primary click to the first active button child. Exact visible menu order can be affected by commonButtonSort/state/visibility.",
+        "myProdLoad resolves a prod_cd composite and calls setDataByFavoriteCode(). myProdLoadSettings opens EMD001P_01 with RootPrgId,WigtCd=widget.code.prod,Wigt_dv_cd and PROD_SEARCH_TYPE.",
+        "The retained EMD001P_01 source lists TAB_NAME,GROUP_NAME,IS_DEFAULT radio groups, reads GetListMyProdFavoriteGroup and has a Save/F8 path to SaveMyProdFavoriteGroup. Its additional setting action opens FavoriteCodeTreeSetup."
+      ],
+      "evidence": [
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.myProdLoad",
+          "symbol": "render",
+          "span": [
+            1,
+            111800,
+            1,
+            112040
+          ],
+          "callable_id": "callable:function:111800:112040",
+          "call_count": 5,
+          "unknown_count": 5
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.myProdLoad",
+          "symbol": "execCreateComposite",
+          "span": [
+            1,
+            112340,
+            1,
+            112713
+          ],
+          "callable_id": "callable:function:112340:112713",
+          "call_count": 3,
+          "unknown_count": 4
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.myProdLoad",
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            112724,
+            1,
+            112778
+          ],
+          "callable_id": "callable:function:112724:112778",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.myProdLoadSettings",
+          "symbol": "execCreateComposite",
+          "span": [
+            1,
+            113432,
+            1,
+            113805
+          ],
+          "callable_id": "callable:function:113432:113805",
+          "call_count": 3,
+          "unknown_count": 4
+        },
+        {
+          "source_sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+          "registry": "eccomposite_v1.unit.widget.myProdLoadSettings",
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            113816,
+            1,
+            114175
+          ],
+          "callable_id": "callable:function:113816:114175",
+          "call_count": 2,
+          "unknown_count": 2
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1.unit.widget.group",
+          "symbol": "createLayout",
+          "span": [
+            1,
+            47277,
+            1,
+            49044
+          ],
+          "callable_id": "callable:function:47277:49044",
+          "call_count": 27,
+          "unknown_count": 27
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1.unit.widget.group",
+          "symbol": "createItems",
+          "span": [
+            1,
+            49057,
+            1,
+            49725
+          ],
+          "callable_id": "callable:function:49057:49725",
+          "call_count": 5,
+          "unknown_count": 17
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1.unit.widget.group",
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            50044,
+            1,
+            50175
+          ],
+          "callable_id": "callable:function:50044:50175",
+          "call_count": 3,
+          "unknown_count": 3
+        }
+      ],
+      "retained_popup_evidence": "retained-myprod-popup-evidence.json",
+      "popup_source_sha256": "3910a50f9711c1fdca75350b4c3ff731a9cb76fee125623a866bc3374d120c6a",
+      "unknowns": [
+        "The actual setDataByFavoriteCode default-group lookup/product-row insertion implementation is external to the recovered widget; do not assume a master-add picker or arbitrary menu entries.",
+        "Retained EMD popup source was not freshly matched against current popup DOM in this subtask. Runtime favorite group content and permissions are not collected."
+      ],
+      "read_only_boundaries": [
+        "My품목 load can change original input rows/drafts; it is not a read-only action.",
+        "Opening settings/reading the grid is distinct from selecting then Save/F8, which has a server mutation path. Favorite tree editing and cache update paths are separate mutations. No such action was performed by this worker."
+      ]
+    },
+    {
+      "widget": "rebuildContent-and-complete-reset",
+      "status": "unresolved",
+      "contract": [
+        "No rebuildContent definition is present in this newly captured body. A previously captured BarcodeVerification page only declares that external composite and its form/SlipRowData context."
+      ],
+      "unknowns": [
+        "Whole-grid reset, barcode verification reset, search reset, sort reset and persistence effects cannot be inferred from that declaration. No guessed source URL was fetched."
+      ]
+    }
+  ],
+  "evidence_files": [
+    "widget-and-consumer-evidence.json",
+    "barcode-consumer-call-sites.json",
+    "retained-myprod-popup-evidence.json"
+  ],
+  "limits": [
+    "Only the new exact contentsloadslip URL was fetched in this subtask; all consumer/core/popup references reuse existing source bodies with explicit SHA.",
+    "All 2801 calls in the isolated new body remain unresolved by REA. Source contracts are static candidates, not live operation proof.",
+    "No original JavaScript, authenticated UI, input row, setting save, private API or server operation was executed. No app source was edited."
+  ]
+}

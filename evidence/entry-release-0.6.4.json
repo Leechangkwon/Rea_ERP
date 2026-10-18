@@ -1,0 +1,71 @@
+{
+  "version": "0.6.4",
+  "status": "local-validation-passed",
+  "automated": {
+    "total": 384,
+    "menu": 10,
+    "work_tabs": 16,
+    "inventory_core": 31,
+    "entry_core": 17,
+    "entry_ui": 12,
+    "entry_tools": 14,
+    "entry_extra": 20,
+    "purchase_plan": 18,
+    "purchase_plan_ui": 5,
+    "item_registration": 35,
+    "item_integration": 8,
+    "inventory_modal": 24,
+    "item_list": 8,
+    "inventory_dom": 7,
+    "form_core": 18,
+    "form_dom": 14,
+    "api_gateway": 26,
+    "api_dom": 8,
+    "api_manual": 8,
+    "auth": 7,
+    "self_auth": 21,
+    "self_dom": 57,
+    "release_checks": 4
+  },
+  "local_browser": {
+    "origin": "http://127.0.0.1:8782",
+    "account": "synthetic isolated fixture",
+    "checks": [
+      "Create two item suppliers and a two-item purchase plan; preview two supplier orders, commit once, then verify both purchase-order rows and suppliers",
+      "Preview second plan with due date 2026-10-20; retain item purchasing prices 2000 and 18000 and original plan references",
+      "Hover/click other-document menu and purchase-order branch exposes all five grouping choices; item-grouping selection opens matching preview",
+      "Create personal My-item group with quantity 2, save default for purchase entry, apply to draft and verify persistence after page reload",
+      "Barcode comparison: expected 2, scanned 2, difference 0, all quantities match without modifying business document",
+      "Enter saved generated-order number through voucher-code UI, stage linked remaining quantity 3 with source header, save purchase and verify quantity 3 in list",
+      "BOM preview for two P001 products shows M001 required 4 and S001 required 2; cancel keeps sales draft",
+      "Registered-cost profit for P001: revenue 20000, cost 12000, profit 8000, margin 40 percent; no profit adjustment saved",
+      "Hold synthetic sales draft separately from business records before navigation"
+    ],
+    "screenshots_local_only": [".artifacts/barcode-check-0.6.4.png", ".artifacts/purchase-plan-preview-0.6.4.png"]
+  },
+  "source_analysis": {
+    "evidence": "entry-extra-rea.json",
+    "tool": "rea-agents@6.4.0",
+    "focused_common_units": 27,
+    "focused_common_bytes": 112411,
+    "additional_public_popup_files": 7,
+    "additional_public_popup_bytes": 93799,
+    "parsed_javascript_files": 8,
+    "parse_failures": 0,
+    "traces": 53,
+    "unresolved_common": 2932,
+    "unresolved_popups": 5215,
+    "original_ui": "Read-only direct navigation of My-items settings and code tree, voucher barcode, barcode verification, discount, BOM requirements, profit, amount-adjustment prerequisite and five plan-generation menu choices. No original record saved or generated."
+  },
+  "implementation_boundaries": [
+    "Purchase-plan generation, personal item groups, barcode helpers and held drafts operate on browser business records; they are not a new server synchronization engine.",
+    "My-items groups are personal browser/account settings; shared groups and cross-device synchronization are not implemented.",
+    "Voucher codes use explicit REAERP:1 format or our saved document number; original ECOUNT scanner encoding and physical scanner behavior are unverified.",
+    "Profit uses registered net purchasing price or configured standard costs; historical FIFO and monthly closing valuations are not implemented.",
+    "BOM includes local multi-level composition and loss factors; representative-item conversion and external production plans are not implemented.",
+    "Amount adjustments disclose actual rounding differences and require acceptance before application. Currency conversion is not implemented.",
+    "Plan grouping protects distinct warehouse, currency, tax and other header terms. Single-order mode requires an explicit recipient; incompatible same-item values require line mode. These policies do not claim original private-server equivalence.",
+    "Held drafts live in the current page session and are not business documents; refresh persistence and the original hold-save API are not implemented.",
+    "Hosted deployment and hosted app-account verification are recorded separately on the management Page."
+  ]
+}

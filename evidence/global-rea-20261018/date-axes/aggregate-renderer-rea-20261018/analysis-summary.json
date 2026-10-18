@@ -1,0 +1,60 @@
+{
+  "rea_version": "6.4.0",
+  "new_unique_analyses": [
+    {
+      "sha256": "deb0ce8718dec3024061c40053856a5803c623da73e2ce74e4ff0e0267215783",
+      "bytes": 103862,
+      "source": "$SCRATCH/aggregate-renderer-rea-20261018/bundle-v5-ec-lib-v5.production.8367113380026934.20.js",
+      "analysis_dir": "$SCRATCH/aggregate-renderer-rea-20261018/analysis/deb0ce8718dec302",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "source_executed": false,
+      "exit_code": -6,
+      "process_status": "failed",
+      "elapsed_ms": 11250,
+      "static_status": "complete",
+      "semantic_status": "unknown_oom",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 9812,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "failure": "2GiB Node heap exhausted. Full static preserved. No full-body semantic retry.",
+      "full_semantic_IR": false,
+      "callables": null,
+      "calls": null,
+      "frontiers": null
+    },
+    {
+      "sha256": "ae1622b690cf7aa55498d92dec76b63cd7585946959c6eb6d7e831ef24997bec",
+      "bytes": 1187329,
+      "source": "$SCRATCH/aggregate-renderer-rea-20261018/bundle-v5-react-for-v5.production.9697909501406702.20.js",
+      "analysis_dir": "$SCRATCH/aggregate-renderer-rea-20261018/analysis/ae1622b690cf7aa5",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "source_executed": false,
+      "process_status": "timeout",
+      "exit_code": null,
+      "elapsed_ms": 30053,
+      "static_status": "complete",
+      "semantic_status": "unknown_timeout",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 135399,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "failure": "30second process budget elapsed; process killed. Full static preserved. No full-body retry.",
+      "full_semantic_IR": false,
+      "callables": null,
+      "calls": null,
+      "frontiers": null
+    }
+  ],
+  "full_retries": 0,
+  "target_execution": false,
+  "limits": [
+    "Actual pinned REA6.4.0 analyzers read inert source only.",
+    "Both original full static outputs exist with0parseerrors; no full semantic IR completed.",
+    "No callable/call/frontier totals were synthesized for failed/timed-out semantic analyses."
+  ]
+}

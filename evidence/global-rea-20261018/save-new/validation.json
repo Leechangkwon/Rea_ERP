@@ -1,0 +1,33 @@
+{
+  "version": "0.27.0",
+  "full_test_command": "NODE_OPTIONS=--test-isolation=none npm test",
+  "full_test_exit": 0,
+  "full_test_checks": 842,
+  "check_count_basis": {
+    "native_runner_tests": 584,
+    "json_checks": 127,
+    "plain_checks": 124,
+    "manual_scenarios": 9,
+    "duplicate_wrapper_tests_removed": 2
+  },
+  "new_tests": 16,
+  "focused_tests": 45,
+  "full_test_log_sha256": "497027de10713c743ed6026c0c2c0d1186a493f5f38327ba409434951ad90ea7",
+  "completion_check": {
+    "native_tests": 584,
+    "last_stock_test_present": true
+  },
+  "first_full_attempt": "Exit0 but incomplete log stopped after36 native tests; preserved as interrupted log and excluded. Complete rerun used.",
+  "release_checks": 4,
+  "worker_bytes": 1710777,
+  "embedded_assets": 51,
+  "independent_review": "No remaining concrete issue in SaveNew save guards, modal re-key and draft collision handling. Reset baseline fix rechecked independently.",
+  "synthetic_tests_only": true,
+  "original_ui_observation": "Save dropdown arrows only observed on all4 types; SaveNew present on all, approval absent from plan. No original Save or main input-row edit.",
+  "original_ordinary_fields_barcode_defaults_equivalence": false,
+  "hosted_authenticated_business_qa": false,
+  "managed_browser_preview": "Skipped: connected local control-browser unavailable; no alternate preview browser started.",
+  "database_schema_changed": false,
+  "stored_record_format_changed": false,
+  "source_analysis_scope": "78 SHA-unique original bodies; static77 complete/1partial; semantic73 complete/1partial/2timeout/2OOM. Interruptions preserved; original code not executed."
+}

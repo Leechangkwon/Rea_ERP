@@ -1,0 +1,35 @@
+{
+  "version": "0.18.0",
+  "surface": "Purchase report read-only search form -> sort configuration and field candidate dialog",
+  "business_or_settings_apply_executed": false,
+  "original_main_entry_rows_touched": false,
+  "company_records_retained": false,
+  "observations": [
+    "Initial dialog contains three blank criteria.",
+    "Double-click criterion opens field candidates. Selecting quantity fills row and enables direction.",
+    "Default selected direction uses btn-asc; one click switches btn-desc.",
+    "Other-row candidate list excludes already-selected quantity.",
+    "Filling first three criteria appends fourth blank row.",
+    "Selecting third row and clicking 올림 moves it upward; 내림 returns it.",
+    "선택삭제 resets selected third criterion but keeps four rows.",
+    "Close without Apply then reopen returns three blank rows.",
+    "Original sort dialog was closed without Apply after observation."
+  ],
+  "source_confirmed": [
+    "Initializer grows while all criteria filled and count<5.",
+    "Bulk remove resets defaults preserving row identity/order slot.",
+    "Apply filters valid rows, renumbers, sends message and closes. Empty general list allowed; special trx_bal_status exception is outside implemented report.",
+    "Optional persistent save requires use_save and save_tf."
+  ],
+  "own_policy": [
+    "Apply stages current search criteria. Main 검색(F8) performs query.",
+    "Own numeric/text comparator, stable ties, Korean numeric text collation, ascending blank first.",
+    "Visible current own report fields only; aggregate fields depend on chosen axes.",
+    "Empty Apply clears existing sort. Settings are transient to current report view; no persistent template save."
+  ],
+  "unknown": [
+    "Current original caller/receiver and whether Apply immediately refreshes current report.",
+    "Original server sorting, null placement, locale collation and subtotal/pagination output.",
+    "Original current candidate popup backend/filter authorization."
+  ]
+}

@@ -1,0 +1,47 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),C=require('../dist/inventory-core.js');
+const legacy=()=>{const db=C.seed();delete db.documentHistory;return db;};
+const doc=(type='request',extra={})=>({type,date:C.today(),partner:'V001',warehouse:'W001',employee:'E001',status:'진행',lines:[{item:'M001',qty:2,price:10}],...extra});
+test('old backup loads without fabricated history; first successful change records only that voucher without consuming document numbers',()=>{
+  const old=legacy(),sequence=old.sequence,oldText=JSON.stringify(old);assert.equal(old.documentHistory,undefined);assert.deepEqual(C.documentHistory(old,'request').records,[]);assert.equal(C.validateBackup(old).documentHistory,undefined);
+  const out=C.command(old,'document',doc());assert.equal(out.db.sequence,sequence+2);assert.equal(JSON.stringify(old),oldText);assert.equal(out.db.documentHistory.sequence,1);assert.equal(out.db.documentHistory.records.length,1);assert.equal(out.db.documentHistory.records[0].documentId,out.result.id);assert.equal(out.db.documentHistory.records[0].action,'신규');assert.equal(C.validateBackup(out.db).documentHistory.records[0].id,'H1');
+});
+test('failed writes and read-only searches leave both business records and historical snapshots unchanged',()=>{
+  const first=C.command(legacy(),'document',doc()),text=JSON.stringify(first.db);assert.throws(()=>C.command(first.db,'document',{...first.result,lines:[{item:'M001',qty:0,price:10}]}),/수량/);assert.equal(JSON.stringify(first.db),text);
+  const found=C.documentHistory(first.db,'request',{latest:false});found.records[0].partnerName='changed outside';found.rows[0][0]='changed';assert.equal(JSON.stringify(first.db),text);assert.equal(C.documentHistory(first.db,'request').records.length,1);
+});
+test('new, edit and state changes preserve event-time names and latest filtering cannot expose an older matching action',()=>{
+  let a=C.command(legacy(),'document',doc()),db=a.db,id=a.result.id;db=C.command(db,'document',{...a.result,memo:'second'}).db;db=C.command(db,'transition',{ids:[id],status:'완료'}).db;
+  assert.deepEqual(C.documentHistory(db,'request',{latest:false}).records.map(x=>x.action),['상태변경','수정','신규']);assert.equal(C.documentHistory(db,'request',{action:'신규',latest:true}).records.length,0);assert.equal(C.documentHistory(db,'request',{action:'신규',latest:false}).records.length,1);
+  const previous=db.documentHistory.records.at(-1).partnerName;db.masters.partners.find(x=>x.code==='V001').name='현재 이름 변경';assert.equal(C.documentHistory(db,'request',{latest:false}).records.at(-1).partnerName,previous);assert.deepEqual(db.documentHistory.records[0].changes,['전표상태']);
+});
+test('four purchasing types are tracked but unrelated sales and unrelated settings are not; receipt does not create a fictional parent order modification',()=>{
+  let db=legacy(),ids=[];for(const type of ['request','plan','purchaseorder','purchase']){const out=C.command(db,'document',doc(type));db=out.db;ids.push(out.result.id);assert.equal(C.documentHistory(db,type).records[0].documentId,out.result.id);}
+  const count=db.documentHistory.sequence;db=C.command(db,'document',doc('sale')).db;assert.equal(db.documentHistory.sequence,count);db=C.command(db,'settings',{allowNegative:true}).db;assert.equal(db.documentHistory.sequence,count);
+  const po=db.documents.find(x=>x.id===ids[2]),out=C.command(db,'convert',{id:po.id,type:'purchase',quantities:{M001:1},date:C.today()});assert.equal(out.db.documentHistory.sequence,count+1);assert.equal(C.documentHistory(out.db,'purchaseorder').records.length,1);assert.equal(out.db.documentHistory.records[0].documentId,out.result.id);
+});
+test('retention keeps latest 200 with independent monotonic identities and a stable recording start across backup roundtrips',()=>{
+  let out=C.command(legacy(),'document',doc()),db=out.db,d=out.result;const startedAt=db.documentHistory.startedAt;for(let i=0;i<202;i++){out=C.command(db,'document',{...d,memo:'edit '+i});db=out.db;d=out.result;}
+  assert.equal(db.documentHistory.sequence,203);assert.equal(db.documentHistory.records.length,200);assert.equal(db.documentHistory.records[0].id,'H203');assert.equal(db.documentHistory.records.at(-1).id,'H4');assert.equal(db.documentHistory.startedAt,startedAt);assert.deepEqual(C.validateBackup(db).documentHistory,db.documentHistory);
+});
+test('backup rejects duplicate/out-of-order identities, invalid dates, unknown actions and excessive records',()=>{
+  const out=C.command(legacy(),'document',doc());for(const mutate of [h=>h.extra='x'.repeat(1000000),h=>h.records[0].before={lines:[{item:'M001'}]},h=>h.records.push(C.clone(h.records[0])),h=>h.records[0].date='2026-02-30',h=>h.records[0].action='삭제취소',h=>h.sequence=-1,h=>h.records[0].itemCodes.push('M001'),h=>h.records[0].sequence=2,h=>h.records=Array(201).fill(h.records[0])]){const db=C.clone(out.db);mutate(db.documentHistory);assert.throws(()=>C.validateBackup(db),/이력/);}
+});
+test('work date and voucher date are separate; exact code filters and free query use retained metadata with explicit unsupported guard',()=>{
+  const out=C.command(legacy(),'document',doc('request',{date:'2020-02-29'})),db=out.db,filter={from:C.today(),to:C.today(),documentFrom:'2020-02-29',documentTo:'2020-02-29',partner:'V001',item:'M001',warehouse:'W001',employee:'E001',query:out.result.id};assert.equal(C.documentHistory(db,'request',filter).records.length,1);assert.equal(C.documentHistory(db,'request',{...filter,documentFrom:C.today(),documentTo:C.today()}).records.length,0);
+  for(const filter of [{from:'2026-02-30'},{from:'2026-02-02',to:'2026-02-01'},{latest:'false'},{action:'인쇄'}])assert.throws(()=>C.documentHistory(db,'request',filter));assert.throws(()=>C.documentHistory(db,'sale'));assert.equal(C.documentHistory(db,'purchase').records.length,0);
+});
+test('long legacy identities survive rename, search and backup without truncation or merging distinct vouchers',()=>{
+  const long='X'.repeat(200)+'A';let out=C.command(legacy(),'document',doc()),db=C.command(out.db,'rename',{key:'partners',from:'V001',to:long}).db;assert.equal(C.documentHistory(db,'request',{partner:long}).records.length,1);assert.equal(db.documentHistory.records[0].partnerCode,long);assert.equal(C.documentHistory(db,'request',{partner:long.slice(0,200)}).records.length,0);
+  const request=db.documents.find(d=>d.id===out.result.id);request.id='LONG-'+long;db=C.validateBackup(db);db=C.command(db,'document',{...request,memo:'long identity'}).db;assert.equal(db.documentHistory.records[0].documentId,request.id);assert.equal(C.validateBackup(db).documentHistory.records[0].documentId,request.id);
+});
+test('unchanged saves create no new event while linked progress records the actual parent state change and child creation',()=>{
+  let out=C.command(legacy(),'document',doc('purchaseorder')),db=out.db,id=out.result.id;const seq=db.documentHistory.sequence;db=C.command(db,'document',out.result).db;assert.equal(db.documentHistory.sequence,seq);
+  out=C.command(db,'convert',{id,type:'purchase',quantities:{M001:1},date:C.today()},{inventoryFeatures:{progressRules:[{from:'purchaseorder',to:'purchase',enabled:true,progress:'완료'}]}});assert.equal(out.db.documentHistory.sequence,seq+2);const parent=C.documentHistory(out.db,'purchaseorder').records[0];assert.equal(parent.documentId,id);assert.equal(parent.status,'완료');assert.equal(parent.action,'상태변경');assert.ok(parent.changes.includes('전표상태'));assert.equal(C.documentHistory(out.db,'purchase').records[0].documentId,out.result.id);
+});
+test('legacy backups above the new-entry 500-row limit still allow status changes and retain the full historical item count',()=>{
+  let out=C.command(legacy(),'document',doc()),db=out.db,d=db.documents.find(x=>x.id===out.result.id);const base=db.masters.items.find(x=>x.code==='M001');db.masters.items.push(...Array.from({length:501},(_,i)=>({...base,code:'OLD'+i})));d.lines=Array.from({length:501},(_,i)=>({...d.lines[0],item:'OLD'+i,lineId:'old-'+i}));delete db.documentHistory;db=C.validateBackup(db);out=C.command(db,'transition',{ids:[d.id],status:'완료'});assert.equal(out.db.documentHistory.records[0].itemCount,501);assert.equal(out.db.documentHistory.records[0].itemCodes.length,501);assert.equal(out.db.documentHistory.records[0].status,'완료');assert.equal(C.validateBackup(out.db).documentHistory.records.length,1);
+});
+test('request and plan row suppliers are retained and searchable when the header partner is absent or different',()=>{
+  for(const type of ['request','plan']){const db=legacy();db.masters.partners.push({...db.masters.partners.find(x=>x.code==='V001'),code:'ROW2',name:'두번째 공급처'});const out=C.command(db,'document',doc(type,{partner:'',lines:[{lineId:'s1',item:'M001',supplier:'V001',qty:1,price:10},{lineId:'s2',item:'M001',supplier:'ROW2',qty:2,price:10}]}));for(const partner of ['V001','ROW2'])assert.equal(C.documentHistory(out.db,type,{partner}).records.length,1);assert.deepEqual(out.db.documentHistory.records[0].partnerCodes,['V001','ROW2']);assert.match(out.db.documentHistory.records[0].partnerName,/외 1곳/);assert.equal(C.validateBackup(out.db).documentHistory.records.length,1);}
+});

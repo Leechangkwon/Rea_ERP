@@ -1,0 +1,75 @@
+{
+  "scope": {
+    "retained_original_bodies": 78,
+    "original_bytes": 19149569,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "original_save_or_input_row_actions": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "separate_from": "$SCRATCH/purchase-graph-rea-20261018"
+  },
+  "sources": [
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "callables": 1926,
+      "call_sites": 7148,
+      "frontiers": 8012,
+      "SHA_rechecked": true
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "full_semantic_status": "OOM at2GB; no retry or full IR",
+      "evidence_level": "Static original AST only for graph symbols, not successful full common semantic analysis",
+      "SHA_rechecked": true
+    },
+    {
+      "id": "v3-header",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+      "callables": 1233,
+      "call_sites": 3881,
+      "frontiers": 4155,
+      "SHA_rechecked": true
+    },
+    {
+      "id": "v3-footer",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_error_count": 0,
+      "actual_REA_version": "6.4.0",
+      "full_semantic_status": "complete",
+      "prior_semantic_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/beca20c9cbaf4d70/rea-semantic-ir.json",
+      "callables": 1254,
+      "call_sites": 4715,
+      "frontiers": 4980,
+      "SHA_rechecked": true
+    }
+  ],
+  "evidence_files": {
+    "precise_source": "$SCRATCH/graph-filter-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json",
+    "corpus_scan": "$SCRATCH/graph-filter-rea-20261018/corpus-scan.json"
+  }
+}

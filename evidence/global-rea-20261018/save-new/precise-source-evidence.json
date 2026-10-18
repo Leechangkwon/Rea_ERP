@@ -1,0 +1,564 @@
+{
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "core",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.core.2075066825770250059.20.js",
+      "sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+      "bytes": 93934,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "core-delegate.openWindow",
+          "span": [
+            1,
+            26814,
+            1,
+            26966
+          ],
+          "offsets": [
+            26814,
+            26966
+          ],
+          "reason": "generic page-event delegation",
+          "source": "function(n){return this.tabId&&n&&n.param&&$.isEmpty(n.param.gridID)&&(n.param.tabID=this.tabId),this.delegate.triggerEvent(\"common.page.openWindow\",n)}"
+        },
+        {
+          "symbol": "core-delegate.fnTemporarySave",
+          "span": [
+            1,
+            30413,
+            1,
+            30482
+          ],
+          "offsets": [
+            30413,
+            30482
+          ],
+          "reason": "generic page-event delegation",
+          "source": "function(){this.delegate.triggerEvent(\"common.page.fnTemporarySave\")}"
+        },
+        {
+          "symbol": "core-delegate.setTempSaveConfig",
+          "span": [
+            1,
+            32768,
+            1,
+            32840
+          ],
+          "offsets": [
+            32768,
+            32840
+          ],
+          "reason": "generic page-event delegation",
+          "source": "function(n){this.delegate.triggerEvent(\"common.page.tempSaveSetting\",n)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader.init",
+          "span": [
+            1,
+            54386,
+            1,
+            54461
+          ],
+          "offsets": [
+            54386,
+            54461
+          ],
+          "reason": "target class method",
+          "source": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader.render",
+          "span": [
+            1,
+            54469,
+            1,
+            54694
+          ],
+          "offsets": [
+            54469,
+            54694
+          ],
+          "reason": "target class method",
+          "source": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.contentsComposite=this.getComposite(\"contents\");this.createLayout(n);this.saveShortCutKey(this.settingInfo.shortCut);this.createButtonEvent()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader.createLayout",
+          "span": [
+            1,
+            54708,
+            1,
+            55384
+          ],
+          "offsets": [
+            54708,
+            55384
+          ],
+          "reason": "target class method",
+          "source": "function(n){var t=widget.generator.control();t.define(\"widget.button\",this.realId).label(this.settingInfo.label||ecount.resource.BTN00410).hide(!!this.settingInfo.hideButton);this.settingInfo.isPrimary&&t.css(\"btn btn-primary\");this.settingInfo.dropDownList&&_.isArray(this.settingInfo.dropDownList)&&this.settingInfo.dropDownList.length>0&&(t.hasDropdown(this.settingInfo.dropDownList).noActionBtn().setOptions({buttonArrowDirection:\"up\"}),this.settingInfo.dropDownList.forEach(function(n){var t=\"onDropdown\"+this.upperFirstChar(n.id);this.mappingEventCallbackHandler(\"custom\",null,t,!0);this.addEventCallbackHandler(\"click\",t,this._ON_CLICK.bind(this))},this));n.addLeft(t)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader.upperFirstChar",
+          "span": [
+            1,
+            55400,
+            1,
+            55460
+          ],
+          "offsets": [
+            55400,
+            55460
+          ],
+          "reason": "target class method",
+          "source": "function(n){return n?n.charAt(0).toUpperCase()+n.slice(1):n}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader.execCreateComposite",
+          "span": [
+            1,
+            55481,
+            1,
+            56045
+          ],
+          "offsets": [
+            55481,
+            56045
+          ],
+          "reason": "target class method",
+          "source": "function(){if(this.pageOption.FromProgramId==\"E040716\")return!1;var n=this.getColumnMapByKey(\"ALL\",\"form\");return n&&n.del_gubun&&ecount.common.isTrue(this.slipInfo.Master[this.getColumnMapByKey(\"del_gubun\",\"form\").name])?!1:this.pageOption.FromProgramId==\"E010728\"&&!ecount.config.limited.menu.USE_ETAXVN?!1:this.settingInfo.isUseAddData!==!0&&this.pageOption.EditMode==ecenum.editMode.modify?!1:this.pageInfo.isIncludeSlip?!1:this.pageOption.isInclude?!1:this.pageOption.isFromApproval?!1:this.settingInfo.isHidden?!1:this.pageOption.IsCollectInvoice==\"Y\"?!1:!0}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader._ON_CLICK",
+          "span": [
+            1,
+            56056,
+            1,
+            57279
+          ],
+          "offsets": [
+            56056,
+            57279
+          ],
+          "reason": "target class method",
+          "source": "function(n){var r=!1,i,t;if(this.ProgramInfo.PROGRAM_ID==\"E040507\"&&(r=!0),i=_.isEmpty(this.pageOption.PROGRAM_ID)?this.pageOption.PrgId:this.pageOption.PROGRAM_ID,t={url:\"/ECERP/Popup.Common/BulkUploadForm\",isShowMenuPath:\"Y\",width:1e3,height:640,FormType:this.pageInfo.FORM_TYPE_GRID,BundleFormType:this.pageInfo.FORM_TYPE_BUNDLE||null,FormSeq:this.pageInfo.UPLOAD_SEQ||_.get(n,\"originItem.value\",\"\")||null,FromProgramId:this.contentsComposite.getFromProgramId(),IsMultiTab:r,WMS_ID:this.pageOption.WMS_ID||\"\",CheckPermissionRequest:{EditMode:ecenum.editMode.webUpload,GbType:\"Y\",ProgramId:i,PFlag:\"9\",IsFromEdms:!1,CheckPermissionTabListRequest:this.pageInfo.pricePermission==undefined?null:[{EditMode:ecenum.editMode.priceAmtUpdate,ProgramId:i}]},isUseBundleSetting:this.settingInfo.isUseBundleSetting||!1},this.settingInfo.setParam&&this.settingInfo.setParam(t),this.settingInfo.isUseAddData){ecount.confirm(ecount.resource.MSG05515,function(n){n&&this.openWindow({url:t.url,name:ecount.resource.LBL02339,additional:this.pageOption.isAdditionalPopup,popupType:!1,param:t})}.bind(this));return}this.openWindow({url:t.url,name:ecount.resource.LBL02339,additional:this.pageOption.isAdditionalPopup,popupType:!1,param:t})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.webUploader.onMessageHandler_BulkUploadForm",
+          "span": [
+            1,
+            57312,
+            1,
+            57492
+          ],
+          "offsets": [
+            57312,
+            57492
+          ],
+          "reason": "target class method",
+          "source": "function(n,t){if(this.settingInfo.messageHandler)return this.settingInfo.messageHandler(this,t);this.getComposite(\"searchManager\")&&this.getComposite(\"searchManager\")._ON_REDRAW()}"
+        }
+      ]
+    },
+    {
+      "id": "temporary",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_4.-1784347108654919872.20.js",
+      "sha256": "8fec93a16b0eb2bb8829d29bc6e249b8580b573ab60c42b0ab8cd072288ef004",
+      "bytes": 84158,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.init",
+          "span": [
+            1,
+            53519,
+            1,
+            53596
+          ],
+          "offsets": [
+            53519,
+            53596
+          ],
+          "reason": "target class method",
+          "source": "function(){eccomposite_v1.group.toolbar.prototype.init.apply(this,arguments)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.render",
+          "span": [
+            1,
+            53604,
+            1,
+            53708
+          ],
+          "offsets": [
+            53604,
+            53708
+          ],
+          "reason": "target class method",
+          "source": "function(){eccomposite_v1.group.toolbar.prototype.render.apply(this,arguments);this.getTempSaveConfig()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.createLayout",
+          "span": [
+            1,
+            53722,
+            1,
+            54373
+          ],
+          "offsets": [
+            53722,
+            54373
+          ],
+          "reason": "target class method",
+          "source": "function(){var t=widget.generator.control(),n,i;return toolbar=widget.generator.toolbar(),toolbar.setId(\"ecloadtempSaveToolbar\").addLeft(t.define(\"widget.label\").label(String.format(ecount.resource.MSG03397,this.pageInfo.inputTitle||ecount.resource.LBL02938)).hide()).addLeft(t.define(\"widget.link\",\"ecloadtempSaveData\").label(ecount.resource.BTN00070).hide()).addLeft(t.define(\"widget.link\",\"ecloadtempSaveDelete\").label(ecount.resource.BTN00033).hide()),n=this.getComposite({typeKey:\"grid\",gridId:!0}),$.isEmpty(n)||(i=n.getFirstFocusCellId()||n.columnMap.prod_cd||n.columnMap.gye_code,ecount.TemporarySave.module.setPosition({columnId:i})),toolbar}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.execCreateComposite",
+          "span": [
+            1,
+            54394,
+            1,
+            54556
+          ],
+          "offsets": [
+            54394,
+            54556
+          ],
+          "reason": "target class method",
+          "source": "function(){return this.pageOption.FromProgramId==\"E010728\"?!1:location.pathname.split(\"/\").pop().toUpperCase()==\"ECP050MOBILE\"?!1:this.pageOption.isInclude?!1:!0}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.getTempSaveConfig",
+          "span": [
+            1,
+            54575,
+            1,
+            55813
+          ],
+          "offsets": [
+            54575,
+            55813
+          ],
+          "reason": "target class method",
+          "source": "function(){var n={use:!0,config:{}},i,t,r;if(this.columnMap=this.getColumnMapByKey(\"ALL\",\"form\"),i=this.getComposite(\"inputMainTab\").tabIdList,t=this.getComposite(\"inputSubTab\"),n.config=this.pageOption.EditMode==ecenum.editMode.new?{COM_CODE:ecount.company.COM_CODE,IO_DATE:\"\",IO_NO:0,IO_TYPE:this.ProgramInfo.PROGRAM_ID,VERSION_NO:\"0\",LOGIN_ID:this.pageOption.UserId,EDIT_FLAG:\"I\",IO_DATE_CONTROLID:this.columnMap.date.id,GRID_DATA:this.slipInfo.Details,TAB_ID:i.main,MAIN_TAB_ID:i.main,applyOnReload:!0}:{COM_CODE:ecount.company.COM_CODE,IO_DATE:this.slipInfo.Master[this.columnMap.date.name],IO_NO:this.slipInfo.Master[this.columnMap.no.name],IO_TYPE:this.ProgramInfo.PROGRAM_ID,VERSION_NO:this.slipInfo.Master.VERSION_NO,LOGIN_ID:this.pageOption.UserId,EDIT_FLAG:\"M\",IO_DATE_CONTROLID:this.columnMap.date.id,GRID_DATA:this.slipInfo.Details,TAB_ID:i.main,MAIN_TAB_ID:i.main,applyOnReload:!0},t)for(n.config.IsUsedExtraFeatures=!0,n.config.TAB_ID=t.tabs[0].id,n.config.ExtraTabPanesID=[],r=0;r<t.tabs.length;r++)n.config.ExtraTabPanesID.push({gridID:this.getComposite(\"grid\",t.tabs[r].id).gridId,tabID:t.tabs[r].id});this.pageID===\"EGD002M\"&&(n.config.TYPE=\"DRAFT\",n.config.EDMS_IDX=this.pageOption.EDMS_IDX);this.setTempSaveConfig(n)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.getCreateButtonList",
+          "span": [
+            1,
+            55834,
+            1,
+            55928
+          ],
+          "offsets": [
+            55834,
+            55928
+          ],
+          "reason": "target class method",
+          "source": "function(n){if(n.BUTN_LOC_TYPCD!=\"B\")return!1;n.list.push({unit:\"widget\",type:\"tempSaveLog\"})}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.isGridRedraw",
+          "span": [
+            1,
+            55942,
+            1,
+            56477
+          ],
+          "offsets": [
+            55942,
+            56477
+          ],
+          "reason": "target class method",
+          "source": "function(n){return ecount.TemporarySave.module.getRedrawFlag()?this.isGridRedrawFunc?this.isGridRedrawFunc(n):(this.isGridRedrawFunc=function(){var n=this.getComposite(\"inputSubTab\"),t;return n&&n.tabs&&n.tabs.length>1?(t=_.map(n.tabs,\"id\")||[],function(n){return t=_.filter(t,function(t){return t!=n}),_.isEmpty(t)&&(ecount.TemporarySave.module.setRedrawFlag(!1),this.isGridRedrawFunc=null),!0}):function(){return ecount.TemporarySave.module.setRedrawFlag(!1),this.isGridRedrawFunc=null,!0}}.bind(this)(),this.isGridRedrawFunc(n)):!1}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.acc.init",
+          "span": [
+            1,
+            56593,
+            1,
+            56684
+          ],
+          "offsets": [
+            56593,
+            56684
+          ],
+          "reason": "target class method",
+          "source": "function(){eccomposite_v1.group.toolbar.temporarySave.prototype.init.apply(this,arguments)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.acc.render",
+          "span": [
+            1,
+            56692,
+            1,
+            56821
+          ],
+          "offsets": [
+            56692,
+            56821
+          ],
+          "reason": "target class method",
+          "source": "function(){eccomposite_v1.group.toolbar.temporarySave.prototype.render.apply(this,arguments);ecount.TemporarySave.setKeys(\"acc\")}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.toolbar.temporarySave.acc.getTempSaveConfig",
+          "span": [
+            1,
+            56840,
+            1,
+            58096
+          ],
+          "offsets": [
+            56840,
+            58096
+          ],
+          "reason": "target class method",
+          "source": "function(){var n={use:!0,config:{}},i,t,r;if(this.columnMap=this.getColumnMapByKey(\"ALL\",\"form\"),i=this.getComposite(\"inputMainTab\").tabIdList,t=this.getComposite(\"inputSubTab\"),n.config=this.pageOption.EditMode==ecenum.editMode.new?{TYPE:\"ACC\",COM_CODE:ecount.company.COM_CODE,TRX_DATE:\"\",TRX_NO:0,IO_TYPE:String.format(\"{0}{1}\",this.pageOption.TrxType,this.pageOption.SerNo),VERSION_NO:\"0\",LOGIN_ID:this.pageOption.UserId,EDIT_FLAG:\"I\",IO_DATE_CONTROLID:this.columnMap.date.id,GRID_DATA:this.slipInfo.Details,TAB_ID:i.main,MAIN_TAB_ID:i.main,applyOnReload:!0}:{TYPE:\"ACC\",COM_CODE:ecount.company.COM_CODE,TRX_DATE:this.slipInfo.Master[this.columnMap.date.name],TRX_NO:this.slipInfo.Master[this.columnMap.no.name],IO_TYPE:String.format(\"{0}{1}\",this.pageOption.TrxType,this.pageOption.SerNo),VERSION_NO:this.slipInfo.Master.VERSION_NO,LOGIN_ID:this.pageOption.UserId,EDIT_FLAG:\"M\",IO_DATE_CONTROLID:this.columnMap.date.id,GRID_DATA:this.slipInfo.Details,TAB_ID:i.main,MAIN_TAB_ID:i.main,applyOnReload:!0},t)for(n.config.IsUsedExtraFeatures=!0,n.config.TAB_ID=t.tabs[0].id,n.config.ExtraTabPanesID=[],r=0;r<t.tabs.length;r++)n.config.ExtraTabPanesID.push({gridID:this.getComposite(\"grid\",t.tabs[r].id).gridId,tabID:t.tabs[r].id});this.setTempSaveConfig(n)}"
+        }
+      ]
+    },
+    {
+      "id": "prod",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_3.-1691984462285639727.20.js",
+      "sha256": "457fb04dc2400a351a0a57b566b8820d657d538df9b0b2d1dbc57698f898aeba",
+      "bytes": 208059,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": []
+    },
+    {
+      "id": "input",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_1.-538278177882630599.20.js",
+      "sha256": "e6c17edb9f101881b3f413c56d0396f40e985a1de838650c514be1b289cbadc1",
+      "bytes": 244886,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.function.inputEvent.execSlipSaveNew",
+          "span": [
+            1,
+            44566,
+            1,
+            44663
+          ],
+          "offsets": [
+            44566,
+            44663
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(){this.pageHidden.saveType=\"saveNew\";this.pageHidden.saveTypeOrigin=1;this.saveAction()}"
+        },
+        {
+          "symbol": "eccomposite_v1.function.inputEvent.callSaveApi",
+          "span": [
+            1,
+            115701,
+            1,
+            117035
+          ],
+          "offsets": [
+            115701,
+            117035
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(n){if(n.param&&n.param.Request&&n.param.Request.SendInside&&n.param.Request.SendInside.Data&&(n.param.Request.SendInside.Data.EMAIL_SEND_TF||n.param.Request.SendInside.Data.SMS_SEND_TF||n.param.Request.SendInside.Data.MSGR_SEND_TF||n.param.Request.SendInside.Data.MSOP_SEND_TF||n.param.Request.SendInside.Data.MSOP_SEND_TF||n.param.Request.SendInside.Data.KAKAO_SEND_TF||n.param.Request.SendInside.Data.APP_NOTI_SEND_TF)&&!ecount.infra.checkIsAvailableForDemoUser(!1))return!1;if(ecmodule.common.page.debuggerPoint(),n.param=this.callSaveApiParam(n.param),_.get(n.param,\"Request.Data.Details\")&&$.isEmpty(n.param.Request.Data.Details.list)){ecount.alert(ecount.resource.MSG08320);throw new Error(\"Invalid Data - [Data.Details]\");}this.callApi({url:n.url,data:n.param,success:function(n){ecount.TemporarySave.localstorage.clear();this.pageOption.asyncApiStep.setTemp(n.Data);this.pageOption.asyncApiStep.next()}.bind(this),error:function(){var n=arguments[3];if(arguments[2]){arguments[2].Code==\"EXP00001\"?ecount.confirm(ecount.resource.MSG10920,function(n){n&&(this.fnTemporarySave(),this.applyTemporarySaved())}.bind(this)):arguments[2].Code==\"ERR00112\"?ecount.alert(ecount.resource.MSG11063):n&&n();return}ecount.confirm(ecount.resource.MSG10569,function(n){if(!n)return!1;this.fnTemporarySave()}.bind(this))}.bind(this)})}"
+        },
+        {
+          "symbol": "eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit",
+          "span": [
+            1,
+            131124,
+            1,
+            133497
+          ],
+          "offsets": [
+            131124,
+            133497
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(){var i=this.pageOption.asyncApiStep.getTemp(),r,n,t;if([\"saveNew\",\"saveReview\",\"saveSlipPayAssistant\"].includes(this.pageHidden.saveType))r={},r=this.pageOption.EditMode==ecenum.editMode.new?{Date:i.IoDate,No:i.IoNo}:{Date:this.slipInfo.Master[this.columnMap.form.date.name],No:this.slipInfo.Master[this.columnMap.form.no.name]},n={Request:{Key:r,EditMode:this.pageHidden.saveType===\"saveReview\"?ecenum.editMode.modify:ecenum.editMode.new,FromProgramId:this.pageOption.FromProgramId||this.ProgramInfo.PROGRAM_ID,PrevUrl:this.pageInfo.path,RoomSeq:this.pageOption.ROOM_SEQ,MenuSeq:this.pageInfo.LOAD_TO_TYPE,UIOption:{IsShowNextSlipButton:this.pageOption.UIOption.IsShowNextSlipButton,IsShowConfirmButton:this.pageHidden.saveType!==\"saveReview\"?this.pageOption.UIOption.IsShowConfirmButton:!1}}},this.pageInfo.IS_WMS&&$.extend(n.Request,{Data:{HID:i.HID||0},WMS_ID:i.WMS_ID||\"\"}),t=this.getComposite(\"orderMngManager\"),t&&$.extend(n.Request,t.setInputCommonParamFromManagerORderMsg()),$.isEmpty(this.pageHidden.slipRelaionPopYn)||this.pageHidden.saveType!==\"saveReview\"||(this.pageHidden.slipRelaionPopYn=\"Y\"),this.submitPage(this.pageInfo.path,n,this.tabIdList.main);else if(this.pageHidden.saveType===\"saveChangeMake2\")ecount.link.getConfigUrlData(this.ecPageID,ecount.programId.Inventory.GoodsReceiptInput2,this.pageViewbagData.IsEnableNoL4,\"submit\",function(n){var t={Request:{Key:{Date:this.slipInfo.Master.IO_DATE,No:this.slipInfo.Master.IO_NO},FromProgramId:this.pageOption.FromProgramId,EditMode:ecenum.editMode.modify,RoomSeq:this.pageOption.ROOM_SEQ},IsRefNew:this.pageOption.IsRefNew};this.getParentInstance()&&this.getParentInstance()._ON_REDRAW&&this.getParentInstance()._ON_REDRAW();this.submitPage(n.url,t,this.tabIdList.main)}.bind(this));else if(this.pageOption.isPopup)this.pageHidden.saveTypeOrigin==2?this.close(!1):this.pageOption.popupType==\"layer\"?this.close():this.setTimeout(function(){this.close()}.bind(this),0);else if($.isEmpty(this.pageOption.ROOM_SEQ)||this.pageOption.isPopup)n={Request:{}},t=this.getComposite(\"orderMngManager\"),t&&$.extend(n.Request,t.setInputCommonParamFromManagerORderMsg()),this.pageHidden.saveTypeOrigin==2&&(n.Request.UIOption={IsSetFocus:!1}),this.submitPage(this.pageInfo.path,n,this.tabIdList.main);else this.onAllSubmitSelf(this.pageInfo.listPath,{__ecPage__:null,ROOM_SEQ:this.pageOption.roomSeq},null)}"
+        },
+        {
+          "symbol": "eccomposite_v1.function.inputEvent.callApi",
+          "span": [
+            1,
+            188291,
+            1,
+            188720
+          ],
+          "offsets": [
+            188291,
+            188720
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(n){var t=n.data;n&&!$.isEmpty(this.popupLevel)&&(n.popupLevel=parseInt(this.popupLevel)+1,n.parentPageID=this.popupID);t.Keys=this.contentsComposite.getErrorMessageKeys();$.isEmpty(t.isShowMenuPath)&&(t.isShowMenuPath=ecenum.useYn.yes);n.data=t;$.isFunction(n.success)&&(n.success=function(n,t){n(t)}.bind(this,n.success));n.saveTemporaryfnc=this.fnTemporarySave.bind(this);n.ecPageID=this.ecPageID;ecount.common.api(n)}"
+        },
+        {
+          "symbol": "eccomposite_v1.function.ecwapi_event.callSaveApi",
+          "span": [
+            1,
+            202451,
+            1,
+            203344
+          ],
+          "offsets": [
+            202451,
+            203344
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(n){var t,i;ecmodule.common.page.debuggerPoint();t={};t=this.getComposite(\"inputEvent\").getSaveApiParam();var r=this.pageOption.asyncApiStep.getTemp(),u=r.ReferSid,f=r.IsCallEcWorker;if(t.url=\"/SVC/Inventory/InventoryAdjust/SaveInventoryCountKafka\",t.param.Request.Data.AdjustTarget.ReferSid=u,t.param.Request.Data.IsCallEcWorker=f,_.get(t.param,\"Request.Data.Details\")&&$.isEmpty(t.param.Request.Data.Details.list)){ecount.alert(ecount.resource.MSG08320);throw new Error(\"Invalid Data - [Data.Details]\");}n===!0?(i=!0,ecount.common.ecwapi({url:t.url,ecPageID:this.ecPageID,data:t.param,success:function(n){this.pageOption.asyncApiStep.setTemp(n.Data)}.bind(this),error:function(n,t,r){r.length>0&&(i=!1)},complete:function(){if(ecount.TemporarySave.localstorage.clear(),i)this.pageOption.asyncApiStep.next();else return!1}.bind(this)})):this.getComposite(\"inputEvent\").callSaveApi(t)}"
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.unit.widget.purchase_transferInvoice1._ON_CLICK",
+          "span": [
+            1,
+            3012,
+            1,
+            6289
+          ],
+          "offsets": [
+            3012,
+            6289
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(){var t,f,e,i,r,o;if(this._onClickSlipMenu(),t=this.getComposite(\"grid\").getChecked(),t.length==0)return ecount.alert(ecount.resource.MSG00213),!1;f=t[0].CUST;e=t[0].CUST_DES;ecount.config.user.ALL_GROUP_CUST!=\"1\"&&t.first()&&(i=t.first(),!$.isEmpty(i.REP_CUST_CD)&&[\"P\",\"T\"].contains(i.CUST_ACC_RFLC_CLAS)&&(f=i.REP_CUST_CD||i.CUST,e=i.REP_CUST_NAME||i.CUST_DES));var s=ecount.common.getAuthMessage(\"\",[{MenuResource:this.pageInfo.title,PermissionMode:\"W\"}]),u=_.orderBy(t,[\"IO_DATE\",\"IO_NO\"],[\"desc\",\"desc\"]),n={Cust:f,CustDes:e,slipDate:this.getControls(\"ddlSYear\",\"all\").getDate()[1].format(\"yyyyMMdd\"),fixDueDate:this.getControls(\"ddlSYear\",\"all\").getDate()[1].format(\"yyyyMMdd\"),isVatRateFlag:!0,RequestPages:\"2\",Old_Supplyamt:t[0].SUPPLY_AMT,Old_Vatamt:t[0].VAT_AMT,Old_SUPPLY_AMT_F:t[0].EX_RATE,EXCHANGE_RATE:t[0].T_AMT_F,PJT_CD:u[0].PJT_CODE,PJT_DES:u[0].PJT_NAME,SITE:u[0].SITE_CODE,SITE_DES:u[0].SITE_NAME,SlipData:[]};if(n=$.extend({},n,this.pageHidden.eachTransferParam),n=this._eachDataSet(n,t),n.SlipData&&(n.Old_Supplyamt=new Decimal(0),n.Old_Vatamt=new Decimal(0),n.Old_SUPPLY_AMT_F=new Decimal(0),n.SlipData.forEach(function(t){n.Old_Supplyamt=n.Old_Supplyamt.plus(t.SUPPLY_AMT);n.Old_Vatamt=n.Old_Vatamt.plus(t.VAT_AMT);n.Old_SUPPLY_AMT_F=n.Old_SUPPLY_AMT_F.plus(t.T_AMT_F)}.bind(this))),n={Request:{Key:{Date:n.slipDate},EditMode:ecenum.editMode.new,FromProgramId:\"E040312\",TrxType:n.TRX_TYPE,SerNo:n.TRX_SER,IoGubun:\"2\",DefaultViewData:{Acc100:{TRX_DATE:n.slipDate,CUST:n.Cust,CUST_DES:n.CustDes,PJT_CD:n.PJT_CD,PJT_DES:n.PJT_DES,SITE:n.SITE,SITE_DES:n.SITE_DES,FOREIGN_FLAG:n.FOREIGN_FLAG,EXCHANGE_RATE:n.SlipData[0].EX_RATE,TAX_GUBUN:n.TAX_GUBUN,CUST_GUBUN:n.CUST_GUBUN,TRX_AMT1:n.Old_Supplyamt,TRX_AMT2:n.Old_Vatamt,TRX_AMT_F:n.Old_SUPPLY_AMT_F,DR_BD_GUBUN:\"2\",CR_BD_GUBUN:\"2\",DUE_DATE:n.dueDate,FIX_DUE_DATE:n.dueDate,COLL_DATA:n.COLL_DATA,REMARKS:function(){var t=n.SlipData[0].PROD_DES;return n.SlipData&&n.SlipData.length>1&&(t+=String.format(\" {0} {1}{2}\",ecount.resource.LBL01944,n.SlipData.length-1,ecount.resource.LBL00386)),t}()},Acc301:{ECTAX_TYPE:\"0\",Additional:{ECTAX_GB:\"BE\",ECTAX_FLAG:n.ECTAX_FLAG},Acc301Subs:n.SlipData.select(function(n){return{MMDD:n.IO_DATE.substr(4,4),PRICE:n.PRICE,PROD_CD:n.PROD_CD,PROD_DES:n.PROD_DES,SIZE_DES:n.SIZE_DES,QTY:n.QTY,SUPPLY_AMT:n.SUPPLY_AMT,VAT_AMT:n.VAT_AMT}}),Acc301SubsCount:n.SlipData.length}},Data:{IsCollectInvoice:\"Y\",HeaderTitle:ecount.resource.LBL93332,CollectInvoicesType:1,CollectTargetList:[_.merge(n,{detailList:n.SlipData})]},UiOption:{IsShowSaveButton:!0,IsShowSaveNewButton:!1,IsShowSaveReviewButton:!1,IsShowSlipBillButton:!1,IsShowPreButton:!1,IsShowRewriteButton:!1,IsShowWebUploaderButton:!1,IsShowETaxInvoiceTwoButton:!1,IsShowETaxInvoiceButton:!1}}},![\"W\",\"U\"].contains(this.pageInfo.permissions.Value))return ecount.alert(s.fullErrorMsg),!1;this.settingInfo.applyUrlData?(r=this.settingInfo.applyUrlData,[\"W\",\"U\"].contains(r.Permit.Value)?($.extend(n,{TRX_TYPE:r.TRX_TYPE,TRX_SER:r.TRX_SER}),this.openWindow({url:r.Url,name:r.Resource,param:n,popupType:!1})):(o=ecount.common.getAuthMessage(\"\",[{MenuResource:r.Resource,PermissionMode:\"W\"}]),ecount.alert(o.fullErrorMsg+\"\\r\\n\"))):this.openWindow({url:this.pageInfo.path,name:this.pageInfo.title,param:n,popupType:!1})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.purchase_transferInvoice2._ON_CLICK",
+          "span": [
+            1,
+            8257,
+            1,
+            11744
+          ],
+          "offsets": [
+            8257,
+            11744
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(){var t,f,e,i,r,o;if(this._onClickSlipMenu(),this.pageHidden.eachTransferParam.AccountViewFlag=\"2\",t=this.getComposite(\"grid\").getChecked(),t.length==0)return ecount.alert(ecount.resource.MSG00213),!1;f=t[0].CUST;e=t[0].CUST_DES;ecount.config.user.ALL_GROUP_CUST!=\"1\"&&t.first()&&(i=t.first(),!$.isEmpty(i.REP_CUST_CD)&&[\"P\",\"T\"].contains(i.CUST_ACC_RFLC_CLAS)&&(f=i.REP_CUST_CD||i.CUST,e=i.REP_CUST_NAME||i.CUST_DES));var s=ecount.common.getAuthMessage(\"\",[{MenuResource:this.pageInfo.title,PermissionMode:\"W\"}]),u=_.orderBy(t,[\"IO_DATE\",\"IO_NO\"],[\"desc\",\"desc\"]),n={Cust:f,CustDes:e,slipDate:this.getControls(\"ddlSYear\",\"all\").getDate()[1].format(\"yyyyMMdd\"),fixDueDate:this.getControls(\"ddlSYear\",\"all\").getDate()[1].format(\"yyyyMMdd\"),isVatRateFlag:!0,RequestPages:\"2\",Old_Supplyamt:t[0].SUPPLY_AMT,Old_Vatamt:t[0].VAT_AMT,Old_SUPPLY_AMT_F:t[0].EX_RATE,EXCHANGE_RATE:t[0].T_AMT_F,PJT_CD:u[0].PJT_CODE,PJT_DES:u[0].PJT_NAME,SITE:u[0].SITE_CODE,SITE_DES:u[0].SITE_NAME,SlipData:[]};if(n=$.extend({},n,this.pageHidden.eachTransferParam),n=this._eachDataSet(n,t),n.SlipData&&(n.Old_Supplyamt=new Decimal(0),n.Old_Vatamt=new Decimal(0),n.Old_SUPPLY_AMT_F=new Decimal(0),n.SlipData.forEach(function(t){n.Old_Supplyamt=n.Old_Supplyamt.plus(t.SUPPLY_AMT);n.Old_Vatamt=n.Old_Vatamt.plus(t.VAT_AMT);n.Old_SUPPLY_AMT_F=n.Old_SUPPLY_AMT_F.plus(t.T_AMT_F)}.bind(this))),n={Request:{Key:{Date:n.slipDate},EditMode:ecenum.editMode.new,FromProgramId:\"E040312\",TrxType:\"98\",SerNo:\"02\",IoGubun:\"2\",DefaultViewData:{Master:{TRX_DATE:n.slipDate,CUST:n.Cust,CUST_DES:n.CustDes,PJT_CD:n.PJT_CD,PJT_DES:n.PJT_DES,SITE:n.SITE,SITE_DES:n.SITE_DES,FOREIGN_FLAG:n.FOREIGN_FLAG,EXCHANGE_RATE:n.SlipData[0].EX_RATE,TAX_GUBUN:n.TAX_GUBUN,CUST_GUBUN:n.CUST_GUBUN,TRX_AMT1:n.Old_Supplyamt,TRX_AMT2:n.Old_Vatamt,TRX_AMT_F:n.Old_SUPPLY_AMT_F,DR_BD_GUBUN:\"2\",CR_BD_GUBUN:\"2\",DUE_DATE:n.dueDate,FIX_DUE_DATE:n.dueDate,COLL_DATA:n.COLL_DATA,REMARKS:function(){var t=n.SlipData[0].PROD_DES;return n.SlipData&&n.SlipData.length>1&&(t+=String.format(\" {0} {1}{2}\",ecount.resource.LBL01944,n.SlipData.length-1,ecount.resource.LBL00386)),t}()},VatMaster:{ECTAX_TYPE:\"0\",Additional:{ECTAX_GB:\"BE\",ECTAX_FLAG:n.ECTAX_FLAG},Details:n.SlipData.select(function(n){return{MMDD:n.IO_DATE.substr(4,4),PRICE:n.PRICE,PROD_CD:n.PROD_CD,PROD_DES:n.PROD_DES,SIZE_DES:n.SIZE_DES,QTY:n.QTY,SUPPLY_AMT:n.SUPPLY_AMT,VAT_AMT:n.VAT_AMT}})}},Data:{IsCollectInvoice:\"Y\",HeaderTitle:ecount.resource.LBL93332,CollectInvoicesType:1,CollectTargetList:[_.merge(n,{detailList:n.SlipData})],ProdInfos:n.SlipData,Old_REMARK:n.Old_REMARK,Old_TRACKNO:n.Old_TRACKNO,CustManageNo:this.pageInfo.custManageNo,Old_SUPPLY_AMT_F:n.Old_SUPPLY_AMT_F,Old_Supplyamt:n.Old_Supplyamt,Old_Vatamt:n.Old_Vatamt},UiOption:{IsShowSaveButton:!0,IsShowSaveNewButton:!1,IsShowSaveReviewButton:!1,IsShowSlipBillButton:!1,IsShowPreButton:!1,IsShowRewriteButton:!1,IsShowWebUploaderButton:!1,IsShowETaxInvoiceTwoButton:!1,IsShowETaxInvoiceButton:!1}}},![\"W\",\"U\"].contains(this.pageInfo.permissions.Value))return ecount.alert(s.fullErrorMsg),!1;this.settingInfo.applyUrlData?(r=this.settingInfo.applyUrlData,[\"W\",\"U\"].contains(r.Permit.Value)?($.extend(n,{TRX_TYPE:r.TRX_TYPE,TRX_SER:r.TRX_SER}),this.openWindow({url:r.Url,name:r.Resource,param:n,popupType:!1})):(o=ecount.common.getAuthMessage(\"\",[{MenuResource:r.Resource,PermissionMode:\"W\"}]),ecount.alert(o.fullErrorMsg+\"\\r\\n\"))):this.openWindow({url:this.pageInfo.path,name:this.pageInfo.title,param:n,popupType:!1})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.purchase_transferInvoiceImport._ON_CLICK",
+          "span": [
+            1,
+            13580,
+            1,
+            16911
+          ],
+          "offsets": [
+            13580,
+            16911
+          ],
+          "reason": "bounded direct keyword consumer",
+          "source": "function(){var t,f,e,i,r,o;if(this._onClickSlipMenu(),this.pageHidden.eachTransferParam.AccountViewFlag=\"3\",t=this.getComposite(\"grid\").getChecked(),t.length==0)return ecount.alert(ecount.resource.MSG00213),!1;f=t[0].CUST;e=t[0].CUST_DES;ecount.config.user.ALL_GROUP_CUST!=\"1\"&&t.first()&&(i=t.first(),!$.isEmpty(i.REP_CUST_CD)&&[\"P\",\"T\"].contains(i.CUST_ACC_RFLC_CLAS)&&(f=i.REP_CUST_CD||i.CUST,e=i.REP_CUST_NAME||i.CUST_DES));var s=ecount.common.getAuthMessage(\"\",[{MenuResource:this.pageInfo.title,PermissionMode:\"W\"}]),u=_.orderBy(t,[\"IO_DATE\",\"IO_NO\"],[\"desc\",\"desc\"]),n={Cust:f,CustDes:e,slipDate:this.getControls(\"ddlSYear\",\"all\").getDate()[1].format(\"yyyyMMdd\"),fixDueDate:this.getControls(\"ddlSYear\",\"all\").getDate()[1].format(\"yyyyMMdd\"),isVatRateFlag:!0,RequestPages:\"2\",Old_Supplyamt:t[0].SUPPLY_AMT,Old_Vatamt:t[0].VAT_AMT,Old_SUPPLY_AMT_F:t[0].EX_RATE,EXCHANGE_RATE:t[0].T_AMT_F,PJT_CD:u[0].PJT_CODE,PJT_DES:u[0].PJT_NAME,SITE:u[0].SITE_CODE,SITE_DES:u[0].SITE_NAME,SlipData:[]};if(n=$.extend({},n,this.pageHidden.eachTransferParam),n=this._eachDataSet(n,t),n.SlipData&&(n.Old_Supplyamt=new Decimal(0),n.Old_Vatamt=new Decimal(0),n.Old_SUPPLY_AMT_F=new Decimal(0),n.SlipData.forEach(function(t){n.Old_Supplyamt=n.Old_Supplyamt.plus(t.SUPPLY_AMT);n.Old_Vatamt=n.Old_Vatamt.plus(t.VAT_AMT);n.Old_SUPPLY_AMT_F=n.Old_SUPPLY_AMT_F.plus(t.T_AMT_F)}.bind(this))),n={Request:{Key:{Date:n.slipDate},EditMode:ecenum.editMode.new,FromProgramId:\"E040312\",TrxType:n.TRX_TYPE,SerNo:n.TRX_SER,IoGubun:\"2\",DefaultViewData:{Acc100:{TRX_DATE:n.slipDate,CUST:n.Cust,CUST_DES:n.CustDes,PJT_CD:n.PJT_CD,PJT_DES:n.PJT_DES,SITE:n.SITE,SITE_DES:n.SITE_DES,FOREIGN_FLAG:n.FOREIGN_FLAG,EXCHANGE_RATE:n.SlipData[0].EX_RATE,TAX_GUBUN:n.TAX_GUBUN,CUST_GUBUN:n.CUST_GUBUN,TRX_AMT1:n.Old_Supplyamt,TRX_AMT2:n.Old_Vatamt,TRX_AMT_F:n.Old_SUPPLY_AMT_F,DR_BD_GUBUN:\"2\",CR_BD_GUBUN:\"2\",DUE_DATE:n.dueDate,FIX_DUE_DATE:n.dueDate,COLL_DATA:n.COLL_DATA,REMARKS:function(){var t=n.SlipData[0].PROD_DES;return n.SlipData&&n.SlipData.length>1&&(t+=String.format(\" {0} {1}{2}\",ecount.resource.LBL01944,n.SlipData.length-1,ecount.resource.LBL00386)),t}()},Acc301:{ECTAX_TYPE:\"0\",Additional:{ECTAX_GB:\"BE\",ECTAX_FLAG:n.ECTAX_FLAG},Acc301Subs:n.SlipData.select(function(n){return{MMDD:n.IO_DATE.substr(4,4),PRICE:n.PRICE,PROD_CD:n.PROD_CD,PROD_DES:n.PROD_DES,SIZE_DES:n.SIZE_DES,QTY:n.QTY,SUPPLY_AMT:n.SUPPLY_AMT,VAT_AMT:n.VAT_AMT}}),Acc301SubsCount:n.SlipData.length}},Data:{IsCollectInvoice:\"Y\",HeaderTitle:ecount.resource.LBL93332,CollectInvoicesType:1,CollectTargetList:[_.merge(n,{detailList:n.SlipData})]},UiOption:{IsShowSaveButton:!0,IsShowSaveNewButton:!1,IsShowSaveReviewButton:!1,IsShowSlipBillButton:!1,IsShowPreButton:!1,IsShowRewriteButton:!1,IsShowWebUploaderButton:!1,IsShowETaxInvoiceTwoButton:!1,IsShowETaxInvoiceButton:!1}}},![\"W\",\"U\"].contains(this.pageInfo.permissions.Value))return ecount.alert(s.fullErrorMsg),!1;this.settingInfo.applyUrlData?(r=this.settingInfo.applyUrlData,[\"W\",\"U\"].contains(r.Permit.Value)?($.extend(n,{TRX_TYPE:r.TRX_TYPE,TRX_SER:r.TRX_SER}),this.openWindow({url:r.Url,name:r.Resource,param:n,popupType:!1})):(o=ecount.common.getAuthMessage(\"\",[{MenuResource:r.Resource,PermissionMode:\"W\"}]),ecount.alert(o.fullErrorMsg+\"\\r\\n\"))):this.openWindow({url:this.pageInfo.path,name:this.pageInfo.title,param:n,popupType:!1})}"
+        }
+      ]
+    },
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "CreateAndModifyInventoryNewSlipUserAction.executeAsync",
+          "span": [
+            14890,
+            26,
+            15024,
+            5
+          ],
+          "offsets": [
+            737015,
+            744767
+          ],
+          "reason": "target class method",
+          "source": "async (request) => {\n        const { execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        const program = common$1.ProgramBuilder.create(\"inventory$ExecuteInventorySlipSaveProgram\" /* EN_PROGRAM_ID.ExecuteInventorySlipSaveProgram */, execution_context);\n        const result = await program.executeAsync({});\n        if (!result) {\n            return;\n        }\n        // ======================================================================================================\n        // 4. 결과 처리\n        // ======================================================================================================\n        const dmc = program_context.data?.dmc_map?.[common_.CurrentUtil.getModelInfo(execution_context, \"master\" /* EN_INPUT_MENU_TYPE.Master */)?.model_id ?? ''];\n        const input_data_model_id = dmc.data_model_id;\n        // ======================================================================================================\n        // 5. 임시저장 데이터 삭제\n        // ======================================================================================================\n        const temporarySaveFeature = execution_context.tryGetFeature(\"ITemporarySaveFeature$temporary_save\" /* EN_FEATURE_ID_TEMP.ITemporarySaveFeature */);\n        temporarySaveFeature?.deleteTemp();\n        // ======================================================================================================\n        // 6. 페이지 이동\n        // ======================================================================================================\n        const { vmc } = execution_context.getProgramContext().data;\n        const menu_attr_request = execution_context.attr\n            .createRequestBuilder()\n            .setPAttrOwner(\"menu\" /* EN_P_ATTR_OWNER.menu */)\n            .setAttrId(['save_action_mode'])\n            .build();\n        const save_action_mode = execution_context.attr.get(menu_attr_request)?.data;\n        await _pageMovement(vmc, save_action_mode, result.data_model?.[input_data_model_id][0]);\n        async function _pageMovement(vmc, action_mode, res_data_model) {\n            const { use_tf, barcode_focus_list, barcode_list } = _getBarcodeInfo();\n            // 보류적용일경우 신규로 취급\n            if (execution_context.routeConfig.pageRouteOptions?.param?.action_mode) {\n                if (_.isEqual(execution_context.routeConfig.pageRouteOptions?.param?.action_mode, \"USE_HOLD\" /* EN_ACTION_MODE.UseHold */)) {\n                    execution_context.routeConfig.pageRouteOptions.param.action_mode = \"GET_CREATE\" /* EN_ACTION_MODE.GetCreate */;\n                }\n            }\n            const option = {\n                reqData: {\n                    ...execution_context.routeConfig.pageRouteOptions.reqData,\n                    barcode_option: { use_tf },\n                },\n                preserve: {\n                    options: {\n                        barcode_option: {\n                            use_tf,\n                            barcode_focus_list,\n                            barcode_list,\n                        },\n                    },\n                },\n            };\n            switch (action_mode) {\n                case \"NEW\" /* EN_ACTION_MODE.Create */:\n                    await _createPageMovement(vmc, option, res_data_model);\n                    break;\n                case \"UPDATE\" /* EN_ACTION_MODE.Modify */:\n                    await _modifyPageMovement(vmc, option);\n                    break;\n            }\n        }\n        async function _createPageMovement(vmc, option, res_data_model) {\n            await execution_context\n                .getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */)\n                .reloadPageAsync(option);\n            // to-do 현재는 TP에 대한 임시처리 추가 작업 필요\n            if (_.vIsEquals(execution_context.routeConfig.pageLoadOptions.pageType, 'POPUP') ||\n                _.vIsEquals(execution_context.routeConfig.pageLoadOptions.popupOptions?.popupType, 'WINDOW')) {\n                if (execution_context.routeConfig.pageLoadOptions.is_from_approval) {\n                    await _ApprovalSlip(vmc, res_data_model);\n                }\n                else if (execution_context.routeConfig.pageRouteOptions?.param?.IsRefNew) {\n                    await _AttachSlip(vmc, res_data_model);\n                }\n                else {\n                    vmc.sendMessage({\n                        redraw: true,\n                        is_from_order_mng: execution_context.routeConfig.pageRouteOptions.param.is_from_order_mng ?? false, // ! 기존 pageLoadOptions.data_map 에서 받던 것 pageRouteOptions.param 으로 받도록\n                        is_from_order_proc: execution_context.routeConfig.pageRouteOptions.param.is_from_order_proc ?? false, // ! 기존 pageLoadOptions.data_map 에서 받던 것 pageRouteOptions.param 으로 받도록\n                    });\n                }\n            }\n        }\n        async function _modifyPageMovement(vmc, option) {\n            const bizz_name = program_context.sourceData.bizz?.bizz_name;\n            await execution_context\n                .getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */)\n                .reloadPageAsync({\n                preserve: option.preserve,\n                param: {\n                    bizz_sid: program_context.data.bizz_sid,\n                    menu_sid: program_context.data.menu_sid,\n                    action_mode: \"GET_CREATE\" /* EN_ACTION_MODE.GetCreate */,\n                },\n                reqData: {\n                    ...option.reqData,\n                    menu_nm: common_.DataModelUtil.resolveResource(`@{${'rex04326'}([${bizz_name}])}`),\n                },\n            });\n            if (_.vIsEquals(execution_context.routeConfig.pageLoadOptions.pageType, 'POPUP')) {\n                vmc.sendMessage({\n                    redraw: true,\n                    is_from_order_mng: execution_context.routeConfig.pageRouteOptions.param.is_from_order_mng ?? false, // ! 기존 pageLoadOptions.data_map 에서 받던 것 pageRouteOptions.param 으로 받도록\n                    is_from_order_proc: execution_context.routeConfig.pageRouteOptions.param.is_from_order_proc ?? false, // ! 기존 pageLoadOptions.data_map 에서 받던 것 pageRouteOptions.param 으로 받도록\n                });\n            }\n        }\n        function _getBarcodeInfo() {\n            const barcode_state = vmc.getPropState(\"DynamicMiddleButtonModel\" /* EN_BUTTON_DEFINITION_ID.DynamicMiddleButtonModel */, 'barcode');\n            const barcode_use_tf = barcode_state?.is_active ?? false;\n            const barcode_focus_list_state = _.find(barcode_state?.sibling_items, (item) => item.id === 'barcode_focus_list');\n            const barcode_list_state = _.find(barcode_state?.sibling_items, (item) => item.id === 'barcode_list');\n            return {\n                use_tf: barcode_use_tf,\n                barcode_focus_list: barcode_focus_list_state?.display_value,\n                barcode_list: barcode_list_state?.display_value,\n            };\n        }\n        async function _AttachSlip(vmc, res_data_model) {\n            const attach_slip_message = await common$1.SvcCommandBuilder.create(GetAttachSlipMessageSvc, execution_context).executeAsync({\n                execution_context,\n                dmc,\n                res_data_model,\n            });\n            vmc.sendMessage(attach_slip_message);\n        }\n        async function _ApprovalSlip(vmc, res_data_model) {\n            const approval_slip_message = await common$1.SvcCommandBuilder.create(GetApproveSlipMessageSvc, execution_context).executeAsync({\n                execution_context,\n                dmc,\n                res_data_model,\n            });\n            vmc.sendMessage(approval_slip_message);\n        }\n    }"
+        }
+      ]
+    },
+    {
+      "id": "actions",
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/actions.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "CreateAndModifyInventoryNewSlipUserAction.executeAsync",
+          "span": [
+            1,
+            346030,
+            1,
+            356058
+          ],
+          "offsets": [
+            346030,
+            356058
+          ],
+          "reason": "target compiled V5 action",
+          "source": "async request1=>{var _attr_feature_getMenuAttr1,_TemplateInfoState_template_list_find1,_result_data_model3,_TemplateInfoState_template_list_find_is_za_template1;let{execution_context:execution_context2,dm_manager:dm_manager2,vmc:vmc1}=request1,attr_feature2=execution_context2.getFeature(feature.attribute.IAttributeFeature);execution_context2.action.action_mode=(null===(_attr_feature_getMenuAttr1=attr_feature2.getMenuAttr(\"save_action_mode\"))||void 0===_attr_feature_getMenuAttr1?void 0:_attr_feature_getMenuAttr1.data)||execution_context2.action.action_mode,execution_context2.action.menu_type=\"input\";let TemplateInfoState1=vmc1.getPageState(state.page_state.ITemplateInfoState),current_template1=_.vToNumber(null==TemplateInfoState1?void 0:TemplateInfoState1.current_template),is_za_from_only1=null!==(_TemplateInfoState_template_list_find_is_za_template1=null==TemplateInfoState1?void 0:null===(_TemplateInfoState_template_list_find1=TemplateInfoState1.template_list.find(x2=>_.vIsEquals(x2.sid,current_template1.toString())))||void 0===_TemplateInfoState_template_list_find1?void 0:_TemplateInfoState_template_list_find1.is_za_template)&&void 0!==_TemplateInfoState_template_list_find_is_za_template1&&_TemplateInfoState_template_list_find_is_za_template1,program$11=await program.ProgramBuilder.createAsync(_abstraction$1.IExecuteSetupMainProgram,execution_context2),result2=await program$11.executeAsync({dm_manager:dm_manager2,vmc:request1.vmc,current_template:current_template1,is_za_from_only:is_za_from_only1});if(result2.error&&(execution_context2.action.action_mode=_.vIsEquals(execution_context2.action.action_mode,\"NEW\")?\"GET_CREATE\":\"GET_MODIFY\",exception$1.Exception.throw(exception.ExceptionBuilder.create(result2.error.name,result2.error))),!result2.is_continue){execution_context2.action.action_mode=_.vIsEquals(execution_context2.action.action_mode,\"NEW\")?\"GET_CREATE\":\"GET_MODIFY\";return}let definition_feature1=execution_context2.getFeature(feature.manager.IBizzManager),input_data_model_id1=definition_feature1.getBizzDataModelId(execution_context2,execution_context2.action.bizz_sid,\"master\"),dmc1=dm_manager2.getDataModelContainer(input_data_model_id1);async function _pageMovement1(vmc1,action_mode2,res_data_model1){var _execution_context_routeConfig_pageRouteOptions_param3,_execution_context_routeConfig_pageRouteOptions3,_execution_context_routeConfig_pageRouteOptions_param11,_execution_context_routeConfig_pageRouteOptions11;let{use_tf:use_tf1,barcode_focus_list:barcode_focus_list1,barcode_list:barcode_list1}=_getBarcodeInfo1();(null===(_execution_context_routeConfig_pageRouteOptions3=execution_context2.routeConfig.pageRouteOptions)||void 0===_execution_context_routeConfig_pageRouteOptions3?void 0:null===(_execution_context_routeConfig_pageRouteOptions_param3=_execution_context_routeConfig_pageRouteOptions3.param)||void 0===_execution_context_routeConfig_pageRouteOptions_param3?void 0:_execution_context_routeConfig_pageRouteOptions_param3.action_mode)&&_.isEqual(null===(_execution_context_routeConfig_pageRouteOptions11=execution_context2.routeConfig.pageRouteOptions)||void 0===_execution_context_routeConfig_pageRouteOptions11?void 0:null===(_execution_context_routeConfig_pageRouteOptions_param11=_execution_context_routeConfig_pageRouteOptions11.param)||void 0===_execution_context_routeConfig_pageRouteOptions_param11?void 0:_execution_context_routeConfig_pageRouteOptions_param11.action_mode,\"USE_HOLD\")&&(execution_context2.routeConfig.pageRouteOptions.param.action_mode=\"GET_CREATE\");let option1={reqData:{...execution_context2.routeConfig.pageRouteOptions.reqData,barcode_option:{use_tf:use_tf1}},preserve:{options:{barcode_option:{use_tf:use_tf1,barcode_focus_list:barcode_focus_list1,barcode_list:barcode_list1}}}};switch(action_mode2){case\"NEW\":await _createPageMovement1(vmc1,option1,res_data_model1);break;case\"UPDATE\":await _modifyPageMovement1(vmc1,option1)}}async function _createPageMovement1(vmc1,option1,res_data_model1){var _execution_context_routeConfig_pageLoadOptions_popupOptions1,_execution_context_routeConfig_pageRouteOptions_param3,_execution_context_routeConfig_pageRouteOptions3,_execution_context_routeConfig_pageLoadOptions_data_map2,_execution_context_routeConfig_pageLoadOptions_data_map11,_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1,_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1;await execution_context2.getFeature(feature.ui_handler.IHandleRouteFeature).reloadPageAsync(option1),(_.vIsEquals(execution_context2.routeConfig.pageLoadOptions.pageType,\"POPUP\")||_.vIsEquals(null===(_execution_context_routeConfig_pageLoadOptions_popupOptions1=execution_context2.routeConfig.pageLoadOptions.popupOptions)||void 0===_execution_context_routeConfig_pageLoadOptions_popupOptions1?void 0:_execution_context_routeConfig_pageLoadOptions_popupOptions1.popupType,\"WINDOW\"))&&(execution_context2.routeConfig.pageLoadOptions.is_from_approval?_ApprovalSlip1(vmc1,res_data_model1):(null===(_execution_context_routeConfig_pageRouteOptions3=execution_context2.routeConfig.pageRouteOptions)||void 0===_execution_context_routeConfig_pageRouteOptions3?void 0:null===(_execution_context_routeConfig_pageRouteOptions_param3=_execution_context_routeConfig_pageRouteOptions3.param)||void 0===_execution_context_routeConfig_pageRouteOptions_param3?void 0:_execution_context_routeConfig_pageRouteOptions_param3.IsRefNew)?_AttachSlip1(vmc1,res_data_model1):vmc1.sendMessage({redraw:!0,is_from_order_mng:null!==(_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1=null===(_execution_context_routeConfig_pageLoadOptions_data_map2=execution_context2.routeConfig.pageLoadOptions.data_map)||void 0===_execution_context_routeConfig_pageLoadOptions_data_map2?void 0:_execution_context_routeConfig_pageLoadOptions_data_map2.order_mgmt[0].is_from_order_mng)&&void 0!==_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1&&_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1,is_from_order_proc:null!==(_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1=null===(_execution_context_routeConfig_pageLoadOptions_data_map11=execution_context2.routeConfig.pageLoadOptions.data_map)||void 0===_execution_context_routeConfig_pageLoadOptions_data_map11?void 0:_execution_context_routeConfig_pageLoadOptions_data_map11.is_from_order_proc)&&void 0!==_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1&&_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1}))}async function _modifyPageMovement1(vmc1,option1){var _execution_context_bizz_mgr_getBizzDefinition3,_execution_context_routeConfig_pageLoadOptions_data_map2,_execution_context_routeConfig_pageLoadOptions_data_map11,_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1,_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1;let bizz_name1=null===(_execution_context_bizz_mgr_getBizzDefinition3=execution_context2.bizz_mgr.getBizzDefinition(execution_context2,execution_context2.action.bizz_sid))||void 0===_execution_context_bizz_mgr_getBizzDefinition3?void 0:_execution_context_bizz_mgr_getBizzDefinition3.bizz_name;await execution_context2.getFeature(feature.ui_handler.IHandleRouteFeature).reloadPageAsync({preserve:option1.preserve,param:{bizz_sid:execution_context2.action.bizz_sid,menu_sid:execution_context2.action.menu_sid,action_mode:\"GET_CREATE\"},reqData:{...option1.reqData,menu_nm:definition.DataModelUtil.resolveResource(`@{rex04326([${bizz_name1}])}`)}}),_.vIsEquals(execution_context2.routeConfig.pageLoadOptions.pageType,\"POPUP\")&&vmc1.sendMessage({redraw:!0,is_from_order_mng:null!==(_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1=null===(_execution_context_routeConfig_pageLoadOptions_data_map2=execution_context2.routeConfig.pageLoadOptions.data_map)||void 0===_execution_context_routeConfig_pageLoadOptions_data_map2?void 0:_execution_context_routeConfig_pageLoadOptions_data_map2.order_mgmt[0].is_from_order_mng)&&void 0!==_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1&&_execution_context_routeConfig_pageLoadOptions_data_map_order_mgmt__is_from_order_mng1,is_from_order_proc:null!==(_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1=null===(_execution_context_routeConfig_pageLoadOptions_data_map11=execution_context2.routeConfig.pageLoadOptions.data_map)||void 0===_execution_context_routeConfig_pageLoadOptions_data_map11?void 0:_execution_context_routeConfig_pageLoadOptions_data_map11.is_from_order_proc)&&void 0!==_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1&&_execution_context_routeConfig_pageLoadOptions_data_map_is_from_order_proc1})}function _getBarcodeInfo1(){var _request_vmc_getPropState1,_request_vmc_getPropState_is_active1;let barcode_use_tf1=null!==(_request_vmc_getPropState_is_active1=null===(_request_vmc_getPropState1=request1.vmc.getPropState(\"unchecked_toolbar\",\"barcode\"))||void 0===_request_vmc_getPropState1?void 0:_request_vmc_getPropState1.is_active)&&void 0!==_request_vmc_getPropState_is_active1&&_request_vmc_getPropState_is_active1,uncheck_toolbar1=_.first(dm_manager2.getDataModelContainer(\"unchecked_toolbar\").getDataModel());return{use_tf:barcode_use_tf1,barcode_focus_list:uncheck_toolbar1.barcode_focus_list,barcode_list:uncheck_toolbar1.barcode_list}}function _AttachSlip1(vmc1,res_data_model1){vmc1.sendMessage(getAttachSlipInfo(execution_context2,dmc1,res_data_model1))}function _ApprovalSlip1(vmc1,res_data_model1){vmc1.sendMessage(getApprovalSlipInfo(execution_context2,dmc1,res_data_model1))}common.deleteTempData(execution_context2),await _pageMovement1(vmc1,execution_context2.action.action_mode,null===(_result_data_model3=result2.data_model)||void 0===_result_data_model3?void 0:_result_data_model3[input_data_model_id1][0])}"
+        }
+      ]
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "extraction": "REA6.4.0 inert AST coordinates; this extraction is not a new full semantic run",
+      "rows": [
+        {
+          "symbol": "OpenWebUploaderUserAction.executeAsync",
+          "span": [
+            52838,
+            26,
+            52888,
+            5
+          ],
+          "offsets": [
+            2471065,
+            2473991
+          ],
+          "reason": "target class method",
+          "source": "async (request) => {\n        const { execution_context } = request;\n        const route_handler = execution_context.getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */);\n        const program_context = execution_context.getProgramContext();\n        const model_id = _.vSafe(common_.CurrentUtil.getModelInfo(execution_context, \"master\" /* EN_INPUT_MENU_TYPE.Master */)?.model_id) ?? '';\n        const confirm_type_value = program_context.data.dmc_map[model_id]?.getValueByReferType('confirm_type');\n        const bizz_setting_tf = program_context.sourceData.bizz?.bizz_setting_tf;\n        // 일반전표 / 매입전표2 는 v3팝업 오픈\n        const form_seq = request.payload.form_seq;\n        if (form_seq) {\n            const popup_result = await route_handler.openPopupAsync({\n                identifier: \"IV3WebUploaderPage\" /* EN_PAGE_ID.IV3WebUploaderPage */,\n                bizz_sid: program_context.data.bizz_sid,\n                module: execution_context.view_info.module_name,\n                param: { confirm_type: confirm_type_value, form_seq },\n            });\n            popup_result.message?.callback?.();\n            return;\n        }\n        // 판매의 경우 플래그 On 이면 5.0 웹자료올리기\n        if (_.vIsEquals(program_context.data.bizz_sid, 'B_000000E040205') &&\n            globalThis.$ECountApp?.app_config?.deploy_flags?.v56_sales_input) {\n            const flag_result = await common.RacCommandBuilder.createCommon(\"/ec56/api/common/action/CheckSalesFlagAction\" /* EN_ACTION_ID.ICheckSalesFlagAction */, request.execution_context).executeAsync({\n                bizz_sid: program_context.data.bizz_sid,\n            });\n            if (!flag_result.is_sales_flag_enabled) {\n                await request.vmc.alertAsync({ message: $Resx.rex09189 });\n                globalThis.$ECount.reloadTopWindow();\n                return;\n            }\n            await OpenWebUploaderUserAction_1._openWebUploaderPopupAsync(request, confirm_type_value);\n            return;\n        }\n        // 매출이거나 업무설정이 적용된 업무는 5.0 웹자료올리기\n        else if (_.vIsEquals(program_context.data.bizz_sid, 'B_000000E010301') ||\n            (bizz_setting_tf && !_.vIsEquals(program_context.data.bizz_sid, 'B_000000E040205'))) {\n            await OpenWebUploaderUserAction_1._openWebUploaderPopupAsync(request, confirm_type_value);\n        }\n        else {\n            //------------------------------------------------------\n            // 3.0 웹자료올리기 팝업 오픈\n            //------------------------------------------------------\n            const popup_result = await route_handler.openPopupAsync({\n                identifier: \"IV3WebUploaderPage\" /* EN_PAGE_ID.IV3WebUploaderPage */,\n                bizz_sid: program_context.data.bizz_sid,\n                module: execution_context.view_info.module_name,\n                param: { confirm_type: confirm_type_value },\n            });\n            popup_result.message?.callback?.();\n        }\n    }"
+        },
+        {
+          "symbol": "OpenWebUploaderUserAction._openWebUploaderPopupAsync",
+          "span": [
+            52889,
+            4,
+            52927,
+            5
+          ],
+          "offsets": [
+            2473997,
+            2475887
+          ],
+          "reason": "target class method",
+          "source": "static async _openWebUploaderPopupAsync(request, confirm_type_value) {\n        const { execution_context } = request;\n        const route_handler = execution_context.getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */);\n        const program_context = execution_context.getProgramContext();\n        //------------------------------------------------------\n        // 5.0 웹자료올리기 팝업 오픈\n        //------------------------------------------------------\n        const bizz = program_context.sourceData.bizz;\n        let menu_sid = bizz?.menu_sid_map?.[\"web_upload\" /* EN_MENU_TYPE.WebUploader */] ?? program_context.data.menu_sid ?? '';\n        // TODO (bjb) - GetCtxBizzSvc._getMenuSidMap() > 같은 메뉴 타입에 대해 I, II 구분할 수 없음 => 임시 하드코딩 처리\n        // 매출 2 입력 -> 매출 2 자료올리기\n        switch (program_context.data.menu_sid) {\n            case 'M_000000E010301': // 매출전표 1\n                menu_sid = 'M_000000E510301';\n                break;\n            case 'M_000000E200534': // 매출전표 2\n                menu_sid = 'M_000000N000041';\n                break;\n        }\n        const popup_result = await route_handler.openPopupAsync({\n            module: execution_context.view_info.module_name,\n            identifier: \"IWebUploaderPage\" /* EN_PAGE_ID.IWebUploaderPage */,\n            bizz_sid: program_context.data.bizz_sid,\n            param: {\n                bizz_sid: program_context.data.bizz_sid,\n                menu_sid,\n                menu_type: \"upload\" /* EN_MENU_TYPE.Upload */,\n                menu_nm: execution_context.runtime.page_header_title,\n                action_mode: \"NEW\" /* EN_ACTION_MODE.Create */,\n                confirm_type: confirm_type_value,\n            },\n        }, {\n            styleOptions: {\n                height: 640,\n            },\n            title: request.payload.title,\n        });\n        popup_result.message?.callback?.();\n    }"
+        }
+      ]
+    }
+  ]
+}

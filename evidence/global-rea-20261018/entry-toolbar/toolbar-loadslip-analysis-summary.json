@@ -1,0 +1,39 @@
+{
+  "rea_version": "6.4.0",
+  "sha256": "a3334426577c10615a4afeb66ba1095e834333b0debcf95e40d6f7245aeca82c",
+  "bytes": 186243,
+  "parse_status": "complete",
+  "parse_error_count": 0,
+  "visited_ast_nodes": 43194,
+  "scopes": 692,
+  "bindings": 797,
+  "callables": 628,
+  "call_sites": 2801,
+  "references": 3492,
+  "frontiers": 3100,
+  "call_resolution": {
+    "unresolved": 2801
+  },
+  "frontier_kinds": {
+    "dynamic-call": 2801,
+    "dynamic-property": 299
+  },
+  "coverage": {
+    "status": "complete",
+    "omittedCount": 0
+  },
+  "static_limitations": [
+    "JavaScript syntax was parsed as data and was never evaluated."
+  ],
+  "semantic_limitations": [
+    "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+    "Return sites include only direct callable returns; nested callable returns remain separate.",
+    "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+    "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+    "Cross-function mutation and dynamic property resolution remain unknown."
+  ],
+  "elapsed_ms": 980,
+  "semantic_status": "completed",
+  "target_executed": false,
+  "semantic_error": null
+}

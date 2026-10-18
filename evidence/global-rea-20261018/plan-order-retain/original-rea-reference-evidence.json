@@ -1,0 +1,400 @@
+{
+  "rea_version": "6.4.0",
+  "method": "Reuse retained actual original REA static/semantic evidence; no new full analyses, no target execution. Source SHA rechecked. Call resolutions are bounded static results, not runtime binding.",
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end exclusive; UTF16 offsets",
+  "sources": {
+    "inventory": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "known_public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js"
+      ],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 1926,
+        "call_sites": 7148,
+        "frontiers": 8012
+      },
+      "hash_rechecked_this_report": true
+    },
+    "actions": {
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/actions.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "known_public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js"
+      ],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/04-actions-e70f31a1ac77/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 1002,
+        "call_sites": 4618,
+        "frontiers": 4942
+      },
+      "hash_rechecked_this_report": true
+    },
+    "orders": {
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/orders.js",
+      "sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+      "bytes": 138464,
+      "known_public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js"
+      ],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/06-orders-162603c7e8b4/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 233,
+        "call_sites": 700,
+        "frontiers": 808
+      },
+      "hash_rechecked_this_report": true
+    },
+    "grid": {
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_3.-1691984462285639727.20.js",
+      "sha256": "457fb04dc2400a351a0a57b566b8820d657d538df9b0b2d1dbc57698f898aeba",
+      "bytes": 208059,
+      "known_public_urls": [],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/457fb04dc2400a35/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 484,
+        "call_sites": 3138,
+        "frontiers": 3976
+      },
+      "hash_rechecked_this_report": true
+    },
+    "basic-footer": {
+      "path": "$SCRATCH/footer-save-rea-20261018/bundle.eccomposite_v1.basic.unit.widget.footer.-1690837634644838199.20.js",
+      "sha256": "2aba7bd63878ac2d838524d9fb64df3d0ed42399c39ae2ba293002aeff1aad22",
+      "bytes": 19884,
+      "rea_ir": "$SCRATCH/footer-save-rea-20261018/inputs/2aba7bd63878ac2d/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": true,
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/bundle/bundle.eccomposite_v1.basic.unit.widget.footer.-1690837634644838199.20.js",
+      "hash_rechecked_this_report": true
+    },
+    "inventory-footer": {
+      "path": "$SCRATCH/footer-save-rea-20261018/bundle.eccomposite_v1.inventory.unit.widget.footer.-1895761178460182004.20.js",
+      "sha256": "b4a3cb1fa477f1702c846217ea460c93321d56613109a353cc6af746b613f540",
+      "bytes": 127433,
+      "rea_ir": "$SCRATCH/footer-save-rea-20261018/inputs/b4a3cb1fa477f170/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": true,
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/bundle/bundle.eccomposite_v1.inventory.unit.widget.footer.-1895761178460182004.20.js",
+      "hash_rechecked_this_report": true
+    },
+    "input-functions": {
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_1.-538278177882630599.20.js",
+      "sha256": "e6c17edb9f101881b3f413c56d0396f40e985a1de838650c514be1b289cbadc1",
+      "bytes": 244886,
+      "rea_ir": "$SCRATCH/toolbar-function-rea-20261018/inputs/e6c17edb9f101881/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": false,
+      "hash_rechecked_this_report": true
+    },
+    "pending-functions": {
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_2.-1784347108654919872.20.js",
+      "sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+      "bytes": 164962,
+      "rea_ir": "$SCRATCH/toolbar-function-rea-20261018/inputs/7b00857052a891b5/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": false,
+      "hash_rechecked_this_report": true
+    },
+    "core": {
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.core.2075066825770250059.20.js",
+      "sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+      "bytes": 93934,
+      "rea_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/d138900b87027f49/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": false,
+      "hash_rechecked_this_report": true
+    }
+  },
+  "evidence": {
+    "request_review_v56": {
+      "source": "inventory",
+      "span": [
+        15035,
+        26,
+        15125,
+        5
+      ],
+      "symbol": "CreateAndModifyInventoryReviewSlipUserAction.executeAsync",
+      "actual_REA_callable_id": "callable:function:745774:751241",
+      "direct_call_count": 19,
+      "call_resolution": {
+        "exact": 2,
+        "unresolved": 17
+      },
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "request_review_v56_target": {
+      "source": "inventory",
+      "span": [
+        15077,
+        16,
+        15077,
+        41
+      ],
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "request_review_v56_reload": {
+      "source": "inventory",
+      "span": [
+        15073,
+        12,
+        15073,
+        30
+      ],
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "v56_save_pipeline": {
+      "source": "inventory",
+      "span": [
+        7011,
+        4,
+        7061,
+        5
+      ],
+      "symbol": "ExecuteInventorySlipSaveProgram.onExecuteAsync",
+      "actual_REA_callable_id": "callable:method:329073:332122",
+      "direct_call_count": 10,
+      "call_resolution": {
+        "unresolved": 10
+      },
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "request_review_v5": {
+      "source": "actions",
+      "span": [
+        1,
+        175537,
+        1,
+        182014
+      ],
+      "symbol": "CreateAndModifyInventoryReviewSlipUserAction.executeAsync",
+      "actual_REA_callable_id": "callable:function:175537:182014",
+      "direct_call_count": 27,
+      "call_resolution": {
+        "exact": 2,
+        "unresolved": 25
+      },
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "input_route_506": {
+      "source": "orders",
+      "span": [
+        1891,
+        4,
+        1899,
+        5
+      ],
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "input_route_508": {
+      "source": "orders",
+      "span": [
+        1910,
+        4,
+        1919,
+        5
+      ],
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "order_meta": {
+      "source": "inventory",
+      "span": [
+        6624,
+        6,
+        6641,
+        1
+      ],
+      "prior_report": "$SCRATCH/save-review-coverage-20261018.json"
+    },
+    "save_review._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_review._ON_CLICK",
+      "span": [
+        1,
+        104712,
+        1,
+        104776
+      ],
+      "callable_id": "callable:function:104712:104776",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipSaveReview",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "prior_report": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "inputEvent.execSlipSaveReview": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSaveReview",
+      "span": [
+        1,
+        44449,
+        1,
+        44549
+      ],
+      "callable_id": "callable:function:44449:44549",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "prior_report": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "inputEvent.defaultActionFunction": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.defaultActionFunction",
+      "span": [
+        1,
+        38765,
+        1,
+        42897
+      ],
+      "callable_id": "callable:function:38765:42897",
+      "direct_call_count": 66,
+      "calls_including_nested": 67,
+      "direct_call_resolution": {
+        "unresolved": 66
+      },
+      "direct_callees": [
+        "this.initPageOption.bind",
+        "this.includePageLoadCheck.bind",
+        "this.checkForInventoryBalance.bind",
+        "this.saveValidate.bind",
+        "this.orderManageCompleteValidate.bind",
+        "this.checkInvoiceDetailAmt.bind",
+        "this.checkMultiCustDuplication.bind",
+        "this.checkEApprovalRelSlip.bind",
+        "this.checkPreinvoicingData.bind",
+        "this.checkNewInvSlip.bind",
+        "this.getCollectiveInvocingAmt.bind",
+        "this.saveValidateSecond.bind",
+        "this.saveValidateShow.bind",
+        "this.setDeleteConfirm.bind",
+        "this.checkSlipVersion.bind",
+        "this.getDocNoCreate.bind",
+        "this.getNewDocNoCreate.bind",
+        "this.fileUpload.bind",
+        "this.checkCollectiveSlip.bind",
+        "this.getLimitCheck.bind",
+        "this.getSerialCheck.bind",
+        "this.reflectProdGridVat.bind"
+      ],
+      "frontiers_including_nested": 73,
+      "prior_report": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "inputEvent.initActionSetting": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.initActionSetting",
+      "span": [
+        1,
+        42916,
+        1,
+        44075
+      ],
+      "callable_id": "callable:function:42916:44075",
+      "direct_call_count": 2,
+      "calls_including_nested": 6,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "function(n){var t=[];return function(i,r){t.includes(i)||(t.push(i),n.call(this,i,r))}.bind(this)}.bind(this,this.customAsyncListCustom)",
+        "function(n){var t=[];return function(i,r){t.includes(i)||(t.push(i),n.call(this,i,r))}.bind(this)}.bind"
+      ],
+      "frontiers_including_nested": 6,
+      "prior_report": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "inputEvent.getSaveApiParam": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.getSaveApiParam",
+      "span": [
+        1,
+        117052,
+        1,
+        119987
+      ],
+      "callable_id": "callable:function:117052:119987",
+      "direct_call_count": 10,
+      "calls_including_nested": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "direct_callees": [
+        "this.pageInfo.params.footer.save",
+        "this.publishEvent",
+        "this.getComposite(\"form\").getNowGbTypeStatus",
+        "this.getComposite",
+        "r.list.concat",
+        "f.push"
+      ],
+      "frontiers_including_nested": 26,
+      "prior_report": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    },
+    "inputEvent.saveAfterInputPageSubmit": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit",
+      "span": [
+        1,
+        131124,
+        1,
+        133497
+      ],
+      "callable_id": "callable:function:131124:133497",
+      "direct_call_count": 20,
+      "calls_including_nested": 26,
+      "direct_call_resolution": {
+        "unresolved": 20
+      },
+      "direct_callees": [
+        "this.pageOption.asyncApiStep.getTemp",
+        "[\"saveNew\",\"saveReview\",\"saveSlipPayAssistant\"].includes",
+        "$.extend",
+        "this.getComposite",
+        "t.setInputCommonParamFromManagerORderMsg",
+        "$.isEmpty",
+        "this.submitPage",
+        "ecount.link.getConfigUrlData",
+        "function(n){var t={Request:{Key:{Date:this.slipInfo.Master.IO_DATE,No:this.slipInfo.Master.IO_NO},FromProgramId:this.pageOption.FromProgramId,EditMode:ecenum.editMode.modify,RoomSeq:this.pageOption.ROOM_SEQ},IsRefNew:this.pageOption.IsRefNew};this.getParentInstance()&&this.getParentInstance()._ON_REDRAW&&this.getParentInstance()._ON_REDRAW();this.submitPage(n.url,t,this.tabIdList.main)}.bind",
+        "this.close",
+        "this.setTimeout",
+        "function(){this.close()}.bind",
+        "this.onAllSubmitSelf"
+      ],
+      "frontiers_including_nested": 28,
+      "prior_report": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T03:45:31.314358+00:00",
+  "scope": "Separate bounded extension of eight parent-observed public script URLs; original 41-source summaries are preserved.",
+  "rea_version": "6.4.0",
+  "collection": {
+    "exact_observed_urls": 8,
+    "successful_public_gets": 8,
+    "request_attempts": 8,
+    "unique_originals": 8,
+    "bytes": 169420,
+    "saved_source_sha256_rechecked": true,
+    "new_sha256_vs_prior_corpus": 8,
+    "historical_digest_comparison": "No prior expected SHA was supplied for these eight newly observed versioned URLs. New digests are recorded without claiming historical identity."
+  },
+  "analysis": {
+    "static_completed": 8,
+    "static_parse_complete": 7,
+    "static_parse_recovered_partial": 1,
+    "recovered_parse_error_count": 4,
+    "hard_parser_failures": 0,
+    "semantic_completed": 8,
+    "semantic_coverage_complete": 7,
+    "semantic_coverage_partial": 1,
+    "semantic_unknown": 0,
+    "per_file_time_budget_seconds": 45,
+    "per_file_heap_limit_mb": 2048,
+    "totals": {
+      "visited_ast_nodes": 44214,
+      "scopes": 676,
+      "bindings": 1282,
+      "callables": 540,
+      "call_sites": 2427,
+      "references": 7044,
+      "frontiers": 2465
+    },
+    "call_resolution": {
+      "unresolved": 2318,
+      "exact": 109
+    },
+    "frontier_kinds": {
+      "dynamic-call": 2318,
+      "dynamic-property": 147
+    }
+  },
+  "action_candidates": {
+    "count": 243,
+    "unlabelled": 29,
+    "syntactic_branch_records": 1306,
+    "call_records": 1699,
+    "unknown_records": 1704,
+    "status": "Machine extracted static candidates; not an exhaustive UI inventory or runtime proof."
+  },
+  "original_41_artifact_hashes_unchanged": {
+    "global-summary.json": true,
+    "summary.json": true,
+    "manifest.json": true,
+    "action-catalog-index.json": true
+  },
+  "artifacts": {
+    "sources": "source-catalog.json",
+    "summary": "summary.json",
+    "manifest": "manifest.json",
+    "retrieval": "download-manifest.json",
+    "parser_diagnostics": "parser-diagnostics.json",
+    "actions": "action-catalog-index.json",
+    "popup_details": "popup-action-evidence.json",
+    "other_domains": "cross-domain-findings.json"
+  },
+  "boundaries": [
+    "This worker made no browser observation and does not claim full ERP completion or original UI behavior verification.",
+    "The parent reports original UI observations separately; public script presence does not establish a button outcome.",
+    "Original JavaScript was parsed as inert text and was never evaluated.",
+    "No original setting was saved or applied; no account, payment, approval or balance mutation was executed.",
+    "Current GET of a versioned public URL does not establish the latest provider release.",
+    "upbalance has four recovered parser errors and partial semantic coverage; its candidate branches and calls remain partial."
+  ]
+}

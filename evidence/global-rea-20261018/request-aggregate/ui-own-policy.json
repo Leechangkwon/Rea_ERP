@@ -1,0 +1,90 @@
+{
+  "version": "0.36.0",
+  "source_UI_observation": {
+    "page": "발주요청현황 menu514; currentnavDOM E040318 compatible B314/M318 retainedmetadata; notpurchaseSID305",
+    "initial_slots": 5,
+    "candidate_catalog": [
+      "일별",
+      "주차별",
+      "월별",
+      "분기별",
+      "반기별",
+      "연별",
+      "담당자별",
+      "창고별",
+      "거래유형별",
+      "프로젝트별",
+      "전표별",
+      "관리항목별",
+      "거래처별",
+      "품목별",
+      "라인별",
+      "품목그룹1별",
+      "품목그룹2별",
+      "품목그룹3별",
+      "거래처그룹1별",
+      "거래처그룹2별",
+      "프로젝트그룹1별",
+      "프로젝트그룹2별"
+    ],
+    "headers_1": [
+      "품목별",
+      "수량 (낱개 단위)",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "headers_2": [
+      "품목별",
+      "거래처별",
+      "수량 (낱개 단위)",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "criteria_fields_5": [
+      "품목별",
+      "거래처별",
+      "담당자별",
+      "창고별",
+      "월별"
+    ],
+    "observed_headers_5": [
+      "품목별",
+      "거래처별",
+      "창고별",
+      "월별",
+      "담당자별",
+      "수량 (낱개 단위)",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "order_difference": "Third employee failed initial selection, selected afterother4; output appends employee although criteria slot3. Dynamictemplate/creationorder notresolved. Ownselectedslotorder is separate policy,not assertedparity.",
+    "subtotals": "1axisleafpresent;2axisleaf→outerwhole2span;5axisleaf→outerwhole5span;grand총합계. Date subtotal matches preceding display afterpunctuationnormalization, notliteral; originaldateformat unknown.",
+    "upperOFF": {
+      "all_other_display_axes_equal_at_upper_boundary": true,
+      "lower_subtotals_flushed_at_that_boundary": true,
+      "scope": "Display equality only; rawSID/server notretained. Ownprefixpolicy consistentbut notbackendproof."
+    },
+    "restore": "FirstsubtotalONreadback and 현황mode restored; F8 ordinary restore verified separately. No originalSave/settingsApply/inputrow/output.",
+    "business_data_in_files_or_runtime": false
+  },
+  "own_policy": {
+    "axes": "19existingowncode/date/currentclassification/voucher/line dimensions; unsupportedweek/trade/manage unavailable. Voucher/line useREAids/currentlineposition, notoriginalrawSID.",
+    "slots": "Requestalways5initial/reset/restore; legacyplan/order2growth andpurchase4growth unchanged.",
+    "quantity": "Own fullenteredrequestqty/effectiveLineTotals; partialplan allocation doesnotreduce ordinaryrequesttotal. Originalfullvsremaining/round/currency formula unknown.",
+    "hierarchy": "Requestfullprefix boundary+leafsubtotal+총합계. Plan/orderfullprefix+nonleafonly+합계. Purchaseexistingenabledonly+leaf+총합계 unchanged.",
+    "order_and_labels": "Ownselectedslot order,rawcode ascending/descending,code·currentname/ownspec/dateformat; originaldynamicoutputorder/datepunctuation unresolved.",
+    "filters": "Existingrequestnumber,date,due,partner(line supplier),item,warehouse,project,currency,query; listedstate andmixedcurrency guard.",
+    "output": "Alignedtable/CSV/sharedprintfromlastsuccessfulquery; no purchase-onlydetail callback/graph/explicit sorting/comparison added. Snapshotskeep pendingseparate; oldmissingflagsOFF.",
+    "unknowns": [
+      "dynamictemplatecolumnorder/pivot/format",
+      "originalnumeric/status/source/approvalrules",
+      "requestgraph/comparison/drilldown",
+      "serveroutput/print/Excelparity",
+      "hostedauthenticatedbusinessQA"
+    ]
+  },
+  "corpus": "84bodies25247564B unchanged; retained21refs9originalcallables+5priorexcerptrefs; commonOOM/Flexiontimeout/grid5parseerrorpartial preserved. NoGET/semanticretry/originalexecution/privateAPI."
+}

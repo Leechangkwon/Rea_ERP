@@ -1,0 +1,93 @@
+{
+  "version": "0.7.1",
+  "date": "2026-10-16",
+  "feature": "Voucher progress status display, filters and individual/bulk mutation",
+  "tests": {
+    "command": "NODE_OPTIONS=--test-isolation=none npm test",
+    "passed": 521,
+    "new_core": 8,
+    "new_dom": 8,
+    "release_checks": 4,
+    "log_sha256": "71a42d8c45f18c57733c9c805e0f4a14d12fb834378a324bc4f21796622bb1ba",
+    "scope": "Synthetic core and jsdom; not live hosted browser or real phone"
+  },
+  "rea": {
+    "package": "rea-agents@6.4.0",
+    "mode": "direct in-process static and semantic library functions; not CLI application graph",
+    "input": {
+      "source_sha256": "b18e0fc3818d20e417db57f6f603877845ceadb0b960ed8fd92a688854216efd",
+      "input_sha256": "bd35b26856d45b28113fb5f14fb15b5eb1e4022c12426e59dc0fe515b7514c5e",
+      "input_bytes": 1745,
+      "spans": [
+        {
+          "source": "dist/inventory-core.js",
+          "start_utf8": 1858,
+          "end_utf8": 2356,
+          "line_start": 13,
+          "line_end": 18,
+          "sha256": "3fbb74f3dae0fc39e198633212c6ea075ab55d99d995259a4b8a8608f27d2152"
+        },
+        {
+          "source": "dist/inventory-core.js",
+          "start_utf8": 28249,
+          "end_utf8": 29495,
+          "line_start": 231,
+          "line_end": 237,
+          "sha256": "67921637fe95e1e01241b05bc65acf36cc19bf459c056c454eb05da56fcd7e24"
+        }
+      ]
+    },
+    "parse_status": "complete",
+    "parse_errors": 0,
+    "visited_ast_nodes": 307,
+    "callables": 6,
+    "call_sites": 24,
+    "frontiers": 17,
+    "coverage": {
+      "status": "complete",
+      "omittedCount": 0
+    },
+    "raw_ir_sha256": "2718da007ccabc90c87ac97fdf8f9333eabf8f639e26db31d15ae4cdd12ed8d1",
+    "target_executed": false,
+    "cli_application_graph_succeeded": false,
+    "limitations": [
+      "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+      "Return sites include only direct callable returns; nested callable returns remain separate.",
+      "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+      "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+      "Cross-function mutation and dynamic property resolution remain unknown."
+    ]
+  },
+  "original_evidence": {
+    "official_manual": "https://download.ecounterp.com/doc_Ecount_distribution.pdf?ver=2026030501",
+    "pdf_pages_1_based": [
+      16,
+      17
+    ],
+    "prior_public_js": "evidence/purchase-manual-rea.json / REA-MAN-02",
+    "observed": "Unconfirmed vouchers are not posted; list tab and status-change confirmation flow are documented. Prior JS records complete/in_progress branching and progress fields.",
+    "not_verified": [
+      "live original account UI",
+      "company-specific default types and confirmation roles",
+      "all original server transition rules"
+    ]
+  },
+  "compatibility": {
+    "inventory_schema": 2,
+    "legacy_progress_value": "진행",
+    "display": "진행중",
+    "new_default_unchanged": true,
+    "browser_and_server_data_separate": true,
+    "new_http_endpoint": false
+  },
+  "guardrails": [
+    "inventory.write permission",
+    "hidden filtered selections excluded",
+    "atomic state change",
+    "downstream link protection",
+    "stock and paid balance validation",
+    "accounted voucher lock",
+    "closed month guard"
+  ],
+  "runtime_maintenance": "The existing API manual test now uses its fixed sample date for the exchange-return conversion, so crossing midnight cannot make the child predate its source."
+}

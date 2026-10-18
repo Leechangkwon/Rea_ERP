@@ -1,0 +1,413 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T05:52:08.972289+00:00",
+  "scope": {
+    "retained_original_bodies": 4,
+    "source_ids": [
+      "header-v3",
+      "contents-v3",
+      "footer-v3",
+      "inventory-v56-retained"
+    ],
+    "mode": "Static source + pre-existing actual pinned REA6.4.0 IR only. No new REA executions claimed.",
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "private_API_or_business_requests": 0,
+    "source_execution": false,
+    "application_edits": false,
+    "main_entry_row_interaction": false
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive",
+  "source_status": "Actual shortcut date arithmetic/17 dispatch is missing in inspected bodies. Related wrappers and generic report-search lifecycle are available; current V56 binding to V3 date wrappers remains unknown.",
+  "parent_UI_observation": {
+    "evidence_type": "Original UI observation supplied by owner, not independently performed by this worker",
+    "button_label": "종료일",
+    "button_type_or_key": "17",
+    "before": {
+      "from": "2026-10-01",
+      "to": "2026-10-18"
+    },
+    "after": {
+      "from": "2026-10-18",
+      "to": "2026-10-18"
+    },
+    "observed_effects": [
+      "Result query ran",
+      "Search form hid",
+      "F3 reopened preserved conditions"
+    ],
+    "generalization_limit": "This one observed case supports exactly the stated transition. Since current end date equals observed current day, source absence leaves whether arbitrary end-date values or day anchors drive the generalized formula unknown."
+  },
+  "shortcut_mapping": [
+    {
+      "key": "1",
+      "label": "금일",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "2",
+      "label": "전일",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "3",
+      "label": "금주",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "4",
+      "label": "전주",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "5",
+      "label": "금월",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "6",
+      "label": "전월",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "9",
+      "label": "전월+금월",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    },
+    {
+      "key": "17",
+      "label": "종료일",
+      "mapping_evidence": "Labels/keys supplied by parent; no explicit source mapping located in these4bodies",
+      "date_formula_status": "unknown",
+      "query_dispatch_status": "unknown for this exact shortcut",
+      "month_week_timezone_rules": "unknown"
+    }
+  ],
+  "V3_date_wrapper_contract": {
+    "configuration": "calcSearch.setSimpleSearchConfig clones pageOption.simpleSearch entry matching COL_CD and forwards it to the external generated control. Optional isRemoveCalcFromFN changes control configuration. Dates/shortcut type mappings are not defined there.",
+    "date_control": "calcSearch.date onInitControl uses settingInfo.dateType or widget.multiDate, optional inlineMode/initialSelect, forwards simpleSearch config, and sets _DATE extraction format yyyyMMdd. dateChanger uses same forwarding with different CALC required-item option.",
+    "serialization": "calcSearch.date.onSetSearchParam has separately configured single-date/baseDate lookback handling and isFromPrint overrides. Those branches do NOT identify or prove 종료일 key17 semantics. Optional page settingInfo.onSetSearchParam can override.",
+    "month_calendar_branch": "onChangeControl normalizes first/last day of selected months only when settingInfo.useMonthCalender true. This is a calendar setting, not proof of 금월5/전월6/전월+금월9 shortcuts.",
+    "restoration": "onRestoreUserTabWidget optionally matches automationOption.simpleSearchDataBySendDate SHORTCUT_NM to existing serialized fn and applies supplied FROM_DATE/TO_DATE. It consumes dates rather than defining shortcut arithmetic.",
+    "evidence": [
+      "calcSearch.setSimpleSearchConfig",
+      "calcSearch.onInitControl",
+      "calcSearch.date.onInitControl",
+      "calcSearch.dateChanger.onInitControl",
+      "calcSearch.date.onSetSearchParam",
+      "calcSearch.date.onChangeControl",
+      "calcSearch.onRestoreUserTabWidget"
+    ]
+  },
+  "V56_related_search_contract": {
+    "query_boundary": "Generic status search builds conditions/sorts/groups from search DMC, then SelectInventoryStatusProgram invokes /ec56/api/inventory/action/SelectInventorySearchStatusAction. No exact shortcut17 dispatch into this path was found.",
+    "panel_hide": "InventoryStatusUpdateVMCStateBeforeSearchResolver prepares display_search_panel=false/display_search_button=true for ordinary search; EXCEL preserves existing panel/button visibility. This supports generic search-panel hide behavior, not the identity of the triggering shortcut.",
+    "header_reset": "HEADER search clears quick search terms, resets page1 and configured limit, reapplies default sort and resets virtual-scroll runtime. No date field change occurs in this header resolver.",
+    "condition_preservation": "After search, InventoryStatusUpdateVMCStateAfterSearchResolver calls setPageData; it deep-copies current search DMC into ILastSearchDataModelRuntime and stores last template. It stores search_options except EXCEL. F3 reopen handler itself is outside inspected bodies, so restoration remains UI-observed rather than fully source-traced.",
+    "evidence": [
+      "SelectInventoryStatusProgram.onExecuteAsync",
+      "InventoryStatusUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+      "InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+      "InventoryStatusUpdateVMCStateAfterSearchResolver.OnExecuteAsync",
+      "setPageData"
+    ]
+  },
+  "literal_inspection": [
+    {
+      "source": "header-v3",
+      "quoted17_literal_count": 0,
+      "numeric_type_key_value_id17_count": 0,
+      "korean_shortcut_labels_present": [],
+      "counts": {
+        "SHORTCUT_NM": 1,
+        "firstDayOfWeek": 0,
+        "firstDayOfMonth": 1,
+        "addDays(": 3,
+        "addMonths(": 0,
+        "setSimpleSearchConfig": 7,
+        "simple_search_id": 0
+      }
+    },
+    {
+      "source": "contents-v3",
+      "quoted17_literal_count": 0,
+      "numeric_type_key_value_id17_count": 0,
+      "korean_shortcut_labels_present": [],
+      "counts": {
+        "SHORTCUT_NM": 0,
+        "firstDayOfWeek": 0,
+        "firstDayOfMonth": 0,
+        "addDays(": 0,
+        "addMonths(": 0,
+        "setSimpleSearchConfig": 0,
+        "simple_search_id": 0
+      }
+    },
+    {
+      "source": "footer-v3",
+      "quoted17_literal_count": 0,
+      "numeric_type_key_value_id17_count": 0,
+      "korean_shortcut_labels_present": [],
+      "counts": {
+        "SHORTCUT_NM": 0,
+        "firstDayOfWeek": 0,
+        "firstDayOfMonth": 0,
+        "addDays(": 0,
+        "addMonths(": 0,
+        "setSimpleSearchConfig": 0,
+        "simple_search_id": 0
+      }
+    },
+    {
+      "source": "inventory-v56-retained",
+      "quoted17_literal_count": 0,
+      "numeric_type_key_value_id17_count": 0,
+      "korean_shortcut_labels_present": [],
+      "counts": {
+        "SHORTCUT_NM": 0,
+        "firstDayOfWeek": 0,
+        "firstDayOfMonth": 0,
+        "addDays(": 0,
+        "addMonths(": 0,
+        "setSimpleSearchConfig": 0,
+        "simple_search_id": 0
+      }
+    }
+  ],
+  "sources": {
+    "header-v3": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json"
+    },
+    "contents-v3": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.contents.-1904147712028340650.20.js",
+      "sha256": "fcad48f8f56b63fe54284cb25e7a8e9f2f60db39c86234399a841cb21df981f4",
+      "bytes": 30909,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/fcad48f8f56b63fe/rea-semantic-ir.json"
+    },
+    "footer-v3": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/beca20c9cbaf4d70/rea-semantic-ir.json"
+    },
+    "inventory-v56-retained": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json"
+    }
+  },
+  "evidence": {
+    "calcSearch.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.onInitControl",
+      "span": [
+        1,
+        32146,
+        1,
+        32679
+      ],
+      "actual_REA_callable_id": "callable:function:32146:32679",
+      "direct_calls": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    },
+    "calcSearch.setSimpleSearchConfig": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.setSimpleSearchConfig",
+      "span": [
+        1,
+        34368,
+        1,
+        34556
+      ],
+      "actual_REA_callable_id": "callable:function:34368:34556",
+      "direct_calls": 4,
+      "call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "calcSearch.onRestoreUserTabWidget": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.onRestoreUserTabWidget",
+      "span": [
+        1,
+        35357,
+        1,
+        35888
+      ],
+      "actual_REA_callable_id": "callable:function:35357:35888",
+      "direct_calls": 9,
+      "call_resolution": {
+        "unresolved": 9
+      }
+    },
+    "calcSearch.date.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.date.onInitControl",
+      "span": [
+        1,
+        36747,
+        1,
+        37761
+      ],
+      "actual_REA_callable_id": "callable:function:36747:37761",
+      "direct_calls": 16,
+      "call_resolution": {
+        "unresolved": 16
+      }
+    },
+    "calcSearch.date.onChangeControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.date.onChangeControl",
+      "span": [
+        1,
+        37778,
+        1,
+        37996
+      ],
+      "actual_REA_callable_id": "callable:function:37778:37996",
+      "direct_calls": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "calcSearch.date.onSetSearchParam": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.date.onSetSearchParam",
+      "span": [
+        1,
+        38014,
+        1,
+        39202
+      ],
+      "actual_REA_callable_id": "callable:function:38014:39202",
+      "direct_calls": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "calcSearch.dateChanger.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.calcSearch.dateChanger.onInitControl",
+      "span": [
+        1,
+        40363,
+        1,
+        40798
+      ],
+      "actual_REA_callable_id": "callable:function:40363:40798",
+      "direct_calls": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    },
+    "InventoryStatusUpdateVMCStateAfterSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusUpdateVMCStateAfterSearchResolver.OnExecuteAsync",
+      "span": [
+        866,
+        4,
+        875,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:44133:44592",
+      "direct_calls": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "InventoryStatusUpdateVMCStateBeforeSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+      "span": [
+        1684,
+        4,
+        1742,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:83649:86899",
+      "direct_calls": 15,
+      "call_resolution": {
+        "unresolved": 15
+      }
+    },
+    "InventoryStatusHeaderSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+      "span": [
+        2583,
+        4,
+        2603,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:124840:125726",
+      "direct_calls": 3,
+      "call_resolution": {
+        "exact": 1,
+        "unresolved": 2
+      }
+    },
+    "SelectInventoryStatusProgram.onExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "direct_calls": 7,
+      "call_resolution": {
+        "exact": 1,
+        "unresolved": 6
+      }
+    },
+    "setPageData": {
+      "source": "inventory-v56-retained",
+      "symbol": "setPageData",
+      "span": [
+        877,
+        0,
+        914,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:44595:46783",
+      "direct_call_count": 14,
+      "call_resolution": {
+        "unresolved": 14
+      }
+    }
+  },
+  "unknowns": [
+    "External generated date/quick-period control and runtime simpleSearch configuration are not present; no guessed source URL was fetched.",
+    "No universal code1/2/3/4/5/6/9/17 date ranges, month rollover, week origin, company timezone/current-day anchor or leap-day behavior is established.",
+    "UI-derived 종료일 transition is preserved independently from static-source completeness; no entire-ERP or shortcut-equivalence claim."
+  ]
+}

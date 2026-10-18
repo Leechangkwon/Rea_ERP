@@ -1,0 +1,35 @@
+{
+  "version": "0.26.0",
+  "original_read_only_UI": {
+    "plan": "Opened plan input, observed group3slipSave and adjacent dropdown; opened only arrow, saw Save/Retain link. No actual save or main-row control edit.",
+    "purchaseorder": "Opened order input, observed same Save dropdown/SaveRetain link and F7 print control. No save or main-row edit.",
+    "after": "Dismissed dropdown by navigation and returned to order lookup; input Save and retain popup absent.",
+    "business_values_sessions_or_company_data_retained": false,
+    "binding_boundary": "Per-page handler/override/backend success and exact retention remain unknown despite observed exposure."
+  },
+  "own_policy": {
+    "retained_types": [
+      "request",
+      "plan",
+      "purchaseorder",
+      "purchase"
+    ],
+    "identity": "same saved document and line IDs; successful modal key/title/baseline updated",
+    "conflicts": "current in-memory same-browser document JSON comparison, explicit latest reload and session draft maps; not durable reload/server/multiclient concurrency",
+    "F7": "saved ID/base rebased before own print preview; plan F7 remains existing secondary local print tool, not claimed original plan F7",
+    "links": "preserve sourceId/sourceLineId, planAllocations/planGeneration, row progress/custom and legacy no-ID allocation policy; existing source locks and quantity validation unchanged",
+    "schema_or_stored_record_format_changed": false
+  },
+  "pre_fix_reproduction": {
+    "source_commit": "049a91fe6baecaed7e045511cb22f5328cf5cadc",
+    "checks": 2,
+    "types": [
+      "plan",
+      "purchaseorder"
+    ],
+    "result": "new main input F7 then F7 produced12 documents when11 expected; both failed before gate change",
+    "log_sha256": "acfae4cce07e4dc65f35ae065f24f18388565554b9ffa713e3666436468794c4",
+    "raw_log_location": ".artifacts/plan-order-f7-before.log"
+  },
+  "full_original_equivalence": false
+}

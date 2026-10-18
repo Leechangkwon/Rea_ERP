@@ -1,0 +1,1482 @@
+{
+  "schema": 1,
+  "method": "Actual pinned REA6.4.0 IR joined by exact locations to inert parser ObjectProperty method names. Manual source interpretation follows syntax, not runtime execution.",
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end exclusive; original source is one line.",
+  "sources": {
+    "basic-footer": {
+      "path": "$SCRATCH/footer-save-rea-20261018/bundle.eccomposite_v1.basic.unit.widget.footer.-1690837634644838199.20.js",
+      "sha256": "2aba7bd63878ac2d838524d9fb64df3d0ed42399c39ae2ba293002aeff1aad22",
+      "bytes": 19884,
+      "rea_ir": "$SCRATCH/footer-save-rea-20261018/inputs/2aba7bd63878ac2d/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": true,
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/bundle/bundle.eccomposite_v1.basic.unit.widget.footer.-1690837634644838199.20.js"
+    },
+    "inventory-footer": {
+      "path": "$SCRATCH/footer-save-rea-20261018/bundle.eccomposite_v1.inventory.unit.widget.footer.-1895761178460182004.20.js",
+      "sha256": "b4a3cb1fa477f1702c846217ea460c93321d56613109a353cc6af746b613f540",
+      "bytes": 127433,
+      "rea_ir": "$SCRATCH/footer-save-rea-20261018/inputs/b4a3cb1fa477f170/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": true,
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/bundle/bundle.eccomposite_v1.inventory.unit.widget.footer.-1895761178460182004.20.js"
+    },
+    "input-functions": {
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_1.-538278177882630599.20.js",
+      "sha256": "e6c17edb9f101881b3f413c56d0396f40e985a1de838650c514be1b289cbadc1",
+      "bytes": 244886,
+      "rea_ir": "$SCRATCH/toolbar-function-rea-20261018/inputs/e6c17edb9f101881/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": false
+    },
+    "pending-functions": {
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_2.-1784347108654919872.20.js",
+      "sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+      "bytes": 164962,
+      "rea_ir": "$SCRATCH/toolbar-function-rea-20261018/inputs/7b00857052a891b5/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": false
+    },
+    "core": {
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.core.2075066825770250059.20.js",
+      "sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+      "bytes": 93934,
+      "rea_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/d138900b87027f49/rea-semantic-ir.json",
+      "saved_sha256_rechecked": true,
+      "new_capture": false
+    }
+  },
+  "methods": {
+    "basic_save.render": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save.render",
+      "span": [
+        1,
+        469,
+        1,
+        706
+      ],
+      "callable_id": "callable:function:469:706",
+      "direct_call_count": 5,
+      "calls_including_nested": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "direct_callees": [
+        "eccomposite_v1.unit.widget.prototype.render.apply",
+        "this.createLayout",
+        "this.saveShortCutKey",
+        "this.createButtonEvent"
+      ],
+      "frontiers_including_nested": 5
+    },
+    "basic_save._ON_CLICK": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save._ON_CLICK",
+      "span": [
+        1,
+        943,
+        1,
+        1003
+      ],
+      "callable_id": "callable:function:943:1003",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"basic_event\").execBasicSave",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"basic_event\").execBasicSave()}"
+    },
+    "basic_rebuild._ON_CLICK": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_rebuild._ON_CLICK",
+      "span": [
+        1,
+        8246,
+        1,
+        8966
+      ],
+      "callable_id": "callable:function:8246:8966",
+      "direct_call_count": 4,
+      "calls_including_nested": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "direct_callees": [
+        "ecount.infra.getPageWidthFromConfig",
+        "this.getColumnMapByKey",
+        "this.submitPage"
+      ],
+      "frontiers_including_nested": 5
+    },
+    "basic_save_new.execCreateComposite": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save_new.execCreateComposite",
+      "span": [
+        1,
+        10399,
+        1,
+        10498
+      ],
+      "callable_id": "callable:function:10399:10498",
+      "direct_call_count": 0,
+      "calls_including_nested": 0,
+      "direct_call_resolution": {},
+      "direct_callees": [],
+      "frontiers_including_nested": 0,
+      "exact_source": "function(){return this.pageOption.FromProgramId==\"E040716\"?!1:this.pageOption.isAddGroup!=!0?!1:!0}"
+    },
+    "basic_save_new._ON_CLICK": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save_new._ON_CLICK",
+      "span": [
+        1,
+        10509,
+        1,
+        10572
+      ],
+      "callable_id": "callable:function:10509:10572",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"basic_event\").execBasicSaveNew",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"basic_event\").execBasicSaveNew()}"
+    },
+    "basic_save_print.render": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save_print.render",
+      "span": [
+        1,
+        10752,
+        1,
+        10903
+      ],
+      "callable_id": "callable:function:10752:10903",
+      "direct_call_count": 4,
+      "calls_including_nested": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "direct_callees": [
+        "eccomposite_v1.unit.widget.prototype.render.apply",
+        "this.createLayout",
+        "this.saveShortCutKey",
+        "this.createButtonEvent"
+      ],
+      "frontiers_including_nested": 4,
+      "exact_source": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n);this.saveShortCutKey(\"F7\");this.createButtonEvent()}"
+    },
+    "basic_save_print._ON_CLICK": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save_print._ON_CLICK",
+      "span": [
+        1,
+        11091,
+        1,
+        11156
+      ],
+      "callable_id": "callable:function:11091:11156",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"basic_event\").execBasicSavePrint",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"basic_event\").execBasicSavePrint()}"
+    },
+    "basic_save_review.execCreateComposite": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save_review.execCreateComposite",
+      "span": [
+        1,
+        11618,
+        1,
+        11717
+      ],
+      "callable_id": "callable:function:11618:11717",
+      "direct_call_count": 0,
+      "calls_including_nested": 0,
+      "direct_call_resolution": {},
+      "direct_callees": [],
+      "frontiers_including_nested": 0,
+      "exact_source": "function(){return this.pageOption.FromProgramId==\"E040716\"?!1:this.pageOption.isAddGroup!=!0?!1:!0}"
+    },
+    "basic_save_review._ON_CLICK": {
+      "source": "basic-footer",
+      "symbol": "eccomposite_v1.unit.widget.basic_save_review._ON_CLICK",
+      "span": [
+        1,
+        11728,
+        1,
+        11794
+      ],
+      "callable_id": "callable:function:11728:11794",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"basic_event\").execBasicSaveReview",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"basic_event\").execBasicSaveReview()}"
+    },
+    "slipSave.render": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.slipSave.render",
+      "span": [
+        1,
+        24996,
+        1,
+        25233
+      ],
+      "callable_id": "callable:function:24996:25233",
+      "direct_call_count": 5,
+      "calls_including_nested": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "direct_callees": [
+        "eccomposite_v1.unit.widget.prototype.render.apply",
+        "this.createLayout",
+        "this.saveShortCutKey",
+        "this.createButtonEvent"
+      ],
+      "frontiers_including_nested": 5
+    },
+    "slipSave.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.slipSave.execCreateComposite",
+      "span": [
+        1,
+        25509,
+        1,
+        25914
+      ],
+      "callable_id": "callable:function:25509:25914",
+      "direct_call_count": 5,
+      "calls_including_nested": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "direct_callees": [
+        "[\"E040716\",\"E010712\"].contains",
+        "[\"C061105\"].contains",
+        "this.getColumnMapByKey",
+        "ecount.common.isTrue"
+      ],
+      "frontiers_including_nested": 6
+    },
+    "slipSave._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.slipSave._ON_CLICK",
+      "span": [
+        1,
+        25925,
+        1,
+        25983
+      ],
+      "callable_id": "callable:function:25925:25983",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipSave",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"inputEvent\").execSlipSave()}"
+    },
+    "rebuildContent.render": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.rebuildContent.render",
+      "span": [
+        1,
+        64803,
+        1,
+        65093
+      ],
+      "callable_id": "callable:function:64803:65093",
+      "direct_call_count": 6,
+      "calls_including_nested": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "direct_callees": [
+        "eccomposite_v1.unit.widget.prototype.render.apply",
+        "this.getComposite",
+        "this.createLayout",
+        "this.saveShortCutKey",
+        "this.createButtonEvent"
+      ],
+      "frontiers_including_nested": 6
+    },
+    "rebuildContent.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.rebuildContent.execCreateComposite",
+      "span": [
+        1,
+        65369,
+        1,
+        65931
+      ],
+      "callable_id": "callable:function:65369:65931",
+      "direct_call_count": 3,
+      "calls_including_nested": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "direct_callees": [
+        "this.getColumnMapByKey",
+        "ecount.common.isTrue"
+      ],
+      "frontiers_including_nested": 4
+    },
+    "rebuildContent._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.rebuildContent._ON_CLICK",
+      "span": [
+        1,
+        65942,
+        1,
+        67528
+      ],
+      "callable_id": "callable:function:65942:67528",
+      "direct_call_count": 8,
+      "calls_including_nested": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "direct_callees": [
+        "$.extend",
+        "this.contentsComposite.getIsRelationFromProgramId",
+        "[\"01\",\"02\"].includes",
+        "this.submitPage"
+      ],
+      "frontiers_including_nested": 8
+    },
+    "slipSavePrint.render": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.slipSavePrint.render",
+      "span": [
+        1,
+        68857,
+        1,
+        69094
+      ],
+      "callable_id": "callable:function:68857:69094",
+      "direct_call_count": 5,
+      "calls_including_nested": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "direct_callees": [
+        "eccomposite_v1.unit.widget.prototype.render.apply",
+        "this.createLayout",
+        "this.saveShortCutKey",
+        "this.createButtonEvent"
+      ],
+      "frontiers_including_nested": 5
+    },
+    "slipSavePrint.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.slipSavePrint.execCreateComposite",
+      "span": [
+        1,
+        69370,
+        1,
+        69999
+      ],
+      "callable_id": "callable:function:69370:69999",
+      "direct_call_count": 4,
+      "calls_including_nested": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "direct_callees": [
+        "[\"E040716\",\"E010712\"].contains",
+        "ecount.common.isTrue",
+        "this.getColumnMapByKey",
+        "_.includes"
+      ],
+      "frontiers_including_nested": 5
+    },
+    "slipSavePrint._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.slipSavePrint._ON_CLICK",
+      "span": [
+        1,
+        70010,
+        1,
+        70073
+      ],
+      "callable_id": "callable:function:70010:70073",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipSavePrint",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"inputEvent\").execSlipSavePrint()}"
+    },
+    "directPayment.createLayout": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.directPayment.createLayout",
+      "span": [
+        1,
+        81394,
+        1,
+        81641
+      ],
+      "callable_id": "callable:function:81394:81641",
+      "direct_call_count": 6,
+      "calls_including_nested": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "direct_callees": [
+        "widget.generator.control",
+        "t.define(\"widget.button.group\",this.realId).label(this.settingInfo.label||ecount.resource.BTN00078).hide",
+        "t.define(\"widget.button.group\",this.realId).label",
+        "t.define",
+        "t.css",
+        "n.addLeft"
+      ],
+      "frontiers_including_nested": 6
+    },
+    "directPayment.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.directPayment.execCreateComposite",
+      "span": [
+        1,
+        81662,
+        1,
+        82009
+      ],
+      "callable_id": "callable:function:81662:82009",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "ecount.common.isTrue",
+        "this.getColumnMapByKey"
+      ],
+      "frontiers_including_nested": 3
+    },
+    "directPayment._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.directPayment._ON_CLICK",
+      "span": [
+        1,
+        82020,
+        1,
+        83425
+      ],
+      "callable_id": "callable:function:82020:83425",
+      "direct_call_count": 4,
+      "calls_including_nested": 30,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "direct_callees": [
+        "function(n){var t,i,s;if(n.Data==!1)return ecount.alert(String.format(ecount.resource.MSG01088,\"\",\"\")),!1;t={value:\"\",label:\"\"};this.getComposite(\"cust\")&&(t=this.getComposite(\"cust\").getCompositeValue());i={exchangeRate:\"\",exchangeType:\"\",foreignType:\"0\",value:\"\"};this.getComposite(\"foreign_type\")&&(i=this.getComposite(\"foreign_type\").getCompositeValue());var h=this.gridComposite.getRowList(),c=h.filter(n=>n.SUPPLY_AMT!=\"0\"&&n.SUPPLY_AMT!=\"\"&&n.SUPPLY_AMT!=undefined),r=0,u=0,f=0,e=0,o=\"\";c.forEach(n=>{r=new Decimal(r).plus(new Decimal(n.SUPPLY_AMT));var t=n.VAT_AMT==\"\"&&n.VAT_AMT==undefined?0:new Decimal(n.VAT_AMT);u=new Decimal(u).plus(new Decimal(t))});i.foreignType==\"0\"?f=new Decimal(r).plus(new Decimal(u)):(f=new Decimal(u),e=new Decimal(r),o=i.exchangeRate);s={Request:{EditMode:ecenum.editMode.new,FromProgramId:\" \",PrevUrl:this.pageInfo.path,UIOption:{Width:800,Height:600},TrxType:\"20\",SerNo:\"01\",CUST:t.value,CUST_DES:t.label,TRX_AMT1:f,TRX_AMT_F:e,EXCHANGE_RATE:o,CustomSaveButtonGroupList:[{id:\"saveNew\",label:\"BTN00765\"}]},isViewListButton:!1};ecount.link.getConfigUrlData(this.ecPageID,\"E010409\",this.pageViewbagData.IsEnableNoL4,\"link\",function(n){this.openWindow({url:n.url,name:ecount.resource.BTN00078,doGet:!0,param:s})}.bind(this))}.bind",
+        "this.getComposite(\"contents\").isVersionCheckSlip",
+        "this.getComposite",
+        "n"
+      ],
+      "frontiers_including_nested": 30
+    },
+    "save_pay._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_pay._ON_CLICK",
+      "span": [
+        1,
+        97548,
+        1,
+        97605
+      ],
+      "callable_id": "callable:function:97548:97605",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipPay",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"inputEvent\").execSlipPay()}"
+    },
+    "save_new.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_new.execCreateComposite",
+      "span": [
+        1,
+        102298,
+        1,
+        103152
+      ],
+      "callable_id": "callable:function:102298:103152",
+      "direct_call_count": 7,
+      "calls_including_nested": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      },
+      "direct_callees": [
+        "[\"E040716\",\"E010712\"].contains",
+        "[\"C061105\"].contains",
+        "this.getColumnMapByKey",
+        "ecount.common.isTrue",
+        "_.includes",
+        "$.isEmpty"
+      ],
+      "frontiers_including_nested": 8
+    },
+    "save_new._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_new._ON_CLICK",
+      "span": [
+        1,
+        103163,
+        1,
+        103224
+      ],
+      "callable_id": "callable:function:103163:103224",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipSaveNew",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"inputEvent\").execSlipSaveNew()}"
+    },
+    "save_review.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_review.execCreateComposite",
+      "span": [
+        1,
+        103847,
+        1,
+        104701
+      ],
+      "callable_id": "callable:function:103847:104701",
+      "direct_call_count": 7,
+      "calls_including_nested": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      },
+      "direct_callees": [
+        "[\"E040716\",\"E010712\"].contains",
+        "[\"C061105\"].contains",
+        "this.getColumnMapByKey",
+        "ecount.common.isTrue",
+        "_.includes",
+        "$.isEmpty"
+      ],
+      "frontiers_including_nested": 8
+    },
+    "save_review._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_review._ON_CLICK",
+      "span": [
+        1,
+        104712,
+        1,
+        104776
+      ],
+      "callable_id": "callable:function:104712:104776",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipSaveReview",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"inputEvent\").execSlipSaveReview()}"
+    },
+    "pending.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.pending.execCreateComposite",
+      "span": [
+        1,
+        113544,
+        1,
+        113963
+      ],
+      "callable_id": "callable:function:113544:113963",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "ecount.common.isTrue",
+        "this.getColumnMapByKey"
+      ],
+      "frontiers_including_nested": 3
+    },
+    "pending._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.pending._ON_CLICK",
+      "span": [
+        1,
+        113974,
+        1,
+        114161
+      ],
+      "callable_id": "callable:function:113974:114161",
+      "direct_call_count": 4,
+      "calls_including_nested": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "direct_callees": [
+        "this.getExecSequenceList",
+        "this.getComposite(\"inputEvent\").defaultActionFunction(\"pending\",n).start",
+        "this.getComposite(\"inputEvent\").defaultActionFunction",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 4,
+      "exact_source": "function(){var n=this.getExecSequenceList();this.pageOption.isClickSaveNew=!0;this.pageOption.isClickPending=!0;this.getComposite(\"inputEvent\").defaultActionFunction(\"pending\",n).start()}"
+    },
+    "pending.getExecSequenceList": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.pending.getExecSequenceList",
+      "span": [
+        1,
+        114182,
+        1,
+        114242
+      ],
+      "callable_id": "callable:function:114182:114242",
+      "direct_call_count": 0,
+      "calls_including_nested": 0,
+      "direct_call_resolution": {},
+      "direct_callees": [],
+      "frontiers_including_nested": 0,
+      "exact_source": "function(){return[\"load-page\",\"pending-slip\",\"submit-page\"]}"
+    },
+    "save_approve.execCreateComposite": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_approve.execCreateComposite",
+      "span": [
+        1,
+        116962,
+        1,
+        117431
+      ],
+      "callable_id": "callable:function:116962:117431",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "ecount.common.isTrue",
+        "this.getColumnMapByKey"
+      ],
+      "frontiers_including_nested": 3
+    },
+    "save_approve._ON_CLICK": {
+      "source": "inventory-footer",
+      "symbol": "eccomposite_v1.unit.widget.save_approve._ON_CLICK",
+      "span": [
+        1,
+        117442,
+        1,
+        117503
+      ],
+      "callable_id": "callable:function:117442:117503",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"inputEvent\").execSlipApprove",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.getComposite(\"inputEvent\").execSlipApprove()}"
+    },
+    "inputEvent.defaultActionFunction": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.defaultActionFunction",
+      "span": [
+        1,
+        38765,
+        1,
+        42897
+      ],
+      "callable_id": "callable:function:38765:42897",
+      "direct_call_count": 66,
+      "calls_including_nested": 67,
+      "direct_call_resolution": {
+        "unresolved": 66
+      },
+      "direct_callees": [
+        "this.initPageOption.bind",
+        "this.includePageLoadCheck.bind",
+        "this.checkForInventoryBalance.bind",
+        "this.saveValidate.bind",
+        "this.orderManageCompleteValidate.bind",
+        "this.checkInvoiceDetailAmt.bind",
+        "this.checkMultiCustDuplication.bind",
+        "this.checkEApprovalRelSlip.bind",
+        "this.checkPreinvoicingData.bind",
+        "this.checkNewInvSlip.bind",
+        "this.getCollectiveInvocingAmt.bind",
+        "this.saveValidateSecond.bind",
+        "this.saveValidateShow.bind",
+        "this.setDeleteConfirm.bind",
+        "this.checkSlipVersion.bind",
+        "this.getDocNoCreate.bind",
+        "this.getNewDocNoCreate.bind",
+        "this.fileUpload.bind",
+        "this.checkCollectiveSlip.bind",
+        "this.getLimitCheck.bind",
+        "this.getSerialCheck.bind",
+        "this.reflectProdGridVat.bind"
+      ],
+      "frontiers_including_nested": 73
+    },
+    "inputEvent.initActionSetting": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.initActionSetting",
+      "span": [
+        1,
+        42916,
+        1,
+        44075
+      ],
+      "callable_id": "callable:function:42916:44075",
+      "direct_call_count": 2,
+      "calls_including_nested": 6,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "function(n){var t=[];return function(i,r){t.includes(i)||(t.push(i),n.call(this,i,r))}.bind(this)}.bind(this,this.customAsyncListCustom)",
+        "function(n){var t=[];return function(i,r){t.includes(i)||(t.push(i),n.call(this,i,r))}.bind(this)}.bind"
+      ],
+      "frontiers_including_nested": 6
+    },
+    "inputEvent.execSlipSave": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSave",
+      "span": [
+        1,
+        44089,
+        1,
+        44183
+      ],
+      "callable_id": "callable:function:44089:44183",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "exact_source": "function(){this.pageHidden.saveType=\"save\";this.pageHidden.saveTypeOrigin=1;this.saveAction()}"
+    },
+    "inputEvent.execSlipPay": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipPay",
+      "span": [
+        1,
+        44196,
+        1,
+        44297
+      ],
+      "callable_id": "callable:function:44196:44297",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "exact_source": "function(){this.pageHidden.saveType=\"saveSlipPay\";this.pageHidden.saveTypeOrigin=2;this.saveAction()}"
+    },
+    "inputEvent.execSlipSaveReview": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSaveReview",
+      "span": [
+        1,
+        44449,
+        1,
+        44549
+      ],
+      "callable_id": "callable:function:44449:44549",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "exact_source": "function(){this.pageHidden.saveType=\"saveReview\";this.pageHidden.saveTypeOrigin=1;this.saveAction()}"
+    },
+    "inputEvent.execSlipSaveNew": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSaveNew",
+      "span": [
+        1,
+        44566,
+        1,
+        44663
+      ],
+      "callable_id": "callable:function:44566:44663",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "exact_source": "function(){this.pageHidden.saveType=\"saveNew\";this.pageHidden.saveTypeOrigin=1;this.saveAction()}"
+    },
+    "inputEvent.execSlipSavePrint": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipSavePrint",
+      "span": [
+        1,
+        44808,
+        1,
+        44907
+      ],
+      "callable_id": "callable:function:44808:44907",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "exact_source": "function(){this.pageHidden.saveType=\"savePrint\";this.pageHidden.saveTypeOrigin=2;this.saveAction()}"
+    },
+    "inputEvent.execSlipApprove": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.execSlipApprove",
+      "span": [
+        1,
+        44984,
+        1,
+        45056
+      ],
+      "callable_id": "callable:function:44984:45056",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.saveAction"
+      ],
+      "frontiers_including_nested": 1,
+      "exact_source": "function(){this.pageHidden.saveType=\"saveSlipApprove\";this.saveAction()}"
+    },
+    "inputEvent.saveAction": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAction",
+      "span": [
+        1,
+        54099,
+        1,
+        54163
+      ],
+      "callable_id": "callable:function:54099:54163",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.defaultActionFunction.call(this,\"save\").start",
+        "this.defaultActionFunction.call"
+      ],
+      "frontiers_including_nested": 2,
+      "exact_source": "function(){this.defaultActionFunction.call(this,\"save\").start()}"
+    },
+    "inputEvent.saveValidate": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveValidate",
+      "span": [
+        1,
+        55496,
+        1,
+        56778
+      ],
+      "callable_id": "callable:function:55496:56778",
+      "direct_call_count": 28,
+      "calls_including_nested": 32,
+      "direct_call_resolution": {
+        "unresolved": 28
+      },
+      "direct_callees": [
+        "ecount.errorMessage",
+        "this.getLayout",
+        "function(){this.pageOption.errors.removeErrorList();this.pageOption.asyncApiStep&&this.pageOption.asyncApiStep.next()}.bind",
+        "function(n){n.subTab&&!n.preventFocus&&this.getComposite(\"inputSubTab\").setTabContents(n.subTab,!1)}.bind",
+        "this.setVlidateActionError",
+        "this.setValidateBeforeFoldCheck",
+        "this.setValidateByTaxCheck",
+        "this.setValidateByPerissionWithMore",
+        "this.setValidateByGroupwareUser",
+        "this.setValidateByIoTypeCust",
+        "this.setValidateByLimitDate",
+        "this.setValidateByIotype",
+        "this.setValidateByForeignType",
+        "this.setValidateByExpectDate",
+        "this.setValidateByExpireDate",
+        "this.setValidateByCustPriceComplete",
+        "this.setValidateByTimeDate",
+        "this.setValidatDuplicateWhCd",
+        "this.setValidatWhWithInvoice",
+        "this.setValidateByRequired",
+        "this.setValidateByMakeWhType",
+        "this.setValidateWmsSaveConfirm"
+      ],
+      "frontiers_including_nested": 35
+    },
+    "inputEvent.getPendingApiParam": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.getPendingApiParam",
+      "span": [
+        1,
+        107294,
+        1,
+        107690
+      ],
+      "callable_id": "callable:function:107294:107690",
+      "direct_call_count": 7,
+      "calls_including_nested": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      },
+      "direct_callees": [
+        "this.getComposite(\"pendingRestore\").getPendingSaveDatas",
+        "this.getComposite",
+        "this.extractFormDatas",
+        "this.getTotalSumDecimalValue",
+        "this.getRemarksDecimalValue",
+        "this.gridComposite.getCell"
+      ],
+      "frontiers_including_nested": 7
+    },
+    "inputEvent.callPendingApi": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.callPendingApi",
+      "span": [
+        1,
+        107706,
+        1,
+        108314
+      ],
+      "callable_id": "callable:function:107706:108314",
+      "direct_call_count": 3,
+      "calls_including_nested": 4,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "direct_callees": [
+        "this.callApi",
+        "Object.toJSON",
+        "function(n){this.pageOption.asyncApiStep.next(n)}.bind"
+      ],
+      "frontiers_including_nested": 4
+    },
+    "inputEvent.callSaveApi": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.callSaveApi",
+      "span": [
+        1,
+        115701,
+        1,
+        117035
+      ],
+      "callable_id": "callable:function:115701:117035",
+      "direct_call_count": 10,
+      "calls_including_nested": 22,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "direct_callees": [
+        "ecount.infra.checkIsAvailableForDemoUser",
+        "ecmodule.common.page.debuggerPoint",
+        "this.callSaveApiParam",
+        "_.get",
+        "$.isEmpty",
+        "ecount.alert",
+        "Error",
+        "this.callApi",
+        "function(n){ecount.TemporarySave.localstorage.clear();this.pageOption.asyncApiStep.setTemp(n.Data);this.pageOption.asyncApiStep.next()}.bind",
+        "function(){var n=arguments[3];if(arguments[2]){arguments[2].Code==\"EXP00001\"?ecount.confirm(ecount.resource.MSG10920,function(n){n&&(this.fnTemporarySave(),this.applyTemporarySaved())}.bind(this)):arguments[2].Code==\"ERR00112\"?ecount.alert(ecount.resource.MSG11063):n&&n();return}ecount.confirm(ecount.resource.MSG10569,function(n){if(!n)return!1;this.fnTemporarySave()}.bind(this))}.bind"
+      ],
+      "frontiers_including_nested": 22
+    },
+    "inputEvent.getSaveApiParam": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.getSaveApiParam",
+      "span": [
+        1,
+        117052,
+        1,
+        119987
+      ],
+      "callable_id": "callable:function:117052:119987",
+      "direct_call_count": 10,
+      "calls_including_nested": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "direct_callees": [
+        "this.pageInfo.params.footer.save",
+        "this.publishEvent",
+        "this.getComposite(\"form\").getNowGbTypeStatus",
+        "this.getComposite",
+        "r.list.concat",
+        "f.push"
+      ],
+      "frontiers_including_nested": 26
+    },
+    "inputEvent.saveAfterShowSlipPrint": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterShowSlipPrint",
+      "span": [
+        1,
+        125553,
+        1,
+        127371
+      ],
+      "callable_id": "callable:function:125553:127371",
+      "direct_call_count": 25,
+      "calls_including_nested": 31,
+      "direct_call_resolution": {
+        "unresolved": 25
+      },
+      "direct_callees": [
+        "this.pageOption.asyncApiStep.getTemp",
+        "this.pageOption.asyncApiStep.next",
+        "this.getLayout(\"contents\").getPage",
+        "this.getLayout",
+        "this.inputMainTab.getAccountViewFlag",
+        "this.inputMainTab.getInvoiceParamMapper",
+        "this.getControls",
+        "this.getControls(\"trx_date\",this.tabIdList.invoice).getDateFormat(\"yyyy/MM/dd\").first",
+        "this.getControls(\"trx_date\",this.tabIdList.invoice).getDateFormat",
+        "this._acctMenuList.find",
+        "_.get",
+        "_.find",
+        "$.isEmpty",
+        "this.setAcctPrintPopup",
+        "ecount.common.api",
+        "function(t){t.Status!=\"200\"&&ecount.alert(t.fullErrorMsg);var i=t.Data.manage_type;u=_.includes([\"T1\",\"T4\"],i)?!1:!0;f=_.includes([\"T3\",\"T6\"],i)?!0:!1;n=u&&(f||$.isEmpty(this.inputMainTab.acctSlipInfo.TRX_DATE))?\"BEFORE\":\"AFTER\";n=n==\"AFTER\"?\"26\":\"51\";this.setAcctPrintPopup(e,s,n);this.pageOption.asyncApiStep.next()}.bind",
+        "this.getComposite(\"form\").getNowGbTypeStatus",
+        "this.getComposite",
+        "this.getComposite(\"slipPrintEvent\").getPrintSlipData",
+        "this.getComposite(\"slipPrintEvent\").showPrintSlipPopup"
+      ],
+      "frontiers_including_nested": 31
+    },
+    "inputEvent.saveAfterShowSlipPayment": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterShowSlipPayment",
+      "span": [
+        1,
+        127397,
+        1,
+        128925
+      ],
+      "callable_id": "callable:function:127397:128925",
+      "direct_call_count": 23,
+      "calls_including_nested": 23,
+      "direct_call_resolution": {
+        "unresolved": 23
+      },
+      "direct_callees": [
+        "this.pageOption.asyncApiStep.next",
+        "this.getControls",
+        "this.getComposite",
+        "this.getTotalSumDecimalValue",
+        "this.getRemarksDecimalValue",
+        "this.gridComposite.getCell({c:this.columnMap.grid.remarks.id,r:\"0\",target:\"foot\"}).toString",
+        "this.gridComposite.getCell",
+        "this.gridComposite.getCell({c:this.columnMap.grid.vat_amt.id,r:\"0\",target:\"foot\"}).toString().replace(new RegExp(ecount.config.company.THOU_SEPARATOR.replace(\".\",\"\\\\.\"),\"g\"),\"\").replace",
+        "this.gridComposite.getCell({c:this.columnMap.grid.vat_amt.id,r:\"0\",target:\"foot\"}).toString().replace",
+        "this.gridComposite.getCell({c:this.columnMap.grid.vat_amt.id,r:\"0\",target:\"foot\"}).toString",
+        "RegExp",
+        "ecount.config.company.THOU_SEPARATOR.replace",
+        "ecount.config.company.DEC_SEPARATOR.replace",
+        "this.getControlsByKey",
+        "this.getComposite(\"contents\").getFromProgramId",
+        "this.openWindow"
+      ],
+      "frontiers_including_nested": 23
+    },
+    "inputEvent.saveAfterShowSlipApproval": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterShowSlipApproval",
+      "span": [
+        1,
+        128952,
+        1,
+        129325
+      ],
+      "callable_id": "callable:function:128952:129325",
+      "direct_call_count": 5,
+      "calls_including_nested": 6,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "direct_callees": [
+        "this.pageOption.asyncApiStep.getTemp",
+        "this.pageOption.asyncApiStep.next",
+        "this.getComposite(\"createEApproval\").execute",
+        "this.getComposite",
+        "function(){this.pageOption.asyncApiStep.next()}.bind"
+      ],
+      "frontiers_including_nested": 6
+    },
+    "inputEvent.saveAfterInputPageSubmit": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit",
+      "span": [
+        1,
+        131124,
+        1,
+        133497
+      ],
+      "callable_id": "callable:function:131124:133497",
+      "direct_call_count": 20,
+      "calls_including_nested": 26,
+      "direct_call_resolution": {
+        "unresolved": 20
+      },
+      "direct_callees": [
+        "this.pageOption.asyncApiStep.getTemp",
+        "[\"saveNew\",\"saveReview\",\"saveSlipPayAssistant\"].includes",
+        "$.extend",
+        "this.getComposite",
+        "t.setInputCommonParamFromManagerORderMsg",
+        "$.isEmpty",
+        "this.submitPage",
+        "ecount.link.getConfigUrlData",
+        "function(n){var t={Request:{Key:{Date:this.slipInfo.Master.IO_DATE,No:this.slipInfo.Master.IO_NO},FromProgramId:this.pageOption.FromProgramId,EditMode:ecenum.editMode.modify,RoomSeq:this.pageOption.ROOM_SEQ},IsRefNew:this.pageOption.IsRefNew};this.getParentInstance()&&this.getParentInstance()._ON_REDRAW&&this.getParentInstance()._ON_REDRAW();this.submitPage(n.url,t,this.tabIdList.main)}.bind",
+        "this.close",
+        "this.setTimeout",
+        "function(){this.close()}.bind",
+        "this.onAllSubmitSelf"
+      ],
+      "frontiers_including_nested": 28
+    },
+    "slipPrintEvent.showPrintSlipPopup": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.slipPrintEvent.showPrintSlipPopup",
+      "span": [
+        1,
+        198728,
+        1,
+        198987
+      ],
+      "callable_id": "callable:function:198728:198987",
+      "direct_call_count": 1,
+      "calls_including_nested": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "direct_callees": [
+        "this.openWindow"
+      ],
+      "frontiers_including_nested": 1
+    },
+    "slipPrintEvent.getPrintSlipData": {
+      "source": "input-functions",
+      "symbol": "eccomposite_v1.function.slipPrintEvent.getPrintSlipData",
+      "span": [
+        1,
+        199005,
+        1,
+        200009
+      ],
+      "callable_id": "callable:function:199005:200009",
+      "direct_call_count": 10,
+      "calls_including_nested": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "direct_callees": [
+        "this.settingInfo.setParam.call",
+        "this.getControlsByKey",
+        "this.getComposite(\"contents\").getFromProgramId",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 10
+    },
+    "pendingRestore.onLoadComplete": {
+      "source": "pending-functions",
+      "symbol": "eccomposite_v1.function.pendingRestore.onLoadComplete",
+      "span": [
+        1,
+        25377,
+        1,
+        25554
+      ],
+      "callable_id": "callable:function:25377:25554",
+      "direct_call_count": 3,
+      "calls_including_nested": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "direct_callees": [
+        "JSON.parse",
+        "this.restoreForm",
+        "this.restoreGrid"
+      ],
+      "frontiers_including_nested": 3,
+      "exact_source": "function(){if(this.InitDatas.SUSP_CTT){var n=JSON.parse(this.InitDatas.SUSP_CTT);this.pageHidden=n.pageHidden;this.restoreForm({data:n.widget});this.restoreGrid({data:n.grid})}}"
+    },
+    "pendingRestore.resetPending": {
+      "source": "pending-functions",
+      "symbol": "eccomposite_v1.function.pendingRestore.resetPending",
+      "span": [
+        1,
+        25915,
+        1,
+        25968
+      ],
+      "callable_id": "callable:function:25915:25968",
+      "direct_call_count": 0,
+      "calls_including_nested": 0,
+      "direct_call_resolution": {},
+      "direct_callees": [],
+      "frontiers_including_nested": 0,
+      "exact_source": "function(){this.pendingDate=null;this.pendingNo=null}"
+    },
+    "pendingRestore.getPendingSaveDatas": {
+      "source": "pending-functions",
+      "symbol": "eccomposite_v1.function.pendingRestore.getPendingSaveDatas",
+      "span": [
+        1,
+        25989,
+        1,
+        27084
+      ],
+      "callable_id": "callable:function:25989:27084",
+      "direct_call_count": 25,
+      "calls_including_nested": 25,
+      "direct_call_resolution": {
+        "unresolved": 25
+      },
+      "direct_callees": [
+        "this.getComposite",
+        "this.getComposite(\"grid\",null,!0).getRowList",
+        "this.publishEvent",
+        "this.excludeSerialInGrid",
+        "this.excludeTaxImgGrid",
+        "this.excludeAllocateGrid",
+        "this.getPendingDate",
+        "this.getPendingNo",
+        "this.getComposite(\"cust\").getCompositeValue",
+        "this.getCompositeControl",
+        "this.getCompositeControl({typeKey:\"wh_cd\",unitType:\"widget\"}).getSelectedLabel",
+        "this.getComposite(\"io_type\").myControl.getSelectedItem",
+        "this.setPROD_DESForPendingList",
+        "this.getComposite({typeKey:\"grid\",gridId:!0}).getCell"
+      ],
+      "frontiers_including_nested": 25
+    },
+    "pendingRestore.excludeSerialInGrid": {
+      "source": "pending-functions",
+      "symbol": "eccomposite_v1.function.pendingRestore.excludeSerialInGrid",
+      "span": [
+        1,
+        27105,
+        1,
+        27275
+      ],
+      "callable_id": "callable:function:27105:27275",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"serial_cd\",this.tabId).deleteSerialData",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 5,
+      "exact_source": "function(n){this.getComposite(\"serial_cd\",this.tabId).deleteSerialData(n);for(var t=0;t<n.length;t++)n[t].SERIAL_IDX&&(n[t].SERIAL_IDX=\"\",n[t].SERIAL_TYPE=null);return n}"
+    },
+    "pendingRestore.excludeTaxImgGrid": {
+      "source": "pending-functions",
+      "symbol": "eccomposite_v1.function.pendingRestore.excludeTaxImgGrid",
+      "span": [
+        1,
+        27294,
+        1,
+        27469
+      ],
+      "callable_id": "callable:function:27294:27469",
+      "direct_call_count": 2,
+      "calls_including_nested": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "direct_callees": [
+        "this.getComposite(\"tax_img\",this.tabId).getTaxImgCheckList",
+        "this.getComposite"
+      ],
+      "frontiers_including_nested": 8,
+      "exact_source": "function(n){for(var t,r=this.getComposite(\"tax_img\",this.tabId).getTaxImgCheckList(\"pending\"),i=0;i<n.length;i++)for(t=0;t<r.length;t++)n[i][r[t]]&&(n[i][r[t]]=null);return n}"
+    },
+    "pendingRestore.excludeAllocateGrid": {
+      "source": "pending-functions",
+      "symbol": "eccomposite_v1.function.pendingRestore.excludeAllocateGrid",
+      "span": [
+        1,
+        27490,
+        1,
+        27704
+      ],
+      "callable_id": "callable:function:27490:27704",
+      "direct_call_count": 0,
+      "calls_including_nested": 0,
+      "direct_call_resolution": {},
+      "direct_callees": [],
+      "frontiers_including_nested": 8
+    },
+    "group.createLayout": {
+      "source": "core",
+      "symbol": "eccomposite_v1.unit.widget.group.createLayout",
+      "span": [
+        1,
+        47277,
+        1,
+        49044
+      ],
+      "callable_id": "callable:function:47277:49044",
+      "direct_call_count": 27,
+      "calls_including_nested": 28,
+      "direct_call_resolution": {
+        "unresolved": 27
+      },
+      "direct_callees": [
+        "widget.generator.control",
+        "this.tempToolbar.getOptions",
+        "ecmodule.common.page.createStateManager",
+        "i.define(\"widget.button.group\",this.realId).label(this.settingInfo.label||t[0].data[0].label).hide(!!t[0].hidden).addGroup",
+        "i.define(\"widget.button.group\",this.realId).label(this.settingInfo.label||t[0].data[0].label).hide",
+        "i.define(\"widget.button.group\",this.realId).label",
+        "i.define",
+        "_.reverse",
+        "t.map",
+        "_.cloneDeep",
+        "f.last",
+        "i.define(\"widget.button.group\",this.realId).label(this.settingInfo.label||t[0].data[0].label).addGroup",
+        "this._setDropdownSize",
+        "i.noActionBtn",
+        "i.setButtonArrowDirection",
+        "_.isEmpty",
+        "i.setClickSlipMenu",
+        "$.isEmpty",
+        "n.getOptions(null,!0).itemLeft.first",
+        "n.getOptions",
+        "i.css",
+        "i.smallSize"
+      ],
+      "frontiers_including_nested": 28
+    },
+    "group.createItems": {
+      "source": "core",
+      "symbol": "eccomposite_v1.unit.widget.group.createItems",
+      "span": [
+        1,
+        49057,
+        1,
+        49725
+      ],
+      "callable_id": "callable:function:49057:49725",
+      "direct_call_count": 5,
+      "calls_including_nested": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      },
+      "direct_callees": [
+        "this.getNowStepData",
+        "ecmodule.common.page.commonButtonSort",
+        "_.compact",
+        "this.createCompositeInstance"
+      ],
+      "frontiers_including_nested": 17
+    },
+    "group._ON_CLICK": {
+      "source": "core",
+      "symbol": "eccomposite_v1.unit.widget.group._ON_CLICK",
+      "span": [
+        1,
+        50044,
+        1,
+        50175
+      ],
+      "callable_id": "callable:function:50044:50175",
+      "direct_call_count": 3,
+      "calls_including_nested": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "direct_callees": [
+        "this.getFirstButton",
+        "_.find",
+        "t._ON_CLICK"
+      ],
+      "frontiers_including_nested": 3,
+      "exact_source": "function(n){var i=this.getFirstButton(),t;i&&(t=_.find(this._commonItemList,function(n){return n.realId==i.id}),t&&t._ON_CLICK(n))}"
+    }
+  },
+  "unknown": "All direct calls in these original bodies are unresolved by REA; textual callee names are syntax candidates, not runtime binding proof."
+}

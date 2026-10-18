@@ -1,0 +1,1091 @@
+{
+  "schema": "retained-source-flexion-subtotals-extension/v1",
+  "generated_at": "2026-10-18T09:33:01.960836+00:00",
+  "scope": {
+    "prior_contract_preserved": "$SCRATCH/aggregate-subtotals-rea-20261018/aggregate-subtotals-contract.json",
+    "baseline_original_bodies": 81,
+    "extension_unique_bodies": 1,
+    "cumulative_original_bodies": 82,
+    "new_GETs": 1,
+    "original_code_executed": false,
+    "browser_or_private_API": false,
+    "app_or_prior_contract_edits": false,
+    "tests_or_original_algorithm_runtime_simulation": false,
+    "analysis": "Actual pinned REA6.4 static complete; full semantic30s timeout unknown; AST span reading is static source evidence, no semantic IDs invented"
+  },
+  "body": {
+    "sha256": "8f89fd21c49a9d7c1de6245f02c34fbf9c58cd133fdf2bd13f489a84247e5563",
+    "bytes": 3995664,
+    "source": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-originals/Flexion.e92f3d17.js",
+    "analysis_dir": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-analysis/8f89fd21c49a9d7c",
+    "rea_version": "6.4.0",
+    "time_budget_seconds": 30,
+    "heap_limit_MiB": 2048,
+    "source_executed": false,
+    "process_status": "timeout",
+    "exit_code": null,
+    "elapsed_ms": 30065,
+    "static_status": "complete",
+    "semantic_status": "unknown_timeout",
+    "parse_error_count": 0,
+    "visited_ast_nodes": 1052715,
+    "static_limitations": [
+      "JavaScript syntax was parsed as data and was never evaluated."
+    ],
+    "http_status": 200,
+    "wire_gzip_bytes": 948534,
+    "provenance": "Exact parent DOM script[src] from read-only2axis purchase report; ordinary unauthenticated GET once",
+    "freshness": {
+      "downloaded_at": "2026-10-18T09:26:20.779537+00:00",
+      "Last-Modified": "Fri, 16 Oct 2026 03:02:13 GMT",
+      "meaning": "Public CDN source timestamp only, not current runtime binding or business-data freshness"
+    }
+  },
+  "answer": "The observed Flexion public body supplies the formerly external WidgetDLTBuilder/data_generator/summary-row implementation. It narrows client row-generation behavior, not backend aggregate calculation, current full runtime binding, or CSV/print equivalence.",
+  "component_flags": {
+    "facts": [
+      "vr: show_subtotal truthy uses btn-add-sum; false/absent uses btn-unadd-sum. Buttons exist only when selected prop_id is truthy.",
+      "zv maps toggle_subtotal to $v TOGGLE_AGGREGATE_SUBTOTAL_COMMAND. nC registers it and replaces only that condition.show_subtotal with logical negation. Local model setValue is present; toggle callback contains no explicit query/save. Lifecycle subscribers remain external.",
+      "sort_type toggles A↔D; UI desc when D, otherwise asc. This does not prove ordinary rows are sorted by this component.",
+      "zv initialState shows2 of5 known condition slots. getSummaryConditions makes up to min(5,selectedPropCount+2) visible, monotonically: it never hides an already shown row. Current owner observed initial4 is not a universal default established by this candidate."
+    ],
+    "refs": {
+      "aggregate.vr": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          516547,
+          1,
+          518834
+        ],
+        "offsets": [
+          516547,
+          518834
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "zv": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          973710,
+          1,
+          976473
+        ],
+        "offsets": [
+          973710,
+          976473
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "zv.getSummaryConditions": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          976234,
+          1,
+          976472
+        ],
+        "offsets": [
+          976234,
+          976472
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.Kv": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          972618,
+          1,
+          972683
+        ],
+        "offsets": [
+          972618,
+          972683
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.$v": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          972684,
+          1,
+          972753
+        ],
+        "offsets": [
+          972684,
+          972753
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.nC": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          977198,
+          1,
+          981051
+        ],
+        "offsets": [
+          977198,
+          981051
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.at": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          629536,
+          1,
+          629542
+        ],
+        "offsets": [
+          629536,
+          629542
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.st": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          629543,
+          1,
+          629549
+        ],
+        "offsets": [
+          629543,
+          629549
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.ui_F": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          408351,
+          1,
+          408356
+        ],
+        "offsets": [
+          408351,
+          408356
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate.ui_L": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          1,
+          408357,
+          1,
+          408362
+        ],
+        "offsets": [
+          408357,
+          408362
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    }
+  },
+  "binding_and_stage_order": {
+    "facts": [
+      "This bundle exports FlexionErp.WidgetDLTBuilder=ad. The retained common DLTMapBuilder.build calls that API with data/models and features, narrowing a concrete name-level supplier path. Current runtime instance/config/proxy linkage was not executed or inspected.",
+      "Gc grid producer ordered chain: comparison_period, unwind_prop_iteration, data_generator, empty_line, page_display_method, print_layout, code_replace, grid_tree, sub_array; gated on feature availability.",
+      "ad dispatches grid$data_generator_producer via xc to Zl; Zl uses Jl.buildChunks. Other configured stages can affect input/output."
+    ],
+    "refs": {
+      "export_or_plugin.e.WidgetDLTBuilder": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          1005061,
+          7,
+          1005082
+        ],
+        "offsets": [
+          3810326,
+          3810347
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "ad._buildManifestCore": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          645292,
+          7,
+          645824
+        ],
+        "offsets": [
+          3450557,
+          3451089
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "ad._executeRecordProducerChain": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          646029,
+          7,
+          646262
+        ],
+        "offsets": [
+          3451294,
+          3451527
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "xc": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          630951,
+          7,
+          631573
+        ],
+        "offsets": [
+          3436216,
+          3436838
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Gc": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          640659,
+          7,
+          641892
+        ],
+        "offsets": [
+          3445924,
+          3447157
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Zl": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          617474,
+          7,
+          618435
+        ],
+        "offsets": [
+          3422739,
+          3423700
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    },
+    "retained_common": {
+      "symbol": "DLTMapBuilder.build",
+      "span": [
+        27821,
+        4,
+        27858,
+        5
+      ],
+      "offsets": [
+        1255538,
+        1257264
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable for full common dueOOM",
+      "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+    }
+  },
+  "enabled_axis_semantics": {
+    "facts": [
+      "Summary registration skips aggregate_config entries with !subtot_tf. Disabled selected axes do not exist in this summary_accumulators array; other backend groups/model definitions may still include them.",
+      "A separate subtotal_config registers entries when subtot_tf OR page_separate_tf. Do not conflate legacy/header sort subtotal with free summary_config.",
+      "flushGroupAggregates compares each registered active axis in configured order using value_extractor(previous/next sort_prop_id) and strict !==; first changed active index triggers flush last→that index. It is adjacent boundary detection, not a global hash GROUPBY.",
+      "handleSortBoundary appends those summaries after already accumulated prior rows, before current row append/accumulation. End residuals emit last active axis→first active axis. Disabled-axis boundaries alone do not trigger summary flush.",
+      "Jl ordinary build loop preserves incoming body order; it contains no sorting call. Pl comparison_period producer has a separate compare/key/sort path and is not general ordinary-result sorting proof.",
+      "OFF/OFF creates no summary accumulators. Grand/page total accumulators use independent configs; subtotal OFF does not disable them."
+    ],
+    "refs": {
+      "Jl.registerAccumulators": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          609831,
+          7,
+          610547
+        ],
+        "offsets": [
+          3415096,
+          3415812
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.buildChunks": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          610547,
+          7,
+          611209
+        ],
+        "offsets": [
+          3415812,
+          3416474
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.handleSortBoundary": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          612635,
+          7,
+          613551
+        ],
+        "offsets": [
+          3417900,
+          3418816
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.flushGroupAggregates": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          614716,
+          7,
+          615096
+        ],
+        "offsets": [
+          3419981,
+          3420361
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.finalizeResiduals": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          613797,
+          7,
+          614716
+        ],
+        "offsets": [
+          3419062,
+          3419981
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "$l": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          603906,
+          7,
+          603942
+        ],
+        "offsets": [
+          3409171,
+          3409207
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.appendBodyRow": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          613551,
+          7,
+          613797
+        ],
+        "offsets": [
+          3418816,
+          3419062
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.flushTotal": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          615492,
+          7,
+          615605
+        ],
+        "offsets": [
+          3420757,
+          3420870
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Pl": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          601553,
+          7,
+          603108
+        ],
+        "offsets": [
+          3406818,
+          3408373
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    }
+  },
+  "quantity_amount_and_rounding": {
+    "facts": [
+      "Ul.accumulate iterates configured measures. Source value is association_prop_id ?? prop_id; nil becomes0; it adds through external _.vToDecimal(...).add(...) and increments row_count. period_index measures require matching row.meta.period_indices.",
+      "Ul.finalize returns each configured sum or Decimal0. Traced Ul methods contain no explicit round/toFixed/currency/tax or per-row rounding step.",
+      "Vl maintains distinct line/slip accumulators when enabled and emits derived GridAggregateRow for summary or GridSubTotalRow for subtotal via Hl.",
+      "The decimal helper implementation/global precision, field formats and prior backend aggregation are outside this traced arithmetic. Do not equate this client sum stage to original tax/supply rounding or backend formulas.",
+      "Alternative-prop standard enums/type changes exist; they are not proof this Ul sum routine implements every First/Count/Average standard. Other stages handle some transformations."
+    ],
+    "refs": {
+      "Ul.accumulate": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          604309,
+          7,
+          604607
+        ],
+        "offsets": [
+          3409574,
+          3409872
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Ul.finalize": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          604607,
+          7,
+          604707
+        ],
+        "offsets": [
+          3409872,
+          3409972
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Vl.accumulate": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          607244,
+          7,
+          607466
+        ],
+        "offsets": [
+          3412509,
+          3412731
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Vl.flush": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          607466,
+          7,
+          607793
+        ],
+        "offsets": [
+          3412731,
+          3413058
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Hl": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          603942,
+          7,
+          604082
+        ],
+        "offsets": [
+          3409207,
+          3409347
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "aggregate_standard_enum": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          356910,
+          7,
+          357010
+        ],
+        "offsets": [
+          3162175,
+          3162275
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "al": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          588883,
+          7,
+          590409
+        ],
+        "offsets": [
+          3394148,
+          3395674
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.generateAlternativePropsData": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          616756,
+          7,
+          617141
+        ],
+        "offsets": [
+          3422021,
+          3422406
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.normalizeDecimalProps": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          617323,
+          7,
+          617467
+        ],
+        "offsets": [
+          3422588,
+          3422732
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    }
+  },
+  "label_and_colspan": {
+    "facts": [
+      "ql writes the title into config.row_title_prop_id using the supplied resolver with prior/final source row and that active axis sort_prop_id. It does not choose the first selected axis automatically.",
+      "Retained common createSubtotalTitleResolver resolves that axis display and appends custom_display_name or resource rex00205. buildSummarySort synthetic subtot_nm_tf=false means current-axis label, not all-prefix path. Resource Korean translation/current-caption equivalence remains separate UI evidence.",
+      "common getNewRowInfos$1/buildInfoForNewRow passes title_prop/association map/sort_seq and row definitions; Flexion vs removes prior GridAggregateRow definitions and cs creates replacement summary definitions.",
+      "cs selects title start using hs, ds maps that position to title_prop; title cell merge_info is MERGE,row_span1,col_span=aggregate_conditions.length when conditions supplied; later cells COL_MERGE. Width is all selected conditions, independent of enabled summary accumulator count. Two selected axes therefore configure a2-column title merge even if one flag OFF. Exact current template mapping still requires runtime evidence.",
+      "Cs also merges GridTotalRow/GridPageTotalRow labels across selected-axis count. Jl Gl.writeRowTitle gets grand-total caption from definition display_name, separate from axis summary resolver.",
+      "Derived record and row-definition both carry meta.sort_seq; exact final definition-selection/current DOM/CSS/format adapter remains unverified. No company labels/data retained."
+    ],
+    "refs": {
+      "ql": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          604082,
+          7,
+          604188
+        ],
+        "offsets": [
+          3409347,
+          3409453
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Hl": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          603942,
+          7,
+          604082
+        ],
+        "offsets": [
+          3409207,
+          3409347
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "vs": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          563903,
+          7,
+          565459
+        ],
+        "offsets": [
+          3369168,
+          3370724
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "cs": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          559674,
+          7,
+          561104
+        ],
+        "offsets": [
+          3364939,
+          3366369
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "ds": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          561110,
+          7,
+          562366
+        ],
+        "offsets": [
+          3366375,
+          3367631
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "hs": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          563189,
+          7,
+          563468
+        ],
+        "offsets": [
+          3368454,
+          3368733
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Cs": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          565460,
+          7,
+          569465
+        ],
+        "offsets": [
+          3370725,
+          3374730
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Ts": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          569465,
+          7,
+          569930
+        ],
+        "offsets": [
+          3374730,
+          3375195
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "xs": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          569930,
+          7,
+          570056
+        ],
+        "offsets": [
+          3375195,
+          3375321
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Gl.writeRowTitle": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          606625,
+          7,
+          607033
+        ],
+        "offsets": [
+          3411890,
+          3412298
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    },
+    "retained_common": {
+      "common::createSubtotalTitleResolver": {
+        "symbol": "createSubtotalTitleResolver",
+        "span": [
+          20702,
+          0,
+          20722,
+          1
+        ],
+        "offsets": [
+          918456,
+          919600
+        ],
+        "source_id": "common",
+        "actual_REA_callable_id": "unavailable for full common dueOOM",
+        "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+      },
+      "common::buildSummarySort": {
+        "symbol": "buildSummarySort",
+        "span": [
+          21028,
+          0,
+          21048,
+          1
+        ],
+        "offsets": [
+          932520,
+          933294
+        ],
+        "source_id": "common",
+        "actual_REA_callable_id": "callable:function:21540:22314",
+        "semantic_ir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts/rea-semantic-ir.json",
+        "direct_call_count": 2,
+        "direct_call_resolution": {
+          "exact": 1,
+          "unresolved": 1
+        },
+        "semantic_scope": "mapped derived excerpt only",
+        "source_identity_map": "$SCRATCH/aggregate-common-rea-20261018/selected-source-map.json",
+        "mapping": "Original/excerpt line+column identity; callable ID belongs to excerpt, not full common IR"
+      },
+      "common::getNewRowInfos$1": {
+        "symbol": "getNewRowInfos$1",
+        "span": [
+          27280,
+          0,
+          27308,
+          1
+        ],
+        "offsets": [
+          1230931,
+          1232031
+        ],
+        "source_id": "common",
+        "actual_REA_callable_id": "unavailable for full common dueOOM",
+        "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+      },
+      "common::buildInfoForNewRow": {
+        "symbol": "buildInfoForNewRow",
+        "span": [
+          27055,
+          0,
+          27083,
+          1
+        ],
+        "offsets": [
+          1221712,
+          1222839
+        ],
+        "source_id": "common",
+        "actual_REA_callable_id": "unavailable for full common dueOOM",
+        "evidence_level": "Prior full actual REA static + current inert AST span only; no semantic completion promoted"
+      }
+    }
+  },
+  "three_manual_static_traces": {
+    "basis": "Manual static derivation from Jl/Vl/Ul only; no target code or simulation executed, no original company rows, not an own-app policy recommendation.",
+    "assumptions": [
+      "Already ordered raw main-row input below; scalar stable value_extractor; two nonnumeric eligible axis configs with valid definitions; one additive measure; no by_slip/comparison/supplementary/pagination/pivot/unwind effects.",
+      "by_line.use=false hides raw line body rows but still accumulates them. If true or omitted raw input rows also remain. Current purchase config flag was not observed.",
+      "Title strings below use axis IDs and values, not rendered Korean suffix/resource text. Grand-total config optional: if configured independently it sums60 after all summaries."
+    ],
+    "input": [
+      {
+        "id": "r1",
+        "A": "A",
+        "B": "x",
+        "measure": 10
+      },
+      {
+        "id": "r2",
+        "A": "A",
+        "B": "y",
+        "measure": 20
+      },
+      {
+        "id": "r3",
+        "A": "B",
+        "B": "y",
+        "measure": 30
+      }
+    ],
+    "cases": [
+      {
+        "case": "ON/ON",
+        "active_accumulators": [
+          "A",
+          "B"
+        ],
+        "events": [
+          {
+            "before": "r2",
+            "first_changed_active_axis": "B",
+            "emits": [
+              "B=x sum10"
+            ],
+            "remaining": "A sum10"
+          },
+          {
+            "before": "r3",
+            "first_changed_active_axis": "A",
+            "emits": [
+              "B=y sum20",
+              "A=A sum30"
+            ]
+          },
+          {
+            "at": "end",
+            "emits": [
+              "B=y sum30",
+              "A=B sum30"
+            ]
+          }
+        ],
+        "derived_summary_rows": 5
+      },
+      {
+        "case": "OFF/ON",
+        "active_accumulators": [
+          "B"
+        ],
+        "events": [
+          {
+            "before": "r2",
+            "first_changed_active_axis": "B",
+            "emits": [
+              "B=x sum10"
+            ]
+          },
+          {
+            "before": "r3",
+            "first_changed_active_axis": null,
+            "emits": [],
+            "reason": "B remains y: inactive A change is not compared by this summary accumulator list"
+          },
+          {
+            "at": "end",
+            "emits": [
+              "B=y sum50"
+            ]
+          }
+        ],
+        "derived_summary_rows": 2,
+        "important_boundary": "This client summary-row stage can join contiguous equal B across a changed disabled A. It does not prove backend GROUPBY omits A; all selected axes can remain backend groups."
+      },
+      {
+        "case": "ON/OFF",
+        "active_accumulators": [
+          "A"
+        ],
+        "events": [
+          {
+            "before": "r2",
+            "first_changed_active_axis": null,
+            "emits": []
+          },
+          {
+            "before": "r3",
+            "first_changed_active_axis": "A",
+            "emits": [
+              "A=A sum30"
+            ]
+          },
+          {
+            "at": "end",
+            "emits": [
+              "A=B sum30"
+            ]
+          }
+        ],
+        "derived_summary_rows": 2
+      }
+    ],
+    "OFF_OFF_note": "No active summary accumulator → zero derived summary rows; optional independent total remains60.",
+    "refs": {
+      "Jl.buildChunks": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          610547,
+          7,
+          611209
+        ],
+        "offsets": [
+          3415812,
+          3416474
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.registerAccumulators": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          609831,
+          7,
+          610547
+        ],
+        "offsets": [
+          3415096,
+          3415812
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.flushGroupAggregates": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          614716,
+          7,
+          615096
+        ],
+        "offsets": [
+          3419981,
+          3420361
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.handleSortBoundary": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          612635,
+          7,
+          613551
+        ],
+        "offsets": [
+          3417900,
+          3418816
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.finalizeResiduals": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          613797,
+          7,
+          614716
+        ],
+        "offsets": [
+          3419062,
+          3419981
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Jl.appendBodyRow": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          613551,
+          7,
+          613797
+        ],
+        "offsets": [
+          3418816,
+          3419062
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    }
+  },
+  "output_boundaries": {
+    "facts": [
+      "Zl normal branch places generated chunks into manifest.grids body with report_band_key. for_print branch uses same chunks to populate print_contents/print_pages, so there is a shared row-generation branch.",
+      "This is stronger than source absence but does not verify actual purchase print invoking it with identical settings, additional layout stages or download contents.",
+      "No dedicated purchase CSV serializer/formula equivalence is established. Prior inventory Excel resolver/config evidence remains separate; full Excel/CSV/print parity is unknown."
+    ],
+    "refs": {
+      "Zl": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          617474,
+          7,
+          618435
+        ],
+        "offsets": [
+          3422739,
+          3423700
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "Gc": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          640659,
+          7,
+          641892
+        ],
+        "offsets": [
+          3445924,
+          3447157
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      },
+      "ad.execute": {
+        "source": "Flexion.e92f3d17.js",
+        "span": [
+          7,
+          644906,
+          7,
+          645108
+        ],
+        "offsets": [
+          3450171,
+          3450373
+        ],
+        "evidence_level": "actual REA6.4 full static complete + inert AST source; full semantics timeout, no callable IDs"
+      }
+    }
+  },
+  "owner_readonly_UI_observations": {
+    "source": "Parent messages only; structural/label observations, no company values retained",
+    "not_executed_by_worker": true,
+    "observations": [
+      "2 selected axes item+partner:6column headers.",
+      "ON button class btn-add-sum/icon; OFF btn-unadd-sum/icon.",
+      "ON/ON and OFF/ON: non-grand-total row with2column merged label present.",
+      "OFF/OFF: non-grand-total merged rows disappear; grand total remains.",
+      "ON/OFF:2column merged subtotal row present; merged label equals prior normal-row first-axis displayed value plus literal suffix 계 (comparison boolean retained, original axis string not retained). ON/ON/OFF/ON label and3axis colspan observation pending."
+    ],
+    "interpretation": "Consistent with static flag filter and selected-count colspan; does not validate exact input grouping/amount/rounding/current data binding."
+  },
+  "unknowns": [
+    "Full Flexion semantic graph/callable/call/frontier counts: no IR before30s timeout; no full retry.",
+    "Full common semantics remain prior2GiB OOM. Retained common excerpt IDs apply only to mapped excerpt ranges. Prior corpus other timeout/OOM statuses unchanged.",
+    "Exact current runtime widget/feature config, by_line mode, row definitions and later overrides; name-level API supplier path is not runtime proof.",
+    "Backend purchase aggregate GROUPBY/key/SID identity/order and which source values client receives; disabled show_subtotal need not remove backend groups.",
+    "Current caption resource resolution, formatting/decimal precision/rounding, hidden columns/DOM merge and exact total formulas.",
+    "Actual print/CSV/Excel parity and global field formatting.",
+    "No original dataset or original engine execution was used; manual traces are conditional source reasoning."
+  ],
+  "files": {
+    "new_source_manifest": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-source-manifest.json",
+    "analysis_summary": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-analysis-summary.json",
+    "source_evidence": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-static-source-evidence.json",
+    "actual_refs": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-actual-rea-reference-index.json",
+    "cumulative_counts": "$SCRATCH/aggregate-subtotals-rea-20261018/cumulative-counts.json",
+    "prior81_contract": "$SCRATCH/aggregate-subtotals-rea-20261018/aggregate-subtotals-contract.json"
+  }
+}

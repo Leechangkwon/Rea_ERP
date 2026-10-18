@@ -1,0 +1,28 @@
+{
+  "version": "0.14.0",
+  "full_test_command": "NODE_OPTIONS=--test-isolation=none npm test",
+  "full_test_exit": 0,
+  "full_test_checks": 709,
+  "check_count_basis": {
+    "native_runner_tests": 451,
+    "json_checks": 127,
+    "plain_checks": 124,
+    "manual_scenarios": 9,
+    "duplicate_wrapper_tests_removed": 2
+  },
+  "new_tests": 9,
+  "focused_tests": 22,
+  "external_bounded_review_repro_checks": 2,
+  "external_repro_checks_included_in_total": false,
+  "full_test_log_sha256": "9553f564c0ec78e51fc4ca7cf42e6eb3657878dbe79d747ccf7e667dc8055ed0",
+  "release_checks": 4,
+  "worker_bytes": 1669651,
+  "embedded_assets": 50,
+  "synthetic_tests_only": true,
+  "original_ui_observation": "Menu labels only; no original business save, approval, payment, or settings save. Blank row-control temporary autosave was cleaned separately.",
+  "hosted_authenticated_business_qa": false,
+  "managed_browser_preview": "Skipped: local control-browser unavailable; no alternate preview browser started.",
+  "database_schema_changed": false,
+  "stored_record_format_changed": false,
+  "draft_conflicts": "Own in-memory same-browser source snapshots; not multi-device/server concurrency control."
+}

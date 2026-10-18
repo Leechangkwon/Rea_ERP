@@ -1,0 +1,460 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T06:45:33.830745+00:00",
+  "scope": {
+    "sources": "Existing retained public original text and existing actual REA6.4.0 IR only. No new analysis run/source execution. Discovery is a 71-body worker-inspected subset, not authoritative global corpus count.",
+    "new_GETs": 0,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "application_edits": false,
+    "existing_contract_files_modified": false,
+    "new_REA_runs": 0,
+    "manifest": "$SCRATCH/aggregate-axes-inspected-sources-20261018.json",
+    "SHA_rechecked_bodies": 71,
+    "SHA_mismatches": []
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive",
+  "current_UI_evidence_supplied_by_parent": {
+    "four_axis_query": {
+      "axes": [
+        "프로젝트",
+        "창고",
+        "담당자",
+        "품목"
+      ],
+      "result_header_count": 8
+    },
+    "gaps_allowed_in_observed_form": {
+      "operation": "Clear conditions1..3; retain only condition4=품목별; execute read-only report query",
+      "result_header_count": 5,
+      "conclusion": "Current observed form permits this leading gap. This is UI query evidence, not a proof that generic summary rules apply."
+    },
+    "selected_axes_excluded_from_candidates": true,
+    "per_axis_buttons": [
+      "btn-asc",
+      "btn-add-sum"
+    ],
+    "button_role_boundary": "Buttons belong to the individual axis control set; these are not row move controls. Direction/subtotal state transitions were requested for source corroboration; button existence alone does not prove serialization/defaults.",
+    "row_growth": {
+      "initial_visible_condition_rows": 4,
+      "after_filling_four_rows": 5,
+      "after_clearing_first_three_rows": "5th row remains visible",
+      "fifth_axis_query_and_sixth_row": "Not supplied as completed observation at report generation."
+    },
+    "limits": "Observed report headers and accepted conditions establish visible behavior only; no company result records or server aggregation formulas are retained."
+  },
+  "contracts": {
+    "axis_direction": {
+      "status": "unknown in inspected retained source",
+      "known": "Parent observed btn-asc in each axis control set.",
+      "missing": [
+        "Current $$aggregate component event handler",
+        "btn-asc/btn-desc transition values",
+        "Initial asc/desc data value",
+        "Per-condition field name/type and query serialization"
+      ],
+      "do_not_borrow": "V3 sort popup A/D and V56 $$sort asc_desc/sort_type are separate controls/consumers."
+    },
+    "axis_subtotal": {
+      "status": "unknown in inspected retained source",
+      "known": "Parent observed per-axis btn-add-sum.",
+      "missing": [
+        "Toggle/on/off handler and visual state",
+        "Initial subtotal boolean/enum",
+        "Per-condition subtotal field",
+        "Whether subtotal adds intermediate result lines or changes measures",
+        "Backend interpretation"
+      ],
+      "do_not_borrow": "V56 sort_search subtot_tf and type.$$summary validators do not establish the $$aggregate button contract."
+    },
+    "row_growth_and_limit": {
+      "status": "Initial4->5 and persistence after clearing are supplied UI facts; source auto-add rule/hard cap unknown.",
+      "generic_source": "aggregate_not_null explicitly enumerates condition_01..condition_05, counts nonempty records, and requires any only when options.is_use and aggregate_key.type=free. This does not define UI row insertion or enforce a maximum. getFreeAggregateModelInfo loops over external getAggregateConditionKeys result length, without a local hard-coded 4/5 cap.",
+      "evidence": [
+        "aggregate_not_null",
+        "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo"
+      ],
+      "unknown": [
+        "Actual component all-filled trigger",
+        "Insertion timing",
+        "Maximum visible axis rows",
+        "Whether empty trailing rows are serialized or removed"
+      ]
+    },
+    "aggregate_query_payload_boundary": {
+      "status": "generic retained V56 consumer found; current exact component binding and per-axis mapping unknown",
+      "input": "SelectInventoryStatusProgram passes request.search_data_model_container as dmc and request.search_options?.sort as option_sort to common$DataModelModifierForSearchConditionProgram.",
+      "output": "Receives conditions, sorts, groups, flow_condition and forwards them in the read query envelope. This source does not construct individual condition_0N sort/subtotal members.",
+      "literal_search_payload": "No search_payload literal found in inspected71 bodies; no matching named object contract established.",
+      "server_boundary": "Read endpoint literal is /ec56/api/inventory/action/SelectInventorySearchStatusAction. Only inert source was inspected; no request was made and no server formula/field semantics inferred.",
+      "evidence": [
+        "SelectInventoryStatusProgram.onExecuteAsync"
+      ],
+      "external_unresolved_calls": [
+        {
+          "call_id": "call:call:25540:25583",
+          "span": [
+            509,
+            44,
+            509,
+            87
+          ],
+          "resolution": "unresolved",
+          "callee_callable_ids": []
+        },
+        {
+          "call_id": "call:call:472010:472322",
+          "span": [
+            9777,
+            68,
+            9780,
+            10
+          ],
+          "resolution": "unresolved",
+          "callee_callable_ids": []
+        },
+        {
+          "call_id": "call:call:472010:472187",
+          "span": [
+            9777,
+            68,
+            9777,
+            245
+          ],
+          "resolution": "unresolved",
+          "callee_callable_ids": []
+        },
+        {
+          "call_id": "call:call:472760:473918",
+          "span": [
+            9787,
+            27,
+            9810,
+            14
+          ],
+          "resolution": "unresolved",
+          "callee_callable_ids": []
+        }
+      ]
+    },
+    "model_layout_consumer": {
+      "status": "generic compatible consumer only",
+      "source_contract": "aggregate_key.type free selects getFreeAggregateModelInfo. It calls external common.getAggregateConditionKeys(aggregate), then emits summary1..N/subtotal1..N model references according to returned length. No condition-level asc/subtotal properties are read here.",
+      "evidence": [
+        "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+        "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo"
+      ],
+      "unknown": "Helper definition, filtering/order/gap handling and dynamic summary/subtotal definitions are not retained."
+    },
+    "mode_default": {
+      "status": "mode default known; axis state defaults unknown",
+      "source_contract": "InventoryStatusGetDefaultSearchOptionResolver reads aggregate.aggregate_key and defaults template_sub_type to fixed (현황), with free annotated 집계. No axis direction/subtotal default is initialized here.",
+      "evidence": [
+        "InventoryStatusGetDefaultSearchOptionResolver.OnExecuteAsync"
+      ]
+    },
+    "last_search_snapshot": {
+      "status": "generic retained preservation path",
+      "source_contract": "setPageData stores cloneDeep(search_dmc.getDataModel()[0]) as ILastSearchDataModelRuntime, and last search options for non-EXCEL. It preserves a search-model snapshot, but does not identify direction/subtotal field names or prove current control state restoration.",
+      "evidence": [
+        "setPageData"
+      ]
+    },
+    "drilldown_condition_consumer": {
+      "status": "separate drilldown path, not the report group builder",
+      "source_contract": "getAggregateCondition keeps nonempty entries whose existing keys match condition_\\d{2}, without local renumbering. generateAggregateSearchDataModel maps selected refer_type/prop_id values into clicked-row search conditions. These helpers do not read per-axis direction/subtotal state.",
+      "evidence": [
+        "getAggregateCondition",
+        "generateAggregateSearchDataModel"
+      ],
+      "prior_semantic_mapping_report": "$SCRATCH/report-aggregate-axes-rea-20261018.json"
+    },
+    "separate_sort_consumer": {
+      "status": "excluded from aggregate button equivalence",
+      "source_contract": "applyInventoryStatusDefaultSortSearchOption reads template sort_search/grid sort, updates ISortInfoRuntime and SearchSortDescriptor. Other InventoryStatusSortSearchResolver code reads/writes asc_desc/subtot_tf. These are $$sort/header sorting, not evidence of $$aggregate button serialization.",
+      "evidence": [
+        "applyInventoryStatusDefaultSortSearchOption"
+      ],
+      "other_source_spans": [
+        [
+          2628,
+          4,
+          2672,
+          5
+        ],
+        [
+          2748,
+          4,
+          2803,
+          5
+        ]
+      ]
+    }
+  },
+  "discovery": {
+    "method": "Exact case-sensitive literal scan and bounded contextual inspection of manifest bodies; absence of a literal is not proof of unsupported behavior.",
+    "hits": {
+      "$$aggregate": [
+        {
+          "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/0217bbe7fe883148-ecount.infra.attribute.85b62891.20.js",
+          "sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+          "literal_occurrences": 1
+        },
+        {
+          "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+          "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "literal_occurrences": 1
+        }
+      ],
+      "btn-add-sum": [],
+      "btn-asc": [
+        {
+          "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/live-extension/originals/8d06e671e1a4ba8d-xfm079p_01.6182141805576162231.20.js",
+          "sha256": "8d06e671e1a4ba8dc0fc1a89de2ec3a127dffb0a060472c8e91f67e336b60d48",
+          "literal_occurrences": 1
+        },
+        {
+          "path": "$SCRATCH/barcode-toolbar-rea-20261018/xfm080p_02.1200061039448367638.20.js",
+          "sha256": "dcb3ec6130686b607a44ae538018693aa77876f7488569a9c4be196b8252e578",
+          "literal_occurrences": 1
+        }
+      ],
+      "btn-desc": [
+        {
+          "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/live-extension/originals/8d06e671e1a4ba8d-xfm079p_01.6182141805576162231.20.js",
+          "sha256": "8d06e671e1a4ba8dc0fc1a89de2ec3a127dffb0a060472c8e91f67e336b60d48",
+          "literal_occurrences": 1
+        },
+        {
+          "path": "$SCRATCH/barcode-toolbar-rea-20261018/xfm080p_02.1200061039448367638.20.js",
+          "sha256": "dcb3ec6130686b607a44ae538018693aa77876f7488569a9c4be196b8252e578",
+          "literal_occurrences": 1
+        }
+      ],
+      "search_payload": [],
+      "getAggregateConditionKeys": [
+        {
+          "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+          "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "literal_occurrences": 1
+        }
+      ]
+    },
+    "excluded_hits": "btn-asc/btn-desc occur only in captured V3 xfm079p_01/xfm080p_02 sort popups. inventory_add_sum_item namespace in usecase.js is a different inventory export and was not used as btn-add-sum proof."
+  },
+  "sources": {
+    "attribute": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/0217bbe7fe883148-ecount.infra.attribute.85b62891.20.js",
+      "sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+      "bytes": 340878,
+      "public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.infra.attribute/ecount.infra.attribute.85b62891.20.js"
+      ],
+      "actual_REA_version": "6.4.0",
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/0217bbe7fe883148-ecount.infra.attribute.85b62891.20-0217bbe7fe88/rea-semantic-ir.json",
+      "prior_analysis_status": "completed",
+      "hash_rechecked": true,
+      "new_GET": false,
+      "actual_REA_counts": {
+        "callables": 926,
+        "calls": 2147,
+        "frontiers": 1894
+      },
+      "freshness": "Retained public body; SHA rechecked now; no new GET. Current runtime binding is not proven by presence in corpus."
+    },
+    "inventory": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js"
+      ],
+      "actual_REA_version": "6.4.0",
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "prior_analysis_status": "completed",
+      "hash_rechecked": true,
+      "new_GET": false,
+      "actual_REA_counts": {
+        "callables": 1926,
+        "calls": 7148,
+        "frontiers": 8012
+      },
+      "freshness": "Retained public body; SHA rechecked now; no new GET. Current runtime binding is not proven by presence in corpus."
+    },
+    "actions": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "public_urls": [
+        "https://resource.ecount.com/ec5/static/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js",
+        "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js"
+      ],
+      "actual_REA_version": "6.4.0",
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/04-actions-e70f31a1ac77/rea-semantic-ir.json",
+      "prior_analysis_status": "completed",
+      "hash_rechecked": true,
+      "new_GET": false,
+      "actual_REA_counts": {
+        "callables": 1002,
+        "calls": 4618,
+        "frontiers": 4942
+      },
+      "freshness": "Retained public body; SHA rechecked now; no new GET. Current runtime binding is not proven by presence in corpus."
+    }
+  },
+  "actual_REA_callable_evidence": {
+    "aggregate_not_null": {
+      "source": "attribute",
+      "symbol": "aggregate_not_null",
+      "span": [
+        1,
+        146897,
+        1,
+        147239
+      ],
+      "actual_REA_callable_id": "callable:function:146897:147239",
+      "direct_calls": 2,
+      "call_resolution": {
+        "unresolved": 2
+      },
+      "frontier_count": 2
+    },
+    "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo": {
+      "source": "inventory",
+      "symbol": "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+      "span": [
+        498,
+        4,
+        507,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25067:25452",
+      "direct_calls": 2,
+      "call_resolution": {
+        "unresolved": 2
+      },
+      "frontier_count": 2
+    },
+    "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo": {
+      "source": "inventory",
+      "symbol": "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "span": [
+        508,
+        4,
+        518,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25457:25961",
+      "direct_calls": 2,
+      "call_resolution": {
+        "unresolved": 2
+      },
+      "frontier_count": 2
+    },
+    "InventoryStatusGetDefaultSearchOptionResolver.OnExecuteAsync": {
+      "source": "inventory",
+      "symbol": "InventoryStatusGetDefaultSearchOptionResolver.OnExecuteAsync",
+      "span": [
+        2412,
+        4,
+        2443,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:116075:117863",
+      "direct_calls": 10,
+      "call_resolution": {
+        "unresolved": 8,
+        "exact": 2
+      },
+      "frontier_count": 9
+    },
+    "SelectInventoryStatusProgram.onExecuteAsync": {
+      "source": "inventory",
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "direct_calls": 7,
+      "call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      },
+      "frontier_count": 8
+    },
+    "setPageData": {
+      "source": "inventory",
+      "symbol": "setPageData",
+      "span": [
+        877,
+        0,
+        914,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:44595:46783",
+      "direct_calls": 14,
+      "call_resolution": {
+        "unresolved": 14
+      },
+      "frontier_count": 14
+    },
+    "getAggregateCondition": {
+      "source": "actions",
+      "symbol": "getAggregateCondition",
+      "span": [
+        1,
+        577947,
+        1,
+        578131
+      ],
+      "actual_REA_callable_id": "callable:function:577947:578131",
+      "direct_calls": 5,
+      "call_resolution": {
+        "unresolved": 5
+      },
+      "frontier_count": 5
+    },
+    "generateAggregateSearchDataModel": {
+      "source": "actions",
+      "symbol": "generateAggregateSearchDataModel",
+      "span": [
+        1,
+        578165,
+        1,
+        580093
+      ],
+      "actual_REA_callable_id": "callable:function:578165:580093",
+      "direct_calls": 1,
+      "call_resolution": {
+        "unresolved": 1
+      },
+      "frontier_count": 1
+    },
+    "applyInventoryStatusDefaultSortSearchOption": {
+      "source": "inventory",
+      "symbol": "applyInventoryStatusDefaultSortSearchOption",
+      "span": [
+        2000,
+        0,
+        2015,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:98457:99284",
+      "direct_calls": 8,
+      "call_resolution": {
+        "unresolved": 8
+      },
+      "frontier_count": 8
+    }
+  },
+  "limits": [
+    "Actual REA reports dynamic/member calls unresolved; callable counts and source spans do not prove runtime UI binding or behavioral equivalence.",
+    "Current $$aggregate control implementation and external common field/query modifier implementation are absent from inspected subset.",
+    "Current UI duplicate candidate exclusion and gap acceptance are supported by supplied UI observations; prior generic $$summary duplicate/first-axis predicates must not override them.",
+    "No original server sum/tax/quantity/rounding/null-group formula is established.",
+    "No fixed 4-axis limit is supported; initial4->visible5 was observed. Generic validator covering five slots alone does not prove a hard maximum5."
+  ]
+}

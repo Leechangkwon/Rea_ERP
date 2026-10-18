@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-18",
+  "program": "E040303",
+  "sort_popup": "FM080P_02",
+  "columns": [
+    "순서",
+    "정렬기준",
+    "정렬방법"
+  ],
+  "priorities": 3,
+  "initial_criteria": "없음",
+  "initial_direction_disabled": true,
+  "observed_criterion_options": [
+    "품목코드",
+    "품목명",
+    "단위",
+    "BOX",
+    "수량",
+    "단가(vat포함)",
+    "공급가액",
+    "부가세",
+    "합계",
+    "적요",
+    "시리얼/로트"
+  ],
+  "direction": "Choosing a field enables direction; click toggles icon.",
+  "footer": [
+    "적용(F8)",
+    "닫기"
+  ],
+  "option": [
+    "기본값설정"
+  ],
+  "actions": "Only popup selections and menu reads, then Close. No apply/default save/business save.",
+  "save_dropdown_read_only": [
+    "저장/전자결재",
+    "저장/내용유지",
+    "저장/신규"
+  ],
+  "original_private_values_retained": false,
+  "source_evidence_reused": [
+    "../verification-toolbar/toolbar-precise-source-evidence.json",
+    "../entry-toolbar/toolbar-loadslip-behavior-contracts.json"
+  ],
+  "unverified": [
+    "Original full comparator",
+    "Original default persistence",
+    "BOX and additional quantity mapping",
+    "Save downstream branches"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "status": "requested-toolbar-implementation-and-dispatch-aliases-unresolved",
+  "inspected_bodies": [
+    {
+      "sha256": "e6c17edb9f101881b3f413c56d0396f40e985a1de838650c514be1b289cbadc1",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_1.-538278177882630599.20.js"
+    },
+    {
+      "sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_2.-1784347108654919872.20.js"
+    },
+    {
+      "sha256": "667280d45f58c5ef4e945761edebe94aad6dc6606e6708d7b1fac080edf1d49b",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_3.1195791699622335530.20.js"
+    },
+    {
+      "sha256": "1d8f4a3867b42290786a2dc61d9e6399b6ab897d90eaaaec80e04e7c8c2c6049",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_4.-263589745010622463.20.js"
+    }
+  ],
+  "findings": [
+    "The four bodies register 75 eccomposite_v1.function classes, including inputEvent, set_formset_button, calc, validation, balances and document/business helpers.",
+    "No requested searchText/sort/rebuildContent toolbar class, ON_KEY_F3, FM080P_02 receiver or SORT_SNO/SORT_DV_CD model was identified in these exact bodies. No dispatch alias to those requested targets was recovered.",
+    "Function_2 has two button ordering .sort calls (BUTN_SORT_SEQ) and two default-value ordering .sortBy calls (DEFAULT_SEQ). Function_3 sorts favorite-code cache by WRT_DTM. These do not prove product name/specification/quantity sorting."
+  ],
+  "sort_operation_spans": [
+    {
+      "sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+      "operations": [
+        {
+          "callee": "n.where(function(t){return t.PRTS_BUTN_ID==n[u].BUTN_ID}).sort",
+          "span": [
+            1,
+            29483,
+            1,
+            29605
+          ],
+          "source_excerpt": "n.where(function(t){return t.PRTS_BUTN_ID==n[u].BUTN_ID}).sort(function(n,t){return n.BUTN_SORT_SEQ<t.BUTN_SORT_SEQ?1:-1})"
+        },
+        {
+          "callee": "t.Buttons.sort",
+          "span": [
+            1,
+            30756,
+            1,
+            30830
+          ],
+          "source_excerpt": "t.Buttons.sort(function(n,t){return n.BUTN_SORT_SEQ<t.BUTN_SORT_SEQ?-1:1})"
+        },
+        {
+          "callee": "n.inputValue.Defaults.sortBy",
+          "span": [
+            1,
+            149130,
+            1,
+            149193
+          ],
+          "source_excerpt": "n.inputValue.Defaults.sortBy(function(n){return n.DEFAULT_SEQ})"
+        },
+        {
+          "callee": "u.inputValue.Defaults.sortBy",
+          "span": [
+            1,
+            150671,
+            1,
+            150734
+          ],
+          "source_excerpt": "u.inputValue.Defaults.sortBy(function(n){return n.DEFAULT_SEQ})"
+        }
+      ]
+    },
+    {
+      "sha256": "667280d45f58c5ef4e945761edebe94aad6dc6606e6708d7b1fac080edf1d49b",
+      "operations": [
+        {
+          "callee": "this.pageOption.favoriteCodeCacheKey.sort",
+          "span": [
+            1,
+            47135,
+            1,
+            47246
+          ],
+          "source_excerpt": "this.pageOption.favoriteCodeCacheKey.sort(function(n,t){return n.WRT_DTM<t.WRT_DTM?1:n.WRT_DTM>t.WRT_DTM?-1:0})"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Literal/alias nonmatches do not prove the behavior is unsupported or absent from ECOUNT.",
+    "General event dispatch remains dynamic; no original execution occurred.",
+    "Keep repeated-find/numeric sorting partial until the relevant original implementation is recovered or behavior is observed."
+  ]
+}

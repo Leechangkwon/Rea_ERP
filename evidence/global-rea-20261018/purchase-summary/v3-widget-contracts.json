@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "binding_status": "V3 compatibility widget source contracts. Current parent-observed purchasesXstatus DOM is V56; exact active binding to these widgets is UNKNOWN. Preload/presence is not proof use.",
+  "search": {
+    "source_behavior": "widget.search adds button resource BTN00113, registers F8, then on click requires header shown (plus event-list visibility guard) and delegates searchManager.executeHeader.",
+    "F3": "No F3 literal in any new V3 header/contents/footer body. Parent current UI observes active Search F3. Current binding is not inferred from V3 F8.",
+    "evidence": [
+      "search.createLayout",
+      "search._ON_CLICK"
+    ]
+  },
+  "report_modes_and_grouping": {
+    "cmbSumFlagDate": "Constants summary9,custEmailSend10,custom99. Configures grouping/target/comparison from pageInfo.aggregateInfo and pageOption.aggregateList. Summary/custom set TABLE_TYPE=dataView, otherwise grid; source control base value1 clears REPORT_CONDITION/REPORT_SORT_INDEX/TYPE/SUBTOTAL_USE/target and compare0/pivot/ratio/code false. Summary hides formList/linkSort/linkSortTotal and changes form mode.",
+    "aggregationType": "Constants detail1,line3,summary9,custEmailSend10. Summary9 => dataView; else grid. Non-summary uses output form ColumnSetPivot and settingInfo.typeMappings[selected radio] to construct CONDITIONS. Values other than3 or10 become99; summary always99 in the control-named search param. These are distinct widget variants and must not be merged into one universal code mapping.",
+    "line_wording": "line3 is explicit source constant; page-selected labels/resource translations and actual current grouping selector binding are external.",
+    "evidence": [
+      "cmbSumFlagDate.onInitControl",
+      "cmbSumFlagDate.onSetSearchParam",
+      "cmbSumFlagDate._formWidgetShowHide",
+      "aggregationType.onSetSearchParam",
+      "aggregationType.createConditions"
+    ]
+  },
+  "comparison": {
+    "option_resource_order": [
+      "LBL03589",
+      "LBL08411",
+      "LBL08412",
+      "LBL08413",
+      "LBL08414"
+    ],
+    "default_compare_value": 0,
+    "source_behavior": "Comparison labels/options are supplied to external generated controls; page aggregate options and settingInfo can alter visibility/configuration. rbReportType supports pageInfo.aggregateInfo.compareResourceList override.",
+    "limits": "aggregationType rejects compare selection !=string0 when output form option.isPivot is true, alerts MSG11788 and stops async step.",
+    "unknown": "Exact code-to-전년/전월/전주/전일 mapping, date arithmetic, inclusive boundaries, leap/week rules, baseline and percentage computations are not defined in these wrappers. No local dates invented.",
+    "evidence": [
+      "cmbSumFlagDate.onInitControl",
+      "rbReportType.onInitControl",
+      "aggregationType.onValidateAfterOutputForm"
+    ]
+  },
+  "sorting": {
+    "linkSort": "Lazily requests /SVC/Common/Form/GetXFormDesign, opens FM053P_01. apply/save with nonempty data sets isAppliedSort and stores Mainset.Sort; pre-search writes IsAppliedSort/MainsetOutSort.",
+    "linkSortTotal": "Opens FM079P_01 with form and settings permission context. apply/save receives sortData, columns, report title/page-total/body-total settings, records SUBTOT_TF/TOT_TF/STOT_SUM_USE_TF and optional left-fixed cancellation. Pre-search writes MainsetOutSort/ReportTitle/Page/Body/TabBasic and Columns. This is query/form settings, not proof of a local comparator or aggregate calculation.",
+    "reset": "linkSort _reset clears application flag/form/sort and warning class. linkSortTotal also clears body/tabBasic local state; form and user-tab callbacks determine persistence.",
+    "retained_popup_reference": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/live-extension/popup-action-evidence.json",
+    "evidence": [
+      "linkSort.onHeaderLinkSort",
+      "linkSort.onPreSearch",
+      "linkSort.openSortPopup",
+      "linkSort.onMessageHandler_FM053P_01",
+      "linkSort._reset",
+      "linkSortTotal.onPreSearch",
+      "linkSortTotal.openSortPopup",
+      "linkSortTotal.onMessageHandler_FM079P_01",
+      "linkSortTotal._reset"
+    ]
+  },
+  "excel": {
+    "source_behavior": "outputExcel checks contextual visibility/security and total_count <=100000, obtains export params from current search conditions/form, calls ecount.document.exportExcel. Uses dynamic settingInfo.getPathInfo and setExcelParam; SVC export path wraps Request.Data+CheckPermissionRequest. No exact purchase-export URL asserted.",
+    "security_boundary": "With permission context, requests /SVC/SelfCustomize/Config/CheckFileSecurityPolicy AuthorityType EC001 and can block. Footer button permission uses USE_EXCEL_CONVERT when not UPD; downstream checks/helpers are external. More than10000 response MaxCount triggers informational alert.",
+    "unknown": "Exported row scope, workbook formatting, exact server filename, current tenant export policy and successful file generation unobserved.",
+    "evidence": [
+      "outputExcel.createLayout",
+      "outputExcel.execCreateComposite",
+      "outputExcel._ON_CLICK",
+      "outputExcel.getExcelParam"
+    ]
+  },
+  "print": {
+    "report_printHtml": "Click invokes pagePrint; Ctrl+F2 also calls it. Optional security policy AuthorityType PT001, concurrent-print guard. Prints current contents getHtml, or whole layout when isConvertAllContents setting; takes output form printCss, creates hidden PrintLoadPage, callback invokes print. Visible graph can be captured/printed separately. Does not prove every server record is included.",
+    "slip_print_is_separate": "widget.print requires checked grid rows and calls printSlip.openPrintPopup. Do not conflate report rendered HTML printing with selected slip print.",
+    "unknown": "Browser print dialog/output, permissions, current binding to footer item, CSS/page breaks and real print success unobserved.",
+    "evidence": [
+      "printHtml._ON_CLICK",
+      "printHtml.ON_KEY_F2",
+      "printHtml.pagePrint",
+      "printHtml._printHtml",
+      "print._ON_CLICK"
+    ]
+  },
+  "contents_and_headers": {
+    "source_behavior": "titlebar derives form title and dimensions from outputFormManager form list; contents source includes generic title/tree/barcode widgets. It does not statically declare purchasesXstatus or the observed16column definitions.",
+    "evidence": [
+      "titlebar.onSearchDraw"
+    ]
+  }
+}

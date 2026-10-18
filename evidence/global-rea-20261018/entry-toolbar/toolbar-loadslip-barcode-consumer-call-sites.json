@@ -1,0 +1,25 @@
+{
+  "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+  "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_2.-1784347108654919872.20.js",
+  "method": "Literal inert call-site bridge to the already REA-analyzed prod_manager; no runtime invocation asserted.",
+  "calcProdQtySum_call_sites": [
+    {
+      "span": [
+        1,
+        90333,
+        1,
+        90352
+      ],
+      "source_excerpt": "AsyncStepIndex);return}for(o in this.pageInfo.tabidListData)u[this.pageInfo.tabidListData[o].id]={tabInfo:this.pageInfo.tabidListData[o],permit:this.inputMainTab.checkIncludeTabPermit(o,\"I\")};for(n=0;n<this.prodList.length;n++)if(this.calcProdQtySum(this.rowKeyList[n])!=!0){if(t=this.rowKeyList[n].key,this.isManufacturedItem){this.setGoodSeachValue(t,this.prodList[n]);continue}if(!this.validateBeforeSetProdValue||this.validateBeforeSetProdValue(t,this.prodList[n])){"
+    },
+    {
+      "span": [
+        1,
+        104183,
+        1,
+        104202
+      ],
+      "source_excerpt": ":{fn:this.setSerialQtyUpdate.bind(this)},\"process-prodinfo\":{fn:this.setProdProcess.bind(this)},\"process-transferinfo\":{fn:this.setSlipTranferProcess.bind(this)},\"calc-mapping\":{fn:this.calcAfterTransfer.bind(this)},\"sum-qty\":{fn:this.calcProdQtySum.bind(this)},\"set-grid\":{fn:this.setProdValue.bind(this)},\"serial-temp\":{fn:this.setSerialTempsave.bind(this)},\"set-hidebutton\":{fn:this.setHideLoadBUtton.bind(this),param:function(){return t}.bind(this)},\"set-sumgrid\":{f"
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+{
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end exclusive; UTF16 offsets",
+  "sources": [
+    {
+      "path": "$SCRATCH/rea-request/dist/inventory-ui.js",
+      "sha256": "641248cddbf3915c5336dbcb303e571fda4526896483743e8220b9c9f7ea1807",
+      "bytes": 114348,
+      "parser": "REA6.4.0 parseJavaScriptSource; inert AST only, no own-app behavioral test or semantic analysis",
+      "parse_error_count": 0,
+      "evidence": [
+        {
+          "name": "capture",
+          "node_type": "VariableDeclarator",
+          "span": [
+            12,
+            112,
+            12,
+            124
+          ],
+          "offsets": [
+            1919,
+            1931
+          ],
+          "source": "capture=null"
+        },
+        {
+          "name": "discardDraft",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            13,
+            2,
+            13,
+            72
+          ],
+          "offsets": [
+            1991,
+            2061
+          ],
+          "source": "function discardDraft(key){drafts.delete(key);draftBases.delete(key);}"
+        },
+        {
+          "name": "commit",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            16,
+            2,
+            16,
+            455
+          ],
+          "offsets": [
+            2437,
+            2890
+          ],
+          "source": "function commit(op,payload){try{if(storageError)throw Error(storageError);if(!writeAllowed())throw Error('조회 권한으로 접속했습니다. 저장 권한이 필요합니다.');const next=C.command(db,op,payload,policy());localStorage.setItem(storageKey,JSON.stringify(next.db));db=next.db;dirty=false;if(activeEditorModal?.host===host)activeEditorModal.updated=true;ctx.toast('로컬 자료에 저장했습니다.');return next.result||true;}catch(e){lastCommitError=e.message;ctx.toast(e.message);return false;}}"
+        },
+        {
+          "name": "editorDialog",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            79,
+            2,
+            93,
+            3
+          ],
+          "offsets": [
+            13402,
+            16009
+          ],
+          "source": "function editorDialog(title,key,build,refresh){\n    if(activeEditorModal){activeEditorModal.dialog.focus();return;}\n    capture?.();const previous={host,ctx,route,editor,capture,dirty,customizer,optionKey,repaintOptions},focus=document.activeElement,scroll=scrollSnapshot(host),scope={key,baseRoute:route,updated:false,dialog:null,host:null};activeEditorModal=scope;\n    const d=modal(title,(box,dialog)=>{\n      scope.dialog=dialog;scope.host=N('div',undefined,'inventory-app inv-editor-host');box.append(scope.host);host=scope.host;customizer=null;optionKey='';repaintOptions=null;capture=null;editor=null;dirty=false;\n      host.addEventListener('input',()=>{dirty=true;});host.addEventListener('change',()=>{dirty=true;});build();scope.baseline=JSON.stringify(editor?.read?.());\n      scope.requestClose=()=>{const value=editor?.read?.(),changed=JSON.stringify(value)!==scope.baseline;if(writeAllowed()&&changed){if(!confirm('저장하지 않은 변경이 있습니다. 초안을 보관하고 닫을까요?'))return false;if(value)drafts.set(scope.key,value);}dialog.close();return true;};\n      const closeButton=dialog.querySelector('.inv-modal-head button');closeButton.replaceWith(button('×',()=>scope.requestClose()));dialog.querySelector('.inv-modal-head button').setAttribute('aria-label','상세 창 닫기');\n      dialog.addEventListener('cancel',event=>{event.preventDefault();scope.requestClose();});dialog.addEventListener('keydown',event=>{if(event.key==='Escape'&&!document.getElementById('form-options-dialog')){event.preventDefault();event.stopPropagation();scope.requestClose();}});\n      const finish=()=>{if(scope.finished)return;scope.finished=true;for(const id of ['entry-helper-dialog','entry-tools-dialog','entry-extra-dialog','entry-helper-notice','entry-my-items-settings','purchase-plan-dialog','purchase-room-dialog'])document.getElementById(id)?.close();if(activeEditorModal!==scope)return;scope.destroy?.();host=previous.host;ctx=previous.ctx;route=previous.route;editor=previous.editor;capture=previous.capture;dirty=previous.dirty;customizer=previous.customizer;optionKey=previous.optionKey;repaintOptions=previous.repaintOptions;activeEditorModal=null;dialog.remove();try{if(scope.updated&&host.isConnected)refresh?.();}finally{restoreScroll(scroll);if(focus?.isConnected)focus.focus({preventScroll:true});}};\n      // Native close events are queued: restore before navigation can render another route.\n      const close=dialog.close.bind(dialog);dialog.close=(...args)=>{const result=close(...args);finish();return result;};dialog.addEventListener('close',finish);\n    });\n    d.classList.add('inv-editor-dialog');return d;\n  }"
+        },
+        {
+          "name": "readonlyEditor",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            94,
+            2,
+            94,
+            391
+          ],
+          "offsets": [
+            16012,
+            16401
+          ],
+          "source": "function readonlyEditor(){if(writeAllowed())return;host.prepend(note('조회 전용입니다. 입력 내용과 양식을 확인할 수 있으며 저장할 수 없습니다.'));for(const x of host.querySelectorAll('input,select,textarea'))if(!x.closest('.entry-row-find'))x.disabled=true;for(const b of host.querySelectorAll('button'))if(!['닫기','리스트','인쇄 미리보기','Option ▾','찾기(F3)','찾기','찾기 닫기','최신 전표 다시 읽기'].includes(b.textContent))b.disabled=true;}"
+        },
+        {
+          "name": "documentDialog",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            95,
+            2,
+            95,
+            311
+          ],
+          "offsets": [
+            16404,
+            16713
+          ],
+          "source": "function documentDialog(type,existing,refresh){const key=route.id+'::detail:'+type+':'+(existing?.id||'new'),modalRoute={...route,id:key};return editorDialog(C.types[type]+(existing?' 상세 / 수정':' 신규'),key,()=>{route=modalRoute;docEditor(type,existing,undefined,drafts.get(key));},refresh||refreshCurrentView);}"
+        },
+        {
+          "name": "save",
+          "node_type": "VariableDeclarator",
+          "span": [
+            119,
+            70,
+            119,
+            313
+          ],
+          "offsets": [
+            22202,
+            22445
+          ],
+          "source": "save=()=>{try{const rec=values();F.check(configuration.meta.fields,configuration.read());if(commit('master',{key,record:rec,originalCode:record?.code})){discardDraft(draftKey);activeEditorModal.dialog.close();}}catch(e){ctx.toast(e.message);}}"
+        },
+        {
+          "name": "docEditor",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            136,
+            2,
+            222,
+            3
+          ],
+          "offsets": [
+            27072,
+            64241
+          ],
+          "source": "function docEditor(type,existing,source,transient){\n    const restored=transient||drafts.get(route.id);if(!existing&&restored?.id){existing=db.documents.find(doc=>doc.id===restored.id&&doc.type===type);if(!existing){host.replaceChildren(note('수정 초안의 원본 전표가 없습니다. 목록에서 전표를 다시 선택하세요.'));capture=null;editor=null;return;}transient=restored;}\n    const baseSnapshot=existing?(restored?.id===existing.id&&draftBases.get(route.id)||JSON.stringify(existing)):null;if(existing)draftBases.set(route.id,baseSnapshot);\n    ensureOptions('doc:'+type);customizer.registry.clear();const retainSupported=['request','purchase'].includes(type),lineSuppliers=['request','plan'].includes(type),purchasing=['request','plan','purchaseorder','purchase'].includes(type),observedInput=purchasing;\n    const title=existing?C.types[type]+' 수정':C.types[type]+' 입력';editor={type,existing:existing?.id};host.replaceChildren();const outer=panel(),form=N('form'),grid=N('div',undefined,'inv-form-grid');\n    const fresh=!existing&&!transient&&!drafts.has(route.id),initial=transient||existing||drafts.get(route.id)||{date:C.today(),warehouse:db.masters.warehouses.some(x=>x.code===policy()?.defaults?.warehouse)?policy().defaults.warehouse:'W001',partner:type==='purchase'?'V001':/sale|quote|order|shipment/.test(type)?'C001':'',employee:db.masters.employees.some(x=>x.code===policy()?.defaults?.employee)?policy().defaults.employee:'E001',project:db.masters.projects.some(x=>x.code===policy()?.defaults?.project)?policy().defaults.project:'',currency:db.masters.currencies.some(x=>x.code===policy()?.defaults?.currency)?policy().defaults.currency:'KRW',vatRate:policy()?.defaults?.vatRate??10,lines:[{item:'',qty:1,price:0,discount:0}],status:'진행',autoConsume:type==='production'&&route.name!=='생산입고 II'};\n    if(fresh&&policy()?.commonDefaults){const pref=policy().commonDefaults;initial.taxRounding={method:pref.vatRounding,digits:pref.amountDigits};initial.supplyRounding={method:pref.supplyRounding,digits:pref.amountDigits};}\n    const fields={date:input('일자',initial.date,'date'),partner:reference('partners','거래처',initial.partner),employee:reference('employees','담당자',initial.employee),warehouse:reference('warehouses',type==='transfer'?'보내는 창고':'출하/입고창고',initial.warehouse,false),targetWarehouse:reference('warehouses','받는 창고',initial.targetWarehouse||'W002',false),project:reference('projects','프로젝트',initial.project),currency:reference('currencies','통화',initial.currency||'KRW',false),vatRate:select('거래유형',[...new Map([[String(initial.vatRate??10),'부가세율 '+(initial.vatRate??10)+'%'],['10','부가세율 10%'],['0','영세/면세']])],String(initial.vatRate??10),null),memo:input('전표 적요',initial.memo),autoConsume:input('BOM 자동소모',false,'checkbox'),materialWarehouse:reference('warehouses','원료창고',initial.materialWarehouse||initial.warehouse,false)};fields.autoConsume.checked=Boolean(initial.autoConsume);\n    if(observedInput)grid.classList.add('purchasing-entry-header');const entryItems=options('items');const itemReference=(label,value)=>{const choices=entryItems.length>200?entryItems.slice(0,20):entryItems;if(value&&!choices.some(x=>x[0]===value)){const chosen=entryItems.find(x=>x[0]===value);if(chosen)choices.push(chosen);}const picker=select(label,choices,value);if(entryItems.length>200){const hint=N('option','전체 품목은 품목 추가에서 선택');hint.disabled=true;picker.append(hint);}return picker;};\n    const labels={date:'일자-No.',partner:'거래처',employee:'담당자',warehouse:type==='transfer'?'보내는 창고':'출하/입고창고',targetWarehouse:'받는 창고',project:'프로젝트',currency:'통화',vatRate:'거래유형',memo:'적요',autoConsume:'BOM 자동소모',materialWarehouse:'원료창고'};\n    if(observedInput){fields.transactionType=input('거래유형',initial.transactionType||'');fields.transactionType.readOnly=true;fields.transactionType.title='원본 거래유형 항목·세무 규칙 미검증';fields.vatRate.setAttribute('aria-label','부가세율(로컬 계산)');labels.transactionType='거래유형';}\n    if(['request','plan','pricerequest','purchaseorder'].includes(type))fields.dueDate=input('납기일',initial.dueDate||'','date');\n    if(lineSuppliers){fields.reference=input('참조',initial.reference||'');fields.reference.readOnly=true;fields.reference.title='첨부·연결 참조는 미연결입니다.';labels.reference='참조';labels.warehouse=type==='plan'?'입고될창고':'창고';labels.dueDate='납기일자';for(const k of ['date','employee','warehouse','transactionType','currency','dueDate','reference','project'])grid.append(field(labels[k],fields[k]));}\n    else if(type==='purchaseorder'){labels.warehouse='입고창고';labels.dueDate='납기일자';labels.reference='참조';labels.attachment='첨부';fields.reference=input('참조',initial.reference||'');fields.attachment=input('첨부','');fields.reference.readOnly=fields.attachment.readOnly=true;fields.reference.title=fields.attachment.title='원본 첨부·연결 참조 미연결';for(const k of ['date','partner','employee','warehouse','transactionType','currency','dueDate','reference','attachment','project'])grid.append(field(labels[k],fields[k]));}\n    else if(type==='purchase'){labels.warehouse='입고창고';for(const k of ['date','partner','employee','warehouse','transactionType','currency','project'])grid.append(field(labels[k],fields[k]));}\n    else for(const k of ['date','partner','employee','warehouse',...(type==='transfer'?['targetWarehouse']:[]),'project','currency','vatRate','memo',...(type==='production'?['autoConsume','materialWarehouse']:[]),...(fields.dueDate?['dueDate']:[])])grid.append(field(labels[k]||'납기일',fields[k]));\n    if(purchasing){const state=C.purchasingState(initial);fields.confirmation=select('전표 확인여부',[['미확인','미확인'],['확인','확인']],state.confirmation,null);fields.progress=select('전표 진행상태',[['진행','진행중'],['완료','완료']],state.progress,null);const states=N('details',undefined,'purchasing-local-state'),summary=N('summary','로컬 확인·진행 상태');states.append(summary,field('확인 여부',fields.confirmation),field('진행상태',fields.progress));grid.append(states);}\n    else if(type!=='shoporder'){const status=C.statusValue(initial.status);fields.status=select('전표 진행상태',progressOptions.some(([v])=>v===status)?progressOptions:[...progressOptions,[status,C.statusLabel(initial)]],status,null);grid.append(field('진행상태',fields.status));}\n    if(type==='work'){fields.minutes=input('실제 작업시간(분)',initial.minutes||0,'number');grid.append(field('작업시간(분)',fields.minutes));}\n    if(type==='defect'){fields.defectMode=select('불량 처리구분',[['폐기','폐기'],['대체사용','대체사용'] ],initial.defectMode||'폐기',null);grid.append(field('처리구분',fields.defectMode));}\n    if(type==='shoporder'){fields.shop=reference('shops','주문 쇼핑몰',initial.shop||'SHOP01',false);fields.externalNo=input('쇼핑몰 주문번호',initial.externalNo||'');fields.tracking=input('운송장번호',initial.tracking||'');grid.append(field('쇼핑몰',fields.shop),field('쇼핑몰 주문번호',fields.externalNo),field('운송장',fields.tracking));}\n    const headerBase=(lineSuppliers?['date','employee','warehouse','transactionType','currency','dueDate','reference','project'].map(id=>[id,fields[id]]):type==='purchaseorder'?['date','partner','employee','warehouse','transactionType','currency','dueDate','reference','attachment','project'].map(id=>[id,fields[id]]):type==='purchase'?['date','partner','employee','warehouse','transactionType','currency','project'].map(id=>[id,fields[id]]):Object.entries(fields)).filter(([id,x])=>grid.contains(x)&&!['confirmation','progress'].includes(id)).map(([id,x])=>schema(id,labels[id]||x.getAttribute('aria-label'),x.tagName==='SELECT'?'reference':x.type==='number'?'number':x.type==='date'?'date':x.type==='checkbox'?'checkbox':'text',{calculated:['reference','attachment','transactionType'].includes(id),protected:['date','warehouse','targetWarehouse'].includes(id),required:['date','warehouse','targetWarehouse'].includes(id)||id==='partner'&&['quote','order','sale','purchaseorder','purchase','shoporder'].includes(type)}));\n    const configuration=configureGrid(grid,'input','입력 양식',headerBase,fields,initial,fresh,()=>{try{configuration.update();}catch(e){error.textContent=e.message;}});\n    if(type==='purchaseorder'){const attachment=grid.querySelector('[data-form-field=\"attachment\"]');if(attachment)attachment.style.gridColumn='1 / -1';}\n    if(purchasing){const states=N('details',undefined,'purchasing-local-state');states.append(N('summary',observedInput?'로컬 계산·확인·진행 상태':'로컬 확인·진행 상태'),...(observedInput?[field('부가세율(로컬 계산)',fields.vatRate),field('전표 적요',fields.memo)]:[]),field('확인 여부',fields.confirmation),field('진행상태',fields.progress));grid.append(states);if(!C.listed(initial)){fields.confirmation.disabled=true;fields.progress.disabled=true;}}\n    const lineBase=[schema('selected','선택','checkbox',{width:50}),schema('item','품목','reference',{protected:true,required:true,width:180}),schema('description','품목명 / 규격','text',{calculated:true,width:180}),schema('qty','수량','number',{protected:true,required:true,width:90}),schema('price','단가','number',{width:100}),schema('discount','할인%','number',{width:80}),schema('supply','공급가액','number',{calculated:true,width:100}),schema('tax','부가세','number',{calculated:true,width:90}),schema('total','합계','number',{calculated:true,width:110}),schema('memo','적요','text',{width:140}),schema('sourceDate','불러온 전표일자','text',{calculated:true,width:115}),schema('sourceNo','불러온 전표No.','text',{calculated:true,width:190}),schema('allStock','전체재고','number',{calculated:true,width:95,visible:false}),schema('warehouseStock','창고재고','number',{calculated:true,width:95,visible:false}),schema('remove','행','text',{calculated:true,width:50})];\n    if(lineSuppliers){const extras=[schema('supplier','거래처','reference',{width:170}),schema('supplierName','거래처명','text',{calculated:true,width:140}),schema('spec','규격','text',{calculated:true,width:100}),schema('unit','단위','text',{calculated:true,width:70}),schema('singleQty','낱개수량','text',{calculated:true,width:90}),schema('priceVat','단가(vat포함)','number',{calculated:true,width:110}),schema('boxUnit','박스단위','text',{calculated:true,width:90})];lineBase.push(...extras);const order=type==='request'?['selected','item','description','supplier','supplierName','spec','unit','qty','price','supply','tax','memo','singleQty','total']:['selected','item','description','supplier','supplierName','spec','qty','price','supply','tax','memo','priceVat','boxUnit'];lineBase.forEach(f=>{f.visible=order.includes(f.id);if(f.id==='description')f.label='품목명';if(type==='plan'&&f.id==='item')f.label='품목코드';if(type==='plan'&&f.id==='supplier')f.label='거래처코드';});lineBase.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):100)-(order.includes(b.id)?order.indexOf(b.id):100));}\n    if(type==='purchase'){lineBase.push(schema('spec','규격','text',{calculated:true,width:100}),schema('unit','단위','text',{calculated:true,width:70}),schema('priceVat','단가(vat포함)','number',{calculated:true,width:110}),schema('boxUnit','박스단위','text',{calculated:true,width:90}),schema('lineMenu','↓','text',{calculated:true,width:40}));const order=['selected','lineMenu','item','description','spec','qty','priceVat','price','unit','supply','tax','total','memo','boxUnit'];lineBase.forEach(f=>{f.visible=order.includes(f.id);if(f.id==='description')f.label='품목명';if(f.id==='item')f.label='품목코드';if(f.id==='total')f.label='금액1';});lineBase.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):100)-(order.includes(b.id)?order.indexOf(b.id):100));}\n    if(type==='purchaseorder'){lineBase.push(schema('spec','규격','text',{calculated:true,width:100}),schema('boxQty','박스수량','text',{calculated:true,width:90}),schema('priceVat','단가(vat포함)','number',{calculated:true,width:110}),schema('lineMenu','↓','text',{calculated:true,width:40}));const order=['selected','lineMenu','item','description','spec','qty','boxQty','price','supply','tax','total','priceVat','memo'];lineBase.forEach(f=>{f.visible=order.includes(f.id);if(f.id==='description')f.label='품목명';if(f.id==='item')f.label='품목코드';if(f.id==='qty')f.label='낱개수량';if(f.id==='total')f.label='금액';});lineBase.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):100)-(order.includes(b.id)?order.indexOf(b.id):100));}\n    customizer.register('lines','품목 BODY 양식',lineBase,initial);customizer.register('print','인쇄 양식',printSchema(),initial);\n    let extraHeader={},lines=(initial.lines?.length?initial.lines:[{qty:1,price:0}]).map(l=>({...l})),controls=[],sourceId=initial.sourceId||source?.id;const lineBox=N('div'),sum=N('div',undefined,'inv-totals'),error=N('p',undefined,'inv-error');\n    let lineSerial=0;const legacyAllocations=!!existing&&!existing.lines.some(l=>l.lineId)&&db.documents.some(d=>d.sourceId===existing.id||d.lines.some(l=>(l.planAllocations||[]).some(a=>a.documentId===existing.id&&!a.sourceLineId)));const identifyLines=()=>{if((!lineSuppliers&&!lines.some(line=>line.lineId))||legacyAllocations)return;const used=new Set(lines.map(l=>l.lineId).filter(Boolean));for(const l of lines)if(!l.lineId){let id;do{id='L'+(++lineSerial);}while(used.has(id));l.lineId=id;used.add(id);}};\n    let lineMeta,renderedLines=false,stockVisible=false;const stockColumns=['allStock','warehouseStock'];\n    const readLines=()=>controls.map(c=>({...c.originalLine,item:c.item.value,qty:c.qty.value,price:c.price.value,discount:c.discount.value,memo:c.memo.value,...(lineSuppliers?{supplier:c.supplier.value}:{}),custom:{...c.originalCustom,...Object.fromEntries(Object.entries(c.customControls||{}).map(([k,x])=>[k,controlValue(x)]))}}));\n    const getDoc=(raw=false)=>{const value=({...initial,...extraHeader,...Object.fromEntries(Object.entries(fields).map(([k,x])=>[k,controlValue(x)])),custom:raw?configuration.rawCustomValues():configuration.customValues(),type,id:existing?.id,sourceId,lines:raw?readLines():readLines().filter(l=>l.item)});if(purchasing&&C.listed(initial)){value.status=value.confirmation==='미확인'?'미확인':value.progress;}return value;};\n    const refreshTotals=()=>{try{\n      const special=['purchasereturn','exchangereceipt'].includes(type),preview=special?C.command(db,'document',getDoc()).result:null;\n      const ls=preview?.lines||readLines().filter(l=>l.item).map(l=>C.lineTotals(l,fields.vatRate.value,extraHeader.taxRounding||initial.taxRounding,extraHeader.supplyRounding||initial.supplyRounding));\n      const total=C.totals(preview||{type,lines:ls,vatRate:fields.vatRate.value,taxRounding:extraHeader.taxRounding||initial.taxRounding,supplyRounding:extraHeader.supplyRounding||initial.supplyRounding});sum.textContent=`수량 ${fmt(total.qty)}   공급가액 ${fmt(total.supply,'금액')}   부가세 ${fmt(total.tax,'금액')}   합계 ${fmt(total.total,'금액')} 원`;\n      controls.forEach((c,index)=>{const t=preview?C.effectiveLineTotals(preview,preview.lines[index]):C.lineTotals({qty:c.qty.value,price:c.price.value,discount:c.discount.value},fields.vatRate.value,extraHeader.taxRounding||initial.taxRounding,extraHeader.supplyRounding||initial.supplyRounding);c.supply.textContent=fmt(t.supply,'금액');c.tax.textContent=fmt(t.tax,'금액');c.total.textContent=fmt(t.total,'금액');if(observedInput)c.priceVat.textContent=fmt(Number(c.price.value||0)*(1+Number(fields.vatRate.value)/100));if(stockVisible){c.allStock.textContent=fmt(C.stock(db,c.item.value,'',fields.date.value));c.warehouseStock.textContent=fmt(C.stock(db,c.item.value,fields.warehouse.value,fields.date.value));}const raw={item:c.item.value,qty:Number(c.qty.value),price:Number(c.price.value),discount:Number(c.discount.value),memo:c.memo.value,...t,...Object.fromEntries(Object.entries(c.customControls).map(([k,x])=>[k,controlValue(x)]))},computed=F.compute(lineMeta.fields,raw);for(const f of lineMeta.fields.filter(f=>f.formula))c.customControls[f.id].value=computed[f.id];});configuration.update();error.textContent='';\n    }catch(e){sum.textContent='입력값 또는 양식 계산식을 확인하세요.';error.textContent=e.message;}};\n    const renderLines=()=>{\n      identifyLines();lineMeta=customizer.form('lines',lineBase,configuration.read());for(const f of lineMeta.fields)if(stockColumns.includes(f.id))f.visible=stockVisible;customizer.register('lines','품목 BODY 양식',lineBase,configuration.read());controls=[];const t=N('table',undefined,'inv-table inv-entry-grid'),head=N('tr');lineMeta.fields.filter(f=>f.visible).forEach(f=>{const th=N('th',f.label);th.style.minWidth=f.width+'px';head.append(th);});const th=N('thead');th.append(head);t.append(th);const body=N('tbody');\n      lines.forEach((l,index)=>{const row=N('tr'),c={item:itemReference(`품목 ${index+1}`,l.item),qty:input(`수량 ${index+1}`,l.qty??1,'number'),price:input(`단가 ${index+1}`,l.price??0,'number'),discount:input(`할인율 ${index+1}`,l.discount??0,'number'),memo:input(`적요 ${index+1}`,l.memo),supply:N('span'),tax:N('span'),total:N('strong')};if(['purchase','purchaseorder'].includes(type)){c.spec=N('span');c.boxQty=N('span','');c.boxQty.title='원본 박스수량 환산 규칙 미검증';c.unit=N('span');c.priceVat=N('span');c.priceVat.title='로컬 계산: 단가 × (1 + 부가세율/100)';c.boxUnit=N('span','');c.boxUnit.title='원본 박스단위 계산 규칙 미검증';c.lineMenu=button('↓',()=>{});c.lineMenu.disabled=true;c.lineMenu.title='원본 행 하위메뉴 동작 미검증';c.total.title='로컬 공급가액 + 부가세 합계';}if(lineSuppliers){c.supplier=reference('partners',`거래처 ${index+1}`,l.supplier||'');c.supplierName=N('span');c.spec=N('span');c.unit=N('span');c.singleQty=N('span','');c.singleQty.title='원본 낱개수량 계산 규칙 미검증';c.priceVat=N('span');c.boxUnit=N('span','');c.boxUnit.title='원본 박스단위 계산 규칙 미검증';}const desc=N('span');const updateName=()=>{const m=C.master(db,'items',c.item.value);desc.textContent=m?(observedInput?m.name:`${m.name} / ${m.spec||''} / ${m.unit||''}`):'';if(lineSuppliers){c.supplierName.textContent=C.master(db,'partners',c.supplier.value)?.name||'';}if(observedInput){c.spec.textContent=m?.spec||'';if(c.unit)c.unit.textContent=m?.unit||'';}};\n        c.item.addEventListener('change',()=>{c.price.value=C.priceFor(db,c.item.value,lineSuppliers?c.supplier.value:fields.partner.value,['request','plan','pricerequest','purchase','purchaseorder','production','issue'].includes(type),Number(fields.vatRate.value));updateName();refreshTotals();});if(lineSuppliers)c.supplier.onchange=()=>{updateName();refreshTotals();};updateName();\n        const check=input(`행 선택 ${index+1}`,false,'checkbox');c.selected=check;c.description=desc;c.originalLine=l;c.allStock=N('span');c.warehouseStock=N('span');const refs=l.importedFrom||l.planAllocations?.map(a=>({...a,date:db.documents.find(d=>d.id===a.documentId)?.date}))||[],linked=db.documents.find(d=>d.id===sourceId);c.sourceDate=N('span',[...new Set(refs.filter(r=>r.documentId).map(r=>r.date))].join(', ')||linked?.date||'');c.sourceNo=N('span',[...new Set(refs.filter(r=>r.documentId).map(r=>r.documentId))].join(', ')||sourceId||'');c.originalCustom=l.custom||{};c.customControls={};c.remove=button('×',()=>{lines=readLines();lines.splice(index,1);if(!lines.length)lines.push({qty:1,price:0});renderLines();});\n        for(const f of lineMeta.fields){let element=c[f.id];if(f.custom){element=customControl(f,l.custom?.[f.id]);element.setAttribute('aria-label',`${f.label} ${index+1}`);c.customControls[f.id]=element;element.oninput=refreshTotals;element.onchange=refreshTotals;}if(!element)continue;const original=lineBase.find(b=>b.id===f.id);if(element instanceof HTMLInputElement||element instanceof HTMLSelectElement){if((!renderedLines&&fresh||l._new)&&f.defaultValue!==''){if(element.type==='checkbox')element.checked=f.defaultValue===true||f.defaultValue==='true';else element.value=F.defaultValue(f,C.today());}if(f.label!==original?.label&&!f.custom)element.setAttribute('aria-label',`${f.label} ${index+1}`);element.readOnly=Boolean(f.readonly||f.calculated||f.formula);if(element.tagName==='SELECT'||element.type==='checkbox')element.disabled=Boolean(f.readonly||f.calculated);element.dataset.formField=f.id;}if(f.visible){const td=N('td');td.style.minWidth=f.width+'px';td.style.textAlign=f.align;td.dataset.formField=f.id;td.append(element);row.append(td);}else if(observedInput&&f.id==='discount'){const hidden=N('td');hidden.hidden=true;hidden.dataset.formField='discount';hidden.append(element);row.append(hidden);}}\n        for(const x of [c.qty,c.price,c.discount])x.oninput=refreshTotals;if(['purchasereturn','exchangereceipt'].includes(type)){c.price.readOnly=true;c.discount.readOnly=true;}c.item.disabled=c.item.disabled||Boolean(sourceId||initial.generatedFrom==='purchase-plan'||extraHeader.generatedFrom==='purchase-plan');if(initial.generatedFrom==='purchase-plan'||extraHeader.generatedFrom==='purchase-plan')c.qty.disabled=true;controls.push(c);body.append(row);delete l._new;\n      });t.append(body);const wrap=N('div',undefined,'inv-table-wrap');wrap.append(t);lineBox.replaceChildren(N('small',lineMeta.name,'inv-line-form-name'),wrap);renderedLines=true;refreshTotals();rowFinder?.refresh();\n    };\n    const sourceOptions=db.documents.filter(d=>C.active(d)&&C.nextTypes[d.type]?.includes(type));const sourcePicker=select('불러올 전표',sourceOptions.map(d=>[d.id,`${C.types[d.type]} · ${d.id}`]),sourceId);\n    const loadSource=()=>{\n      const d=db.documents.find(d=>d.id===sourcePicker.value);if(!d){sourceId=undefined;return;}\n      sourceId=d.id;extraHeader.taxRounding=C.taxRounding(d.taxRounding);extraHeader.supplyRounding=C.supplyRounding(d.supplyRounding);lines=C.remaining(db,d,type).filter(l=>l.qty>0).map(l=>l.lineId?{...l,sourceLineId:l.lineId}:l);\n      if(type==='issue'){\n        const components=new Map();for(const l of lines)for(const b of db.bom.filter(b=>b.product===l.item))components.set(b.material,(components.get(b.material)||0)+l.qty*b.qty*(1+b.loss/100));\n        lines=[...components].map(([item,qty])=>({item,qty,price:C.master(db,'items',item)?.buyPrice||0}));\n      }\n      if(d.type==='count'&&type==='adjust')lines=d.lines.map(l=>({...l,qty:C.quantity(l.qty-C.stock(db,l.item,d.warehouse,d.date))})).filter(l=>l.qty!==0);\n      if(type==='production')fields.autoConsume.checked=!db.documents.some(x=>C.active(x)&&x.sourceId===d.id&&x.type==='issue');\n      for(const k of ['partner','employee','warehouse','currency','project'])fields[k].value=k==='warehouse'?C.linkedWarehouse(d,type):d[k]||'';renderLines();\n    };\n    const save=(print=false,{retain=false}={})=>{try{if(existing&&retainSupported&&JSON.stringify(db.documents.find(doc=>doc.id===existing.id))!==baseSnapshot)throw Error('다른 화면에서 전표가 변경됐습니다. 현재 수정 초안을 확인하고 최신 전표 다시 읽기를 선택하세요.');F.check(configuration.meta.fields,configuration.read());const result=commit('document',getDoc());if(result){discardDraft(route.id);capture=null;if(retain){const scope=activeEditorModal?.host===host?activeEditorModal:null;if(scope){scope.key=scope.baseRoute.id+'::detail:'+type+':'+result.id;route={...route,id:scope.key};}docEditor(type,result);dirty=false;if(scope){scope.baseline=JSON.stringify(editor?.read?.());const title=C.types[type]+' 상세 / 수정';scope.dialog.setAttribute('aria-label',title);scope.dialog.querySelector('.inv-modal-head h2').textContent=title;}return;}if(activeEditorModal?.host===host){activeEditorModal.dialog.close();if(print)printDoc(result);}else if(print){if(retainSupported)docEditor(type,result);printDoc(result);}else {docList({name:C.types[type]+'조회',docType:type,kind:'list'});}}else error.textContent='저장하지 못했습니다. 하단 알림과 입력 내용을 확인하세요.';}catch(e){error.textContent=e.message;ctx.toast(e.message);}};\n    const advanced=typeof EntryCore!=='undefined'&&typeof EntryUI!=='undefined'&&[...EntryCore.salesTypes,...EntryCore.purchaseTypes,'transfer'].includes(type);\n    const syncSourceLocks=()=>{const generated=(extraHeader.generatedFrom||initial.generatedFrom)==='purchase-plan',linked=Boolean(sourceId||generated);outer.querySelector('[data-source-note]')?.remove();if(linked){const info=note(generated?'발주계획으로 생성한 품목과 수량은 원본 배분을 보존합니다. 수량은 원계획 수정 후 발주서를 취소하고 다시 생성하세요. 단가·할인·적요는 수정할 수 있습니다.':'원본에 연결된 품목은 변경할 수 없습니다. 처리할 수량과 단가·적요를 입력하세요.');const linkedIds=[...new Set([sourceId,...lines.flatMap(l=>(l.planAllocations||l.importedFrom||[]).map(a=>a.documentId))].filter(Boolean))];if(linkedIds.length)info.append(N('span',' 연결 원본: '+linkedIds.join(', ')));info.dataset.sourceNote='';outer.append(info);}for(const b of form.querySelectorAll('button'))if(['행 추가','선택 행 복사','품목 추가','My품목','바코드','재고 품목 선택','안전재고','소요','전표 바코드'].includes(b.textContent))b.disabled=linked||!writeAllowed();};\n    const applyDraft=next=>{if(!writeAllowed())return false;const {lines:nextLines,...nextHeader}=next;extraHeader=nextHeader;for(const [key,x]of Object.entries(fields))if(Object.hasOwn(next,key)){if(x.type==='checkbox')x.checked=Boolean(next[key]);else x.value=next[key]??'';}if(purchasing){const state=C.purchasingState(next);fields.confirmation.value=state.confirmation;fields.progress.value=state.progress;}sourceId=next.sourceId;lines=next.lines.length?next.lines:[{qty:1,price:0}];renderLines();syncSourceLocks();dirty=true;capture?.();};\n    const helperOptions=()=>({db,getDraft:()=>getDoc(),onApply:applyDraft,readOnly:!writeAllowed(),sortFields:()=>lineMeta.fields.filter(field=>field.visible).map(field=>({id:field.id==='item'?'code':field.id==='description'?'name':field.id,label:field.label})),selectedItems:()=>controls.filter(c=>c.selected.checked).map(c=>c.item.value).filter(Boolean),selectedLineIndexes:()=>controls.filter(c=>c.item.value).flatMap((c,i)=>c.selected.checked?[i]:[])});\n    const helper=fn=>{try{if(writeAllowed())fn();}catch(e){error.textContent=e.message;}};\n    const verify=()=>{try{F.check(configuration.meta.fields,configuration.read());const result=EntryTools.validate(helperOptions());error.textContent=result.warnings.length?'입력 검증 완료 · 안전재고 미달: '+result.warnings.map(w=>w.name+' (처리 후 '+fmt(w.after)+', 기준 '+fmt(w.safety)+')').join(', '):'입력 검증 완료 · 저장 가능한 전표입니다.';}catch(e){error.textContent=e.message;}};\n    const stockToggle=button('재고불러오기',()=>{lines=readLines();stockVisible=!stockVisible;stockToggle.setAttribute('aria-pressed',String(stockVisible));renderLines();});stockToggle.setAttribute('aria-pressed','false');stockToggle.title='전표 일자 기준 전체재고·창고재고 표시';\n    const rowFinder=advanced?EntryTools.createRowFind({gridRoot:lineBox}):null;\n    const entryActions=advanced?toolbar(rowFinder.button,writeButton('품목 추가',()=>helper(()=>EntryTools.openFind(helperOptions()))),writeButton('정렬',()=>helper(()=>EntryTools.openSort(helperOptions()))),writeButton('거래내역보기',()=>helper(()=>EntryUI.openDocuments({...helperOptions(),mode:'copy',sourceType:type}))),writeButton('전표 불러오기',()=>helper(()=>EntryUI.openDocuments(helperOptions()))),...(EntryCore.purchaseTypes.includes(type)?[writeButton('발주',()=>helper(()=>EntryUI.openDocuments({...helperOptions(),mode:type==='purchase'?'linked':'copy',sourceType:'purchaseorder'})))]:[]),writeButton('주문',()=>helper(()=>EntryUI.openDocuments({...helperOptions(),mode:type==='sale'?'linked':'copy',sourceType:'order'}))),stockToggle,writeButton('재고 품목 선택',()=>helper(()=>EntryUI.openStock(helperOptions()))),writeButton('안전재고',()=>helper(()=>EntryUI.openStock({...helperOptions(),kind:'safety'}))),writeButton('할인',()=>helper(()=>typeof EntryExtraUI!=='undefined'?EntryExtraUI.openAmount({...helperOptions(),kind:'discountAmount'}):EntryTools.openDiscount(helperOptions()))),writeButton('바코드',()=>helper(()=>EntryTools.openBarcode(helperOptions()))),writeButton('웹자료올리기',()=>helper(()=>EntryTools.openPaste(helperOptions()))),writeButton('입력 검증',verify)):toolbar(sourcePicker,button('전표 불러오기',loadSource));\n    entryActions.classList.add('entry-action-bar');\n    if(advanced&&typeof EntryExtraUI!=='undefined')entryActions.append(writeButton('My품목',()=>helper(()=>EntryExtraUI.loadDefaultMyItems(helperOptions()))),writeButton('전표 바코드',()=>helper(()=>EntryExtraUI.openVoucherBarcode(helperOptions()))),writeButton('바코드 검증',()=>helper(()=>EntryExtraUI.openBarcodeCheck(helperOptions()))),writeButton('소요',()=>helper(()=>EntryExtraUI.openRequirements(helperOptions()))),...(EntryCore.salesTypes.includes(type)?[writeButton('이익계산',()=>helper(()=>EntryExtraUI.openProfit(helperOptions()))),writeButton('금액조정',()=>helper(()=>EntryExtraUI.openAmount({...helperOptions(),kind:'target'}))),writeButton('거래별계산',()=>helper(()=>EntryExtraUI.openAmount({...helperOptions(),kind:'rounding'})))]:[]),writeButton('보류',()=>{drafts.set(route.id,getDoc(true));dirty=false;ctx.toast('현재 화면의 작성 초안을 보류했습니다. 다시 열면 이어서 작성할 수 있습니다.');}));\n    if(advanced){const secondary=N('div',undefined,'entry-secondary-actions');for(const b of [...entryActions.children])if(!['전표 불러오기','재고 품목 선택','안전재고'].includes(b.textContent))secondary.append(b);const more=button('추가 기능 ▾',()=>{const open=entryActions.classList.toggle('more-open');more.setAttribute('aria-expanded',String(open));},'entry-more-toggle');more.setAttribute('aria-expanded','false');entryActions.append(more,secondary);}\n    if(advanced&&lineSuppliers){const find=text=>[...entryActions.querySelectorAll('button')].find(b=>b.textContent===text),primary=N('div',undefined,'entry-primary-actions'),secondary=N('details',undefined,'entry-secondary-actions');secondary.append(N('summary','기존 입력 보조'));const safety=N('details'),safetyLabel=type==='request'?'창고별안전재고':'품목별안전재고';safety.append(N('summary',safetyLabel+' ▾'));for(const [scope,label]of [['warehouse','창고별안전재고'],['item','품목별안전재고']])safety.append(writeButton(label,()=>helper(()=>{const dialog=EntryUI.openStock({...helperOptions(),kind:'safety'}),control=dialog?.querySelector('[aria-label=\"안전재고 기준\"]');if(control){control.value=scope;control.dispatchEvent(new Event('change',{bubbles:true}));}})));const originalOrder=type==='request'?['찾기(F3)','정렬',safety,'My품목','소요','주문','전표 불러오기','재고불러오기','바코드','전표 바코드','입력 검증']:['찾기(F3)','정렬','My품목','소요','주문','발주요청','전표 불러오기','재고불러오기',safety,'바코드','전표 바코드','입력 검증'];for(const item of originalOrder){const b=typeof item==='string'?(item==='발주요청'?writeButton('발주요청',()=>helper(()=>EntryUI.openDocuments({...helperOptions(),mode:'linked',sourceType:'request'}))):find(item)):item;if(b)primary.append(b);}for(const b of [...entryActions.querySelectorAll('button')])if(!primary.contains(b)&&!['추가 기능 ▾','웹자료올리기'].includes(b.textContent))secondary.append(b);entryActions.replaceChildren(primary,secondary);}\n    if(advanced&&type==='purchase'){const find=text=>[...entryActions.querySelectorAll('button')].find(b=>b.textContent===text),primary=N('div',undefined,'entry-primary-actions'),secondary=N('details',undefined,'entry-secondary-actions');secondary.append(N('summary','기존 입력 보조'));for(const text of ['찾기(F3)','정렬','거래내역보기','My품목','발주','주문','할인','전표 불러오기','재고불러오기','바코드','전표 바코드','바코드 검증']){const b=find(text);if(b){if(text==='바코드 검증')b.textContent='검증';if(text==='거래내역보기'){b.textContent='거래내역보기(구매)';b.title='기존 로컬 구매 전표 불러오기';}primary.append(b);}}for(const b of [...entryActions.querySelectorAll('button')])if(!primary.contains(b)&&!['추가 기능 ▾','웹자료올리기'].includes(b.textContent))secondary.append(b);entryActions.replaceChildren(primary,secondary);}\n    if(advanced&&type==='purchaseorder'){const find=text=>[...entryActions.querySelectorAll('button')].find(b=>b.textContent===text),primary=N('div',undefined,'entry-primary-actions'),secondary=N('details',undefined,'entry-secondary-actions');secondary.append(N('summary','기존 입력 보조'));const safety=N('details');safety.append(N('summary','창고별안전재고 ▾'));for(const [scope,label]of [['warehouse','창고별안전재고'],['item','품목별안전재고']])safety.append(writeButton(label,()=>helper(()=>{const dialog=EntryUI.openStock({...helperOptions(),kind:'safety'}),control=dialog?.querySelector('[aria-label=\"안전재고 기준\"]');if(control){control.value=scope;control.dispatchEvent(new Event('change',{bubbles:true}));}})));for(const item of ['찾기(F3)','정렬','거래내역보기','My품목','소요','주문','계획','단가요청','전표 불러오기','재고불러오기',safety,'생성한 전표','바코드','전표 바코드']){let b=typeof item==='string'?find(item):item;if(item==='계획'||item==='단가요청')b=writeButton(item,()=>helper(()=>EntryUI.openDocuments({...helperOptions(),mode:'linked',sourceType:item==='계획'?'plan':'pricerequest'})));if(item==='생성한 전표'){b=button(item,()=>{});b.disabled=true;b.title='원본 생성 전표 이력 범위 미검증';}if(b){if(item==='거래내역보기'){b.textContent='거래내역보기(발주)';b.title='기존 로컬 발주 전표 불러오기';}primary.append(b);}}for(const b of [...entryActions.querySelectorAll('button')])if(!primary.contains(b)&&!['추가 기능 ▾','웹자료올리기'].includes(b.textContent))secondary.append(b);entryActions.replaceChildren(primary,secondary);}\n    if(advanced&&typeof EntryExtraUI!=='undefined'){const my=[...entryActions.querySelectorAll('button')].find(b=>b.textContent==='My품목'),menu=N('details',undefined,'entry-my-items-menu'),summary=N('summary','▾');summary.setAttribute('aria-label','My품목 옵션');menu.append(summary,writeButton('My품목설정',()=>{menu.open=false;helper(()=>EntryExtraUI.openMyItems(helperOptions()));}));my?.after(menu);}\n    if(advanced)form.addEventListener('keydown',e=>{if(e.key==='F3'){e.preventDefault();e.stopPropagation();rowFinder.toggle();}});\n    form.append(grid,entryActions,toolbar(button('행 추가',()=>{lines=readLines();lines.push({qty:1,price:0});renderLines();}),button('선택 행 복사',()=>{lines=readLines();lines.push(...readLines().filter((_,i)=>controls[i].selected.checked).map(l=>({...l,item:'',lineId:undefined,sourceLineId:undefined})));renderLines();}),button('단가 적용',()=>{for(const c of controls)c.price.value=C.priceFor(db,c.item.value,lineSuppliers?c.supplier.value:fields.partner.value,['request','plan','pricerequest','purchase','purchaseorder'].includes(type),Number(fields.vatRate.value));refreshTotals();})),lineBox,sum,error,toolbar(button('저장(F8)',()=>save(),'primary'),button('저장/전표(F7)',()=>save(true)),button('다시 작성',()=>{if(activeEditorModal&&JSON.stringify(getDoc(true))!==activeEditorModal.baseline&&!confirm('작성한 내용을 지우고 다시 작성할까요?'))return;discardDraft(route.id);capture=null;docEditor(type,activeEditorModal?existing:undefined);}),button('리스트',()=>{if(activeEditorModal?.host===host){activeEditorModal.requestClose();return;}drafts.set(route.id,getDoc());capture=null;docList({name:C.types[type]+'조회',docType:type,kind:'list'});})));form.addEventListener('submit',e=>{e.preventDefault();save();});form.addEventListener('keydown',e=>{if(e.key==='F8'||e.key==='F7'){e.preventDefault();save(e.key==='F7');}});fields.vatRate.onchange=refreshTotals;\n    if(observedInput){const bottom=form.lastElementChild,print=[...bottom.querySelectorAll('button')].find(b=>b.textContent==='저장/전표(F7)');if(type==='plan'&&print){print.title='기존 로컬 인쇄 미리보기';const secondary=entryActions.querySelector('.entry-secondary-actions');if(secondary)secondary.append(print);else print.remove();}const close=[...bottom.querySelectorAll('button')].find(b=>b.textContent==='리스트');if(type==='request'&&activeEditorModal&&close)close.textContent='닫기';const saveModes=N('details',undefined,'entry-save-modes');saveModes.append(N('summary','저장 옵션 ▾'));for(const text of ['저장/전자결재','저장/내용유지','저장/신규']){const retain=text==='저장/내용유지'&&retainSupported,option=retain?writeButton(text,()=>{saveModes.open=false;save(false,{retain:true});}):button(text,()=>{});if(!retain)option.disabled=true;option.title=retain?'저장된 전표를 계속 수정합니다.':text==='저장/전자결재'?'외부 전자결재 미연결':'원본 저장 분기 동작 미검증';saveModes.append(option);}bottom.insertBefore(saveModes,bottom.children[1]||null);if(type==='purchase'){const cash=button('현금지급 ▾',()=>{});cash.disabled=true;cash.title='원본 현금지급 분기·회계 연결 미검증';bottom.insertBefore(cash,close||null);}if(advanced)bottom.append(writeButton('웹자료올리기',()=>helper(()=>EntryTools.openPaste(helperOptions()))));}\n    form.lastElementChild.classList.add('entry-save-actions');if(rowFinder){entryActions.after(rowFinder.panel);lineBox.addEventListener('input',()=>rowFinder.refresh());lineBox.addEventListener('change',()=>rowFinder.refresh());}\n    if(existing&&retainSupported){const reload=button('최신 전표 다시 읽기',()=>{if(!confirm('현재 수정 초안을 버리고 최근에 저장된 전표를 다시 읽을까요?'))return;const latest=db.documents.find(doc=>doc.id===existing.id);if(!latest){error.textContent='원본 전표가 없습니다. 목록에서 다시 선택하세요.';return;}discardDraft(route.id);capture=null;docEditor(type,latest);dirty=false;if(activeEditorModal?.host===host)activeEditorModal.baseline=JSON.stringify(editor?.read?.());});if(baseSnapshot!==JSON.stringify(db.documents.find(doc=>doc.id===existing.id)))outer.append(note('다른 화면에서 저장된 내용이 있습니다. 현재 수정 초안은 보존했으며 저장을 차단했습니다.'));outer.append(reload);}\n    outer.append(N('h2',title),note(existing?.id||'새 전표 · 합계는 원화 기준입니다. 외화는 통화 코드만 보관합니다.'),...(observedInput?[note('거래유형은 원본 세무 규칙 미검증으로 읽기 전용입니다. 로컬 계산의 부가세율은 별도 설정입니다.'),...(['purchase','purchaseorder'].includes(type)?[note('VAT포함 단가는 로컬 단가 × (1 + 부가세율/100) 계산입니다.'),...(type==='purchaseorder'?[note('낱개수량은 현재 로컬 기본 수량에 대응합니다. 박스수량 환산은 미검증입니다.')]:[])]:[])]:[]),form);syncSourceLocks();if(type==='shipment')outer.append(note('샘플은 판매 시 재고를 차감합니다. 출하는 배송 추적용으로 재고를 중복 차감하지 않습니다.'));if(type==='adjust')outer.append(note('재고조정 수량은 증감 수량입니다. 감소는 음수로 입력하세요.'));if(existing&&type==='purchase')outer.prepend(outer.querySelector(':scope > h2'));host.append(outer);renderLines();editor.read=()=>getDoc(true);capture=()=>{if(!existing||retainSupported)drafts.set(route.id,getDoc(true));};const repaint=()=>docEditor(type,existing,source,getDoc(true));mountOptions('input',repaint);readonlyEditor();\n    grid.addEventListener('change',()=>{try{const value=getDoc(true),next=customizer.form('input',headerBase,{...value,...value.custom}),nextLines=customizer.form('lines',lineBase,{...value,...value.custom});if(next.id!==configuration.meta.id||nextLines.id!==lineMeta.id)docEditor(type,existing,source,value);else refreshTotals();}catch(e){error.textContent=e.message;}});\n  }"
+        },
+        {
+          "name": "baseSnapshot",
+          "node_type": "VariableDeclarator",
+          "span": [
+            138,
+            10,
+            138,
+            117
+          ],
+          "offsets": [
+            27421,
+            27528
+          ],
+          "source": "baseSnapshot=existing?(restored?.id===existing.id&&draftBases.get(route.id)||JSON.stringify(existing)):null"
+        },
+        {
+          "name": "retainSupported",
+          "node_type": "VariableDeclarator",
+          "span": [
+            139,
+            65,
+            139,
+            118
+          ],
+          "offsets": [
+            27645,
+            27698
+          ],
+          "source": "retainSupported=['request','purchase'].includes(type)"
+        },
+        {
+          "name": "legacyAllocations",
+          "node_type": "VariableDeclarator",
+          "span": [
+            167,
+            27,
+            167,
+            233
+          ],
+          "offsets": [
+            39372,
+            39578
+          ],
+          "source": "legacyAllocations=!!existing&&!existing.lines.some(l=>l.lineId)&&db.documents.some(d=>d.sourceId===existing.id||d.lines.some(l=>(l.planAllocations||[]).some(a=>a.documentId===existing.id&&!a.sourceLineId)))"
+        },
+        {
+          "name": "identifyLines",
+          "node_type": "VariableDeclarator",
+          "span": [
+            167,
+            240,
+            167,
+            511
+          ],
+          "offsets": [
+            39585,
+            39856
+          ],
+          "source": "identifyLines=()=>{if((!lineSuppliers&&!lines.some(line=>line.lineId))||legacyAllocations)return;const used=new Set(lines.map(l=>l.lineId).filter(Boolean));for(const l of lines)if(!l.lineId){let id;do{id='L'+(++lineSerial);}while(used.has(id));l.lineId=id;used.add(id);}}"
+        },
+        {
+          "name": "readLines",
+          "node_type": "VariableDeclarator",
+          "span": [
+            169,
+            10,
+            169,
+            333
+          ],
+          "offsets": [
+            39974,
+            40297
+          ],
+          "source": "readLines=()=>controls.map(c=>({...c.originalLine,item:c.item.value,qty:c.qty.value,price:c.price.value,discount:c.discount.value,memo:c.memo.value,...(lineSuppliers?{supplier:c.supplier.value}:{}),custom:{...c.originalCustom,...Object.fromEntries(Object.entries(c.customControls||{}).map(([k,x])=>[k,controlValue(x)]))}}))"
+        },
+        {
+          "name": "getDoc",
+          "node_type": "VariableDeclarator",
+          "span": [
+            170,
+            10,
+            170,
+            417
+          ],
+          "offsets": [
+            40309,
+            40716
+          ],
+          "source": "getDoc=(raw=false)=>{const value=({...initial,...extraHeader,...Object.fromEntries(Object.entries(fields).map(([k,x])=>[k,controlValue(x)])),custom:raw?configuration.rawCustomValues():configuration.customValues(),type,id:existing?.id,sourceId,lines:raw?readLines():readLines().filter(l=>l.item)});if(purchasing&&C.listed(initial)){value.status=value.confirmation==='미확인'?'미확인':value.progress;}return value;}"
+        },
+        {
+          "name": "save",
+          "node_type": "VariableDeclarator",
+          "span": [
+            198,
+            10,
+            198,
+            1160
+          ],
+          "offsets": [
+            48945,
+            50095
+          ],
+          "source": "save=(print=false,{retain=false}={})=>{try{if(existing&&retainSupported&&JSON.stringify(db.documents.find(doc=>doc.id===existing.id))!==baseSnapshot)throw Error('다른 화면에서 전표가 변경됐습니다. 현재 수정 초안을 확인하고 최신 전표 다시 읽기를 선택하세요.');F.check(configuration.meta.fields,configuration.read());const result=commit('document',getDoc());if(result){discardDraft(route.id);capture=null;if(retain){const scope=activeEditorModal?.host===host?activeEditorModal:null;if(scope){scope.key=scope.baseRoute.id+'::detail:'+type+':'+result.id;route={...route,id:scope.key};}docEditor(type,result);dirty=false;if(scope){scope.baseline=JSON.stringify(editor?.read?.());const title=C.types[type]+' 상세 / 수정';scope.dialog.setAttribute('aria-label',title);scope.dialog.querySelector('.inv-modal-head h2').textContent=title;}return;}if(activeEditorModal?.host===host){activeEditorModal.dialog.close();if(print)printDoc(result);}else if(print){if(retainSupported)docEditor(type,result);printDoc(result);}else {docList({name:C.types[type]+'조회',docType:type,kind:'list'});}}else error.textContent='저장하지 못했습니다. 하단 알림과 입력 내용을 확인하세요.';}catch(e){error.textContent=e.message;ctx.toast(e.message);}}"
+        },
+        {
+          "name": "syncSourceLocks",
+          "node_type": "VariableDeclarator",
+          "span": [
+            200,
+            10,
+            200,
+            823
+          ],
+          "offsets": [
+            50268,
+            51081
+          ],
+          "source": "syncSourceLocks=()=>{const generated=(extraHeader.generatedFrom||initial.generatedFrom)==='purchase-plan',linked=Boolean(sourceId||generated);outer.querySelector('[data-source-note]')?.remove();if(linked){const info=note(generated?'발주계획으로 생성한 품목과 수량은 원본 배분을 보존합니다. 수량은 원계획 수정 후 발주서를 취소하고 다시 생성하세요. 단가·할인·적요는 수정할 수 있습니다.':'원본에 연결된 품목은 변경할 수 없습니다. 처리할 수량과 단가·적요를 입력하세요.');const linkedIds=[...new Set([sourceId,...lines.flatMap(l=>(l.planAllocations||l.importedFrom||[]).map(a=>a.documentId))].filter(Boolean))];if(linkedIds.length)info.append(N('span',' 연결 원본: '+linkedIds.join(', ')));info.dataset.sourceNote='';outer.append(info);}for(const b of form.querySelectorAll('button'))if(['행 추가','선택 행 복사','품목 추가','My품목','바코드','재고 품목 선택','안전재고','소요','전표 바코드'].includes(b.textContent))b.disabled=linked||!writeAllowed();}"
+        },
+        {
+          "name": "applyDraft",
+          "node_type": "VariableDeclarator",
+          "span": [
+            201,
+            10,
+            201,
+            543
+          ],
+          "offsets": [
+            51093,
+            51626
+          ],
+          "source": "applyDraft=next=>{if(!writeAllowed())return false;const {lines:nextLines,...nextHeader}=next;extraHeader=nextHeader;for(const [key,x]of Object.entries(fields))if(Object.hasOwn(next,key)){if(x.type==='checkbox')x.checked=Boolean(next[key]);else x.value=next[key]??'';}if(purchasing){const state=C.purchasingState(next);fields.confirmation.value=state.confirmation;fields.progress.value=state.progress;}sourceId=next.sourceId;lines=next.lines.length?next.lines:[{qty:1,price:0}];renderLines();syncSourceLocks();dirty=true;capture?.();}"
+        }
+      ]
+    },
+    {
+      "path": "$SCRATCH/rea-request/dist/inventory-core.js",
+      "sha256": "08b0885231ccc84931d76729e5fbcad98bcc6f89f3f175a29756e90eefe4cb53",
+      "bytes": 74749,
+      "parser": "REA6.4.0 parseJavaScriptSource; inert AST only, no own-app behavioral test or semantic analysis",
+      "parse_error_count": 0,
+      "evidence": [
+        {
+          "name": "purchasingState",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            19,
+            2,
+            19,
+            148
+          ],
+          "offsets": [
+            2028,
+            2174
+          ],
+          "source": "function purchasingState(d){return {confirmation:d.confirmation??(d.status==='미확인'?'미확인':'확인'),progress:d.progress??(d.status==='완료'?'완료':'진행')};}"
+        },
+        {
+          "name": "purchasingLineState",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            20,
+            2,
+            20,
+            123
+          ],
+          "offsets": [
+            2177,
+            2298
+          ],
+          "source": "function purchasingLineState(d,line){return {...purchasingState(d),progress:line.progress??purchasingState(d).progress};}"
+        },
+        {
+          "name": "validateLineProgress",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            21,
+            2,
+            21,
+            159
+          ],
+          "offsets": [
+            2301,
+            2458
+          ],
+          "source": "function validateLineProgress(d,line){if(line.progress!==undefined&&(d.type!=='plan'||!['진행','완료'].includes(line.progress)))throw Error('품목행 진행상태를 확인하세요.');}"
+        },
+        {
+          "name": "validatePurchasingState",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            22,
+            2,
+            27,
+            3
+          ],
+          "offsets": [
+            2461,
+            3039
+          ],
+          "source": "function validatePurchasingState(d){\n    if(d.confirmation===undefined&&d.progress===undefined)return;\n    if(!purchasingTypes.includes(d.type)||d.confirmation!==undefined&&!['미확인','확인'].includes(d.confirmation)||d.progress!==undefined&&!['진행','완료'].includes(d.progress))throw Error('확인 여부와 진행상태를 확인하세요.');\n    const state=purchasingState(d);\n    if(listed(d)&&(d.status==='미확인'&&state.confirmation!=='미확인'||d.status!=='미확인'&&state.confirmation==='미확인'||d.status==='완료'&&state.progress!=='완료'||d.status==='진행'&&state.progress!=='진행'))throw Error('확인 여부·진행상태와 기존 상태가 다릅니다.');\n  }"
+        },
+        {
+          "name": "lineTotals",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            33,
+            2,
+            38,
+            3
+          ],
+          "offsets": [
+            4304,
+            4948
+          ],
+          "source": "function lineTotals(line,rate=10,rounding,supplyPolicy){\n    const qty=num(line.qty,'수량',-1e12),price=num(line.price??0,'단가'),discount=num(line.discount??0,'할인율');\n    if(discount>100)throw Error('할인율은 0~100 사이여야 합니다.');\n    const rawSupply=qty*price*(1-discount/100),supplyRule=supplyRounding(supplyPolicy),supply=supplyPolicy===undefined||supplyRule.method==='round'&&supplyRule.digits===2?money(rawSupply):roundSupply(rawSupply,supplyRule),policy=taxRounding(rounding),factor=10**policy.digits,tax=Math[policy.method](supply*num(rate,'부가세율')/100*factor)/factor;\n    return {...line,qty,price,discount,supply,tax,total:money(supply+tax)};\n  }"
+        },
+        {
+          "name": "movements",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            43,
+            2,
+            53,
+            3
+          ],
+          "offsets": [
+            5669,
+            6831
+          ],
+          "source": "function movements(db){\n    const rows=[];const add=(d,l,warehouse,qty,note)=>{if(qty&&master(db,'items',l.item)?.trackInventory!==false)rows.push({id:d.id,date:d.date,type:d.type,warehouse,item:l.item,qty:quantity(qty),price:l.price||0,partner:d.partner||'',memo:note||d.memo||''});};\n    for(const d of db.documents.filter(active))for(const l of d.lines){\n      if(['purchase','production','exchangereceipt'].includes(d.type))add(d,l,d.warehouse,l.qty);\n      if(['sale','issue','consume','defect','purchasereturn'].includes(d.type))add(d,l,d.warehouse,-l.qty);\n      if(d.type==='adjust')add(d,l,d.warehouse,l.qty);\n      if(d.type==='transfer'){add(d,l,d.warehouse,-l.qty);add(d,l,d.targetWarehouse,l.qty);}\n      if(d.type==='production'&&d.autoConsume){const usage=d.consumption?.filter(x=>x.product===l.item)||db.bom.filter(b=>b.product===l.item).map(b=>({product:l.item,item:b.material,qty:l.qty*b.qty*(1+b.loss/100)}));for(const b of usage)add(d,{item:b.item,price:master(db,'items',b.item)?.buyPrice||0},d.materialWarehouse||d.warehouse,-b.qty,'BOM 자동소모');}\n    }\n    return rows.sort((a,b)=>a.date.localeCompare(b.date)||a.id.localeCompare(b.id));\n  }"
+        },
+        {
+          "name": "remaining",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            59,
+            2,
+            64,
+            3
+          ],
+          "offsets": [
+            7249,
+            8044
+          ],
+          "source": "function remaining(db,doc,target){\n    const accepted=target?[target]:nextTypes[doc.type]||[];\n    // Parallel execution streams (work, issue, receipt) each have their own remainder.\n    const exact=new Map(),legacy=new Map();for(const child of db.documents.filter(d=>active(d)&&accepted.includes(d.type)))for(const line of child.lines)for(const a of allocations(child,line))if(a.documentId===doc.id){const map=a.sourceLineId?exact:legacy,key=a.sourceLineId||a.item;map.set(key,quantity((map.get(key)||0)+a.qty));}\n    return doc.lines.map(l=>{const specific=l.lineId?exact.get(l.lineId)||0:0,available=quantity(l.qty-specific),used=Math.min(Math.max(0,available),legacy.get(l.item)||0);legacy.set(l.item,quantity((legacy.get(l.item)||0)-used));return {...l,qty:quantity(available-used)};});\n  }"
+        },
+        {
+          "name": "allocations",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            65,
+            2,
+            65,
+            247
+          ],
+          "offsets": [
+            8047,
+            8292
+          ],
+          "source": "function allocations(doc,line){if(doc.type==='purchaseorder'&&doc.generatedFrom==='purchase-plan')return line.planAllocations||[];return doc.sourceId?[{documentId:doc.sourceId,item:line.item,qty:line.qty,sourceLineId:line.sourceLineId||''}]:[];}"
+        },
+        {
+          "name": "ownLineIds",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            66,
+            2,
+            66,
+            176
+          ],
+          "offsets": [
+            8295,
+            8469
+          ],
+          "source": "function ownLineIds(d){return d.lines.every(l=>typeof l.lineId==='string'&&l.lineId.length>0&&l.lineId.length<=200)&&new Set(d.lines.map(l=>l.lineId)).size===d.lines.length;}"
+        },
+        {
+          "name": "structuredLines",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            67,
+            2,
+            67,
+            198
+          ],
+          "offsets": [
+            8472,
+            8668
+          ],
+          "source": "function structuredLines(db,d){return d.type==='purchaseorder'&&d.generatedFrom==='purchase-plan'||ownLineIds(d)||!!(d.sourceId&&db.documents.find(x=>x.id===d.sourceId)?.lines.some(l=>l.lineId));}"
+        },
+        {
+          "name": "validateProvenance",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            123,
+            2,
+            142,
+            3
+          ],
+          "offsets": [
+            14947,
+            17194
+          ],
+          "source": "function validateProvenance(db,d){\n    validateOperationLink(db,d);\n    const grouped=d.type==='purchaseorder'&&d.generatedFrom==='purchase-plan';\n    if(d.generatedFrom==='purchase-plan'&&!grouped)throw Error('발주계획 생성 표시는 발주서에만 사용할 수 있습니다.');\n    if(grouped&&d.sourceId)throw Error('발주계획 배분과 단일 원본 연결을 함께 사용할 수 없습니다.');\n    if(!d.sourceId&&d.lines.some(l=>l.sourceLineId))throw Error('원본 라인 연결에는 원본 전표번호가 필요합니다.');\n    if(grouped){\n      const ids=new Set();for(const line of d.lines){\n        if(typeof line.lineId!=='string'||!line.lineId||line.lineId.length>200||ids.has(line.lineId))throw Error('발주서 원본 라인 구분을 확인하세요.');ids.add(line.lineId);\n        if(!Array.isArray(line.planAllocations)||!line.planAllocations.length||line.planAllocations.length>500)throw Error('발주계획 원본 배분을 확인하세요.');\n        let sum=0;const sources=new Set();for(const a of line.planAllocations){\n          if(!a||typeof a.documentId!=='string'||a.item!==line.item||a.sourceLineId!==undefined&&(typeof a.sourceLineId!=='string'||!a.sourceLineId)||sources.has(a.documentId+'|'+(a.sourceLineId||a.item)))throw Error('발주계획 원본 배분이 중복되거나 잘못되었습니다.');sources.add(a.documentId+'|'+(a.sourceLineId||a.item));\n          const source=db.documents.find(x=>x.id===a.documentId);if(!source||source.type!=='plan'||!source.lines.some(l=>l.item===a.item&&(!a.sourceLineId||l.lineId===a.sourceLineId))||source.lines.some(l=>l.lineId)&&!a.sourceLineId||source.warehouse!==d.warehouse||source.id===d.id)throw Error('발주계획의 원본 품목과 창고를 확인하세요.');if(typeof a.qty!=='number')throw Error('발주계획 배분 수량을 숫자로 입력하세요.');sum+=num(a.qty,'발주계획 배분 수량',.000001);\n        }\n        if(Math.abs(quantity(sum)-line.qty)>.000001)throw Error('발주계획 배분 수량과 발주서 수량이 다릅니다.');\n      }\n    }\n    if(d.sourceId){const source=db.documents.find(x=>x.id===d.sourceId);for(const line of d.lines)if(line.sourceLineId){const original=source?.lines.find(l=>l.lineId===line.sourceLineId);if(!original||original.item!==line.item)throw Error('연결된 원본 라인과 품목을 확인하세요.');}}\n    if(d.sourceId&&db.documents.find(x=>x.id===d.sourceId)?.lines.some(l=>l.lineId)&&!grouped){const keys=new Set();for(const line of d.lines){if(!line.sourceLineId||keys.has(line.sourceLineId))throw Error('원본 라인별로 수량을 입력하세요.');keys.add(line.sourceLineId);}}\n  }"
+        },
+        {
+          "name": "validateLinks",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            151,
+            2,
+            163,
+            3
+          ],
+          "offsets": [
+            17724,
+            19389
+          ],
+          "source": "function validateLinks(db){\n    for(const d of db.documents)validateProvenance(db,d);\n    for(const source of db.documents){\n      const children=db.documents.filter(d=>active(d)&&d.lines.some(l=>allocations(d,l).some(a=>a.documentId===source.id)));if(children.length&&!active(source))throw Error('연결된 후속 전표를 먼저 취소하세요.');\n      for(const type of new Set(children.map(d=>d.type)))for(const item of new Set(children.filter(d=>d.type===type).flatMap(d=>d.lines.flatMap(l=>allocations(d,l).filter(a=>a.documentId===source.id).map(a=>a.item))))){\n        const related=children.filter(d=>d.type===type).flatMap(d=>d.lines.flatMap(l=>allocations(d,l))).filter(a=>a.documentId===source.id&&a.item===item),sum=related.reduce((s,a)=>s+a.qty,0),limit=source.lines.filter(l=>l.item===item).reduce((s,l)=>s+l.qty,0);\n        // Material issues can contain BOM components rather than finished goods.\n        if(type!=='issue'&&sum>limit+.000001)throw Error('원본 전표의 잔량을 초과했습니다.');\n        for(const line of source.lines.filter(l=>l.lineId&&l.item===item))if(related.filter(a=>a.sourceLineId===line.lineId).reduce((s,a)=>s+a.qty,0)>line.qty+.000001)throw Error('원본 라인의 잔량을 초과했습니다.');\n        if(['purchasereturn','exchangereceipt'].includes(type))for(const original of source.lines.filter(l=>l.item===item)){const lines=children.filter(d=>d.type===type).flatMap(d=>d.lines.filter(l=>original.lineId?l.sourceLineId===original.lineId:l.item===original.item)),basis=effectiveLineTotals(source,original);for(const key of ['supply','tax','total'])if(money(lines.reduce((s,l)=>s+(l.returnAmounts?.[key]||0),0))>basis[key]+.001)throw Error('원본 전표의 반품·교환 금액을 초과했습니다.');}\n      }\n    }\n  }"
+        },
+        {
+          "name": "saveDoc",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            195,
+            2,
+            223,
+            3
+          ],
+          "offsets": [
+            22011,
+            26318
+          ],
+          "source": "function saveDoc(db,input){\n    const d=clone(input);if(!types[d.type])throw Error('전표 종류가 올바르지 않습니다.');\n    if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(d.date||'')||!Number.isFinite(Date.parse(d.date))||new Date(d.date).toISOString().slice(0,10)!==d.date)throw Error('일자를 확인하세요.');\n    requireCode(db,'warehouses',d.warehouse);if(d.partner)requireCode(db,'partners',d.partner);\n    for(const [field,key] of [['employee','employees'],['project','projects'],['currency','currencies']])if(d[field])requireCode(db,key,d[field]);\n    if(d.type==='work')d.minutes=num(d.minutes||0,'작업시간');\n    if(['quote','order','sale','purchaseorder','purchase','purchasereturn','exchangereceipt','shoporder'].includes(d.type)&&!d.partner)throw Error('거래처는 필수입니다.');\n    if(d.type==='transfer'){requireCode(db,'warehouses',d.targetWarehouse);if(d.warehouse===d.targetWarehouse)throw Error('보내는 창고와 받는 창고가 같습니다.');}\n    if(!Array.isArray(d.lines)||!d.lines.length||d.lines.length>500)throw Error('품목을 1~500행 입력하세요.');\n    d.vatRate=num(d.vatRate??10,'부가세율');if(d.vatRate>100)throw Error('부가세율을 확인하세요.');\n    if(d.taxRounding!==undefined)d.taxRounding=taxRounding(d.taxRounding);if(d.supplyRounding!==undefined)d.supplyRounding=supplyRounding(d.supplyRounding);\n    if(d.lines.some(l=>l.lineId)&&!ownLineIds(d))throw Error('전표 라인 구분을 중복 없이 입력하세요.');\n    const seen=new Set(),allowStructured=structuredLines(db,d);d.lines=d.lines.map(l=>{requireCode(db,'items',l.item);if(seen.has(l.item)&&!allowStructured)throw Error('같은 품목은 한 행으로 합쳐 입력하세요.');seen.add(l.item);validateLineProgress(d,l);if(['request','plan'].includes(d.type)&&l.supplier!==undefined&&typeof l.supplier!=='string')throw Error('품목행 거래처를 확인하세요.');if(['request','plan'].includes(d.type)&&l.supplier)requireCode(db,'partners',l.supplier);const x=lineTotals(l,d.vatRate,d.taxRounding,d.supplyRounding);if(d.type!=='adjust'&&(x.qty<0||(d.type!=='count'&&x.qty===0)))throw Error('수량은 0보다 커야 합니다.');return x;});\n    if(d.autoConsume&&d.type==='production'){for(const l of d.lines)if(!db.bom.some(b=>b.product===l.item))throw Error('BOM이 없는 품목입니다. BOM을 등록하거나 자동소모를 해제하세요.');requireCode(db,'warehouses',d.materialWarehouse||d.warehouse);}\n    d.consumption=d.type==='production'&&d.autoConsume?d.lines.flatMap(l=>db.bom.filter(b=>b.product===l.item).map(b=>({product:l.item,item:b.material,qty:quantity(l.qty*b.qty*(1+b.loss/100))}))):[];\n    setReturnAmounts(db,d);\n    applyForm(db,'doc:'+d.type,'input',d);d.lines=d.lines.map(l=>applyForm(db,'doc:'+d.type,'lines',l,d));\n    const index=d.id?db.documents.findIndex(x=>x.id===d.id):-1;\n    if(d.id&&index<0)throw Error('수정할 전표가 없습니다.');\n    if(index>=0&&db.documents[index].type!==d.type)throw Error('전표 종류는 변경할 수 없습니다.');\n    if(index>=0&&db.documents[index].accounted)throw Error('회계반영을 취소한 후 수정하세요.');\n    if(index>=0){const old=db.documents[index];if(old.generatedFrom==='purchase-plan'&&d.generatedFrom!==old.generatedFrom)throw Error('발주계획 생성 연결은 제거할 수 없습니다.');if(old.sourceId&&(db.documents.find(x=>x.id===old.sourceId)?.generatedFrom==='purchase-plan'||['purchasereturn','exchangereceipt'].includes(old.type)||old.type==='transfer'||old.type==='sale'&&db.documents.find(x=>x.id===old.sourceId)?.type==='transfer')&&d.sourceId!==old.sourceId)throw Error('처리한 원본 전표 연결은 제거하거나 바꿀 수 없습니다.');}\n    if(d.sourceId){const source=db.documents.find(x=>x.id===d.sourceId);if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');if(['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'].includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');}\n    d.status=statusValue(d.status);validatePurchasingState(d);if(!documentStatuses.includes(d.status))throw Error('처리 상태를 확인하세요.');\n    d.id=d.id||`${d.type.toUpperCase()}-${d.date.replaceAll('-','')}-${String(++db.sequence).padStart(5,'0')}`;d.accounted=Boolean(d.accounted);\n    if(d.accounted&&!active(d))throw Error('미확인·취소 전표는 회계반영할 수 없습니다.');\n    if(index<0)db.documents.push(d);else db.documents[index]=d;\n    rebalanceReturnAmounts(db);validateLinks(db);validateStock(db);log(db,types[d.type]+' 저장: '+d.id);return d;\n  }"
+        },
+        {
+          "name": "applyPolicy",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            406,
+            2,
+            409,
+            3
+          ],
+          "offsets": [
+            50289,
+            50569
+          ],
+          "source": "function applyPolicy(input,policy){\n    const db=clone(input);if(!policy)return db;\n    if(policy.features){db.settings.allowNegative=policy.features.allowNegative===true;db.settings.priceOrder=policy.features.pricePriority==='item'?['품목단가','특별단가']:['특별단가','품목단가'];}return db;\n  }"
+        },
+        {
+          "name": "applyLinkedProgressRules",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            421,
+            2,
+            435,
+            3
+          ],
+          "offsets": [
+            51752,
+            54204
+          ],
+          "source": "function applyLinkedProgressRules(db,children,policy){\n    const linked=(Array.isArray(children)?children:[children]).filter(d=>d&&active(d)&&d.lines.some(l=>allocations(d,l).length));\n    if(!linked.length)return;\n    const rules=policy?.inventoryFeatures?.progressRules;if(rules===undefined)return;\n    if(!Array.isArray(rules)||rules.length>100)throw Error('연결 진행 규칙을 다시 확인하세요.');\n    const seenRules=new Set();for(const rule of rules){if(!rule||typeof rule!=='object'||Array.isArray(rule)||Object.keys(rule).some(k=>!['from','to','enabled','progress'].includes(k))||typeof rule.enabled!=='boolean'||!['진행','완료'].includes(rule.progress))throw Error('연결 진행 규칙을 다시 확인하세요.');if(!rule.enabled)continue;const key=rule.from+'|'+rule.to;if(!Object.hasOwn(types,rule.from)||!Object.hasOwn(types,rule.to)||rule.from===rule.to||seenRules.has(key))throw Error('알 수 없거나 중복된 연결 진행 규칙입니다.');seenRules.add(key);}\n    const targets=new Map();for(const child of linked)for(const line of child.lines)for(const ref of allocations(child,line)){\n      const source=db.documents.find(d=>d.id===ref.documentId),matches=source&&rules.filter(r=>r.enabled&&r.from===source.type&&r.to===child.type);if(!matches?.length)continue;\n      if(!active(source)||!nextTypes[source.type]?.includes(child.type))throw Error('연결 진행 규칙의 원본 전표가 변경됐습니다.');\n      const rule=matches[0],key=source.id+'|'+rule.progress;if(!targets.has(key))targets.set(key,{source,progress:rule.progress,selections:new Map()});\n      if(source.type==='plan'){const lines=source.lines.filter(l=>l.item===ref.item&&(!ref.sourceLineId||l.lineId===ref.sourceLineId));if(lines.length!==1||lines[0].lineId&&!ref.sourceLineId)throw Error('연결 진행 규칙의 원본 품목행을 확인하세요.');const original=lines[0],id=original.lineId||original.item;targets.get(key).selections.set(id,{documentId:source.id,item:original.item,...(original.lineId?{lineId:original.lineId}:{})});}\n    }\n    const sourceStates=new Map();for(const target of targets.values()){const old=sourceStates.get(target.source.id);if(old&&old!==target.progress)throw Error('동일 원본에 서로 다른 진행 변경 규칙이 적용됐습니다.');sourceStates.set(target.source.id,target.progress);if(target.source.type==='plan')planLineProgress(db,{selections:[...target.selections.values()],progress:target.progress});else transition(db,{ids:[target.source.id],...(purchasingTypes.includes(target.source.type)?{progress:target.progress}:{status:target.progress})});}\n    validateLinks(db);validateStock(db);\n  }"
+        },
+        {
+          "name": "command",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            437,
+            2,
+            473,
+            3
+          ],
+          "offsets": [
+            54505,
+            59179
+          ],
+          "source": "function command(input,op,payload={},policy){\n    if(!commandNames.includes(op)||!payload||typeof payload!=='object'||Array.isArray(payload))throw Error('지원하지 않는 작업 또는 요청 자료입니다.');\n    const db=applyPolicy(input,policy);payload=clone(payload);let result;\n    if(op==='master')result=saveMaster(db,payload);\n    else if(op==='itemBatch'){\n      if(!Array.isArray(payload.records)||!payload.records.length||payload.records.length>10000)throw Error('일괄 품목은 1~10,000행을 입력하세요.');\n      if(new Set(payload.records.map(x=>String(x.record?.code||'').trim())).size!==payload.records.length)throw Error('일괄 품목코드가 중복됩니다.');\n      result=payload.records.map(row=>saveMaster(db,{key:'items',record:row.record,originalCode:row.originalCode}));\n    }\n    else if(op==='itemConfig'){if(!I)throw Error('품목 모듈을 다시 불러오세요.');db.settings.itemRegistration=I.validateConfig(payload.config);result=db.settings.itemRegistration;log(db,'품목 입력화면·기능설정 변경');}\n    else if(op==='document')result=saveDoc(db,payload);\n    else if(op==='purchasePlanGenerate'){if(!Array.isArray(payload.documents)||!payload.documents.length||payload.documents.length>200||payload.documents.some(d=>d.id||d.type!=='purchaseorder'||d.generatedFrom!=='purchase-plan'))throw Error('발주계획 발주서 일괄 생성 자료를 확인하세요.');result=payload.documents.map(d=>saveDoc(db,d));}\n    else if(op==='purchaseRoom'){const PR=purchaseRoomModule();if(!PR)throw Error('구매실 업무 모듈을 다시 불러오세요.');const out=PR.command(db,payload,api);db.settings.purchaseRoom=PR.validateStore(out.store,db,api);result=out.result;log(db,'구매실 업무 처리: '+payload.action);}\n    else if(op==='convert')result=convert(db,payload);\n    else if(op==='transition')result=transition(db,payload);\n    else if(op==='planLineProgress')result=planLineProgress(db,payload);\n    else if(op==='payment')result=payment(db,payload);\n    else if(op==='removePayment'){db.payments=db.payments.filter(x=>x.id!==payload.id);log(db,'수금/지급 취소');}\n    else if(op==='bom')result=setBom(db,payload);\n    else if(op==='rename')result=rename(db,payload);\n    else if(op==='bor'){requireCode(db,'items',payload.product);requireCode(db,'processes',payload.process);requireCode(db,'resources',payload.resource);const row={...payload,minutes:num(payload.minutes,'소요시간',.000001)};db.bor=db.bor.filter(x=>!(x.product===row.product&&x.process===row.process));db.bor.push(row);log(db,'BOR 저장');result=row;}\n    else if(op==='price'){requireCode(db,'items',payload.item);if(payload.group)requireCode(db,'pricegroups',payload.group);else requireCode(db,'partners',payload.partner);const row={...payload,group:payload.group||'',partner:payload.group?'':payload.partner,price:num(payload.price,'특별단가')};db.prices=db.prices.filter(x=>!(x.item===row.item&&x.partner===row.partner&&(x.group||'')===row.group&&Boolean(x.buy)===Boolean(row.buy)));db.prices.push(row);result=row;}\n    else if(op==='mapping'){requireCode(db,'shops',payload.shop);requireCode(db,'items',payload.item);if(!payload.external)throw Error('쇼핑몰 품목코드를 입력하세요.');db.mappings=db.mappings.filter(x=>!(x.shop===payload.shop&&x.external===payload.external));db.mappings.push(payload);result=payload;}\n    else if(op==='settings'){if(Object.hasOwn(payload,'purchaseRoom'))throw Error('구매실 설정은 전용 업무 명령으로 변경하세요.');db.settings={...db.settings,...payload};validateStock(db);}\n    else if(op==='formSave'){db.settings.customization=F.save(db.settings.customization,payload.key,payload.context,payload.form);result=payload.form;}\n    else if(op==='formActivate'){db.settings.customization=F.activate(db.settings.customization,payload.key,payload.context,payload.id);}\n    else if(op==='formDelete'){db.settings.customization=F.remove(db.settings.customization,payload.key,payload.id);}\n    else if(op==='formRules'){db.settings.customization=F.rules(db.settings.customization,payload.key,payload.rules);}\n    else if(op==='bulkprice'){for(const d of db.documents.filter(d=>payload.ids.includes(d.id))){if(d.accounted)throw Error('회계반영을 취소하세요.');saveDoc(db,{...d,lines:d.lines.map(l=>({...l,price:money(l.price*(1+num(payload.percent,'변경률',-100)/100))}))});}}\n    else if(op==='rebuild'){validateLinks(db);validateStock(db);log(db,'연결 잔량·재고 재검증 완료');}\n    else throw Error('지원하지 않는 작업입니다.');\n    if(['document','convert','purchasePlanGenerate'].includes(op))applyLinkedProgressRules(db,result,policy);\n    guardClosedPeriods(input,db);\n    if(db.settings.purchaseRoom)db.settings.purchaseRoom=purchaseRoomModule().validateStore(db.settings.purchaseRoom,db,api);\n    for(const p of db.masters.partners)for(const side of ['receivable','payable'])if(outstanding(db,side,p.code)<-.001)throw Error('수금/지급 잔액을 초과하게 됩니다. 수금/지급 기록을 먼저 취소하세요.');\n    return {db,result};\n  }"
+        }
+      ]
+    },
+    {
+      "path": "$SCRATCH/rea-request/dist/purchase-plan-core.js",
+      "sha256": "59725d222272b48cdd774f09d4fd6dd040b5461fcb94b6230bc77700cdcb8e99",
+      "bytes": 9754,
+      "parser": "REA6.4.0 parseJavaScriptSource; inert AST only, no own-app behavioral test or semantic analysis",
+      "parse_error_count": 0,
+      "evidence": [
+        {
+          "name": "candidateRows",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            10,
+            1,
+            17,
+            2
+          ],
+          "offsets": [
+            1015,
+            2712
+          ],
+          "source": "function candidateRows(db,options={}){\n   if(options.from)date(options.from,'기간 시작');if(options.to)date(options.to,'기간 종료');if(options.from&&options.to&&options.from>options.to)throw Error('조회 기간을 확인하세요.');\n   const query=String(options.query||'').trim().toLocaleLowerCase('ko-KR');\n   return db.documents.filter(d=>d.type==='plan'&&C.active(d)&&(!options.ids||options.ids.includes(d.id))&&(!options.from||d.date>=options.from)&&(!options.to||d.date<=options.to)).flatMap(d=>C.remaining(db,d,'purchaseorder').filter(l=>l.qty>0&&C.purchasingLineState(d,l).progress!=='완료').map(line=>{\n     const item=C.master(db,'items',line.item),supplier=line.supplier||item?.supplier||'',partner=C.master(db,'partners',supplier),original=d.lines.find(l=>line.lineId?l.lineId===line.lineId:l.item===line.item);\n     return {key:d.id+'|'+(line.lineId||line.item),...(line.lineId?{lineId:line.lineId}:{}),documentId:d.id,date:d.date,item:line.item,name:item?.name||line.item,spec:item?.spec||'',unit:item?.unit||'',dueDate:original.dueDate||d.dueDate||'',warehouse:d.warehouse,supplier,supplierName:partner?.name||'',supplierValid:!!partner&&!partner.disabled,disabled:!item||item.disabled||!C.master(db,'warehouses',d.warehouse)||C.master(db,'warehouses',d.warehouse).disabled,originalQty:original.qty,processedQty:qty(original.qty-line.qty),qty:line.qty,price:line.price||0,discount:line.discount||0,memo:line.memo||''};\n   })).filter(row=>!query||[row.documentId,row.item,row.name,row.spec,row.supplierName].some(v=>String(v).toLocaleLowerCase('ko-KR').includes(query))).sort((a,b)=>a.date.localeCompare(b.date)||a.documentId.localeCompare(b.documentId)||a.item.localeCompare(b.item,'ko-KR',{numeric:true}));\n }"
+        },
+        {
+          "name": "preview",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            19,
+            1,
+            58,
+            2
+          ],
+          "offsets": [
+            2981,
+            8307
+          ],
+          "source": "function preview(db,input={}){\n   const request=clone(input),grouping=request.grouping||'supplier-date-line';if(!modes.some(([key])=>key===grouping))throw Error('정리 방식을 선택하세요.');\n   const generationDate=date(request.date||C.today(),'생성일');if(request.dueDate)date(request.dueDate,'납기일');\n   if(!Array.isArray(request.selections)||!request.selections.length||request.selections.length>500)throw Error('발주계획 품목을 1~500행 선택하세요.');\n   const policy=grouping==='custom'?{splitSupplier:request.custom?.splitSupplier!==false,splitDueDate:request.custom?.splitDueDate!==false,mergeItems:request.custom?.mergeItems===true}:{splitSupplier:grouping.startsWith('supplier-'),splitDueDate:grouping.startsWith('supplier-'),mergeItems:grouping.endsWith('-item')};\n   const issue=(key,message)=>({key,message}),issues=[],selected=[],seen=new Set(),current=new Map(candidateRows(db).map(row=>[row.key,row])),facts=[],sourceFacts=new Map(),itemFacts=new Map();\n   for(const selection of request.selections){\n     const key=selection.documentId+'|'+(selection.lineId||selection.item);if(seen.has(key)){issues.push(issue(key,'같은 발주계획 품목을 중복 선택했습니다.'));continue;}seen.add(key);\n     const row=current.get(key),source=db.documents.find(d=>d.id===selection.documentId);if(!row||!source||row.item!==selection.item){issues.push(issue(key,'원본이 취소·완료되었거나 처리할 잔량이 없습니다.'));continue;}\n     const original=source.lines.find(l=>selection.lineId?l.lineId===selection.lineId&&l.item===selection.item:l.item===selection.item),item=C.master(db,'items',selection.item);facts.push(row);sourceFacts.set(source.id,source);itemFacts.set(item?.code,item);\n     try{\n       if(row.disabled)throw Error('사용 중인 품목과 창고를 선택하세요.');const amount=positive(selection.qty===undefined?row.qty:selection.qty);if(amount>row.qty+.000001)throw Error('원본 발주계획의 잔량을 초과했습니다.');\n       const supplier=policy.splitSupplier?(selection.supplier===undefined?row.supplier:selection.supplier):request.partner,partner=C.master(db,'partners',supplier);if(!supplier||!partner||partner.disabled)throw Error(policy.splitSupplier?'품목 구매처를 지정하세요.':'1장으로 생성할 발주서의 거래처를 지정하세요.');\n       const dueDate=selection.dueDate||row.dueDate||request.dueDate;date(dueDate,'납기일');\n       const line=clone(original);delete line.supply;delete line.tax;delete line.total;delete line.sourceLineId;delete line.lineId;delete line.planAllocations;delete line.progress;\n       line.qty=amount;line.dueDate=dueDate;line.planAllocations=[{documentId:source.id,item:line.item,qty:amount,...(original.lineId?{sourceLineId:original.lineId}:{})}];line.importedFrom=[...(line.importedFrom||[]),{documentId:source.id,type:'plan',date:source.date,item:line.item,qty:amount,mode:'linked'}];\n       selected.push({key,source,line,supplier,header:header(source),dueDate});\n     }catch(e){issues.push(issue(key,e.message));}\n   }\n   const groups=new Map();for(const row of selected){\n     const context=stable(row.header),key=stable([policy.splitSupplier?row.supplier:request.partner,policy.splitDueDate?row.dueDate:'',context]);\n     if(!groups.has(key))groups.set(key,{key,partner:row.supplier,context,header:row.header,rows:[]});groups.get(key).rows.push(row);\n   }\n   if(!policy.splitSupplier&&!policy.splitDueDate&&groups.size>1)issues.push(issue('header','1장 생성은 창고·통화·부가세율·담당자·프로젝트·추가 머리 항목이 같아야 합니다. 다른 조건은 나누어 선택하세요.'));\n   const documents=[];\n   for(const group of groups.values()){\n     const lines=[];for(const row of group.rows){const line=row.line,existing=policy.mergeItems?lines.find(l=>l.item===line.item):null;\n       if(existing){\n         const comparable=value=>Object.fromEntries(Object.entries({...value,price:Number(value.price||0),discount:Number(value.discount||0),memo:value.memo||'',custom:value.custom||{}}).filter(([key])=>!['qty','dueDate','planAllocations','importedFrom','lineId'].includes(key)));\n         if(stable(comparable(existing))!==stable(comparable(line))){issues.push(issue(row.key,'품목별 합산할 단가·할인·적요·추가 항목이 다릅니다. 라인별 정리 방식을 선택하세요.'));continue;}\n         existing.qty=qty(existing.qty+line.qty);existing.planAllocations.push(...line.planAllocations);existing.importedFrom.push(...line.importedFrom);if(existing.dueDate!==line.dueDate)existing.dueDate='';\n       }else lines.push({...line,lineId:'PL'+(lines.length+1)});\n     }\n     const dueDates=[...new Set(group.rows.map(r=>r.dueDate))],doc={...clone(group.header),type:'purchaseorder',date:generationDate,partner:group.partner,dueDate:dueDates.length===1?dueDates[0]:'',status:'진행',accounted:false,generatedFrom:'purchase-plan',planGeneration:{grouping,policy:clone(policy),sourceIds:[...new Set(group.rows.map(r=>r.source.id))]},memo:request.memo||'',lines};\n     documents.push(doc);\n   }\n   if(documents.length>200)issues.push(issue('limit','한 번에 생성할 발주서는 200장까지 가능합니다. 선택 범위를 줄이세요.'));\n   const summary={plans:new Set(selected.map(r=>r.source.id)).size,selectedLines:selected.length,documents:documents.length,lines:documents.reduce((sum,d)=>sum+d.lines.length,0),quantity:qty(selected.reduce((sum,r)=>sum+r.line.qty,0)),total:C.money(documents.reduce((sum,d)=>sum+C.totals(d).total,0)),suppliers:[...new Set(documents.map(d=>d.partner))]};\n   return {documents,issues,summary,request:{...request,date:generationDate,grouping},snapshot:stable({facts,sources:[...sourceFacts.values()],items:[...itemFacts.values()],documents,issues})};\n }"
+        },
+        {
+          "name": "commit",
+          "node_type": "FunctionDeclaration",
+          "span": [
+            59,
+            1,
+            63,
+            2
+          ],
+          "offsets": [
+            8309,
+            8806
+          ],
+          "source": "function commit(db,prepared,policy){\n   if(!prepared||typeof prepared.snapshot!=='string'||!prepared.request)throw Error('생성 미리보기를 먼저 확인하세요.');\n   const current=preview(db,prepared.request);if(current.issues.length)throw Error(current.issues[0].message);if(current.snapshot!==prepared.snapshot||stable(current.documents)!==stable(prepared.documents))throw Error('발주계획·품목·잔량 또는 미리보기가 변경됐습니다. 미리보기를 다시 확인하세요.');\n   return C.command(db,'purchasePlanGenerate',{documents:current.documents},policy);\n }"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "version": "0.6.2",
+  "status": "passed",
+  "automated": {
+    "total": 287,
+    "menu": 10,
+    "work_tabs": 15,
+    "inventory_core": 31,
+    "item_registration": 35,
+    "item_integration": 8,
+    "inventory_modal": 14,
+    "item_list": 8,
+    "inventory_dom": 7,
+    "form_core": 18,
+    "form_dom": 14,
+    "api_gateway": 26,
+    "api_dom": 8,
+    "api_manual": 8,
+    "auth": 7,
+    "self_auth": 21,
+    "self_dom": 57,
+    "release_checks": 4
+  },
+  "local_browser": {
+    "origin": "http://127.0.0.1:8782",
+    "account": "synthetic isolated fixture",
+    "checks": [
+      "own app login",
+      "basic and dedicated fields share values",
+      "item VAT included and price B saved",
+      "standard material cost 900 saved and reopened",
+      "hierarchy batch assigned",
+      "CSV preview and atomic import",
+      "input visibility setting persists after reload",
+      "purchase list filter preserved after modal edit",
+      "purchase memo saved and reopened",
+      "browser back closes modal and restores item page",
+      "work-tab select-all,partial-close,all-close,hover",
+      "sticky item save/close footer visible"
+    ],
+    "screenshots": [
+      ".artifacts/item-registration-0.6.2.png",
+      ".artifacts/tabs-manager-0.6.2.png"
+    ]
+  },
+  "original_evidence": "evidence/item-registration-rea.json",
+  "implementation_evidence": "evidence/item-implementation-rea.json",
+  "limits": [
+    "Original server save was not executed",
+    "No production app-account login performed in this release",
+    "Browser inventory and D1 API data remain separate",
+    "Original global settings and private-server behavior are not fully reproduced",
+    "Serial/lot enforcement, automatic production/quality jobs, external portal orders and cost allocation are metadata-only settings",
+    "Barcode labels are text; export is CSV, not native XLSX"
+  ]
+}

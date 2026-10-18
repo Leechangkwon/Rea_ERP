@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:04:16.284357+00:00",
+  "scope": {
+    "provenance": "Exact original DOM script.src resolved URL supplied by parent, ordinary unauthenticated GET once perURL.",
+    "GET_attempts": 2,
+    "cookies_or_authentication": false,
+    "UA_or_fingerprint_changes": false,
+    "guessed_URLs": 0,
+    "additional_GETs": 0,
+    "target_execution": false,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "application_edits": false,
+    "prior_contract_edits": false,
+    "full_REA_retries": 0,
+    "release_boundary": "Separate future research;74/0.20 and76 evidence preserved."
+  },
+  "files": {
+    "sources": "source-manifest.json",
+    "actual_REA_analysis": "analysis-summary.json",
+    "literal_discovery": "literal-discovery.json",
+    "cumulative_counts": "cumulative-counts.json"
+  },
+  "body_results": [
+    {
+      "filename": "bundle-v5-ec-lib-v5.production.8367113380026934.20.js",
+      "sha256": "deb0ce8718dec3024061c40053856a5803c623da73e2ce74e4ff0e0267215783",
+      "bytes": 103862,
+      "static_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 9812,
+      "process_status": "failed",
+      "semantic_status": "unknown_oom",
+      "callables": null,
+      "calls": null,
+      "frontiers": null,
+      "elapsed_ms": 11250,
+      "static_output": "$SCRATCH/aggregate-renderer-rea-20261018/analysis/deb0ce8718dec302/rea-static.json",
+      "stderr": "$SCRATCH/aggregate-renderer-rea-20261018/analysis/deb0ce8718dec302/process.stderr"
+    },
+    {
+      "filename": "bundle-v5-react-for-v5.production.9697909501406702.20.js",
+      "sha256": "ae1622b690cf7aa55498d92dec76b63cd7585946959c6eb6d7e831ef24997bec",
+      "bytes": 1187329,
+      "static_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 135399,
+      "process_status": "timeout",
+      "semantic_status": "unknown_timeout",
+      "callables": null,
+      "calls": null,
+      "frontiers": null,
+      "elapsed_ms": 30053,
+      "static_output": "$SCRATCH/aggregate-renderer-rea-20261018/analysis/ae1622b690cf7aa5/rea-static.json",
+      "stderr": "$SCRATCH/aggregate-renderer-rea-20261018/analysis/ae1622b690cf7aa5/process.stderr"
+    }
+  ],
+  "conclusion": "No actual $$aggregate control implementation, requested button token or condition/subtotal field was identified in these2 sources. Negative discovery and full semantic failure boundaries are retained; source filenames are not used as proof of component coverage.",
+  "contracts": {
+    "selection_initial_values": {
+      "status": "No new evidence",
+      "prior_retained_boundary": "Prior common selector returned A/show_subtotal=true; current component reception/overrides still unknown."
+    },
+    "condition_growth_and_cap": {
+      "status": "No new implementation evidence",
+      "prior_UI_evidence": "Initial4 rows; filling4 adds5; all5 filled produces no6 in observed form. Component insertion/persistence implementation remains unknown."
+    },
+    "direction_button": {
+      "status": "Actual component handler and state serialization unknown",
+      "prior_UI_evidence": "Parent observed project-axis btn-asc->btn-desc once. This batch did not establish its handler or general query mapper."
+    },
+    "subtotal_button": {
+      "status": "Actual handler/CSS-to-field mapping and post-query effect unknown",
+      "prior_UI_evidence": "Parent observed project-axis btn-add-sum->btn-unadd-sum once. Prior show_subtotal field preservation/grid config source remains separate evidence."
+    },
+    "exclusions": "No generic ColSort or legacy sort popup behavior reused to fill missing aggregate control contracts."
+  },
+  "prior_reports": [
+    "$SCRATCH/aggregate-common-rea-20261018/aggregate-consumer-contract.json",
+    "$SCRATCH/aggregate-uikit-rea-20261018/aggregate-component-contract.json"
+  ],
+  "unknowns": [
+    "Module/component providing actual current $$aggregate controls and binding",
+    "Selected-axis returned default reception/overrides",
+    "Direction/subtotal toggling field writes, reverse cycle and blank-row behavior",
+    "Automatic condition insertion/max/persistence implementation",
+    "General query direction-to-request.sorts mapper and precedence",
+    "Original server subtotal response/formulas/print consumption",
+    "Full semantic relations in these2 bodies due preserved OOM/timeout"
+  ],
+  "limits": [
+    "Full actual static analysis completed0parseerrors for both; semantic OOM/timeout is not success.",
+    "No precise handler span is reported because no handler was identified; no span or callable identity was invented.",
+    "Literal absence in these2 sources does not establish feature unsupported.",
+    "Original code remained inert. Only authorized public sourceGETs and pinned REA analysis ran."
+  ]
+}

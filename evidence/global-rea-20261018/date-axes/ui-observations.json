@@ -1,0 +1,70 @@
+{
+  "version": "0.21.0",
+  "single_axis_headers": {
+    "일별": [
+      "일별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "월별": [
+      "월별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "분기별": [
+      "분기별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "반기별": [
+      "반기별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "연별": [
+      "연별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ]
+  },
+  "masked_label_formats": {
+    "일별": "DDDD/DD/DD",
+    "월별": "DDDD/DD",
+    "분기별": "DDDD/ D분기",
+    "반기별": "DDDD/ 하반기",
+    "연별": "DDDD/"
+  },
+  "combined_day_month_headers": [
+    "일별",
+    "월별",
+    "수량",
+    "공급가액",
+    "부가세",
+    "합계"
+  ],
+  "day_selected_other_date_candidates_visible": [
+    "월별",
+    "분기별",
+    "반기별",
+    "연별"
+  ],
+  "company_records_retained": false,
+  "original_business_or_settings_save": false,
+  "own_policy": "ISO own voucher date grouped by calendar day/month/quarter/half/year; normalized own keys and observed label shape. Source drilldown filters are not ordinary group-key implementation proof.",
+  "excluded": [
+    "주차별",
+    "original subtotal rows",
+    "original drilldown links",
+    "backend formula and grouping equivalence"
+  ]
+}

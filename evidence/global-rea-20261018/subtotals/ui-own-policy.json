@@ -1,0 +1,44 @@
+{
+  "version": "0.32.0",
+  "original_ui_observation": {
+    "mode": "read-only purchase free aggregate",
+    "axes": [
+      "품목별",
+      "거래처별"
+    ],
+    "states_observed": [
+      "ON/ON",
+      "OFF/ON",
+      "OFF/OFF",
+      "ON/OFF",
+      "restored ON/ON"
+    ],
+    "on_class": "btn-add-sum",
+    "off_class": "btn-unadd-sum",
+    "toggle_itself_queries_or_saves": false,
+    "subtotal_title_relation": "current axis displayed cell + space + 계; boolean comparison only, no business label retained",
+    "subtotal_label_colspan": 2,
+    "all_off": "no non-grand merged row; 총합계 retained",
+    "business_values_names_counts_retained": false,
+    "business_mutation_or_settings_Apply": false
+  },
+  "own_policy": {
+    "defaults": "new selected axis ON; cleared/reselected ON; direct calls absent flags and legacy snapshots OFF",
+    "flags": "Boolean array aligned with original slots, compact same as axes/directions; at most5",
+    "boundaries": "after final own sorting, compare only enabled axes; flush changed active index through deepest in reverse before next data row; end deepest to outer",
+    "output": "rows/records remain base aggregates; tableRows and exportRows include subtotal and final 총합계; no synthetic zero total for empty",
+    "labels": "own current code/name label + 계; all selected-axis cells merged; CSV expands label and blank axis slots",
+    "arithmetic": "own C.quantity/C.money over base grouped values; grand total from existing base summary; original Decimal/backend rounding unknown",
+    "graph": "base records only, no subtotal/grand double count; filter changes graph only",
+    "snapshot": "copy pending full slot flags separately from last successful filter; restore recomputes successful results then restores pending controls",
+    "print": "same expanded table renderer; quantity and money precision separate; read-only no storage writes"
+  },
+  "boundaries": [
+    "Full Flexion semantic analysis timed out30s. Static exact spans do not promote semantic completion.",
+    "Observed current 2-axis shape + generic static engine narrow client behavior only; backend GROUPBY/ranges/formulas/Decimal and arbitrary templates remain unknown.",
+    "Own CSV includes displayed subtotals/grand total, original CSV and print output not executed or proven equivalent.",
+    "Missing original code/typed formatters and own 미지정/code-name labels differ.",
+    "Source initial shown-slot candidate2 vs current observed4 remains runtime/adapter distinction; no own slot-count change.",
+    "Hosted authenticated business/real touch QA not performed."
+  ]
+}

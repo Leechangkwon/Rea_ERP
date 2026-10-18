@@ -1,0 +1,66 @@
+{
+  "version": "0.41.0",
+  "source_UI": {
+    "menu": 509,
+    "grid": "gridForm-ESG005M",
+    "headers": [
+      "선택",
+      "일자-No.",
+      "거래처명",
+      "발주서발송",
+      "담당자명",
+      "입고창고명",
+      "품목명[규격명]",
+      "발주금액합계",
+      "최초작성자",
+      "최종수정자"
+    ],
+    "business_values_retained": false,
+    "actions": "DOMheaders/pageancestor/script.src only; no selectedrecord/date/input/send/output/settings/privateAPI."
+  },
+  "source_analysis": {
+    "exact_DOM_GET": 1,
+    "sha256": "ee16664371fa12568729e89f11c955152cd173926898ba92c5927586dded15ce",
+    "bytes": 13306,
+    "actual_REA": "6.4.0",
+    "static": "complete",
+    "semantic": "complete",
+    "parse_errors": 0,
+    "callables": 28,
+    "calls": 41,
+    "frontiers": 41,
+    "known": "menu509/purchaseOrder/gridForm-ESG005M matchescurrent. CHK_H andord_date_no hooks; s_print/slipPrint.inv candidate only. Writeraliasesarenotfirst/finaldisplaybinding. SF200printformnotlistform.",
+    "reference": "purchaseorder-list-columns-contract.json",
+    "cumulative_reference": "cumulative-counts.json"
+  },
+  "own_policy": {
+    "fresh_base": "10visiblecolumnsobservedorder,own4legacycolumnsdefaultHidden. Firstitemname[spec]+extra-linecount,totalownC.totalsfullenteredamount. Sendunconnected; createdBy/modifiedByexistingstringsorunrecorded,noactorfabrication.",
+    "stable_field_ids": {
+      "c0": "선택",
+      "c1": "일자-No.",
+      "c4": "거래처명",
+      "c2": "발주서발송",
+      "c3": "담당자명",
+      "c5": "입고창고명",
+      "c6": "품목명[규격명]",
+      "c7": "발주금액합계",
+      "poCreatedBy": "최초작성자",
+      "poModifiedBy": "최종수정자",
+      "c8": "진행상태 defaultHidden",
+      "c9": "참조 defaultHidden",
+      "c10": "생성한 전표 defaultHidden",
+      "c11": "최초작성일자 defaultHidden"
+    },
+    "compatibility": "Samepurchaseorder-list-v1 context;existingc0..c11meaningunchanged. opts.ids mapsfieldIDtophysicalrowposition forvalues/calculations/display/export. Savedorder/label/width/visibleoverrides remain; missingnewactorfieldsappendunderexistingF.merge. No savedform rewrite/migration.",
+    "csv": "Projectionsharedwithtable;excludeIDc0 evenafterreordering,retainslegacymappedvalues/calculations. Default9CSVcolumns.",
+    "interactions": "Dateownexistingdocumentdialog/selectall/footerprogress retained; defaultstatebadgehiddenc8 butexistingsavedformcanstilldisplayit. No originalsend/printcellbehavioradded.",
+    "unchanged": "Request/purchase/otherprojectioncallersusegeneratedcN IDs. No newDB/historyschema/dataformat; accountbrowser/D1separate."
+  },
+  "unknowns": [
+    "Activeoriginal10columnpropIDs/metadata/userformpreferences",
+    "S_PRINTvalue/renderer/click/channel/sendandwriterfirst-finalidentityformat/masks",
+    "Originalamountfullremaining/VAT/currency/rounding/receiptformula",
+    "Originalpermissions/server/Excel/linkedinputsideeffects",
+    "HostedauthenticatedbusinessQA/globalERPparity"
+  ]
+}

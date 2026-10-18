@@ -1,0 +1,37 @@
+[
+  {
+    "sha256": "ee16664371fa12568729e89f11c955152cd173926898ba92c5927586dded15ce",
+    "bytes": 13306,
+    "source": "$SCRATCH/purchaseorder-list-columns-rea-20261018/extension-originals/xesg005m.-2616615531764698946.20.js",
+    "analysis_dir": "$SCRATCH/purchaseorder-list-columns-rea-20261018/extension-analysis/ee16664371fa1256",
+    "rea_version": "6.4.0",
+    "time_budget_seconds": 30,
+    "heap_limit_MiB": 2048,
+    "source_executed": false,
+    "exit_code": 0,
+    "process_status": "completed",
+    "elapsed_ms": 317,
+    "static_status": "complete",
+    "semantic_status": "complete",
+    "parse_error_count": 0,
+    "visited_ast_nodes": 2630,
+    "static_limitations": [
+      "JavaScript syntax was parsed as data and was never evaluated."
+    ],
+    "callables": 28,
+    "calls": 41,
+    "frontiers": 41,
+    "call_resolution": {
+      "unresolved": 41
+    },
+    "semantic_limitations": [
+      "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+      "Return sites include only direct callable returns; nested callable returns remain separate.",
+      "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+      "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+      "Cross-function mutation and dynamic property resolution remain unknown."
+    ],
+    "full_source_semantic_complete": true,
+    "basis": "parse0 + bounded process complete; no retry"
+  }
+]

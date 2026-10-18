@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "date": "2026-10-18",
+  "original_origin": "https://loginbb.ecount.com",
+  "original_changes_saved": false,
+  "session_material_retained": false,
+  "live_sitemap": {
+    "top_areas": 10,
+    "groups": 59,
+    "item_and_child_paths": 759,
+    "depth_3": 248,
+    "depth_4": 511,
+    "comparison": "Matches existing menu inventory counts; business coverage is not inferred from menu presence."
+  },
+  "screens": [
+    {
+      "program": "E040303",
+      "name": "구매입력",
+      "observed_primary_buttons": [
+        "찾기(F3)",
+        "정렬",
+        "거래내역보기(구매)",
+        "My품목",
+        "발주",
+        "주문",
+        "할인",
+        "전표불러오기",
+        "재고불러오기",
+        "바코드",
+        "전표 바코드",
+        "검증"
+      ],
+      "actions": [
+        {
+          "control": "검증",
+          "observed": "Opens a separate verification grid with item code, name, specification, QTY and box-unit columns.",
+          "implemented": "Purchase primary 검증 now opens barcode comparison; required-field validation remains a separate existing helper."
+        },
+        {
+          "control": "검증(F8)",
+          "input": "Empty scan grid",
+          "observed": "Required-input tooltip and item entry focus.",
+          "implemented": "Required-input error, focus, F8 keyboard handling."
+        },
+        {
+          "control": "닫기",
+          "observed": "Returns to purchase entry without saving.",
+          "implemented": "Closes comparison without invoking draft onApply."
+        },
+        {
+          "control": "찾기(F3)/정렬/My품목/바코드",
+          "observed": "Visible inside original verification popup. Their detailed subflows were not exercised.",
+          "implemented": "Not completed by this change."
+        },
+        {
+          "control": "다시 작성",
+          "observed": "Visible; original reset action was not executed.",
+          "implemented": "Clears own verification rows only; synthetic UI tests preserve the original draft."
+        }
+      ]
+    },
+    {
+      "program": "ESC001P_304",
+      "name": "자료불러오기집계기준",
+      "observed": "Opened through purchase Option > 기능설정 > 품목범위. Code is required/disabled; name and specification selectable. Grouping and list/remaining choices appear in the same popup. Closed without saving.",
+      "static_contract": "BarcodeVerification reads DES_INC/SIZE_INC from common inventory configuration.",
+      "implemented": "Own saved name/specification scope is also used by barcode comparison; no original-company settings copied."
+    },
+    {
+      "program": "E040701 / FM079P_01 / FM083P_02",
+      "name": "재고현황 정렬/소계/합계 설정",
+      "observed": "Three initial ordering rows; up/down/delete, direction, page break, subtotal and details columns; total display settings; apply and close. Typed field-name search and selected product name in a staged third row, enabling its associated controls; closed parent without applying.",
+      "static_contract": "REA-confirmed up/down checked-row movement, selected deletion, duplicate-column validation, separate apply/save/close/F8/ESC paths.",
+      "implemented": "Three ordering priorities, raw-name choice, movement, staged deletion, duplicate rejection, apply/F8 and close cancellation. Query/output/CSV/print use the same ordering.",
+      "unverified": [
+        "Original sorted report result was not applied or queried with modified settings.",
+        "Original page splitting, subtotal line output, detail settings and unit-price totals remain unimplemented.",
+        "All available original sort fields and dynamic row expansion are not reproduced."
+      ]
+    },
+    {
+      "program": "E000125",
+      "name": "API인증키발급",
+      "observed_columns": [
+        "발급ID",
+        "발급인",
+        "발급일",
+        "인증키",
+        "유효기간"
+      ],
+      "observed_buttons": [
+        "키발급",
+        "IP등록",
+        "유효기간 연장",
+        "선택삭제",
+        "API매뉴얼",
+        "API인증현황"
+      ],
+      "verification": "Read only button labels and column headings; did not read/copy key values, issue keys, register IPs, extend validity or delete.",
+      "implemented": "No API-key screen rework in 0.11.1; original-like layout and all detailed button contracts remain pending."
+    },
+    {
+      "program": "E010107",
+      "name": "계정등록",
+      "observed_columns": [
+        "[계정코드]계정명",
+        "계정",
+        "대차구분",
+        "계정종류",
+        "평가구분",
+        "사용구분",
+        "적요"
+      ],
+      "observed_buttons": [
+        "Search(F3)",
+        "Option",
+        "도움말",
+        "신규(F2)",
+        "변경",
+        "사용중단/재사용",
+        "Excel",
+        "웹자료올리기"
+      ],
+      "public_page_source_observed": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.account/eba/views/xeba001m.-1145870202670936046.20.js",
+      "status": "Only initial read-only control and column inventory observed. No account data values retained; detailed button actions and original-source REA pending. No implementation in this release."
+    }
+  ]
+}

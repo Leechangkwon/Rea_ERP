@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "current_ui_evidence_from_parent": {
+    "stack": "Current read-only purchase report has V56-style data-columnid and active Search F3; this worker did no browser/UI operations.",
+    "symbolic_model": "purchasesXstatus",
+    "columnid_fragments_as_supplied_by_parent": [
+      "purchasesXstatus_0_inv_s$data_dt_no_head_cell",
+      "inv_m$prod_cd/prod_nm/qty/supply_amt/vat_amt/amt",
+      "prod$prod$in_price/unit/prod_group1_des/prod_group2_des/cont4/cont5",
+      "inv_m$serial_array"
+    ],
+    "field_expansion": "Grouped shorthand preserved as supplied; missing column ids or repeated prefixes were not invented.",
+    "not_business_records": true,
+    "header_count_supplied_by_parent": 16
+  },
+  "binding_limits": {
+    "fresh_preloads": "Exact no-freq status-page/actions URLs fetched once and hash-match retained freq versions. Status page is generic InventoryStatusPage delegating setup/data model; no purchase-specific16-column/model definitions inside.",
+    "retained_inventory_module": "Provides compatible V56 generic status pipeline and definitions/actions, but its precise registration/runtime selection on the current page is not independently established here.",
+    "V3_widgets": "Current page may globally preload V3 compatibility wrappers. Do not infer active widget binding or replace current F3 with V3 F8.",
+    "purchasesXstatus_literal": "Exact purchasesXstatus token is absent from retained inventory/actions and fresh page/actions bodies. Model definition is selected/fetched by menu,bizz,template,source model; absence is not unsupported-feature proof."
+  },
+  "report_modes": {
+    "source_behavior": "InventoryStatusGetDefaultSearchOptionResolver resolves aggregate_key.key for template group; aggregate_key.type defaults fixed. Source comment explicitly fixed=현황/free=집계. It selects current model from menu.definition.model_info_list and current template from dynamic attributes.",
+    "line_classification": "checkAggregate returns false for fixed with details_target.value=line; also false for free when the set of prop_id values in aggregate entries has only grid summary_line prop. Missing aggregate =>true; other cases=>true. This is an aggregate-mode boolean, not a quantity/amount aggregation formula.",
+    "summary_models": "Free conditions produce summary1..N model ids/subtotal1..N reference types; fixed details_target.props similarly creates summary models. Definitions resolved by current template/group and possibly extra targets.",
+    "unknown": "Exact current grouping menu option list, selected values and backend group-by/total formulas remain external.",
+    "evidence": [
+      "InventoryStatusGetDefaultSearchOptionResolver.OnExecuteAsync",
+      "checkAggregate",
+      "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+      "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "InventoryStatusCreateDMCResolver.getFixedAggregateModelInfo",
+      "InventoryStatusCreateDMCResolver.resolveStatusGridDefinitionAsync"
+    ]
+  },
+  "search": {
+    "entry": "Fresh actions SelectInventoryStatusUserAction delegates SearchDataModelGenerateProgram with InventoryStatusSearchBuildProcessFeature, uses payload search_type/options/file_type and graph flag; missing allowed template list alerts and returns. Retained V56 action follows same general feature pipeline with explicit dynamic template resource loading.",
+    "header": "HEADER and SIMPLE map to header resolver; resets quick_search/condition_quick, page.current_index=1, limit from menu page_size, default sort from template or grid attr, virtual-scroll runtime reset.",
+    "quick": "QUICK maps own resolver; page/limit reset, quick text from payload or route.keyword, configures quick-search common program and default sorting when instant_dmc exists.",
+    "F3": "Current F3 is parent UI observation. Retained module contains comment mentioning Search(F3); actual shortcut registration/control binding is not captured, so no keyboard equivalence claim.",
+    "evidence": [
+      "_SelectInventoryStatusUserAction.executeAsync",
+      "SelectInventoryStatusUserAction.executeAsync",
+      "modifySearchOptionResolvers$1",
+      "InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+      "InventoryStatusQuickSearchResolver.OnExecuteAsync",
+      "applyInventoryStatusDefaultSortSearchOption"
+    ]
+  },
+  "server_query_boundary": {
+    "program": "SelectInventoryStatusProgram",
+    "endpoint": "/ec56/api/inventory/action/SelectInventorySearchStatusAction",
+    "request": "DataModelModifierForSearchConditionProgram builds conditions/sorts/groups/flow_condition from search DMC and option_sort; query sends menu_type,bizz_sid,page,limit,quick condition, additional/template context. Definition/condition builder and server enforcement are separate dependencies.",
+    "response": "Returns result.data,total_number,date as data_model,total_count,date. SearchDataModelResolver can retry page1 when total_count>0 but page data empty; body_use_tf=false skips body query.",
+    "unknown": "No query was executed. Server sums, order, null/duplicate handling, permissions, quantities/prices/tax arithmetic and comparison period calculations are unobserved.",
+    "evidence": [
+      "SelectInventoryStatusProgram.onExecuteAsync",
+      "InventoryStatusSearchDataModelResolver.OnExecuteAsync"
+    ]
+  },
+  "comparison": {
+    "source_behavior": "Literal aggregate?.comparison_period !== string0 plus two-array response triggers normalization: first array rows __period_index=1, second=2, concatenate. setPageData stores server-returned date in ICompareDateOptionRuntime.",
+    "drilldown": "Fresh actions StandardUserAction uses comparison column suffix and runtime date.compare.from/to for secondary-period drilldown, and resets comparison_period0/detail line in target search; exact date generation is not in these bodies.",
+    "unknown": "전년/전월/전주/전일 code mapping, leap-day handling, week start, inclusive end date, matching aggregation buckets and ratio/difference arithmetic remain unknown.",
+    "evidence": [
+      "InventoryStatusNormalizeDataModelResolver.OnExecuteAsync",
+      "InventoryStatusNormalizeDataModelResolver.requiredNormalization",
+      "setPageData",
+      "_StandardUserAction.executeAsync"
+    ]
+  },
+  "sorting": {
+    "source_behavior": "SORT resolver rebuilds search_options.sort from payload; preserves form page-separate sort prefix, disables its subtotal flags, adds clicked-column sorts after max prefix priority, stores ISortInfoRuntime and previous content scroll. Header search separately reapplies template default sort.",
+    "unknown": "Actual comparator/locale/numeric/null order on server and current column-click cycle not established by syntax.",
+    "evidence": [
+      "InventoryStatusSortSearchResolver.OnExecuteAsync",
+      "InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+      "applyInventoryStatusDefaultSortSearchOption"
+    ]
+  },
+  "excel": {
+    "source_behavior": "EXCEL search_type maps InventoryExcelSearchResolver; EXCEL post-process selects InventoryStatusDownloadExcelResolver instead of normal UI update. Download resolver delegates excel$DownloadExcelProgram using fetched models/definitions/current template, default file_type xlsx, download_mode, is_check_file_security=true and title/date context.",
+    "limits": "Search resolver alerts when EXCEL total_count>100000; actual truncation behavior is not established by this alert.",
+    "unknown": "Actual export framework/permission policy/file contents and current footer binding are external; V3 ecount.document.exportExcel is a separate path.",
+    "evidence": [
+      "modifySearchOptionResolvers$1",
+      "getPostProcessResolver$2",
+      "InventoryStatusDownloadExcelResolver.OnExecuteAsync",
+      "InventoryStatusSearchDataModelResolver.OnExecuteAsync"
+    ]
+  },
+  "print": {
+    "status": "Current V56 print control/route not found in these fresh page/actions definitions. V3 printHtml contract is available separately but not claimed active.",
+    "unknown": "Current report print renderer and shortcut source require the exact actually-bound shared control/runtime, not guessed URLs."
+  },
+  "template_columns": {
+    "source_behavior": "SelectInventoryStatusUserAction dynamically fetches ctx_definition/template item/grid attributes for status model and template. resolveStatusGridDefinitionAsync queries definition using template/group/source targets. The16observed headers stay UI evidence, not static hardcoded-column proof.",
+    "amounts": "No per-column purchase report total formulas derived from field names; amt/supply_amt/vat_amt/qty definitions and server calculations remain unverified.",
+    "evidence": [
+      "SelectInventoryStatusUserAction.executeAsync",
+      "InventoryStatusCreateDMCResolver.resolveStatusGridDefinitionAsync"
+    ]
+  }
+}

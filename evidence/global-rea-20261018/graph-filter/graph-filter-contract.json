@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T08:41:01.445972+00:00",
+  "scope": {
+    "retained_original_bodies": 78,
+    "original_bytes": 19149569,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "original_save_or_input_row_actions": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "separate_from": "$SCRATCH/purchase-graph-rea-20261018"
+  },
+  "owner_observation": {
+    "source": "Parent task message only; no worker UI/data access",
+    "facts": [
+      "Original purchase report graph query showed a >=30-style confirmation/top10 recommendation followed by SVG display.",
+      "Original graph footer visible button: data-item-key=graph_filter_footer_toolbar, label 필터.",
+      "Parent subsequently disabled graph and restored ordinary item-summary5columns."
+    ],
+    "filter_popup_apply_or_settings_save": "Not performed/authorized for this research; parent plans open only.",
+    "no_company_values_stored": true
+  },
+  "binding": {
+    "observed_selector": "[data-item-key='graph_filter_footer_toolbar']",
+    "observed_label": "필터",
+    "literal_status": "Exact generated footer key absent in78; generic graph_filter template IDs present. Current dynamic button/action attributes and registry payload not captured.",
+    "compatible_V56_action": "common$IConfigureGraphFilterUserAction / ConfigureGraphFilterUserAction.executeAsync",
+    "compatible_V3_widget": "eccomposite_v1.unit.widget.graphFilter",
+    "limit": "These are compatible consumers, not proof that current observed footer dispatches this exact implementation. Existing source preload/global widget presence alone is insufficient."
+  },
+  "V56_filter_open": {
+    "ref": "common::ConfigureGraphFilterUserAction.executeAsync",
+    "span": [
+      56268,
+      26,
+      56322,
+      5
+    ],
+    "evidence_level": "Original common static AST; full semantic OOM2GB preserved, no retry",
+    "steps": [
+      "Read template data_view_format.setting; return if absent.",
+      "Resolve status model ID and read writable viewer graph_config/platform_config/origin_graph_config.",
+      "Use original chart datas and original legend text plus current config to build filter rows.",
+      "Open IConfigureGraphFilterPage with legendData/categoryData/current graph_config.checkedList/useYn."
+    ],
+    "save_query_boundary": "No direct Save/RAC/service query or persistent-setting write occurs before popup open in this handler. Route feature/openPopupAsync and popup implementation are external. This is not an end-to-end guarantee that opening has no side effects.",
+    "transient_state_detail": "getFilterData can fill missing legendColors entries. Caller passes _.extend({},platform_config,graph_config), a shallow clone; existing nested arrays may be shared with viewer config. No setViewerState call occurs before popup, but do not call this completely immutable."
+  },
+  "V56_filter_row_contract": {
+    "ref": "common::getFilterData",
+    "source_span": [
+      56327,
+      22,
+      56464,
+      1
+    ],
+    "categories": "For non-pie types, one categoryData entry per original datas category: MAIN_GUBUN category label, SUB_GUBUN=category, COLOR, DATA_TYPE1; first row has ROW_CNT.",
+    "legends": "Each first category series becomes legendData with DATA_TYPE2, numeric ID and GROUPID. In2x1 matrix SUB_GUBUN is groupId; other matrices use original legend text by groupId. For pie, legend rows represent original categories and GROUPID=category; no category rows built by this switch.",
+    "flag": "useYn=true for bar or horizontalBar only; otherwise undefined in this function. Popup meaning of this flag is not established.",
+    "selector_unknown": "CHECKED defaults, select-all/search/color-picker controls, row key construction, keyboard handling and reset button behavior are in missing popup implementation. Existing graph_config.checkedList is forwarded for potential restore; this producer does not decide default checks."
+  },
+  "V56_filter_return": {
+    "ref": "common::ConfigureGraphFilterUserAction.executeAsync",
+    "guard": "Only if popup_result.message is truthy; no explicit apply/cancel discriminator in this caller.",
+    "order": [
+      "Assign existing graph_config.filterData=message.",
+      "createChartOption(platform_config plus filterData, existing graphId).",
+      "Attach checkedList, category/legend color arrays; setViewerState with new graph_config and is_reset_size=true.",
+      "Invoke optional popup message callback last."
+    ],
+    "boundary": "This is chart viewer-state mutation. No direct backend aggregate query/business Save call in shown post-handler, but arbitrary callback/renderer work is unresolved. Whether close/Escape/cancel returns no message or apply returns message cannot be proved without popup producer.",
+    "reopen": "Passes current checkedList on next open; no explicit clearing on filter-open. Persistence beyond current graph/viewer lifecycle is unknown."
+  },
+  "filter_application_static": {
+    "ref": "common::getChartOptionFilter",
+    "non_pie": "Remove categories where categoryData.CHECKED is false by category==SUB_GUBUN; remove unchecked legend series by GROUPID from every category and legend shape/text; apply selected legend/category colors.",
+    "pie": "Iterate checkedList, parse suffix after external rowKeySeparator, collect corresponding category datas in checkedList order; then remove unchecked legend category and update chosen colors.",
+    "limits": "These routines filter/format newly generated chart options. They do not prove original popup check defaults, selector/reset actions, backend data filtering, source group key correctness or final rendering. Final data grouping and chart construction remain external graph.data/renderer calls."
+  },
+  "graph_settings_entry_separate": {
+    "ref": "common::ConfigureGraphOptionsUserAction.executeAsync",
+    "before_popup": "Read aggregate/current template; set prev_template_info; GetGraphColumnInfoProgram performs template metadata query; set formDesignData and IGraphOption=null; validator performs template-config query. If valid, open IConfigureGraphOptionsPage with axisInfo/current graphSetting.",
+    "writes_on_open": "Only shown temporary runtime state changes and metadata requests; no explicit persistent graph-setting Save call in this action. Popup route/implementation external.",
+    "return_order": "If message exists: optional callback first, then IGraphOption/isAppliedGraphOption, fallback title if missing, template data_view_format={setting,is_graph:true}. The callback is before local state updates here, unlike filter return callback last.",
+    "unknown": "Actual current settings event binding, popup controls/defaults/Reset/Apply/Cancel/Save semantics and any callback-driven query remain unknown. No popup setting was applied in this research."
+  },
+  "reset_boundaries": [
+    {
+      "path": "V56 filter",
+      "fact": "No local Reset action or checkedList reset defined in retained filter caller. Missing popup owns reset/select-all UI. New graph lifecycle may replace configs, but no full persistence/reset contract is proved."
+    },
+    {
+      "path": "V3 filter",
+      "refs": [
+        "v3-footer::eccomposite_v1.unit.widget.graphFilter.init",
+        "v3-footer::eccomposite_v1.unit.widget.graphFilter.onPostSearch"
+      ],
+      "fact": "init and every onPostSearch explicitly set checkedList=null and filterSetting={}; post-search shows filter only for graph, hides otherwise. This is V3 behavior, not automatically current V56."
+    },
+    {
+      "path": "V3 settings",
+      "refs": [
+        "v3-header::eccomposite_v1.unit.widget.dataViewType._reset",
+        "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeFormSeq",
+        "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeFormType"
+      ],
+      "fact": "_reset clears isAppliedGraphOption/formDesignData/graphOption, removes settings emphasis and empties graph checkbox; form changes may call it. It is not evidence for missing popup Reset."
+    }
+  ],
+  "ranking_and_30_confirmation": {
+    "query_ref": "inventory::InventoryStatusUpdateDataModelResolver.OnExecuteAsync",
+    "exact_condition": "(total_count??0)>=30 AND is_graph AND _.vIsEmpty(setting.comparatorColumn)",
+    "response": "confirmAsync(rex03618); false -> show search panel/hide search button and return before rest of this resolver. This branch does not itself choose or truncate10 records.",
+    "ranking_ref": "common::GraphConfigBuilder.composePlatformConfig",
+    "ranking_fields": "isShowHighest/isShowLowest enables comparatorPropName. Pie usesy1, normal usescomparatorColumn, aggregate overrides to y1. Defaults in retained inventory graph setup are bothfalse.",
+    "external_ref": "common::getChartOptionByMatrix",
+    "unknown": "Actual top/bottom10 selection, threshold settings UI, tie ordering, aggregation before ranking, categories after filter and persisted ranking preferences are external/missing. Do not convert warning recommendation into a proven top10 formula. Legacy footer helper with10-named flags is a separate unverified consumer and is not promoted to current behavior."
+  },
+  "V3_filter_compatible_separate": {
+    "refs": [
+      "v3-footer::eccomposite_v1.unit.widget.graphFilter._ON_CLICK",
+      "v3-footer::eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onHeaderDataTypeLink",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup"
+    ],
+    "open": "V3 footer gets dataViewType graph setting; ecmodule.common.graph.getFilterData creates legend/category rows; opens modal /ECErp/SVC/Popup/GraphFilter380x420 with checkedList/useYn. No direct save in this click handler.",
+    "return": "Message handler sets checkedList and color state, calls external ecmodule.common.graph.createGraphData then active graph.draw using prior row data. No guard here proves cancel/apply message contract.",
+    "settings": "dataTypeLink handler uses cached formDesignData or metadata request before GraphSetupSetting popup. These V3 settings/filters are compatible retained code; current V56 binding is still unverified."
+  },
+  "evidence_files": {
+    "precise_source": "$SCRATCH/graph-filter-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json",
+    "corpus_scan": "$SCRATCH/graph-filter-rea-20261018/corpus-scan.json"
+  },
+  "unknowns": [
+    "Current generated graph_filter_footer_toolbar action binding and widget callback consumers.",
+    "Missing IConfigureGraphFilterPage/IConfigureGraphOptionsPage producers: selectors, reset defaults, apply/cancel/close/escape and save scope.",
+    "Common full semantic remains OOM2GB; static spans are not semantic completion. No source or original code was executed.",
+    "No new bodies. Original78/19149569B and previous static77complete+1partial, semantic73complete+1partial+2timeouts+2OOM totals unchanged."
+  ]
+}

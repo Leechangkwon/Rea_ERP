@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-18",
+  "origin_program": "E040303",
+  "private_values_retained": false,
+  "observed": [
+    "Empty source plus verification-only product opens discrepancy result; default columns are product code/source quantity/scanned quantity, close only.",
+    "Verification reset clears scan grid without a confirmation in observed empty-parent context.",
+    "Barcode menu contains aggregate/individual basic/additional quantity modes. Only menu was read.",
+    "My-items without default shows alert: 등록된 MY품목이 없습니다. MY품목 설정에서 기본그룹을 설정하기 바랍니다.",
+    "My-item settings shows tab name/group name/default and Save F8/My code settings/Close. Settings closed without saving."
+  ],
+  "temporary_draft_incident": {
+    "trigger": "Selecting a product into an otherwise blank main purchase input created a temporary autosave indication.",
+    "business_save_clicked": false,
+    "cleanup": "Stopped main input editing; Reset cleared UI. Deleted only the newly created temporary draft. Fresh UI observation confirmed its banner removed and main grid blank.",
+    "future_boundary": "No further original main-row edits. Read-only views/popups/public source and own synthetic quantity tests."
+  },
+  "unverified": [
+    "Success comparison alert/wording/next state",
+    "Original full search engine matching and repeat traversal",
+    "Favorite loader row insertion consumer",
+    "Additional quantity mapping and real scanner events",
+    "Server business saves and settings saves"
+  ]
+}

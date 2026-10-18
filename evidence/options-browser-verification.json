@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "version": "0.3.0",
+  "date": "2026-10-15",
+  "environment": "Actual Codex in-app browser; synthetic local dataset only",
+  "checks": [
+    {
+      "name": "Option menu and form editor",
+      "passed": true,
+      "observed": "UI exposes template, field, search, conditional, page settings."
+    },
+    {
+      "name": "input layout and required field",
+      "passed": true,
+      "observed": "memo renamed, project hidden, delivery default populated; empty required field blocks save."
+    },
+    {
+      "name": "BODY formula and preservation",
+      "passed": true,
+      "observed": "qty 3 x price 20,000 x 5% -> read-only custom value 3,000; header text preserved."
+    },
+    {
+      "name": "save query and reload",
+      "passed": true,
+      "observed": "saved delivery text and fee 3,000 appear in sales report and survive reload."
+    },
+    {
+      "name": "conditional form switch",
+      "passed": true,
+      "observed": "W002 activates production form; quantity 4, memo and calculated fee 4,000 are preserved."
+    },
+    {
+      "name": "report form and CSV",
+      "passed": true,
+      "observed": "customer label, hidden category, total 176,000; downloaded CSV contains new labels and custom values."
+    },
+    {
+      "name": "voucher print preview",
+      "passed": true,
+      "observed": "custom voucher title and landscape orientation; custom fee column shown. Native printer was not invoked."
+    },
+    {
+      "name": "JSON backup",
+      "passed": true,
+      "observed": "downloaded JSON contains five forms, one condition and saved line fee 3,000."
+    },
+    {
+      "name": "report page settings",
+      "passed": true,
+      "observed": "report-specific title and landscape applied; proportional column widths present in preview."
+    },
+    {
+      "name": "final view",
+      "passed": true,
+      "observed": "BODY form editor is open as deliverable; browser error log empty."
+    }
+  ],
+  "screenshot": "evidence/options-preview.jpg",
+  "source_account_settings_saved": false,
+  "original_observed_labels": [
+    "Option",
+    "양식설정",
+    "조건양식설정",
+    "검색항목설정",
+    "기본(수정불가)",
+    "BODY설정",
+    "페이지설정",
+    "기본값복원"
+  ],
+  "hashes": {
+    "dist/form-core.js": "726062efc08a7473407496a630ba9c5834c4cca180cb530aad9d91b8de4f1d16",
+    "dist/form-options.js": "10cc5bfe0a0cc289be0af8d6027335c76749bcfcb6d7b956bdf8c0e5b9ca6482",
+    "dist/form-options.css": "b5632ad7aab733064590a5591120a3fe072cd5fe9c833a6a35acb6d96552057f",
+    "dist/inventory-core.js": "0bbf1f000cfbae746e2460cf3b9f4f3674e8f14c8cbbe1e6bf209bfdac452de7",
+    "dist/inventory-ui.js": "fccf854900de2d19bf13141097146b555885bf3889c159993734aec2404a948e",
+    "dist/index.html": "e48b2b799880d22f7fd7d908ec85de54e5c5e5aff9fef126e2d6f2c81f6ddc68",
+    "package.json": "5aa224227f7527681069f73d9b8bcf517a1a7c32b50d5012a270e34dda362847"
+  },
+  "limits": [
+    "Independent implementation, not full original Option parity.",
+    "Complex AND/OR exceptions, shared roles and access policies are not implemented.",
+    "Desktop printing was previewed, not physically printed.",
+    "JSON restore mechanics were verified in core/DOM tests; the live browser verified backup contents."
+  ]
+}

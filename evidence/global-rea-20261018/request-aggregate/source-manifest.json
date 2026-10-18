@@ -1,0 +1,60 @@
+{
+  "scope": {
+    "retained_bodies": 84,
+    "bytes": 25247564,
+    "new_GETs": 0,
+    "new_semantic_runs": 0,
+    "source_execution": false,
+    "browser_privateAPI": false,
+    "app_priorcontract_edits": false,
+    "tests": false
+  },
+  "sources": [
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "full_semantic": "retained complete",
+      "IR": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json"
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "full_semantic": "prior common OOM",
+      "IR": null
+    },
+    {
+      "id": "report-wrapper",
+      "path": "$SCRATCH/rea-request/.artifacts/purchasing-original/reportPage.js",
+      "sha256": "6bdc598e619328fe08e0d0fa8211b5d3c8c3ba777dc876863ed7d12621806dce",
+      "bytes": 1030,
+      "parse_error_count": 0,
+      "full_semantic": "retained complete",
+      "IR": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/6bdc598e619328fe/rea-semantic-ir.json"
+    },
+    {
+      "id": "actions",
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/actions.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "parse_error_count": 0,
+      "full_semantic": "retained complete",
+      "IR": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/04-actions-e70f31a1ac77/rea-semantic-ir.json"
+    }
+  ],
+  "whole_corpus_status_preserved": {
+    "unique_bodies": 84,
+    "bytes": 25247564,
+    "static_complete": 82,
+    "static_partial": 2,
+    "semantic_complete": 77,
+    "semantic_partial": 2,
+    "semantic_timeout": 3,
+    "semantic_OOM": 2
+  }
+}

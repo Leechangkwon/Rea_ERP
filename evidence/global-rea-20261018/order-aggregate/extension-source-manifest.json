@@ -1,0 +1,74 @@
+{
+  "baseline_file": "$SCRATCH/aggregate-subtotals-rea-20261018/cumulative-counts.json",
+  "baseline_fixed": {
+    "unique_bodies": 82,
+    "bytes": 23596477,
+    "static_complete": 81,
+    "static_partial": 1,
+    "semantic_complete": 76,
+    "semantic_partial": 1,
+    "semantic_timeout": 3,
+    "semantic_OOM": 2
+  },
+  "provenance": "Parent exact currentorder DOM script[src]; current programIdE040306 separately observed, body binding not assumed",
+  "sources": [
+    {
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.inventory/esg/views/xesg016r.6420224041262296222.20.js",
+      "provenance": "Exact parent read-only originalorder DOM script[src]",
+      "attempts": 1,
+      "authenticated": false,
+      "cookies_sent": false,
+      "UA_changed": false,
+      "target_executed": false,
+      "existing_basename_match": false,
+      "downloaded_at": "2026-10-18T10:22:32.266504+00:00",
+      "http_status": 200,
+      "headers": {
+        "Content-Type": "application/x-javascript",
+        "Content-Encoding": "gzip",
+        "Content-Length": "3723",
+        "Last-Modified": "Thu, 25 Sep 2025 21:14:51 GMT",
+        "ETag": "\"8c3e03a606ae5eced1a0063d89d10325\"",
+        "Date": "Sun, 18 Oct 2026 10:22:42 GMT"
+      },
+      "transport_bytes": 3723,
+      "gzip_magic": true,
+      "sha256": "580201f20dc67ad1118a5dbab7bce5091e538afda72842f785b872c3ad4ac660",
+      "bytes": 12750,
+      "new_unique_body": true,
+      "gzip_decoded": true,
+      "path": "$SCRATCH/order-status-rea-20261018/extension-originals/xesg016r.6420224041262296222.20.js",
+      "SHA_verified_after_save": true,
+      "status": "captured"
+    },
+    {
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/bundle/bundle.ecount.grid.-3036729489893836383.20.js",
+      "provenance": "Exact parent read-only originalorder DOM script[src]",
+      "attempts": 1,
+      "authenticated": false,
+      "cookies_sent": false,
+      "UA_changed": false,
+      "target_executed": false,
+      "existing_basename_match": false,
+      "downloaded_at": "2026-10-18T10:22:42.538854+00:00",
+      "http_status": 200,
+      "headers": {
+        "Content-Type": "application/x-javascript",
+        "Content-Encoding": "gzip",
+        "Content-Length": "319569",
+        "Last-Modified": "Sun, 31 May 2026 23:27:35 GMT",
+        "ETag": "\"4817b27ea2083db8ed0e40d06b6fc710\"",
+        "Date": "Sun, 18 Oct 2026 10:22:48 GMT"
+      },
+      "transport_bytes": 319569,
+      "gzip_magic": true,
+      "sha256": "591745ae2c4e2c998583ce7dbf9a45d830b0f2cf99486001d9f6638e314bc860",
+      "bytes": 1638337,
+      "new_unique_body": true,
+      "gzip_decoded": true,
+      "path": "$SCRATCH/order-status-rea-20261018/extension-originals/bundle.ecount.grid.-3036729489893836383.20.js",
+      "SHA_verified_after_save": true,
+      "status": "captured"
+    }
+  ]
+}

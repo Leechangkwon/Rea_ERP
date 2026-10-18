@@ -1,0 +1,920 @@
+{
+  "refs": {
+    "common::createProgressStatusRunTime": {
+      "span": [
+        11762,
+        0,
+        11804,
+        1
+      ],
+      "offsets": [
+        540058,
+        542160
+      ],
+      "source_id": "common",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic OOM2GiB; no full IR/retry; source AST only here"
+    },
+    "common::progress_status$display_state": {
+      "span": [
+        19726,
+        6,
+        19755,
+        1
+      ],
+      "offsets": [
+        871585,
+        873415
+      ],
+      "source_id": "common",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic OOM2GiB; no full IR/retry; source AST only here"
+    },
+    "common::progress_status$layer_props": {
+      "span": [
+        19765,
+        81,
+        19769,
+        1
+      ],
+      "offsets": [
+        874105,
+        874527
+      ],
+      "source_id": "common",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic OOM2GiB; no full IR/retry; source AST only here"
+    },
+    "common::print_info$tooltip_message": {
+      "span": [
+        19854,
+        8,
+        19877,
+        1
+      ],
+      "offsets": [
+        878245,
+        879162
+      ],
+      "source_id": "common",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic OOM2GiB; no full IR/retry; source AST only here"
+    },
+    "common::createPrintInfoMessage": {
+      "span": [
+        19878,
+        0,
+        19890,
+        1
+      ],
+      "offsets": [
+        879164,
+        879799
+      ],
+      "source_id": "common",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic OOM2GiB; no full IR/retry; source AST only here"
+    },
+    "common::NumericInterceptor.afterConvert": {
+      "span": [
+        33399,
+        4,
+        33432,
+        5
+      ],
+      "offsets": [
+        1517463,
+        1519333
+      ],
+      "source_id": "common",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic OOM2GiB; no full IR/retry; source AST only here"
+    },
+    "inventory::SelectInventoryListProgram.onExecuteAsync": {
+      "span": [
+        9385,
+        4,
+        9440,
+        5
+      ],
+      "offsets": [
+        452157,
+        454728
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [
+        "callable:method:452157:454728"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:452221:452263",
+        "call:call:452342:452599",
+        "call:call:452342:452519",
+        "call:call:452621:452798",
+        "call:call:452922:452958",
+        "call:call:453054:454333",
+        "call:call:453735:453796",
+        "call:call:454459:454509",
+        "call:call:454529:454586"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 9
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::SelectInventoryListProgram._checkUseStatusType": {
+      "span": [
+        9505,
+        4,
+        9509,
+        5
+      ],
+      "offsets": [
+        458025,
+        458282
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [
+        "callable:method:458025:458282"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:458112:458175",
+        "call:call:458244:458275"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 2
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::ContractOutProcTransformUserAction.getPropsMapByTransform": {
+      "span": [
+        22912,
+        8,
+        23103,
+        9
+      ],
+      "offsets": [
+        1186843,
+        1200113
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [
+        "callable:function:1186843:1200113"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:construct:1186927:1186936",
+        "call:call:1187056:1187097",
+        "call:call:1187119:1187157",
+        "call:call:1187179:1187214",
+        "call:call:1187236:1187275",
+        "call:call:1187297:1187331",
+        "call:call:1187353:1187388",
+        "call:call:1187410:1187446",
+        "call:call:1187468:1187505",
+        "call:call:1187527:1187563",
+        "call:call:1187585:1187622",
+        "call:call:1187644:1187679",
+        "call:call:1187701:1187740",
+        "call:call:1187762:1187798",
+        "call:call:1187820:1187875",
+        "call:call:1187897:1187950",
+        "call:call:1187972:1188022",
+        "call:call:1188044:1188099",
+        "call:call:1188121:1188157",
+        "call:call:1188179:1188221",
+        "call:call:1188243:1188281",
+        "call:call:1188303:1188340",
+        "call:call:1188362:1188399",
+        "call:call:1188421:1188458",
+        "call:call:1188480:1188517",
+        "call:call:1188539:1188576",
+        "call:call:1188598:1188635",
+        "call:call:1188657:1188695",
+        "call:call:1188717:1188755",
+        "call:call:1188777:1188815",
+        "call:call:1188837:1188875",
+        "call:call:1188897:1188935",
+        "call:call:1188957:1188995",
+        "call:call:1189017:1189054",
+        "call:call:1189076:1189118",
+        "call:call:1189140:1189201",
+        "call:call:1189223:1189267",
+        "call:call:1189289:1189332",
+        "call:call:1189354:1189404",
+        "call:call:1189426:1189471",
+        "call:call:1189493:1189538",
+        "call:call:1189560:1189605",
+        "call:call:1189627:1189671",
+        "call:call:1189693:1189731",
+        "call:call:1189753:1189800",
+        "call:call:1189822:1189870",
+        "call:call:1189892:1189938",
+        "call:call:1189960:1190001",
+        "call:call:1190023:1190072",
+        "call:call:1190094:1190145",
+        "call:call:1190167:1190215",
+        "call:call:1190237:1190288",
+        "call:call:1190310:1190373",
+        "call:call:1190395:1190455",
+        "call:call:1190477:1190530",
+        "call:call:1190552:1190611",
+        "call:call:1190729:1190804",
+        "call:call:1190751:1190767",
+        "call:call:1190785:1190801",
+        "call:call:1190830:1190905",
+        "call:call:1190852:1190868",
+        "call:call:1190886:1190902",
+        "call:call:1190931:1191006",
+        "call:call:1190954:1190970",
+        "call:call:1190987:1191003",
+        "call:call:1191032:1191108",
+        "call:call:1191053:1191069",
+        "call:call:1191089:1191105",
+        "call:call:1191134:1191213",
+        "call:call:1191158:1191174",
+        "call:call:1191194:1191210",
+        "call:call:1191276:1191353",
+        "call:call:1191298:1191314",
+        "call:call:1191334:1191350",
+        "call:call:1191379:1191456",
+        "call:call:1191401:1191417",
+        "call:call:1191437:1191453",
+        "call:call:1191482:1191559",
+        "call:call:1191505:1191521",
+        "call:call:1191540:1191556",
+        "call:call:1191585:1191663",
+        "call:call:1191606:1191622",
+        "call:call:1191644:1191660",
+        "call:call:1191689:1191770",
+        "call:call:1191713:1191729",
+        "call:call:1191751:1191767",
+        "call:call:1191850:1191893",
+        "call:call:1191915:1191958",
+        "call:call:1191980:1192023",
+        "call:call:1192078:1192123",
+        "call:call:1192145:1192190",
+        "call:call:1192212:1192257",
+        "call:call:1192390:1192427",
+        "call:call:1192449:1192486",
+        "call:call:1192508:1192545",
+        "call:call:1192567:1192608",
+        "call:call:1192630:1192671",
+        "call:call:1192693:1192734",
+        "call:call:1192756:1192800",
+        "call:call:1192822:1192857",
+        "call:call:1192879:1192918",
+        "call:call:1192940:1192975",
+        "call:call:1192997:1193027",
+        "call:call:1193049:1193086",
+        "call:call:1193108:1193154",
+        "call:call:1193176:1193215",
+        "call:call:1193237:1193287",
+        "call:call:1193309:1193353",
+        "call:call:1193375:1193414",
+        "call:call:1193436:1193493",
+        "call:call:1193515:1193553",
+        "call:call:1193575:1193620",
+        "call:call:1193642:1193688",
+        "call:call:1193710:1193751",
+        "call:call:1193773:1193837",
+        "call:call:1193859:1193891",
+        "call:call:1193913:1193952",
+        "call:call:1193974:1194029",
+        "call:call:1194051:1194119",
+        "call:call:1194141:1194185",
+        "call:call:1194207:1194252",
+        "call:call:1194274:1194328",
+        "call:call:1194350:1194384",
+        "call:call:1194406:1194453",
+        "call:call:1194485:1194535",
+        "call:call:1194566:1194612",
+        "call:call:1194699:1194774",
+        "call:call:1194721:1194737",
+        "call:call:1194755:1194771",
+        "call:call:1194800:1194875",
+        "call:call:1194822:1194838",
+        "call:call:1194856:1194872",
+        "call:call:1194901:1194976",
+        "call:call:1194924:1194940",
+        "call:call:1194957:1194973",
+        "call:call:1195002:1195078",
+        "call:call:1195023:1195039",
+        "call:call:1195059:1195075",
+        "call:call:1195104:1195183",
+        "call:call:1195128:1195144",
+        "call:call:1195164:1195180",
+        "call:call:1195227:1195270",
+        "call:call:1195328:1195374",
+        "call:call:1195396:1195443",
+        "call:call:1195465:1195512",
+        "call:call:1195534:1195577",
+        "call:call:1195599:1195637",
+        "call:call:1195659:1195704",
+        "call:call:1195726:1195775",
+        "call:call:1195797:1195846",
+        "call:call:1195868:1195917",
+        "call:call:1195939:1195984",
+        "call:call:1196006:1196051",
+        "call:call:1196106:1196159",
+        "call:call:1196181:1196235",
+        "call:call:1196257:1196312",
+        "call:call:1196334:1196391",
+        "call:call:1196413:1196460",
+        "call:call:1196482:1196539",
+        "call:call:1196561:1196616",
+        "call:call:1196638:1196703",
+        "call:call:1196725:1196782",
+        "call:call:1196804:1196871",
+        "call:call:1196893:1196958",
+        "call:call:1196980:1197055",
+        "call:call:1197077:1197142",
+        "call:call:1197164:1197223",
+        "call:call:1197245:1197304",
+        "call:call:1197326:1197385",
+        "call:call:1197407:1197466",
+        "call:call:1197488:1197547",
+        "call:call:1197569:1197628",
+        "call:call:1197650:1197709",
+        "call:call:1197731:1197790",
+        "call:call:1197812:1197871",
+        "call:call:1197893:1197954",
+        "call:call:1197976:1198033",
+        "call:call:1198055:1198116",
+        "call:call:1198138:1198205",
+        "call:call:1198227:1198298",
+        "call:call:1198320:1198381",
+        "call:call:1198403:1198452",
+        "call:call:1198474:1198541",
+        "call:call:1198563:1198630",
+        "call:call:1198652:1198722",
+        "call:call:1198744:1198791",
+        "call:call:1198813:1198874",
+        "call:call:1198896:1198951",
+        "call:call:1198973:1199028",
+        "call:call:1199050:1199105",
+        "call:call:1199127:1199182",
+        "call:call:1199204:1199259",
+        "call:call:1199281:1199336",
+        "call:call:1199358:1199413",
+        "call:call:1199435:1199490",
+        "call:call:1199512:1199567",
+        "call:call:1199589:1199646",
+        "call:call:1199668:1199727",
+        "call:call:1199749:1199807",
+        "call:call:1199829:1199886",
+        "call:call:1199908:1199963",
+        "call:call:1199985:1200034"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 202
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.GB_TYPE": {
+      "span": [
+        22952,
+        20,
+        22952,
+        63
+      ],
+      "offsets": [
+        1189289,
+        1189332
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1189289:1189332"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.LAST_EDITOR_ID": {
+      "span": [
+        22953,
+        20,
+        22953,
+        70
+      ],
+      "offsets": [
+        1189354,
+        1189404
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1189354:1189404"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.P_FLAG": {
+      "span": [
+        22954,
+        20,
+        22954,
+        65
+      ],
+      "offsets": [
+        1189426,
+        1189471
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1189426:1189471"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.WRITER_ID": {
+      "span": [
+        22957,
+        20,
+        22957,
+        64
+      ],
+      "offsets": [
+        1189627,
+        1189671
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1189627:1189671"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.WDATE": {
+      "span": [
+        22958,
+        20,
+        22958,
+        58
+      ],
+      "offsets": [
+        1189693,
+        1189731
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1189693:1189731"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.MAPPER_PROD_DES": {
+      "span": [
+        22964,
+        20,
+        22964,
+        71
+      ],
+      "offsets": [
+        1190094,
+        1190145
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1190094:1190145"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.MAPPER_WRITE_DT": {
+      "span": [
+        22965,
+        20,
+        22965,
+        68
+      ],
+      "offsets": [
+        1190167,
+        1190215
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1190167:1190215"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "inventory::LegacyMasterMap.MAPPER_WRITER_ID": {
+      "span": [
+        22966,
+        20,
+        22966,
+        71
+      ],
+      "offsets": [
+        1190237,
+        1190288
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:1190237:1190288"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "flexion::PrintInfo.UI/Le": {
+      "span": [
+        1,
+        422948,
+        1,
+        423461
+      ],
+      "offsets": [
+        422948,
+        423461
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.UI/mr": {
+      "span": [
+        1,
+        512996,
+        1,
+        513295
+      ],
+      "offsets": [
+        512996,
+        513295
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.UI/fr": {
+      "span": [
+        1,
+        513296,
+        1,
+        513750
+      ],
+      "offsets": [
+        513296,
+        513750
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Rb": {
+      "span": [
+        1,
+        934442,
+        1,
+        934509
+      ],
+      "offsets": [
+        934442,
+        934509
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Mb.constructor": {
+      "span": [
+        1,
+        934575,
+        1,
+        934689
+      ],
+      "offsets": [
+        934575,
+        934689
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Mb.getViewModeComponent": {
+      "span": [
+        1,
+        934689,
+        1,
+        934749
+      ],
+      "offsets": [
+        934689,
+        934749
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Mb.getComponent": {
+      "span": [
+        1,
+        934749,
+        1,
+        934801
+      ],
+      "offsets": [
+        934749,
+        934801
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Mb.renderDefaultPrintInfo": {
+      "span": [
+        1,
+        934801,
+        1,
+        935132
+      ],
+      "offsets": [
+        934801,
+        935132
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Pb.getViewModeComponent": {
+      "span": [
+        1,
+        935153,
+        1,
+        935211
+      ],
+      "offsets": [
+        935153,
+        935211
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Pb.getComponent": {
+      "span": [
+        1,
+        935211,
+        1,
+        935261
+      ],
+      "offsets": [
+        935211,
+        935261
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Pb.renderLabelPrintInfo": {
+      "span": [
+        1,
+        935261,
+        1,
+        935562
+      ],
+      "offsets": [
+        935261,
+        935562
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Fb.createView": {
+      "span": [
+        1,
+        935583,
+        1,
+        935705
+      ],
+      "offsets": [
+        935583,
+        935705
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Lb.$isTargetNode": {
+      "span": [
+        1,
+        935726,
+        1,
+        935756
+      ],
+      "offsets": [
+        935726,
+        935756
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Lb.getEventCommandMap": {
+      "span": [
+        1,
+        935756,
+        1,
+        935804
+      ],
+      "offsets": [
+        935756,
+        935804
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Kb": {
+      "span": [
+        1,
+        935862,
+        1,
+        936360
+      ],
+      "offsets": [
+        935862,
+        936360
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.Hb": {
+      "span": [
+        1,
+        936409,
+        1,
+        936817
+      ],
+      "offsets": [
+        936409,
+        936817
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "flexion::PrintInfo.qb": {
+      "span": [
+        1,
+        936888,
+        1,
+        936955
+      ],
+      "offsets": [
+        936888,
+        936955
+      ],
+      "source_id": "flexion",
+      "actual_REA_callable_ids": null,
+      "evidence": "Retained full actual static + inert original AST only; full semantic30s timeout; no full IR/retry; source AST only here"
+    },
+    "uikit::Anchor": {
+      "span": [
+        16,
+        315840,
+        16,
+        316106
+      ],
+      "offsets": [
+        356166,
+        356432
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_ids": [
+        "callable:function:356205:356430"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:356173:356432",
+        "call:call:356186:356431",
+        "call:call:356249:356296",
+        "call:call:356318:356375",
+        "call:call:356376:356429"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 5
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "uikit::DefaultAnchor": {
+      "span": [
+        16,
+        318962,
+        16,
+        322071
+      ],
+      "offsets": [
+        359288,
+        362397
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_ids": [
+        "callable:function:359334:362395",
+        "callable:function:359477:359898",
+        "callable:function:360075:360196",
+        "callable:function:360358:360614",
+        "callable:function:360689:360838",
+        "callable:function:360875:361006",
+        "callable:function:361044:361180",
+        "callable:function:361223:361384",
+        "callable:function:361427:361588"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:359302:362397",
+        "call:call:359315:362396",
+        "call:call:359418:359450",
+        "call:call:359461:360040",
+        "call:call:359524:359556",
+        "call:call:359583:359606",
+        "call:call:359629:359668",
+        "call:call:359701:359740",
+        "call:call:359762:359791",
+        "call:call:359809:359837",
+        "call:call:359854:359886",
+        "call:call:360059:360220",
+        "call:call:360127:360184",
+        "call:call:360234:360260",
+        "call:call:360277:360313",
+        "call:call:360338:360658",
+        "call:call:360365:360383",
+        "call:call:360437:360474",
+        "call:call:360452:360473",
+        "call:call:360563:360611",
+        "call:call:360589:360610",
+        "call:call:360669:360847",
+        "call:call:360784:360837",
+        "call:call:360812:360836",
+        "call:call:360855:361015",
+        "call:call:360958:361005",
+        "call:call:360983:361004",
+        "call:call:361024:361189",
+        "call:call:361131:361179",
+        "call:call:361157:361178",
+        "call:call:361203:361393",
+        "call:call:361330:361383",
+        "call:call:361361:361382",
+        "call:call:361407:361597",
+        "call:call:361534:361587",
+        "call:call:361565:361586",
+        "call:call:361617:361675",
+        "call:call:361732:361767",
+        "call:call:361783:362394",
+        "call:call:362064:362083",
+        "call:call:362143:362245",
+        "call:call:362181:362208",
+        "call:call:362272:362384",
+        "call:call:362310:362337"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 34,
+        "exact": 10
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    },
+    "purchases-list-wrapper::PurchasesListPage.page_impl": {
+      "span": [
+        1,
+        275,
+        1,
+        439
+      ],
+      "offsets": [
+        275,
+        439
+      ],
+      "source_id": "purchases-list-wrapper",
+      "actual_REA_callable_ids": [],
+      "actual_REA_callsite_ids": [
+        "call:call:275:439"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 1
+      },
+      "evidence": "Retained complete full-original actualREA6.4; dynamic/current runtime binding not thereby proved"
+    }
+  },
+  "method": "Retained original full static/completed semantic only; no new semantic analysis,retry,source execution or API calls."
+}

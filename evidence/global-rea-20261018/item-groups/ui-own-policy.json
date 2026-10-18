@@ -1,0 +1,40 @@
+{
+  "version": "0.22.0",
+  "single_axis_headers": {
+    "품목그룹1별": [
+      "품목그룹1별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "품목그룹2별": [
+      "품목그룹2별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "품목그룹3별": [
+      "품목그룹3별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ]
+  },
+  "company_group_values_retained": false,
+  "original_business_or_settings_save": false,
+  "own_policy": [
+    "Group key and label are the stored current item group1/2/3 strings.",
+    "Legacy group fallback only when group1 null/undefined, not explicit empty string.",
+    "Blank group is 미지정. GroupNName does not create inferred code/name identity.",
+    "Current master changes affect subsequent queries of existing vouchers.",
+    "Current-master basis is shown in filter help, successful result caption and print."
+  ],
+  "unknowns": [
+    "Original SID/code/name relation, current group prop IDs and ordinary GROUPBY.",
+    "Original blank-group policy and historical vs current-master grouping.",
+    "Server subtotal/formula/rounding/authorization equivalence."
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T04:55:04.919Z",
+  "scope": "Read-only analysis of already downloaded public bodies only. Zero new GETs, no new REA runs, no original execution, no browser/app changes.",
+  "method": "Reused actual pinned REA6.4 semantic IR and verified retained SHA; exact method spans obtained with the pinned REA parser. All inferred contracts below remain static-source evidence.",
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "sources": [
+    {
+      "id": "function2",
+      "path": "$SCRATCH/toolbar-function-rea-20261018/bundle.eccomposite_v1.inventory.function_2.-1784347108654919872.20.js",
+      "sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+      "bytes": 164962,
+      "rea_version": "6.4.0",
+      "rea_ir": "$SCRATCH/toolbar-function-rea-20261018/inputs/7b00857052a891b5/rea-semantic-ir.json",
+      "methods": [
+        {
+          "registry": "eccomposite_v1.function.calc",
+          "symbol": "getCalcParam",
+          "span": [
+            1,
+            954,
+            1,
+            1372
+          ],
+          "callable_id": "callable:function:954:1372",
+          "call_count": 3,
+          "unknown_count": 9
+        },
+        {
+          "registry": "eccomposite_v1.function.calc",
+          "symbol": "getCalcParamDetail",
+          "span": [
+            1,
+            1392,
+            1,
+            3904
+          ],
+          "callable_id": "callable:function:1392:3904",
+          "call_count": 16,
+          "unknown_count": 20
+        },
+        {
+          "registry": "eccomposite_v1.function.calc",
+          "symbol": "getEcountCalcQty",
+          "span": [
+            1,
+            14756,
+            1,
+            15545
+          ],
+          "callable_id": "callable:function:14756:15545",
+          "call_count": 20,
+          "unknown_count": 24
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setSerialQtyUpdate",
+          "span": [
+            1,
+            75319,
+            1,
+            77111
+          ],
+          "callable_id": "callable:function:75319:77111",
+          "call_count": 16,
+          "unknown_count": 16
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setRowKey",
+          "span": [
+            1,
+            77122,
+            1,
+            80293
+          ],
+          "callable_id": "callable:function:77122:80293",
+          "call_count": 30,
+          "unknown_count": 34
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setProdProcess",
+          "span": [
+            1,
+            81908,
+            1,
+            86691
+          ],
+          "callable_id": "callable:function:81908:86691",
+          "call_count": 24,
+          "unknown_count": 67
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "calcProdQtySum",
+          "span": [
+            1,
+            87805,
+            1,
+            89878
+          ],
+          "callable_id": "callable:function:87805:89878",
+          "call_count": 27,
+          "unknown_count": 41
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setProdValue",
+          "span": [
+            1,
+            89892,
+            1,
+            97096
+          ],
+          "callable_id": "callable:function:89892:97096",
+          "call_count": 76,
+          "unknown_count": 153
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "calcAfterTransfer",
+          "span": [
+            1,
+            97115,
+            1,
+            97735
+          ],
+          "callable_id": "callable:function:97115:97735",
+          "call_count": 9,
+          "unknown_count": 9
+        },
+        {
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "checkSameProdByRowKey",
+          "span": [
+            1,
+            108086,
+            1,
+            108176
+          ],
+          "callable_id": "callable:function:108086:108176",
+          "call_count": 1,
+          "unknown_count": 2
+        }
+      ]
+    },
+    {
+      "id": "legacy-helper",
+      "path": "$SCRATCH/barcode-shared-rea-20261018/bundle.inventorylib.common.6450304516276849014.20.js",
+      "sha256": "ace675a147272aa619292aa5f3d0847cb90af5db519bc3aefe97a36ef37ac9a2",
+      "bytes": 93751,
+      "rea_version": "6.4.0",
+      "rea_ir": "$SCRATCH/barcode-shared-rea-20261018/inputs/ace675a147272aa6/rea-semantic-ir.json",
+      "methods": [
+        {
+          "registry": "ecmodule.inventory.ecountCalc",
+          "symbol": "getEcountCalcQty",
+          "span": [
+            1,
+            47943,
+            1,
+            48446
+          ],
+          "callable_id": "callable:function:47943:48446",
+          "call_count": 15,
+          "unknown_count": 15
+        },
+        {
+          "registry": "ecmodule.inventory.ecountCalc",
+          "symbol": "setCalcOldDataChange",
+          "span": [
+            1,
+            48468,
+            1,
+            49587
+          ],
+          "callable_id": "callable:function:48468:49587",
+          "call_count": 24,
+          "unknown_count": 33
+        }
+      ]
+    }
+  ],
+  "quantity_formula": {
+    "authoritative_consumer_target": "this.calcComposite.getEcountCalcQty in eccomposite_v1.function.calc, used directly by prod_manager barcode accumulation.",
+    "equation": "When !isNoValue: Q = Decimal(E * U * M).toFixed(D, 4), returned as value.",
+    "variables": {
+      "additional_column_active": "columnList contains mapped uqty id with width > 0. This exact test is not simply an isHideColumn flag.",
+      "E": "If additional column active: Decimal(rowItem[mapped exch_rate] || 0); otherwise 1.",
+      "U": "If additional column active: Decimal(n.uqty || rowItem[mapped uqty] || 0); otherwise 1.",
+      "M": "Starts at1. If size_flag is1/2 and size_des is nonempty, evaluate the size expression. Flag2 first applies legacy conversion. Zero result or evaluation exception falls back to1.",
+      "D": "n.decimalQty ||0; getCalcParamDetail supplies gridComposite.qtyDecimal."
+    },
+    "conditions": [
+      "isNoValue=true leaves value undefined and returns only the formula descriptor.",
+      "The uqty override uses a truthiness fallback; numeric0 and string0 are not identical inputs under this source expression.",
+      "getCalcParam maps the existing row through column IDs and supplies an exch_rate default of1 through its own truthiness fallback. Direct getEcountCalcQty fallback for absent rate is0.",
+      "The formula factor is rowItem mapped exch_rate. It is distinct from the header foreign-currency exchangeRate parameter assembled in getCalcParamDetail.",
+      "The source passes numeric rounding argument4 to Decimal.toFixed. The exact Decimal library build/rounding enum was not independently established in this bounded task."
+    ],
+    "evidence": [
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.calc",
+        "symbol": "getEcountCalcQty",
+        "span": [
+          1,
+          14756,
+          1,
+          15545
+        ],
+        "callable_id": "callable:function:14756:15545",
+        "call_count": 20,
+        "unknown_count": 24
+      },
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.calc",
+        "symbol": "getCalcParam",
+        "span": [
+          1,
+          954,
+          1,
+          1372
+        ],
+        "callable_id": "callable:function:954:1372",
+        "call_count": 3,
+        "unknown_count": 9
+      },
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.calc",
+        "symbol": "getCalcParamDetail",
+        "span": [
+          1,
+          1392,
+          1,
+          3904
+        ],
+        "callable_id": "callable:function:1392:3904",
+        "call_count": 16,
+        "unknown_count": 20
+      }
+    ]
+  },
+  "barcode_additional_modes": {
+    "mode3": {
+      "name": "합산추가수량, using parent-observed label and matching source mode flags",
+      "contract": [
+        "Only an eligible previous-row match with addQty=true and non-transfer action accumulates.",
+        "Increase that row UQTY by1. Compute deltaQ through getEcountCalcQty(getCalcParam(row) with uqty string1). Add the returned deltaQ to old QTY using Decimal.",
+        "The direct source rounds/formats the one-unit delta before adding it; it does not directly recompute QTY from the new total UQTY in this helper. Subsequent cell-change calculations remain external.",
+        "When originKey exists and is nonempty, clear the origin product-code cell. Serial linkage may be appended/refreshed."
+      ],
+      "evidence": {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.prod_manager",
+        "symbol": "calcProdQtySum",
+        "span": [
+          1,
+          87805,
+          1,
+          89878
+        ],
+        "callable_id": "callable:function:87805:89878",
+        "call_count": 27,
+        "unknown_count": 41
+      }
+    },
+    "mode4": {
+      "name": "개별추가수량, using parent-observed label and matching source mode flags",
+      "contract": [
+        "cehckAddQty disables previous-row merging for mode4.",
+        "setProdProcess prepares UQTY=1 and QTY=0. setProdValue writes the uqty with isRunChange enabled for non-transfer actions, allowing the form/calc event pipeline to perform quantity conversion.",
+        "Temporary prepared QTY=0 does not prove final QTY=0. Final conversion depends on configured columns, product parameters and registered calculation/default handlers."
+      ],
+      "evidence": [
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setProdProcess",
+          "span": [
+            1,
+            81908,
+            1,
+            86691
+          ],
+          "callable_id": "callable:function:81908:86691",
+          "call_count": 24,
+          "unknown_count": 67
+        },
+        {
+          "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+          "registry": "eccomposite_v1.function.prod_manager",
+          "symbol": "setProdValue",
+          "span": [
+            1,
+            89892,
+            1,
+            97096
+          ],
+          "callable_id": "callable:function:89892:97096",
+          "call_count": 76,
+          "unknown_count": 153
+        }
+      ]
+    },
+    "serial_quantity_update": {
+      "contract": [
+        "Skip if no serial composite or for manufactured items.",
+        "In modes3/4, SL_ANYINPUT_YN=false uses serial quantity1. Otherwise calculate the equivalent of one uqty; a Number(value) falsy result clears the serial index and refreshes a linked serial cell when applicable.",
+        "The serial helper forwards data to a serial composite; it does not establish server acceptance."
+      ],
+      "evidence": {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.prod_manager",
+        "symbol": "setSerialQtyUpdate",
+        "span": [
+          1,
+          75319,
+          1,
+          77111
+        ],
+        "callable_id": "callable:function:75319:77111",
+        "call_count": 16,
+        "unknown_count": 16
+      }
+    }
+  },
+  "merge_restrictions": {
+    "scope": "The candidate is the immediately previous row relative to the insertion/current empty row selected by setRowKey, not a global sum of all equal product rows.",
+    "block_when": [
+      "action is transfer",
+      "barcode cehckAddQty is false (disabled or individual modes2/4)",
+      "candidate insertion row is index0",
+      "immediately preceding row product code differs from the resolved product code",
+      "incoming SERIAL_IDX is nonempty and previous QTY<0",
+      "previous serial_idx is nonempty and incoming SERIAL_IDX is empty",
+      "previous serial_idx is nonempty, SL_ANYINPUT_YN=false, and incoming SERIAL_IDX equals that previous serial_idx"
+    ],
+    "additional_serial_guards": {
+      "applies_when": "gridId is neither bor nor bom and a serial composite exists",
+      "rules": [
+        "Let serialDataEmpty be whether stored serial data for the previous row serial key is empty. Let warehouseEmpty be the popup warehouse composite value being empty, when that composite exists.",
+        "If getIsUnCheckWhCd() is not true AND serialDataEmpty AND incoming SERIAL_SEARCH_YN is true, block when warehouseEmpty is false; when warehouseEmpty is true, block only if USE_SERIAL_WH is true.",
+        "If still eligible, checkSumSerialQty(previousRow,previousQty)===false blocks merging."
+      ],
+      "limit": "The meanings and private configuration values behind serial/warehouse predicates are not observed."
+    },
+    "transfer_contract": [
+      "setRowKey and calcProdQtySum both explicitly bypass barcode merging for transfer.",
+      "setProdValue disables ordinary uqty change handling on transfer; basic qty change handling has its own cbPriceFlag branch. Transferred quantities must not be treated as normal barcode scans."
+    ],
+    "comparison": "The small checkSameProdByRowKey helper compares only resolved product code to the previous mapped prod_cd field; this is not proof that all upstream code ignores specification/name/serial differences.",
+    "evidence": [
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.prod_manager",
+        "symbol": "setRowKey",
+        "span": [
+          1,
+          77122,
+          1,
+          80293
+        ],
+        "callable_id": "callable:function:77122:80293",
+        "call_count": 30,
+        "unknown_count": 34
+      },
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.prod_manager",
+        "symbol": "checkSameProdByRowKey",
+        "span": [
+          1,
+          108086,
+          1,
+          108176
+        ],
+        "callable_id": "callable:function:108086:108176",
+        "call_count": 1,
+        "unknown_count": 2
+      },
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.prod_manager",
+        "symbol": "calcProdQtySum",
+        "span": [
+          1,
+          87805,
+          1,
+          89878
+        ],
+        "callable_id": "callable:function:87805:89878",
+        "call_count": 27,
+        "unknown_count": 41
+      },
+      {
+        "source_sha256": "7b00857052a891b5123bcab8043d3e1c576506357f5c66ccab91dc3078d37341",
+        "registry": "eccomposite_v1.function.prod_manager",
+        "symbol": "setProdValue",
+        "span": [
+          1,
+          89892,
+          1,
+          97096
+        ],
+        "callable_id": "callable:function:89892:97096",
+        "call_count": 76,
+        "unknown_count": 153
+      }
+    ]
+  },
+  "our_extra_qty_ratio_mapping": {
+    "direct_source_field_mapping_supported": false,
+    "reason": "No explicit binding from ECOUNT fields to our item extraQtyNumerator/extraQtyDenominator is present in the inspected quantity source. ECOUNT uses a mapped row exch_rate plus an optional row-dependent size expression and form precision/visibility.",
+    "conditional_mathematical_subset": "A deliberately configured own-app N/D factor can represent E only in a constrained case where the uqty column is active, M=1, N/D is independently verified as the same row unit rate, and decimal/rounding behavior agrees. This is an own-model mapping assumption, not an observed native ECOUNT field mapping.",
+    "do_not_assume": [
+      "Do not infer N and D from EXCH_RATE2/DENO_RATE found in product-price data; their relationship to this quantity helper is not established.",
+      "Do not assume one additional quantity equals one basic quantity.",
+      "Do not use a fixed per-item fraction to claim equivalence for row-dependent size formulas, column visibility or serial-dependent behavior.",
+      "Do not silently map missing original unit data to an invented conversion factor."
+    ]
+  },
+  "companion_helper": {
+    "namespace": "ecmodule.inventory.ecountCalc.getEcountCalcQty",
+    "difference": "The inventorylib.common helper has a different rowItem signature and always multiplies rowItem.exchRate * rowItem.uqty * sizeMultiplier; it lacks the composite helper uqty-column visibility branch. The barcode consumer calls the composite helper, so these two functions must not be conflated.",
+    "evidence": {
+      "source_sha256": "ace675a147272aa619292aa5f3d0847cb90af5db519bc3aefe97a36ef37ac9a2",
+      "registry": "ecmodule.inventory.ecountCalc",
+      "symbol": "getEcountCalcQty",
+      "span": [
+        1,
+        47943,
+        1,
+        48446
+      ],
+      "callable_id": "callable:function:47943:48446",
+      "call_count": 15,
+      "unknown_count": 15
+    }
+  },
+  "unknowns": [
+    "Product unit-rate and size-formula business values, calcByString grammar and the exact Decimal library are not inspected or executed.",
+    "The complete form/default event chain deciding mode4 final QTY is only partially recovered; a write-with-change call is not proof of a specific final number.",
+    "No original serial/warehouse settings, scan, transfer, save or server result was observed in this task.",
+    "Existing REA call targets remain unresolved framework/static candidates. Source syntax is not runtime equivalence."
+  ]
+}

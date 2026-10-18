@@ -1,0 +1,298 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T12:07:38.752693+00:00",
+  "scope": {
+    "task": "Original purchaseorder list menu509 visible10columns; field binding/send-cell/creator source/dynamic form/permissions only",
+    "baseline85_fixed": {
+      "unique_bodies": 85,
+      "bytes": 25280039,
+      "static_complete": 83,
+      "static_partial": 2,
+      "semantic_complete": 78,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "prospective86": {
+      "unique_bodies": 86,
+      "bytes": 25293345,
+      "static_complete": 84,
+      "static_partial": 2,
+      "semantic_complete": 79,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "ordinary_exact_GETs": 1,
+    "cookies_auth_UA_changes": false,
+    "browser": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "new_semantic_retries": 0,
+    "app_or_prior_contract_edits": false,
+    "tests": false
+  },
+  "source": {
+    "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.inventory/esg/views/xesg005m.-2616615531764698946.20.js",
+    "provenance": "Parent exact current original menu509 DOM script.src and gridForm-ESG005M. Ordinary unauthenticated GET once; not URL inference.",
+    "sha256": "ee16664371fa12568729e89f11c955152cd173926898ba92c5927586dded15ce",
+    "bytes": 13306,
+    "transport_bytes": 3508,
+    "gzip_decoded": true,
+    "downloaded_at": "2026-10-18T12:03:14.456624+00:00",
+    "last_modified": "Thu, 25 Sep 2025 21:14:50 GMT",
+    "actual_REA": {
+      "version": "6.4.0",
+      "static": "complete",
+      "semantic": "complete",
+      "parse_errors": 0,
+      "callables": 28,
+      "calls": 41,
+      "frontiers": 41,
+      "elapsed_ms": 317,
+      "budget_seconds": 30,
+      "heap_limit_MiB": 2048
+    }
+  },
+  "answer": {
+    "status": "Concrete ESG005M/menu509/grid source identified; visible columns are parent-observed, most active form bindings external",
+    "known": "Page declares purchaseOrder,menuSeq509,input508,E040301 input link,ORD_DATE/ORD_NO keys,selection/slip/s_print cell hooks and writer aliases.",
+    "unknown": "Current dynamic10column prop IDs beyond compatible hooks; send-cell renderer/click behavior; first/final writer field semantics/formatting; actual amount formula and permission values."
+  },
+  "parent_direct_UI": {
+    "source": "Parent current read-only original menu509 DOM; worker did not browse",
+    "grid_id": "gridForm-ESG005M",
+    "headers": [
+      "선택",
+      "일자-No.",
+      "거래처명",
+      "발주서발송",
+      "담당자명",
+      "입고창고명",
+      "품목명[규격명]",
+      "발주금액합계",
+      "최초작성자",
+      "최종수정자"
+    ],
+    "company_rows_retained": false,
+    "field_DOM_ids_not_supplied": true
+  },
+  "concrete_page_identity": {
+    "refs": [
+      "ESG005M.pageInfo.name",
+      "ESG005M.pageInfo.menuSeq",
+      "ESG005M.pageInfo.menuSeqInput",
+      "ESG005M.pageInfo.type",
+      "ESG005M.pageInfo.inputUrl",
+      "ESG005M.pageInfo.docFlag",
+      "ESG005M.grid.gridForm-ESG005M"
+    ],
+    "name": "ESG005M",
+    "menuSeq": 509,
+    "menuSeqInput": 508,
+    "type": "purchaseOrder",
+    "docFlag": "33",
+    "inputUrl": "/ECERP/SVC/ESG/ESG004M",
+    "slipCd": "4220",
+    "boundary": "Identity is explicit page data plus observed grid, not filename inference. Current source input linkage does not authorize opening/editing original input."
+  },
+  "observed_columns_and_source_candidates": [
+    {
+      "ordinal": 1,
+      "observed_header": "선택",
+      "source_hook": "gridCell.CHK_Ha id CHK_H",
+      "refs": [
+        "ESG005M.grid.CHK_H",
+        "ESG005M.grid.gridForm-ESG005M"
+      ],
+      "binding_status": "Compatible explicit checkbox cell hook; current DOM data-columnid not supplied. gridCheckbox maxCount=canCheckCount is external."
+    },
+    {
+      "ordinal": 2,
+      "observed_header": "일자-No.",
+      "source_hooks": [
+        "sale040.ord_date_no→gridCell.slip",
+        "sale040.ord_date→gridCell.slip"
+      ],
+      "refs": [
+        "ESG005M.grid.sale040.ord_date_no",
+        "ESG005M.grid.sale040.ord_date",
+        "ESG005M.columnMap",
+        "ESG005M.bound.initProperties.pageFunction.settingInfo.slip"
+      ],
+      "binding_status": "Explicit matching date/number slip hooks and ORD_DATE/ORD_NO key; exact active form data-columnid not observed."
+    },
+    {
+      "ordinal": 3,
+      "observed_header": "거래처명",
+      "binding_status": "Active row prop/renderer from dynamic form/query; no page-local explicit customer-name cell binding. Header quick-search CUST is a search key, not proof of row display field."
+    },
+    {
+      "ordinal": 4,
+      "observed_header": "발주서발송",
+      "source_candidate": "sale040.s_print→gridCell.slipPrint subType inv",
+      "refs": [
+        "ESG005M.grid.sale040.s_print"
+      ],
+      "binding_status": "Candidate strongly compatible with a dedicated print/send status cell. Renderer/link/flag semantics and current form matching remain unknown; do not classify pure display or clickable send from name alone."
+    },
+    {
+      "ordinal": 5,
+      "observed_header": "담당자명",
+      "binding_status": "Dynamic form field/renderer; no employee-name binding defined in page body."
+    },
+    {
+      "ordinal": 6,
+      "observed_header": "입고창고명",
+      "binding_status": "Dynamic form field/renderer; no incoming-warehouse-name binding defined in page body."
+    },
+    {
+      "ordinal": 7,
+      "observed_header": "품목명[규격명]",
+      "binding_status": "Dynamic form field/renderer; item/spec concatenation and summary scope not implemented here."
+    },
+    {
+      "ordinal": 8,
+      "observed_header": "발주금액합계",
+      "binding_status": "Dynamic query/form measure; full/remaining qty,vat/currency inclusion,aggregation/rounding formula not implemented here."
+    },
+    {
+      "ordinal": 9,
+      "observed_header": "최초작성자",
+      "refs": [
+        "ESG005M.columnMap"
+      ],
+      "binding_status": "Writer aliases exist, but exact first-creator field and display formatting are not identified; see writer-source boundary."
+    },
+    {
+      "ordinal": 10,
+      "observed_header": "최종수정자",
+      "refs": [
+        "ESG005M.columnMap"
+      ],
+      "binding_status": "Writer aliases exist, but exact final-editor field and display formatting are not identified; see writer-source boundary."
+    }
+  ],
+  "date_number_link": {
+    "refs": [
+      "ESG005M.columnMap",
+      "ESG005M.bound.initProperties.pageFunction.settingInfo.slip",
+      "ESG005M.pageInfo.pageFunction"
+    ],
+    "key_columns": [
+      "ORD_DATE",
+      "ORD_NO"
+    ],
+    "column_aliases": {
+      "IO_DATE": "ORD_DATE",
+      "IO_NO": "ORD_NO"
+    },
+    "slipLink": "Returns ProgramIdE040301,Request.Key{Date:row.ORD_DATE,No:row.ORD_NO},EditMode=modify,FromProgramIdE040302,PrevUrl=this.pageInfo.path,UIOption{Width920,Height800,FocusRowNumber:SER_NO||1}. Popup name resourceLBL15145.",
+    "boundary": "This is an original input/modify route. It was not opened; read-only/temporary-draft side effects of destination remain unknown."
+  },
+  "send_print_cell": {
+    "ref": "ESG005M.grid.sale040.s_print",
+    "span": [
+      1,
+      3735,
+      1,
+      3804
+    ],
+    "declared": "{unit:gridCell,type:slipPrint,subType:inv,id:sale040.s_print}",
+    "implementation_search": "Across retained85+this body, no eccomposite_v1.unit.gridCell.slipPrint implementation literal was found. Other slipPrintEvent/input footer hooks concern input print/save and are not substituted for this cell.",
+    "no_promotion": [
+      "A named dedicated cell hook is not proof it renders only plain text.",
+      "No page-local click handler for this cell is defined. This absence is not proof noninteractive because shared renderer/form metadata may bind events.",
+      "No evidence connects clicking this cell to actual email/fax/print transmission,marks sent,or modifies state.",
+      "S_PRINT data type/code values/delivery channel/time/operator/source of status remain unknown."
+    ],
+    "safe_own_boundary": "Until direct field DOM/renderer evidence, any own send-status display must be an explicit own record policy; do not add an original-equivalent send/print/link behavior based on this name."
+  },
+  "writer_source_boundary": {
+    "ref": "ESG005M.columnMap",
+    "span": [
+      1,
+      283,
+      1,
+      572
+    ],
+    "aliases": {
+      "WRITER_ID": "WRITER_ID",
+      "WID": "LOGID",
+      "IN_PART_WRITER": "IN_PART_WRITER"
+    },
+    "facts": [
+      "These are generic shared-function column aliases, not an explicit declaration that WRITER_ID is the visible first writer or LOGID the visible final editor.",
+      "The page body defines no first/final writer display formatter,identity join,user-label fallback or creator/editor derivation. No current-session actor substitution for displayed creator/editor is defined here.",
+      "Record fields/formatted columns come through external list query/form infrastructure; exact creator/editor source remains unbound.",
+      "Other retained input permission code using FIRST_WRITER_ID/LAST_EDITOR_ID is a separate authorization context,not this list header renderer."
+    ],
+    "unknown": [
+      "Snapshot ID versus current user-master display/name",
+      "First creator versus last updater record fields/time",
+      "Inactive/deleted users,aliases/department scope and visibility masks",
+      "Imported/copied/transferred records or legacy missing actor fallback"
+    ],
+    "own_policy_boundary": "Own persisted createdBy/updatedBy metadata and historical fallback can support independent columns, but must not be labeled original field/identity equivalence without current form bindings."
+  },
+  "dynamic_form_contract": {
+    "refs": [
+      "ESG005M.grid.gridForm-ESG005M",
+      "ESG005M.bound.initProperties.pageContents.child.settingInfo.field",
+      "ESG005M.pageInfo.formType",
+      "ESG005M.pageInfo.pageHeader",
+      "ESG005M.pageInfo.pageFunction",
+      "ESG005M.onInitUnitGridCellResource"
+    ],
+    "grid": "Grid type form/renderType columnFix,keyColumn ORD_DATE+ORD_NO; shared gridColumns/gridCustomRowCell/gridSearch and outputFormManager supply schema/formatting. field() builds an empty supplemental array (push() calls have no args); this does not mean actual grid has zero columns.",
+    "cell_catalog_vs_active_form": "Page declares hooks for CHK_H,csConfirmStatus,s_print,s_end,p_flag,code_no,ord_date_no,ord_date,edms_app_type,del_gubun,schedule,linkedCreatedSlip,REF_DATA. This catalog is not the exact active10column schema.",
+    "resource_cells": "onInitUnitGridCellResource delegates control type to row/form metadata r.getControlType() and uses provided value n. It does not resolve label/header/permission semantics.",
+    "print_form_only": "pageInfo.formType.print=SF200. SF200 is declared print form, not a source definition for the current list10columns. No fixed list output-form schema is embedded in this body.",
+    "form_UI": "Option declares searchTemplate_new,formListOption,filterSetting,ListTabSetting,sentDocHistory. Active custom/default form,field labels/order/width/masks may depend on external metadata/settings; none was changed."
+  },
+  "query_and_amount_boundary": {
+    "refs": [
+      "ESG005M.pageInfo.pageContents",
+      "ESG005M.pageInfo.pageFunction",
+      "ESG005M.pageInfo.pageFooter"
+    ],
+    "list_query_path": "/SVC/Common/SlipTransfer/GetListXFormSlipCommon",
+    "list_query": "Shared callSearchApi grid/ form query. Current server response,SQL/schema,records and business values were not obtained.",
+    "defaults": "searchManager first-load true; defaults P_FLAG1,GB_TYPEy,PARAMempty,MENU_SEQ509,IsChangeDateFormattrue,DELETE_YN depending isFromCS and order-management context fields; moreCount5000. Raw flags not interpreted as business state policy here.",
+    "Excel_path_separate": "/SVC/Inventory/PurchasesOrder/GetListSearchForExcel is declared; it is not the list column/schema proof. No export/query was executed.",
+    "amount": "No sum of input quantity,remaining quantity,supply/VAT,total/currency,rounding or receipt allocation formula for 발주금액합계 is defined by this page. Do not reuse outstanding/status aggregates as proof."
+  },
+  "permission_and_business_action_boundary": {
+    "refs": [
+      "ESG005M.pageInfo.menuAuth",
+      "ESG005M.pageInfo.USE_CONFIRM",
+      "ESG005M.pageInfo.CAN_CONFIRM",
+      "ESG005M.pageInfo.USE_SLIPAUTH",
+      "ESG005M.pageInfo.pageContents"
+    ],
+    "declared": "menuAuth SALE_CHK1; USE_CONFIRM from inventory.USE_CONFIRM_PURCHASE_ORDER,CAN_CONFIRM from user.USE_CONFIRM_PURCHASE_ORDER,USE_SLIPAUTH from user.USE_SLIPAUTH_PURCHASE_ORDER. Checkbox maxCount=canCheckCount. Effective config/permission values not read.",
+    "unknown": "Menu/row/price/creator/column visibility permissions,button visibility,current user role,masking,selection guards and server authorization remain external.",
+    "separate": "Page also declares shared transfer/load/delete/send/print infrastructure. This bounded column study neither executes nor certifies those actions. It does not treat the whole page as read-only."
+  },
+  "preserved_evidence_limits": {
+    "baseline85": "Unchanged0.40 baseline85/25280039B.",
+    "prospective86": "86unique/25293345B;static84complete+2partial;semantic79complete+2partial+3timeout+2OOM.",
+    "new_body": "Parse0 and full semantic success apply only to this13306Bbody. Prior common OOM/Flexion timeouts/grid partial diagnostics remain unchanged.",
+    "storage": "Raw source and actual IR remain scratch only outside checkout; only this contract is intended for application evidence packaging."
+  },
+  "unknowns": [
+    "Exact current10column data-columnid/active form definitions and whether label→candidate hooks match.",
+    "slipPrint shared renderer/control/event implementation and S_PRINT status semantics.",
+    "First creator/final editor actual result fields,identity lookup/formatting and masks.",
+    "Amount measure formula/full-vs-remaining,server query result schema and current form preferences.",
+    "Effective permissions and original input/print/send side effects."
+  ],
+  "files": {
+    "source_manifest": "$SCRATCH/purchaseorder-list-columns-rea-20261018/extension-source-manifest.json",
+    "actual_REA_summary": "$SCRATCH/purchaseorder-list-columns-rea-20261018/extension-normalized-analysis-summary.json",
+    "exact_source_spans": "$SCRATCH/purchaseorder-list-columns-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/purchaseorder-list-columns-rea-20261018/actual-rea-reference-index.json",
+    "cumulative86": "$SCRATCH/purchaseorder-list-columns-rea-20261018/cumulative-counts.json",
+    "retained_discovery": "$SCRATCH/purchaseorder-list-columns-rea-20261018/retained86-discovery.json"
+  }
+}

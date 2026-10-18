@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T08:50:52.816486+00:00",
+  "scope": {
+    "baseline_original_bodies": 78,
+    "baseline_original_bytes": 19149569,
+    "exact_public_GETs": 3,
+    "GET_attempts_per_URL": 1,
+    "new_unique_bodies": 3,
+    "new_bytes": 451244,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "original_apply_check_color_save_actions": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false
+  },
+  "provenance": {
+    "source_manifest": "$SCRATCH/graph-filter-rea-20261018/popup-source-manifest.json",
+    "method": "Only3 exact parent DOM-observed public script URLs; normal unauthenticated GET with default client, no cookies/UA override/redirect follow or guessed address; gzip magic decoded, raw decoded SHA verified. No target script import/evaluation.",
+    "freshness": "Downloaded timestamp and HTTP Last-Modified/ETag retained per source. CDN headers/file hash identify captured body, not semantic version or current server-side configuration equality."
+  },
+  "owner_UI_observations_corrected": {
+    "facts": [
+      "Current graph filter popup shows category/legend checkbox regions and Apply(F8)/Close.",
+      "No Apply/checkbox/color modification was performed; worker made no browser action."
+    ],
+    "correction": "Popup search input was NOT observed. Placeholder 입력 후[Enter] belonged to underlying report quick_search; no typing/Enter occurred. Do not record popup search as UI evidence.",
+    "earlier_graph": "Parent observed confirmation recommending top10 for30+ result then SVG. Those labels/structure are independent observation, not source execution."
+  },
+  "popup_page": {
+    "source_id": "popup",
+    "registration": "ecount.page.factory(ecount.page.popup.type2, GraphFilter, ...)",
+    "entry_refs": [
+      "popup::GraphFilter.initProperties",
+      "popup::GraphFilter.onInitHeader",
+      "popup::GraphFilter.onInitContents",
+      "popup::GraphFilter.onInitFooter"
+    ],
+    "data": "Take legendData/categoryData/checkedList from viewBag.InitDatas; initDataList is category.concat(legend). Four grid columns CHK1, MAIN_GUBUN, CHK2, SUB_GUBUN; main group cells merge according to ROW_CNT.",
+    "search_reset": "This captured page defines no search input, Enter search action, search API, Reset button or reset handler. Header sets title only; footer defines Apply and Close only. Base-page/grid-added behavior remains external, so this is scoped absence in page code.",
+    "keyboard": "Grid enables keyboard cursor movement and spacebar row selection; page ON_KEY_F8 delegates Apply. Exact global Escape/Enter/base-grid behavior is not captured.",
+    "open_effects": "Init/render create local grid/checkbox state; there is no explicit save/private API/localStorage call in this page. Route/base-grid/global event implementations external; no full side-effect-free claim."
+  },
+  "selection_initial_and_group": {
+    "refs": [
+      "popup::GraphFilter.onLoadComplete",
+      "popup::GraphFilter.setChangeCheckBoxCallback",
+      "popup::GraphFilter.makeMergeData",
+      "popup::GraphFilter.setdisAbleCheckBoxCallback"
+    ],
+    "initial": "If checkList truthy (including empty array), compare entries with actual grid row key and set matching CHK2 true. Otherwise set whole CHK1 column true; local CHK1 handler propagates checked state to every member CHK2 key. Whether external grid dispatches each event is a retained dynamic-call boundary, not an executed test.",
+    "group_check": "makeMergeData collects member keys MAIN_GUBUN+∮∮+SUB_GUBUN by group label. CHK1 custom-cell handler sets CHK2 on those keys. After load, if selected category or legend count equals group total, first group CHK1 is checked. CHK2 header custom callback is readOnly.",
+    "identity": "Saved checkedList uses external grid row keys; Apply matches SUB_GUBUN strings or [0].label against category/legend lists. This does not establish stable original SID identifiers or uniqueness across equal display labels.",
+    "bounds": "No explicit max count or30/10 cap in popup selection code. Available rows are supplied chart categories/legends, not a query of full source documents."
+  },
+  "colors": {
+    "ref": "popup::GraphFilter.setChangeControlCallback",
+    "category": "SUB_GUBUN category row becomes widget.link.colorPicker only when DATA_TYPE1 and InitDatas.useYn true. Retained producer sets useYn true for bar/horizontalBar.",
+    "legend": "DATA_TYPE2 SUB_GUBUN becomes colorPicker without that useYn restriction. MAIN_GUBUN group column does not become color link.",
+    "on_change": "Array callback value supplies label/color; update categoryData[rowIndex].COLOR or legendData[row.ID].COLOR and rebuild concatenated initDataList.",
+    "unknown": "ColorPicker validation/default palette and parameter copy/reference semantics are external. Close-only source proves no returned message, not an end-to-end restoration guarantee after hypothetical unsaved color mutation."
+  },
+  "apply_close": {
+    "refs": [
+      "popup::GraphFilter.ON_KEY_F8",
+      "popup::GraphFilter.onFooterApply",
+      "popup::GraphFilter.onFooterClose"
+    ],
+    "apply_steps": [
+      "Read selected CHK2 keys, clear category/legend CHECKED flags.",
+      "For each selected row, match SUB_GUBUN to category and legend arrays; set matching CHECKED true and category/legend presence flags.",
+      "If no category DATA_TYPE1 exists, require legend flag; otherwise require both category and legend flags. Failure alerts resource MSG00962 or MSG10056 and returns.",
+      "Convert unchecked false flags to null; send message with categoryData,legendData,checkedList and callback=this.close.bind(this); then close."
+    ],
+    "matching_limit": "The matching loops use captions, not DATA_TYPE guards or SIDs; duplicate display labels may match both arrays. Do not claim stronger group-identity validation than executable code.",
+    "close": "onFooterClose is exactly function(){this.close()}; no sendMessage in this explicit button handler. Escape/window-X depends on inherited page base.",
+    "consumer_boundary": "Popup Apply sends chart selection/color data, not direct business Save. V3 onMessageHandler_GraphFilter and V56 ConfigureGraphFilterUserAction are retained compatible receivers. Actual current wrapper→receiver→widget binding/callback was not observed because no Apply was performed; remains unknown.",
+    "prior_receiver_ref": "retained-common::ConfigureGraphFilterUserAction.executeAsync",
+    "apply_span": [
+      1,
+      3807,
+      1,
+      4976
+    ],
+    "close_span": [
+      1,
+      4991,
+      1,
+      5015
+    ]
+  },
+  "new_graph_data_binding": {
+    "source": "graph-data",
+    "namespace": "At end export assigns window.ecount.graph.data. Public names map to minified local function declarations, matching retained common getChartOptionByMatrix consumers.",
+    "refs": [
+      "graph-data::getOnoByOneOptionOfECChart",
+      "graph-data::getOnoByTwoOptionOfECChart",
+      "graph-data::getTwoByOneOptionOfECChart",
+      "graph-data::getTwoByTwoOptionOfECChart"
+    ],
+    "narrowed_unknown": "The previously external graph.data function implementations are now retained/actually analyzed. This closes those local algorithms, not backend SelectInventoryStatusProgram, current model/SID mappings, metric selection or renderer/widget equivalence."
+  },
+  "grouping_and_numeric": [
+    {
+      "path": "1x1 and1x2 ECChart options",
+      "refs": [
+        "graph-data::getOnoByOneOptionOfECChart",
+        "graph-data::getOnoByTwoOptionOfECChart"
+      ],
+      "facts": "Index X1 by K-E-Y; iterate each Y list and join matching X by K-E-Y. Category key is formatted X1 caption; groupId is formatted X2 when provided or synthetic GROUPn per Y otherwise. Same formatted category/group accumulates numeric values. First occurrence builds category/series order. Pie path takes absolute value of each contributing Y before sum. Original source-ID grouping equality is not established."
+    },
+    {
+      "path": "2x1 ordinary",
+      "ref": "graph-data::getTwoByOneOptionOfECChart",
+      "facts": "Without comparator, distinct formatted X2 values become category rows and distinct formatted X1 values become series. Join lists by K-E-Y and sum Y1 for each combination; missing combinations get0. With comparator, combine formatted X1 + space/slash/space + X2 as category and sum Y1 into one GROUPID0 series before ranking."
+    },
+    {
+      "path": "2x2",
+      "refs": [
+        "graph-data::getTwoByTwoOptionOfECChart",
+        "graph-data::getTwoByTwoHighestData"
+      ],
+      "facts": "Ordinary path builds all distinct formatted X1/X2 combinations with zero series values, then joins Y lists by K-E-Y and accumulates; category text orders X2/X1. Ranked path uses combined X1 / X2 caption and sum of both Y fields through getTwoByTwoHighestData; grouping/ordering differs from unranked formatting. Caption concatenation is not a guaranteed collision-free SID tuple."
+    },
+    {
+      "path": "Conversion",
+      "refs": [
+        "graph-data::getNumberFormatYAxisData",
+        "graph-data::getStringFormatXAxisData",
+        "graph-data::getFormattedXAxisGroupData"
+      ],
+      "facts": "Undefined/null/non-number-convertible Y becomes0, otherwise Number(value). Falsey X or empty-placeholder caption maps to resource LBL03552; otherwise external convertor/value-format helper. Current company-specific format/defaults remain unknown."
+    },
+    {
+      "path": "Additional legacy helpers",
+      "refs": [
+        "graph-data::getOneByOneData",
+        "graph-data::getTwoByOneData",
+        "graph-data::createTwoByDataSource"
+      ],
+      "facts": "Separate array-oriented helper algorithms also exist. createTwoByDataSource aligns X/Y lists by index rather than K-E-Y; do not combine that helper contract with ECChart option path without a concrete caller."
+    }
+  ],
+  "actual_top_bottom10": {
+    "refs": [
+      "graph-data::sortOfECChart",
+      "graph-data::sortByDate",
+      "graph-data::getHighestData",
+      "graph-data::getTwoByTwoHighestData",
+      "retained-common::GraphConfigBuilder.composePlatformConfig"
+    ],
+    "option_1x1_1x2_2x1": "If comparatorPropName truthy, sortOfECChart scores each category by sum of values whose sortKey equals comparatorPropName. isShowHighest truthy -> DESC, otherwise ASC. Then i=i.splice(0,10), retaining at most10 category rows after grouping. isShowLowest is not directly read in new graph.data body; retained common consumer creates comparatorPropName under high/low flags.",
+    "ties": "sortOfECChart reverses input before DESC sort and, on equal score, calls sortByDate(category,...,direction), extracting numeric year/month/day by regex. No general non-date lexical tie key or company-calendar rule is established.",
+    "option_2x2_ranked": "getTwoByTwoHighestData aggregates combined X captions then calls getHighestData. That helper lodash-sortBy(prop), then for highest takes lastN and reverses, otherwise firstN. N=10. This is a separate tie policy from sortOfECChart; do not impose a single tie formula on every matrix.",
+    "ordering_of_filter": "Retained common createChartOption calls data option builder first, then getChartOptionFilter. Therefore local grouping/ranking precedes selection/color filtering in this connected code path. Popup options derived from origin_graph_config.datas can already be limited to ranked categories; popup does not search all backend rows.",
+    "pie_other": "1x1 optional pieAllothersPercentage combines low-percentage groups into others before comparator ranking; source cutoff test uses percentage>threshold. Exact popup threshold validation/current config unknown.",
+    "30_confirm": "Retained inventory guard is total_count>=30 && is_graph && empty comparatorColumn; confirmation itself does not perform top10 selection. Keep UI recommendation and actual ranking conditions distinct.",
+    "sort_span": [
+      1,
+      1983,
+      1,
+      2419
+    ],
+    "one_by_one_span": [
+      1,
+      6133,
+      1,
+      8642
+    ]
+  },
+  "browser_renderer_evidence": {
+    "refs": [
+      "browser-graph::AreaChart",
+      "browser-graph::HorizontalbarChart",
+      "browser-graph::LineChart",
+      "browser-graph::PieChart",
+      "browser-graph::VerticalbarChart"
+    ],
+    "contract": "New body exports React chart wrappers for area/horizontalbar/line/pie/verticalbar and EC chart classes. Wrappers importSync ecount.browser.graph V5, instantiate respective EC*Chart(props), reload on effect; chart div selector/width/height comes from props. Horizontalbar effect tracks datas and categoryColors; other extracted wrappers track datas.",
+    "limits": "Actual current view-type→widget props→module binding, all D3/tinycolor/React behavior, SVG postprocessing, callback/disposal, export/print and pixel equality remain unverified. Full semantic completion is static analysis, not original rendering execution."
+  },
+  "counts": {
+    "baseline": {
+      "unique_bodies": 78,
+      "bytes": 19149569,
+      "static_complete": 77,
+      "static_partial": 1,
+      "semantic_complete": 73,
+      "semantic_partial": 1,
+      "semantic_timeout": 2,
+      "semantic_OOM": 2
+    },
+    "new_unique_bodies": 3,
+    "new_bytes": 451244,
+    "cumulative": {
+      "unique_bodies": 81,
+      "bytes": 19600813,
+      "static_complete": 80,
+      "static_partial": 1,
+      "semantic_complete": 76,
+      "semantic_partial": 1,
+      "semantic_timeout": 2,
+      "semantic_OOM": 2
+    },
+    "new_actual_REA": {
+      "static_complete": 3,
+      "semantic_complete": 3,
+      "parser_errors": 0,
+      "callables": 1478,
+      "calls": 4723,
+      "frontiers": 4578
+    }
+  },
+  "evidence_files": {
+    "raw_provenance": "$SCRATCH/graph-filter-rea-20261018/popup-source-manifest.json",
+    "bounded_actual_REA": "$SCRATCH/graph-filter-rea-20261018/popup-analysis-summary.json",
+    "precise_source": "$SCRATCH/graph-filter-rea-20261018/popup-extension-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/graph-filter-rea-20261018/popup-extension-rea-refs.json",
+    "cumulative": "$SCRATCH/graph-filter-rea-20261018/cumulative-counts.json"
+  },
+  "unknowns": [
+    "Current popup message wrapper/consumer/widget binding remains unknown; original Apply/checkbox/color/search was not executed.",
+    "Current original graph metrics/axis IDs, backend selection/grouping and SID/code/caption identity mapping remain unknown.",
+    "Graph settings popup itself was not downloaded; its Save/Apply/Cancel/default/ranking UI remains outside these3 bodies.",
+    "Explicit Close handler sends no message; base Escape/X and copy/reference cancellation behavior are not established.",
+    "Prior78 common semantic OOM and renderer timeout/OOM are preserved. New3 successes do not promote previous failed/full analyses or imply whole ERP equivalence."
+  ]
+}

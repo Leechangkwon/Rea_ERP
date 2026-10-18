@@ -1,0 +1,1782 @@
+{
+  "actual_REA_version": "6.4.0",
+  "new_source_execution": false,
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "graph-data",
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/bundle.graph.data.128851703482392416.20.js",
+      "sha256": "cd102f98f1a045abc11e15f292e41d8ffd7f4f25ef4b839a992777fcf8578d94",
+      "bytes": 61678,
+      "analysis": {
+        "sha256": "cd102f98f1a045abc11e15f292e41d8ffd7f4f25ef4b839a992777fcf8578d94",
+        "bytes": 61678,
+        "path": "$SCRATCH/graph-filter-rea-20261018/originals/bundle.graph.data.128851703482392416.20.js",
+        "analysis_dir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/cd102f98f1a045ab",
+        "rea_version": "6.4.0",
+        "time_budget_seconds": 30,
+        "heap_limit_MiB": 2048,
+        "source_executed": false,
+        "exit_code": 0,
+        "process_status": "completed",
+        "elapsed_ms": 1018,
+        "static_status": "complete",
+        "semantic_status": "completed",
+        "parse_error_count": 0,
+        "visited_ast_nodes": 21157,
+        "static_limitations": [
+          "JavaScript syntax was parsed as data and was never evaluated."
+        ],
+        "callables": 383,
+        "calls": 1242,
+        "frontiers": 1132,
+        "call_resolution": {
+          "unresolved": 661,
+          "exact": 449,
+          "ambiguous": 132
+        },
+        "semantic_limitations": [
+          "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+          "Return sites include only direct callable returns; nested callable returns remain separate.",
+          "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+          "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+          "Cross-function mutation and dynamic property resolution remain unknown."
+        ]
+      },
+      "exports": [
+        {
+          "export": "length",
+          "local": "n",
+          "span": [
+            1,
+            60327,
+            1,
+            60337
+          ]
+        },
+        {
+          "export": "createLegendDatas",
+          "local": "cii",
+          "span": [
+            1,
+            60780,
+            1,
+            60803
+          ]
+        },
+        {
+          "export": "createTrendlineDatas",
+          "local": "lii",
+          "span": [
+            1,
+            60804,
+            1,
+            60830
+          ]
+        },
+        {
+          "export": "createTwoByDataSource",
+          "local": "gii",
+          "span": [
+            1,
+            60831,
+            1,
+            60858
+          ]
+        },
+        {
+          "export": "getAxisDataForSubtotal",
+          "local": "tri",
+          "span": [
+            1,
+            60859,
+            1,
+            60887
+          ]
+        },
+        {
+          "export": "getCommonOption",
+          "local": "dti",
+          "span": [
+            1,
+            60888,
+            1,
+            60909
+          ]
+        },
+        {
+          "export": "getCommonOptionOfECChart",
+          "local": "tii",
+          "span": [
+            1,
+            60910,
+            1,
+            60940
+          ]
+        },
+        {
+          "export": "getFormattedXAxisGroupData",
+          "local": "uri",
+          "span": [
+            1,
+            60941,
+            1,
+            60973
+          ]
+        },
+        {
+          "export": "getGroupInfo",
+          "local": "kii",
+          "span": [
+            1,
+            60974,
+            1,
+            60992
+          ]
+        },
+        {
+          "export": "getGroupList",
+          "local": "dii",
+          "span": [
+            1,
+            60993,
+            1,
+            61011
+          ]
+        },
+        {
+          "export": "getHighestData",
+          "local": "fri",
+          "span": [
+            1,
+            61012,
+            1,
+            61032
+          ]
+        },
+        {
+          "export": "getNumberFormatYAxisData",
+          "local": "rri",
+          "span": [
+            1,
+            61033,
+            1,
+            61063
+          ]
+        },
+        {
+          "export": "getOneByOneData",
+          "local": "aii",
+          "span": [
+            1,
+            61064,
+            1,
+            61085
+          ]
+        },
+        {
+          "export": "getOneByTwoData",
+          "local": "pii",
+          "span": [
+            1,
+            61086,
+            1,
+            61107
+          ]
+        },
+        {
+          "export": "getOnoByOneOption",
+          "local": "iii",
+          "span": [
+            1,
+            61108,
+            1,
+            61131
+          ]
+        },
+        {
+          "export": "getOnoByOneOptionOfECChart",
+          "local": "rii",
+          "span": [
+            1,
+            61132,
+            1,
+            61164
+          ]
+        },
+        {
+          "export": "getOnoByTwoOption",
+          "local": "uii",
+          "span": [
+            1,
+            61165,
+            1,
+            61188
+          ]
+        },
+        {
+          "export": "getOnoByTwoOptionOfECChart",
+          "local": "fii",
+          "span": [
+            1,
+            61189,
+            1,
+            61221
+          ]
+        },
+        {
+          "export": "getSeriesData",
+          "local": "nri",
+          "span": [
+            1,
+            61222,
+            1,
+            61241
+          ]
+        },
+        {
+          "export": "getStringFormatXAxisData",
+          "local": "iri",
+          "span": [
+            1,
+            61242,
+            1,
+            61272
+          ]
+        },
+        {
+          "export": "getTwoByOneData",
+          "local": "vii",
+          "span": [
+            1,
+            61273,
+            1,
+            61294
+          ]
+        },
+        {
+          "export": "getTwoByOneHighestData",
+          "local": "yii",
+          "span": [
+            1,
+            61295,
+            1,
+            61323
+          ]
+        },
+        {
+          "export": "getTwoByOneOption",
+          "local": "eii",
+          "span": [
+            1,
+            61324,
+            1,
+            61347
+          ]
+        },
+        {
+          "export": "getTwoByOneOptionOfECChart",
+          "local": "oii",
+          "span": [
+            1,
+            61348,
+            1,
+            61380
+          ]
+        },
+        {
+          "export": "getTwoByTwoData",
+          "local": "wii",
+          "span": [
+            1,
+            61381,
+            1,
+            61402
+          ]
+        },
+        {
+          "export": "getTwoByTwoHighestData",
+          "local": "bii",
+          "span": [
+            1,
+            61403,
+            1,
+            61431
+          ]
+        },
+        {
+          "export": "getTwoByTwoOption",
+          "local": "sii",
+          "span": [
+            1,
+            61432,
+            1,
+            61455
+          ]
+        },
+        {
+          "export": "getTwoByTwoOptionOfECChart",
+          "local": "hii",
+          "span": [
+            1,
+            61456,
+            1,
+            61488
+          ]
+        },
+        {
+          "export": "sortByDate",
+          "local": "nii",
+          "span": [
+            1,
+            61489,
+            1,
+            61505
+          ]
+        },
+        {
+          "export": "sortOfECChart",
+          "local": "gti",
+          "span": [
+            1,
+            61506,
+            1,
+            61525
+          ]
+        }
+      ]
+    },
+    {
+      "id": "browser-graph",
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/ecount.browser.graph.a75ae869.20.js",
+      "sha256": "7f050f29bce4e78ada43994359d66855db66a4cbd0bb8d027616d0f347e318f5",
+      "bytes": 384006,
+      "analysis": {
+        "sha256": "7f050f29bce4e78ada43994359d66855db66a4cbd0bb8d027616d0f347e318f5",
+        "bytes": 384006,
+        "path": "$SCRATCH/graph-filter-rea-20261018/originals/ecount.browser.graph.a75ae869.20.js",
+        "analysis_dir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/7f050f29bce4e78a",
+        "rea_version": "6.4.0",
+        "time_budget_seconds": 30,
+        "heap_limit_MiB": 2048,
+        "source_executed": false,
+        "exit_code": 0,
+        "process_status": "completed",
+        "elapsed_ms": 1821,
+        "static_status": "complete",
+        "semantic_status": "completed",
+        "parse_error_count": 0,
+        "visited_ast_nodes": 67991,
+        "static_limitations": [
+          "JavaScript syntax was parsed as data and was never evaluated."
+        ],
+        "callables": 1076,
+        "calls": 3399,
+        "frontiers": 3326,
+        "call_resolution": {
+          "exact": 283,
+          "unresolved": 3116
+        },
+        "semantic_limitations": [
+          "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+          "Return sites include only direct callable returns; nested callable returns remain separate.",
+          "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+          "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+          "Cross-function mutation and dynamic property resolution remain unknown."
+        ]
+      },
+      "exports": [
+        {
+          "export": "AreaChart",
+          "local": "AreaChart",
+          "span": [
+            1,
+            273285,
+            1,
+            273312
+          ]
+        },
+        {
+          "export": "AreaChartLegend",
+          "local": "AreaChartLegend",
+          "span": [
+            1,
+            273313,
+            1,
+            273352
+          ]
+        },
+        {
+          "export": "ECChart",
+          "local": "ECChart",
+          "span": [
+            1,
+            291176,
+            1,
+            291199
+          ]
+        },
+        {
+          "export": "ECColorUtil",
+          "local": "ECColorUtil",
+          "span": [
+            1,
+            291200,
+            1,
+            291231
+          ]
+        },
+        {
+          "export": "HorizontalbarChart",
+          "local": "HorizontalbarChart",
+          "span": [
+            1,
+            383174,
+            1,
+            383219
+          ]
+        },
+        {
+          "export": "HorizontalbarChartLegend",
+          "local": "HorizontalbarChartLegend",
+          "span": [
+            1,
+            383220,
+            1,
+            383277
+          ]
+        },
+        {
+          "export": "LineChart",
+          "local": "LineChart",
+          "span": [
+            1,
+            383278,
+            1,
+            383305
+          ]
+        },
+        {
+          "export": "LineChartLegend",
+          "local": "LineChartLegend",
+          "span": [
+            1,
+            383306,
+            1,
+            383345
+          ]
+        },
+        {
+          "export": "PieChart",
+          "local": "PieChart",
+          "span": [
+            1,
+            383346,
+            1,
+            383371
+          ]
+        },
+        {
+          "export": "PieChartLegend",
+          "local": "PieChartLegend",
+          "span": [
+            1,
+            383372,
+            1,
+            383409
+          ]
+        },
+        {
+          "export": "VerticalbarChart",
+          "local": "VerticalbarChart",
+          "span": [
+            1,
+            383410,
+            1,
+            383451
+          ]
+        },
+        {
+          "export": "VerticalbarChartLegend",
+          "local": "VerticalbarChartLegend",
+          "span": [
+            1,
+            383452,
+            1,
+            383505
+          ]
+        },
+        {
+          "export": "ecount_browser_graph",
+          "local": "ecount_browser_graph",
+          "span": [
+            1,
+            383680,
+            1,
+            383732
+          ]
+        }
+      ]
+    },
+    {
+      "id": "popup",
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/xgraphfilter.3840202323517767939.20.js",
+      "sha256": "1c59c121d20238ccef85df43c4fd11c6b0ad1b904a8c2022995785ead8cefe84",
+      "bytes": 5560,
+      "analysis": {
+        "sha256": "1c59c121d20238ccef85df43c4fd11c6b0ad1b904a8c2022995785ead8cefe84",
+        "bytes": 5560,
+        "path": "$SCRATCH/graph-filter-rea-20261018/originals/xgraphfilter.3840202323517767939.20.js",
+        "analysis_dir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/1c59c121d20238cc",
+        "rea_version": "6.4.0",
+        "time_budget_seconds": 30,
+        "heap_limit_MiB": 2048,
+        "source_executed": false,
+        "exit_code": 0,
+        "process_status": "completed",
+        "elapsed_ms": 265,
+        "static_status": "complete",
+        "semantic_status": "completed",
+        "parse_error_count": 0,
+        "visited_ast_nodes": 1487,
+        "static_limitations": [
+          "JavaScript syntax was parsed as data and was never evaluated."
+        ],
+        "callables": 19,
+        "calls": 82,
+        "frontiers": 120,
+        "call_resolution": {
+          "unresolved": 82
+        },
+        "semantic_limitations": [
+          "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+          "Return sites include only direct callable returns; nested callable returns remain separate.",
+          "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+          "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+          "Cross-function mutation and dynamic property resolution remain unknown."
+        ]
+      },
+      "exports": [
+        {
+          "export": "_MERGE_START_INDEX",
+          "local": "n",
+          "span": [
+            1,
+            5485,
+            1,
+            5515
+          ]
+        },
+        {
+          "export": "_ROWSPAN_COUNT",
+          "local": "t",
+          "span": [
+            1,
+            5516,
+            1,
+            5542
+          ]
+        }
+      ]
+    }
+  ],
+  "references": {
+    "graph-data::createLegendDatas": {
+      "symbol": "createLegendDatas",
+      "span": [
+        1,
+        19375,
+        1,
+        19916
+      ],
+      "offsets": [
+        19375,
+        19916
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "cii",
+      "export_span": [
+        1,
+        60780,
+        1,
+        60803
+      ],
+      "actual_REA_callable_id": "callable:function:19375:19916",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 13
+    },
+    "graph-data::createTwoByDataSource": {
+      "symbol": "createTwoByDataSource",
+      "span": [
+        1,
+        24974,
+        1,
+        25415
+      ],
+      "offsets": [
+        24974,
+        25415
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "gii",
+      "export_span": [
+        1,
+        60831,
+        1,
+        60858
+      ],
+      "actual_REA_callable_id": "callable:function:24974:25415",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 14
+    },
+    "graph-data::getCommonOptionOfECChart": {
+      "symbol": "getCommonOptionOfECChart",
+      "span": [
+        1,
+        3044,
+        1,
+        5475
+      ],
+      "offsets": [
+        3044,
+        5475
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "tii",
+      "export_span": [
+        1,
+        60910,
+        1,
+        60940
+      ],
+      "actual_REA_callable_id": "callable:function:3044:5475",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "exact": 5
+      },
+      "frontiers_including_nested": 0
+    },
+    "graph-data::getFormattedXAxisGroupData": {
+      "symbol": "getFormattedXAxisGroupData",
+      "span": [
+        1,
+        25824,
+        1,
+        25913
+      ],
+      "offsets": [
+        25824,
+        25913
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "uri",
+      "export_span": [
+        1,
+        60941,
+        1,
+        60973
+      ],
+      "actual_REA_callable_id": "callable:function:25824:25913",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "graph-data::getGroupInfo": {
+      "symbol": "getGroupInfo",
+      "span": [
+        1,
+        24645,
+        1,
+        24830
+      ],
+      "offsets": [
+        24645,
+        24830
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "kii",
+      "export_span": [
+        1,
+        60974,
+        1,
+        60992
+      ],
+      "actual_REA_callable_id": "callable:function:24645:24830",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 9
+    },
+    "graph-data::getGroupList": {
+      "symbol": "getGroupList",
+      "span": [
+        1,
+        24830,
+        1,
+        24974
+      ],
+      "offsets": [
+        24830,
+        24974
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "dii",
+      "export_span": [
+        1,
+        60993,
+        1,
+        61011
+      ],
+      "actual_REA_callable_id": "callable:function:24830:24974",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 5
+    },
+    "graph-data::getHighestData": {
+      "symbol": "getHighestData",
+      "span": [
+        1,
+        25913,
+        1,
+        26033
+      ],
+      "offsets": [
+        25913,
+        26033
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "fri",
+      "export_span": [
+        1,
+        61012,
+        1,
+        61032
+      ],
+      "actual_REA_callable_id": "callable:function:25913:26033",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 4
+    },
+    "graph-data::getNumberFormatYAxisData": {
+      "symbol": "getNumberFormatYAxisData",
+      "span": [
+        1,
+        25754,
+        1,
+        25824
+      ],
+      "offsets": [
+        25754,
+        25824
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "rri",
+      "export_span": [
+        1,
+        61033,
+        1,
+        61063
+      ],
+      "actual_REA_callable_id": "callable:function:25754:25824",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "graph-data::getOneByOneData": {
+      "symbol": "getOneByOneData",
+      "span": [
+        1,
+        20497,
+        1,
+        21528
+      ],
+      "offsets": [
+        20497,
+        21528
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "aii",
+      "export_span": [
+        1,
+        61064,
+        1,
+        61085
+      ],
+      "actual_REA_callable_id": "callable:function:20497:21528",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "exact": 1,
+        "unresolved": 6
+      },
+      "frontiers_including_nested": 35
+    },
+    "graph-data::getOneByTwoData": {
+      "symbol": "getOneByTwoData",
+      "span": [
+        1,
+        22517,
+        1,
+        23236
+      ],
+      "offsets": [
+        22517,
+        23236
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "pii",
+      "export_span": [
+        1,
+        61086,
+        1,
+        61107
+      ],
+      "actual_REA_callable_id": "callable:function:22517:23236",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "exact": 1,
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 27
+    },
+    "graph-data::getOnoByOneOptionOfECChart": {
+      "symbol": "getOnoByOneOptionOfECChart",
+      "span": [
+        1,
+        6133,
+        1,
+        8642
+      ],
+      "offsets": [
+        6133,
+        8642
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "rii",
+      "export_span": [
+        1,
+        61132,
+        1,
+        61164
+      ],
+      "actual_REA_callable_id": "callable:function:6133:8642",
+      "direct_call_count": 17,
+      "direct_call_resolution": {
+        "unresolved": 13,
+        "exact": 4
+      },
+      "frontiers_including_nested": 59
+    },
+    "graph-data::getOnoByTwoOptionOfECChart": {
+      "symbol": "getOnoByTwoOptionOfECChart",
+      "span": [
+        1,
+        9138,
+        1,
+        10805
+      ],
+      "offsets": [
+        9138,
+        10805
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "fii",
+      "export_span": [
+        1,
+        61189,
+        1,
+        61221
+      ],
+      "actual_REA_callable_id": "callable:function:9138:10805",
+      "direct_call_count": 11,
+      "direct_call_resolution": {
+        "unresolved": 7,
+        "exact": 4
+      },
+      "frontiers_including_nested": 44
+    },
+    "graph-data::getSeriesData": {
+      "symbol": "getSeriesData",
+      "span": [
+        1,
+        25415,
+        1,
+        25496
+      ],
+      "offsets": [
+        25415,
+        25496
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "nri",
+      "export_span": [
+        1,
+        61222,
+        1,
+        61241
+      ],
+      "actual_REA_callable_id": "callable:function:25415:25496",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 3
+    },
+    "graph-data::getStringFormatXAxisData": {
+      "symbol": "getStringFormatXAxisData",
+      "span": [
+        1,
+        25665,
+        1,
+        25754
+      ],
+      "offsets": [
+        25665,
+        25754
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "iri",
+      "export_span": [
+        1,
+        61242,
+        1,
+        61272
+      ],
+      "actual_REA_callable_id": "callable:function:25665:25754",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      },
+      "frontiers_including_nested": 0
+    },
+    "graph-data::getTwoByOneData": {
+      "symbol": "getTwoByOneData",
+      "span": [
+        1,
+        21528,
+        1,
+        22044
+      ],
+      "offsets": [
+        21528,
+        22044
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "vii",
+      "export_span": [
+        1,
+        61273,
+        1,
+        61294
+      ],
+      "actual_REA_callable_id": "callable:function:21528:22044",
+      "direct_call_count": 6,
+      "direct_call_resolution": {
+        "unresolved": 5,
+        "exact": 1
+      },
+      "frontiers_including_nested": 13
+    },
+    "graph-data::getTwoByOneHighestData": {
+      "symbol": "getTwoByOneHighestData",
+      "span": [
+        1,
+        22044,
+        1,
+        22517
+      ],
+      "offsets": [
+        22044,
+        22517
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "yii",
+      "export_span": [
+        1,
+        61295,
+        1,
+        61323
+      ],
+      "actual_REA_callable_id": "callable:function:22044:22517",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 3,
+        "exact": 1
+      },
+      "frontiers_including_nested": 10
+    },
+    "graph-data::getTwoByOneOptionOfECChart": {
+      "symbol": "getTwoByOneOptionOfECChart",
+      "span": [
+        1,
+        11715,
+        1,
+        15179
+      ],
+      "offsets": [
+        11715,
+        15179
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "oii",
+      "export_span": [
+        1,
+        61348,
+        1,
+        61380
+      ],
+      "actual_REA_callable_id": "callable:function:11715:15179",
+      "direct_call_count": 37,
+      "direct_call_resolution": {
+        "unresolved": 30,
+        "exact": 7
+      },
+      "frontiers_including_nested": 89
+    },
+    "graph-data::getTwoByTwoData": {
+      "symbol": "getTwoByTwoData",
+      "span": [
+        1,
+        23236,
+        1,
+        23981
+      ],
+      "offsets": [
+        23236,
+        23981
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "wii",
+      "export_span": [
+        1,
+        61381,
+        1,
+        61402
+      ],
+      "actual_REA_callable_id": "callable:function:23236:23981",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 7,
+        "exact": 1
+      },
+      "frontiers_including_nested": 28
+    },
+    "graph-data::getTwoByTwoHighestData": {
+      "symbol": "getTwoByTwoHighestData",
+      "span": [
+        1,
+        23981,
+        1,
+        24645
+      ],
+      "offsets": [
+        23981,
+        24645
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "bii",
+      "export_span": [
+        1,
+        61403,
+        1,
+        61431
+      ],
+      "actual_REA_callable_id": "callable:function:23981:24645",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 3,
+        "exact": 1
+      },
+      "frontiers_including_nested": 24
+    },
+    "graph-data::getTwoByTwoOptionOfECChart": {
+      "symbol": "getTwoByTwoOptionOfECChart",
+      "span": [
+        1,
+        15918,
+        1,
+        19375
+      ],
+      "offsets": [
+        15918,
+        19375
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "hii",
+      "export_span": [
+        1,
+        61456,
+        1,
+        61488
+      ],
+      "actual_REA_callable_id": "callable:function:15918:19375",
+      "direct_call_count": 26,
+      "direct_call_resolution": {
+        "unresolved": 18,
+        "exact": 8
+      },
+      "frontiers_including_nested": 87
+    },
+    "graph-data::sortByDate": {
+      "symbol": "sortByDate",
+      "span": [
+        1,
+        2419,
+        1,
+        3044
+      ],
+      "offsets": [
+        2419,
+        3044
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "nii",
+      "export_span": [
+        1,
+        61489,
+        1,
+        61505
+      ],
+      "actual_REA_callable_id": "callable:function:2419:3044",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "frontiers_including_nested": 8
+    },
+    "graph-data::sortOfECChart": {
+      "symbol": "sortOfECChart",
+      "span": [
+        1,
+        1983,
+        1,
+        2419
+      ],
+      "offsets": [
+        1983,
+        2419
+      ],
+      "source_id": "graph-data",
+      "local_symbol": "gti",
+      "export_span": [
+        1,
+        61506,
+        1,
+        61525
+      ],
+      "actual_REA_callable_id": "callable:function:1983:2419",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 7
+    },
+    "browser-graph::AreaChart": {
+      "symbol": "AreaChart",
+      "span": [
+        1,
+        269099,
+        1,
+        269584
+      ],
+      "offsets": [
+        269099,
+        269584
+      ],
+      "source_id": "browser-graph",
+      "local_symbol": "AreaChart",
+      "export_span": [
+        1,
+        273285,
+        1,
+        273312
+      ],
+      "actual_REA_callable_id": "callable:function:269099:269584",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 7
+    },
+    "browser-graph::HorizontalbarChart": {
+      "symbol": "HorizontalbarChart",
+      "span": [
+        1,
+        270029,
+        1,
+        270511
+      ],
+      "offsets": [
+        270029,
+        270511
+      ],
+      "source_id": "browser-graph",
+      "local_symbol": "HorizontalbarChart",
+      "export_span": [
+        1,
+        383174,
+        1,
+        383219
+      ],
+      "actual_REA_callable_id": "callable:function:270029:270511",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 7
+    },
+    "browser-graph::LineChart": {
+      "symbol": "LineChart",
+      "span": [
+        1,
+        270954,
+        1,
+        271439
+      ],
+      "offsets": [
+        270954,
+        271439
+      ],
+      "source_id": "browser-graph",
+      "local_symbol": "LineChart",
+      "export_span": [
+        1,
+        383278,
+        1,
+        383305
+      ],
+      "actual_REA_callable_id": "callable:function:270954:271439",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 7
+    },
+    "browser-graph::PieChart": {
+      "symbol": "PieChart",
+      "span": [
+        1,
+        271881,
+        1,
+        272365
+      ],
+      "offsets": [
+        271881,
+        272365
+      ],
+      "source_id": "browser-graph",
+      "local_symbol": "PieChart",
+      "export_span": [
+        1,
+        383346,
+        1,
+        383371
+      ],
+      "actual_REA_callable_id": "callable:function:271881:272365",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 7
+    },
+    "browser-graph::VerticalbarChart": {
+      "symbol": "VerticalbarChart",
+      "span": [
+        1,
+        272804,
+        1,
+        273275
+      ],
+      "offsets": [
+        272804,
+        273275
+      ],
+      "source_id": "browser-graph",
+      "local_symbol": "VerticalbarChart",
+      "export_span": [
+        1,
+        383410,
+        1,
+        383451
+      ],
+      "actual_REA_callable_id": "callable:function:272804:273275",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      },
+      "frontiers_including_nested": 7
+    },
+    "popup::GraphFilter.init": {
+      "symbol": "GraphFilter.init",
+      "span": [
+        1,
+        177,
+        1,
+        292
+      ],
+      "offsets": [
+        177,
+        292
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:177:292",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 3
+      },
+      "frontiers_including_nested": 3
+    },
+    "popup::GraphFilter.render": {
+      "symbol": "GraphFilter.render",
+      "span": [
+        1,
+        300,
+        1,
+        342
+      ],
+      "offsets": [
+        300,
+        342
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:300:342",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "popup::GraphFilter.initProperties": {
+      "symbol": "GraphFilter.initProperties",
+      "span": [
+        1,
+        358,
+        1,
+        602
+      ],
+      "offsets": [
+        358,
+        602
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:358:602",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "popup::GraphFilter.onInitHeader": {
+      "symbol": "GraphFilter.onInitHeader",
+      "span": [
+        1,
+        616,
+        1,
+        683
+      ],
+      "offsets": [
+        616,
+        683
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:616:683",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 2
+    },
+    "popup::GraphFilter.onInitContents": {
+      "symbol": "GraphFilter.onInitContents",
+      "span": [
+        1,
+        699,
+        1,
+        1803
+      ],
+      "offsets": [
+        699,
+        1803
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:699:1803",
+      "direct_call_count": 21,
+      "direct_call_resolution": {
+        "unresolved": 21
+      },
+      "frontiers_including_nested": 21
+    },
+    "popup::GraphFilter.onInitFooter": {
+      "symbol": "GraphFilter.onInitFooter",
+      "span": [
+        1,
+        1817,
+        1,
+        2052
+      ],
+      "offsets": [
+        1817,
+        2052
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:1817:2052",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 9
+    },
+    "popup::GraphFilter.onLoadComplete": {
+      "symbol": "GraphFilter.onLoadComplete",
+      "span": [
+        1,
+        2068,
+        1,
+        2775
+      ],
+      "offsets": [
+        2068,
+        2775
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:2068:2775",
+      "direct_call_count": 9,
+      "direct_call_resolution": {
+        "unresolved": 9
+      },
+      "frontiers_including_nested": 15
+    },
+    "popup::GraphFilter.setdisAbleCheckBoxCallback": {
+      "symbol": "GraphFilter.setdisAbleCheckBoxCallback",
+      "span": [
+        1,
+        2803,
+        1,
+        2832
+      ],
+      "offsets": [
+        2803,
+        2832
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:2803:2832",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "popup::GraphFilter.setChangeCheckBoxCallback": {
+      "symbol": "GraphFilter.setChangeCheckBoxCallback",
+      "span": [
+        1,
+        2859,
+        1,
+        3124
+      ],
+      "offsets": [
+        2859,
+        3124
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:2859:3124",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      },
+      "frontiers_including_nested": 5
+    },
+    "popup::GraphFilter.setChangeControlCallback": {
+      "symbol": "GraphFilter.setChangeControlCallback",
+      "span": [
+        1,
+        3150,
+        1,
+        3749
+      ],
+      "offsets": [
+        3150,
+        3749
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:3150:3749",
+      "direct_call_count": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      },
+      "frontiers_including_nested": 15
+    },
+    "popup::GraphFilter.ON_KEY_F8": {
+      "symbol": "GraphFilter.ON_KEY_F8",
+      "span": [
+        1,
+        3760,
+        1,
+        3792
+      ],
+      "offsets": [
+        3760,
+        3792
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:3760:3792",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "popup::GraphFilter.onFooterApply": {
+      "symbol": "GraphFilter.onFooterApply",
+      "span": [
+        1,
+        3807,
+        1,
+        4976
+      ],
+      "offsets": [
+        3807,
+        4976
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:3807:4976",
+      "direct_call_count": 12,
+      "direct_call_resolution": {
+        "unresolved": 12
+      },
+      "frontiers_including_nested": 22
+    },
+    "popup::GraphFilter.onFooterClose": {
+      "symbol": "GraphFilter.onFooterClose",
+      "span": [
+        1,
+        4991,
+        1,
+        5015
+      ],
+      "offsets": [
+        4991,
+        5015
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:4991:5015",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      },
+      "frontiers_including_nested": 1
+    },
+    "popup::GraphFilter.makeMergeData": {
+      "symbol": "GraphFilter.makeMergeData",
+      "span": [
+        1,
+        5030,
+        1,
+        5407
+      ],
+      "offsets": [
+        5030,
+        5407
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:5030:5407",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      },
+      "frontiers_including_nested": 21
+    },
+    "popup::GraphFilter.setRowSpanMerge": {
+      "symbol": "GraphFilter.setRowSpanMerge",
+      "span": [
+        1,
+        5424,
+        1,
+        5553
+      ],
+      "offsets": [
+        5424,
+        5553
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:5424:5553",
+      "direct_call_count": 0,
+      "direct_call_resolution": {},
+      "frontiers_including_nested": 0
+    },
+    "retained-common::ConfigureGraphFilterUserAction.executeAsync": {
+      "symbol": "ConfigureGraphFilterUserAction.executeAsync",
+      "span": [
+        56268,
+        26,
+        56322,
+        5
+      ],
+      "offsets": [
+        2641917,
+        2644929
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-common::ConfigureGraphOptionsUserAction.executeAsync": {
+      "symbol": "ConfigureGraphOptionsUserAction.executeAsync",
+      "span": [
+        56159,
+        26,
+        56257,
+        5
+      ],
+      "offsets": [
+        2635404,
+        2640986
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-common::getFilterData": {
+      "symbol": "getFilterData",
+      "span": [
+        56327,
+        22,
+        56464,
+        1
+      ],
+      "offsets": [
+        2645188,
+        2650740
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-common::getChartOptionFilter": {
+      "symbol": "getChartOptionFilter",
+      "span": [
+        9027,
+        0,
+        9180,
+        1
+      ],
+      "offsets": [
+        412616,
+        422569
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-common::GraphConfigBuilder.composePlatformConfig": {
+      "symbol": "GraphConfigBuilder.composePlatformConfig",
+      "span": [
+        30815,
+        4,
+        30832,
+        5
+      ],
+      "offsets": [
+        1384606,
+        1385407
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-common::getChartOptionByMatrix": {
+      "symbol": "getChartOptionByMatrix",
+      "span": [
+        8992,
+        0,
+        9026,
+        1
+      ],
+      "offsets": [
+        411355,
+        412615
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-common::createChartOption": {
+      "symbol": "createChartOption",
+      "span": [
+        8953,
+        0,
+        8991,
+        1
+      ],
+      "offsets": [
+        409865,
+        411354
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "full common semantic unavailable: prior2GB OOM",
+      "evidence_level": "Pinned REA6.4.0 original static AST span, not resolved full semantics",
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-inventory::InventoryStatusUpdateDataModelResolver.OnExecuteAsync": {
+      "symbol": "InventoryStatusUpdateDataModelResolver.OnExecuteAsync",
+      "span": [
+        776,
+        4,
+        860,
+        5
+      ],
+      "offsets": [
+        39404,
+        43952
+      ],
+      "source_id": "inventory",
+      "actual_REA_callable_id": "callable:method:39404:43952",
+      "direct_call_count": 19,
+      "direct_call_resolution": {
+        "unresolved": 19
+      },
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    },
+    "retained-v3-footer::eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter": {
+      "symbol": "eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter",
+      "span": [
+        1,
+        297773,
+        1,
+        298242
+      ],
+      "offsets": [
+        297773,
+        298242
+      ],
+      "source_id": "v3-footer",
+      "actual_REA_callable_id": "callable:function:297773:298242",
+      "direct_call_count": 8,
+      "direct_call_resolution": {
+        "unresolved": 8
+      },
+      "prior_reference_file": "$SCRATCH/graph-filter-rea-20261018/actual-rea-reference-index.json"
+    }
+  },
+  "retained_common_limit": "Prior full semantic OOM2GB remains OOM; new graph.data/browser/popup full successes do not promote common or older renderer failures"
+}

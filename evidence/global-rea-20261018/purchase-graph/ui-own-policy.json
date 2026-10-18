@@ -1,0 +1,26 @@
+{
+  "version": "0.28.0",
+  "support": "Own purchase summary only; horizontal bars over existing validated summary records. Other reports/detail graph gated.",
+  "default_metric": "quantity (수량), own explicit choice; not asserted original default.",
+  "metrics": {
+    "quantity": "수량",
+    "supply": "공급가액",
+    "tax": "부가세",
+    "total": "합계"
+  },
+  "identity": "JSON.stringify(record.axis), every full tuple separately; repeated labels not merged.",
+  "numbers": "Exact finite raw numeric record values, no reaggregation; retain record order. Normalize domain by max absolute value before geometry; retain zero/negative/large finite rows.",
+  "data_scope": "Every current successful own summary result row, no silent top10 or page truncation.30+ confirms before replacing current output.",
+  "state": "Checkbox.checked explicit boolean and metric in staged values; successful filter/result chart separate. Failure/cancel retains old chart/table/export/print; restore recomputes successful query without re-prompt and clears all output on failure. Legacy snapshots default graph off/quantity.",
+  "reset": "Clear graph/disable detail, quantity default, prior successful output remains until next successful query.",
+  "output": "CSV keeps all current table columns and numeric rows. Print adds successful chart, metric/currency/period/axes/basis; does not reread pending controls.",
+  "writes": "No document/stock/sequence/allocation/schema/storage mutation from query/graph/metric/reset/print.",
+  "original_equivalence": false,
+  "unimplemented": [
+    "Original metric candidates/default order",
+    "Original5chart renderers/settings/secondary axes/trendlines/legend/title/extrema/filter/click drilldown",
+    "Original graph data builder/backend rounding/summing/template/query limit behavior",
+    "Original print/image export and layout parity"
+  ],
+  "display": "Actual SelfCore money:true for supply/tax/total, general number formatting for quantity; display precision does not mutate raw numeric points. Fixed16ch value column on desktop ensures identical SVG track widths; long numbers wrap. Mobile SVG occupies full shared row width."
+}

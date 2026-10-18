@@ -1,0 +1,18 @@
+{
+  "version": "0.31.0",
+  "scope": "Own manual SV plane195x170 and hue bar195x16 replace prior native color input;77 presets/HEX/Select/FilterApply boundaries preserved.",
+  "own_math": "Independently written HSVdeg0..360/S,V0..1↔strictHEX; nearest JS Math.round on floating8bit channels. Tinycolor version/formula/rounding unretained; no numerical equality claim.",
+  "geometry": "Pointer client position divided by actual bounding rect; clamp ranges, preserve floatingHSV state through local drag. Knobs centered; originalcandidate fixedpageoffset/-8 andwidthclamp are not reproduced.",
+  "events": "Own PointerEvents with primarybutton/ID/capture/move/up/cancel/lostcapture and globalup/cancel cleanup. Fixed195dimensions match observed sourceboxes. Keyboard arrows/Home/End/Shift and ARIA are independent additions; originalmouse-onlycandidate not proved touch/keyboard absent.",
+  "hue_memory": "Valid coloredHEX updatesH/S/V. Gray orblackHEX updates S/V while retaining selectedH; laterSV uses it. InvalidHEX leaves lastvalidHSV/preview.",
+  "commit": "Drag/keys/typing update palette only; Select/Enter stage normalizedHEX to parent Filter; finalApply commits graphview. Childcancel,parentcancel/navigation,destroy clean handlers/layers with no businesswrite.",
+  "state": "Existing graphSelection/color-map structure retained; no record/schema changes.",
+  "original_equivalence": false,
+  "remaining": [
+    "Legacyadapter/currentwidgetbinding",
+    "Tinycolor conversion/rounding/CSS invalid-alpha semantics",
+    "Originalknob center/CSS gradients/devicepixels",
+    "Originalkeyboard/touch/globalbase events",
+    "Graphsettings/ranking/subtotal/backend/print parity"
+  ]
+}

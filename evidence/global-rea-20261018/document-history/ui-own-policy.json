@@ -1,0 +1,90 @@
+{
+  "version": "0.40.0",
+  "source_UI": {
+    "order_menu509_and_purchase_menu511": {
+      "popup": "ES303M",
+      "selection_required": false,
+      "columns": [
+        "작업일자",
+        "전표번호",
+        "행위",
+        "거래처코드",
+        "거래처명",
+        "품목명",
+        "담당자코드",
+        "담당자명",
+        "작업자",
+        "전표상태",
+        "이력"
+      ],
+      "latest_checked": true,
+      "modified_sort_checked": false
+    },
+    "request_menu505": {
+      "popup": "IHistoryListPage",
+      "selection_required": false,
+      "columns": [
+        "작업일자",
+        "일자-No.",
+        "행위",
+        "거래처명",
+        "품목명(요약)",
+        "담당자코드",
+        "담당자명",
+        "작업자",
+        "전표상태",
+        "이력"
+      ],
+      "visible_checkbox": [
+        "수정일자순(정렬) false"
+      ],
+      "latest_checkbox_visible": false,
+      "backend_all_or_latest_unknown": true
+    },
+    "safety": "Openedsearch/actionselector andclosedwithoutapply; no businessrecords/values retained. NoSave/Delete/Issue/Send/Excel/download/originalinput/date-link/H/settingsSave/privateAPI. Allhistorypopupsclosed andparentlistverified."
+  },
+  "source_analysis": {
+    "retained_baseline": 84,
+    "new_exact_DOM_script_GET": 1,
+    "new_body_bytes": 32475,
+    "actual_REA_version": "6.4.0",
+    "static": "complete",
+    "semantic": "complete",
+    "parse_errors": 0,
+    "callables": 153,
+    "calls": 299,
+    "frontiers": 316,
+    "references": [
+      "history-popup-extension-contract.json",
+      "latest-history-filter-supplement.json",
+      "popup-actual-rea-reference-index.json",
+      "request-history-distinction-supplement.json"
+    ],
+    "cumulative_reference": "cumulative-counts.json"
+  },
+  "own_storage": {
+    "optional_field": "documentHistory",
+    "version": 1,
+    "limit_records": 200,
+    "independent_sequence": true,
+    "capture": "Afterallcommandvalidation,changedrequest/plan/purchaseorder/purchase docs only,includinglinkedstatechanges; no-op/failure/query hasnoevent",
+    "data": "Eventmetadata, fullidentitycodes/allitemcodes/allheader+rowsuppliercodes,includinglegacy501+items,firstnamesummary200chars,status,changedfieldlabels. No document/linebefore-afterbodies oractor/output/sendlogs. Not a tamperproofaudittrail. Recordcapisnotabytecap; existinglocalStoragefailurepathkeepspriorstate.",
+    "old_backup": "Missingfieldacceptedwithoutbackfill. V1presentrequiresstrictroot/recordkeys,sorteduniqueeventIDs,date/action/type/codes/arrayschecks. IndependentsequenceleavesvoucherIDsunchanged. Legacy501+rows andlongcodesacceptedwithouttruncatingidentity. Metadataarraysfollowoldvalidsourcecounts;newentry500limitunchanged.",
+    "scope": "SamecorecanpersistAPIbusinessmetadata inD1; UIreadsaccount-scopedbrowserdbonly. APIoverviewlogsremainseparate. NoD1tablemigration."
+  },
+  "own_query": {
+    "latest": "Order/purchaselatestretainedeventperdocumentfirst,thenfilters. RequestUIallretainedevents; invisiblelatestcontroldefaultfalse. Thisisownpolicy,notoriginalbackendproof.",
+    "sort": "Independentdescendingeventsequence,notoriginalmodified-timeorder",
+    "filters": "Workdate/voucherdate, exacthistoricalpartner/item/warehouse/project/employee codes,3ownactions,metadataquery; datesinclusive,from<=to. Nooriginal3monthboundaryguess.",
+    "output": "10request/11order-purchasecolumns; UTCISOworktimestamp,explicitunrecordedactor/detailunsupported. No input/date/H links. CSVfromlastsuccessfulsnapshotonly; pending/invalidcriteriadonotreplaceit.",
+    "lifecycle": "F3/F8/Escapecontained,closefocusrestore,render/navigationcleanup,read-onlywithoutselection. CSVfrontendonly; nooriginalExcel/permissions/formatparity."
+  },
+  "unknowns": [
+    "Originalserverhistoryversions/retention/authorization/merging/actioncodes",
+    "IHistoryListPageimplementation andbackendfilter/latest/sort",
+    "ES303Mexact3monthboundary/latestbefore-afterfilter/defaultsort",
+    "ES303PHdetail andvoucher-edit-viewreceiver/autosave",
+    "OriginalExcel/closehandler/settingsandserveroperationequivalence",
+    "HostedauthenticatedbusinessQA/globalroutecoverage"
+  ]
+}

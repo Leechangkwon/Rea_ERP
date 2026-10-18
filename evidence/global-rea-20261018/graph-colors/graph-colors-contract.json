@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T09:02:01.420622+00:00",
+  "scope": {
+    "retained_original_bodies": 81,
+    "original_bytes": 19600813,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "original_color_selection_input_apply": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "separate_from": "Owner0.30 category-color/palette implementation;0.29 release preserved"
+  },
+  "owner_UI_observation": {
+    "source": "Parent task message only; worker did not browse",
+    "facts": [
+      "Opened first GraphFilter color link without choosing color or typing.",
+      "Observed dropdown-menu-color-picker UL, wrapper-color-picker,11preset columns times7cells=77default colors, one text input, 선택 button and 다른색 text.",
+      "Only Escape used; original palette color/input/GraphFilter Apply unchanged."
+    ],
+    "preset_styles": "Parent captured77static default CSS styles; values/order are independent DOM evidence not supplied/reconstructed by this source report. No company/personal palette settings inferred."
+  },
+  "answer": {
+    "widget_binding": "unknown: retained GraphFilter invokes legacy widget.link.colorPicker; matching UIKit dropdown/wrapper CSS is compatible evidence but no retained legacy-cell→UIKit adapter.",
+    "preset77_generation": "Not identified in81JS. UIKit ColorPicker renders injected props.PresetComponent; no preset-col literal or concrete77list/generator found. Use parent observed static preset list only under that provenance.",
+    "strict6hex_equivalence": "Not established. UIKit candidate recognizes3/6-digit HEX and supports CSS parsing; visible text input maxLength6 has no explicit strict6hex rejection/error. Own strict6hex is a stricter declared own policy, not original validator parity."
+  },
+  "UIKit_color_picker_candidate": {
+    "refs": [
+      "uikit::ColorPicker",
+      "uikit::DefaultColorPickerButton"
+    ],
+    "render": "ColorPicker creates dropdown-menu-color-picker/wrapper-color-picker. PresetComponent, if provided, receives color and changeColor=onChange. Advanced palette contains HSV map/hue, text value, selection button. Other-color link toggles openPallete.",
+    "open": "DefaultColorPickerButton uses useLayerBox triggerType click; custom props.ColorPickerComponent may replace generic ColorPicker. Default props value is #000000 and advanced palette defaults open unless boolean isOpenPallete supplied. These are generic candidate defaults, not confirmed current GraphFilter options.",
+    "preset_boundary": "No concrete PresetComponent implementation or77preset styles/order in81. DefaultColorPickerButton itself does not supply a preset generator; missing override/component composition may provide it.",
+    "binding_limit": "Same CSS class names do not prove current legacy widget uses this React implementation. Legacy callback shape differs from UIKit event shape, requiring an unretained adapter."
+  },
+  "advanced_palette_generation": {
+    "refs": [
+      "uikit::PaletteMap",
+      "uikit::PaletteHue",
+      "uikit::getColorInfo",
+      "uikit::getColorData",
+      "uikit::getPaletteColor",
+      "uikit::updateHelperLocations"
+    ],
+    "map": "Clamp pointer X0..195 andY0..170; saturation=X/195, value=(170-Y)/170; convert HSV with current hue to HEX through tinycolor. Hue slider clamps X0..195 and uses hue=X/195. Drag handlers are local React state and mouse move/up listeners.",
+    "alpha": "getColorData uses alpha1 for this HSV path. Conditional useNoneColor separately offers transparent if enabled; current GraphFilter flag unknown.",
+    "distinction": "This continuous HSV other-color palette is not the observed77preset generator."
+  },
+  "HEX_input_and_conversion": {
+    "refs": [
+      "uikit::PaletteValue",
+      "uikit::extractHexCode",
+      "uikit::resolveCssToHex",
+      "uikit::parseCssToRgb",
+      "uikit::parseRgbToHex",
+      "uikit::parseCssToHex"
+    ],
+    "input": "PaletteValue initializes displayed text from props.color.substr(1); maxLength6. onChange only updates local inputValue. onBlur forms # + entered text, calls changeColor, then tinycolor-derived hue update when saturation/value positive. No Enter handler, regex rejection, error message or isValid gate in this captured component.",
+    "hex_helper": "extractHexCode strips one leading# then returns only if3or6 hexadecimal characters. This helper is a conversion shortcut, not the only accepted path.",
+    "other_formats": "resolveCssToHex tries CSS background-color computed style if not short/fullHEX; parseRgbToHex recognizes rgb/rgba, clamps channels, returns transparent when alpha0, otherwise lower-case6digitHEX. If parsing yields nothing, resolveCssToHex returns original color. Actual CSS/tinycolor invalid-input behavior is external/unexecuted.",
+    "normalization": "Short HEX can remain3digits; direct extracted HEX preserves case, CSS RGB conversion lowercases. No single strict6uppercase normalization proven.",
+    "limit": "Do not equate maxLength6 with six-character validation. Own strict6hex may intentionally reject3digits/CSS names/transparent but must state that own boundary."
+  },
+  "selection_othercolor_and_close": {
+    "refs": [
+      "uikit::ColorPicker",
+      "uikit::PaletteButton",
+      "uikit::PaletteValue",
+      "uikit::useLayerBox.closeAction",
+      "uikit::DefaultColorPickerButton"
+    ],
+    "preset": "Injected PresetComponent changeColor callback is onChange: forwards event to parent props.onChange then closes layer. Exact preset event construction and keyboard behavior absent.",
+    "othercolor": "다른색-compatible link toggles advanced palette visibility only. HSV dragging and text blur update ColorPicker local color; PaletteButton passes current local color as event.value; ColorPicker then forwards onChange and closes.",
+    "UIKit_event_shape": "DefaultColorPickerButton forwards {value,type:change,id,cindex,nativeEvent}. It does not directly emit GraphFilter categoryData/legendData or a graph Save message.",
+    "close": "useLayerBox.closeAction hides display/isFixed and optionally invokes props.onClose; it does not invoke color onChange. Current Escape routing and custom onClose/component adapter behavior remain unknown. No guaranteed unsaved-color restoration claim.",
+    "no_direct_persistence": "No graph/business save, storage write or private API in extracted picker/color-selection functions; external parent callbacks remain a boundary."
+  },
+  "GraphFilter_color_scope": {
+    "refs": [
+      "popup::GraphFilter.setChangeControlCallback",
+      "popup::GraphFilter.onFooterApply",
+      "popup::GraphFilter.onFooterClose",
+      "common::getFilterData",
+      "common::ConfigureGraphFilterUserAction.executeAsync",
+      "common::getChartOptionFilter"
+    ],
+    "editable_links": "GraphFilter SUB_GUBUN category(DATA_TYPE1) color link only with useYn; producer sets useYn true for bar/horizontalBar. Legend(DATA_TYPE2) color link does not use that flag; group MAIN_GUBUN column is not a color link.",
+    "legacy_event_shape": "Legacy cell callback receives array carrying [0].label/[0].color. It changes categoryData[rowIndex].COLOR or legendData[row.ID].COLOR and rebuilds initDataList. UIKit emits a value event object; adapter not retained.",
+    "Apply": "GraphFilter F8/Apply validates selection, sends categoryData/legendData/checkedList plus close callback. It does not validate COLOR as strictHEX or directly save business data. Explicit Close only closes without sendMessage.",
+    "compatible_parent": "Retained common filter consumer receives message, creates filtered chart config and sets categoryColors/legendColors in viewer state. Final current popup→consumer→widget binding remains unknown because original selection/Apply was not executed.",
+    "default_colors": "Producer fills missing legendColors from seriesColors modulo palette length; category colors may remain absent until supplied. Generic UIKit #000000 fallback is not proof that original graph/category default is black.",
+    "cancel_limit": "Popup arrays mutate on a cell color callback before final Apply. Parameter cloning/reference scope and inherited Escape/X behavior are external; do not claim rollback beyond explicit no-message Close source."
+  },
+  "own_policy_comparison": [
+    {
+      "aspect": "77preset colors",
+      "source_status": "Parent observed11x7static palette; JS generator not retained",
+      "own_policy": "May use the observed77styles/order as own public-default palette, with exact observation provenance; no personal history/default persistence claim."
+    },
+    {
+      "aspect": "HEX validator",
+      "source_status": "UIKit candidate3/6HEX shortcut plus CSS conversion; no strict6reject gate; legacy adapter unknown",
+      "own_policy": "Use strict6hex only as explicit own validation and normalization; do not call original-equivalent."
+    },
+    {
+      "aspect": "Other colors",
+      "source_status": "Candidate HSV/text/selection local color state",
+      "own_policy": "A simpler HEX picker may be intentionally narrower; omit or label unsupported HSV/transparent behavior."
+    },
+    {
+      "aspect": "Application scope",
+      "source_status": "Color choice→popup COLOR draft→Apply message→compatible viewer update; runtime adapter unknown",
+      "own_policy": "Color selection updates own filter draft; only own Apply commits view colors; cancel discards own draft. This is an own acceptance policy, not proven original rollback."
+    }
+  ],
+  "verification_conditions_not_run": [
+    "Own palette has exactly77observed values in observed order; no company/personal color history is invented.",
+    "Strict6hex rejection/normalization and optional leading# behavior are explicit own rules. Invalid input cannot mutate applied chart state.",
+    "Preset/custom choose only changes filter draft until own Apply; picker close/filter cancel restores intended own draft boundary.",
+    "Category colors require own eligible chart type; series colors stay separate; filtering/selection identity and existing result values remain unchanged.",
+    "No persisted business DB, document IDs, allocations, stock or network write from own picker open/selection/cancel/render."
+  ],
+  "evidence_files": {
+    "actual_REA_refs": "$SCRATCH/graph-colors-rea-20261018/actual-rea-reference-index.json",
+    "whole81_scan": "$SCRATCH/graph-colors-rea-20261018/corpus-color-scan.json"
+  },
+  "unknowns": [
+    "Legacy widget.link.colorPicker factory and cell-array↔UIKit event adapter.",
+    "77preset generator/component and default color persistence/history/per-user configuration.",
+    "Current original invalidHEX handling, Enter/selection/transparent options and color-picker Escape/base close behavior.",
+    "Current parent/widget receiver binding and exact rollback on cancelled color edits.",
+    "Common full semantic OOM2GB preserved; new static spans do not promote it. Corpus remains81bodies19600813B; no new analyses or source execution."
+  ]
+}

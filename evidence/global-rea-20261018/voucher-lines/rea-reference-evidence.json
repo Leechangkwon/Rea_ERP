@@ -1,0 +1,312 @@
+{
+  "scope": "Existing original actualREA/static references. No full semantic runs or original execution.",
+  "evidence": {
+    "actions.StandardUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "_StandardUserAction.executeAsync",
+      "span": [
+        1,
+        570354,
+        1,
+        576590
+      ],
+      "actual_REA_callable_id": "callable:function:570354:576590",
+      "direct_call_count": 35,
+      "call_resolution": {
+        "unresolved": 32,
+        "exact": 3
+      }
+    },
+    "actions.generateAggregateSearchDataModel": {
+      "source": "actions",
+      "symbol": "generateAggregateSearchDataModel",
+      "span": [
+        1,
+        578165,
+        1,
+        580093
+      ],
+      "actual_REA_scope": "Prior completed full-original semantic analysis",
+      "actual_REA_callable_id": "callable:function:578165:580093",
+      "IR": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json",
+      "direct_calls": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "actions.convertToDateByDateReferType": {
+      "source": "actions",
+      "symbol": "convertToDateByDateReferType",
+      "span": [
+        1,
+        580123,
+        1,
+        581971
+      ],
+      "actual_REA_scope": "Prior completed full-original semantic analysis",
+      "actual_REA_callable_id": "callable:function:580123:581971",
+      "IR": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json",
+      "direct_calls": 52,
+      "call_resolution": {
+        "unresolved": 52
+      }
+    },
+    "common.getAggregateConditionData": {
+      "source_analysis": "common_selected",
+      "symbol": "getAggregateConditionData",
+      "original_span": [
+        56068,
+        0,
+        56080,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:60720:61175",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 0,
+      "call_resolution": {}
+    },
+    "common.getAggregateConditionKeys": {
+      "source_analysis": "common_selected",
+      "symbol": "getAggregateConditionKeys",
+      "original_span": [
+        111,
+        0,
+        124,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:110:636",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "common.processFreeAggregateCondition": {
+      "source": "common",
+      "symbol": "processFreeAggregateCondition",
+      "span": [
+        27194,
+        0,
+        27222,
+        1
+      ],
+      "original_utf16_offset": [
+        1227271,
+        1228442
+      ],
+      "actual_REA_scope": "Original pinned parser AST + prior full static analysis complete0errors; full common semantic remains unknown_oom. No semantic callable ID invented.",
+      "full_static_output": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json"
+    },
+    "common.buildNormalizedAggregate": {
+      "source_analysis": "common_selected",
+      "symbol": "buildNormalizedAggregate",
+      "original_span": [
+        62464,
+        0,
+        62487,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:68756:69608",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "common.rebuildAggregateGroups": {
+      "source_analysis": "common_selected",
+      "symbol": "rebuildAggregateGroups",
+      "original_span": [
+        62508,
+        0,
+        62528,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:70186:71095",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 4,
+      "call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "inventory.checkAggregate": {
+      "source": "inventory",
+      "symbol": "checkAggregate",
+      "span": [
+        9854,
+        0,
+        9881,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:475648:476856",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "inventory.SelectInventoryStatusProgram.onExecuteAsync": {
+      "source": "inventory",
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      }
+    },
+    "query.SearchModelDescriptor.toRequestDto": {
+      "source_analysis": "infra_full",
+      "symbol": "SearchModelDescriptor.toRequestDto",
+      "original_span": [
+        1932,
+        4,
+        2012,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:80569:84372",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 26,
+      "call_resolution": {
+        "unresolved": 23,
+        "exact": 3
+      }
+    },
+    "query.DataModelModifierForSearchConditionProgram._createSearchRequestDto": {
+      "source_analysis": "common_selected",
+      "symbol": "DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+      "original_span": [
+        62628,
+        4,
+        62736,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:75647:82223",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "common.StandardUserAction.executeAsync": {
+      "source": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "symbol": "StandardUserAction.executeAsync",
+      "span": [
+        83457,
+        26,
+        83586,
+        5
+      ],
+      "original_utf16_offset": [
+        4004953,
+        4012469
+      ],
+      "actual_REA_scope": "Pinned parser AST and existing full static complete0errors. Full common semantic remains OOM; no semantic callable ID invented.",
+      "full_static_output": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json"
+    },
+    "common.widget$$initialize_focus": {
+      "source": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "symbol": "widget$$initialize_focus",
+      "span": [
+        40772,
+        34,
+        40807,
+        1
+      ],
+      "original_utf16_offset": [
+        1864407,
+        1865689
+      ],
+      "actual_REA_scope": "Pinned parser AST and existing full static complete0errors. Full common semantic remains OOM; no semantic callable ID invented.",
+      "full_static_output": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json"
+    },
+    "common.record_seq_no focus index": {
+      "source": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "symbol": "record_seq_no focus index",
+      "span": [
+        40798,
+        12,
+        40798,
+        46
+      ],
+      "original_utf16_offset": [
+        1865479,
+        1865513
+      ],
+      "actual_REA_scope": "Pinned parser AST and existing full static complete0errors. Full common semantic remains OOM; no semantic callable ID invented.",
+      "full_static_output": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json"
+    },
+    "common.createComparisonValueExtractor": {
+      "source": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "symbol": "createComparisonValueExtractor",
+      "span": [
+        27447,
+        0,
+        27464,
+        1
+      ],
+      "original_utf16_offset": [
+        1238703,
+        1239463
+      ],
+      "actual_REA_scope": "Pinned parser AST and existing full static complete0errors. Full common semantic remains OOM; no semantic callable ID invented.",
+      "full_static_output": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json"
+    },
+    "actions.getRecordInfo1": {
+      "source": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "symbol": "getRecordInfo1",
+      "span": [
+        1,
+        418906,
+        1,
+        419878
+      ],
+      "actual_REA_callable_id": "callable:function:418906:419878",
+      "IR": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json",
+      "direct_calls": 9,
+      "call_resolution": {
+        "unresolved": 9
+      },
+      "scope": "Existing full actualREA6.4 semantic output. Generic input navigation, not proven aggregate-axis binding."
+    },
+    "actions.movePage1": {
+      "source": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "symbol": "movePage1",
+      "span": [
+        1,
+        419878,
+        1,
+        420474
+      ],
+      "actual_REA_callable_id": "callable:function:419878:420474",
+      "IR": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json",
+      "direct_calls": 2,
+      "call_resolution": {
+        "unresolved": 2
+      },
+      "scope": "Existing full actualREA6.4 semantic output. Generic input navigation, not proven aggregate-axis binding."
+    },
+    "actions.openPopup$2": {
+      "source": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "symbol": "openPopup$2",
+      "span": [
+        1,
+        374119,
+        1,
+        378438
+      ],
+      "actual_REA_callable_id": "callable:function:374119:378438",
+      "IR": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json",
+      "direct_calls": 19,
+      "call_resolution": {
+        "unresolved": 19
+      },
+      "scope": "Existing full actualREA6.4 semantic output. Generic input navigation, not proven aggregate-axis binding."
+    }
+  }
+}

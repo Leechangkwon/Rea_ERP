@@ -1,0 +1,39 @@
+{
+  "version": "0.6.5",
+  "scope": "Owned-app mobile layout and purchase-plan generation interaction fixes. No new original-ERP equivalence claim.",
+  "observed_defects": [
+    "At 390px the persistent sidebar reduced the usable document area to about half the screen.",
+    "Generation relied on hover-based nested menus and pointerleave closed them for touch pointers.",
+    "No selected plan produced only a transient toast; a disabled generation button did not explain the preview step.",
+    "Input toolbars exposed many small buttons and plan validation messages could scroll out of view."
+  ],
+  "changes": [
+    "Mobile submenu disclosure with explicit close, Escape and navigation close; desktop sidebar remains visible.",
+    "A tap on plan generation opens the setup dialog immediately. Without prior selection, eligible plans are shown unselected.",
+    "Preview is the initial primary action. Save appears only for a valid preview; success and errors stay in a separate dialog footer.",
+    "Phone document lists and plan candidate rows use cards; input auxiliary buttons fold into a two-column More section.",
+    "44px touch targets and fixed save actions at narrow widths."
+  ],
+  "automated": {
+    "command": "npm test",
+    "status": "passed",
+    "checks": 386,
+    "release_checks": 4,
+    "targeted_regressions": [
+      "Touch enter/click/leave opens and retains the generation dialog without a prior selection.",
+      "Preview/save visibility, missing supplier error location and duplicate-save prevention.",
+      "Mobile submenu close after navigation and Escape without closing work tabs."
+    ]
+  },
+  "local_browser": {
+    "environment": "Loopback Worker, local SQLite and synthetic app account; browser viewport override, not a physical mobile device.",
+    "viewports": ["390x844", "360x800", "1280x900"],
+    "generation": "Selected a synthetic plan with M001 quantity 2 and P002 quantity 1; preview split suppliers V001 and QA064V2; generated two orders and verified both in order list.",
+    "layout": "At 360px outer viewport, 345px document client width and 345px scroll width; four main tool buttons measured 44px high. At desktop, sidebar was block, auxiliary tools display contents and More was hidden."
+  },
+  "not_verified": [
+    "Physical phone touch, software keyboard and operating-system photo picker.",
+    "Hosted app login and purchase workflow with the user's live credentials.",
+    "Photo attachment failure location is awaiting user clarification. Existing item media supports HTTPS links, not direct file uploads."
+  ]
+}

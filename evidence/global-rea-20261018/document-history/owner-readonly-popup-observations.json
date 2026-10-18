@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-10-18T11:43:48.871381+00:00",
+  "source": "Parent direct read-only original ES303M observation; worker did not browse",
+  "current_controls": {
+    "parent_type_radios": [
+      "전표",
+      "기초코드"
+    ],
+    "parent_type_radios_disabled": true,
+    "menu_input_disabled": true,
+    "Search_F3_opened": true,
+    "action_lookup_page": "ES068P"
+  },
+  "action_lookup_labels": [
+    "신규",
+    "수정",
+    "결재",
+    "삭제",
+    "Email발송",
+    "Fax발송",
+    "엑셀변환",
+    "PDF 변환",
+    "인쇄",
+    "생산입고 II로변경",
+    "상태변경",
+    "완료",
+    "종결취소",
+    "확인",
+    "확인취소",
+    "삭제취소",
+    "파일자동삭제"
+  ],
+  "ordinal_is_not_action_code": true,
+  "company_records_retained": false,
+  "original_date_voucher_link_clicked": false,
+  "H_detail_advice": {
+    "entry_source_span": [
+      1,
+      25279,
+      1,
+      25554
+    ],
+    "entry": "ES303P Request history keys/menuType; no EditMode in this handler",
+    "body_status": "ES303P implementation not retained; read-only/permission/export/close enforcement unknown",
+    "recommendation": "Keep H-detail behavior unverified. Source entry alone is insufficient to guarantee read-only safety or implement body semantics. No additional GET/URL inference."
+  },
+  "search_checkbox_observation": {
+    "ddlUpdateTime_use": false,
+    "CHK_OTHER-0": {
+      "label": "최종이력만 검색",
+      "checked": true
+    },
+    "CHK_OTHER-1": {
+      "label": "수정순",
+      "checked": false
+    },
+    "source": "Parent direct ES303M search-form observation; no company values retained"
+  }
+}

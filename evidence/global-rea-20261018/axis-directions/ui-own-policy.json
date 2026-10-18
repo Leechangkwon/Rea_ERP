@@ -1,0 +1,23 @@
+{
+  "version": "0.20.0",
+  "surface": "Purchase report aggregate search controls, project axis in slot1",
+  "observations": [
+    "Original direction CSS btn-asc and glyph U+E97C toggled to btn-desc/U+E97D on click.",
+    "Original subtotal CSS btn-add-sum/U+E97E toggled to btn-unadd-sum/U+E97F.",
+    "Both transient changes were toggled back to original btn-asc/btn-add-sum without query/save."
+  ],
+  "query_after_these_toggles": false,
+  "business_or_settings_save": false,
+  "company_records_retained": false,
+  "own_policy": [
+    "Selected dimensions start asc and replacement/clear/reset return asc.",
+    "Local summary compares grouping codes with Korean numeric text collation.",
+    "Explicit report priorities lead; equal values use selected axis directions.",
+    "Axis direction changes apply on next search. Last successful output/export/print retains prior successful directions until then."
+  ],
+  "unknowns": [
+    "Current original normal-query direction mapper and actual group ordering/collation.",
+    "Current original precedence between axis direction and separate report sort configuration.",
+    "Original subtotal toggle computation and print results."
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "source": "User-designated 2024-06-12 purchasing-room manual; synthetic acceptance scenarios",
+  "scope": "Local pure-core workflow simulation only; not live original ERP, browser, physical device, actual email, invoice issuance or payment evidence",
+  "status": "passed",
+  "scenarios": 9,
+  "operations": 56,
+  "results": [
+    {
+      "id": "SIM-01",
+      "requirements": [
+        "PUR-01",
+        "PUR-02",
+        "PUR-03"
+      ],
+      "status": "passed",
+      "firstStep": 1,
+      "lastStep": 4,
+      "evidence": {
+        "request": "REQUEST-20261001-00001",
+        "plan": "PLAN-20261002-00004",
+        "orders": [
+          {
+            "id": "PURCHASEORDER-20261003-00006",
+            "partner": "V-A",
+            "qty": 10
+          },
+          {
+            "id": "PURCHASEORDER-20261003-00008",
+            "partner": "V-B",
+            "qty": 5
+          }
+        ],
+        "quantityConserved": true
+      }
+    },
+    {
+      "id": "SIM-02",
+      "requirements": [
+        "PUR-04"
+      ],
+      "status": "passed",
+      "firstStep": 5,
+      "lastStep": 5,
+      "evidence": {
+        "drafts": [
+          {
+            "partner": "V-A",
+            "documents": [
+              "PURCHASEORDER-20261003-00006"
+            ],
+            "status": "draft",
+            "sent": false
+          },
+          {
+            "partner": "V-B",
+            "documents": [
+              "PURCHASEORDER-20261003-00008"
+            ],
+            "status": "draft",
+            "sent": false
+          }
+        ],
+        "actualDelivery": false
+      }
+    },
+    {
+      "id": "SIM-03",
+      "requirements": [
+        "REC-01",
+        "REC-02",
+        "REC-03"
+      ],
+      "status": "passed",
+      "firstStep": 6,
+      "lastStep": 14,
+      "evidence": {
+        "orderedQty": 10,
+        "partialReceipts": [
+          4,
+          6
+        ],
+        "unreceivedAfterFirst": 6,
+        "finalUnreceived": 0,
+        "creditReturned": 1,
+        "exchangeReturned": 1,
+        "replacementReceived": 1,
+        "payable": 990,
+        "receiptIds": [
+          "PURCHASE-20261005-00011",
+          "PURCHASE-20261010-00014"
+        ],
+        "returnIds": [
+          "PURCHASERETURN-20261011-00017",
+          "PURCHASERETURN-20261011-00019"
+        ],
+        "replacementId": "EXCHANGERECEIPT-20261012-00021"
+      }
+    },
+    {
+      "id": "SIM-04",
+      "requirements": [
+        "STK-01",
+        "STK-02",
+        "ISS-01"
+      ],
+      "status": "passed",
+      "firstStep": 15,
+      "lastStep": 16,
+      "evidence": {
+        "rack": "가상 RACK A-1",
+        "authorized": 10,
+        "counted": 4,
+        "replenished": 6,
+        "transfer": "TRANSFER-20261013-00025",
+        "totalStockConserved": true,
+        "boxUnitPolicy": "기준단위 EA 수량으로 검증; 임의 박스 환산 없음"
+      }
+    },
+    {
+      "id": "SIM-05",
+      "requirements": [
+        "ISS-02",
+        "ISS-03",
+        "ISS-04"
+      ],
+      "status": "passed",
+      "firstStep": 17,
+      "lastStep": 21,
+      "evidence": {
+        "request": "REQUEST-20261014-00027",
+        "transfer": "TRANSFER-20261014-00029",
+        "sale": "SALE-20261015-00031",
+        "sourceWarehouseUnchangedBySale": true,
+        "correctedSaleQty": 1,
+        "remainingTransferUsage": 1
+      }
+    },
+    {
+      "id": "SIM-06",
+      "requirements": [
+        "STK-03",
+        "CLS-07",
+        "CLS-08",
+        "CLS-09"
+      ],
+      "status": "passed",
+      "firstStep": 22,
+      "lastStep": 26,
+      "evidence": {
+        "formula": "10+5-3+2-4",
+        "physicalUsage": 10,
+        "recordedUsage": 2,
+        "difference": 8,
+        "estimatedAmount": 1000,
+        "valuation": "입력 단가 추정; FIFO/회계 원가 계산 아님",
+        "internalTransfersBalanced": true
+      }
+    },
+    {
+      "id": "SIM-07",
+      "requirements": [
+        "CLS-01",
+        "CLS-02",
+        "CLS-03",
+        "CLS-04"
+      ],
+      "status": "passed",
+      "firstStep": 27,
+      "lastStep": 40,
+      "evidence": {
+        "reconciliation": "PR-18",
+        "initialDifferenceDetected": true,
+        "purchaseConfirmed": true,
+        "invoiceConfirmedAsRecord": true,
+        "actualInvoiceIssued": false,
+        "paymentDueDate": "2026-11-10",
+        "actualPayment": false,
+        "closing": "PR-37",
+        "editBlocked": true,
+        "reopenedWithReason": true,
+        "total": 990
+      }
+    },
+    {
+      "id": "SIM-08",
+      "requirements": [
+        "CLS-05",
+        "CLS-06",
+        "CLS-09"
+      ],
+      "status": "passed",
+      "firstStep": 41,
+      "lastStep": 49,
+      "evidence": {
+        "proposal": "PR-44",
+        "approvalStages": [
+          "합의",
+          "팀장",
+          "재무",
+          "전결"
+        ],
+        "expense": "PR-57",
+        "report": "PR-60",
+        "externalGroupwareSubmitted": false,
+        "reportSent": false,
+        "zeroPriorMonthRate": null
+      }
+    },
+    {
+      "id": "SIM-09",
+      "requirements": [
+        "AST-01",
+        "AST-02",
+        "AST-03"
+      ],
+      "status": "passed",
+      "firstStep": 50,
+      "lastStep": 56,
+      "evidence": {
+        "assets": [
+          "ASSET-1",
+          "ASSET-2"
+        ],
+        "serials": [
+          "SYNTHETIC-SN-1",
+          "SYNTHETIC-SN-2"
+        ],
+        "purchase": "PURCHASE-20261005-00011",
+        "transfer": "TRANSFER-20261020-00056",
+        "registeredQty": 2,
+        "unregisteredPurchaseQty": 2,
+        "unregisteredInventoryReported": true,
+        "barcodeFormat": "REA-ASSET:1 (original hardware compatibility unverified)",
+        "backupRoundTrip": true,
+        "checkCadence": [
+          "daily",
+          "weekly",
+          "monthly"
+        ]
+      }
+    }
+  ],
+  "externalActions": {
+    "originalErpWrites": 0,
+    "emailsSent": 0,
+    "invoicesIssued": 0,
+    "paymentsSent": 0
+  },
+  "limitations": [
+    "공급사 명세서·원장·실사·검수는 가상 자료와 담당자 기록입니다.",
+    "선입선출은 RACK 운영 메모이며 회계 FIFO 원가평가는 구현하지 않습니다.",
+    "REA-ASSET:1 라벨은 내부식별용이며 이카운트·프린터 호환 규격으로 단정하지 않습니다.",
+    "미등록 시리얼 수량을 보고하며 실제 재고 전체를 개별자산으로 자동 추정하지 않습니다."
+  ]
+}

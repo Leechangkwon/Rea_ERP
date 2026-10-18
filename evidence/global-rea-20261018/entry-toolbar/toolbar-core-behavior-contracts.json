@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "area": "generic-composite-class-resolution",
+      "status": "source-backed-generic-contract",
+      "finding": "createComposite delegates common.page.createComposite with compositeType/unitType/groupType/functionType/skillType/subSkillType. createCompositeClassName constructs eccomposite_v1.<compositeType>.<unitType-or-groupType-or-functionType>[.<skillType>][.<subSkillType>][.v<version>], subject to overriding branches. createCompositeInstance checks hasJavaScriptClass and constructs the namespace class.",
+      "symbols": [
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1",
+          "symbol": "createCompositeInstance",
+          "span": [
+            1,
+            5440,
+            1,
+            5719
+          ],
+          "callable_id": "callable:function:5440:5719",
+          "call_count": 9,
+          "unknown_count": 9
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1",
+          "symbol": "createCompositeClassName",
+          "span": [
+            1,
+            5745,
+            1,
+            6120
+          ],
+          "callable_id": "callable:function:5745:6120",
+          "call_count": 0,
+          "unknown_count": 0
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1",
+          "symbol": "createComposite",
+          "span": [
+            1,
+            30592,
+            1,
+            30975
+          ],
+          "callable_id": "callable:function:30592:30975",
+          "call_count": 1,
+          "unknown_count": 1
+        }
+      ],
+      "limit": "A unit/widget with skillType searchText resolves to eccomposite_v1.unit.widget.searchText under the ordinary branch. The requested searchText/sort/rebuildContent widget definitions are not registered in these five exact bodies."
+    },
+    {
+      "area": "F3-and-popup-dispatch-aliases",
+      "status": "source-backed-generic-contract",
+      "finding": "bindEvent maps F3 to ON_KEY_F3 and registers the callback only if the handler exists. For popup IDs in _messageHandlerPopupIdList it conditionally binds onMessageHandler_<popupId><suffix> with popup/tab/grid keys; grid-v3 uses a wrapper that can invoke onCodeItemSelect before the specific handler. mappingEventCallbackHandler forwards common.click.button via delegate.triggerEvent.",
+      "symbols": [
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1",
+          "symbol": "mappingEventCallbackHandler",
+          "span": [
+            1,
+            26667,
+            1,
+            26802
+          ],
+          "callable_id": "callable:function:26667:26802",
+          "call_count": 1,
+          "unknown_count": 1
+        },
+        {
+          "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+          "registry": "eccomposite_v1",
+          "symbol": "bindEvent",
+          "span": [
+            1,
+            6202,
+            1,
+            23047
+          ],
+          "callable_id": "callable:function:6202:23047",
+          "call_count": 181,
+          "unknown_count": 352
+        }
+      ],
+      "exact_alias_spans": [
+        {
+          "kind": "F3-to-handler-alias",
+          "span": [
+            1,
+            21904,
+            1,
+            21918
+          ]
+        },
+        {
+          "kind": "conditional-key-event-registration-loop",
+          "span": [
+            1,
+            22155,
+            1,
+            22255
+          ]
+        },
+        {
+          "kind": "popup-id-message-dispatch-registration",
+          "span": [
+            1,
+            22514,
+            1,
+            23045
+          ]
+        }
+      ],
+      "limit": "This proves dispatcher syntax, not an original searchText F3 handler or FM080P_02 receiver. Those concrete handlers remain unrecovered."
+    },
+    {
+      "area": "grid-text-search-and-highlighting-forwarders",
+      "status": "source-backed-forwarding-boundary",
+      "finding": "group.grid.searchInputText normalizes options and forwards n.t,n.o to gridInstance.searchInputText. searchTextCellHighlight forwards n.value and returns the gridInstance result. searchTextClearCellHighlight forwards for v3 body/head/foot. getGridVersionOption restricts keys to o,t,rl,c,r,i,value,target, defaults v3 target to body and handles special-row footer encoding.",
+      "symbols": [
+        {
+          "source_sha256": "2e5ed0166d338991227ef49db65173a8f8f436a724ed943b26ebbf66038a362e",
+          "registry": "eccomposite_v1.group.grid",
+          "symbol": "getGridVersionOption",
+          "span": [
+            1,
+            12306,
+            1,
+            12780
+          ],
+          "callable_id": "callable:function:12306:12780",
+          "call_count": 6,
+          "unknown_count": 6
+        },
+        {
+          "source_sha256": "2e5ed0166d338991227ef49db65173a8f8f436a724ed943b26ebbf66038a362e",
+          "registry": "eccomposite_v1.group.grid",
+          "symbol": "searchTextClearCellHighlight",
+          "span": [
+            1,
+            27770,
+            1,
+            28058
+          ],
+          "callable_id": "callable:function:27770:28058",
+          "call_count": 4,
+          "unknown_count": 4
+        },
+        {
+          "source_sha256": "2e5ed0166d338991227ef49db65173a8f8f436a724ed943b26ebbf66038a362e",
+          "registry": "eccomposite_v1.group.grid",
+          "symbol": "searchInputText",
+          "span": [
+            1,
+            31727,
+            1,
+            31813
+          ],
+          "callable_id": "callable:function:31727:31813",
+          "call_count": 2,
+          "unknown_count": 2
+        },
+        {
+          "source_sha256": "2e5ed0166d338991227ef49db65173a8f8f436a724ed943b26ebbf66038a362e",
+          "registry": "eccomposite_v1.group.grid",
+          "symbol": "searchTextCellHighlight",
+          "span": [
+            1,
+            31838,
+            1,
+            31939
+          ],
+          "callable_id": "callable:function:31838:31939",
+          "call_count": 2,
+          "unknown_count": 2
+        }
+      ],
+      "limit": "Matching rules, next-match/wrap behavior, returned highlight model, repeat state and the grid-instance implementation remain external."
+    },
+    {
+      "area": "toolbar-enter-focus-dispatch",
+      "status": "source-backed-contract",
+      "finding": "group.toolbar.ON_KEY_ENTER returns false when pageOption.isInclude or the event control matches the current searchText composite realId. Otherwise it can focus the first cell of the first grid row for a toolbar control.",
+      "symbols": [
+        {
+          "source_sha256": "2e5ed0166d338991227ef49db65173a8f8f436a724ed943b26ebbf66038a362e",
+          "registry": "eccomposite_v1.group.toolbar",
+          "symbol": "ON_KEY_ENTER",
+          "span": [
+            1,
+            39240,
+            1,
+            39684
+          ],
+          "callable_id": "callable:function:39240:39684",
+          "call_count": 10,
+          "unknown_count": 10
+        }
+      ],
+      "limit": "This is a focus guard, not the searchText search/repeated-find implementation."
+    },
+    {
+      "area": "remaining-requested-behaviors",
+      "status": "unknown",
+      "finding": "Concrete searchText/sort/rebuildContent widget definitions, product name/specification/quantity comparator, next-match implementation, FM080P_02 receiving model and reset remain unidentified in these exact bodies.",
+      "limit": "Missing definitions do not prove unsupported functionality. Keep repeated-find and numeric-sorting partial labels until the concrete source or behavior is verified."
+    }
+  ],
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "evidence": [
+    "registry-and-target-evidence.json",
+    "dispatch-aliases.json"
+  ],
+  "limits": [
+    "Inert static source only; no original execution, authenticated UI action, app edit or private API access.",
+    "Generic contracts and complete parsing do not prove runtime invocation or toolbar equivalence."
+  ]
+}

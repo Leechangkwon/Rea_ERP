@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T06:03:35.944789+00:00",
+  "boundaries": {
+    "source_execution": false,
+    "browser_actions": 0,
+    "private_API_or_business_actions": 0,
+    "application_edits": false,
+    "original_settings_applied": false,
+    "full_UI_equivalence_proven": false
+  },
+  "original_UI_observation_supplied_by_parent": {
+    "page": "ISortConfigPage",
+    "initial_rows": 3,
+    "criterion": "text input with 정렬/소계기준 placeholder",
+    "before_selection": "page-split checkbox, 정렬방법 button, subtotal-line radio disabled",
+    "typed_input": "Typing 수량 then Down did not select a candidate and field reset",
+    "exit": "Closed without Apply.",
+    "evidence_type": "Observed by parent, not independently operated by this worker."
+  },
+  "page_binding": {
+    "source": "SortConfigPage has generic page_impl ISortConfigPage using IGetSortConfigPageSetupProgram, title resource rex01597. That setup-program implementation/returned control attributes are not in these3bodies.",
+    "known_consumers": "SetDataSortConfigUserAction opens ISortConfigPage with current sort config/item_definition/option and receiver chosen by getSortConfigUtil$1. Different callers/options can reuse it; exact current report caller and dynamic options are not assumed.",
+    "evidence": [
+      "SetDataSortConfigUserAction.executeAsync",
+      "getSortConfigUtil$1"
+    ]
+  },
+  "criterion_selection": {
+    "compatible_renderer": "app.setup.component supplies ECISetupTemplateItemDto: view_type CODE_SEARCH_INPUT selects ECSearchInputISetupTemplateItemDto; CODE_INPUT selects code-field variant. Actual sort_prop view_type/action binding is in missing dynamic setup.",
+    "single_click": "Wrapper has no text-input single-click picker handler; ordinary click can focus underlying ECCommonTxtInput. Do not infer candidate popup opens on every single click.",
+    "search_icon": "Search button mouseDown dispatches add_codes configured action with action_target SEARCH_BUTTON when no validation error.",
+    "double_click": "Double-click dispatches add_codes with action_target DB_CLICK.",
+    "typing": "Typing name edits search_keyword and runs onDataValidator(change); it does not itself commit a chosen sort_prop.",
+    "Enter_and_blur": "Enter when nonempty/changed/no-error calls event.target.blur. Blur calls searchByKeyword with500ms throttle. Empty trimmed text resets default. Changed valid text resets committed/default data first, then invokes configured add_codes with action_target CHANGE and keyword. Selection/cancel details are delegated useCodeSearch/selector program.",
+    "Down": "No ArrowDown branch in this wrapper. Down navigation, autocomplete list highlight/commit and underlying input default behavior are not captured; cannot promise auto-select. Reset-after-unselected-text is compatible with blur reset-before-search, but causal Down->blur path remains UI-observed.",
+    "clear": "Remove button appears when chosen code differs from default and invokes resetValue.",
+    "selector_request": "SetSortPropUserAction.getRequestDto targets param.item_definition, excludes code values already selected in every other row, sets filter_info.filter_type sort and page bizz/menu context; display_option.keyword is forwarded. Actual filtering/search/ranking UI is ISelectTemplateItemByPopupProgram dependency, not these bodies.",
+    "selector_commit": "SetSortPropUserAction.executeAsync runs selector program, uses first selected template_item. No result =>return. Sets sort_prop={sid:prop_id,code:prop_id,name:display_name plus optional(alias_name)}, data_type and item_meaning_id. date/date_no/numeric/decimal selections reset page_separate_tf=false.",
+    "evidence": [
+      "ECSearchInputISetupTemplateItemDto",
+      "criterion.onMouseDownSearchButton",
+      "criterion.onDoubleClick",
+      "criterion.onChangeName",
+      "criterion.onKeyDown",
+      "criterion.onBlurName",
+      "criterion.searchByKeyword",
+      "criterion.resetValue",
+      "SetSortPropUserAction.getRequestDto",
+      "SetSortPropUserAction.executeAsync"
+    ]
+  },
+  "rows_and_order": {
+    "initial3": "Three rows are current UI evidence; minimum/default3 construction is in missing setup/default-record code and not established by these bodies.",
+    "growth": "InitializeSortConfig subscribes sort_prop. When criterion control is not excluded, every existing row has nonempty selected code, and current count<5, appends one default record with new sid and next sort_seq. initial_sync true means it may append on initial/full data. This is not a universal hard3row limit, and does not truncate larger supplied data.",
+    "bulk_remove": "BulkRemoveSortConfigUserAction replaces each selected row with abstract default record, preserving record_sid and sort_seq, then clears selected-row map. It resets selected rows rather than physically removing them in this implementation.",
+    "up_down": "No main SortConfig row up/down handler binding was found in these bodies. Apply follows current data-model array order and renumbers retained valid rows1..N. Do not infer drag/keyboard/row-move details.",
+    "evidence": [
+      "InitializeSortConfigUserAction.executeAsync",
+      "BulkRemoveSortConfigUserAction.executeAsync",
+      "ApplySortConfigUserAction.executeAsync"
+    ]
+  },
+  "field_enablement_and_direction": {
+    "empty_criterion": "sort_prop_data_type derived from selected code; asc_desc becomes writable iff type nonempty. Excluded fields become nonwritable; code fields use writable{code:false,name:false}.",
+    "direction": "asc_desc is preserved into outgoing sort records. This source does not supply the current 올림/내림 label options/default value, nor prove their exact A/D binding; those renderer attributes are dynamic setup.",
+    "subtotal_line": "Enabled only option.use_subtotal && page_lookup_type===A && nonempty data type in date/txt groups. Changing datatype sets subtot_tf to eligibility, and subtot_standard=M for eligible date elseN.",
+    "page_split": "Enabled only option.use_page_separate && nonempty txt-group data type && no earlier row date/numeric type. Selecting one page_separate_tf true clears it for all other rows. Any page split makes page_display_method writable; none disables it and sets scroll.",
+    "settings_button": "InitializeSortConfigUtils.isEnableSetup returns nonempty type && subtot_tf; subscriber sets setup.display_state. The source is display state rather than explicit enabled/disabled; exact current button rendering depends on setup.",
+    "type_groups": "date/dateTime/date_no =>date; numeric/decimal=>numeric; other=>txt.",
+    "evidence": [
+      "InitializeSortConfigUserAction.executeAsync",
+      "InitializeSortConfigUtils.isEnableSubtotalTf",
+      "InitializeSortConfigUtils.isEnableSubtotalStandard",
+      "InitializeSortConfigUtils.isEnablePageSeparate",
+      "InitializeSortConfigUtils.isEnableSetup",
+      "InitializeSortConfigUtils.getDataTypeGroup"
+    ]
+  },
+  "sort_method_or_subtotal_popup": {
+    "source_action": "SetSubtotalConfigUserAction opens ISubtotalConfigPage modal400x280 with current subtot_nm_tf/subtot_standard/count_mark_tf. is_enable_subtot_nm_tf only row index>0; is_show_subtot_standard for date/datetime/date_no.",
+    "result": "Truthy nonempty popup message entries are written back into current sort row. ApplySubtotalConfig sends its current record and closes.",
+    "binding_unknown": "Association of parent-observed 정렬방법 label to this setup action is compatible but dynamic label/action mapping is absent. Child option labels, radios and their event handlers require actual child setup/renderer evidence.",
+    "evidence": [
+      "SetSubtotalConfigUserAction.executeAsync",
+      "ApplySubtotalConfigUserAction.executeAsync"
+    ]
+  },
+  "apply_and_submenus": {
+    "apply_contract": "ApplySortConfig keeps only rows with nonempty sort_prop.code; maps asc_desc/count_mark_tf/page_separate_tf/sort_prop+type+meaning/subtotal flags, reassigns sort_seq1..N, includes page_display_method. It marks left-fixed cancellation when option.use_left_fixed && option.is_left_fixed && any selected row.subtot_tf.",
+    "validation": "apply_validate may confirm left-fixed cancellation if message.use_left_fixed and cancellation flag are both true; the local constructed message does not populate use_left_fixed. trx_bal_status additionally requires date criterion last and not sole criterion, and at least one configured sum-item meaning; unrelated current report validation not inferred. Candidate request excludes duplicate choices, but no general duplicate validator is in this Apply helper.",
+    "apply_success": "After validation, optionally saves, then vmc.sendMessage(message) and vmc.closePage. Empty filtered list has no general rejection here (special trx_bal_status validation can block); it can send data=[]. No result query is called directly in ApplySortConfig; parent receiver decides subsequent search/redraw.",
+    "F8": "Current Apply(F8) is UI evidence from parent. Only F8 literal in user_action source is OpenReportSetupV4UserAction.getFooterButtonDefinition [1,396595,1,396599] using IApplyWidgetUserAction, not SortConfig definition. SortConfig F8 binding is missing with IGetSortConfigPageSetupProgram.",
+    "save_submenu_branch": "Only if route option.use_save && payload.save_tf does Apply invoke save_validate and save. Exact current dropdown labels/order/visibility and default-save enabled state are absent; no invented submenu list.",
+    "za_restriction": "save_validate blocks option.za_tf via alert rex02250.",
+    "evidence": [
+      "ApplySortConfigUserAction.executeAsync",
+      "apply_validate",
+      "save_validate",
+      "save"
+    ]
+  },
+  "storage_and_cancel": {
+    "ordinary_apply": "When save branch disabled, popup path sends sort message to parent and closes without local HTTP save call. This supports transient parent configuration, not persistence across session or login.",
+    "persistent_save_branch": "save chooses IModifyInputTemplateSortAction vs IModifyOutputTemplateSortAction from from_menu_type=input; sends bizz/menu/template ids, template_sub_type, sort_config,page_display_method,left-fixed flag,screen_type. Actual endpoint, permissions, storage lifetime and server acceptance are external/unexecuted.",
+    "captured_output_setup_caller": "OutputSortConfigUtil$1 options set use_save=false, use_subtotal/pageSeparate true, page_lookup from owner defaultA, page_display_method defaultscroll. Its receiver writes owner sort/page display values and section subtotal list; this caller is template setup and is NOT proven current report search-sort caller.",
+    "close": "Standalone close/cancel handler and actual default-save submenu setup are external. Parent closed without Apply; no original settings write executed here. Do not claim every caller clones/discards data solely from common close assumption.",
+    "evidence": [
+      "ApplySortConfigUserAction.executeAsync",
+      "save",
+      "OutputSortConfigUtil$1"
+    ]
+  },
+  "unknowns": [
+    "Initial3row construction, current exact renderer/action binding, candidate popup inner click/keyboard/search algorithm and direction labels/defaults are missing.",
+    "No ArrowDown auto-select behavior proven; only Enter/blur/search/reset wrapper logic captured.",
+    "F8/current dropdown entries and standalone close behavior not supplied by SortConfig setup program in captured bodies.",
+    "No actual Apply/default-save/print/query/server action or original source execution performed."
+  ]
+}

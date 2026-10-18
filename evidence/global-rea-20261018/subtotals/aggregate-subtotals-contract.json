@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T09:25:48.606958+00:00",
+  "scope": {
+    "retained_original_bodies": 81,
+    "original_bytes": 19600813,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "new_semantic_runs": 0,
+    "separate_from": "Owner0.32 subtotal assessment; current original restored ordinary item5column report,2axis/toggle read-only observations pending parent"
+  },
+  "answer": {
+    "known": "Generic free-aggregate conditions feed per-axis summary model/row definitions, show_subtotal→subtot_tf flags, typed boundary keys, accumulator metadata and title resolvers. Inventory and output consumers are retained.",
+    "unknown": "Exact current purchase control value/default binding, final hierarchical row emission/order/rollup algorithm and server formulas are not established. External FlexionErp.WidgetDLTBuilder/data_generator consumes the config. No complete original subtotal parity claim."
+  },
+  "defaults_and_toggle": {
+    "refs": [
+      "common::getAggregateConditionData",
+      "common::buildConditionsFromDetails",
+      "common::buildNormalizedAggregate"
+    ],
+    "selector_default": "New selected free-axis generic popup return object sets show_subtotal:true and sort_type:A. Receiving component may override; no captured btn-add-sum/unadd-sum handler or current serialized toggle value.",
+    "fixed_default": "Fixed details_target.props→condition conversion sets show_subtotal:false. This is a different route, not evidence that newly selected free axes default OFF.",
+    "free_normalization": "Free aggregate drops details_target and otherwise preserves aggregate object/condition fields. No local show_subtotal coercion/default is added here.",
+    "UI_unknown": "Do not map plus/minus class to actual Boolean or infer default ON/OFF solely from selector/fixed transformation. Parent current read-only result observation is separate, not performed by worker."
+  },
+  "request_and_backend": {
+    "refs": [
+      "common::normalizeAggregateRequest",
+      "common::buildNormalizedAggregate",
+      "common::rebuildAggregateGroups",
+      "inventory::SelectInventoryStatusProgram.onExecuteAsync"
+    ],
+    "conditions": "When registered mapper emits matching aggregate condition, normalizeAggregateRequest replaces its value with normalized aggregate. Free condition_NN including show_subtotal can remain in that value; actual equal_condition/aggregate callback registrations/current DMC metadata are external.",
+    "groups": "rebuildAggregateGroups extracts valid selected prop IDs, deduplicates and replaces groups. groups entries themselves do not encode show_subtotal. Fixed Line clears groups.",
+    "server": "SelectInventoryStatusProgram delegates conditions/sorts/groups/page/limit/template context to SelectInventorySearchStatusAction and returns result.data/total_number/date. No backend code or response was fetched/executed. Whether flag alters server response versus client display remains unknown."
+  },
+  "axis_hierarchy_and_models": {
+    "refs": [
+      "common::getAggregateConditionKeys",
+      "inventory::InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "inventory::InventoryStatusCreateDMCResolver.OnExecuteAsync",
+      "common::buildSummarySort",
+      "common::getNewRowInfos$1",
+      "common::getUnwindAggregationCriteriaConfig"
+    ],
+    "axis_order": "Select truthy condition_NN entries with prop_id and sort by numeric suffix; gaps are allowed and selected axes compact to consecutive levels1..N.",
+    "models": "Free path creates summary1..N DMC models with model_refer_type subtotal1..N, using dynamic summary item definitions. Model creation loops selected axes without filtering show_subtotal; data models initially empty.",
+    "row_definitions": "getNewRowInfos$1 emits new-row info per selected axis level and each template body row, if corresponding summaryN DMC exists; carries acc_standard=aggregate and row_definition_index. Even missing standard column may still permit summary-row definitions.",
+    "limit": "These are level/model/template definitions. They do not establish number/position of emitted rows, whether leaf subtotal duplicates body row, parent-prefix tree policy, collapse behavior or grand total placement."
+  },
+  "show_flag_and_config": {
+    "refs": [
+      "common::buildSummarySort",
+      "common::createSummaryConfig",
+      "common::getGroupAggregateConfigs",
+      "common::grid$aggregate_dlt_feature_config"
+    ],
+    "pipeline": "buildSummarySort maps selected condition to sort_seq1..N, sort_prop=prop_id, subtot_tf=show_subtotal; asc_desc=A, page_separate_tf=false, subtot_standard=N, subtot_nm_tf=false,count_mark_tf=false. createSummaryConfig builds group config/value extractor/title resolver; free grid aggregate stores as feature_configs.data_generator.summary_config.",
+    "guards": "getGroupAggregateConfigs skips missing summaryN DMC/prop/type, numeric grouping prop, Count grouping in free aggregate and unsupported date unit Skip. Eligible entries carry subtot_tf unchanged, accumulator metadata,row_title_prop_id,count flags.",
+    "OFF": "False flag still exists in config and model/row definitions can still be created. Final visibility/accumulation suppression is delegated; do not equate OFF with removal of grouping, server rows or aggregate model.",
+    "distinction": "Free summary_config differs from sort-popup subtotal_config and fixed pagetotal/total. Do not import sort-dialog row placement or global total rules into per-axis free subtotal."
+  },
+  "keys_calculation_order": {
+    "refs": [
+      "common::createValueExtractor",
+      "common::resolveDateUnit",
+      "common::truncateDateByUnit",
+      "common::buildAggregateAccumulators",
+      "common::resolveStandardByType",
+      "common::grid$ui_sort_dlt_feature_config",
+      "inventory::InventoryStatusSortSearchResolver.OnExecuteAsync"
+    ],
+    "keys": "Boundary extractor uses $$code.value.code; date/date_no/date_record_seq_no values select data_dt when object, then typed date-unit truncation (Year first4,Month first6,other unchanged); unsupported Skip→null; missing→empty string; other types value??empty. This is a client boundary key extractor, not proof of backend/SID group identity.",
+    "accumulators": "For numeric section props collect standard_by_type and association_prop_id. Empty standard excludes; nonaggregate runtime clears explicit standard before fallback. total_calc_num association uses associated standard or First, otherwise fallback Sum. Actual numeric accumulation/division/tax/rounding remains external engine/dynamic definition.",
+    "sort": "Synthetic A in summary-sort config is not general request ORDER BY proof. Request option_sort/dynamic mappers are separate. sort_seq is level metadata; final hierarchy and row ordering are external.",
+    "override": "If ui_sort config hook applies, it creates subtotal_config and deletes existing summary_config. Search-sort hook also sets subtotal_config. Current hook ordering/active attributes and precedence in current purchase runtime unobserved.",
+    "no_formula_claim": "Do not infer summing the four visible columns is always original correct: dynamic per-property standard/association/value-format and server values may alter behavior."
+  },
+  "subtotal_label_and_row_output": {
+    "refs": [
+      "common::buildSortMetaMap",
+      "common::resolveTitleCustomDisplayName",
+      "common::createSubtotalTitleResolver",
+      "common::resolveSortEntryName",
+      "common::resolveDateTitle",
+      "common::resolveEnumTfTitle",
+      "common::resolveCodeCdTitle",
+      "common::resolveDefaultTitle",
+      "common::buildInfoForNewRow",
+      "common::getPropDefinition"
+    ],
+    "title": "Resolve current group name by data type/value-format; if empty use[]. Append space + custom_display_name suffix if truthy else resource rex00205. Source does not contain resolved current Korean suffix value.",
+    "parents": "Only subtot_nm_tf=true joins prior sort-level names with space/slash/space before suffix. Synthetic free summary sort sets thisfalse, so its requested default title is current axis name only, not an inferred full-parent path.",
+    "types": "Date title uses typed truncate+value formatter; enum/tf resolves refer_type then refer_group then datatype resource labels; code_cd may append(name) from paired nm_prop_id; default uses external value formatter.",
+    "row_metadata": "buildInfoForNewRow maps association body prop→section prop, title_prop, default styles/fonts,height,sort_seq,row_definition_index. Missing current dynamic summary definitions prevent exact cells,widths,merge/indent/label placement claims."
+  },
+  "renderer_boundary": {
+    "ref": "common::DLTMapBuilder.build",
+    "facts": "Build WidgetDLTFeatConfigBuilder feature configs; pass widget/data_model/platform/features to new FlexionErp.WidgetDLTBuilder().execute. For nonexcel, syncDmcFromDltRawBody may update DMC from result.dlts. data_generator implementation and final row generation are external to identified81 sources.",
+    "limits": "Previous renderer bodies with timeout/OOM remain failed/partial. Absence of subtotal tokens in them does not prove behavior absent. No new retry or execution was used."
+  },
+  "CSV_Excel_print_boundaries": {
+    "refs": [
+      "inventory::InventoryExcelSearchResolver.OnExecuteAsync",
+      "inventory::InventoryStatusDownloadExcelResolver.OnExecuteAsync",
+      "inventory::InventoryStatusCreateDMCResolver.OnExecuteAsync",
+      "common::isOutputOnlyPath",
+      "common::DLTMapBuilder.build",
+      "common::PrintSlipUserAction.executeAsync",
+      "common::RenderPreviewUserAction.executeAsync"
+    ],
+    "Excel_search": "Excel resolver uses limit100000,page index1/row count100000 when present,is_excel_convert=true and default sort helper. Download resolver delegates data/definition/xtemplate/runtime/disposableDMC and payload.file_type(defaultxlsx) to excel$DownloadExcelProgram with security check. This is not proof of exporting only current visible rows.",
+    "DLT_Excel": "Same feature-config builder can feed platformexcel; may use origin DMC rows for repeated props, strips empty-line display blanks and does not sync generated data back to displayed DMC. Thus subtotal config can reach output engine, but exact serialized subtotal rows still depend on external engine/exporter/current definitions.",
+    "CSV": "Generic payload.file_type can pass through; direct current free-subtotal CSV serializer/schema/row-type policy not retained. No CSV export executed. Own CSV inclusion/exclusion/labels must be declared own policy.",
+    "print": "Common PrintSlipUserAction handles normal Status/SumStatus through AddGridAllRow action then PrintSlipSvc; graph has separate PrintGraph path. Preview dispatches AddGridAllRow then external print preview program. No direct show_subtotal-specific print formula/row-placement consumer was established.",
+    "scope": "No download, print, settings Save/Apply or private API executed. Formatting/security/logging/page breaks/full-row behavior cannot be claimed equivalent from dispatch alone."
+  },
+  "evidence_files": {
+    "actual_REA_full_excerpt_refs": "$SCRATCH/aggregate-subtotals-rea-20261018/actual-rea-reference-index.json",
+    "whole81_scan": "$SCRATCH/aggregate-subtotals-rea-20261018/corpus-subtotal-scan.json"
+  },
+  "unknowns": [
+    "Current purchase toggle Boolean/default/action-binding and per-axis ON/OFF result rows.",
+    "Backend GROUPBY/measures/tax/rounding and show_subtotal response effect.",
+    "External data_generator hierarchy/prefix boundaries/emission order/leaf duplication/grand totals/actual arithmetic.",
+    "Current dynamic templates/custom suffix/styles and UI-sort override order.",
+    "CSV serializer and final print/Excel row output parity.",
+    "Original81/19600813B unchanged; full common semantic OOM2GB and prior renderer timeout/OOM preserved. Existing excerpt successes are mapped partial evidence, never full-body promotion."
+  ]
+}

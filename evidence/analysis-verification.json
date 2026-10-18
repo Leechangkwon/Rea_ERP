@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "rea_version": "6.4.0",
+  "menu_labels_and_hierarchy_match": true,
+  "observed_menu_checksum": {
+    "utf16_length": 10434,
+    "fnv1a_utf16": "3f7816c6"
+  },
+  "actual_menu_checksum": {
+    "utf16_length": 10434,
+    "fnv1a_utf16": "3f7816c6"
+  },
+  "menu_json_sha256": "1eb6bfd863b2a4d526c50ffbf6c8d9f27b297250263bfa52033b6d803be54105",
+  "rea_statistics": {
+    "relevant_files": 4,
+    "nested_asar_containers": 0,
+    "text_bytes_read": 424899,
+    "invalid_utf8_files": 0,
+    "parsed_javascript_files": 4,
+    "visited_ast_nodes": 90542,
+    "findings": 2,
+    "modules": 0,
+    "parse_failures": 0
+  },
+  "source_observations": [
+    {
+      "file": "bundle.menu.-4230133589129103184.20.js",
+      "token": "ecount.widget.PROCESSBOOKMARK",
+      "character_offset": 1173,
+      "utf8_byte_offset": 1173,
+      "meaning": "A bookmark-processing event label is present.",
+      "scope": "Direct static source observation, not a runtime proof"
+    },
+    {
+      "file": "bundle.menu.-4230133589129103184.20.js",
+      "token": "getMenuApiDataRequire",
+      "character_offset": 140727,
+      "utf8_byte_offset": 140744,
+      "meaning": "Menu data can be loaded through a dynamic require helper.",
+      "scope": "Direct static source observation, not a runtime proof"
+    },
+    {
+      "file": "bundle.menu.-4230133589129103184.20.js",
+      "token": "ecount.control.menu",
+      "character_offset": 141212,
+      "utf8_byte_offset": 141237,
+      "meaning": "A menu control class is declared.",
+      "scope": "Direct static source observation, not a runtime proof"
+    },
+    {
+      "file": "bundle.menu.-4230133589129103184.20.js",
+      "token": "useFavoriteCode",
+      "character_offset": 9500,
+      "utf8_byte_offset": 9500,
+      "meaning": "A favorite-code selection option is present.",
+      "scope": "Direct static source observation, not a runtime proof"
+    }
+  ],
+  "limitations": [
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+    "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+    "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.",
+    "bundle.menu.-4230133589129103184.20.js: Resource constraint during analyze_javascript_application: Owned JavaScript worker exhausted its heap while analyzing bundle.menu.-4230133589129103184.20.js during semantic",
+    "Only four public CDN scripts observed in the live page were included.",
+    "Static parsing does not prove the selected helpers power every current UI transition.",
+    "The live rendered sitemap and observed UI transitions supply the menu/UI evidence.",
+    "The sample independently implements navigation and does not execute original application code or call ERP APIs.",
+    "The menu snapshot reflects the signed-in account configuration, not every Ecount feature or permission."
+  ]
+}

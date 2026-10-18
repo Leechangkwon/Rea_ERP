@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-18",
+  "source_page": "Purchase graph Filter category-color popup",
+  "observed_actions": [
+    "Opened category color link only.",
+    "Observed UL dropdown-menu-color-picker,11preset columns with7cells each,77preset background hex styles.",
+    "Observed 다른색 link; clicked only to reveal manual area, text inputmaxLength6 and 선택 button.",
+    "Escape closed layers without entering/selecting color or applying Filter."
+  ],
+  "generic_UI_labels": [
+    "다른색",
+    "선택"
+  ],
+  "preset_values_reference": "dist/purchasing-report-ui.js graphPresetColors stores generic observed preset backgrounds, not company category/value data.",
+  "original_color_selected": false,
+  "original_input_entered": false,
+  "original_filter_applied": false,
+  "company_names_records_collected": false,
+  "screenshots_retained": false,
+  "unknown": [
+    "Actual preset factory and legacy widget→UIKit adapter",
+    "Current invalid input/Enter/base cancel rollback and complete HSV geometry behavior"
+  ]
+}

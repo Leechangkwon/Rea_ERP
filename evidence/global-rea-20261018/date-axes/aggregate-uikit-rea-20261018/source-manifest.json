@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "deployment_boundary": "0.21 future research only; prior74/0.20 and application files unchanged",
+  "baseline_cumulative_counts": "$SCRATCH/aggregate-common-rea-20261018/cumulative-counts.json",
+  "baseline_source_manifests": [
+    "$SCRATCH/rea-request/evidence/global-rea-20261018/report-sort-config/corpus-summary.json",
+    "$SCRATCH/aggregate-common-rea-20261018/source-manifest.json"
+  ],
+  "baseline_unique_bodies": 74,
+  "baseline_bytes": 17067099,
+  "sources": [
+    {
+      "url": "https://resource.ecount.com/ec5/static/ecountv5/modules/ecount.browser.uikit/ecount.browser.uikit.93043ecc.20.js",
+      "provenance": "Exact original DOM script.src resolved URL supplied by parent; fetched without browser state.",
+      "attempts": 1,
+      "authenticated": false,
+      "cookies_sent": false,
+      "UA_changed": false,
+      "target_executed": false,
+      "downloaded_at": "2026-10-18T06:59:09.842472+00:00",
+      "http_status": 200,
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Content-Encoding": "gzip",
+        "Content-Length": "154741",
+        "Last-Modified": "Thu, 15 Oct 2026 02:43:32 GMT",
+        "ETag": "\"ce8dd956929e84d7701d08029f3eda84\"",
+        "Date": "Sun, 18 Oct 2026 06:59:17 GMT"
+      },
+      "transport_bytes": 154741,
+      "gzip_magic": true,
+      "bytes": 756271,
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "new_unique_body": true,
+      "gzip_decoded": true,
+      "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+      "status": "captured",
+      "SHA_verified_after_save": true
+    },
+    {
+      "url": "https://resource.ecount.com/ec5/static/ecountv5/modules/ecount.infra.bridge/ecount.infra.bridge.2ba74f2d.20.js",
+      "provenance": "Exact original DOM script.src resolved URL supplied by parent; fetched without browser state.",
+      "attempts": 1,
+      "authenticated": false,
+      "cookies_sent": false,
+      "UA_changed": false,
+      "target_executed": false,
+      "downloaded_at": "2026-10-18T06:59:17.638833+00:00",
+      "http_status": 200,
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Content-Encoding": "gzip",
+        "Content-Length": "6577",
+        "Last-Modified": "Tue, 14 Jul 2026 23:41:39 GMT",
+        "ETag": "\"8a1c21c260ab9347cbc8859cb9a7f9c3\"",
+        "Date": "Sun, 18 Oct 2026 06:59:23 GMT"
+      },
+      "transport_bytes": 6577,
+      "gzip_magic": true,
+      "bytes": 35008,
+      "sha256": "4bd755c60b9c4f5584fccf5c35ea85ffd8ca0a2c94e8e4c1633afd0c37c843f9",
+      "new_unique_body": true,
+      "gzip_decoded": true,
+      "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.infra.bridge.2ba74f2d.20.js",
+      "status": "captured",
+      "SHA_verified_after_save": true
+    }
+  ]
+}

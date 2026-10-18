@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scope": "Existing78 retained public originals only; no new original bodies,GETs,source execution or full semantic runs.3body hashes checked by pinned parser read.",
+  "corpus_reference": "$SCRATCH/aggregate-renderer-rea-20261018/cumulative-counts.json",
+  "sources": [
+    {
+      "key": "actions",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "freshness": "Retained prior capture; not refreshed.",
+      "actual_parser": "REA6.4.0 parseJavaScriptSource",
+      "current_span_parse_errors": 0
+    },
+    {
+      "key": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "freshness": "Retained prior capture; not refreshed.",
+      "actual_parser": "REA6.4.0 parseJavaScriptSource",
+      "current_span_parse_errors": 0
+    },
+    {
+      "key": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "freshness": "Retained prior capture; not refreshed.",
+      "actual_parser": "REA6.4.0 parseJavaScriptSource",
+      "current_span_parse_errors": 0
+    }
+  ]
+}

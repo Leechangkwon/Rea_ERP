@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:49:35.370045+00:00",
+  "scope": {
+    "new_GETs": 0,
+    "new_original_bodies": 0,
+    "browser_operations": 0,
+    "original_or_private_API_requests": 0,
+    "source_execution": false,
+    "application_or_prior_contract_edits": false,
+    "new_full_semantic_runs": 0,
+    "corpus": "Existing78 public originals/actualREA; independent of0.24 classification deployment."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; offsets UTF16",
+  "files": [
+    "precise-static-evidence.json",
+    "rea-reference-evidence.json",
+    "engine-consumer-discovery.json"
+  ],
+  "conclusion": "Parent observed12headers for a previous-month project-group2 comparison query. Captured source configures two-period date/data/key inputs and hands them to external FlexionErp.WidgetDLTBuilder. Actual keyed join/alignment versus independent row placement,missing-row cells and date arithmetic remain unknown; header pairs alone do not prove them.",
+  "parent_context": {
+    "current_own_UI": "Disabled select containing requested5labels; not original behavior proof.",
+    "original_UI": {
+      "observed_control": "전월동일기간 radio selected by parent; read-only report query succeeded",
+      "axis": "프로젝트그룹2별",
+      "header_count": 12,
+      "header_shape": "2 masked date-range headers plus2 sets of [프로젝트그룹2별,수량,공급가액,부가세,합계]",
+      "observed_scope": "Header structure only; no dates/company values retained. No row alignment/join/missing-period interpretation inferred from side-by-side headers."
+    },
+    "no_company_data_retained": true
+  },
+  "requested_modes": [
+    {
+      "label": "사용안함",
+      "captured_code": "string0 is EN_COMPARISON_PERIOD.None in V56 guards",
+      "source_effect": "Comparison feature-config returns early for0. No date transformation.",
+      "current_control_binding": "Unknown actual current field/control attachment."
+    },
+    {
+      "label": "전년동일기간",
+      "captured_code": "Unknown nonzero code mapping",
+      "transformation": "Unknown: year offset,Feb29 handling,clamp/rollover and inclusive boundaries not found in bound captured path."
+    },
+    {
+      "label": "전월동일기간",
+      "captured_code": "Unknown nonzero code mapping",
+      "transformation": "Unknown: subtract-month policy,short month clamp/overflow and start/end treatment."
+    },
+    {
+      "label": "전주동일기간",
+      "captured_code": "Unknown nonzero code mapping",
+      "transformation": "Unknown:7day shift versus calendar/company/ISO week and week-year handling."
+    },
+    {
+      "label": "전일동일기간",
+      "captured_code": "Unknown nonzero code mapping",
+      "transformation": "Unknown: calendar-day versus fixed-duration shift,timezone/DST and multi-day span handling."
+    }
+  ],
+  "input_and_query_boundary": {
+    "fields": "InventoryStatusUpdateVMCStateBeforeSearchResolver prefers standalone inv_s$comparison_period, then aggregate.comparison_period, then string0 for its comparison/repetition guard. Other consumers read nested aggregate.comparison_period or a comparison_period refer_type. Synchronization/actual current definitions unknown.",
+    "request": "Existing DataModelModifier preserves free aggregate fields including comparison_period. SelectInventoryStatusProgram forwards transformed conditions/sorts/groups in read query; later returns data_model=result.data,total_count=result.total_number,date=result.date. No identified period-bound calculation here.",
+    "runtime": "setPageData stores date unchanged into ICompareDateOptionRuntime. The captured date-pair provider/calculation is outside this inspected path; no API was invoked.",
+    "evidence": [
+      "inventory.InventoryStatusUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+      "common.buildNormalizedAggregate",
+      "inventory.SelectInventoryStatusProgram.onExecuteAsync",
+      "inventory.setPageData"
+    ]
+  },
+  "data_period_marking": {
+    "source": "Normalize resolver acts only when data_model_id/search_dmc exist, aggregate.comparison_period is not string0 and first two data_model entries are arrays. It marks first-array rows __period_index=1, second-array rows __period_index=2, then concatenates those arrays.",
+    "boundary": "Expected client data shape only; no response records/schema captured. Does not calculate comparison dates,align rows or produce difference/ratio values.",
+    "evidence": [
+      "inventory.InventoryStatusNormalizeDataModelResolver.OnExecuteAsync",
+      "inventory.InventoryStatusNormalizeDataModelResolver.requiredNormalization"
+    ]
+  },
+  "date_pair_display": {
+    "source": "buildCompareDate destructures date runtime {origin,compare}; if any origin.from/to or compare.from/to missing/falsy, returns[]. Else formats both ranges through external IValueFormatExecutorFeature with $$date_range and emits2entries {value:{from,to},label:formatter.result}.",
+    "date_math": "No year/month/week/day arithmetic in this consumer. Dates are supplied, not computed.",
+    "headers": "buildPeriodLabelHeaderMeta maps title cell style/font into period label metadata and forces horizontal_align=center. Exact label formatting is external and current concrete metadata unknown.",
+    "evidence": [
+      "common.buildCompareDate",
+      "common.buildPeriodLabelHeaderMeta"
+    ]
+  },
+  "display_columns_and_preservation": {
+    "source": "grid comparison config skips string0; also returns if ICompareDateOptionRuntime or trx_dt item-meaning prop is undefined. It configures date_prop_id,period labels,title_prop_id for subtotal/pagetotal/total,view_type-preserved props and always-fill props.",
+    "preserved": "getViewTypePreservedPropIds collects $$image_link props and standard refer_type across body/summary/subtotal*/pagetotal/total. getAlwaysFillBodyPropIds collects sequence refer_type props for periods with missing data. Aggregate config also preserves its selected axis prop IDs.",
+    "unknown": "Observed single-axis previous-month query has12headers as recorded above. Source alone does not establish other modes/axes,actual row/cell pairing,missing-period content,zero versus blank values,difference/percentage formulas or print/export shape.",
+    "evidence": [
+      "common.grid$comparison_period_dlt_feature_config",
+      "common.getTitlePropids",
+      "common.getViewTypePreservedPropIds",
+      "common.getAlwaysFillBodyPropIds"
+    ],
+    "aggregate_preservation_line_anchors": [
+      27520,
+      27527
+    ]
+  },
+  "axis_sort_and_matching_keys": {
+    "axis_criteria": "getComparisonPeriodCriteria: fixed uses details_target.props prop IDs; free iterates numeric ordered selected condition keys and emits {prop_id,descending:condition.sort_type===D}.",
+    "explicit_sort": "getSort prefers SearchTemplateModel sort_search.sort if truthy, else widget.attribute.sort, else[]. The comparison config sorts those entries by sort_seq and maps asc_desc===D to descending.",
+    "extraction": "createComparisonValueExtractor reads dynamic DMC datatypes: $$date_record_seq_no -> data_dt$data_no$record_seq_no; $$date_no -> data_dt$data_no; $$code -> value.code; otherwise raw value.",
+    "boundary": "These criteria/extractor are passed to an external comparison engine. Actual row union/alignment,relative-date offset matching,stable identity,sorting precedence between criteria arrays,ties/nulls and collations remain unknown. Do not infer an ordinary GROUPBY or exact original ordering formula from these keys.",
+    "evidence": [
+      "common.getComparisonPeriodCriteria",
+      "common.getSort",
+      "common.createComparisonValueExtractor",
+      "common.grid$comparison_period_dlt_feature_config"
+    ]
+  },
+  "clicked_period_drilldown": {
+    "V56": "isComparisonPeriodCell returns true if clicked record has numeric FlexionErp.PERIOD_INDEX_KEY different from PRIMARY_PERIOD_INDEX; otherwise prop_index===1. Constants/renderer binding are external. Common StandardUserAction can replace search date range with runtime compare.from/to and reset comparison to0 for line-view popup.",
+    "V5_compatible_path": "Existing V5 StandardUserAction instead reads owner.prop_id suffix after|; when numeric suffix>1 and date runtime nonempty, uses compare date range. It forwards suffixed values to drilldown builder. This differs from V56 display-layer period handling and is not merged into one current rule.",
+    "boundary": "Click helpers/source only. No original popup/query actions executed; current binding and one/two-period merged-cell behavior unobserved.",
+    "evidence": [
+      "common.isComparisonPeriodCell",
+      "actions.StandardUserAction.executeAsync"
+    ],
+    "common_action_source_reference": "$SCRATCH/slip-line-axis-rea-20261018/precise-static-evidence.json"
+  },
+  "compatibility_guards": {
+    "V56_repetition": "Before-search resolver rejects nonzero comparison when unwind_prop_iteration exists, alerts and throws SEARCH_FAIL. Active current form configuration unknown.",
+    "V3_pivot": "V3 aggregationType validation can reject compare!=string0 with pivot output form. It is a separate compatibility widget, not current V56 binding proof.",
+    "evidence": [
+      "inventory.InventoryStatusUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+      "V3.aggregationType.onValidateAfterOutputForm"
+    ]
+  },
+  "V3_label_only_evidence": {
+    "resource_order": [
+      "LBL03589",
+      "LBL08411",
+      "LBL08412",
+      "LBL08413",
+      "LBL08414"
+    ],
+    "default_compare": 0,
+    "source": "Controls receive comparison resource lists; rbReportType can override from pageInfo.aggregateInfo.compareResourceList. Resource translations/generated control code mapping are external.",
+    "boundary": "No exact nonzero code-to-requested-label/date transform proved; V3 preload presence does not prove current V56 usage.",
+    "evidence": [
+      "V3.cmbSumFlagDate.onInitControl",
+      "V3.rbReportType.onInitControl"
+    ]
+  },
+  "calendar_boundary_status": {
+    "month_end_clamp": "Unverified for comparison. Calendar last-day logic in date-axis drilldown helper is a different path and is not reused as evidence.",
+    "leap_year": "Unverified Feb29/year-shift behavior; no bound comparison arithmetic identified.",
+    "week": "Unverified ISO/company/Sunday/Monday/week-year/7day-shift distinction. Date-axis drilldown Sunday..Saturday is unrelated.",
+    "timezone_and_inclusive_range": "Unverified date-only/timezone/DST/inclusive endpoints for server comparison.",
+    "excluded_helpers": "Generic library date arithmetic and compareDates in DeleteAllDataModelUserAction have no established linkage to this feature."
+  },
+  "unknowns": [
+    "Current original nonzero mode code mapping/field synchronization and other original mode labels beyond observed previous-month radio",
+    "Date-pair generation algorithm,month/year clamp/overflow,Feb29/week/calendar/ISO/timezone/inclusivity",
+    "Actual engine keyed join/alignment versus independent placement,missing rows/cells,duplicates and date-offset keys",
+    "Numeric difference/percentage formulas and zero/blank handling",
+    "Axis/explicit-sort precedence and stable identity/collation",
+    "Concrete other-mode/axis columns/captions/print/export; observed previous-month project-group2 header shape is recorded",
+    "Backend aggregate/tax/rounding/server response formulas"
+  ],
+  "limits": [
+    "Common full semantic OOM remains unknown. Original static AST evidence and selected-excerpt semantic references do not promote it.",
+    "Inventory/V5/V3 referenced full semantic outputs are existing actualREA6.4 analyses; unresolved/dynamic calls remain unknown.",
+    "No source execution,GET,browser,private API,company data capture or existing contract/app edit occurred."
+  ],
+  "row_alignment_verdict": {
+    "status": "Not established by retained source or current header-only UI observation.",
+    "proven_inputs": [
+      "Normalizer labels first/second arrays period1/2 and concatenates them; it contains no key join or sorting.",
+      "Comparison config supplies axis comparison_period_criteria,explicit sort_criteria,datatype value_extractor,date ranges and preservation prop lists.",
+      "DLTMapBuilder.build calls external new FlexionErp.WidgetDLTBuilder().execute with widget,data.data_model,platform,features:feature_configs."
+    ],
+    "handoff_evidence": "common.DLTMapBuilder.build",
+    "handoff_span": [
+      27821,
+      4,
+      27858,
+      5
+    ],
+    "consumer_missing": "No actual comparison-engine implementation/criteria lookup,row union/join,padding or final ordering algorithm was identified in inspected78 bodies. Exact literal discovery finds criteria/preservation references only in the producer common bundle.",
+    "comment_boundary": "isComparisonPeriodCell comments describe one-period rows and merged rows containing both periods, and the handler uses representative period marker or prop_index1. This documents a click-consumer assumption compatible with merged rows; it does not expose or prove the actual merge algorithm/current match key.",
+    "sequence_boundary": "always_fill_body_prop_ids is a list of sequence refer-type prop IDs. Its producer does not insert missing rows or zero/blank numeric cells.",
+    "inference_limit": "Keyed alignment is compatible with the config and comments, but a specific key join,join type,duplicate handling or independent index-by-index arrangement cannot be asserted from these sources.",
+    "UI_limit": "Two date-range headers and two measure sets prove paired column presentation for the observed query, not keyed row matching.",
+    "unknowns": [
+      "Whether identical axis values are matched and how date-bucket values are shifted across periods",
+      "Whether rows unique to either period appear and where",
+      "Whether missing-period measures are blank,zero or omitted",
+      "Duplicate/missing keys and SID/code-name identity in row matching",
+      "Axis criteria versus explicit sort precedence and stable row order"
+    ]
+  }
+}

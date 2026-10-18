@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "method": "Supported Codex in-app browser; actual UI clicks, keyboard input, reload and history navigation",
+  "source_account_writes": false,
+  "checks": [
+    "Main page, 10 areas, 9 initial favorites and 4 widgets",
+    "Inventory area, 7 groups and nested menu navigation",
+    "Favorite add, reload persistence and removal",
+    "Full-path search and keyboard selection",
+    "Group strip does not cover tabs; close restores another tab",
+    "Empty search results and Escape dismissal",
+    "Sitemap 10 areas, 59 groups, 759 links; section and leaf navigation",
+    "Recently opened menu history",
+    "Calendar month navigation and date selection",
+    "Widget hiding and reload persistence",
+    "Widget restore, reorder and reset",
+    "Browser back/forward route restoration",
+    "Ctrl+K search focus"
+  ],
+  "console_errors": [],
+  "source_menu_checksum": {"utf16_length": 10434, "fnv1a_utf16": "3f7816c6"},
+  "observed_layout": {"horizontal_overflow": false, "icon_font_loaded": true, "group_strip_bottom": 116, "tab_strip_top": 120},
+  "limits": "Desktop viewport checked. Native business forms, transactions, reports and ERP API integration are outside this reproduction."
+}

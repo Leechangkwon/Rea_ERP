@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "method": "Unauthenticated query-free public GET followed by pinned rea-agents6.4.0 inert static+semantic library functions, target never executed; 30s timeout, no browser or application edits.",
+  "capture": {
+    "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.popup.common/views/verificationresult.3840202323517767939.20.js",
+    "status": 200,
+    "content_type": "application/x-javascript",
+    "content_encoding": "gzip",
+    "transport_bytes": 812,
+    "bytes": 2505,
+    "sha256": "0d37ef0f67e620befc8bb5c249b8071653a27dda82051dbd15e51731e134b613",
+    "authenticated": false,
+    "cookies_sent": false,
+    "target_executed": false,
+    "downloaded_at_unix": 1792297972.8360662
+  },
+  "rea": {
+    "rea_version": "6.4.0",
+    "sha256": "0d37ef0f67e620befc8bb5c249b8071653a27dda82051dbd15e51731e134b613",
+    "bytes": 2505,
+    "parse_status": "complete",
+    "parse_error_count": 0,
+    "visited_ast_nodes": 531,
+    "scopes": 12,
+    "bindings": 12,
+    "callables": 11,
+    "call_sites": 35,
+    "references": 37,
+    "frontiers": 35,
+    "call_resolution": {
+      "unresolved": 35
+    },
+    "frontier_kinds": {
+      "dynamic-call": 35
+    },
+    "coverage": {
+      "status": "complete",
+      "omittedCount": 0
+    },
+    "static_limitations": [
+      "JavaScript syntax was parsed as data and was never evaluated."
+    ],
+    "semantic_limitations": [
+      "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+      "Return sites include only direct callable returns; nested callable returns remain separate.",
+      "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+      "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+      "Cross-function mutation and dynamic property resolution remain unknown."
+    ],
+    "elapsed_ms": 73,
+    "semantic_status": "completed",
+    "target_executed": false
+  },
+  "sourceSpans": [
+    {
+      "id": "popup-base",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 133,
+      "utf16_end": 200,
+      "utf8_start": 133,
+      "utf8_end": 200,
+      "columns_1based_inclusive": [
+        134,
+        200
+      ],
+      "summary": "Extends ecount.page.popup.type2; base close/keyboard behavior is outside this asset.",
+      "text_sha256": "70cadb3e30cd52bcb2bda631e241ca1438c758cd9fb91edba8d4433021192fa3"
+    },
+    {
+      "id": "init-input",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 329,
+      "utf16_end": 431,
+      "utf8_start": 329,
+      "utf8_end": 431,
+      "columns_1based_inclusive": [
+        330,
+        431
+      ],
+      "summary": "Reads viewBag.InitDatas and QtyOption; no server request here.",
+      "text_sha256": "86b915d812d918bed000807b48720867f3dedc76c8a555d0c3b6bb7aabe74d45"
+    },
+    {
+      "id": "title",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 432,
+      "utf16_end": 512,
+      "utf8_start": 432,
+      "utf8_end": 512,
+      "columns_1based_inclusive": [
+        433,
+        512
+      ],
+      "summary": "Title uses LBL08162 and disables bookmark.",
+      "text_sha256": "fa32845cce87ffbf73b0971419e1b71711275a32b16d2a4ca2aa21460c866c72"
+    },
+    {
+      "id": "message",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 659,
+      "utf16_end": 794,
+      "utf8_start": 659,
+      "utf8_end": 794,
+      "columns_1based_inclusive": [
+        660,
+        794
+      ],
+      "summary": "Message uses MSG10399 localized resource plus line break, rendered as HTML; localized wording not embedded.",
+      "text_sha256": "8437a15fe88f11327dd3803e4eeac065613120947c93eb4d8375f38ed8f8f898"
+    },
+    {
+      "id": "column-PROD_CD",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 798,
+      "utf16_end": 918,
+      "utf8_start": 798,
+      "utf8_end": 918,
+      "columns_1based_inclusive": [
+        799,
+        918
+      ],
+      "summary": "Static label column, width100, left aligned. Label resource references only.",
+      "text_sha256": "0e5f55d3caf3457390cae5ffab02aebf4509ade6ebd225af3106e23fb60c6cb5"
+    },
+    {
+      "id": "column-PROD_DES",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 919,
+      "utf16_end": 1041,
+      "utf8_start": 919,
+      "utf8_end": 1041,
+      "columns_1based_inclusive": [
+        920,
+        1041
+      ],
+      "summary": "Static label column, width100, left aligned. Label resource references only.",
+      "text_sha256": "b4a353c2bbba5f5bbecd269be21b23aad642ef53c45cfeb300de2adb2fd2dc2f"
+    },
+    {
+      "id": "column-SIZE_DES",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 1042,
+      "utf16_end": 1164,
+      "utf8_start": 1042,
+      "utf8_end": 1164,
+      "columns_1based_inclusive": [
+        1043,
+        1164
+      ],
+      "summary": "Static label column, width100, left aligned. Label resource references only.",
+      "text_sha256": "6df7c23d1eef141132a4c7de96d0d2a876d8f54f0ab94753d1f4ae41c63a146d"
+    },
+    {
+      "id": "column-SQTY",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 1165,
+      "utf16_end": 1530,
+      "utf8_start": 1165,
+      "utf8_end": 1530,
+      "columns_1based_inclusive": [
+        1166,
+        1530
+      ],
+      "summary": "Static label quantity column, width100, right aligned. DataType1, DecimalSeparator, ThousandSeparator, DecCount, IsCheckZero, IsDisplayZero copied from QtyOption.",
+      "text_sha256": "3ef2c970ba2be379c7cb3668ef582c8f8903fdb22f0942df19998cd4ae89f143"
+    },
+    {
+      "id": "column-BQTY",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 1531,
+      "utf16_end": 1896,
+      "utf8_start": 1531,
+      "utf8_end": 1896,
+      "columns_1based_inclusive": [
+        1532,
+        1896
+      ],
+      "summary": "Static label quantity column, width100, right aligned. DataType1, DecimalSeparator, ThousandSeparator, DecCount, IsCheckZero, IsDisplayZero copied from QtyOption.",
+      "text_sha256": "d25d293f549f92717b15aafba06680788551cfc6e37a9799958bfa08a67222fe"
+    },
+    {
+      "id": "conditional-columns",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 1898,
+      "utf16_end": 2061,
+      "utf8_start": 1898,
+      "utf8_end": 2061,
+      "columns_1based_inclusive": [
+        1899,
+        2061
+      ],
+      "summary": "Removes product name unless VerificationProdDes, and spec unless VerificationSizeDes. When both false only code/SQTY/BQTY remain.",
+      "text_sha256": "49b89004809f5cfa9ff0d5e808359a04e8634faec556da6990510251a7f53601"
+    },
+    {
+      "id": "display-data",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 2062,
+      "utf16_end": 2188,
+      "utf8_start": 2062,
+      "utf8_end": 2188,
+      "columns_1based_inclusive": [
+        2063,
+        2188
+      ],
+      "summary": "Displays passed VerificationResultData directly. Fixed header, paging disabled, sorting disabled. No filtering/comparison here.",
+      "text_sha256": "189b39da31373946c70d83704656112feb04f41587ccef3a6712f978de9c7584"
+    },
+    {
+      "id": "footer",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 2223,
+      "utf16_end": 2396,
+      "utf8_start": 2223,
+      "utf8_end": 2396,
+      "columns_1based_inclusive": [
+        2224,
+        2396
+      ],
+      "summary": "Only Close button resource BTN00008.",
+      "text_sha256": "92c98f73d16e0930112bb06237ebcdf32c55dda859cff22cb7ad0edce807dd9e"
+    },
+    {
+      "id": "close-and-empty-hooks",
+      "file": "verificationresult.3840202323517767939.20.js",
+      "line": 1,
+      "utf16_start": 2397,
+      "utf16_end": 2502,
+      "utf8_start": 2397,
+      "utf8_end": 2502,
+      "columns_1based_inclusive": [
+        2398,
+        2502
+      ],
+      "summary": "Empty load/change hooks; onFooterClose delegates this.close() and returns false. No explicit Escape, other keyboard shortcut, persistence, mutation or network behavior declared here.",
+      "text_sha256": "de795a215d19ae2b8b8ad4488ffb7ea08037950f378eec2be4e7f1127f5c56be"
+    }
+  ],
+  "callerMismatchEvidence": {
+    "file": "$SCRATCH/barcode-toolbar-rea-20261018/barcodeverification.3840202323517767939.20.js",
+    "sha256": "f1c88733e46dcc471d07af161af6a7bf32426b5dc6c5731982ed8a455544d4a8",
+    "difference_loop_utf8": [
+      6533,
+      6845
+    ],
+    "difference_loop_utf16": [
+      6533,
+      6845
+    ],
+    "no_differences_and_result_payload_utf8": [
+      6845,
+      7275
+    ],
+    "no_differences_and_result_payload_utf16": [
+      6845,
+      7275
+    ],
+    "summary": "Caller builds h from missing/unequal quantities and scan-only keys. Empty h produces MSG10398 success alert and no result popup. Nonempty h is VerificationResultData; QtyOption copied from input quantity field. Result file does not revalidate or persist it."
+  },
+  "implementationImplications": [
+    "Render only mismatch records in a separate result modal after explicit verification; do not add difference/status columns to observed original layout.",
+    "Base columns are item code, source-slip quantity, verification quantity. Add name/spec only with respective comparison flags.",
+    "Format both quantities with the same supplied quantity options, not implicit currency defaults.",
+    "Result rows are labels, no sorting/paging and only Close.",
+    "Keep localized message text separate: this file only supplies resource MSG10399, not its translated wording.",
+    "Escape and lifecycle behavior inherit popup.type2 and need observed or analyzed base evidence.",
+    "No storage/network/persistence operation is declared in this result asset. This is a bounded absence statement, not whole-framework proof."
+  ],
+  "privacy": "No credentials, sessions, company business records or original runtime data retained."
+}

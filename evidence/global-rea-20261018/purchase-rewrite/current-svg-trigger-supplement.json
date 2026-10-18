@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "scope": "Retained84 exact inert public bodies only. Supplemental current SVG/event trace; prior81 graph-settings contract preserved.",
+  "generated_at": "2026-10-18T11:02:53.562622+00:00",
+  "baseline": {
+    "unique_bodies": 84,
+    "bytes": 25247564,
+    "static_complete": 82,
+    "static_partial": 2,
+    "semantic_complete": 77,
+    "semantic_partial": 2,
+    "semantic_timeout": 3,
+    "semantic_OOM": 2
+  },
+  "operations": {
+    "GET": 0,
+    "browser": 0,
+    "private_API": 0,
+    "original_JS_execution": 0,
+    "new_semantic_runs": 0,
+    "semantic_retries": 0,
+    "app_edits": 0,
+    "tests": 0
+  },
+  "answer": {
+    "status": "BLOCKED for current graph settings/type/metric/ranking UI entry",
+    "positive": "Retained Flexion and browser.graph contain a compatible exact class/element supplier chain for parent-observed SVG wrapper/chart/legend DOM. These sources expose render/hover/tooltip events, not an established settings gesture.",
+    "not_proved": "No current visible DOM target, click/dblclick/contextmenu/title/key event to ConfigureGraphOptions or GraphSetupSetting was established. Do not invent a trigger or call config presence an entry point."
+  },
+  "owner_observation": {
+    "source": "Parent read-only current purchase year-axis graph observation; worker did not browse",
+    "wrapper": ".wrapper-chart.legend-right.legend-middle > .chart > .ct-chart.chart-layout",
+    "chart_id_shape": "verticalbar_chart_sid_…",
+    "legend_id_shape": "…ecChartLegend",
+    "visible_buttons": [
+      "Search(F3)",
+      "Option",
+      "help",
+      "print",
+      "필터"
+    ],
+    "Option_entries": [
+      "검색항목설정",
+      "양식설정",
+      "조건양식설정",
+      "문서발송내역",
+      "구매현황OLD"
+    ],
+    "no_business_values_retained": true
+  },
+  "compatible_DOM_supplier_chain": [
+    {
+      "step": "Graph chart view selection",
+      "refs": [
+        "flexion::graph-chart-node/tS",
+        "flexion::chart-view/Zx.createView",
+        "flexion::chart-view/Jx.getComponent"
+      ],
+      "contract": "GRAPH_CHART node view selects VerticalbarChart for that view_type (and default), forwards state.data_item_key/state.graph_config/reset-size to ECVerticalbarChartWireframe; setSize dispatches graph resize command. No settings dispatch here."
+    },
+    {
+      "step": "Exact wrapper",
+      "refs": [
+        "flexion::ECVerticalbarChartWireframe/Oe",
+        "flexion::chart-render-helper/Re"
+      ],
+      "contract": "Memoized ECVerticalbarChartWireframe/Oe imports browser.graph VerticalbarChart and VerticalbarChartLegend; emits div.wrapper-chart.legend-right.legend-middle with data-item-key, then chart component and legend component. Wrapper has no click/dblclick/contextmenu or settings callback prop in this definition."
+    },
+    {
+      "step": "Exact inner chart and legend elements",
+      "refs": [
+        "browser-graph::VerticalbarChart",
+        "browser-graph::VerticalbarChartLegend",
+        "browser-graph::ECChart.constructor"
+      ],
+      "contract": "VerticalbarChart emits div.chart > div.ct-chart.chart-layout, id from props.layoutSelector minus #; effect imports ECVerticalBarChart(props) and reloads on props.datas. Legend emits div.legend id from layoutSelector, inner ul#ecChartLegendContainer. ECChart also adds chart-layout during constructor. No settings UI element/handler is emitted by these component definitions."
+    },
+    {
+      "step": "Selector configuration",
+      "refs": [
+        "common::createChartOption",
+        "common::GraphConfigBuilder.build",
+        "common::ChartWidgetBuilder.getDataItemKey"
+      ],
+      "contract": "Generic common builder creates data item key with section chart_sid; createChartOption uses caller graphId or uniqueId(chart_), rewrites layoutSelector to #${graphId}_ecChartLayout and legend selector to #${graphId}_ecChartLegend. This establishes compatible selector mechanics, not the runtime origin of current verticalbar_chart_sid_ prefix."
+    }
+  ],
+  "registered_events_in_this_wrapper": {
+    "refs": [
+      "flexion::ECVerticalbarChartWireframe/Oe",
+      "flexion::chart-render-helper/y",
+      "flexion::chart-render-helper/pe",
+      "flexion::chart-render-helper/_e",
+      "flexion::chart-render-helper/me",
+      "flexion::chart-render-helper/Te",
+      "flexion::chart-render-helper/Ne"
+    ],
+    "chart": "The wrapper spreads graph_config then replaces events.handlers with CHART.ONRENDERCOMPLETED + onMouseOver/onMouseLeave. Render completion measures chart/legend and updates size; chart hover highlights a point/group and corresponding legend.",
+    "legend": "legendConfig is copied then events.handlers replaced with onMouseOver/onMouseLeave; verticalbar legend hover highlights bars by group name and the legend.",
+    "tooltip": "tooltipConfig handlers are replaced with onMouseMove no-op, onMouseOut hideTooltip, onMouseOver showTooltip for id using formatted category/legend/value. These do not dispatch a popup.",
+    "contextmenu_click_dblclick_title": "No such settings callback is registered in this wrapper. Generic event infrastructure and outer/runtime template bindings remain possible outside this definition; unsupported is not inferred."
+  },
+  "generic_renderer_event_boundary": {
+    "refs": [
+      "browser-graph::ECEvent.bindAll",
+      "browser-graph::ECEvent.on",
+      "browser-graph::ECEvent.trigger",
+      "browser-graph::ECChart.initEventsConfig",
+      "browser-graph::ECChart.reload",
+      "browser-graph::ECChart.bindEvent"
+    ],
+    "contract": "ECEvent accepts configured handlers and binds D3 namespaced events after onX→lowercase normalization, then invokes the configured callback with scope and interpreted data. ECChart base bindEvent is empty. This is a transport mechanism, not a concrete settings handler. Prior title creation/render methods show no settings event path.",
+    "prior_title_ref": "Existing81 actual-rea-reference-index.json browser-graph ECTitle/ECText references; no new semantic run."
+  },
+  "settings_action_distinct_from_entry": {
+    "refs": [
+      "common::ConfigureGraphOptionsUserAction.executeAsync"
+    ],
+    "registration": "common$IConfigureGraphOptionsUserAction",
+    "popup": "IConfigureGraphOptionsPage",
+    "contract": "Action resolves current aggregate/template/axis metadata, validates, clears IGraphOption runtime and opens popup. Returned message may run callback and update graph settings/runtime/template. The action body does not identify its visible caller. Across all84 retained bodies the action token/name occurs only in common implementation/decorator/export surface; no captured current component dispatch or graph event caller was found.",
+    "type_metric_ranking": "Graph settings metadata and comparator/ranking fields exist; source presence alone establishes no available current type/metric/ranking control or gesture."
+  },
+  "config_only_not_UI_entry": {
+    "refs": [
+      "common::GraphConfigBuilder.resolveAxes",
+      "common::GraphConfigBuilder.buildAxisConfig",
+      "common::GraphConfigBuilder.composePlatformConfig",
+      "common::getChartOptionByMatrix",
+      "graph-data::tii"
+    ],
+    "facts": [
+      "GraphConfigBuilder resolves axis props/data and builds chart config from metadata.",
+      "isShowHighest/isShowLowest select comparatorPropName; aggregate uses y1ColumnId. This is a config consumer, not ranking button/menu wiring.",
+      "graph.data default config initializes events.handlers as empty; it provides chart/legend options, not a current settings DOM target."
+    ]
+  },
+  "filter_popup_not_settings_entry": {
+    "refs": [
+      "xgraphfilter::onInitContents",
+      "xgraphfilter::onInitFooter",
+      "xgraphfilter::setChangeControlCallback",
+      "xgraphfilter::ON_KEY_F8",
+      "xgraphfilter::onFooterApply",
+      "xgraphfilter::onFooterClose"
+    ],
+    "contract": "Retained xgraphfilter builds category/legend check/color controls plus Apply(F8)/Close and sends selection/color result to its caller. It does not expose chart type/metric/ranking settings or dispatch ConfigureGraphOptions/GraphSetupSetting. Existing main quick-search placeholder must not be treated as popup search."
+  },
+  "legacy_search_form_path_separate": {
+    "prior_contract": "$SCRATCH/graph-settings-entry-rea-20261018/graph-settings-entry-contract.json",
+    "refs": [
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onInitControl",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onChangeControl",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.onHeaderDataTypeLink",
+      "v3-header::eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup"
+    ],
+    "contract": "V3 dataViewType search form creates graph checkbox and separate dataTypeLink; link click fetches/validates form metadata then opens GraphSetupSetting. It is an explicit older search-control route, not a graph/SVG/title event. Current V56 purchase binding and exact visible target remain unknown."
+  },
+  "rewrite_observation_supplement": {
+    "refs": [
+      "common::RewriteSearchUserAction.executeAsync"
+    ],
+    "owner_observation": "Current purchase freshnav/F3 shows5 slots. Parent clicked 다시작성 once; selected year axis and aggregate controls remained. Exact active mode/runtime model not read; no general behavior inferred.",
+    "registered_action": "common$IRewriteSearchUserAction",
+    "guards_and_order": [
+      "If payload absent, return.",
+      "Choose search or summary model id from current search_state.search_type and menu search data-model map; absent model returns.",
+      "Hide errors for target viewer model.",
+      "If selected data_model_id equals last_search_data_model_id, replace target model with [ILastSearchDataModelRuntime].",
+      "Else if presetState.active_index exists, dispatch role-dependent ChangeActivePresetSetMenu action with is_rewrite=true, or ChangeActivePreset action.",
+      "Else replace target model with its origin writable data models."
+    ],
+    "implication": "This compatible generic action can restore last searched criteria rather than clear them; it does not unconditionally clear all axes, force detail mode or reset slot count. The source body has no explicit confirmation call.",
+    "unknown": "Current 다시작성 button→this action binding, active search/summary model, last-search runtime and preset branch were not captured. replaceDataModelAsync downstream component reactions and slot-count logic are external; do not infer them or infer a new search from this body."
+  },
+  "preserved_limits": {
+    "common": "full semantic2GiB OOM; static AST-only graph/reset evidence, no retry",
+    "Flexion": "full semantic30s timeout; static AST-only component evidence, no retry",
+    "grid_extension": "Existing grid body remains static5 parse errors and recovered-AST partial semantic; no role in current graph-entry proof",
+    "corpus_status": "84 bodies /25247564B; static82 complete+2partial; semantic77 complete+2partial+3timeout+2OOM. No status promoted."
+  },
+  "blockers": [
+    "Current menu/template user-action binding for configure graph settings absent.",
+    "Current SVG graphId prefix/runtime config supplier not identified end to end; class match is compatible supplier evidence.",
+    "No retained concrete settings click/dblclick/contextmenu/title/key callback connected to current generic chart.",
+    "No current settings popup implementation/visible control contract linking chart type/metric/ranking controls.",
+    "No current RewriteSearch button binding/runtime values to select exact branch."
+  ],
+  "files": {
+    "manifest": "$SCRATCH/graph-settings-entry-rea-20261018/current-svg-source-manifest.json",
+    "source_spans": "$SCRATCH/graph-settings-entry-rea-20261018/current-svg-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/graph-settings-entry-rea-20261018/current-svg-actual-rea-reference-index.json",
+    "retained84_token_scan": "$SCRATCH/graph-settings-entry-rea-20261018/current-svg-corpus-scan.json"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "date": "2026-10-18",
+  "page": "구매現況 / purchasesXstatus",
+  "read_only": true,
+  "business_cells_retained": false,
+  "settings_saved": false,
+  "actions": [
+    "현황에서 품목별 선택 후 조회",
+    "집계 선택 후 조건 없이 검색(F8)",
+    "집계조건1 품목별 선택 후 검색(F8)",
+    "집계조건2 거래처별 추가 후 검색(F8)"
+  ],
+  "validation": "집계조건은 1개 이상 선택해야 합니다.",
+  "summary_condition_options": [
+    "일별",
+    "주차별",
+    "월별",
+    "분기별",
+    "반기별",
+    "연별",
+    "담당자별",
+    "창고별",
+    "거래유형별",
+    "거래처별",
+    "프로젝트별",
+    "전표별",
+    "관리항목별",
+    "품목별",
+    "라인별",
+    "품목그룹1별",
+    "품목그룹2별",
+    "품목그룹3별",
+    "거래처그룹1별",
+    "거래처그룹2별",
+    "프로젝트그룹1별",
+    "프로젝트그룹2별"
+  ],
+  "summary_one_axis_columns": [
+    "품목별",
+    "수량",
+    "공급가액",
+    "부가세",
+    "합계"
+  ],
+  "summary_two_axis_columns": [
+    "품목별",
+    "거래처별",
+    "수량",
+    "공급가액",
+    "부가세",
+    "합계"
+  ],
+  "summary_field_ids": [
+    "inv_m$summary_prod",
+    "inv_s$summary_cust",
+    "inv_m$qty",
+    "inv_m$supply_amt",
+    "inv_m$vat_amt",
+    "inv_m$amt"
+  ],
+  "summary_subtotal_structure": {
+    "observed": true,
+    "two_axis_prefix_colspan": 2,
+    "subtotal_numeric_fields": [
+      "subtotal_qty",
+      "subtotal_supply_amt",
+      "subtotal_vat_amt",
+      "subtotal_amt"
+    ],
+    "label_values_or_amounts_retained": false,
+    "formula_proven": false,
+    "implemented_in_own_app": false
+  },
+  "detail_template_fields": {
+    "일자-No.": "inv_s$data_dt_no",
+    "품목코드": "inv_m$prod_cd",
+    "품목명": "inv_m$prod_nm",
+    "단위": "prod$prod$unit",
+    "창고명": "wh$wh$wh_des",
+    "수량": "inv_m$qty",
+    "단가": "prod$prod$in_price",
+    "공급가액": "inv_m$supply_amt",
+    "부가세": "inv_m$vat_amt",
+    "합계": "inv_m$amt",
+    "거래처명": "inv_s$cust_nm",
+    "분류": "prod$prod$prod_group1_des",
+    "규격": "prod$prod$prod_group2_des",
+    "거래처코드": "prod$prod$cont4",
+    "매핑코드": "prod$prod$cont5",
+    "시리얼/로트No.": "inv_m$serial_array"
+  },
+  "limits": [
+    "Current template has16columns; previous company19column layout is not a global ECOUNT default. No company-specific template name retained here.",
+    "Selecting a summary condition adds another empty condition slot; original maximum not established. Own support is at most two conditions.",
+    "Current last-axis links observed but not followed/implemented. No source business records copied.",
+    "Own summary uses existing REA voucher amount policies, not the unknown original server or subtotal formula."
+  ]
+}

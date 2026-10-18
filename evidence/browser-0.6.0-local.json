@@ -1,0 +1,21 @@
+{
+  "version": "0.6.0",
+  "environment": "loopback-only synthetic app account and SQLite",
+  "checks": [
+    "initial administrator form displayed without default credentials",
+    "company-code app-ID password login entered ERP",
+    "company name saved to actual local server and retained after reload",
+    "user-management form and current administrator listed",
+    "API manual button has visible explanatory text",
+    "API comparison table contains 28 provider references",
+    "manual displays 36 APIs and 24 settings actions",
+    "logout returned to app login with original menu destination"
+  ],
+  "screenshots": [
+    "local-first-admin.png",
+    "local-company-settings.png",
+    "local-user-management.png",
+    "local-api-reference.png"
+  ],
+  "hosted_login": "not claimed; hosted administrator must be registered directly by user"
+}

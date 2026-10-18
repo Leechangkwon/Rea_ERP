@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "date": "2026-10-18",
+  "page": "구매현황",
+  "read_only_queries_only": true,
+  "company_records_or_session_urls_retained": false,
+  "source_key_formulas_unknown": true,
+  "successful_ui_periods": [
+    {
+      "button": "종료일",
+      "before": [
+        "2026-10-01",
+        "2026-10-18"
+      ],
+      "after": [
+        "2026-10-18",
+        "2026-10-18"
+      ]
+    },
+    {
+      "button": "전월",
+      "after": [
+        "2026-09-01",
+        "2026-09-30"
+      ]
+    },
+    {
+      "button": "종료일",
+      "before": [
+        "2026-09-01",
+        "2026-09-30"
+      ],
+      "after": [
+        "2026-09-30",
+        "2026-09-30"
+      ]
+    },
+    {
+      "button": "금일",
+      "after": [
+        "2026-10-18",
+        "2026-10-18"
+      ]
+    },
+    {
+      "button": "금주(~오늘)",
+      "after": [
+        "2026-10-18",
+        "2026-10-18"
+      ]
+    },
+    {
+      "button": "전주",
+      "after": [
+        "2026-10-11",
+        "2026-10-17"
+      ]
+    },
+    {
+      "button": "전월+금월",
+      "after": [
+        "2026-09-01",
+        "2026-10-18"
+      ]
+    },
+    {
+      "button": "금월(~오늘)",
+      "after": [
+        "2026-10-01",
+        "2026-10-18"
+      ]
+    }
+  ],
+  "successful_query_behavior": "Search form hidden, report result visible, F3 reopens preserved query dates.",
+  "no_data_case": {
+    "button": "전일",
+    "message": "등록된 데이터가 없습니다.",
+    "search_form_visible": true,
+    "dates_remained_last_success": [
+      "2026-10-18",
+      "2026-10-18"
+    ],
+    "outbound_query_dates_not_observed": true,
+    "last_result_identity_or_values_not_collected": true
+  },
+  "week_boundary": "Observed current company calendar begins Sunday; not proven universal or company-setting integration. Own purchase spec uses weekStart0 and other report defaults remain unchanged.",
+  "sorting_popup_pending": {
+    "title": "정렬/소계설정",
+    "rows_observed": 3,
+    "top_buttons": [
+      "올림",
+      "내림",
+      "선택삭제"
+    ],
+    "columns": [
+      "순서",
+      "정렬/소계기준",
+      "페이지분할",
+      "정렬방법",
+      "소계라인",
+      "상세설정"
+    ],
+    "footer": [
+      "적용(F8)",
+      "닫기"
+    ],
+    "pending_generic_search_text_entered": "수량",
+    "candidate_selection_not_resolved": true,
+    "apply_or_save_executed": false,
+    "popup_closed": true,
+    "no_business_input_rows_used": true
+  },
+  "remaining": [
+    "Date key17 and individual calculation/dispatch source bindings",
+    "Company week-calendar settings",
+    "No-data server query and recovery internals",
+    "Report sort/subtotal criteria selection and apply rules"
+  ]
+}

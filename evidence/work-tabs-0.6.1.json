@@ -1,0 +1,55 @@
+{
+  "version": "0.6.1",
+  "change": "Work-tab strip natural height includes the horizontal scrollbar; navigation JavaScript unchanged.",
+  "cause": {
+    "baseline_strip_height": 29,
+    "baseline_client_height_with_scrollbar": 13,
+    "tab_height": 28,
+    "baseline_tab_top": 113,
+    "baseline_strip_top": 128
+  },
+  "browser": {
+    "environment": "Local static UI in Codex browser; no production app login or business writes",
+    "720px": {
+      "strip_height": 48,
+      "client_height": 32,
+      "group_bottom": 124,
+      "strip_top": 128,
+      "tabs_fully_visible": true,
+      "tabs": 9
+    },
+    "390px": {
+      "strip_height": 48,
+      "client_height": 32,
+      "tabs_fully_visible": true
+    },
+    "interaction": "품목등록 tab switches to 재고 I / 기초등록"
+  },
+  "automated": {
+    "existing_checks": 207,
+    "release_checks": 4,
+    "status": "passed"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "evidence_id": "ev_22f4c240f019ce50625db241acc46ef77dfbbd8dafe6063fe6b5f2244c959480",
+    "operation": "analyze_javascript_application",
+    "statistics": {
+      "relevant_files": 1,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 21428,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 1,
+      "visited_ast_nodes": 4269,
+      "findings": 3,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "input_sha256": "a1eb62b69c413bf0b323e95e2959c3d0f59a1ff86f16ecad40bf03c1beaa9fd1",
+    "graph_sha256": "33d680e56ed4cae8e8304faeba7eed2da0461b979a066dc3596e24f7549d3b87",
+    "navigation_identical_after_line_ending_normalization": true,
+    "limitations": [
+      "Static analysis does not model CSS geometry; clipping was reproduced and measured in the browser."
+    ]
+  }
+}

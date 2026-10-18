@@ -1,0 +1,33 @@
+{
+  "version": "0.28.0",
+  "full_test_command": "NODE_OPTIONS=--test-isolation=none npm test",
+  "full_test_exit": 0,
+  "full_test_checks": 859,
+  "check_count_basis": {
+    "native_runner_tests": 601,
+    "json_checks": 127,
+    "plain_checks": 124,
+    "manual_scenarios": 9,
+    "duplicate_wrapper_tests_removed": 2
+  },
+  "new_tests": 17,
+  "focused_tests": 87,
+  "full_test_log_sha256": "b36f412b3a9c2bb69e953372346d796afdfb91f550b75bed33d72d01c76baf71",
+  "completion_check": {
+    "native_tests": 601,
+    "last_stock_test_present": true
+  },
+  "pre_review_full_attempt": "Interrupted on reviewer findings; not counted. Preserved as global-0.28.0-pre-review-interrupted.log. Complete fixed-source rerun used.",
+  "release_checks": 4,
+  "worker_bytes": 1719413,
+  "embedded_assets": 51,
+  "independent_review": "Fixed2 findings: actual SelfCore money precision and unequal SVG widths from independent auto value columns. Final recheck found no further concrete issue.",
+  "synthetic_tests_only": true,
+  "original_ui_observation": "Graph checked in purchase summary and queried;30+ confirmation, recommended top10 and SVG observed. Restored normal5column table with graph off. No business values retained.",
+  "original_graph_default_metric_renderer_backend_equivalence": false,
+  "hosted_authenticated_business_qa": false,
+  "managed_browser_preview": "Skipped: connected local control-browser unavailable; no alternate preview browser started. CSS and geometry reviewed statically, not hosted visual QA.",
+  "database_schema_changed": false,
+  "stored_record_format_changed": false,
+  "source_analysis_scope": "78 SHA-unique original bodies; static77complete/1partial; semantic73complete/1partial/2timeout/2OOM. Existing interruption evidence unchanged; no original JS execution."
+}

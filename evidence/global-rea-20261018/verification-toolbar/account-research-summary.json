@@ -1,0 +1,533 @@
+{
+  "page": "Account registration E010107, as identified by parent",
+  "source": {
+    "path": "$SCRATCH/account-rea-20261018/xeba001m.-1145870202670936046.20.js",
+    "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.account/eba/views/xeba001m.-1145870202670936046.20.js",
+    "bytes": 37371,
+    "sha256": "1cddf3cd006c1bb6cda34090e3411ada7b3dbc8039c5f606478f90854eb15557",
+    "retrieved_at": "2026-10-18T04:11:07.288896+00:00",
+    "saved_bytes_sha256_rechecked": true,
+    "historical_expected_sha256": null,
+    "latest_provider_release_verified": false
+  },
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "action_candidates": {
+    "count": 78,
+    "not_exhaustive_ui_inventory": true,
+    "artifact": "actions-1cddf3cd006c1bb6.json"
+  },
+  "implementation_guidance": [
+    "Use the effective later search handler as the source-backed starting point, rather than merging superseded and active search handlers.",
+    "Keep new/edit and option popups as separate unverified scopes until their source and original UI are inspected.",
+    "Preserve activate/deactivate, Excel S/R/E and upload AI250 contracts as source evidence; do not turn endpoint strings into success stubs or claim wire compatibility."
+  ],
+  "global_limits": [
+    "All 453 call sites are unresolved under isolated REA semantics; framework property dispatch and external page/server implementations remain unknown.",
+    "No original JavaScript was executed. No authenticated browser, cookie, credential, company record or private API was accessed by this worker.",
+    "This evidence records only one observed public page module, not full accounting or ERP equivalence."
+  ],
+  "rea": {
+    "rea_version": "6.4.0",
+    "parse_status": "complete",
+    "parse_error_count": 0,
+    "visited_ast_nodes": 8791,
+    "callables": 107,
+    "call_sites": 453,
+    "frontiers": 469,
+    "call_resolution": {
+      "unresolved": 453
+    },
+    "frontier_kinds": {
+      "dynamic-call": 453,
+      "dynamic-property": 16
+    },
+    "coverage": {
+      "status": "complete",
+      "omittedCount": 0
+    },
+    "elapsed_ms": 281
+  },
+  "behavior_index": [
+    {
+      "area": "search",
+      "symbol_spans": [
+        {
+          "symbol": "onHeaderQuickSearch",
+          "span": [
+            1,
+            14805,
+            1,
+            15033
+          ]
+        },
+        {
+          "symbol": "onHeaderSearch",
+          "span": [
+            1,
+            27316,
+            1,
+            27763
+          ]
+        },
+        {
+          "symbol": "dataSearch",
+          "span": [
+            1,
+            27775,
+            1,
+            28303
+          ]
+        },
+        {
+          "symbol": "setReload",
+          "span": [
+            1,
+            28461,
+            1,
+            29565
+          ]
+        },
+        {
+          "symbol": "checkValidate",
+          "span": [
+            1,
+            30449,
+            1,
+            30553
+          ]
+        },
+        {
+          "symbol": "ON_KEY_F8",
+          "span": [
+            1,
+            34547,
+            1,
+            34580
+          ]
+        },
+        {
+          "symbol": "ON_KEY_ENTER",
+          "span": [
+            1,
+            34594,
+            1,
+            34656
+          ]
+        },
+        {
+          "symbol": "ON_KEY_F2",
+          "span": [
+            1,
+            34667,
+            1,
+            34699
+          ]
+        },
+        {
+          "symbol": "onHeaderSearch",
+          "span": [
+            1,
+            36962,
+            1,
+            37340
+          ]
+        }
+      ],
+      "summary": [
+        "The onHeaderSearch property occurs twice in the same object literal. The later definition at [1,36962,1,37340] supersedes [1,27316,1,27763] under ordinary JavaScript object semantics.",
+        "The effective handler requires checkHeaderValidation and checkValidation, clears quick search/error, PARAM, SORT_TYPE, SORTCOL_ID and QUICKSEARCH_VALUE, sets IS_DELETE_ALL=false, then calls dataSearch.",
+        "Normal grid API is declared as /SVC/Account/Basic/GetListAcc002 at [1,4104,1,4138]. dataSearch directly calls GetListRegisterGyeCodeForBulkUpload only for isShowSearchForm=4; otherwise it delegates to the external base class.",
+        "F8 and focused Enter dispatch to search; F2 dispatches to new."
+      ],
+      "unknowns": [
+        "Base class retrieval, validation definitions, permissions, pagination and returned dataset rules are absent from this isolated page.",
+        "The property override is a syntax inference, not a clicked behavior observation."
+      ]
+    },
+    {
+      "area": "new-and-row-child-new",
+      "symbol_spans": [
+        {
+          "symbol": "setGridDataInputGubun",
+          "span": [
+            1,
+            8028,
+            1,
+            9038
+          ]
+        },
+        {
+          "symbol": "getLastChildNode",
+          "span": [
+            1,
+            9056,
+            1,
+            9285
+          ]
+        },
+        {
+          "symbol": "onFooterNew",
+          "span": [
+            1,
+            17775,
+            1,
+            18022
+          ]
+        },
+        {
+          "symbol": "ON_KEY_F2",
+          "span": [
+            1,
+            34667,
+            1,
+            34699
+          ]
+        }
+      ],
+      "summary": [
+        "onFooterNew opens /ECERP/SVC/EBA/EBA002M with Request.Data.GYE_CODE empty and EditMode=ecenum.editMode.new.",
+        "setGridDataInputGubun can create a child under a group/root and derive CR_DR/GYE_TYPE/INEX_DV_CD from the current or last child row."
+      ],
+      "unknowns": [
+        "Actual editor fields, validation and persistence belong to the external EBA002M page.",
+        "Row visibility/clickability depends on INPUT_GUBUN, root/group codes and IsFromPreview; no UI layout or click result was observed."
+      ]
+    },
+    {
+      "area": "edit-batch-change-and-sort",
+      "symbol_spans": [
+        {
+          "symbol": "setGridDataLink",
+          "span": [
+            1,
+            6712,
+            1,
+            7411
+          ]
+        },
+        {
+          "symbol": "setGridDataGroupYn",
+          "span": [
+            1,
+            7580,
+            1,
+            8005
+          ]
+        },
+        {
+          "symbol": "onDropdownChange",
+          "span": [
+            1,
+            18040,
+            1,
+            18756
+          ]
+        },
+        {
+          "symbol": "onDropdownSortChange",
+          "span": [
+            1,
+            18778,
+            1,
+            19094
+          ]
+        },
+        {
+          "symbol": "setCustomDragStopCallback",
+          "span": [
+            1,
+            32582,
+            1,
+            33261
+          ]
+        },
+        {
+          "symbol": "UpdateGroupCodeCallback",
+          "span": [
+            1,
+            33286,
+            1,
+            34245
+          ]
+        },
+        {
+          "symbol": "fnErrMessage",
+          "span": [
+            1,
+            34259,
+            1,
+            34536
+          ]
+        }
+      ],
+      "summary": [
+        "setGridDataLink opens EBA002M with selected GYE_CODE and EditMode.modify; IsFromPreview suppresses the link.",
+        "onDropdownChange checks self permission W and a nonempty selection, serializes selected GYE_CODEs and opens EBA001P_17. Sort change opens EBA001P_23.",
+        "Drag/group changes eventually construct a request to /SVC/Account/Basic/UpdateAcc002ForGroupCode after confirmation and a viewBag.Permission.Self.CU branch."
+      ],
+      "unknowns": [
+        "Editor, batch popup and sort popup implementations are external.",
+        "Server conflict checks, group tree constraints and authorization decisions cannot be inferred from request syntax."
+      ]
+    },
+    {
+      "area": "activation-and-deactivation",
+      "symbol_spans": [
+        {
+          "symbol": "onDropdownActivate",
+          "span": [
+            1,
+            19114,
+            1,
+            19195
+          ]
+        },
+        {
+          "symbol": "onDropdownDeactivate",
+          "span": [
+            1,
+            19217,
+            1,
+            19298
+          ]
+        },
+        {
+          "symbol": "getSelectedListforActivate",
+          "span": [
+            1,
+            29593,
+            1,
+            29760
+          ]
+        },
+        {
+          "symbol": "updateActiveYnChartAccount",
+          "span": [
+            1,
+            29788,
+            1,
+            30434
+          ]
+        }
+      ],
+      "summary": [
+        "Activate passes Cancel=N and Deactivate passes Cancel=Y through getSelectedListforActivate; each selected row produces DeleteDatas[{GYE_CODE}], Cancel and EditFlag=U.",
+        "updateActiveYnChartAccount rejects an empty selection, sends CheckPermissionRequest(EditMode.modify,ProgramId) to /SVC/Account/Basic/UpdateListActiveChartAccount and refreshes quick search on Status=200."
+      ],
+      "unknowns": [
+        "No original status update was executed. The server meaning of Cancel and permission/result behavior remain unverified."
+      ]
+    },
+    {
+      "area": "selected-delete",
+      "symbol_spans": [
+        {
+          "symbol": "onDropdownSelectedDelete",
+          "span": [
+            1,
+            19324,
+            1,
+            20894
+          ]
+        },
+        {
+          "symbol": "ShowNoticeNonDeletable",
+          "span": [
+            1,
+            35701,
+            1,
+            36084
+          ]
+        }
+      ],
+      "summary": [
+        "Selected deletion asks for confirmation and posts DeleteChartsOfAccountsList with CheckPermissionRequest(EditMode.delete,ProgramId). Nondeletable results open a separate notice popup."
+      ],
+      "unknowns": [
+        "Deletion eligibility, reference checks, transaction behavior and actual notices are private server/popup behavior. No deletion was executed."
+      ]
+    },
+    {
+      "area": "options",
+      "symbol_spans": [
+        {
+          "symbol": "setHeaderOptionList",
+          "span": [
+            1,
+            11777,
+            1,
+            12262
+          ]
+        },
+        {
+          "symbol": "onDropdownDefaultSettings",
+          "span": [
+            1,
+            15060,
+            1,
+            15289
+          ]
+        },
+        {
+          "symbol": "onDropdownSetAutoGenerate",
+          "span": [
+            1,
+            15316,
+            1,
+            15567
+          ]
+        },
+        {
+          "symbol": "onDropdownBegCurrEnd",
+          "span": [
+            1,
+            15589,
+            1,
+            15877
+          ]
+        },
+        {
+          "symbol": "onDropdownStatementOperation",
+          "span": [
+            1,
+            15907,
+            1,
+            16111
+          ]
+        },
+        {
+          "symbol": "onDropdownHyperlinkSettings",
+          "span": [
+            1,
+            16140,
+            1,
+            16341
+          ]
+        },
+        {
+          "symbol": "onDropdownSearchOption",
+          "span": [
+            1,
+            16365,
+            1,
+            16598
+          ]
+        },
+        {
+          "symbol": "onDropdownSelfCustomizing",
+          "span": [
+            1,
+            16625,
+            1,
+            16855
+          ]
+        },
+        {
+          "symbol": "onDropdownTemplateSetting",
+          "span": [
+            1,
+            16882,
+            1,
+            16958
+          ]
+        }
+      ],
+      "summary": [
+        "setHeaderOptionList adds DefaultSettings only when self.Value equals W and adds AutoGenerate, BegCurrEnd, StatementOperation, HyperlinkSettings and SelfCustomizing option identifiers.",
+        "Option handlers open separate public application routes; search option uses FORM_TYPE=AP010, FORM_SEQ=1, isSaveAfterClose=true. Template setting delegates to onDropdownFormListOption with value=1 and isPassAllowForm=true."
+      ],
+      "unknowns": [
+        "Resource identifiers are not decoded UI labels. Handler existence alone does not establish visibility.",
+        "Every option popup and its saving logic is outside this page. No settings were saved."
+      ]
+    },
+    {
+      "area": "excel",
+      "symbol_spans": [
+        {
+          "symbol": "onFooterExcel",
+          "span": [
+            1,
+            20909,
+            1,
+            21638
+          ]
+        },
+        {
+          "symbol": "onButtonExcelRemarks",
+          "span": [
+            1,
+            21660,
+            1,
+            22712
+          ]
+        },
+        {
+          "symbol": "onButtonExcelDetails",
+          "span": [
+            1,
+            22734,
+            1,
+            26606
+          ]
+        }
+      ],
+      "summary": [
+        "All three Excel branches require ecount.config.user.USE_EXCEL_CONVERT and otherwise alert/return false.",
+        "Basic export sets GUBUN=S and TAB=I for TabType=2 else N, then delegates EXPORT_EXCEL to GetListAcc002ForExcel.",
+        "Remarks export sets GUBUN=R and defines four export columns. Details export sets GUBUN=E and defines 32 columns. Both use GetListAcc002RemarksForExcel in this source.",
+        "Exports derive WITH_PARENT_YN, CR_DR and GYE_TYPE from current search state."
+      ],
+      "unknowns": [
+        "EXPORT_EXCEL implementation and actual XLS/XLSX format, binary content, server validation and exported record scope are unobserved.",
+        "Company name appears as a dynamic expression in the export-title source; no actual company value was read or retained."
+      ]
+    },
+    {
+      "area": "upload-and-simple-registration",
+      "symbol_spans": [
+        {
+          "symbol": "setInitBaseButtonList",
+          "span": [
+            1,
+            9979,
+            1,
+            11756
+          ]
+        },
+        {
+          "symbol": "onFooterWebUploader",
+          "span": [
+            1,
+            26627,
+            1,
+            26937
+          ]
+        },
+        {
+          "symbol": "onFooterSimpleRegister",
+          "span": [
+            1,
+            26961,
+            1,
+            27300
+          ]
+        }
+      ],
+      "summary": [
+        "setInitBaseButtonList exposes WebUploader and SimpleRegister identifiers on tab2 only under INCOME_FLAG=Y, and suppresses ordinary controls for IsFromBulkUpload/IsFromPreview.",
+        "WebUploader opens /ECERP/Popup.Common/BulkUploadForm with FormType=AI250, IsGetBasicTab=true, current TabType and CheckPermissionRequest(EditMode.webUpload,ProgramId).",
+        "SimpleRegister checks self permission W/U and opens EBA001P_24."
+      ],
+      "unknowns": [
+        "The upload parser, accepted file formats, validation preview, commit API and duplicate handling are outside this source.",
+        "No file upload, original mutation or server submission was performed."
+      ]
+    }
+  ]
+}

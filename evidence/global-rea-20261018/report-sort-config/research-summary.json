@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "rea_version": "6.4.0",
+  "new_public_captures": 3,
+  "new_unique_bodies": 3,
+  "bytes": 1906990,
+  "per_body_budget_seconds": 30,
+  "static_complete": 3,
+  "semantic_complete": 3,
+  "parse_error_count": 0,
+  "timeouts": 0,
+  "totals": {
+    "visited_ast_nodes": 296507,
+    "callables": 3900,
+    "call_sites": 14319,
+    "frontiers": 16101
+  },
+  "per_body": [
+    {
+      "sha256": "98d3e36ff22dfab69ad5eac85687dc0b30deff9400f02a67d37a4bd1c27b36e6",
+      "bytes": 671,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 2,
+      "call_sites": 4,
+      "frontiers": 3,
+      "call_resolution": {
+        "exact": 1,
+        "unresolved": 3
+      }
+    },
+    {
+      "sha256": "27748077d5637698ca60c8eefe91f57a97581600593670e77b1fcb6467350dfd",
+      "bytes": 1872370,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 3770,
+      "call_sites": 14027,
+      "frontiers": 15825,
+      "call_resolution": {
+        "exact": 530,
+        "unresolved": 13497
+      }
+    },
+    {
+      "sha256": "5d2ff43ada13b535ab536d29a13f1be9657c17c39dfddf92c2b90e183d54c19b",
+      "bytes": 33949,
+      "parse_status": "complete",
+      "semantic_status": "completed",
+      "callables": 128,
+      "call_sites": 288,
+      "frontiers": 273,
+      "call_resolution": {
+        "exact": 19,
+        "unresolved": 269
+      }
+    }
+  ],
+  "evidence_methods": 30,
+  "application_edits": false,
+  "source_execution": false,
+  "browser_actions": 0,
+  "server_business_actions": 0,
+  "original_UI_equivalence": false,
+  "outputs": [
+    "sort-config-contract.json",
+    "precise-source-evidence.json",
+    "source-manifest.json",
+    "analysis-summary.json"
+  ],
+  "important_boundaries": [
+    "Initial3/UI F8 are observed, not statically constructed by these wrapper bodies.",
+    "Initializer can auto-append a row while all chosen criteria filled and count<5.",
+    "Apply sends filtered sort data; optional persistent save only use_save&&save_tf.",
+    "Current report caller/menu bindings and child candidate popup program implementation absent."
+  ]
+}

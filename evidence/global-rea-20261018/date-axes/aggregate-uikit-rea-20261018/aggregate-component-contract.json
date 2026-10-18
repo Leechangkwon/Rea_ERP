@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:01:37.629065+00:00",
+  "scope": {
+    "new_exact_URL_GET_attempts": 2,
+    "authentication": false,
+    "cookies": false,
+    "UA_or_fingerprint_changes": false,
+    "guessed_URLs": 0,
+    "additional_GETs": 0,
+    "source_execution": false,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "application_or_prior_contract_edits": false,
+    "baseline_boundary": "Prior74-body/0.20 preserved; this is future0.21 research."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; offsets UTF16.",
+  "manifest": "source-manifest.json",
+  "actual_analysis": "analysis-summary.json",
+  "literal_discovery": "literal-discovery.json",
+  "cumulative_counts": "cumulative-counts.json",
+  "body_results": [
+    {
+      "filename": "ecount.browser.uikit.93043ecc.20.js",
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "bytes": 756271,
+      "static_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 140228,
+      "semantic_status": "completed",
+      "callables": 2203,
+      "calls": 7724,
+      "frontiers": 7033,
+      "elapsed_ms": 3931
+    },
+    {
+      "filename": "ecount.infra.bridge.2ba74f2d.20.js",
+      "sha256": "4bd755c60b9c4f5584fccf5c35ea85ffd8ca0a2c94e8e4c1633afd0c37c843f9",
+      "bytes": 35008,
+      "static_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 3592,
+      "semantic_status": "completed",
+      "callables": 28,
+      "calls": 234,
+      "frontiers": 249,
+      "elapsed_ms": 315
+    }
+  ],
+  "conclusion": "No actual $$aggregate component implementation was identified in these2 bodies. No new source proof of aggregate selection defaults, row growth/cap, button state fields or subtotal toggle serialization. Full successful parsing/semantic extraction does not establish that the requested component was captured.",
+  "aggregate_contract_status": {
+    "selection_initial_values": {
+      "status": "No new evidence",
+      "retained_prior_source": "Previous common getAggregateConditionData returns sort_type=A and show_subtotal=true for selected item; its generic selector return path is preserved as prior evidence, not strengthened into current component binding."
+    },
+    "condition_row_growth_and_limit": {
+      "status": "Implementation unknown",
+      "UI_evidence_from_prior_parent": "Initial4 visible rows; filling4 adds5; all5 filled shows no6 on observed current form.",
+      "source_limit": "No condition_0N/EN_CONDITION_KEYS/aggregate references in either newly fetched source; no insertion/max rule identified."
+    },
+    "direction_button": {
+      "status": "Actual component handler/state field unknown",
+      "UI_evidence_from_prior_parent": "Project axis btn-asc->btn-desc after one click; query effect not established by that observation.",
+      "source_limit": "New UIKit generic ColSort excluded below; it does not prove axis handler or serialized field changes."
+    },
+    "subtotal_button": {
+      "status": "Actual component handler/state field/visual binding unknown",
+      "UI_evidence_from_prior_parent": "Project axis btn-add-sum->btn-unadd-sum after one click; original aggregate formula/query effect not established.",
+      "source_limit": "No subtotal/show_subtotal/button-class references in either new body. Prior common field preservation and grid summary_config consumer remain separate evidence."
+    },
+    "legacy_sort_popup": "No legacy sort popup behavior was reused as current aggregate component proof."
+  },
+  "excluded_compatible_control": {
+    "symbol": "ColSort generic grid-header renderer",
+    "original_span": [
+      16,
+      159879,
+      16,
+      160456
+    ],
+    "actual_REA_callable_id": "callable:function:200205:200782",
+    "actual_full_original_IR": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6/rea-semantic-ir.json",
+    "direct_calls": 5,
+    "call_resolution": {
+      "unresolved": 5
+    },
+    "source_contract": "Uses sort_type prop, defaults missing value to EN_GRID_SORTING_ORDER.Desc, and calls external onClick with D if current A, else A. Renders Anchor, ColSortContents and ColSortCaret.",
+    "reason_excluded": "No $$aggregate/condition/row-state binding or btn-asc/btn-desc/add-sum class. Generic grid-header toggle is neither aggregate axis control nor a captured legacy sort popup. Do not borrow its default D for aggregate selector default A.",
+    "enum_facts": [
+      {
+        "symbol": "EN_GRID_SORTING_ORDER.Asc",
+        "span": [
+          16,
+          106707,
+          16,
+          106804
+        ],
+        "source": "(EN_GRID_SORTING_ORDER=exports.EN_GRID_SORTING_ORDER||(exports.EN_GRID_SORTING_ORDER={})).Asc=\"A\""
+      },
+      {
+        "symbol": "EN_GRID_SORTING_ORDER.Desc",
+        "span": [
+          16,
+          106805,
+          16,
+          106835
+        ],
+        "source": "EN_GRID_SORTING_ORDER.Desc=\"D\""
+      }
+    ]
+  },
+  "previous_contract_reference": "$SCRATCH/aggregate-common-rea-20261018/aggregate-consumer-contract.json",
+  "unknowns": [
+    "Exact module/component and runtime binding providing current $$aggregate controls",
+    "Axis control return-value reception/overrides and UI CSS-to-field mapping",
+    "Actual A/D and show_subtotal toggle event implementation and blank-row behavior",
+    "Condition row insertion timing/max/persistence implementation",
+    "General query axis-sort mapper and server ordering precedence",
+    "Server subtotal generation, formulas and print-specific consumption"
+  ],
+  "analysis_limits": [
+    "Both new full analyses completed once within30seconds each, under2GiB. No full retries and no new timeout/OOM.",
+    "IR unresolved/dynamic calls remain unknown; generic header callback invocation does not prove current axis binding.",
+    "Negative literal discovery is bounded to these2 bodies and does not imply the feature is unsupported.",
+    "Prior common full semantic OOM is unchanged; successful new modules do not repair or promote it."
+  ]
+}

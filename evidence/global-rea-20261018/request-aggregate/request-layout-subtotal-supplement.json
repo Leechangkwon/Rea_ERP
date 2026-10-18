@@ -1,0 +1,307 @@
+{
+  "schema": "request-layout-subtotal-retained84-supplement/v1",
+  "generated_at": "2026-10-18T10:51:12.985318+00:00",
+  "scope": "Supplemental retained84 source reading only;noGET,newsemantics/retries,originalexecution,browser/privateAPI,app/tests or priorcontract edits.",
+  "answer": "Concrete new boundary: when the standard-axis placeholder is absent from the current body layout,the captured modifier preserves existing axis columns and can still create summary rows. This makes template-preserved order a supported conditional path,not proof that current request order follows creation time. Date subtotal titles use a distinct formatter path. Current reordered axes and prefix-like flush remain unattributed.",
+  "owner_UI_observations": {
+    "source": "Parent read-only original request aggregate UI messages; no company values stored",
+    "single_axis": {
+      "headers": [
+        "품목별",
+        "수량 (낱개 단위)",
+        "공급가액",
+        "부가세",
+        "합계"
+      ],
+      "leaf_subtotal": "present",
+      "grand_title": "총합계"
+    },
+    "two_axes": "Leaf subtotal then outer subtotal;label merged across2axis columns.",
+    "five_axes": {
+      "criteria_field_order": [
+        "품목별",
+        "거래처별",
+        "담당자별",
+        "창고별",
+        "월별"
+      ],
+      "output_header_order": [
+        "품목별",
+        "거래처별",
+        "창고별",
+        "월별",
+        "담당자별"
+      ],
+      "header_count": 9,
+      "context": "Third criterion filled last per parent;selection-time versus template order remains a hypothesis,not source finding."
+    },
+    "first_axis_OFF": "Lower subtotal flushed at upper transition although remaining displayed labels matched. Raw grouping keys/feature configs were not observed.",
+    "date_title": "Subtotal name matches preceding axis display only after punctuation normalization;literal equality not observed.",
+    "comparison_boundary": "Identical display labels do not establish identical extracted internal keys."
+  },
+  "column_order": {
+    "source_proven": [
+      "getAggregateConditionKeys sorts populated condition_NN slots by numeric suffix. processFreeAggregateCondition follows that order; getFreeAggregateModelInfo also derives summaryN from selected conditions. These do not define selection-time order.",
+      "getUnwindAggregationCriteriaConfig explicitly permits missing standard refer prop:it still returns aggregate conditions/new summary row infos.",
+      "Flexion vs searches body cells for standard_prop_id. If absent it calls summary-row creation when available and returns,without replacing/unwinding the axis cells. Existing column order is therefore untouched by this modifier.",
+      "If placeholder exists,Cs maps aggregate_conditions and splices that ordered block into the original standard-column position. That specific path predicts numeric-slot order for the block,not the observed P,C,W,M,E sequence from P,C,E,W,M criteria.",
+      "Inventory resolveStatusGridDefinitionAsync obtains current context/template/group/extra-target definition with fallbacks. The returned definition/layout and its merge/creation algorithm are not captured.",
+      "collectDynamicExtraTargetProps uses numeric condition keys for free aggregates;other collectors collect sort/calc/aggregate prop IDs in Sets. These are definition-target selection,not final display-column ordering instructions."
+    ],
+    "verdict": "Current output reordering is not explained/proven by retained current definition. Do not call creation-order preservation established.",
+    "missing": [
+      "Actual current widget body standard placeholder/layout",
+      "Resolved definition/current extra-target properties and which collector path runs",
+      "Later layout modifiers/final column assembly for request template"
+    ],
+    "exact_anchors": {
+      "common::getAggregateConditionKeys": {
+        "span": [
+          111,
+          0,
+          124,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::buildCtxDefinitionLookupKey": {
+        "span": [
+          1949,
+          0,
+          1981,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::collectDynamicExtraTargetProps": {
+        "span": [
+          2016,
+          0,
+          2041,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::collectSearchDynamicTargetProps": {
+        "span": [
+          2052,
+          0,
+          2070,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::getUnwindAggregationCriteriaConfig": {
+        "span": [
+          27152,
+          2,
+          27183,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::processFreeAggregateCondition": {
+        "span": [
+          27194,
+          0,
+          27222,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "flexion::vs": {
+        "span": [
+          7,
+          563903,
+          7,
+          565459
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      },
+      "flexion::Cs": {
+        "span": [
+          7,
+          565460,
+          7,
+          569465
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      },
+      "inventory::InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo": {
+        "span": [
+          508,
+          4,
+          518,
+          5
+        ],
+        "evidence_level": "completed original source semantics; dynamic/runtime binding still unknown"
+      },
+      "inventory::InventoryStatusCreateDMCResolver.resolveStatusGridDefinitionAsync": {
+        "span": [
+          532,
+          4,
+          566,
+          5
+        ],
+        "evidence_level": "completed original source semantics; dynamic/runtime binding still unknown"
+      }
+    }
+  },
+  "date_subtotal_title": {
+    "source_proven": [
+      "buildSortMetaMap reads original property datatype/refer type,value_format.option.format and section custom_display_name. resolveSubtotalDateValueFormat retains supported date/date-no formats,may drop unsupported ones,or preserves Calcformat.",
+      "resolveDateTitle uses value.data_dt for object dates,resolveDateUnit,optional truncation and external IValueFormatExecutorFeature($$date,value_format_data). It does not copy the rendered ordinary-axis caption.",
+      "createSubtotalTitleResolver formats current axis name then appends custom title suffix orrex00205;subtot_nm_tf can join parent names withslash. Empty formatted name becomes[].",
+      "Gl.writeRowTitle derives grand/page-total title from definition display_name. It is separate from axis subtotal resolver,so a universal shared grand literal is not established."
+    ],
+    "verdict": "Separate formatting is a concrete reason literal axis/subtotal punctuation equality must not be required. Exact current punctuation/dateformat,resource resolution and request bindings remain unknown;no punctuation-normalization formula is implemented by these functions.",
+    "exact_anchors": {
+      "common::resolveDateUnit": {
+        "span": [
+          20531,
+          0,
+          20554,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::truncateDateByUnit": {
+        "span": [
+          20556,
+          0,
+          20562,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::resolveSubtotalDateValueFormat": {
+        "span": [
+          20611,
+          0,
+          20623,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::buildSortMetaMap": {
+        "span": [
+          20645,
+          0,
+          20670,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::createSubtotalTitleResolver": {
+        "span": [
+          20702,
+          0,
+          20722,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "common::resolveDateTitle": {
+        "span": [
+          20748,
+          0,
+          20762,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "flexion::Gl.writeRowTitle": {
+        "span": [
+          7,
+          606625,
+          7,
+          607033
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      }
+    }
+  },
+  "first_axis_OFF_and_prefix_boundary": {
+    "source_proven": [
+      "Jl.registerAccumulators summary_config skips !subtot_tf entries;flushGroupAggregates compares registered axes via supplied extractor and strict!==,then flushes last→firstchanged.",
+      "Under that summary-only path,if all registered extracted keys remain equal and no other boundary/end occurs,upper disabled-axis change alone does not cause summary flush. Equal displayed labels do not prove those premises.",
+      "Separate captured paths exist:subtotal_config can register a disabled axis when page_separate_tf true;grid$ui_sort_dlt_feature_config can replace summary_config with subtotal_config. print_slip_break has an independent field-change flush. No such currentrequest flags were observed."
+    ],
+    "verdict": "Current prefix-like UI observation is preserved,but retained source does not establish current engine/config/key cause. Neither universal enabled-only nor universal prefix subtotal behavior is promoted to original request parity.",
+    "missing": [
+      "Current data_generator config and which summary/subtotal path is active",
+      "Actual value_extractor results/internal keys versus displayed captions",
+      "Current break/pagination/grid segmentation metadata"
+    ],
+    "exact_anchors": {
+      "common::grid$ui_sort_dlt_feature_config": {
+        "span": [
+          27596,
+          42,
+          27621,
+          1
+        ],
+        "evidence_level": "full common actualREA6.4 static complete + inert AST; full semantic prior2GiBOOM"
+      },
+      "flexion::Jl.registerAccumulators": {
+        "span": [
+          7,
+          609831,
+          7,
+          610547
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      },
+      "flexion::Jl.handlePrintSlipBreak": {
+        "span": [
+          7,
+          611730,
+          7,
+          611941
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      },
+      "flexion::Jl.flushSlipResiduals": {
+        "span": [
+          7,
+          611941,
+          7,
+          612635
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      },
+      "flexion::Jl.flushGroupAggregates": {
+        "span": [
+          7,
+          614716,
+          7,
+          615096
+        ],
+        "evidence_level": "full Flexion actualREA6.4 static complete + inert AST; full semantic prior30stimeout"
+      }
+    }
+  },
+  "scope_limits": [
+    "No current request template/layout/runtime/business records were fetched or executed. Conditional source branches are not assigned as current causes.",
+    "All84 bodies/counts/statuses unchanged. Common full semantics remains OOM;Flexion full semantics remains timeout;newgrid remains recovered-AST partial.",
+    "No backend grouping/sort/rounding/quantity claim follows from headers/subtotal names.",
+    "Existing request contract/source manifest/refindex hashes preserved."
+  ],
+  "exact_ref_index": "$SCRATCH/request-aggregate-rea-20261018/supplement-actual-rea-reference-index.json",
+  "source_evidence": "$SCRATCH/request-aggregate-rea-20261018/supplement-source-evidence.json",
+  "prior_contracts_preserved_SHA256": {
+    "request-aggregate-contract.json": "707fff760ce284fc1897d38f13ec9176b1a990c67f7f55dc0ff6f0701cf4762f",
+    "source-manifest.json": "a7c5b323f50428eb0c3f09d36e5edb9e15983e4a4c3d2a7787f38b95e0b54462",
+    "actual-rea-reference-index.json": "91fb767746cb4674a4c37f3855296e91277122774a67c73fa765ecd8f5f5ad2a"
+  },
+  "cumulative_unchanged": {
+    "unique_bodies": 84,
+    "bytes": 25247564,
+    "static_complete": 82,
+    "static_partial": 2,
+    "semantic_complete": 77,
+    "semantic_partial": 2,
+    "semantic_timeout": 3,
+    "semantic_OOM": 2
+  }
+}

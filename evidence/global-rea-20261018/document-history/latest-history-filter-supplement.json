@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T11:44:31.926054+00:00",
+  "extends": "$SCRATCH/purchasing-history-rea-20261018/history-popup-extension-contract.json",
+  "baseline": "84 fixed + ES303M1 =85; no new GET/analysis/app changes",
+  "source_sha256": "b52d0a6505b4309408bc699c37bd2207d6b85e7c80186b2f727ada5652c529b9",
+  "owner_observation": {
+    "ddlUpdateTime_use": false,
+    "CHK_OTHER-0": {
+      "label": "최종이력만 검색",
+      "checked": true
+    },
+    "CHK_OTHER-1": {
+      "label": "수정순",
+      "checked": false
+    },
+    "source": "Parent direct ES303M search-form observation; no company values retained"
+  },
+  "actual_source_refs": {
+    "ES303M.nested.onInitUnitWidgetEtcChk.onInitControl": {
+      "span": [
+        1,
+        21765,
+        1,
+        21960
+      ],
+      "offsets": [
+        21765,
+        21960
+      ],
+      "actual_REA_callable_ids": [
+        "callable:function:21765:21960"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:21785:21811",
+        "call:call:21812:21959",
+        "call:call:21825:21958",
+        "call:call:21825:21948",
+        "call:call:21825:21935",
+        "call:call:21825:21876"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 6
+      }
+    },
+    "ES303M.nested.onInitUnitWidgetEtcChk.onSetSearchParam": {
+      "span": [
+        1,
+        21978,
+        1,
+        22473
+      ],
+      "offsets": [
+        21978,
+        22473
+      ],
+      "actual_REA_callable_ids": [
+        "callable:function:21978:22473",
+        "callable:function:22027:22459"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:21990:22472",
+        "call:call:22027:22470",
+        "call:call:22044:22076",
+        "call:call:22078:22113",
+        "call:call:22122:22134",
+        "call:call:22423:22458"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 6
+      }
+    },
+    "ES303M.nested.onInitUnitWidgetDdlUpdateTime.onSetSearchParam": {
+      "span": [
+        1,
+        18736,
+        1,
+        19163
+      ],
+      "offsets": [
+        18736,
+        19163
+      ],
+      "actual_REA_callable_ids": [
+        "callable:function:18736:19163",
+        "callable:function:18785:19149"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:18748:19162",
+        "call:call:18785:19160",
+        "call:call:18802:18850",
+        "call:call:18802:18826",
+        "call:call:18856:18877",
+        "call:call:18886:18909",
+        "call:call:19113:19148"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 7
+      }
+    },
+    "ES303M.pageInfo.pageContents": {
+      "span": [
+        1,
+        13056,
+        1,
+        14395
+      ],
+      "offsets": [
+        13056,
+        14395
+      ],
+      "actual_REA_callable_ids": [
+        "callable:function:13467:13793",
+        "callable:function:13714:13767"
+      ],
+      "actual_REA_callsite_ids": [
+        "call:call:13467:13806",
+        "call:call:13467:13804",
+        "call:call:13729:13757"
+      ],
+      "call_resolution_counts": {
+        "unresolved": 3
+      }
+    }
+  },
+  "confirmed_transport": {
+    "checkbox_1": "Source creates CHK_OTHER values1,2 with initialSelect1; parent UI maps first value1 to 최종이력만 검색. Value1 selected →ETC_CHK=1, unselected→0.",
+    "checkbox_2": "Parent UI maps second value2 to 수정순. Value2 selected→SORT_MODIFIED_DT=1,unselected→0.",
+    "observed_combination": {
+      "ETC_CHK": "1",
+      "SORT_MODIFIED_DT": "0"
+    },
+    "all_combinations": [
+      {
+        "selected_values": [],
+        "ETC_CHK": "0",
+        "SORT_MODIFIED_DT": "0"
+      },
+      {
+        "selected_values": [
+          1
+        ],
+        "ETC_CHK": "1",
+        "SORT_MODIFIED_DT": "0"
+      },
+      {
+        "selected_values": [
+          2
+        ],
+        "ETC_CHK": "0",
+        "SORT_MODIFIED_DT": "1"
+      },
+      {
+        "selected_values": [
+          1,
+          2
+        ],
+        "ETC_CHK": "1",
+        "SORT_MODIFIED_DT": "1"
+      }
+    ],
+    "time_use_false": {
+      "BASE_TIME_DATECHK": "0",
+      "BASE_TIME_FROM": "",
+      "BASE_TIME_TO": ""
+    },
+    "query": "Fields enter generic searchParam and page declares GetListChangeHistoryInv. This page has no implementation of the backend query."
+  },
+  "not_established": {
+    "latest_identity": "Latest per voucher,version,record,item,event,actor or other grouping key not specified in retained page.",
+    "filter_order": "Latest-before-other-filters versus filter-first-then-latest is unknown. Flag transport and checkbox label do not settle it.",
+    "time_order": "Whether time/date filters apply before or after latest selection is unknown.",
+    "sort_order": "SORT_MODIFIED_DT is only0/1 here; no A/D, comparator, modified timestamp resolution, tie order or default sort is established.",
+    "operation_scope": "Whether latest includes every event or only matching ACTION/STATEMENT is unknown.",
+    "window": "Retention range, pagination/5000 behavior relative to latest/grouping are unknown.",
+    "query_mutation": "No original query/privateAPI was called; server audit/preferences/logging behavior not assessed."
+  },
+  "implementation_boundary": "Own latest selection/filter/order/grouping/CSV behavior must be stated as own policy until original backend semantics are established. Original CSV UI/file shape not observed. H detail remains unverified.",
+  "new_operations": {
+    "GET": 0,
+    "semantic_runs_or_retries": 0,
+    "browser": 0,
+    "original_execution": 0,
+    "private_API": 0,
+    "app_changes": 0
+  }
+}

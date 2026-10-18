@@ -1,0 +1,1056 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-15T11:19:07.275Z",
+  "status": "focused-public-static-rea-analysis-with-explicit-unknowns",
+  "method": {
+    "tool": "rea-agents",
+    "version": "6.4.0",
+    "operation": "analyze-javascript-application",
+    "artifact_format": "directory",
+    "max_heap_mb": 4096,
+    "analysis_timeout_ms": 45000,
+    "source_acquisition": "Four operator-supplied public resource.ecount.com JS asset URLs, unauthenticated fetch; no cookies, account APIs, browser storage, company data or original writes.",
+    "extraction": "Babel inert AST-selected declarations; original UTF-16/UTF-8 offsets, line ranges and hashes retained. No source bootstrap execution."
+  },
+  "source_manifest": [
+    {
+      "name": "inventory_shared.8b01b9b1.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory_shared/inventory_shared.8b01b9b1.js",
+      "bytes": 4441,
+      "sha256": "cbd6b4efc6f94a150b4706cead73dff93fcec2bc315eb75fe0f20689579263a4",
+      "authenticated": false
+    },
+    {
+      "name": "inventory.book.d4fbb250.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.book/inventory.book.d4fbb250.js",
+      "bytes": 414,
+      "sha256": "a153fca8ff07eb76f37ac8a9b446bd5b9de7ad24ee0b9079f0272be48d6e72f3",
+      "authenticated": false
+    },
+    {
+      "name": "inventory.5b28ea0e.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+      "bytes": 5069436,
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "authenticated": false
+    },
+    {
+      "name": "inventory.order_management.ff2d28de.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+      "bytes": 138464,
+      "sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+      "authenticated": false
+    }
+  ],
+  "focus_manifest": [
+    {
+      "source": "inventory_shared.8b01b9b1.js",
+      "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory_shared/inventory_shared.8b01b9b1.js",
+      "source_bytes": 4441,
+      "source_sha256": "cbd6b4efc6f94a150b4706cead73dff93fcec2bc315eb75fe0f20689579263a4",
+      "focus_file": null,
+      "focus_bytes": 0,
+      "focus_sha256": null,
+      "source_offsets": "UTF-16 character and UTF-8 byte offsets, [start,end); Babel source line/column",
+      "fragments": []
+    },
+    {
+      "source": "inventory.book.d4fbb250.js",
+      "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.book/inventory.book.d4fbb250.js",
+      "source_bytes": 414,
+      "source_sha256": "a153fca8ff07eb76f37ac8a9b446bd5b9de7ad24ee0b9079f0272be48d6e72f3",
+      "focus_file": null,
+      "focus_bytes": 0,
+      "focus_sha256": null,
+      "source_offsets": "UTF-16 character and UTF-8 byte offsets, [start,end); Babel source line/column",
+      "fragments": []
+    },
+    {
+      "source": "inventory.5b28ea0e.js",
+      "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+      "source_bytes": 5069436,
+      "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "focus_file": "inventory.5b28ea0e.manual-focus.js",
+      "focus_bytes": 70732,
+      "focus_sha256": "6aeee3a957d42db3f0dc5b1e6bc591d6b88d2a7e9a0f44cc674d7f34c36f6119",
+      "source_offsets": "UTF-16 character and UTF-8 byte offsets, [start,end); Babel source line/column",
+      "fragments": [
+        {
+          "label": "PostSetWareHouseProgram",
+          "start": 332946,
+          "end": 335991,
+          "byte_start": 349640,
+          "byte_end": 352685,
+          "location": {
+            "start": {
+              "line": 7071,
+              "column": 0,
+              "index": 332946
+            },
+            "end": {
+              "line": 7135,
+              "column": 1,
+              "index": 335991
+            }
+          },
+          "sha256": "9e6530998d784d14e68c597849df16572a1855abc74610549dc7b5c4c1d731c8",
+          "focus_start_line": 1,
+          "focus_end_line": 65
+        },
+        {
+          "label": "SetProdDataInGridProgram",
+          "start": 421414,
+          "end": 442875,
+          "byte_start": 439974,
+          "byte_end": 463395,
+          "location": {
+            "start": {
+              "line": 8745,
+              "column": 0,
+              "index": 421414
+            },
+            "end": {
+              "line": 9207,
+              "column": 1,
+              "index": 442875
+            }
+          },
+          "sha256": "e98bfdd6808a6ddbb8c4cdcab32bae4db427152bb8f8d91f0b4961087d56dc00",
+          "focus_start_line": 66,
+          "focus_end_line": 528
+        },
+        {
+          "label": "getNewMasterDataModel",
+          "start": 569092,
+          "end": 570322,
+          "byte_start": 596136,
+          "byte_end": 597366,
+          "location": {
+            "start": {
+              "line": 11711,
+              "column": 0,
+              "index": 569092
+            },
+            "end": {
+              "line": 11739,
+              "column": 1,
+              "index": 570322
+            }
+          },
+          "sha256": "0fcd4684dd21d780230a99f473bdb9183b2721857169c6a6d3d6113e00a960f6",
+          "focus_start_line": 529,
+          "focus_end_line": 557
+        },
+        {
+          "label": "OpenSelectSlipUserAction",
+          "start": 665541,
+          "end": 687979,
+          "byte_start": 695703,
+          "byte_end": 719101,
+          "location": {
+            "start": {
+              "line": 13620,
+              "column": 0,
+              "index": 665541
+            },
+            "end": {
+              "line": 14015,
+              "column": 1,
+              "index": 687979
+            }
+          },
+          "sha256": "a2c9d5baf20354aa2ab1542f995a33f1d331b80f8a7008df6adffd0183884fe0",
+          "focus_start_line": 558,
+          "focus_end_line": 953
+        },
+        {
+          "label": "ChangeSerialArrayUserAction",
+          "start": 800685,
+          "end": 801107,
+          "byte_start": 835379,
+          "byte_end": 835801,
+          "location": {
+            "start": {
+              "line": 15968,
+              "column": 0,
+              "index": 800685
+            },
+            "end": {
+              "line": 15975,
+              "column": 1,
+              "index": 801107
+            }
+          },
+          "sha256": "3f00c4725a1bef741651fe6639e5cbf14f6c5b72767ef4833e69be1aded60ef0",
+          "focus_start_line": 954,
+          "focus_end_line": 961
+        },
+        {
+          "label": "SubscribeProdUserAction",
+          "start": 853219,
+          "end": 857421,
+          "byte_start": 890557,
+          "byte_end": 895141,
+          "location": {
+            "start": {
+              "line": 16927,
+              "column": 0,
+              "index": 853219
+            },
+            "end": {
+              "line": 17015,
+              "column": 1,
+              "index": 857421
+            }
+          },
+          "sha256": "ff830e9f15668cc9b1fc234b7108a3433e84305c8a39654045aafd1f1eb6cb4c",
+          "focus_start_line": 962,
+          "focus_end_line": 1050
+        },
+        {
+          "label": "ChangeLoadSlipStatusUserAction",
+          "start": 898442,
+          "end": 899566,
+          "byte_start": 937558,
+          "byte_end": 938682,
+          "location": {
+            "start": {
+              "line": 17752,
+              "column": 0,
+              "index": 898442
+            },
+            "end": {
+              "line": 17770,
+              "column": 1,
+              "index": 899566
+            }
+          },
+          "sha256": "e0ff0c69dbd9e72b38e90a91200add7ccbc3eea800aa3c796b2d42908cba3af4",
+          "focus_start_line": 1051,
+          "focus_end_line": 1069
+        },
+        {
+          "label": "getPropsMapByTransform",
+          "start": 1186843,
+          "end": 1200113,
+          "byte_start": 1233161,
+          "byte_end": 1246655,
+          "location": {
+            "start": {
+              "line": 22912,
+              "column": 8,
+              "index": 1186843
+            },
+            "end": {
+              "line": 23103,
+              "column": 9,
+              "index": 1200113
+            }
+          },
+          "sha256": "c86d0eeb2205d5c691bc506f8c6cc3d5ceb4289a77681808dfb9724146fb2ed7",
+          "focus_start_line": 1070,
+          "focus_end_line": 1261
+        }
+      ]
+    },
+    {
+      "source": "inventory.order_management.ff2d28de.js",
+      "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+      "source_bytes": 138464,
+      "source_sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+      "focus_file": "inventory.order_management.ff2d28de.manual-focus.js",
+      "focus_bytes": 11225,
+      "focus_sha256": "e922dadaff70ce907c271728438cea6424c1852ed32a9cbd2ec6988e3ae8f1ea",
+      "source_offsets": "UTF-16 character and UTF-8 byte offsets, [start,end); Babel source line/column",
+      "fragments": [
+        {
+          "label": "SaveApiParamProgressStatusContributor",
+          "start": 720,
+          "end": 1730,
+          "byte_start": 926,
+          "byte_end": 2002,
+          "location": {
+            "start": {
+              "line": 16,
+              "column": 0,
+              "index": 720
+            },
+            "end": {
+              "line": 39,
+              "column": 1,
+              "index": 1730
+            }
+          },
+          "sha256": "0c541737dcdf3b3e05c920bfe965bf60bac11e38b16012af6b12328f79ca7922",
+          "focus_start_line": 1,
+          "focus_end_line": 24
+        },
+        {
+          "label": "getApiOrderMngTransformData",
+          "start": 58071,
+          "end": 59809,
+          "byte_start": 59321,
+          "byte_end": 61081,
+          "location": {
+            "start": {
+              "line": 1239,
+              "column": 0,
+              "index": 58071
+            },
+            "end": {
+              "line": 1273,
+              "column": 1,
+              "index": 59809
+            }
+          },
+          "sha256": "81e5b82085ade99f7736a053831540570d2bfa8af4b505db416431479e40d6d7",
+          "focus_start_line": 25,
+          "focus_end_line": 59
+        },
+        {
+          "label": "getNewMasterDataModel",
+          "start": 60141,
+          "end": 61399,
+          "byte_start": 61413,
+          "byte_end": 62671,
+          "location": {
+            "start": {
+              "line": 1281,
+              "column": 0,
+              "index": 60141
+            },
+            "end": {
+              "line": 1309,
+              "column": 1,
+              "index": 61399
+            }
+          },
+          "sha256": "6cab7e43ea1e438488c5d0613cda4db4ef8524c8212e08eb7a02e13f7a670a36",
+          "focus_start_line": 60,
+          "focus_end_line": 88
+        },
+        {
+          "label": "CompleteOrderManagementStepUserAction",
+          "start": 102030,
+          "end": 103269,
+          "byte_start": 104426,
+          "byte_end": 105665,
+          "location": {
+            "start": {
+              "line": 2171,
+              "column": 0,
+              "index": 102030
+            },
+            "end": {
+              "line": 2196,
+              "column": 1,
+              "index": 103269
+            }
+          },
+          "sha256": "a454ec902e0d053a2c982a30462ce4c8882e8b791ef41fc1cb2d8b3b1e778a03",
+          "focus_start_line": 89,
+          "focus_end_line": 114
+        },
+        {
+          "label": "OrderManageValueChangeUserAction",
+          "start": 121762,
+          "end": 127603,
+          "byte_start": 124406,
+          "byte_end": 130291,
+          "location": {
+            "start": {
+              "line": 2636,
+              "column": 0,
+              "index": 121762
+            },
+            "end": {
+              "line": 2746,
+              "column": 1,
+              "index": 127603
+            }
+          },
+          "sha256": "af701017a68f491ce0d27f4751af22b6f541393e187b0ee72a751b854a97a3fa",
+          "focus_start_line": 115,
+          "focus_end_line": 225
+        }
+      ]
+    }
+  ],
+  "rea": {
+    "evidence_id": "ev_114260c4d7c0a68eee93dd3962648b250db17618de5ba56a327017ba6ca888c2",
+    "artifact_sha256": "26bddc0bc5e3cbe61dd38244342f429a9438e7cd6511aaf555132788dab9b304",
+    "statistics": {
+      "relevant_files": 2,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 81957,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 2,
+      "visited_ast_nodes": 7957,
+      "findings": 8,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "application_graph": {
+      "nodes": 13,
+      "edges": 12
+    },
+    "semantic_graph": {
+      "id": "jsrg_2d277b44c514645f8e3edf7b98cfdb2eb32b2c29e20073b7f8e43684b3743768",
+      "nodes": 5301,
+      "relations": 3360,
+      "unknowns": 2112,
+      "coverage": {
+        "status": "unknown",
+        "truncated": false,
+        "omitted_nodes": 0,
+        "omitted_relations": 0,
+        "families": [
+          {
+            "family": "boundary",
+            "status": "partial",
+            "retained_relations": 0,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "call-flow",
+            "status": "partial",
+            "retained_relations": 44,
+            "omitted_relations": 0,
+            "unknown_count": 576
+          },
+          {
+            "family": "child-process",
+            "status": "partial",
+            "retained_relations": 0,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "closure",
+            "status": "partial",
+            "retained_relations": 110,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "configuration",
+            "status": "partial",
+            "retained_relations": 0,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "data-flow",
+            "status": "partial",
+            "retained_relations": 2589,
+            "omitted_relations": 0,
+            "unknown_count": 357
+          },
+          {
+            "family": "event",
+            "status": "partial",
+            "retained_relations": 0,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "object-flow",
+            "status": "partial",
+            "retained_relations": 571,
+            "omitted_relations": 0,
+            "unknown_count": 1134
+          },
+          {
+            "family": "promise-ownership",
+            "status": "partial",
+            "retained_relations": 45,
+            "omitted_relations": 0,
+            "unknown_count": 45
+          },
+          {
+            "family": "request",
+            "status": "partial",
+            "retained_relations": 0,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "resource-lifecycle",
+            "status": "partial",
+            "retained_relations": 0,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          },
+          {
+            "family": "timer",
+            "status": "partial",
+            "retained_relations": 1,
+            "omitted_relations": 0,
+            "unknown_count": 0
+          }
+        ]
+      }
+    },
+    "raw_private_artifact": ".artifacts/manual-rea-raw.json",
+    "raw_sha256": "81d6094b954a3a42f1a8da9003925c3838dc399fe81e72583a09e5fe6de1bf8c"
+  },
+  "traces": [
+    {
+      "key": "slip",
+      "evidence_id": "ev_973d70fb630d7de143f03b6eed5008c39601549d19fb5d37e91853fbb9a249e3",
+      "source_evidence_id": "ev_114260c4d7c0a68eee93dd3962648b250db17618de5ba56a327017ba6ca888c2",
+      "status": "complete-within-source",
+      "seed": {
+        "kind": "node-id",
+        "value": "jag_node_cbfc792579bcab2f72efcdb681c0717f61d3ed8dd196175f8cd90ed67394bb25",
+        "match": null,
+        "case_sensitive": false
+      },
+      "direction": "outgoing",
+      "summary": {
+        "matched_seeds": 1,
+        "traced_nodes": 1,
+        "traced_edges": 0,
+        "terminal_paths": 0,
+        "native_handoffs": 0,
+        "observed_facts": 1,
+        "inferred_facts": 1,
+        "unknown_facts": 0,
+        "unavailable_facts": 0
+      },
+      "coverage": {
+        "status": "complete-within-source",
+        "source_graph_status": "complete",
+        "total_seed_matches": 1
+      },
+      "raw_private_artifact": ".artifacts/manual-rea-slip-trace.json",
+      "raw_sha256": "2b1fce0143098bd4fa8539f3f056f4be29518fbcbc91958c2c6f285e22c1166a"
+    },
+    {
+      "key": "serial",
+      "evidence_id": "ev_0743d7f416b78bb248dd1828a7a9f43bc962e51b764366552986a0ace636b092",
+      "source_evidence_id": "ev_114260c4d7c0a68eee93dd3962648b250db17618de5ba56a327017ba6ca888c2",
+      "status": "found",
+      "seed": {
+        "kind": "semantic-node",
+        "node_id": "jsrg_node_d4554c4008a41d2956e28ce9f6e3134753609d003db29f3c511e446746d3b96e"
+      },
+      "direction": "callers",
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 6
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "raw_private_artifact": ".artifacts/manual-rea-serial-trace.json",
+      "raw_sha256": "e03cd8489f92f204dfa09b9a51ea87b0dad8be5c7495b25ef6c5754bbeb57307"
+    },
+    {
+      "key": "mapping",
+      "evidence_id": "ev_b2da673bd4d8c1519f5a489ec4c4f1407e4fe3ba7913f5ea50e9aebc45080fd5",
+      "source_evidence_id": "ev_114260c4d7c0a68eee93dd3962648b250db17618de5ba56a327017ba6ca888c2",
+      "status": "found",
+      "seed": {
+        "kind": "semantic-node",
+        "node_id": "jsrg_node_98bad5cdb87de91e4d468220a3c5b8c1f840718e57a9f1f9a1349ea31dfdfb01"
+      },
+      "direction": "forward-influence",
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 202
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "raw_private_artifact": ".artifacts/manual-rea-mapping-trace.json",
+      "raw_sha256": "1af6a421b194386917b1bd7ffa214b8145613b29fbdb97eb9539c778d0661039"
+    }
+  ],
+  "coverage": {
+    "downloaded_sources": 4,
+    "source_bytes": 5212755,
+    "focused_sources": 2,
+    "focused_fragments": 13,
+    "focus_bytes": 81957,
+    "focus_fraction_of_downloaded": 0.015722396314424906,
+    "complete_application_analysis": false,
+    "original_runtime_save": false,
+    "authenticated_requests": false,
+    "notes": [
+      "inventory_shared and inventory.book contained no selected target declarations; book is a small InventoryModule subclass wrapper.",
+      "Graph trace of the exported OpenSelectSlip node retains one export-binding node, not a resolved end-to-end call chain.",
+      "Semantic queries found the selected method/function but dynamic relationships remained partial. Their found status does not prove invocation."
+    ]
+  },
+  "findings": [
+    {
+      "id": "REA-MAN-01",
+      "topic": "전표불러오기 변환 경로",
+      "status": "observed-static",
+      "nodes": [
+        "OpenSelectSlipUserAction"
+      ],
+      "meaning": "선택 팝업에서 원본 전표를 받은 뒤 GetTransformDataAction 또는 GetTransformV5DataAction을 호출하고 외부 common.resultDataModel에 매핑을 위임한다. 신규/복사는 교체, 수정은 상세 행 추가 경로로 분기한다.",
+      "implementation_implication": "불러온 원본 식별과 변환 결과, 신규/수정 적용 방식을 구분한다.",
+      "limitation": "서버 매핑 및 common.resultDataModel 구현은 이 4개 자산 범위에 없다. 창고이동→판매에서 출고창고를 원본 출발/도착 중 어느 것으로 바꾸는지는 확정하지 못했다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 665541,
+            "utf16_end": 687979,
+            "utf8_start": 695703,
+            "utf8_end": 719101,
+            "line_start": 13620,
+            "line_end": 14015,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "a2c9d5baf20354aa2ab1542f995a33f1d331b80f8a7008df6adffd0183884fe0",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 558,
+          "focus_line_end": 953,
+          "rea_application_nodes": [
+            "jag_node_cbfc792579bcab2f72efcdb681c0717f61d3ed8dd196175f8cd90ed67394bb25"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_97269279d78ac2b4a76c78e6c053bd6da73b5571f53a6aceaea0bbd521f88fcf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-02",
+      "topic": "불러온 전표의 진행상태 변경",
+      "status": "observed-static",
+      "nodes": [
+        "ChangeLoadSlipStatusUserAction",
+        "SaveApiParamProgressStatusContributor",
+        "CompleteOrderManagementStepUserAction"
+      ],
+      "meaning": "finish_step_button_tf가 있으면 complete_tf에 따라 complete/in_progress를 설정하며 없으면 complete를 설정한다. 별도 order_management 명령은 PROC_NO·PROC_STEP·PROGRESS 및 finish_type을 서버에 전달한다. 저장 준비 단계에 from_progress_status DMC를 합친다.",
+      "implementation_implication": "원본 연결과 진행상태 변경 의도를 단순 잔량 계산과 구분해 보관한다.",
+      "limitation": "이 코드의 존재는 현재 회사 메뉴에서의 기본 체크값·권한·저장 성공을 입증하지 않는다. 실제 잔량 정책과 서버 갱신 결과는 관찰하지 않았다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 898442,
+            "utf16_end": 899566,
+            "utf8_start": 937558,
+            "utf8_end": 938682,
+            "line_start": 17752,
+            "line_end": 17770,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "e0ff0c69dbd9e72b38e90a91200add7ccbc3eea800aa3c796b2d42908cba3af4",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 1051,
+          "focus_line_end": 1069,
+          "rea_application_nodes": [
+            "jag_node_4b20a215c661b00b944deab8e19be93b986d88decc31fc28fd1369926d01b9ef"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_d690b72e500be751a2625f99c89a724e98ee75874a1fdd89fe67b26cdc8d6097"
+          ]
+        },
+        {
+          "source": "inventory.order_management.ff2d28de.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+          "source_sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+          "source_range": {
+            "utf16_start": 720,
+            "utf16_end": 1730,
+            "utf8_start": 926,
+            "utf8_end": 2002,
+            "line_start": 16,
+            "line_end": 39,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "0c541737dcdf3b3e05c920bfe965bf60bac11e38b16012af6b12328f79ca7922",
+          "focus_file": "inventory.order_management.ff2d28de.manual-focus.js",
+          "focus_line_start": 1,
+          "focus_line_end": 24,
+          "rea_application_nodes": [],
+          "rea_semantic_functions": [
+            "jsrg_node_be2d199ff3167fa3a0290c0494061daf6db269f5287b2fbebc8b35bf4c59154a"
+          ]
+        },
+        {
+          "source": "inventory.order_management.ff2d28de.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+          "source_sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+          "source_range": {
+            "utf16_start": 102030,
+            "utf16_end": 103269,
+            "utf8_start": 104426,
+            "utf8_end": 105665,
+            "line_start": 2171,
+            "line_end": 2196,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "a454ec902e0d053a2c982a30462ce4c8882e8b791ef41fc1cb2d8b3b1e778a03",
+          "focus_file": "inventory.order_management.ff2d28de.manual-focus.js",
+          "focus_line_start": 89,
+          "focus_line_end": 114,
+          "rea_application_nodes": [
+            "jag_node_14e842851d2c3b0f4724b55fc2c3ada7e6cb36adbef97c90ad6f112287bad54d"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_a9e5708a345413cc412bed2c2686b3feff17d07d528f31d66fe18e9fcc7940de"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-03",
+      "topic": "시리얼 배분 수량과 전표불러오기 예외",
+      "status": "observed-static",
+      "nodes": [
+        "SetProdDataInGridProgram"
+      ],
+      "specific_method": {
+        "name": "_setQty",
+        "source_lines": [
+          9021,
+          9043
+        ],
+        "focus_lines": [
+          342,
+          364
+        ],
+        "rea_semantic_node": "jsrg_node_d4554c4008a41d2956e28ce9f6e3134753609d003db29f3c511e446746d3b96e"
+      },
+      "meaning": "일반 품목 입력은 serial_array.detail 요소의 qty를 합쳐 행 qty에 반영한다. is_trans_slip인 전표불러오기에서는 이 합계 적용을 바로 건너뛴다. 같은 품목의 시리얼 행과 비시리얼 행을 품목별로 합친 수량을 보호하는 주석과 조건이 함께 있다.",
+      "implementation_implication": "시리얼 배분 합계와 전표의 총 수량을 별개로 검증하고 불러오기에서 일부 시리얼 수량으로 전체 행 수량을 덮어쓰지 않는다.",
+      "limitation": "정적 의미 추적의 동적 this 호출은 해소되지 않았다. qty의 소수점·시리얼별 한도·서버 저장 검증까지 확인한 것은 아니다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 421414,
+            "utf16_end": 442875,
+            "utf8_start": 439974,
+            "utf8_end": 463395,
+            "line_start": 8745,
+            "line_end": 9207,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "e98bfdd6808a6ddbb8c4cdcab32bae4db427152bb8f8d91f0b4961087d56dc00",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 66,
+          "focus_line_end": 528,
+          "rea_application_nodes": [
+            "jag_node_baafba47c1c95e371b5a1e98297ac2a9586191acb363701cfe232203c64f7b68"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_199c711c0ca9968e8484fcd4b5f3d426186c82680b54cbd8de2fbead4e90f92a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-04",
+      "topic": "시리얼 존재 상태 및 품목 변경",
+      "status": "observed-static",
+      "nodes": [
+        "ChangeSerialArrayUserAction",
+        "SubscribeProdUserAction",
+        "SetProdDataInGridProgram"
+      ],
+      "meaning": "serial_array.detail 존재 여부를 serial_tf에 반영한다. 품목이 삭제되면 관련 serial_array 등을 초기화하며 품목 코드가 바뀌고 이전 품목과 시리얼 사용 조건이 충족되면 이전 시리얼을 제거하는 분기가 있다. 사용하지 않는 품목의 serial_array.detail을 비우는 코드도 있다.",
+      "implementation_implication": "시리얼 배분이 다른 품목으로 잘못 이어지지 않게 품목 변경·사용 여부를 검증한다.",
+      "limitation": "설정 기본값과 전체 품목별 예외는 외부 sourceData에 의존한다. 이 조건을 모든 원본 메뉴에 일괄 적용한다고 단정하지 않는다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 800685,
+            "utf16_end": 801107,
+            "utf8_start": 835379,
+            "utf8_end": 835801,
+            "line_start": 15968,
+            "line_end": 15975,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "3f00c4725a1bef741651fe6639e5cbf14f6c5b72767ef4833e69be1aded60ef0",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 954,
+          "focus_line_end": 961,
+          "rea_application_nodes": [
+            "jag_node_c547ec4d19a41976a7a03b20279ec35ec03a99bef2df856af685339f48dbadcc"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_eede303805f0a9b732a175e9a393f2d67812d41a5000a375dfb9b91c4339dc17"
+          ]
+        },
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 853219,
+            "utf16_end": 857421,
+            "utf8_start": 890557,
+            "utf8_end": 895141,
+            "line_start": 16927,
+            "line_end": 17015,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "ff830e9f15668cc9b1fc234b7108a3433e84305c8a39654045aafd1f1eb6cb4c",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 962,
+          "focus_line_end": 1050,
+          "rea_application_nodes": [
+            "jag_node_b884aed7e296f48e357abea1bb86deca8c620d5ff3ddc7904152e38fcfd66964"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_692879f81d63bcfa5158d55f71d97245c1a101eab9bc7ce2fe19731464b8a1b4"
+          ]
+        },
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 421414,
+            "utf16_end": 442875,
+            "utf8_start": 439974,
+            "utf8_end": 463395,
+            "line_start": 8745,
+            "line_end": 9207,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "e98bfdd6808a6ddbb8c4cdcab32bae4db427152bb8f8d91f0b4961087d56dc00",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 66,
+          "focus_line_end": 528,
+          "rea_application_nodes": [
+            "jag_node_baafba47c1c95e371b5a1e98297ac2a9586191acb363701cfe232203c64f7b68"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_199c711c0ca9968e8484fcd4b5f3d426186c82680b54cbd8de2fbead4e90f92a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-05",
+      "topic": "호환 변환의 시리얼·창고·메일 상태 필드",
+      "status": "observed-static",
+      "nodes": [
+        "getPropsMapByTransform"
+      ],
+      "meaning": "ContractOutProcTransformUserAction 안의 호환 매핑은 상세 SERIAL_IDX→inv_m$serial_array, QTY→inv_m$qty, 헤더 WH_CD→inv_s$wh_cd, P_FLAG→inv_s$progress_status, SEND_FLAG→inv_s$mail_send_tf를 포함한다.",
+      "implementation_implication": "시리얼 배분은 구매 품목행과 연관된 값이며 업무 진행상태와 메일 상태를 별도 필드로 다루는 설계에 참고할 수 있다.",
+      "limitation": "이 함수는 외주 변환 문맥의 부분 호환 매핑이다. 모든 구매·판매 API의 계약 또는 메일 실제 전송 성공 판정 규칙으로 사용할 수 없다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 1186843,
+            "utf16_end": 1200113,
+            "utf8_start": 1233161,
+            "utf8_end": 1246655,
+            "line_start": 22912,
+            "line_end": 23103,
+            "column_start": 8,
+            "column_end": 9
+          },
+          "fragment_sha256": "c86d0eeb2205d5c691bc506f8c6cc3d5ceb4289a77681808dfb9724146fb2ed7",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 1070,
+          "focus_line_end": 1261,
+          "rea_application_nodes": [],
+          "rea_semantic_functions": [
+            "jsrg_node_98bad5cdb87de91e4d468220a3c5b8c1f840718e57a9f1f9a1349ea31dfdfb01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-06",
+      "topic": "창고 변경 후속 처리 범위",
+      "status": "observed-static",
+      "nodes": [
+        "PostSetWareHouseProgram"
+      ],
+      "meaning": "창고 코드가 바뀌었는지 비교하고 io_type별 창고 VAT 속성을 골라 change_vat_rate_by_popup 기능을 호출한다.",
+      "implementation_implication": "창고 변경 시 세율 영향도 검토가 별도로 필요하다.",
+      "limitation": "이 함수는 창고이동→판매의 출고창고 선택 규칙을 결정하지 않는다. 출고창고 정책을 이 함수에서 추론해서는 안 된다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 332946,
+            "utf16_end": 335991,
+            "utf8_start": 349640,
+            "utf8_end": 352685,
+            "line_start": 7071,
+            "line_end": 7135,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "9e6530998d784d14e68c597849df16572a1855abc74610549dc7b5c4c1d731c8",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 1,
+          "focus_line_end": 65,
+          "rea_application_nodes": [
+            "jag_node_92c680e575d4cc445afe13dd6a05ec0ef8fe0dfd0c315a939cadf33f6b067eeb"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_bee34ef366858f0339eb8c20e44b9ca5de275af0a5a149cf93d483996f1ca086"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-07",
+      "topic": "시리얼 기본수량·유효기한·원본전표 연결",
+      "status": "unresolved",
+      "nodes": [
+        "SetProdDataInGridProgram",
+        "getPropsMapByTransform"
+      ],
+      "meaning": "시리얼 배열과 수량 연결은 확인했지만 신규 시리얼 팝업의 기본수량 1/0, 유효기한, 개별 시리얼의 연결전표 저장 구조는 이 4개 공개 JS에서 확인하지 못했다.",
+      "implementation_implication": "매뉴얼 72~76쪽의 화면 항목과 별도의 시리얼 팝업 자산/읽기 전용 UI 관찰을 추가 근거로 사용한다.",
+      "limitation": "문자열 미발견은 이카운트 전체에서 해당 기능이 없다는 증거가 아니다. 자산 자동 생성·감가상각 처리도 확인하지 않았다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 421414,
+            "utf16_end": 442875,
+            "utf8_start": 439974,
+            "utf8_end": 463395,
+            "line_start": 8745,
+            "line_end": 9207,
+            "column_start": 0,
+            "column_end": 1
+          },
+          "fragment_sha256": "e98bfdd6808a6ddbb8c4cdcab32bae4db427152bb8f8d91f0b4961087d56dc00",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 66,
+          "focus_line_end": 528,
+          "rea_application_nodes": [
+            "jag_node_baafba47c1c95e371b5a1e98297ac2a9586191acb363701cfe232203c64f7b68"
+          ],
+          "rea_semantic_functions": [
+            "jsrg_node_199c711c0ca9968e8484fcd4b5f3d426186c82680b54cbd8de2fbead4e90f92a"
+          ]
+        },
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 1186843,
+            "utf16_end": 1200113,
+            "utf8_start": 1233161,
+            "utf8_end": 1246655,
+            "line_start": 22912,
+            "line_end": 23103,
+            "column_start": 8,
+            "column_end": 9
+          },
+          "fragment_sha256": "c86d0eeb2205d5c691bc506f8c6cc3d5ceb4289a77681808dfb9724146fb2ed7",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 1070,
+          "focus_line_end": 1261,
+          "rea_application_nodes": [],
+          "rea_semantic_functions": [
+            "jsrg_node_98bad5cdb87de91e4d468220a3c5b8c1f840718e57a9f1f9a1349ea31dfdfb01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-08",
+      "topic": "발주서 이메일 거래처 분리와 발송 상태",
+      "status": "unresolved",
+      "nodes": [
+        "getPropsMapByTransform"
+      ],
+      "meaning": "mail_send_tf 호환 필드 외 거래처별 수신 문서 분리·발송 성공·오류·재시도 구현은 선택한 소스에 나타나지 않았다.",
+      "implementation_implication": "매뉴얼의 거래처별 발주 송부 요구를 사용자 업무로 구현하되 실제 메일 서비스 동작을 재현 완료로 표시하지 않는다.",
+      "limitation": "원본 메일 발송을 실행하지 않았으며 메일 팝업 자산도 이번 허용 범위에 없다.",
+      "source_refs": [
+        {
+          "source": "inventory.5b28ea0e.js",
+          "source_url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+          "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+          "source_range": {
+            "utf16_start": 1186843,
+            "utf16_end": 1200113,
+            "utf8_start": 1233161,
+            "utf8_end": 1246655,
+            "line_start": 22912,
+            "line_end": 23103,
+            "column_start": 8,
+            "column_end": 9
+          },
+          "fragment_sha256": "c86d0eeb2205d5c691bc506f8c6cc3d5ceb4289a77681808dfb9724146fb2ed7",
+          "focus_file": "inventory.5b28ea0e.manual-focus.js",
+          "focus_line_start": 1070,
+          "focus_line_end": 1261,
+          "rea_application_nodes": [],
+          "rea_semantic_functions": [
+            "jsrg_node_98bad5cdb87de91e4d468220a3c5b8c1f840718e57a9f1f9a1349ea31dfdfb01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "REA-MAN-09",
+      "topic": "발주서 분개와 원가·재고 정책",
+      "status": "unresolved",
+      "nodes": [],
+      "meaning": "발주서 거래처·납기별 분개, 부분입고 잔량 정책, 이동→판매 소비 인식, 원가 평가, 실사·계속기록 산식의 전체 구현을 이번 13개 AST 조각만으로 해소하지 못했다.",
+      "implementation_implication": "확정된 매뉴얼 요구와 가상 시뮬레이션을 사용하고, 검증되지 않은 정책은 실제 원본과 동일하다고 주장하지 않는다.",
+      "limitation": "전체 프로그램·서버 분석 또는 원본 저장 실행을 하지 않았다.",
+      "source_refs": []
+    }
+  ],
+  "limitations": [
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+    "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+    "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.",
+    "REA semantic coverage is unknown/partial because of dynamic framework calls and external dependencies, despite two parse-success files and no transport truncation.",
+    "Only 81,957 bytes of 5,212,755 downloaded bytes were supplied to REA. This is not all ECOUNT source or all behavior.",
+    "Source and raw graph records remain private .artifacts files. Tracked evidence contains only public asset URLs, hashes, ranges, node identifiers, summaries and limitations.",
+    "No actual PO email, original ERP write, original company data collection or browser/session credential capture occurred."
+  ]
+}

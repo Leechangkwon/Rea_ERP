@@ -1,0 +1,390 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:09:45.789102+00:00",
+  "scope": {
+    "new_GETs": 0,
+    "new_original_bodies": 0,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "source_execution": false,
+    "application_or_prior_contract_edits": false,
+    "new_full_semantic_runs": 0,
+    "corpus": "Existing78 originals/actualREA; previous76/78 reports preserved.",
+    "files": [
+      "source-reference-manifest.json",
+      "precise-static-evidence.json"
+    ]
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; original offsets UTF16",
+  "conclusion": "Retained source proves summary_date_* refer types and calendar ranges for clicked aggregate-row drilldown filters. Parent separately observed5single-axis query headers and masked display shapes. Source does not establish original ordinary group prop IDs/bucket keys/format implementation/server formulas; own0.21 group codes are a separate policy.",
+  "parent_UI_observed_candidate_labels": [
+    "일별",
+    "주차별",
+    "월별",
+    "분기별",
+    "반기별",
+    "연별",
+    "거래유형별",
+    "전표별",
+    "관리항목별",
+    "라인별",
+    "품목그룹1~3별",
+    "거래처그룹1~2별",
+    "프로젝트그룹1~2별"
+  ],
+  "date_axes": [
+    {
+      "observed_candidate_label": "일별",
+      "source_refer_type": "summary_date_day",
+      "selected_axis_actual_prop_id": "Unknown; returned dynamically from selected template_item.prop_id, not equal to refer_type by proof.",
+      "drilldown_mapping": {
+        "V5_actions": {
+          "target_search_refer_type": "data_dt",
+          "property_span": [
+            1,
+            576815,
+            1,
+            576841
+          ],
+          "resolution": "search_dmc.getPropIdByReferType(data_dt), unless item-meaning override resolves first"
+        },
+        "V56_common": {
+          "target_search_prop_id": "inv_s$data_dt",
+          "property_span": [
+            83617,
+            4,
+            83617,
+            37
+          ]
+        }
+      },
+      "drilldown_calendar_range": {
+        "contract": "from_date=to_date=base_date",
+        "common_switch_span": [
+          83707,
+          8,
+          83710,
+          18
+        ],
+        "actions_helper_evidence": "actions.convertToDateByDateReferType",
+        "scope": "Clicked-row search-filter reconstruction only. Not general aggregate bucket/caption/server formula."
+      },
+      "ordinary_group_key_and_format": "Unknown; current selected prop definition/value_format and server group projection not retained.",
+      "original_UI_observed_mask": "DDDD/DD/DD",
+      "owner_internal_group_code_policy": "YYYY-MM-DD"
+    },
+    {
+      "observed_candidate_label": "월별",
+      "source_refer_type": "summary_date_month",
+      "selected_axis_actual_prop_id": "Unknown; returned dynamically from selected template_item.prop_id, not equal to refer_type by proof.",
+      "drilldown_mapping": {
+        "V5_actions": {
+          "target_search_refer_type": "data_dt",
+          "property_span": [
+            1,
+            576870,
+            1,
+            576898
+          ],
+          "resolution": "search_dmc.getPropIdByReferType(data_dt), unless item-meaning override resolves first"
+        },
+        "V56_common": {
+          "target_search_prop_id": "inv_s$data_dt",
+          "property_span": [
+            83619,
+            4,
+            83619,
+            39
+          ]
+        }
+      },
+      "drilldown_calendar_range": {
+        "contract": "First day and last day of base_date calendar month via local Date(year,month,day) and external _.vFormat(yyyyMMdd).",
+        "common_switch_span": [
+          83712,
+          8,
+          83715,
+          18
+        ],
+        "actions_helper_evidence": "actions.convertToDateByDateReferType",
+        "scope": "Clicked-row search-filter reconstruction only. Not general aggregate bucket/caption/server formula."
+      },
+      "ordinary_group_key_and_format": "Unknown; current selected prop definition/value_format and server group projection not retained.",
+      "original_UI_observed_mask": "DDDD/DD",
+      "owner_internal_group_code_policy": "YYYY-MM"
+    },
+    {
+      "observed_candidate_label": "분기별",
+      "source_refer_type": "summary_date_quarter",
+      "selected_axis_actual_prop_id": "Unknown; returned dynamically from selected template_item.prop_id, not equal to refer_type by proof.",
+      "drilldown_mapping": {
+        "V5_actions": {
+          "target_search_refer_type": "data_dt",
+          "property_span": [
+            1,
+            576899,
+            1,
+            576929
+          ],
+          "resolution": "search_dmc.getPropIdByReferType(data_dt), unless item-meaning override resolves first"
+        },
+        "V56_common": {
+          "target_search_prop_id": "inv_s$data_dt",
+          "property_span": [
+            83620,
+            4,
+            83620,
+            41
+          ]
+        }
+      },
+      "drilldown_calendar_range": {
+        "contract": "Month<=3: Jan1..Mar31; <=6: Apr1..Jun30; <=9: Jul1..Sep30; else Oct1..Dec31. Last dates are generated via Date(year,endMonth,0).",
+        "common_switch_span": [
+          83724,
+          8,
+          83743,
+          9
+        ],
+        "actions_helper_evidence": "actions.convertToDateByDateReferType",
+        "scope": "Clicked-row search-filter reconstruction only. Not general aggregate bucket/caption/server formula."
+      },
+      "ordinary_group_key_and_format": "Unknown; current selected prop definition/value_format and server group projection not retained.",
+      "original_UI_observed_mask": "DDDD/ D분기",
+      "owner_internal_group_code_policy": "YYYY-Qn"
+    },
+    {
+      "observed_candidate_label": "반기별",
+      "source_refer_type": "summary_date_half",
+      "selected_axis_actual_prop_id": "Unknown; returned dynamically from selected template_item.prop_id, not equal to refer_type by proof.",
+      "drilldown_mapping": {
+        "V5_actions": {
+          "target_search_refer_type": "data_dt",
+          "property_span": [
+            1,
+            576930,
+            1,
+            576957
+          ],
+          "resolution": "search_dmc.getPropIdByReferType(data_dt), unless item-meaning override resolves first"
+        },
+        "V56_common": {
+          "target_search_prop_id": "inv_s$data_dt",
+          "property_span": [
+            83621,
+            4,
+            83621,
+            38
+          ]
+        }
+      },
+      "drilldown_calendar_range": {
+        "contract": "Month<=6: Jan1..Jun30; else Jul1..Dec31. Last date uses Date(year,endMonth,0).",
+        "common_switch_span": [
+          83745,
+          8,
+          83756,
+          9
+        ],
+        "actions_helper_evidence": "actions.convertToDateByDateReferType",
+        "scope": "Clicked-row search-filter reconstruction only. Not general aggregate bucket/caption/server formula."
+      },
+      "ordinary_group_key_and_format": "Unknown; current selected prop definition/value_format and server group projection not retained.",
+      "original_UI_observed_mask": "DDDD/ 하반기",
+      "owner_internal_group_code_policy": "YYYY-Hn"
+    },
+    {
+      "observed_candidate_label": "연별",
+      "source_refer_type": "summary_date_year",
+      "selected_axis_actual_prop_id": "Unknown; returned dynamically from selected template_item.prop_id, not equal to refer_type by proof.",
+      "drilldown_mapping": {
+        "V5_actions": {
+          "target_search_refer_type": "data_dt",
+          "property_span": [
+            1,
+            576958,
+            1,
+            576985
+          ],
+          "resolution": "search_dmc.getPropIdByReferType(data_dt), unless item-meaning override resolves first"
+        },
+        "V56_common": {
+          "target_search_prop_id": "inv_s$data_dt",
+          "property_span": [
+            83622,
+            4,
+            83622,
+            38
+          ]
+        }
+      },
+      "drilldown_calendar_range": {
+        "contract": "Year substring +0101 through same year substring +1231.",
+        "common_switch_span": [
+          83758,
+          8,
+          83761,
+          18
+        ],
+        "actions_helper_evidence": "actions.convertToDateByDateReferType",
+        "scope": "Clicked-row search-filter reconstruction only. Not general aggregate bucket/caption/server formula."
+      },
+      "ordinary_group_key_and_format": "Unknown; current selected prop definition/value_format and server group projection not retained.",
+      "original_UI_observed_mask": "DDDD/",
+      "owner_internal_group_code_policy": "YYYY"
+    }
+  ],
+  "week_excluded": {
+    "refer_type": "summary_date_week",
+    "drilldown_source": "Helper uses date.getDay() and local Date to construct Sunday..Saturday; this is not proof of ISOweek/company-calendar general aggregation.",
+    "common_switch_span": [
+      83717,
+      8,
+      83722,
+      9
+    ],
+    "implementation_scope": "Excluded from proposed date-axis support until ordinary company/ISO boundary is verified."
+  },
+  "selected_template_metadata_consumer": {
+    "selection": "OpenTemplateItemPopupUserAction obtains current search template definition, targets summary/summary_code props, excludes selected props, opens selector. getAggregateConditionData returns selected prop_id,display_name->label,prop_refer_type->refer_type,prop_data_type->data_type,prop_name,item_meaning_id; initializes A/show_subtotal=true.",
+    "selection_evidence": [
+      "common.getAggregateConditionData"
+    ],
+    "open_selector_original_span": [
+      56005,
+      26,
+      56063,
+      5
+    ],
+    "missing": "Actual current template_item values/prop IDs/value_format attributes were dynamically supplied and were not retained. Source refer_type labels are not static prop IDs."
+  },
+  "ordinary_aggregate_consumers": {
+    "selected_order": "getAggregateConditionKeys selects truthy prop_id condition_NN entries and sorts numeric slot suffix. It does not construct date buckets.",
+    "dynamic_output_model": "Inventory getFreeAggregateModelInfo produces summaryN/subtotalN models by selected condition count; resolveStatusGridDefinitionAsync obtains definitions using template/bizz/menu/group/extra-target context. Actual current dynamic date property definitions are unknown.",
+    "layout": "processFreeAggregateCondition reads selected condition.prop_id, obtains grid DMC property definition and all its attributes, normalizes datatype, emits label=condition.label||condition.prop_name, attributes and prop. This carries selected metadata into unwind_aggregation_criteria, not a hard-coded YYYYMM/quarter key rule.",
+    "query": "Previously identified free normalizer preserves selected condition objects except details_target and rebuilds groups from selected prop IDs; no date bucket computation appears there.",
+    "evidence": [
+      "common.getAggregateConditionKeys",
+      "inventory.getFreeAggregateModelInfo",
+      "inventory.resolveStatusGridDefinitionAsync",
+      "common.processFreeAggregateCondition",
+      "common.getUnwindAggregationCriteriaConfig",
+      "common.buildNormalizedAggregate",
+      "common.rebuildAggregateGroups"
+    ],
+    "unknown": "Server grouping projection/derived date property calculation and current runtime binding."
+  },
+  "drilldown_filter_consumer": {
+    "scope": "StandardUserAction invoked from an aggregate result row; distinct from initial report aggregation.",
+    "priority": {
+      "source_symbols": [
+        "summary_line",
+        "summary_slip",
+        "summary_date_day",
+        "summary_date_week",
+        "summary_date_month",
+        "summary_date_quarter",
+        "summary_date_half",
+        "summary_date_year"
+      ],
+      "actions_span": [
+        1,
+        570067,
+        1,
+        570243
+      ],
+      "common_span": [
+        83446,
+        6,
+        83455,
+        1
+      ],
+      "contract": "Keeps all non-date selected conditions, but among date-typed conditions chooses minimum index in this priority list for drilldown. Do not impose this on ordinary aggregate axis selection."
+    },
+    "filter_shape": "For target search prop type $$date_range_condition: reads clicked row data_dt_no.data_dt, calls convertToDateByDateReferType, stores {simple_search_id:D,type:range,value:{from_date,to_date}}. V5 may read comparison-suffixed values; common uses qualified hard-coded target prop IDs. $$date target branch does not set a filter.",
+    "evidence": [
+      "actions.StandardUserAction.executeAsync",
+      "actions.generateAggregateSearchDataModel",
+      "actions.convertToDateByDateReferType",
+      "common.generateAggregateSearchDataModel",
+      "common.convertToDateByDateReferType"
+    ],
+    "boundary": "No original report/server request executed; field mapping and calendar helper syntax are not behavior proof for the current ordinary general query."
+  },
+  "key_and_caption_related_generic_helpers": {
+    "status": "Available subtotal/summary config helpers; not promoted to current ordinary date-axis bucket/caption equivalence.",
+    "meta": "buildSortMetaMap reads per-prop value_format.option.format, DMC data_type/refer_type/refer_group and title custom display name. Concrete current values unknown.",
+    "key": "createValueExtractor for $$date/$$date_no/$$date_record_seq_no takes object.data_dt or raw date, calls resolveDateUnit and truncateDateByUnit. That generic unit resolver supports Day/Month/Year/Skip/None or format-pattern inference; no quarter/half branch. Year returns YYYY substring, month YYYYMM, otherwise full input.",
+    "critical_boundary": "buildSummarySort for free aggregate sets subtot_standard=N(None), so that chain alone does not establish selected month/quarter/half/year bucket construction. Selected property/server values may already be transformed; unobserved.",
+    "caption": "resolveDateTitle truncates by generic unit and invokes external IValueFormatExecutorFeature with dynamic value_format_data. createSubtotalTitleResolver adds dynamic custom caption/resource suffix. This is subtotal/summary-row title formatting, not proof of current ordinary grouped-column labels.",
+    "evidence": [
+      "common.buildSortMetaMap",
+      "common.createValueExtractor",
+      "common.resolveDateUnit",
+      "common.truncateDateByUnit",
+      "common.buildSummarySort",
+      "common.resolveDateTitle",
+      "common.resolveSubtotalDateValueFormat",
+      "common.createSubtotalTitleResolver"
+    ]
+  },
+  "unknowns": [
+    "Concrete current date-axis prop_id/item_meaning_id/data_type/value_format from selected template metadata",
+    "Original ordinary group keys and normalization for day/month/quarter/half/year, including blank/invalid dates",
+    "Source implementation of observed date captions, plus unobserved H1/exception captions and all-period formatting",
+    "Company fiscal year/half/quarter boundaries and timezone normalization for ordinary aggregation",
+    "General grouping server formula, sums/tax/rounding and response projection",
+    "Original ordinary ordering/explicit-sort precedence for date bucket values",
+    "Company/ISO/week-year rules; week excluded",
+    "Current drilldown binding and dynamic per-page metadata/validation beyond syntax"
+  ],
+  "limits": [
+    "Generic common full semantic OOM remains unknown. New static AST spans do not repair/promote it. Existing selected-common semantic IDs are scoped to their excerpts.",
+    "Actions full semantic evidence is existing completed REA6.4 output; unresolved/member calls remain unknown.",
+    "No generic validator or comparison-period branch is used as proof of current ordinary aggregation equivalence.",
+    "No new original UI/company record was read or retained."
+  ],
+  "parent_original_UI_query_evidence": {
+    "single_axis_queries": [
+      "일별",
+      "월별",
+      "분기별",
+      "반기별",
+      "연별"
+    ],
+    "each_query_headers": [
+      "축label",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "observed_numeric_mask_only": {
+      "day": "DDDD/DD/DD",
+      "month": "DDDD/DD",
+      "quarter": "DDDD/ D분기",
+      "half": "DDDD/ 하반기",
+      "year": "DDDD/"
+    },
+    "year_trailing_slash_observed": true,
+    "half_observation_scope": "Only currently displayed H2=하반기; H1 original caption not supplied.",
+    "subtotal_labels": "Parent observed each ...계 label, but no original subtotal formulas or server sorting established.",
+    "source": "Read/query UI observations supplied by parent. No dates/amounts/company records retained."
+  },
+  "owner_independent_implementation_policy": {
+    "planned_version": "0.21",
+    "date_source": "own doc.date",
+    "internal_group_code_patterns": {
+      "day": "YYYY-MM-DD",
+      "month": "YYYY-MM",
+      "quarter": "YYYY-Qn",
+      "half": "YYYY-Hn",
+      "year": "YYYY"
+    },
+    "display": "Own group-code-to-observed-mask formatting policy, separated from original ordinary mapper/display-key implementation.",
+    "week": "excluded",
+    "boundary": "Original normal query bucket keys/source mapper not proven. Parent plans local implementation; worker made no app edits."
+  },
+  "actual_REA_evidence_file": "rea-reference-evidence.json",
+  "other_summary_lookup_mappings_file": "summary-drilldown-mappings.json"
+}

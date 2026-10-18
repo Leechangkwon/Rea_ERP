@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T11:38:08.020421+00:00",
+  "scope": {
+    "task": "Purchasing list bottom 이력조회 only, distinct from input H/last-edit/security logs/autosaved drafts",
+    "baseline_fixed": {
+      "unique_bodies": 84,
+      "bytes": 25247564,
+      "static_complete": 82,
+      "static_partial": 2,
+      "semantic_complete": 77,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "new_GETs": 0,
+    "new_semantic_runs_or_retries": 0,
+    "browser": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "app_edits": false,
+    "tests": false
+  },
+  "answer": {
+    "status": "partial: retained entry implementations and one V5 history query program found; current request/order/purchase button→popup body binding missing",
+    "known": "V56 HistoryListUserAction opens a business-scoped IHistoryListPage after bizz/history-menu guards. V3 viewHistory button opens ES303M with menu/context flags. Both entry bodies have no selected-row requirement. A separate retained V5 history search program sends a history query.",
+    "blocked": "Exact current purchasing page binding, original popup implementation/field definitions/tabs/Excel/close/permission enforcement and current query selection policy."
+  },
+  "UI_context": {
+    "source": "Parent task: upcoming read-only observation of original purchasing list bottom 이력조회; worker did not browse",
+    "current_popup_observed": false,
+    "no_original_company_records_or_logs_collected": true
+  },
+  "per_list_binding": [
+    {
+      "screen": "발주요청 목록",
+      "status": "unknown",
+      "source_boundary": "Generic InventoryListPage wrapper and common entry action are retained, but current request bizz/history menu/template action binding is absent."
+    },
+    {
+      "screen": "발주서 목록",
+      "status": "unknown",
+      "source_boundary": "Generic common/V3 footer entry candidates retained; current order list wrapper/footer/settings/history menu map not concretely bound."
+    },
+    {
+      "screen": "구매 목록",
+      "status": "compatible wrapper only",
+      "refs": [
+        "purchases-list-wrapper::purchases-list-wrapper.page_impl"
+      ],
+      "source_boundary": "PurchasesListPage is an empty BasePage decorated with IPurchasesListPage, IGetInventorySetupProgram and IGetInventoryDataModelProgram. It supplies no local footer/history behavior; current setup/menu/template attributes are external."
+    }
+  ],
+  "V56_list_history_entry": {
+    "ref": "common::HistoryListUserAction.executeAsync",
+    "span": [
+      51283,
+      4,
+      51315,
+      6
+    ],
+    "registered_action": "common$IHistoryListUserAction",
+    "popup_identifier": "IHistoryListPage",
+    "guard_order": [
+      "Read program_context.data.bizz_sid; null/empty throws there is no bizz_sid.",
+      "Resolve history_menu_sid from MenuTypeSidByMenuSidMap[bizz_sid].IHistoryListPage, falling back to sourceData.bizz.menu_sid_map[History]. Empty throws there is no such history menu_sid.",
+      "Call IHandleRouteFeature$V56.openPopupAsync using current module,bizz_sid,menu_type History,param={},reqData and dimensions."
+    ],
+    "payload": {
+      "param": {},
+      "reqData_fields": [
+        "bizz_sid",
+        "MENU_TYPE=History",
+        "menu_sid=resolved history menu",
+        "authority_type=empty string (Anonymous enum)",
+        "module_name=app.<current module>"
+      ],
+      "dimensions": {
+        "width": 700,
+        "height": 600
+      }
+    },
+    "selection": "No selected-row/read-record/checked-list validation is present in this action body. It opens a business-level history list with empty param. Upstream button handlers or popup may impose constraints; current binding unknown.",
+    "permissions": "No explicit per-record or current-user permission check in this body. reqData.authority_type empty-string/Anonymous is a routing parameter, not evidence of permission bypass or public access. Menu availability and route/server authorization implementation are external.",
+    "modal_title_close": "openPopupAsync is used; no explicit title/close/receive handler here. Modal backdrop/focus/Escape/default tabs/closing behavior not established."
+  },
+  "V3_footer_entry": {
+    "refs": [
+      "v3-footer::viewHistory.render",
+      "v3-footer::viewHistory.createLayout",
+      "v3-footer::viewHistory.execCreateComposite",
+      "v3-footer::viewHistory.onPostSearch",
+      "v3-footer::viewHistory._ON_CLICK"
+    ],
+    "span_click": [
+      1,
+      298833,
+      1,
+      299181
+    ],
+    "button": "render creates layout and button event; createLayout uses widget.button with realId, label=settingInfo.label or resource LBL35464, placed left in footer.",
+    "visibility": "execCreateComposite returns false when pageOption.isFromCS; otherwise true. onPostSearch delegates buttonShow(n) to inherited behavior. Active tab/permissions/availability logic is not defined here.",
+    "click": "Build Request.Data {isFromMenuList:true,docFlag:settingInfo.docFlag||pageInfo.docFlag,isFromApply:pageOption.isFromApply,CUST:pageOption.CUST,CUST_DES:pageOption.CUST_DES}; Request.FromProgramId=pageOption.PROGRAM_ID. openWindow /ECERP/SVC/ES/ES303M with name resource LBL35464 and popupType:false.",
+    "selection": "No row selection requirement/read/record identifier passed in this click body. Context may restrict history by customer/apply/docFlag; exact current values unknown.",
+    "modal_title_close": "Raw popupType:false is retained without interpreting current modal/window behavior. Actual title text, bounds, backdrop, tabs and close control are external.",
+    "extension_variants": "viewHistoryExt1 and viewHistoryExt2 inherit viewHistory without local overrides in this body; this does not bind either to a current list."
+  },
+  "alternate_legacy_route_not_current_binding": {
+    "ref": "common::GetHistoryDataModelUserAction.executeAsync",
+    "span": [
+      51336,
+      4,
+      51356,
+      6
+    ],
+    "contract": "Opens IGetHistoryDataModelPage with current bizz/menu; tab_id defaults tabHistory, is_from_ref=false,is_from_approval=false,is_from_apply=false,cust/cust_des empty,doc_flag=payload.menu_type or empty. Source comment names sales-I/II layer entry; this cannot be relabeled as current purchasing list path.",
+    "tabs_boundary": "tabHistory is an entry parameter here, not evidence of popup tab labels/content/catalog."
+  },
+  "V5_history_search_action_and_program": {
+    "action_ref": "v5-actions::SelectInventoryHistoryUserAction.executeAsync",
+    "action_span": [
+      1,
+      553216,
+      1,
+      553871
+    ],
+    "action_contract": "Create ISearchDataModelGenerateProgram and install IBuildProcessFeature=InventoryHistorySearchBuildProcessFeature(execution_context,{search_type:payload.search_type}); execute with dm_manager,vmc,payload search_options/search_type. Catch SEARCH_FAIL and return; other verified exceptions rethrow.",
+    "program_ref": "v5-usecase::SelectInventoryHistoryProgram.onExecuteAsync",
+    "program_span": [
+      1,
+      168802,
+      1,
+      169781
+    ],
+    "program_contract": "Pass search model first record+definition to IDataModelModifierForSearchConditionProgram. IHttpRequestFeature.sendAsync ISelectInventorySearchHistoryAction with menu_type history,bizz_sid,sort/page/limit,condition transformed model,condition_quick,additional {progress_status:{},view_all,...request.additional},spread template_info,is_excel_convert. Return result.data as data_model and result.total_count.",
+    "endpoint_identifier_ref": "v5-usecase::ISelectInventorySearchHistoryAction.identifier",
+    "endpoint": "/api/app.inventory/action/SelectInventorySearchHistoryAction",
+    "guards_and_mutation": "Search function contains no save/update/delete/approve/restore operation. It is a data-query transport; backend authorization, logging and return definitions are external. No HTTP call was executed by this research.",
+    "dispatch_limit": "InventoryHistorySearchBuildProcessFeature implementation is not retained by this name in84; action→this program/current popup handler dispatch is not resolved end to end. These are compatible retained V5 history pieces, not an asserted current V56 runtime chain."
+  },
+  "field_definitions_and_filters": {
+    "status": "unknown",
+    "known_transport_fields": [
+      "transformed search condition",
+      "condition_quick",
+      "sort",
+      "page",
+      "limit",
+      "view_all",
+      "template_info",
+      "caller additional"
+    ],
+    "boundary": "No current popup grid schema, visible column labels, operation types, actor/time/IP/source fields, default date range, record/version key display, deleted-only policy or row-detail behavior is established. Do not infer them from generic history naming."
+  },
+  "button_by_button_boundaries": [
+    {
+      "button": "이력조회",
+      "known": "Two entry bodies documented above; no selected-row guard inside either.",
+      "unknown": "Current list binding/button visibility/authority/initial query/default popup state."
+    },
+    {
+      "button": "조회/Search",
+      "known": "Compatible V5 SelectInventoryHistoryUserAction/search program and SEARCH_FAIL handling.",
+      "unknown": "Current button ID/F-key, validation, field labels, page-specific server filter semantics."
+    },
+    {
+      "button": "탭",
+      "known": "Alternate legacy route can receive tabHistory as default parameter.",
+      "unknown": "Current tabs, labels, selected tab, filter changes and permissions."
+    },
+    {
+      "button": "Excel/export",
+      "known": "Retained V5 history query program forwards search_options.is_excel_convert.",
+      "unknown": "Actual current export button/menu, enabled state, permission/security policy, columns, file format/name, numeric conversion, download side effects/logging."
+    },
+    {
+      "button": "닫기",
+      "known": "Entry delegates to popup/window routing without local close handler.",
+      "unknown": "Current close button/Escape/backdrop, focus restoration, callback, retained search criteria and close result."
+    }
+  ],
+  "explicit_exclusions": [
+    {
+      "name": "Input/list-row H history detail",
+      "refs": [
+        "common::SlipHistoryUserAction.executeAsync",
+        "v5-actions::OpenSlipHistoryUserAction.executeAsync"
+      ],
+      "contract": "Common SlipHistoryUserAction reads one slip or target_* fields (in history context) and opens IHistoryCommonPage/B_000000E040716 600×600. V5 OpenSlipHistoryUserAction reads data date/no/update information and opens IOpenSlipHistoryPage. These are record-detail H routes, separate from business history-list bottom button."
+    },
+    {
+      "name": "최종이력",
+      "ref": "common::HistoryLastEditUserAction.executeAsync",
+      "contract": "Reads master update time/updater and opens IGetSetupHistoryPage 450×200; separate from list 이력조회."
+    },
+    {
+      "name": "Autosaved drafts / verification / Excel-print security logs",
+      "contract": "Input draft autosave, verification controls and download/print security-history routines are not used as list-history behavior. No original input row, original logs or company records were operated/collected."
+    }
+  ],
+  "query_vs_mutation_boundary": {
+    "confirmed_in_selected_bodies": "Entry functions construct route params/open popup/window; history program sends query data and returns data model/count. No business CRUD/save/restore call is in these selected list-entry/query bodies.",
+    "not_proved": "Opening current popup has no state change/logging/network write anywhere; route setup/backend are external. History-row clicks, apply/import, restore/delete/export/settings are not authorized by this contract and their behavior is unknown."
+  },
+  "unknowns": [
+    "Current request/order/purchase bizz_sid→history menu_sid values and footer action/template IDs.",
+    "IHistoryListPage, IGetHistoryDataModelPage converter and ES303M popup implementation missing from retained84; token occurrences are entry calls/comments, not body.",
+    "Current history result field definitions, tabs, empty-state/date defaults/query behavior/permissions/selection limits.",
+    "Current export and close controls/keyboard bindings and retention scope.",
+    "V5 search build-process feature dispatch and original backend history semantics."
+  ],
+  "preserved_analysis_limits": {
+    "baseline": {
+      "unique_bodies": 84,
+      "bytes": 25247564,
+      "static_complete": 82,
+      "static_partial": 2,
+      "semantic_complete": 77,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "common": "Fullstatic complete, fullsemantic2GiB OOM preserved; history actions use static AST spans only. No retry/excerpt-semantic promotion.",
+    "Flexion": "Existing fullsemantic30s timeout unchanged; not used to infer popup behavior.",
+    "grid": "Existing5 parser diagnostics and recovered-AST partial semantic unchanged; not used to infer history columns/permissions."
+  },
+  "files": {
+    "manifest": "$SCRATCH/purchasing-history-rea-20261018/source-manifest.json",
+    "exact_source_spans": "$SCRATCH/purchasing-history-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/purchasing-history-rea-20261018/actual-rea-reference-index.json",
+    "retained84_token_scan": "$SCRATCH/purchasing-history-rea-20261018/corpus-discovery.json"
+  }
+}

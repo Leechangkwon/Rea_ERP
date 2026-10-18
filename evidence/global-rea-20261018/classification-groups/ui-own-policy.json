@@ -1,0 +1,45 @@
+{
+  "version": "0.24.0",
+  "original_read_only_UI": {
+    "거래처그룹1별": [
+      "거래처그룹1별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "거래처그룹2별": [
+      "거래처그룹2별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "프로젝트그룹1별": [
+      "프로젝트그룹1별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "프로젝트그룹2별": [
+      "프로젝트그룹2별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ]
+  },
+  "business_values_or_sessions_retained": false,
+  "save_or_input_row_actions": false,
+  "own_policy": {
+    "master_fields": "partners/projects optional group1/group2 independent strings, each <=200 characters; missing remains absent, empty accepted",
+    "model_writers": "registration UI, internal master command, backup validation; partner create API and server CSV import allowlists",
+    "master_list_CSV": "both new group columns appended after pre-existing status column to preserve legacy cN layout IDs; project import/dedicated create API not added",
+    "group_reference": "effective line.supplier or doc.partner for partner; doc.project for project",
+    "history": "current master strings, not voucher snapshot; help/caption/print basis",
+    "identity": "raw string, no priceGroup or inferred groupNName fallback, blank to unassigned",
+    "storage": "v2 backward-compatible optional record fields added; no relational DB schema migration"
+  },
+  "full_original_equivalence": false
+}

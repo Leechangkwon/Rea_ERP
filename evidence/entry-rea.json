@@ -1,0 +1,1972 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-15T07:39:25.331Z",
+  "status": "focused-public-client-analysis-with-explicit-unknowns",
+  "method": "REA 6.4.0 actual CLI application analysis on inert Babel AST-selected source fragments, followed by REA semantic queries and feature traces. Full bundle hashes and original source offsets retained. Only the selected source fragments were analyzed by REA; this is not full ECOUNT coverage.",
+  "sources": [
+    {
+      "name": "inventory.5b28ea0e.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js",
+      "bytes": 5069436,
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "authenticated": false
+    },
+    {
+      "name": "inventory_shared.8b01b9b1.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory_shared/inventory_shared.8b01b9b1.js",
+      "bytes": 4441,
+      "sha256": "cbd6b4efc6f94a150b4706cead73dff93fcec2bc315eb75fe0f20689579263a4",
+      "authenticated": false
+    },
+    {
+      "name": "inventory.order_management.ff2d28de.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+      "bytes": 138464,
+      "sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+      "authenticated": false
+    },
+    {
+      "name": "sliplink.a9edda2e.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/sliplink/sliplink.a9edda2e.js",
+      "bytes": 173007,
+      "sha256": "081591a812df3548a33127602e2c16e511f6279a834f0828509a3646b07fd0f4",
+      "authenticated": false
+    }
+  ],
+  "focus_manifest": [
+    {
+      "source": "inventory.5b28ea0e.js",
+      "source_sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "focus_file": "inventory.5b28ea0e.focus.js",
+      "focus_bytes": 131480,
+      "focus_sha256": "79847e7a4efcdbe9de73fe445e96528cf59cac251c22ae7110e6bc120849ed8d",
+      "source_offsets": "UTF-16 character offsets, [start,end); original Babel line/column",
+      "fragments": [
+        {
+          "label": "SetProdDataInGridProgram",
+          "start": 421414,
+          "end": 442875,
+          "location": {
+            "start": {
+              "line": 8745,
+              "column": 0,
+              "index": 421414
+            },
+            "end": {
+              "line": 9207,
+              "column": 1,
+              "index": 442875
+            }
+          },
+          "sha256": "e98bfdd6808a6ddbb8c4cdcab32bae4db427152bb8f8d91f0b4961087d56dc00",
+          "focus_start_line": 1,
+          "focus_end_line": 463
+        },
+        {
+          "label": "ApplySimpleCalcFunc",
+          "start": 554015,
+          "end": 568657,
+          "location": {
+            "start": {
+              "line": 11419,
+              "column": 0,
+              "index": 554015
+            },
+            "end": {
+              "line": 11697,
+              "column": 1,
+              "index": 568657
+            }
+          },
+          "sha256": "97e0fda943df6dcaf08577dbae197a1986a13cc64a43639c44c41e7c5262ad71",
+          "focus_start_line": 464,
+          "focus_end_line": 742
+        },
+        {
+          "label": "OpenSelectSlipUserAction",
+          "start": 665541,
+          "end": 687979,
+          "location": {
+            "start": {
+              "line": 13620,
+              "column": 0,
+              "index": 665541
+            },
+            "end": {
+              "line": 14015,
+              "column": 1,
+              "index": 687979
+            }
+          },
+          "sha256": "a2c9d5baf20354aa2ab1542f995a33f1d331b80f8a7008df6adffd0183884fe0",
+          "focus_start_line": 743,
+          "focus_end_line": 1138
+        },
+        {
+          "label": "ChangeDiscountButtonUserAction",
+          "start": 796803,
+          "end": 799789,
+          "location": {
+            "start": {
+              "line": 15901,
+              "column": 0,
+              "index": 796803
+            },
+            "end": {
+              "line": 15953,
+              "column": 1,
+              "index": 799789
+            }
+          },
+          "sha256": "eea5a847211267ee091af86753335ab9f64f9293654e573232ca76897129fa45",
+          "focus_start_line": 1139,
+          "focus_end_line": 1191
+        },
+        {
+          "label": "LoadCompleteDiscountPriceUserAction",
+          "start": 807349,
+          "end": 808625,
+          "location": {
+            "start": {
+              "line": 16096,
+              "column": 0,
+              "index": 807349
+            },
+            "end": {
+              "line": 16124,
+              "column": 1,
+              "index": 808625
+            }
+          },
+          "sha256": "23c02c9ccb0706304eb0846a90e0ede2bec42f80f8f3db01a805ab9368b87e96",
+          "focus_start_line": 1192,
+          "focus_end_line": 1220
+        },
+        {
+          "label": "ApplyBulkChangeInputUserAction",
+          "start": 891435,
+          "end": 891766,
+          "location": {
+            "start": {
+              "line": 17633,
+              "column": 0,
+              "index": 891435
+            },
+            "end": {
+              "line": 17638,
+              "column": 1,
+              "index": 891766
+            }
+          },
+          "sha256": "e7031a05a98b739abdf3ab04466800f2d9ba920721a13ce26ab15f1e273be76e",
+          "focus_start_line": 1221,
+          "focus_end_line": 1226
+        },
+        {
+          "label": "ChangeMiddleButtonBarcodeUserAction",
+          "start": 900642,
+          "end": 902306,
+          "location": {
+            "start": {
+              "line": 17788,
+              "column": 0,
+              "index": 900642
+            },
+            "end": {
+              "line": 17817,
+              "column": 1,
+              "index": 902306
+            }
+          },
+          "sha256": "fe3183d17f00e4d3caae6300fcf53251b0ea061ea28bc359a1ea08bf69d1261b",
+          "focus_start_line": 1227,
+          "focus_end_line": 1256
+        },
+        {
+          "label": "GetListLoadInventoryQtyUserAction",
+          "start": 917625,
+          "end": 921225,
+          "location": {
+            "start": {
+              "line": 18119,
+              "column": 0,
+              "index": 917625
+            },
+            "end": {
+              "line": 18185,
+              "column": 1,
+              "index": 921225
+            }
+          },
+          "sha256": "cfdb5909f175919656e09a4421e187102c8edd33d03ee039f2312a8c832300c7",
+          "focus_start_line": 1257,
+          "focus_end_line": 1323
+        },
+        {
+          "label": "get_balance_query_parameters",
+          "start": 921620,
+          "end": 922631,
+          "location": {
+            "start": {
+              "line": 18193,
+              "column": 0,
+              "index": 921620
+            },
+            "end": {
+              "line": 18225,
+              "column": 1,
+              "index": 922631
+            }
+          },
+          "sha256": "93c3d5b84a18a5caba8ccef1f6fdf03daf4142cab43ae20baed2b41a095bac08",
+          "focus_start_line": 1324,
+          "focus_end_line": 1356
+        },
+        {
+          "label": "add_bal_qty_to_grid_data_model",
+          "start": 922662,
+          "end": 923873,
+          "location": {
+            "start": {
+              "line": 18229,
+              "column": 0,
+              "index": 922662
+            },
+            "end": {
+              "line": 18257,
+              "column": 1,
+              "index": 923873
+            }
+          },
+          "sha256": "0fec4a2ca8687a961e168e4b8bff71451022bd5753ac0bd4d865ac5e855aa485",
+          "focus_start_line": 1357,
+          "focus_end_line": 1385
+        },
+        {
+          "label": "GetListMyProdCodeFavoriteUserAction",
+          "start": 924639,
+          "end": 927591,
+          "location": {
+            "start": {
+              "line": 18271,
+              "column": 0,
+              "index": 924639
+            },
+            "end": {
+              "line": 18329,
+              "column": 1,
+              "index": 927591
+            }
+          },
+          "sha256": "a983eecab056ad3192150b2a56f280b8ebf1876c01e045142ae538978f8b522d",
+          "focus_start_line": 1386,
+          "focus_end_line": 1444
+        },
+        {
+          "label": "LoadSelectSlipUserAction",
+          "start": 932801,
+          "end": 948788,
+          "location": {
+            "start": {
+              "line": 18431,
+              "column": 0,
+              "index": 932801
+            },
+            "end": {
+              "line": 18696,
+              "column": 1,
+              "index": 948788
+            }
+          },
+          "sha256": "b6f43890d34c363ca553ff46cc24d87c6468f275fcbe17a4378ce7c01c8e87e8",
+          "focus_start_line": 1445,
+          "focus_end_line": 1710
+        },
+        {
+          "label": "OpenPopupBarcodeVerificationUserAction",
+          "start": 977557,
+          "end": 979802,
+          "location": {
+            "start": {
+              "line": 19223,
+              "column": 0,
+              "index": 977557
+            },
+            "end": {
+              "line": 19263,
+              "column": 1,
+              "index": 979802
+            }
+          },
+          "sha256": "a82a5fa269a340e5a6ed9758dfb73e2c081211952af738ca41153d01c26d8684",
+          "focus_start_line": 1711,
+          "focus_end_line": 1751
+        },
+        {
+          "label": "OpenPopupListInventoryStatusUserAction",
+          "start": 985378,
+          "end": 987127,
+          "location": {
+            "start": {
+              "line": 19365,
+              "column": 0,
+              "index": 985378
+            },
+            "end": {
+              "line": 19398,
+              "column": 1,
+              "index": 987127
+            }
+          },
+          "sha256": "32ba6636f1d4124fcc3c150b0c8282abbf43966f28d3a4a8befb36cfa1aa77d3",
+          "focus_start_line": 1752,
+          "focus_end_line": 1785
+        },
+        {
+          "label": "OpenPopupMyProdCodeFavoriteSettingUserAction",
+          "start": 988197,
+          "end": 989246,
+          "location": {
+            "start": {
+              "line": 19415,
+              "column": 0,
+              "index": 988197
+            },
+            "end": {
+              "line": 19432,
+              "column": 1,
+              "index": 989246
+            }
+          },
+          "sha256": "a0e4c401e4abdcdb7f5a995192add7d7a765a6f5342c32bd9981f78392144219",
+          "focus_start_line": 1786,
+          "focus_end_line": 1803
+        },
+        {
+          "label": "OpenPopupSlipBarcodeUserAction",
+          "start": 998012,
+          "end": 1010227,
+          "location": {
+            "start": {
+              "line": 19571,
+              "column": 0,
+              "index": 998012
+            },
+            "end": {
+              "line": 19767,
+              "column": 1,
+              "index": 1010227
+            }
+          },
+          "sha256": "2318560dca65ebbb4d3c4a6f57a1b267820c818eaf3642cb03b2af423f3d7b78",
+          "focus_start_line": 1804,
+          "focus_end_line": 2000
+        },
+        {
+          "label": "OpenSafeStockUserAction",
+          "start": 1011051,
+          "end": 1016425,
+          "location": {
+            "start": {
+              "line": 19776,
+              "column": 0,
+              "index": 1011051
+            },
+            "end": {
+              "line": 19882,
+              "column": 1,
+              "index": 1016425
+            }
+          },
+          "sha256": "caf4aa77b512a00bb8c4a682fcd35c80b5906003891ff0660953ef8e140deff4",
+          "focus_start_line": 2001,
+          "focus_end_line": 2107
+        },
+        {
+          "label": "OpenSortGridItemUserAction",
+          "start": 1019176,
+          "end": 1027581,
+          "location": {
+            "start": {
+              "line": 19925,
+              "column": 0,
+              "index": 1019176
+            },
+            "end": {
+              "line": 20095,
+              "column": 1,
+              "index": 1027581
+            }
+          },
+          "sha256": "89882ea7ad6f2638d7d372b52c1c5b55ffac3db643bd80a80099ea509d8da380",
+          "focus_start_line": 2108,
+          "focus_end_line": 2278
+        },
+        {
+          "label": "OpenPopupSafetyStockSettingUserAction",
+          "start": 1072821,
+          "end": 1073955,
+          "location": {
+            "start": {
+              "line": 20881,
+              "column": 0,
+              "index": 1072821
+            },
+            "end": {
+              "line": 20904,
+              "column": 1,
+              "index": 1073955
+            }
+          },
+          "sha256": "1edbdc7bb021ce2abf3393b9a281287830335ecac2e38afcea52f1c826578bdb",
+          "focus_start_line": 2279,
+          "focus_end_line": 2302
+        },
+        {
+          "label": "purchase_request_middle_button",
+          "start": 1282279,
+          "end": 1283555,
+          "location": {
+            "start": {
+              "line": 24621,
+              "column": 1,
+              "index": 1282279
+            },
+            "end": {
+              "line": 24663,
+              "column": 2,
+              "index": 1283555
+            }
+          },
+          "sha256": "150a9df42d5113a5c059ca1705a5c8f1eb062fa5c66c9d932857c7bd036f8d94",
+          "focus_start_line": 2303,
+          "focus_end_line": 2345
+        },
+        {
+          "label": "quotation_middle_button",
+          "start": 1417419,
+          "end": 1418816,
+          "location": {
+            "start": {
+              "line": 27243,
+              "column": 1,
+              "index": 1417419
+            },
+            "end": {
+              "line": 27288,
+              "column": 2,
+              "index": 1418816
+            }
+          },
+          "sha256": "b8791811f5a77bda662a3d89d7d0ee4ffd3c05e8f762a5716ce5dc326a10c51c",
+          "focus_start_line": 2346,
+          "focus_end_line": 2391
+        },
+        {
+          "label": "sales_middle_button",
+          "start": 2626561,
+          "end": 2628494,
+          "location": {
+            "start": {
+              "line": 46992,
+              "column": 1,
+              "index": 2626561
+            },
+            "end": {
+              "line": 47057,
+              "column": 2,
+              "index": 2628494
+            }
+          },
+          "sha256": "d39fc987699023599551c421790bbf6f5314d04063ed211f474a54a1ac070235",
+          "focus_start_line": 2392,
+          "focus_end_line": 2457
+        }
+      ]
+    },
+    {
+      "source": "inventory_shared.8b01b9b1.js",
+      "source_sha256": "cbd6b4efc6f94a150b4706cead73dff93fcec2bc315eb75fe0f20689579263a4",
+      "focus_file": "inventory_shared.8b01b9b1.focus.js",
+      "focus_bytes": 4442,
+      "focus_sha256": "827ccd07ed5b74beaf3286b1f38acb94b29dd7876858228837afadaf52a4d225",
+      "source_offsets": "UTF-16 character offsets, [start,end); original Babel line/column",
+      "fragments": [
+        {
+          "label": "complete shared module",
+          "start": 0,
+          "end": 4441,
+          "location": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 93,
+              "column": 0
+            }
+          },
+          "sha256": "cbd6b4efc6f94a150b4706cead73dff93fcec2bc315eb75fe0f20689579263a4",
+          "focus_start_line": 1,
+          "focus_end_line": 93
+        }
+      ]
+    },
+    {
+      "source": "inventory.order_management.ff2d28de.js",
+      "source_sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+      "focus_file": "inventory.order_management.ff2d28de.focus.js",
+      "focus_bytes": 9612,
+      "focus_sha256": "c473e6b3e1fd941a068e7d42925b0cf77d10585d073f19e082e87120a9d51c28",
+      "source_offsets": "UTF-16 character offsets, [start,end); original Babel line/column",
+      "fragments": [
+        {
+          "label": "OpenOrderManagementUserAction",
+          "start": 68148,
+          "end": 75051,
+          "location": {
+            "start": {
+              "line": 1442,
+              "column": 0,
+              "index": 68148
+            },
+            "end": {
+              "line": 1544,
+              "column": 1,
+              "index": 75051
+            }
+          },
+          "sha256": "08fb7989b5ced217d09ddd8c90118742cac632580a55a6a1eb4c8a94e806905c",
+          "focus_start_line": 1,
+          "focus_end_line": 103
+        },
+        {
+          "label": "OpenInventoryInputPopupFromOrderUserAction",
+          "start": 106485,
+          "end": 109028,
+          "location": {
+            "start": {
+              "line": 2234,
+              "column": 0,
+              "index": 106485
+            },
+            "end": {
+              "line": 2277,
+              "column": 1,
+              "index": 109028
+            }
+          },
+          "sha256": "4f09a9d2a2de81263a2a6eb285a6f4a65b61af1740544a0d99a55971e5603de8",
+          "focus_start_line": 104,
+          "focus_end_line": 147
+        }
+      ]
+    },
+    {
+      "source": "sliplink.a9edda2e.js",
+      "source_sha256": "081591a812df3548a33127602e2c16e511f6279a834f0828509a3646b07fd0f4",
+      "focus_file": "sliplink.a9edda2e.focus.js",
+      "focus_bytes": 1224,
+      "focus_sha256": "31e0ca6a93b5c1ed5be6ca25cb264b42a87bfe429fb4519f756f23eb0a95bf52",
+      "source_offsets": "UTF-16 character offsets, [start,end); original Babel line/column",
+      "fragments": [
+        {
+          "label": "SelectSlipLinkDataProgram",
+          "start": 17633,
+          "end": 18855,
+          "location": {
+            "start": {
+              "line": 377,
+              "column": 0,
+              "index": 17633
+            },
+            "end": {
+              "line": 402,
+              "column": 1,
+              "index": 18855
+            }
+          },
+          "sha256": "86ea001ffc646bb4a9aa2c84e35214a72577235ab8a4f7afc98b54afeffeab4f",
+          "focus_start_line": 1,
+          "focus_end_line": 26
+        }
+      ]
+    }
+  ],
+  "rea": {
+    "version": "6.4.0",
+    "operation": "analyze_javascript_application",
+    "evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+    "raw_file": ".artifacts/entry-rea-raw.json",
+    "raw_sha256": "c38934b7895c9d265ad6442579aa7cd6784b15f50d700f70cffab2dbd1c5aad7",
+    "root_artifact_sha256": "ddfdb37d1497324f30fda8c623219777c935337293b2fb3f966274db32e8ad90",
+    "statistics": {
+      "relevant_files": 4,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 146758,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 4,
+      "visited_ast_nodes": 13629,
+      "findings": 21,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "graph_coverage": {
+      "status": "complete",
+      "truncated": false,
+      "omitted_count": 0,
+      "limits": []
+    },
+    "semantic_coverage": {
+      "status": "unknown",
+      "truncated": false,
+      "omitted_nodes": 0,
+      "omitted_relations": 0,
+      "limits": [],
+      "families": [
+        {
+          "family": "boundary",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "call-flow",
+          "status": "partial",
+          "retained_relations": 125,
+          "omitted_relations": 0,
+          "unknown_count": 903
+        },
+        {
+          "family": "child-process",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "closure",
+          "status": "partial",
+          "retained_relations": 286,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "configuration",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "data-flow",
+          "status": "partial",
+          "retained_relations": 5061,
+          "omitted_relations": 0,
+          "unknown_count": 760
+        },
+        {
+          "family": "event",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "object-flow",
+          "status": "partial",
+          "retained_relations": 964,
+          "omitted_relations": 0,
+          "unknown_count": 1982
+        },
+        {
+          "family": "promise-ownership",
+          "status": "partial",
+          "retained_relations": 129,
+          "omitted_relations": 0,
+          "unknown_count": 129
+        },
+        {
+          "family": "request",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "resource-lifecycle",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "timer",
+          "status": "partial",
+          "retained_relations": 3,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        }
+      ]
+    },
+    "semantic_unknown_count": 3774,
+    "limitations": [
+      "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+      "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+      "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+      "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+      "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+    ]
+  },
+  "traces": [
+    {
+      "label": "OpenSelectSlipUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_28bd1edbb07880665af7986c81a792769a8f28d08dff22874f84406be4f549af",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_f90064609a2106119b3350759e3904cdfb35baaab15028b3db42ff7d96cc36b0"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 743,
+            "column": 35
+          },
+          "end": {
+            "line": 1138,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "LoadSelectSlipUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_e48ca22cc28f1f2d9d55e32341f1a14ad875eba7036d4a3c92c0e3da30727fdd",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_494fa560b875b0844503f7af63ddc55978b292740d9a1fd01b9f707e4454124c"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1445,
+            "column": 35
+          },
+          "end": {
+            "line": 1710,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "GetListLoadInventoryQtyUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_9202b49859e6a7b18b7cd695586876988e3876af5d70d25db4adbbbc1dafbede",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_84b77211c3d02c3d1e7601eb76a3572a0e31488a35405cc924252157b1fbd03e"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1257,
+            "column": 44
+          },
+          "end": {
+            "line": 1323,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "get_balance_query_parameters",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_683c2a92cebbfa2b89fb627ced5805092905a3babe0de4f60b686bc346a9d52e",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_f4edf3649183d1698505281a3bb8d2109075af8ca9c791acffffa46413f63060"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1324,
+            "column": 0
+          },
+          "end": {
+            "line": 1356,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 7
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 7,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Relevant dynamic, unsupported, incomplete, or ambiguous semantics remain unknown.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "add_bal_qty_to_grid_data_model",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_611071c9404602a510e81264c6453422dfb1ee3795c77c2059242ec63aa9b592",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_44c9456b1b65d0e29545c4aba389bc4f5a4adbbc5e91df399747e204b4abf952"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1357,
+            "column": 0
+          },
+          "end": {
+            "line": 1385,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 4
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 4,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Relevant dynamic, unsupported, incomplete, or ambiguous semantics remain unknown.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenSafeStockUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_99080ba5f213c103659a9d131ab80d8b0269833ce412ffe3e0c87fa28f518b00",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_c126da4460074a8b12106dd02b84c5a6e5bc3336fb39c12461bcd99e7186a615"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 2001,
+            "column": 34
+          },
+          "end": {
+            "line": 2107,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenPopupSafetyStockSettingUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_6cc2d25aecdef6a4cf81eb25d0f43574f844d4591d8bc792950d6161e37e5d08",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_e846ed55c690edd0882d31cbb2a6af71bf4beb04fbb28dd1094208398ecde3c4"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 2279,
+            "column": 48
+          },
+          "end": {
+            "line": 2302,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenPopupBarcodeVerificationUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_5a69882d7b62a2450f439376b317e0be33d1cba723f79f14da65e1dfa6c15a8d",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_8c051083d7b0c9b72c5bac1ed3742bbc42b9c292f9f176f5afbf66880d976a32"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1711,
+            "column": 49
+          },
+          "end": {
+            "line": 1751,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenPopupSlipBarcodeUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_d5b1cebb7cce712be6542c4b193a3541931b0639b4311c9891ec6a2b6162add0",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_605a42fcc1702cbf6dbd004605cc8130f54a4559474bce6e9ca89f01aeb23531"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1804,
+            "column": 41
+          },
+          "end": {
+            "line": 2000,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "ChangeMiddleButtonBarcodeUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_e8881b56eb5b773be977cb054142806b586f7e1ee874875b1d6f2b881229f236",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_a7a41555df727d25f22585057d63dfd3633409a0984e95bb6c99254e5787e387"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1227,
+            "column": 46
+          },
+          "end": {
+            "line": 1256,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "SetProdDataInGridProgram",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_9fe8c36ecab975edc692c7b46ff8f1461bc16a250f96673338df90a063fb3c13",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_0891b0fe10a6c4a9a1ce94168daf3aa41bf65fe5b632e25e66fcb24a1a9fe154"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1,
+            "column": 35
+          },
+          "end": {
+            "line": 463,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "GetListMyProdCodeFavoriteUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_8be9547b8d29ff4e31f91e1e14891d7673e19ca0b5ac7eb2c08e0e215afcb01d",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_9b2f51767d0e2996970470d22c213fc7d397eb8f1b8e6a921d85c70fcbee3dfe"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1386,
+            "column": 46
+          },
+          "end": {
+            "line": 1444,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenPopupMyProdCodeFavoriteSettingUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_28348b15f6a45378439111fee45df218918d7616183ea98354d914528c7b8a21",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_e36bf9f516051adbdadb1b6b466490f952adf03f5e34c7d399571f00038ec7ae"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1786,
+            "column": 55
+          },
+          "end": {
+            "line": 1803,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenPopupListInventoryStatusUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_70ebb35302fa4f208f8cf95e2b9e6d860cf2b58f8e6fcf54e94fcdd0c06e68e4",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_d47a62fd1f833c85e727fb8a6f1ce98123313ddb8328456bbc81cba60ec873b2"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 1752,
+            "column": 49
+          },
+          "end": {
+            "line": 1785,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenSortGridItemUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_d7272dd34969907601150d0b5a46f2a611472beb088d7289a7f83d9a573d69a2",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_cc74fde620da473d07b6b76e07e0be471dad0c9de76e1a476747e7084cf4ea51"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 2108,
+            "column": 37
+          },
+          "end": {
+            "line": 2278,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "_discountSimpleCalc",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_e3a85e0ba36bdd2778d84e5d8d7f0c590fc63fdb79b4172994e6fd3f36053a36",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_a567fecf85dde03cb1d494af1aafdef54f8d56dcc4905d8afadacf26cf9b5662"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.5b28ea0e.focus.js",
+          "start": {
+            "line": 564,
+            "column": 4
+          },
+          "end": {
+            "line": 696,
+            "column": 5
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 3,
+        "traversed_relations": 2,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 99
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 99,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Relevant dynamic, unsupported, incomplete, or ambiguous semantics remain unknown.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "label": "OpenOrderManagementUserAction",
+      "operation": "trace_javascript_semantics",
+      "source_evidence_id": "ev_6c42f0a48fdd9b698f148761aad7687d92e6f25f72d614df7d151e81c0560f91",
+      "query_id": "jsrq_87bc8c76d289aff289109001ab6bb63347467e7c3f0bd6a02b9e3cb2f2cf2b79",
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_c6b838f392a5fc0fed8d9b389e164507347822f2010067e60fb33fb63edd9b18"
+        },
+        "direction": "forward-influence",
+        "include_ambiguous_dynamic_edges": false,
+        "expected": null
+      },
+      "status": "found",
+      "location": {
+        "available": true,
+        "value": {
+          "kind": "source-range",
+          "source": "inventory.order_management.ff2d28de.focus.js",
+          "start": {
+            "line": 1,
+            "column": 40
+          },
+          "end": {
+            "line": 103,
+            "column": 1
+          }
+        }
+      },
+      "summary": {
+        "total_seed_matches": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "relevant_unknowns": 0
+      },
+      "coverage": {
+        "status": "partial"
+      },
+      "unknown_count": 0,
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ]
+    },
+    {
+      "module": "inventory.5b28ea0e.focus.js",
+      "operation": "trace_application_feature",
+      "trace_id": "jatr_889aaea5580d04d808cdfb6745fa426c02b05b7e22b6103ae53081acab2f5e95",
+      "summary": {
+        "matched_seeds": 19,
+        "traced_nodes": 19,
+        "traced_edges": 18,
+        "terminal_paths": 0,
+        "native_handoffs": 0,
+        "observed_facts": 20,
+        "inferred_facts": 34,
+        "unknown_facts": 0,
+        "unavailable_facts": 0
+      },
+      "coverage": {
+        "status": "complete-within-source",
+        "source_graph_status": "complete",
+        "total_seed_matches": 19
+      },
+      "limitations": [
+        "A trace reports graph relationships, not proof that code executed or that a feature is reachable in every state.",
+        "Native handoffs never open a binary or invoke a provider automatically; snapshot reuse remains provider/profile/target exact.",
+        "Static, native, passive-runtime, inferred, and unknown facts retain their original authority in the returned graph."
+      ]
+    },
+    {
+      "module": "inventory_shared.8b01b9b1.focus.js",
+      "operation": "trace_application_feature",
+      "trace_id": "jatr_c02bf931f34c8d7453bc11d75628966923b40315fee0ba5592399ec624c18339",
+      "summary": {
+        "matched_seeds": 2,
+        "traced_nodes": 2,
+        "traced_edges": 1,
+        "terminal_paths": 0,
+        "native_handoffs": 0,
+        "observed_facts": 3,
+        "inferred_facts": 0,
+        "unknown_facts": 0,
+        "unavailable_facts": 0
+      },
+      "coverage": {
+        "status": "complete-within-source",
+        "source_graph_status": "complete",
+        "total_seed_matches": 2
+      },
+      "limitations": [
+        "A trace reports graph relationships, not proof that code executed or that a feature is reachable in every state.",
+        "Native handoffs never open a binary or invoke a provider automatically; snapshot reuse remains provider/profile/target exact.",
+        "Static, native, passive-runtime, inferred, and unknown facts retain their original authority in the returned graph."
+      ]
+    },
+    {
+      "module": "inventory.order_management.ff2d28de.focus.js",
+      "operation": "trace_application_feature",
+      "trace_id": "jatr_8219b712179e82196dd9216e2f7bb6e93382a88c045910f8e373e53f55355eb7",
+      "summary": {
+        "matched_seeds": 4,
+        "traced_nodes": 5,
+        "traced_edges": 4,
+        "terminal_paths": 1,
+        "native_handoffs": 0,
+        "observed_facts": 6,
+        "inferred_facts": 5,
+        "unknown_facts": 0,
+        "unavailable_facts": 0
+      },
+      "coverage": {
+        "status": "complete-within-source",
+        "source_graph_status": "complete",
+        "total_seed_matches": 4
+      },
+      "limitations": [
+        "A trace reports graph relationships, not proof that code executed or that a feature is reachable in every state.",
+        "Native handoffs never open a binary or invoke a provider automatically; snapshot reuse remains provider/profile/target exact.",
+        "Static, native, passive-runtime, inferred, and unknown facts retain their original authority in the returned graph."
+      ]
+    },
+    {
+      "module": "sliplink.a9edda2e.focus.js",
+      "operation": "trace_application_feature",
+      "trace_id": "jatr_4263943a23ab06ff9388f564418927a1f90dc2af37be88593a8ede18d93350e2",
+      "summary": {
+        "matched_seeds": 3,
+        "traced_nodes": 3,
+        "traced_edges": 2,
+        "terminal_paths": 0,
+        "native_handoffs": 0,
+        "observed_facts": 4,
+        "inferred_facts": 2,
+        "unknown_facts": 0,
+        "unavailable_facts": 0
+      },
+      "coverage": {
+        "status": "complete-within-source",
+        "source_graph_status": "complete",
+        "total_seed_matches": 3
+      },
+      "limitations": [
+        "A trace reports graph relationships, not proof that code executed or that a feature is reachable in every state.",
+        "Native handoffs never open a binary or invoke a provider automatically; snapshot reuse remains provider/profile/target exact.",
+        "Static, native, passive-runtime, inferred, and unknown facts retain their original authority in the returned graph."
+      ]
+    }
+  ],
+  "original_ui_observations": [
+    {
+      "authority": "Parent agent CUA observation; no original mutation performed",
+      "feature": "전표불러오기",
+      "observed": "구매입력 → 전표불러오기 → 전표종류 표 → 발주서 → 선택 체크 목록 및 잔량적용(F8) 버튼 확인. 적용하지 않고 닫음."
+    },
+    {
+      "authority": "Parent agent CUA observation; no original mutation performed",
+      "feature": "재고불러오기",
+      "observed": "입력 수량을 바꾸지 않고 재고 표시 컬럼을 노출하는 동작 확인."
+    },
+    {
+      "authority": "Parent agent CUA observation; no original mutation performed",
+      "feature": "안전재고 진입과 창고 필요 조건",
+      "observed": "발주요청 입력의 창고별안전재고 버튼과 드롭다운 품목별안전재고를 확인. 유효한 창고가 없으면 창고 입력/선택이 요구됨. 업무 창고 선택, 안전재고 결과 목록, 적용 및 저장은 수행하지 않음."
+    }
+  ],
+  "findings": [
+    {
+      "id": "transfer-picker",
+      "authority": "static public client; corroborated original UI picker navigation",
+      "source_symbols": [
+        "OpenSelectSlipUserAction",
+        "LoadSelectSlipUserAction"
+      ],
+      "summary": "일반 전표불러오기는 전표종류 선택 창을 연 뒤 선택한 종류의 전표 조회 창을 엽니다. 직접 업무 버튼은 from_prg_id를 주어 종류 선택을 생략할 수 있습니다. 거래처 필터는 지원 여부 확인 후 전달합니다. 선택 결과를 서버 변환 요청으로 보내 master/detail을 매핑합니다.",
+      "unknowns": [
+        "원본 서버의 메뉴별 필드 매핑과 잔량 계산 정책",
+        "실제 원본 전표 적용·저장 결과"
+      ]
+    },
+    {
+      "id": "transfer-write-mode",
+      "authority": "static public client",
+      "source_symbols": [
+        "OpenSelectSlipUserAction",
+        "LoadSelectSlipUserAction"
+      ],
+      "summary": "GET_CREATE/COPY 분기는 master/detail을 불러온 자료로 교체하고 수정 분기는 기존 master와 수정한 detail을 보존한 뒤 추가합니다. 결과 적용 전 코드/양식 매핑과 수량이 큰 경우 안내가 있습니다.",
+      "unknowns": [
+        "모든 입력 화면의 동적 조건과 업무별 진행상태 정책"
+      ]
+    },
+    {
+      "id": "inventory-load-is-display",
+      "authority": "static public client; corroborated original UI column visibility",
+      "source_symbols": [
+        "GetListLoadInventoryQtyUserAction",
+        "get_balance_query_parameters",
+        "add_bal_qty_to_grid_data_model"
+      ],
+      "summary": "입력된 품목에 대한 전체재고·창고재고·미출고 관련 표시 컬럼을 노출하고 조회 결과를 해당 컬럼에 대입합니다. 품목 또는 입력 수량을 재고수량으로 대체하는 기능이 아닙니다. 공개 helper의 base_date는 현재일자이며, 창고는 상단 공통 또는 품목행의 창고를 사용합니다.",
+      "unknowns": [
+        "원본 서버의 재고/미출고 집계 범위와 실시간성"
+      ]
+    },
+    {
+      "id": "safe-stock-location",
+      "authority": "static public template",
+      "source_symbols": [
+        "purchase_request_middle_button"
+      ],
+      "summary": "발주요청 중간 툴바에 품목별안전재고(prod_safe_load)가 있고 드롭다운 자식으로 창고별안전재고(warehouse_safe_load)가 선언되어 있습니다. 구매입력에 반드시 동일 버튼이 표시된다는 뜻은 아닙니다.",
+      "unknowns": [
+        "회사별 사용설정과 권한에 따른 표시 여부"
+      ]
+    },
+    {
+      "id": "safe-stock-apply",
+      "authority": "static public client",
+      "source_symbols": [
+        "OpenSafeStockUserAction"
+      ],
+      "summary": "전표일자, 창고, VAT정보, 수량/단가 자릿수, safe_flag를 안전재고 선택 창에 전달합니다. 창고별 관리 조건에 창고가 비어 있으면 중단합니다. 선택 결과의 품목과 QTY를 기본 품목정보와 결합하여 입력 그리드에 순서대로 넣습니다.",
+      "unknowns": [
+        "팝업 내부 부족량 계산식과 실제 서버의 발주잔량/납기 반영",
+        "safe_flag의 값별 의미와 해당 설정의 실시간 적용"
+      ]
+    },
+    {
+      "id": "safe-stock-setting",
+      "authority": "static public client",
+      "source_symbols": [
+        "OpenPopupSafetyStockSettingUserAction"
+      ],
+      "summary": "안전재고 설정 창은 별도 라우트이며, 설정 창의 callback 후 확인 시 페이지를 다시 불러옵니다. 안전재고를 불러오는 동작과 설정 저장 동작은 구분됩니다.",
+      "unknowns": [
+        "원본 설정 화면의 저장 계약과 권한"
+      ]
+    },
+    {
+      "id": "barcode-entry",
+      "authority": "static public client",
+      "source_symbols": [
+        "ChangeMiddleButtonBarcodeUserAction",
+        "SetProdDataInGridProgram"
+      ],
+      "summary": "바코드 입력은 품목/시리얼 초점과 수량 합산/개별 입력 모드에 영향을 줍니다. 단일수량 전용 품목과 동일 시리얼 조건은 합산을 제한합니다. 전표바코드는 별도 전표 불러오기 창을 이용합니다.",
+      "unknowns": [
+        "실물 스캐너 장비 및 모든 시리얼 관리 조합"
+      ]
+    },
+    {
+      "id": "verification-is-barcode",
+      "authority": "static public client",
+      "source_symbols": [
+        "OpenPopupBarcodeVerificationUserAction"
+      ],
+      "summary": "검증 버튼은 현재 상세행의 품목코드·품목명·수량·규격·추가수량과 행 식별 정보를 바코드 검증 창에 넘깁니다. 이 선언만으로 저장 검증이나 전체 업무 정합성 검사와 같다고 할 수 없습니다.",
+      "unknowns": [
+        "검증 팝업 내부 스캔·대조 처리 및 저장 영향"
+      ]
+    },
+    {
+      "id": "favorite-items",
+      "authority": "static public client",
+      "source_symbols": [
+        "GetListMyProdCodeFavoriteUserAction",
+        "OpenPopupMyProdCodeFavoriteSettingUserAction"
+      ],
+      "summary": "My품목은 저장된 품목 코드 목록을 받아 기본 품목정보를 조회하고 원래 순서대로 입력 그리드에 적용합니다. 설정 창은 별도로 열리며 일반 품목조회와 구분됩니다.",
+      "unknowns": [
+        "원본 즐겨찾기의 사용자/회사 범위와 저장 API"
+      ]
+    },
+    {
+      "id": "discount-modes",
+      "authority": "static public client",
+      "source_symbols": [
+        "ApplySimpleCalcFunc"
+      ],
+      "summary": "할인 계산에는 선택한 행 대상, 비율/금액 구분, 반올림/올림/내림, 자리수 정책과 VAT포함/별도 단가가 있습니다. 일반 단가, 할인단가, 전표별 할인 공급가액 등의 모드는 분리됩니다.",
+      "unknowns": [
+        "원본 전체 할인창의 회사별 설정과 모든 합계 배분 규칙"
+      ]
+    },
+    {
+      "id": "order-management-not-transfer",
+      "authority": "static public client",
+      "source_symbols": [
+        "OpenOrderManagementUserAction",
+        "OpenInventoryInputPopupFromOrderUserAction"
+      ],
+      "summary": "inventory.order_management는 연결 전표의 진행단계·상태·입력 팝업 관리 역할입니다. 구매입력의 단순 발주 불러오기와 동일 구현으로 보지 않습니다.",
+      "unknowns": [
+        "모든 주문/발주 단계 전이와 완료 조건"
+      ]
+    },
+    {
+      "id": "sliplink-not-transfer",
+      "authority": "static public client",
+      "source_symbols": [
+        "SelectSlipLinkDataProgram"
+      ],
+      "summary": "sliplink 모듈의 선택 프로그램은 연결자료 종류를 구분해 링크 서비스를 실행합니다. 이름의 slip만으로 전표 잔량 불러오기 처리의 증거로 사용하지 않습니다.",
+      "unknowns": [
+        "모든 파일/결재/외부링크 자료 형식"
+      ]
+    }
+  ],
+  "unresolved": [
+    "원본 비공개 서버 계산식과 저장 트랜잭션",
+    "회사별 권한·양식·기능설정에 따른 동적 표시와 수량 정책",
+    "전체 영업/구매 입력 기능의 완전성 및 실 ERP 연결",
+    "정적 분석 결과는 실제 원본 실행/저장 성공 또는 우리 구현의 정확성을 증명하지 않음"
+  ],
+  "boundaries": [
+    "Only four parent-observed query-free public CDN JavaScript URLs were fetched, without cookies or authentication headers.",
+    "No original session URL, credential, tenant business record or original source code was copied into tracked runtime assets.",
+    "Downloaded original scripts remained inert and ignored under .artifacts.",
+    "UI navigation, static evidence and independent implementation acceptance must remain separate."
+  ]
+}

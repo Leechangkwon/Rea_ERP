@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T11:15:02.085451+00:00",
+  "scope": {
+    "retained_originals": 84,
+    "baseline_file": "$SCRATCH/order-status-rea-20261018/cumulative-counts.json",
+    "baseline_fixed": {
+      "unique_bodies": 84,
+      "bytes": 25247564,
+      "static_complete": 82,
+      "static_partial": 2,
+      "semantic_complete": 77,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "new_GETs": 0,
+    "new_semantic_runs_or_retries": 0,
+    "browser": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "app_or_prior_contract_edits": false,
+    "tests": false
+  },
+  "answer": {
+    "status": "partial: generic legacy measure-target lookup transport found; current plan selected-target→ordinary-output consumer blocked",
+    "known": "V3 header separates target lookup (IS_TARGET=true / IS_CONDITION=false) from aggregation-axis lookup (opposite flags); it sends selected Seq IDs from REPORT_TARGET or sumCondition_multiCode to an output-form-aware lookup.",
+    "unknown": "Exact current plan target Seq→qty/supply/VAT/total mapping; target return serialization; empty-default-all/validation; filtering of ordinary result columns; comparison block measures and subtotal calculations."
+  },
+  "owner_current_UI": {
+    "source": "Parent read-only observation; worker did not browse/retain company values",
+    "program": "E041015",
+    "menu": "MENUTREE_002764",
+    "legacy_page_identifier": "ESG002R (parent context only; concrete retained implementation absent)",
+    "main_field": "집계대상 blank search field",
+    "lookup_headers": [
+      "",
+      "집계대상"
+    ],
+    "lookup_rows": [
+      {
+        "display_ordinal": 1,
+        "label": "수량"
+      },
+      {
+        "display_ordinal": 2,
+        "label": "공급가액"
+      },
+      {
+        "display_ordinal": 3,
+        "label": "부가세"
+      },
+      {
+        "display_ordinal": 4,
+        "label": "합계"
+      }
+    ],
+    "controls": "Each row has unchecked checkbox and label anchor at initial open.",
+    "boundary": "Display ordinal is not established as actual REPORT_LIST.Seq value. Numeric metric catalog observed; do not relabel it as grouping-axis or pivot selector.",
+    "pending": "Parent intended qty+supply selection/query structure observation; no outcome included here."
+  },
+  "current_binding_limit": {
+    "facts": [
+      "All84 inert exact bodies have no literal E041015/ESG002R/002764; this is a missing retained binding, not proof unsupported.",
+      "Current pageOption.aggregateList, pageInfo.aggregateInfo/type/condition/options, output FORM_TYPE, active wrapper and underlying summary control implementation are not retained as a concrete current-plan definition.",
+      "Several compatible wrappers forward options differently; do not combine them into one guaranteed active configuration."
+    ],
+    "prior_contract": "$SCRATCH/plan-aggregate-rea-20261018/plan-aggregate-contract.json"
+  },
+  "target_catalog_options": {
+    "refs": [
+      "cmbSumFlagDate.onInitControl",
+      "summaryCondition.onInitControl",
+      "rbReportType.onInitControl",
+      "aggregationType.onInitControl"
+    ],
+    "cmbSumFlagDate": "When aggregateInfo.use is truthy, sets isTargetUse=options.isTargetUse, isCompareUse=options.isPeriodUse, defaultCompareValue=0 and targetList=pageOption.aggregateList, then merges settingInfo.setOptions (can override).",
+    "summaryCondition": "When aggregateInfo.use==false, sets the same target/compare/list options plus condition/difference options.",
+    "rbReportType": "When aggregateInfo.use truthy, uses inverted isTargetUse=!options.isTargetUse and isCompareUse=!options.isPeriodUse; targetList still pageOption.aggregateList. It is distinct from the above.",
+    "aggregationType": "Sets isTargetUse and targetList when aggregateInfo.use truthy; no catalog values hardcoded in this wrapper.",
+    "unknown": "The four metric labels and current numeric target identifiers are not mapped in these option-forwarding definitions. They come from current runtime metadata/control data not retained."
+  },
+  "lookup_entry_and_request": [
+    {
+      "stage": "Event registration and dispatch",
+      "refs": [
+        "cmbSumFlagDate.render",
+        "cmbSumFlagDate.onPopupHandler",
+        "cmbSumFlagDate.onAutoCompleteHandler",
+        "summaryCondition.render",
+        "summaryCondition.onPopupHandler",
+        "summaryCondition.onAutoCompleteHandler"
+      ],
+      "contract": "Registers balanceCode_1..5 and realId+_userAggregate_multiCode. Legacy onPopup/onAutoComplete dispatch sumCondition_multiCode, sumCondition_summaryCondition_multiCode or realId+_userAggregate_multiCode to _setMultiCode. Specific current popup DOM/checkbox callback binding is external. If settingInfo.setOptions.isNewType is truthy, cmbSumFlagDate takes _setCondition instead; current value unknown."
+    },
+    {
+      "stage": "Read selected targets",
+      "refs": [
+        "cmbSumFlagDate._getMultiCodeParameter",
+        "summaryCondition._getMultiCodeParameter",
+        "cmbSumFlagDate._getParameter",
+        "summaryCondition._getParameter"
+      ],
+      "contract": "If aggregateInfo.condition===true, serialize condition control by ID and take value whose key exactly sumCondition_multiCode. Otherwise read serialized searchForm.REPORT_TARGET, fallback empty string. This reads the selected-ID transport field; it does not resolve metric names/formulas."
+    },
+    {
+      "stage": "Build target lookup payload",
+      "refs": [
+        "cmbSumFlagDate._setMultiCode",
+        "summaryCondition._setMultiCode"
+      ],
+      "contract": "Split selected string on |, skip empty segments, preserve remaining string order; each becomes {Index:0..,Seq:segment,Selected:true}. Mutate lookup request with FORM_TYPE=pageInfo.formType.output, IS_TARGET=true, IS_CONDITION=false, REPORT_LIST=list, IsUsingGroupColCd=true, preserving PARAM. No dedup/name/metric resolution is implemented in this function."
+    },
+    {
+      "stage": "Distinct saved report-type selector variant",
+      "refs": [
+        "cmbSumFlagDate._setReportTypeMulticode"
+      ],
+      "contract": "For rbReportType_summaryCondition_multiCode, read REPORT_TYPE_summaryCondition_multiCode and send REPORT_SEQ=t.toString() plus output FORM_TYPE/IS_TARGET=true/IS_CONDITION=false. Do not merge this REPORT_SEQ variant with REPORT_LIST without the current control binding."
+    },
+    {
+      "stage": "Axis lookup contrast",
+      "refs": [
+        "cmbSumFlagDate._setBalanceCode",
+        "summaryCondition._setBalanceCode"
+      ],
+      "contract": "Axis control lookup sends CONTROL_INDEX, existing/current condition Seq list, IS_CONDITION=true and IS_TARGET=false. This is separate from numeric target selection; target transport is not evidence that targets alter grouping identity."
+    }
+  ],
+  "empty_and_validation": {
+    "refs": [
+      "cmbSumFlagDate._getMultiCodeParameter",
+      "cmbSumFlagDate._setMultiCode",
+      "summaryCondition._getMultiCodeParameter",
+      "summaryCondition._setMultiCode",
+      "cmbSumFlagDate.onSearchValidate",
+      "aggregationType.onSearchValidate"
+    ],
+    "exact": "Empty selected string becomes REPORT_LIST=[] for lookup; no target IDs are inserted. The selected functions contain no empty-target required check or explicit all-metrics expansion. SearchValidate handlers shown only choose next form by current sum mode.",
+    "unknown": "Underlying controls/server may validate or interpret empty as all/none/default. No claim of empty=all, required target, target limit/order, duplicate validation or numeric identifier mapping is made. Existing UI all-metric headers alone do not prove a transport/default implementation."
+  },
+  "selection_to_query_and_output": {
+    "status": "blocked for ordinary current plan output",
+    "refs": [
+      "cmbSumFlagDate.onSetSearchParam",
+      "summaryCondition.onSetSearchParam",
+      "dataViewType._requestFormInfoFromSearchApi",
+      "dataViewType._getFormColumns"
+    ],
+    "facts": [
+      "cmbSumFlagDate summary/custom modes request TABLE_TYPE=dataView; summaryCondition requests dataView. The wrapper does not locally calculate/remove numeric output columns from selected targets.",
+      "A separate V3 graph-settings metadata path serializes its sum-control fields and copies every key containing REPORT_ into a /SVC/Common/GetAggregateSelectInfo request; this would include REPORT_TARGET if emitted by the underlying control. It adds FORM_TYPE, SUM_FLAG=9 and PRG_ID, and requires nonempty REPORT_CONDITION. Returned Data.ColumnForm becomes formDesignData; _getFormColumns reads its columns. This proves a generic report-field→external graph form-metadata boundary, not ordinary current-plan target filtering.",
+      "No private API was called. Current plan ordinary query endpoint, REPORT_TARGET request value, target-selected result form metadata and response column restriction are not captured.",
+      "The only exact REPORT_TARGET occurrences across84 are three header sites (one detail reset and two fallback readers); underlying target control serialization and server interpretation are not retained. Literal absence is not proof unsupported."
+    ],
+    "unknown": "Whether targets are hidden result columns vs requested measures; whether unselected measures are still returned/computed; default-all behavior; persisted selection; output order/header aliases; CSV/print/drilldown propagation."
+  },
+  "mode_comparison_and_graph_boundaries": {
+    "refs": [
+      "cmbSumFlagDate.onSetSearchParam",
+      "cmbSumFlagDate.onInitControl",
+      "summaryCondition.onInitControl",
+      "aggregationType.onValidateAfterOutputForm",
+      "dataViewType.onSearchValidate"
+    ],
+    "facts": [
+      "cmbSumFlagDate first control value==string1 explicitly clears REPORT_TARGET together with REPORT_CONDITION, REPORT_SORT_INDEX, REPORT_SORT_TYPE, REPORT_SUBTOTAL_USE; resets compare0 and pivot/ratio/code false. This is detail-mode cleanup, not a general empty-target default rule.",
+      "Target and comparison options are passed as separate options; the displayed wrappers contain no direct selected-target/comparison field arithmetic or metric expansion.",
+      "Distinct aggregationType wrapper rejects compare!=string0 for pivot output form. This is pivot/comparison validation, not evidence numeric target selection is pivot selection.",
+      "Separate dataViewType graph validation blocks a nonzero comparison period before graph query. Current plan active wrapper/graph configuration unknown."
+    ],
+    "unknown": "Current target subset applied to both comparison blocks, missing-period cells, comparison formulas/range boundaries, pivot compatibility and page-specific enabled/disabled controls."
+  },
+  "subtotal_measure_boundary": {
+    "status": "unknown",
+    "facts": [
+      "The target lookup transport contains only selected Seq IDs and output form type, no qty/supply/VAT/total calculation.",
+      "Header clears REPORT_SUBTOTAL_USE in the separate detail-mode branch but does not bind target IDs to subtotal measure accumulators.",
+      "Retained grid bundle has recovered partial semantic analysis and generic numeric/total row metadata, but no REPORT_TARGET/IS_TARGET consumer or current-plan target binding. It is not promoted to selected-target subtotal proof.",
+      "PurchaseV56/Flexion accumulators are a separate engine and are not imported to fill current legacy plan target/measure behavior."
+    ],
+    "unknown": "Whether only visible targets accumulate, last-axis suppression, row grouping boundaries, rounding/currency/unit conversion, subtotal formula and CSV/print measures."
+  },
+  "practical_gate": {
+    "supported": "Treat observed 집계대상 as a separate multi-select numeric metric catalog, with axis choices remaining separate. Source supports selected-ID lookup transport.",
+    "must_be_explicit_policy_if_implemented_without_more_evidence": [
+      "Empty selection means all four measures.",
+      "UI row ordinals are server target IDs.",
+      "Selected subset controls ordinary query/output/subtotal/CSV/print columns identically.",
+      "Numeric computation/unit/currency/rounding matches original backend."
+    ]
+  },
+  "preserved_limits": {
+    "baseline": {
+      "unique_bodies": 84,
+      "bytes": 25247564,
+      "static_complete": 82,
+      "static_partial": 2,
+      "semantic_complete": 77,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "used_header": "Complete actualREA6.4 parse0;1233callables/3881calls/4155frontiers. Retained dynamic/framework calls unresolved; no current runtime binding claim.",
+    "common": "Prior2GiB full-semantic OOM preserved; modern AggregateTarget/details_target props are not relabeled as this legacy numeric target selector.",
+    "Flexion": "Priorfull-semantic30s timeout preserved.",
+    "grid": "Static5diagnostics/recovered-AST partial semantic preserved; no retry or upgrade."
+  },
+  "files": {
+    "manifest": "$SCRATCH/aggregate-target-rea-20261018/source-manifest.json",
+    "source_spans": "$SCRATCH/aggregate-target-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/aggregate-target-rea-20261018/actual-rea-reference-index.json",
+    "corpus_scan": "$SCRATCH/aggregate-target-rea-20261018/corpus-discovery.json"
+  }
+}

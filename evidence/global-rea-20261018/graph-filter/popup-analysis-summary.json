@@ -1,0 +1,109 @@
+{
+  "baseline_original_bodies": 78,
+  "baseline_bytes": 19149569,
+  "actual_REA": "6.4.0",
+  "analyses": [
+    {
+      "sha256": "cd102f98f1a045abc11e15f292e41d8ffd7f4f25ef4b839a992777fcf8578d94",
+      "bytes": 61678,
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/bundle.graph.data.128851703482392416.20.js",
+      "analysis_dir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/cd102f98f1a045ab",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "heap_limit_MiB": 2048,
+      "source_executed": false,
+      "exit_code": 0,
+      "process_status": "completed",
+      "elapsed_ms": 1018,
+      "static_status": "complete",
+      "semantic_status": "completed",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 21157,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "callables": 383,
+      "calls": 1242,
+      "frontiers": 1132,
+      "call_resolution": {
+        "unresolved": 661,
+        "exact": 449,
+        "ambiguous": 132
+      },
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ]
+    },
+    {
+      "sha256": "7f050f29bce4e78ada43994359d66855db66a4cbd0bb8d027616d0f347e318f5",
+      "bytes": 384006,
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/ecount.browser.graph.a75ae869.20.js",
+      "analysis_dir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/7f050f29bce4e78a",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "heap_limit_MiB": 2048,
+      "source_executed": false,
+      "exit_code": 0,
+      "process_status": "completed",
+      "elapsed_ms": 1821,
+      "static_status": "complete",
+      "semantic_status": "completed",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 67991,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "callables": 1076,
+      "calls": 3399,
+      "frontiers": 3326,
+      "call_resolution": {
+        "exact": 283,
+        "unresolved": 3116
+      },
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ]
+    },
+    {
+      "sha256": "1c59c121d20238ccef85df43c4fd11c6b0ad1b904a8c2022995785ead8cefe84",
+      "bytes": 5560,
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/xgraphfilter.3840202323517767939.20.js",
+      "analysis_dir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/1c59c121d20238cc",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "heap_limit_MiB": 2048,
+      "source_executed": false,
+      "exit_code": 0,
+      "process_status": "completed",
+      "elapsed_ms": 265,
+      "static_status": "complete",
+      "semantic_status": "completed",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 1487,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "callables": 19,
+      "calls": 82,
+      "frontiers": 120,
+      "call_resolution": {
+        "unresolved": 82
+      },
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ]
+    }
+  ]
+}

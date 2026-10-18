@@ -1,0 +1,74 @@
+{
+  "version": "0.38.0",
+  "source_UI_observation": {
+    "page": "발주계획현황 E041015/menu2764 legacy",
+    "popup_initial": [
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "selection": "Multi-checkbox lookup withtransient적용(F8)/닫기; parenttokensindividualremove andallclear; alreadyselectedabsentfromreopenedcandidate list",
+    "ordinal_not_ID": "Afterqty/supplyselected, remaininglabels1부가세/2합계 renumber; do notmaprowordinal→sourceSeq.",
+    "observed_headers": [
+      {
+        "axes": 1,
+        "targets": [
+          "수량",
+          "공급가액"
+        ],
+        "headers": [
+          "품목명[규격]",
+          "수량",
+          "공급가액"
+        ]
+      },
+      {
+        "axes": 2,
+        "targets": [
+          "공급가액"
+        ],
+        "headers": [
+          "품목명[규격]",
+          "거래처",
+          "공급가액"
+        ],
+        "subtotal_grand_label_span": 2
+      },
+      {
+        "axes": 2,
+        "targets": [],
+        "headers": [
+          "품목명[규격]",
+          "거래처",
+          "수량",
+          "공급가액",
+          "부가세",
+          "합계"
+        ]
+      }
+    ],
+    "grand_title": "합계",
+    "restore": "Clearedtargets andsubmitted 내역/F8; finalAXresultreadbackseparatelyverified. Lookupapplyonlytransientcriteria,no settingsSave or businessinput/output.",
+    "business_data_in_files_or_runtime": false
+  },
+  "own_policy": {
+    "scope": "Onlyplan summaryTargets enabled; request/order/purchase targetprojection rejected untilseparateobservation.",
+    "IDs": "Ownquantity/supply/tax/total,notoriginalSeq. Canonicalquantity/supply/tax/total outputorder regardless selectionarrayorder; sourcecurrentobservedprefixorderonly.",
+    "validation": "Array0..4knownuniqueownIDs, rejectholes/invalid/null/duplicates; empty/missing→all4fromcurrentplanUIobservation.",
+    "arithmetic": "Keepfullrawrecord/summary4measures; projectdata/subtotal/grand/export toselectedIDs. AccumulatorusesquantityonlyforquantityID, monetarykeysC.moneyeveniffirstnumeric. No rounding/serverformula equivalence asserted.",
+    "UI": "Stagedremaining-candidatecheckboxpopup,ApplyF8,Close/Escdiscard/F3isolation/focusrestore; parentchips/removeallchangeonlypendingconditions. F8queryapplies; resetcleartargets; restore/destroypopupcleanup.",
+    "snapshot": "Deepcopypendingandsuccessfulmeasurearrays; oldmissingtargetstate→all4; lastsuccessfuloutputusedonfailedpendingqueries.",
+    "output": "Sharedmoneyformatterusesmeasureidentity; sameprojectedtable/CSV/print andmeasurelabel; selected-onlyfooter.",
+    "unknowns": [
+      "actuallegacycurrentpagebinding/Seq/ColumnFormconsumer",
+      "target/comparison/graph/server/template/output rules",
+      "sourcehistoricalmaster/numeric/dateformats",
+      "otherreporttargetcontrols",
+      "hostedauthenticatedbusinessQA"
+    ]
+  },
+  "REA": "38priorfullsemanticheaderrefs; REPORT_TARGET toSeq listseparatefromaxislookup; empty[]pass-through only,backendoutputconsumerunknown. Currentemptyall/columnprojectionfromUIobservation.",
+  "corpus": "84bodies25247564B unchanged; commonOOM/Flexiontimeout/gridpartial5errorspreserved. NoGET/semanticretry/originalexecution/privateAPI.",
+  "schema_changed": false
+}

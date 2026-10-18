@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T09:11:57.805607+00:00",
+  "scope": {
+    "retained_original_bodies": 81,
+    "original_bytes": 19600813,
+    "new_GETs": 0,
+    "new_bodies": 0,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "new_full_semantic_runs": 0,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "separate_from": "Owner0.31 manualSV/hue assessment;0.30 own77presets/nativecolor/strictHEX boundary unchanged"
+  },
+  "observation_boundary": {
+    "parent_facts": [
+      "Original 다른색 opened only; text input maxLength6 and 선택 button observed.",
+      "Parent read actual static CSS classes/box sizes; no color input, pointer manipulation, color selection or GraphFilter Apply. Escape closed it.",
+      "SV195x170/Hue width195 matches candidate area constants; exact measurements are in owner-hsv-dom-observation.json."
+    ],
+    "worker": "No browser or company-value access. DOM box measurements are parent observation; formulas/handlers are retained source evidence. Matching areas do not prove runtime adapter.",
+    "legacy_adapter": "Unknown. GraphFilter legacy cell expects[label,color] array; retained UIKit emits value event object. Matching CSS does not establish active adapter/current binding."
+  },
+  "answer": "Retained UIKit candidate explicitly supplies pointer-to-HSV geometry and mouse lifecycle. Actual HSV↔RGB formulas/8bit rounding are delegated to external globalThis.tinycolor, whose implementation is not identified in81. Own manual SV/hue conversion/rounding/accessibility remain own policies unless separately established.",
+  "geometry": {
+    "SV": {
+      "refs": [
+        "PaletteMap.setHelper",
+        "PaletteMap.onMouseDown"
+      ],
+      "base": "pageX/pageY minus jQuery element.offset() left/top",
+      "x": "clamp(pageX-offset.left,0,195)",
+      "y": "clamp(pageY-offset.top,0,170)",
+      "saturation": "x/195",
+      "value": "(170-y)/170",
+      "hue": "props.hue retained",
+      "output": "getColorData({hue,saturation,value}).toHexString() -> props.changeColor",
+      "limits": "Fixed195×170 candidate constants match parent current area measurement. Handler does not read element width/height or compensate for CSS zoom/transform. Runtime legacy event adapter remains unknown."
+    },
+    "Hue": {
+      "refs": [
+        "PaletteHue.setSlide",
+        "PaletteHue.onMouseDown"
+      ],
+      "x": "clamp(pageX-offset.left,0,195)",
+      "hue": "x/195, so endpoints0and1",
+      "saturation_value": "read current props.color through getColorInfo and preserve returned S/V",
+      "output": "props.changeHue(hue), then getColorData({hue,S,V}).toHexString() -> props.changeColor",
+      "wrap": "getColorInfo later normalizes tinycolor hue via(hsv.h%360)/360; exact tinycolor endpoint conversion/rounding remains external."
+    },
+    "grip": {
+      "ref": "updateHelperLocations",
+      "defaults": "width=options.width||195; height=options.height||170",
+      "formula": {
+        "dragXtemp": "saturation*width",
+        "dragYtemp": "height-value*height",
+        "dragX": "max(0,min(width-8,dragXtemp-8))",
+        "dragY": "max(0,min(width-8,dragYtemp-8))",
+        "slideX": "hue*width"
+      },
+      "transcription_note": "Source uses width-8 for BOTH dragX and dragY clamp, even though dragYtemp uses height. Preserved as written; do not silently replace with height in an original-equivalence claim.",
+      "rounding": "No Math.round/floor for grip or pointer normalization; CSS values are number.toString()+px. Actual knob size/gradient CSS and rendered pixel placement are outside capturedJS.",
+      "DOM_limit": "Parent measured current SV grip10x10 and hue grip6x16. Candidate uses -8px offset and width-8 clamp; do not infer current CSS/center correction equality from matching area sizes."
+    }
+  },
+  "events": {
+    "refs": [
+      "PaletteMap",
+      "PaletteHue",
+      "PaletteMap.handleMouseMove",
+      "PaletteMap.handleMouseUp",
+      "PaletteHue.handleMouseMove",
+      "PaletteHue.handleMouseUp"
+    ],
+    "start": "div onMouseDown sets isDragging=true and immediately calls setter. Setter calls preventDefault; no stopPropagation in extracted setter.",
+    "move": "window mousemove handler calls setter only while isDragging. Off-pad coordinates remain clamped to bounds.",
+    "end": "window mouseup sets isDragging=false. No color commit/Apply on mouseup in these components.",
+    "cleanup": "React effects add window mousemove/mouseup and remove same callbacks on effect cleanup; handlers depend on isDragging.",
+    "map_sync": "PaletteMap skips props.color-driven grip synchronization while colorChangedBySetHelper flag true; local setter sets flag; isDragging=false effect clears flag. This preserves direct cursor-derived grip during local change instead of always recomputing from quantizedHEX.",
+    "hue_sync": "PaletteHue props.hue effect recomputes left grip via updateHelperLocations.",
+    "keyboard_touch": "No onKeyDown/onKeyUp, slider aria/tabIndex, touch or pointer-event handler in these captured PaletteMap/Hue components. Browser/base-layer/global keyboard behavior is not thereby proved absent. Own arrow-key/touch/pointer support would be independent policy."
+  },
+  "HEX_HSV_helpers": [
+    {
+      "name": "getColorInfo",
+      "ref": "getColorInfo",
+      "source": "tinycolor(color).toHsv() -> hue=(h%360)/360,S=s,V=v,alpha=a",
+      "unknown": "RGB/CSS parsing and HSV calculation are external tinycolor behavior."
+    },
+    {
+      "name": "getColorData",
+      "ref": "getColorData",
+      "source": "tinycolor.fromRatio({h:hue,s:saturation,v:value,a:1})",
+      "boundary": "Palette-generated colors force alpha1 even if input alpha was read; exact channels/rounding external."
+    },
+    {
+      "name": "getPaletteColor",
+      "ref": "getPaletteColor",
+      "source": "tinycolor.fromRatio({h:hue,s:1,v:1}).toHexString()",
+      "purpose": "Inline SV map base background hue; white/black gradient masks and palette visual CSS not retained."
+    },
+    {
+      "name": "extractHexCode",
+      "ref": "extractHexCode",
+      "source": "Remove one leading#; accept3or6hex digits and return without#",
+      "boundary": "Shortcut helper, not strict6 input validator."
+    },
+    {
+      "name": "resolveCssToHex",
+      "refs": [
+        "resolveCssToHex",
+        "parseCssToRgb",
+        "parseRgbToHex",
+        "parseCssToHex"
+      ],
+      "source": "Use3/6hex shortcut; otherwise compute DOM backgroundColor and parse rgb/rgba; channels parseInt/clamp0..255, alpha clamp0..1; alpha0 returns transparent, otherwise lower-case6digitHEX; fallback original string if conversion fails.",
+      "boundary": "Known CSS RGB helper integer parsing is separate from unknown tinycolor HSV quantization. No target DOM/color conversion executed."
+    }
+  ],
+  "text_hue_preservation": {
+    "refs": [
+      "PaletteValue",
+      "PaletteValue.onChange",
+      "PaletteValue.onBlur",
+      "ColorPicker"
+    ],
+    "typing": "maxLength6 text; local input state changes onChange only. onBlur prepends# and calls changeColor; no explicit Enter action or strict6 reject/error in this component.",
+    "hue_rule": "After text blur, update hue only if getColorInfo(newColor).saturation>0 AND value>0. Thus this candidate leaves previous hue on grayscale/black input instead of resetting it from parsed neutral color.",
+    "separate_hue_state": "ColorPicker initializes hue from initial colorInfo and changes it through explicit changeHue. Recomputing colorInfo on color change does not itself set hue. PaletteMap can produce neutral color while selected hue state remains.",
+    "format": "Color changes go through resolveCssToHex cache. Text displays props.color.substr(1), so3digitHEX/case behavior may differ from own normalized6digit policy."
+  },
+  "rounding_and_commit": {
+    "refs": [
+      "getColorData",
+      "getColorInfo",
+      "PaletteMap.setHelper",
+      "PaletteHue.setSlide",
+      "PaletteButton.onClick",
+      "ColorPicker"
+    ],
+    "known": "Every drag setter converts via toHexString before changeColor, so later S/V derived from props.color depends on hex representation. Source itself does not provide the 8bit channel rounding formula. Pointer/grip values have no explicit integer rounding.",
+    "unknown": "Tinycolor version, HSV↔RGB arithmetic, rounding/tie rules, shortHEX expansion, CSS named/invalid/alpha parsing and endpoint handling not proved by81body implementation. No full source numeric equality claim.",
+    "local_vs_apply": "SV/Hue/text updates ColorPicker local state; PaletteButton emits current color via value event, ColorPicker forwards props.onChange and closes color layer. GraphFilter COLOR draft and final F8 Apply are separate consumer scopes, with legacy adapter/current widget binding unknown."
+  },
+  "own_manual_UI_boundary": {
+    "compatible_concepts": [
+      "SV x→saturation, y inverse→value; Hue x→normalizedhue; retain hue through neutral/black text input; color choice separate from final graph-filter Apply."
+    ],
+    "must_remain_own_policy": [
+      "Responsive geometry versus fixed195×170; grip placement/CSS gradients.",
+      "Any independently written HSV↔RGB formula and Math.round/floor policy.",
+      "Strict6hex canonicalization/validation instead of candidate3/6HEX+CSS parsing.",
+      "Keyboard/ARIA/touch/pointer enhancements and own cancellation boundaries."
+    ],
+    "no_parity_claim": "These source concepts can inform own manualSV/hue design, but current original legacy binding and tinycolor numeric identity remain unknown. No app implementation or tests added here."
+  },
+  "evidence_files": {
+    "actual_REA_refs": "$SCRATCH/graph-hsv-rea-20261018/actual-rea-reference-index.json",
+    "dependency_scan": "$SCRATCH/graph-hsv-rea-20261018/dependency-scan.json",
+    "owner_DOM_observation": "$SCRATCH/graph-hsv-rea-20261018/owner-hsv-dom-observation.json"
+  },
+  "unknowns": [
+    "Current legacy widget adapter/event binding and precise CSS/knob-center relationship; parent current area sizes are now observed separately.",
+    "External globalThis.tinycolor implementation/version/rounding and external jQuery offset behavior under transforms.",
+    "CSS gradient/knob details and inherited Escape/Enter/base-layer behavior.",
+    "Current graph popup/parent/viewer message binding.",
+    "Original81counts unchanged19600813B; prior commonOOM and renderer failures preserved. No new full analysis/download or source execution."
+  ]
+}

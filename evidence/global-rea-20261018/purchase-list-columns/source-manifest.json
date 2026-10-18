@@ -1,0 +1,94 @@
+{
+  "baseline_file": "$SCRATCH/purchaseorder-list-columns-rea-20261018/cumulative-counts.json",
+  "baseline_SHA256": "30218d145a1824dedfb44db47379870fbba090cc9c951b0f6e162846f2dea4ce",
+  "baseline86_fixed": {
+    "unique_bodies": 86,
+    "bytes": 25293345,
+    "static_complete": 84,
+    "static_partial": 2,
+    "semantic_complete": 79,
+    "semantic_partial": 2,
+    "semantic_timeout": 3,
+    "semantic_OOM": 2
+  },
+  "new_bodies": 0,
+  "new_GETs": 0,
+  "new_semantic_runs_or_retries": 0,
+  "sources": [
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "semantic_status": "full semantic OOM2GiB; no full IR/retry; source AST only here",
+      "actual_REA_version": "6.4.0",
+      "static_status": "complete",
+      "SHA_rechecked": true
+    },
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "actual_REA_version": "6.4.0",
+      "static_status": "complete",
+      "SHA_rechecked": true,
+      "counts": {
+        "callables": 1926,
+        "callSites": 7148,
+        "frontiers": 8012
+      }
+    },
+    {
+      "id": "flexion",
+      "path": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-originals/Flexion.e92f3d17.js",
+      "sha256": "8f89fd21c49a9d7c1de6245f02c34fbf9c58cd133fdf2bd13f489a84247e5563",
+      "bytes": 3995664,
+      "parse_error_count": 0,
+      "static": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-analysis/8f89fd21c49a9d7c/rea-static.json",
+      "semantic_status": "full semantic30s timeout; no full IR/retry; source AST only here",
+      "actual_REA_version": "6.4.0",
+      "static_status": "complete",
+      "SHA_rechecked": true
+    },
+    {
+      "id": "uikit",
+      "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "bytes": 756271,
+      "parse_error_count": 0,
+      "ir": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "actual_REA_version": "6.4.0",
+      "static_status": "complete",
+      "SHA_rechecked": true,
+      "counts": {
+        "callables": 2203,
+        "callSites": 7724,
+        "frontiers": 7033
+      }
+    },
+    {
+      "id": "purchases-list-wrapper",
+      "path": "$SCRATCH/rea-request/.artifacts/purchasing-original/purchaseList.js",
+      "sha256": "91d2c28c453a12b3e114b570fc81e9ea59380549665a4084f6be3a0afce83a63",
+      "bytes": 735,
+      "parse_error_count": 0,
+      "ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/02-purchaseList-91d2c28c453a/rea-semantic-ir.json",
+      "semantic_status": "complete",
+      "actual_REA_version": "6.4.0",
+      "static_status": "complete",
+      "SHA_rechecked": true,
+      "counts": {
+        "callables": 2,
+        "callSites": 4,
+        "frontiers": 3
+      }
+    }
+  ]
+}

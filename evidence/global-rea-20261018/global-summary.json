@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T03:36:27.880001+00:00",
+  "rea_version": "6.4.0",
+  "mode": "Actual REA in-process static and semantic library functions on inert original JavaScript, SHA256-deduplicated. No CLI application graph claim.",
+  "original_inputs": {
+    "files": 41,
+    "unique_bodies": 41,
+    "bytes": 7646819,
+    "current_public_get_sha256_verified": 26,
+    "retained_rehashed_without_new_get": 15,
+    "source_url_missing": 1,
+    "known_public_source_urls": 40,
+    "known_public_bodies_unavailable": 0
+  },
+  "analysis": {
+    "static_completed": 41,
+    "parser_failures": 0,
+    "semantic_completed": 40,
+    "semantic_interrupted": 1,
+    "totals": {
+      "visited_ast_nodes": 563270,
+      "scopes": 10372,
+      "bindings": 26207,
+      "callables": 6821,
+      "call_sites": 26034,
+      "references": 82946,
+      "frontiers": 27990
+    },
+    "call_resolution_counts": {
+      "exact": 1697,
+      "unresolved": 24160,
+      "ambiguous": 177
+    },
+    "frontier_kind_counts": {
+      "dynamic-call": 24337,
+      "dynamic-property": 3644,
+      "dynamic-scope": 9
+    },
+    "semantic_interruption": [
+      {
+        "sha256": "3a2486e8c1ec9d159675bb1bea133b4a93cc1f3fcc1d89c3955dda7432476b94",
+        "path": ".artifacts/global-rea-20261018/restored-public-originals/3a2486e8c1ec9d15-bundle.menu.-4230133589129103184.20.js",
+        "reason": "Actual REA semantic analysis was started, exceeded the bounded task time budget, and was manually interrupted. No semantic result or callable count is claimed for this source."
+      }
+    ]
+  },
+  "action_candidate_catalog": {
+    "source_files_indexed": 41,
+    "candidate_count": 3839,
+    "unlabelled_candidates": 717,
+    "syntactic_branch_records": 15089,
+    "call_records": 21108,
+    "unknown_records": 22166,
+    "status": "All candidates remain unverified in original UI; keyword/AST machine extraction is not an exhaustive original button inventory.",
+    "index": "action-catalog-index.json"
+  },
+  "retrieval": {
+    "exact_recorded_public_urls": 33,
+    "restored_bodies": 26,
+    "hash_changes": 0,
+    "errors": 0,
+    "gzip_note": "Nine initial gzip HTTP200 bodies were discarded before decoding. One additional ordinary GET per affected URL was explicitly authorized; all 26 final restored bodies match recorded SHA256. Raw public HTTP transport bodies are retained.",
+    "provider_latest_release_not_verified": true
+  },
+  "artifacts": {
+    "manifest": "manifest.json",
+    "summary": "summary.json",
+    "source_identity_and_freshness": "source-catalog.json",
+    "retrieval": "download-manifest.json",
+    "actions": "action-catalog-index.json",
+    "cross_domain_evidence": "cross-domain-findings.json"
+  },
+  "boundaries": [
+    "Source parser success and static relation completeness do not establish full ECOUNT or runtime behavior coverage.",
+    "The menu bundle has complete static parsing but unavailable semantic counts after a genuine interrupted REA attempt.",
+    "No captured original JavaScript was executed. No original UI action, private server call or company record was collected.",
+    "No application source, deployment, browser state or external application data was changed by this research task."
+  ]
+}

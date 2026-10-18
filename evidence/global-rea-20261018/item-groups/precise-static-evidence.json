@@ -1,0 +1,241 @@
+{
+  "new_GETs": 0,
+  "source_execution": false,
+  "sources": [
+    {
+      "key": "common-original",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "scope": "Retained public original; static AST only; full semantic remains OOM",
+      "nodes": [
+        {
+          "kind": "ClassMethod",
+          "symbol": "ConvertSearchConditionV3Program.onExecuteAsync",
+          "span": [
+            74170,
+            4,
+            74305,
+            5
+          ],
+          "original_utf16_offset": [
+            3519623,
+            3527876
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PROD_CLASS_CD1",
+          "span": [
+            74253,
+            12,
+            74253,
+            102
+          ],
+          "source": "PROD_CLASS_CD1: this.getItemCode(dto.last_search_datamodel['prod$prod$prod_group1']) ?? ''",
+          "original_utf16_offset": [
+            3524178,
+            3524268
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PROD_CLASS_CD2",
+          "span": [
+            74254,
+            12,
+            74254,
+            102
+          ],
+          "source": "PROD_CLASS_CD2: this.getItemCode(dto.last_search_datamodel['prod$prod$prod_group2']) ?? ''",
+          "original_utf16_offset": [
+            3524282,
+            3524372
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PROD_CLASS_CD3",
+          "span": [
+            74255,
+            12,
+            74255,
+            102
+          ],
+          "source": "PROD_CLASS_CD3: this.getItemCode(dto.last_search_datamodel['prod$prod$prod_group3']) ?? ''",
+          "original_utf16_offset": [
+            3524386,
+            3524476
+          ]
+        },
+        {
+          "kind": "ClassMethod",
+          "symbol": "ConvertSearchConditionV3Program.getItemCode",
+          "span": [
+            74306,
+            4,
+            74312,
+            5
+          ],
+          "original_utf16_offset": [
+            3527881,
+            3528043
+          ]
+        }
+      ]
+    },
+    {
+      "key": "own-item-model",
+      "path": "$SCRATCH/rea-request/dist/item-core.js",
+      "sha256": "2505de1f4fae752ba7574cb0f5e9c134df34c856b97e468817e8c843e9788149",
+      "bytes": 14582,
+      "parse_error_count": 0,
+      "scope": "Own implementation read-only snapshot; not original corpus evidence",
+      "nodes": [
+        {
+          "kind": "CallExpression",
+          "symbol": "group1",
+          "span": [
+            8,
+            139,
+            8,
+            194
+          ],
+          "source": "field('group1','품목그룹1','text','info','',{maxLength:60})",
+          "original_utf16_offset": [
+            1114,
+            1169
+          ]
+        },
+        {
+          "kind": "CallExpression",
+          "symbol": "group2",
+          "span": [
+            8,
+            195,
+            8,
+            250
+          ],
+          "source": "field('group2','품목그룹2','text','info','',{maxLength:60})",
+          "original_utf16_offset": [
+            1170,
+            1225
+          ]
+        },
+        {
+          "kind": "CallExpression",
+          "symbol": "group3",
+          "span": [
+            8,
+            251,
+            8,
+            306
+          ],
+          "source": "field('group3','품목그룹3','text','info','',{maxLength:60})",
+          "original_utf16_offset": [
+            1226,
+            1281
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "normalize",
+          "span": [
+            26,
+            1,
+            26,
+            337
+          ],
+          "original_utf16_offset": [
+            5895,
+            6231
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "validate",
+          "span": [
+            28,
+            1,
+            30,
+            2
+          ],
+          "original_utf16_offset": [
+            6414,
+            8606
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "compact",
+          "span": [
+            32,
+            1,
+            32,
+            210
+          ],
+          "original_utf16_offset": [
+            8754,
+            8963
+          ]
+        }
+      ]
+    },
+    {
+      "key": "own-report-model",
+      "path": "$SCRATCH/rea-request/dist/purchasing-report-core.js",
+      "sha256": "5d1ac255c9cef883cc7117aceb7801b26412913c8b56f134624bb9f80a909cbe",
+      "bytes": 16771,
+      "parse_error_count": 0,
+      "scope": "Own implementation read-only snapshot; not original corpus evidence",
+      "nodes": [
+        {
+          "kind": "ObjectProperty",
+          "symbol": "group1",
+          "span": [
+            68,
+            728,
+            68,
+            769
+          ],
+          "source": "group1:item?.group1Name??item?.group1??''",
+          "original_utf16_offset": [
+            8517,
+            8558
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "group2",
+          "span": [
+            68,
+            770,
+            68,
+            811
+          ],
+          "source": "group2:item?.group2Name??item?.group2??''",
+          "original_utf16_offset": [
+            8559,
+            8600
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "group3",
+          "span": [
+            68,
+            812,
+            68,
+            853
+          ],
+          "source": "group3:item?.group3Name??item?.group3??''",
+          "original_utf16_offset": [
+            8601,
+            8642
+          ]
+        }
+      ]
+    }
+  ]
+}

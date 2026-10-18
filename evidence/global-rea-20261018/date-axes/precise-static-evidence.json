@@ -1,0 +1,1125 @@
+{
+  "schema": 1,
+  "new_GETs": 0,
+  "source_executed": false,
+  "sources": [
+    {
+      "key": "actions",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "parse_error_count": 0,
+      "kind": "Existing retained original text; pinned REA6.4.0 parser AST span discovery only. No new full semantic analysis or original source execution.",
+      "nodes": [
+        {
+          "kind": "VariableDeclarator",
+          "symbol": "summary_date_priority",
+          "span": [
+            1,
+            570067,
+            1,
+            570243
+          ],
+          "source": "summary_date_priority=[\"summary_line\",\"summary_slip\",\"summary_date_day\",\"summary_date_week\",\"summary_date_month\",\"summary_date_quarter\",\"summary_date_half\",\"summary_date_year\"]",
+          "original_utf16_offset": [
+            570067,
+            570243
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_line",
+          "value": "data_dt",
+          "span": [
+            1,
+            576769,
+            1,
+            576791
+          ],
+          "original_utf16_offset": [
+            576769,
+            576791
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_slip",
+          "value": "data_dt",
+          "span": [
+            1,
+            576792,
+            1,
+            576814
+          ],
+          "original_utf16_offset": [
+            576792,
+            576814
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_day",
+          "value": "data_dt",
+          "span": [
+            1,
+            576815,
+            1,
+            576841
+          ],
+          "original_utf16_offset": [
+            576815,
+            576841
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_week",
+          "value": "data_dt",
+          "span": [
+            1,
+            576842,
+            1,
+            576869
+          ],
+          "original_utf16_offset": [
+            576842,
+            576869
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_month",
+          "value": "data_dt",
+          "span": [
+            1,
+            576870,
+            1,
+            576898
+          ],
+          "original_utf16_offset": [
+            576870,
+            576898
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_quarter",
+          "value": "data_dt",
+          "span": [
+            1,
+            576899,
+            1,
+            576929
+          ],
+          "original_utf16_offset": [
+            576899,
+            576929
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_half",
+          "value": "data_dt",
+          "span": [
+            1,
+            576930,
+            1,
+            576957
+          ],
+          "original_utf16_offset": [
+            576930,
+            576957
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_year",
+          "value": "data_dt",
+          "span": [
+            1,
+            576958,
+            1,
+            576985
+          ],
+          "original_utf16_offset": [
+            576958,
+            576985
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_manage_item",
+          "value": "manage_item",
+          "span": [
+            1,
+            576986,
+            1,
+            577019
+          ],
+          "original_utf16_offset": [
+            576986,
+            577019
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_trx_type",
+          "value": "trx_type",
+          "span": [
+            1,
+            577094,
+            1,
+            577121
+          ],
+          "original_utf16_offset": [
+            577094,
+            577121
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_cust_group1",
+          "value": "cust_group1",
+          "span": [
+            1,
+            577140,
+            1,
+            577173
+          ],
+          "original_utf16_offset": [
+            577140,
+            577173
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_cust_group2",
+          "value": "cust_group2",
+          "span": [
+            1,
+            577174,
+            1,
+            577207
+          ],
+          "original_utf16_offset": [
+            577174,
+            577207
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_prod_group1",
+          "value": "prod_group1",
+          "span": [
+            1,
+            577208,
+            1,
+            577241
+          ],
+          "original_utf16_offset": [
+            577208,
+            577241
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_prod_group2",
+          "value": "prod_group2",
+          "span": [
+            1,
+            577242,
+            1,
+            577275
+          ],
+          "original_utf16_offset": [
+            577242,
+            577275
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_prod_group3",
+          "value": "prod_group3",
+          "span": [
+            1,
+            577276,
+            1,
+            577309
+          ],
+          "original_utf16_offset": [
+            577276,
+            577309
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_pjt_group1",
+          "value": "pjt_group1",
+          "span": [
+            1,
+            577310,
+            1,
+            577341
+          ],
+          "original_utf16_offset": [
+            577310,
+            577341
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_pjt_group2",
+          "value": "pjt_group2",
+          "span": [
+            1,
+            577342,
+            1,
+            577373
+          ],
+          "original_utf16_offset": [
+            577342,
+            577373
+          ]
+        },
+        {
+          "kind": "ArrowFunctionExpression",
+          "symbol": "getAggregateCondition",
+          "span": [
+            1,
+            577947,
+            1,
+            578131
+          ],
+          "declaration_span": [
+            1,
+            577925,
+            1,
+            578131
+          ],
+          "original_utf16_offset": [
+            577947,
+            578131
+          ]
+        },
+        {
+          "kind": "ArrowFunctionExpression",
+          "symbol": "generateAggregateSearchDataModel",
+          "span": [
+            1,
+            578165,
+            1,
+            580093
+          ],
+          "declaration_span": [
+            1,
+            578132,
+            1,
+            580093
+          ],
+          "original_utf16_offset": [
+            578165,
+            580093
+          ]
+        },
+        {
+          "kind": "ArrowFunctionExpression",
+          "symbol": "convertToDateByDateReferType",
+          "span": [
+            1,
+            580123,
+            1,
+            581971
+          ],
+          "declaration_span": [
+            1,
+            580094,
+            1,
+            581971
+          ],
+          "original_utf16_offset": [
+            580123,
+            581971
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_day",
+          "span": [
+            1,
+            580200,
+            1,
+            580223
+          ],
+          "original_utf16_offset": [
+            580200,
+            580223
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_month",
+          "span": [
+            1,
+            580279,
+            1,
+            580508
+          ],
+          "original_utf16_offset": [
+            580279,
+            580508
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_week",
+          "span": [
+            1,
+            580508,
+            1,
+            580924
+          ],
+          "original_utf16_offset": [
+            580508,
+            580924
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_quarter",
+          "span": [
+            1,
+            580924,
+            1,
+            581499
+          ],
+          "original_utf16_offset": [
+            580924,
+            581499
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_half",
+          "span": [
+            1,
+            581499,
+            1,
+            581815
+          ],
+          "original_utf16_offset": [
+            581499,
+            581815
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_year",
+          "span": [
+            1,
+            581815,
+            1,
+            581924
+          ],
+          "original_utf16_offset": [
+            581815,
+            581924
+          ]
+        }
+      ]
+    },
+    {
+      "key": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "kind": "Existing retained original text; pinned REA6.4.0 parser AST span discovery only. No new full semantic analysis or original source execution.",
+      "nodes": [
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "getAggregateConditionKeys",
+          "span": [
+            111,
+            0,
+            124,
+            1
+          ],
+          "original_utf16_offset": [
+            4561,
+            5087
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "resolveDateUnit",
+          "span": [
+            20531,
+            0,
+            20554,
+            1
+          ],
+          "original_utf16_offset": [
+            910616,
+            911399
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "truncateDateByUnit",
+          "span": [
+            20556,
+            0,
+            20562,
+            1
+          ],
+          "original_utf16_offset": [
+            911460,
+            911668
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "resolveSubtotalDateValueFormat",
+          "span": [
+            20611,
+            0,
+            20623,
+            1
+          ],
+          "original_utf16_offset": [
+            914271,
+            914927
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "buildSortMetaMap",
+          "span": [
+            20645,
+            0,
+            20670,
+            1
+          ],
+          "original_utf16_offset": [
+            915963,
+            917125
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "createValueExtractor",
+          "span": [
+            20672,
+            0,
+            20696,
+            1
+          ],
+          "original_utf16_offset": [
+            917160,
+            918246
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "createSubtotalTitleResolver",
+          "span": [
+            20702,
+            0,
+            20722,
+            1
+          ],
+          "original_utf16_offset": [
+            918456,
+            919600
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "resolveSortEntryName",
+          "span": [
+            20723,
+            0,
+            20746,
+            1
+          ],
+          "original_utf16_offset": [
+            919601,
+            920628
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "resolveDateTitle",
+          "span": [
+            20748,
+            0,
+            20762,
+            1
+          ],
+          "original_utf16_offset": [
+            920699,
+            921406
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "buildSummarySort",
+          "span": [
+            21028,
+            0,
+            21048,
+            1
+          ],
+          "original_utf16_offset": [
+            932520,
+            933294
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "getUnwindAggregationCriteriaConfig",
+          "span": [
+            27152,
+            2,
+            27183,
+            1
+          ],
+          "original_utf16_offset": [
+            1225338,
+            1226778
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "processAggregateConditions",
+          "span": [
+            27184,
+            0,
+            27193,
+            1
+          ],
+          "original_utf16_offset": [
+            1226779,
+            1227270
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "processFreeAggregateCondition",
+          "span": [
+            27194,
+            0,
+            27222,
+            1
+          ],
+          "original_utf16_offset": [
+            1227271,
+            1228442
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "getAggregateConditionData",
+          "span": [
+            56068,
+            0,
+            56080,
+            1
+          ],
+          "original_utf16_offset": [
+            2629932,
+            2630387
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "normalizeAggregateRequest",
+          "span": [
+            62452,
+            0,
+            62462,
+            1
+          ],
+          "original_utf16_offset": [
+            2949001,
+            2949554
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "buildNormalizedAggregate",
+          "span": [
+            62464,
+            0,
+            62487,
+            1
+          ],
+          "original_utf16_offset": [
+            2949609,
+            2950461
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "rebuildAggregateGroups",
+          "span": [
+            62508,
+            0,
+            62528,
+            1
+          ],
+          "original_utf16_offset": [
+            2951196,
+            2952105
+          ]
+        },
+        {
+          "kind": "VariableDeclarator",
+          "symbol": "summary_date_priority",
+          "span": [
+            83446,
+            6,
+            83455,
+            1
+          ],
+          "source": "summary_date_priority = [\n    'summary_line',\n    'summary_slip',\n    'summary_date_day',\n    'summary_date_week',\n    'summary_date_month',\n    'summary_date_quarter',\n    'summary_date_half',\n    'summary_date_year',\n]",
+          "original_utf16_offset": [
+            4004649,
+            4004869
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_line",
+          "value": "inv_s$data_dt",
+          "span": [
+            83615,
+            4,
+            83615,
+            33
+          ],
+          "original_utf16_offset": [
+            4013630,
+            4013659
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_slip",
+          "value": "inv_s$data_dt",
+          "span": [
+            83616,
+            4,
+            83616,
+            33
+          ],
+          "original_utf16_offset": [
+            4013665,
+            4013694
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_day",
+          "value": "inv_s$data_dt",
+          "span": [
+            83617,
+            4,
+            83617,
+            37
+          ],
+          "original_utf16_offset": [
+            4013700,
+            4013733
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_week",
+          "value": "inv_s$data_dt",
+          "span": [
+            83618,
+            4,
+            83618,
+            38
+          ],
+          "original_utf16_offset": [
+            4013739,
+            4013773
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_month",
+          "value": "inv_s$data_dt",
+          "span": [
+            83619,
+            4,
+            83619,
+            39
+          ],
+          "original_utf16_offset": [
+            4013779,
+            4013814
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_quarter",
+          "value": "inv_s$data_dt",
+          "span": [
+            83620,
+            4,
+            83620,
+            41
+          ],
+          "original_utf16_offset": [
+            4013820,
+            4013857
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_half",
+          "value": "inv_s$data_dt",
+          "span": [
+            83621,
+            4,
+            83621,
+            38
+          ],
+          "original_utf16_offset": [
+            4013863,
+            4013897
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_date_year",
+          "value": "inv_s$data_dt",
+          "span": [
+            83622,
+            4,
+            83622,
+            38
+          ],
+          "original_utf16_offset": [
+            4013903,
+            4013937
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_manage_item",
+          "value": "inv_m$manage_item",
+          "span": [
+            83623,
+            4,
+            83623,
+            44
+          ],
+          "original_utf16_offset": [
+            4013943,
+            4013983
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_trx_type",
+          "value": "inv_s$trx_type",
+          "span": [
+            83628,
+            4,
+            83628,
+            38
+          ],
+          "original_utf16_offset": [
+            4014111,
+            4014145
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_cust_group1",
+          "value": "cust$cust$cust_group1",
+          "span": [
+            83630,
+            4,
+            83630,
+            48
+          ],
+          "original_utf16_offset": [
+            4014181,
+            4014225
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_cust_group2",
+          "value": "cust$cust$cust_group2",
+          "span": [
+            83631,
+            4,
+            83631,
+            48
+          ],
+          "original_utf16_offset": [
+            4014231,
+            4014275
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_prod_group1",
+          "value": "prod$prod$prod_group1",
+          "span": [
+            83632,
+            4,
+            83632,
+            48
+          ],
+          "original_utf16_offset": [
+            4014281,
+            4014325
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_prod_group2",
+          "value": "prod$prod$prod_group2",
+          "span": [
+            83633,
+            4,
+            83633,
+            48
+          ],
+          "original_utf16_offset": [
+            4014331,
+            4014375
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_prod_group3",
+          "value": "prod$prod$prod_group3",
+          "span": [
+            83634,
+            4,
+            83634,
+            48
+          ],
+          "original_utf16_offset": [
+            4014381,
+            4014425
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_pjt_group1",
+          "value": "pjt$pjt$pjt_group1",
+          "span": [
+            83635,
+            4,
+            83635,
+            44
+          ],
+          "original_utf16_offset": [
+            4014431,
+            4014471
+          ]
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "summary_pjt_group2",
+          "value": "pjt$pjt$pjt_group2",
+          "span": [
+            83636,
+            4,
+            83636,
+            44
+          ],
+          "original_utf16_offset": [
+            4014477,
+            4014517
+          ]
+        },
+        {
+          "kind": "ArrowFunctionExpression",
+          "symbol": "generateAggregateSearchDataModel",
+          "span": [
+            83655,
+            41,
+            83702,
+            1
+          ],
+          "declaration_span": [
+            83655,
+            6,
+            83702,
+            1
+          ],
+          "original_utf16_offset": [
+            4015334,
+            4017605
+          ]
+        },
+        {
+          "kind": "ArrowFunctionExpression",
+          "symbol": "convertToDateByDateReferType",
+          "span": [
+            83703,
+            37,
+            83767,
+            1
+          ],
+          "declaration_span": [
+            83703,
+            6,
+            83767,
+            1
+          ],
+          "original_utf16_offset": [
+            4017644,
+            4020473
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_day",
+          "span": [
+            83707,
+            8,
+            83710,
+            18
+          ],
+          "original_utf16_offset": [
+            4017758,
+            4017869
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_month",
+          "span": [
+            83712,
+            8,
+            83715,
+            18
+          ],
+          "original_utf16_offset": [
+            4017891,
+            4018170
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_week",
+          "span": [
+            83717,
+            8,
+            83722,
+            9
+          ],
+          "original_utf16_offset": [
+            4018193,
+            4018696
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_quarter",
+          "span": [
+            83724,
+            8,
+            83743,
+            9
+          ],
+          "original_utf16_offset": [
+            4018719,
+            4019636
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_half",
+          "span": [
+            83745,
+            8,
+            83756,
+            9
+          ],
+          "original_utf16_offset": [
+            4019659,
+            4020161
+          ]
+        },
+        {
+          "kind": "SwitchCase",
+          "symbol": "summary_date_year",
+          "span": [
+            83758,
+            8,
+            83761,
+            18
+          ],
+          "original_utf16_offset": [
+            4020183,
+            4020345
+          ]
+        }
+      ]
+    },
+    {
+      "key": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "kind": "Existing retained original text; pinned REA6.4.0 parser AST span discovery only. No new full semantic analysis or original source execution.",
+      "nodes": [
+        {
+          "kind": "ClassMethod",
+          "symbol": "getSearchAggregateModelInfo",
+          "span": [
+            498,
+            4,
+            507,
+            5
+          ],
+          "original_utf16_offset": [
+            25067,
+            25452
+          ]
+        },
+        {
+          "kind": "ClassMethod",
+          "symbol": "getFreeAggregateModelInfo",
+          "span": [
+            508,
+            4,
+            518,
+            5
+          ],
+          "original_utf16_offset": [
+            25457,
+            25961
+          ]
+        },
+        {
+          "kind": "ClassMethod",
+          "symbol": "resolveStatusGridDefinitionAsync",
+          "span": [
+            532,
+            4,
+            566,
+            5
+          ],
+          "original_utf16_offset": [
+            26632,
+            28686
+          ]
+        }
+      ]
+    }
+  ]
+}

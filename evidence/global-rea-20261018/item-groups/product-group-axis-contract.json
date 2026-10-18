@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:18:02.799536+00:00",
+  "scope": {
+    "new_GETs": 0,
+    "new_original_bodies": 0,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "original_source_execution": false,
+    "application_edits": false,
+    "prior_contract_edits": false,
+    "new_full_semantic_runs": 0,
+    "corpus": "Existing78 retained originals;76/78 and date-axis reports preserved. Own model files read only and excluded from original-body counts."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; offsets UTF16",
+  "conclusion": "Independent local grouping by own item group1/2/3 fields is feasible. Original sources establish matching summary refer types, drilldown search targets and separate legacy CLASS aliases, but do not establish current ordinary server GROUPBY, group row code/name representation or historical-master semantics.",
+  "files": [
+    "precise-static-evidence.json",
+    "rea-reference-evidence.json"
+  ],
+  "parent_UI_evidence": {
+    "candidate_labels": [
+      "품목그룹1별",
+      "품목그룹2별",
+      "품목그룹3별"
+    ],
+    "single_axis_result_headers": "Not supplied as completed observation at generation. No company group values retained."
+  },
+  "axes": [
+    {
+      "observed_candidate": "품목그룹1별",
+      "source_refer_type": "summary_prod_group1",
+      "V5_drilldown": {
+        "search_refer_type": "prod_group1",
+        "map_span": [
+          1,
+          577208,
+          1,
+          577241
+        ],
+        "actual_target_prop": "Resolved dynamically by item_meaning_id override or getPropIdByReferType; not fixed here"
+      },
+      "V56_drilldown": {
+        "search_prop_id": "prod$prod$prod_group1",
+        "map_span": [
+          83632,
+          4,
+          83632,
+          48
+        ]
+      },
+      "legacy_class_filter_alias": {
+        "DTO_field": "PROD_CLASS_CD1",
+        "span": [
+          74253,
+          12,
+          74253,
+          102
+        ],
+        "value_source": "last_search_datamodel['prod$prod$prod_group1'] -> each item.sid -> join(∬)"
+      },
+      "ordinary_selected_axis_prop_id": "Unknown; template_item.prop_id returned dynamically. Do not substitute a search target prop or comment example.",
+      "own_local_model": {
+        "group_code_field": "group1",
+        "optional_display_name_field": "group1Name",
+        "current_report_display_expression": "group1:item?.group1Name??item?.group1??''",
+        "report_expression_span": [
+          68,
+          728,
+          68,
+          769
+        ],
+        "scope": "Own implementation only; not original mapping proof."
+      }
+    },
+    {
+      "observed_candidate": "품목그룹2별",
+      "source_refer_type": "summary_prod_group2",
+      "V5_drilldown": {
+        "search_refer_type": "prod_group2",
+        "map_span": [
+          1,
+          577242,
+          1,
+          577275
+        ],
+        "actual_target_prop": "Resolved dynamically by item_meaning_id override or getPropIdByReferType; not fixed here"
+      },
+      "V56_drilldown": {
+        "search_prop_id": "prod$prod$prod_group2",
+        "map_span": [
+          83633,
+          4,
+          83633,
+          48
+        ]
+      },
+      "legacy_class_filter_alias": {
+        "DTO_field": "PROD_CLASS_CD2",
+        "span": [
+          74254,
+          12,
+          74254,
+          102
+        ],
+        "value_source": "last_search_datamodel['prod$prod$prod_group2'] -> each item.sid -> join(∬)"
+      },
+      "ordinary_selected_axis_prop_id": "Unknown; template_item.prop_id returned dynamically. Do not substitute a search target prop or comment example.",
+      "own_local_model": {
+        "group_code_field": "group2",
+        "optional_display_name_field": "group2Name",
+        "current_report_display_expression": "group2:item?.group2Name??item?.group2??''",
+        "report_expression_span": [
+          68,
+          770,
+          68,
+          811
+        ],
+        "scope": "Own implementation only; not original mapping proof."
+      }
+    },
+    {
+      "observed_candidate": "품목그룹3별",
+      "source_refer_type": "summary_prod_group3",
+      "V5_drilldown": {
+        "search_refer_type": "prod_group3",
+        "map_span": [
+          1,
+          577276,
+          1,
+          577309
+        ],
+        "actual_target_prop": "Resolved dynamically by item_meaning_id override or getPropIdByReferType; not fixed here"
+      },
+      "V56_drilldown": {
+        "search_prop_id": "prod$prod$prod_group3",
+        "map_span": [
+          83634,
+          4,
+          83634,
+          48
+        ]
+      },
+      "legacy_class_filter_alias": {
+        "DTO_field": "PROD_CLASS_CD3",
+        "span": [
+          74255,
+          12,
+          74255,
+          102
+        ],
+        "value_source": "last_search_datamodel['prod$prod$prod_group3'] -> each item.sid -> join(∬)"
+      },
+      "ordinary_selected_axis_prop_id": "Unknown; template_item.prop_id returned dynamically. Do not substitute a search target prop or comment example.",
+      "own_local_model": {
+        "group_code_field": "group3",
+        "optional_display_name_field": "group3Name",
+        "current_report_display_expression": "group3:item?.group3Name??item?.group3??''",
+        "report_expression_span": [
+          68,
+          812,
+          68,
+          853
+        ],
+        "scope": "Own implementation only; not original mapping proof."
+      }
+    }
+  ],
+  "drilldown_contract": {
+    "source": "StandardUserAction keeps non-date selected conditions and passes them to generateAggregateSearchDataModel. V5 resolves search prop through item-meaning override or prod_groupN refer_type; V56 uses qualified prop ID. For $$multi_code target and nonempty clicked value.code, writes result[search_prop_id]=[value].",
+    "all_selected_groups": "Different group1/2/3 targets can be placed in the returned filter object together. Backend Boolean semantics and original general grouping are not established by this helper.",
+    "blank_boundary": "If clicked value.code is empty, this helper does not add the $$multi_code filter; this does not establish whole blank-group navigation behavior because other conditions/defaults/receivers may apply.",
+    "identifier_boundary": "Drilldown code check and legacy conversion sid extraction are distinct consumers. No static proof that code==sid, or that display name is an identifier.",
+    "evidence": [
+      "actions.StandardUserAction.executeAsync",
+      "actions.generateAggregateSearchDataModel",
+      "common.generateAggregateSearchDataModel"
+    ]
+  },
+  "legacy_conversion": {
+    "source": "ConvertSearchConditionV3Program creates a legacy search-condition DTO. PROD_CLASS_CD1/2/3 come from prod$prod$prod_group1/2/3 through getItemCode, which extracts each .sid and joins with∬. PROD_LEVEL_GROUP is a separate field.",
+    "evidence": [
+      "common.ConvertSearchConditionV3Program.onExecuteAsync",
+      "common.ConvertSearchConditionV3Program.getItemCode"
+    ],
+    "boundary": "Legacy compatibility/filter DTO only. No original legacy API invoked; this is not the current ordinary aggregate GROUPBY implementation or a hierarchy expansion rule."
+  },
+  "ordinary_group_condition_consumers": {
+    "selection": "Current compatible generic selector targets summary/summary_code template properties. Return includes dynamic prop_id,label,refer_type,data_type,prop_name,item_meaning_id.",
+    "layout": "processFreeAggregateCondition consumes that prop_id and dynamic grid property definition/attributes, carries label=condition.label||prop_name into aggregate config. Actual group row labels/format metadata absent.",
+    "query": "Free normalizer preserves selected condition object and rebuilds groups as unique nonempty selected {prop_id} entries. Search mapper/projection definitions and original current template values remain dynamic/unobserved.",
+    "evidence": [
+      "common.getAggregateConditionData",
+      "common.processFreeAggregateCondition",
+      "common.getUnwindAggregationCriteriaConfig",
+      "common.buildNormalizedAggregate",
+      "common.rebuildAggregateGroups",
+      "query.DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+      "query.SearchModelDescriptor.toRequestDto"
+    ],
+    "boundary": "These are generic compatible consumers. No retained body defines current concrete product group1/2/3 ordinary GROUPBY projection, master join/version policy or server measure formula."
+  },
+  "code_name_boundary": {
+    "generic_subtotal_key": "createValueExtractor returns value?.code for $$code; selected current product-group datatype is not retained. This is a generic subtotal/summary grouping helper, not current ordinary server GROUPBY proof.",
+    "generic_title": "$$code_cd title uses value and optional association nm_prop_id to append (name); other types use external value formatter with dynamic value_format. This does not establish original product-group row display format or code-name source.",
+    "selected_axis_label": "Selector display_name -> condition.label names the axis. It does not prove any individual category row code/name.",
+    "evidence": [
+      "common.createValueExtractor",
+      "common.buildSortMetaMap",
+      "common.createSubtotalTitleResolver",
+      "common.resolveCodeCdTitle"
+    ]
+  },
+  "own_model_assessment": {
+    "verdict": "Feasible for an explicitly independent local group-code implementation; equivalence remains partial.",
+    "read_only_snapshot": "Own implementation files are recorded with hashes in precise-static-evidence.json; parent may subsequently change them.",
+    "supported_fields": "ItemCore declares group1/2/3 as text, trims/validates declared fields, and normalize maps legacy group -> group1 then keeps group alias equal to group1. groupNName are optional record extras preserved by object spreading, not explicit defaultFields or validated name/master-code registry entries.",
+    "existing_display": "Purchasing report already reads current own master item by line.item and displays groupNName??groupN. Empty string Name is retained by ?? and does not fall back to code.",
+    "proposed_policy_boundary": "Own groupN string can serve as the independently defined category key, with groupNName/code display fallback. Define blank and same-name/different-code behavior locally; neither name-based merging nor original SID equality is proven.",
+    "temporal_boundary": "Current own report looks up the item master at report generation. Applying this to historical purchase lines uses the current own master classification; original current-master versus document snapshot classification is unknown.",
+    "hierarchy_boundary": "Do not map hierarchyGroups to group1/2/3: own fields and legacy PROD_LEVEL_GROUP are separate. No automatic ancestor/descendant expansion is proven.",
+    "remaining_own_limits": "End-to-end Name-field persistence/validation and group-master registry semantics were not investigated; no app code or tests ran."
+  },
+  "excluded_false_evidence": [
+    "Comment example prod$prod$summary_prod_group1 is not a captured actual selected prop ID.",
+    "Retained inventory input XML contains inv_m$prod_group1/2/3 fields for other input layouts; these are not ordinary report GROUPBY proof.",
+    "V3 compatibility CLASS field names are not current server aggregate formulas.",
+    "Generic validator/compare-period/sort popup code was not promoted to original ordinary grouping equivalence."
+  ],
+  "unknowns": [
+    "Current selected group1/2/3 ordinary axis prop_id/data_type/value_format/association_prop from dynamic template definition",
+    "Original category row identifier structure: sid/code/name and missing-name fallback",
+    "Ordinary group-by projection/join, null/blank/unassigned category bucket treatment",
+    "Current item master versus historical document category snapshot and disabled/deleted group handling",
+    "Original same-name/different-code merging and collation/sort precedence",
+    "Group1/2/3 combination versus hierarchy expansion behavior",
+    "Original server subtotal/sum/tax/rounding and response formulas",
+    "Current single-axis query headers until parent supplies observation"
+  ],
+  "limits": [
+    "Full common semantic OOM remains unknown. Static evidence and prior selected excerpt semantic references do not promote it.",
+    "V5 action semantic evidence is existing completed actualREA6.4; unresolved calls/current binding remain unknown.",
+    "Source/group data models are not fetched from private APIs; no original business values collected."
+  ]
+}

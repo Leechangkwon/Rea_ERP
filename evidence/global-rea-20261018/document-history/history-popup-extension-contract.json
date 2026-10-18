@@ -1,0 +1,256 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T11:43:14.420600+00:00",
+  "scope": {
+    "prior_84_contract": "$SCRATCH/purchasing-history-rea-20261018/purchasing-history-contract.json",
+    "prior_84_contract_SHA256": "df038b982f405e3bbf86ccfacf5bcc9a8a6c31da2f95f077ca7bb80452db9195",
+    "baseline_84_fixed": {
+      "unique_bodies": 84,
+      "bytes": 25247564,
+      "static_complete": 82,
+      "static_partial": 2,
+      "semantic_complete": 77,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "new_85_extension": {
+      "unique_bodies": 85,
+      "bytes": 25280039,
+      "static_complete": 83,
+      "static_partial": 2,
+      "semantic_complete": 78,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "only_new_GET": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.inventory/es/views/xes303m.5061699119305676301.20.js",
+    "ordinary_GET_attempts": 1,
+    "cookies_or_auth": false,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_execution": false,
+    "app_or_prior_contract_changes": false,
+    "semantic_retry": false
+  },
+  "source": {
+    "page_factory": "ecount.page.common / ES303M",
+    "provenance": "Parent observed ES303M original list-history popup document script[src]; worker used exact URL once, inert text only",
+    "sha256": "b52d0a6505b4309408bc699c37bd2207d6b85e7c80186b2f727ada5652c529b9",
+    "bytes": 32475,
+    "transport_bytes": 6791,
+    "gzip_decoded": true,
+    "downloaded_at": "2026-10-18T11:38:53.597141+00:00",
+    "last_modified": "Mon, 07 Sep 2026 23:35:58 GMT",
+    "actual_REA": {
+      "version": "6.4.0",
+      "static": "complete",
+      "semantic": "complete",
+      "parse_errors": 0,
+      "callables": 153,
+      "calls": 299,
+      "frontiers": 316,
+      "elapsed_ms": 415,
+      "budget_seconds": 30,
+      "heap_MiB": 2048
+    }
+  },
+  "answer": {
+    "status": "ES303M concrete popup source found; current popup flags/form metadata and backend still partly unknown",
+    "known": "Declared search configuration, form-driven grid, query/Excel path, date-voucher link, H history-detail link, menu constraints and conditional tab behavior are now sourced.",
+    "not_claimed": "Exact current displayed column labels/full popup state, request/order/purchase flag bindings, server history versions/retention/formulas/permissions, input read-only safety of linked voucher pages or complete export/close behavior."
+  },
+  "page_identity_title_and_scope": {
+    "refs": [
+      "ES303M.pageInfo.title",
+      "ES303M.pageInfo.PRG_ID",
+      "ES303M.pageInfo.docFlag",
+      "ES303M.pageInfo.isFisrtSearchByMenuList",
+      "ES303M.mapperToMenu.34",
+      "ES303M.popupInfo.09"
+    ],
+    "program_id": "E040716",
+    "title": "When isFromList||isFromMenuList use etcList.title; else resource LBL93393. Current title text depends on runtime context.",
+    "menu_mapping": "mapperToMenu maps pageOption.docFlag to a selection code/name resource; e.g docFlag34→code09/resourceLBL09351. This symbolic source map is not enough to assign every current purchasing list flag.",
+    "boundaries": "Current parent popup ES303M body is directly retained. Individual request/order/purchase caller flags, FromProgramId,menuFormType,isFromList,isFromMenuList and currently selected STATEMENT were not read by worker; per-list runtime binding remains separate."
+  },
+  "search_conditions": {
+    "refs": [
+      "ES303M.pageInfo.pageHeader",
+      "ES303M.onInitUnitWidgetCbnMenu",
+      "ES303M.onInitUnitWidgetTxtAmt",
+      "ES303M.onInitUnitWidgetDdlUpdateTime",
+      "ES303M.onInitUnitWidgetTxtAction",
+      "ES303M.onInitUnitWidgetTxtUser",
+      "ES303M.onInitUnitWidgetEtcChk",
+      "ES303M.onInitUnitWidgetTxtSCustCd",
+      "ES303M.onInitUnitWidgetRbType"
+    ],
+    "declared_UI": [
+      "outputTitle",
+      "quickSearch",
+      "Option(searchTemplate_new,formListOption,filterSetting)",
+      "calcSearch date ddlJobDate",
+      "rbType(values0/1,initial0)",
+      "search/userTabSaveSearch",
+      "simpleSearch",
+      "rewrite"
+    ],
+    "dynamic_fields": "Search form/template controls beyond declared widgets are form metadata. Code names rbType0/1 labels are resourceLBL02490/LBL18400; do not guess their current displayed labels.",
+    "type_visibility": "rbType after_change_behavior uses SR100 for0 and SR110 for1. Depending on FromProgramId presence, changes clear menu/action and hide voucher-date,employee,amount,warehouse,project/customer/item fields as listed in pageHeader source. This does not prove all those controls appear in current popup.",
+    "menu": "cbnMenu codeType7 and required rule. List/menu-list context pre-adds mapperToMenu[docFlag]. It forwards Type=rbType to menu popup/autocomplete. validateMenu permits basic-type1 only13/14/25; type0 permits declared inventory-code whitelist. Invalid selection shows menu error and stops async search steps. onSetSearchParam sets FLAG=STATEMENT.",
+    "list_locks": "If isFromMenuList===true, cbnMenu and rbType are made readOnly. If isFromList, current/all-tab variants are made readOnly and searchForm tabs synchronized. Current active flags unknown.",
+    "amount": "txtAmt uses numericOnly(18,6,resourceMSG04553); exact business unit and range meaning external.",
+    "time": "ddlUpdateTime hides date button/date control and uses time only. When date-use checkbox==1, BASE_TIME_DATECHK=1,FROM/TO from getDateFormat(HHmm); otherwise check0 and FROM/TO empty.",
+    "actor": "txtUser popup is ID selector with GwUse=true,UserFlag=id,TYPE_FLAG=M,MENU_TYPE=S,checkbox display enabled,inactive users included; no actor values retained.",
+    "customer_context": "txtSCustCd loads search-param CUST_DES and may replace with pageOption.CUST/CUST_DES when isFromApply and customer nonempty. Current apply context unknown.",
+    "other_options": "EtcChk declares CHK_OTHER options1/2,initial1. Selection1 maps ETC_CHK=1/SORT_MODIFIED_DT=0;2 maps0/1;both1/1;neither0/0. Resource labels not resolved here."
+  },
+  "action_filter_normalization": {
+    "ref": "ES303M.nested.onInitUnitWidgetTxtAction.onSetSearchParam",
+    "span": [
+      1,
+      19748,
+      1,
+      20974
+    ],
+    "contract": "If ACTION nonempty, sequential conditional replacements depend on STATEMENT. For inventory sets including09, Z→S and later Y→Z; M expands to M<delimiter>U<delimiter>L for any statement. Certain other statement sets map A→R, statement13 maps M→U, statement31 maps I→I<delimiter>N. Exact full guard arrays in source evidence; do not map letter codes to event names without lookup metadata.",
+    "lookup": "Action popup/autocomplete uses isApplyDisplayFlag=true,Type=Inv when rbType==0 elseBasic. This is filter-code normalization, not performing the selected historical action."
+  },
+  "query_validation_and_range": {
+    "refs": [
+      "ES303M.pageInfo.pageHeader",
+      "ES303M.pageInfo.pageContents",
+      "ES303M.pageInfo.pageFunction",
+      "ES303M.nested.onInitUnitWidgetCbnMenu.onSearchValidate"
+    ],
+    "query_path": "/SVC/Inventory/Others/GetListChangeHistoryInv",
+    "query_wiring": "form grid callSearchApi(type grid) points here; searchManager.isFirstLoadSearch = isFromList||isFromMenuList and moreCount=5000. PageInfo also records isFisrtSearchByMenuList using those flags.",
+    "date_limit": "Declares limitMonth(dateId ddlJobDate,monthInt3). userTab save validation calls _checkSearchDate/_setShowMsgError before tab validation and menu validation. limitMonth implementation absent in retained84+newpopup; exact inclusive dates/month-clamp and ordinary-search inherited validation unknown.",
+    "guard_boundary": "cbnMenu search validation stops asyncApiStep on invalid menu. Shared header control required/time/date validation, server range checks, pagination caps and quick-search matching remain external.",
+    "side_effect_boundary": "These declarations query history data. Actual source contains no direct save/delete/restore of business slips during list search. Server audit/security logging or shared preference writes are not ruled out."
+  },
+  "grid_and_display_fields": {
+    "refs": [
+      "ES303M.pageInfo.pageContents",
+      "ES303M.onInitUnitGridCellHistoryDate",
+      "ES303M.onInitUnitGridCellHistoryNo",
+      "ES303M.onInitUnitGridCellHistory"
+    ],
+    "known_field_bindings": [
+      {
+        "field": "HIS.HISTORY_DATE",
+        "handler": "historyDate"
+      },
+      {
+        "field": "HIS.HISTORY",
+        "handler": "history (H)"
+      },
+      {
+        "field": "HIS.HISTORY_NO",
+        "handler": "historyNo"
+      },
+      {
+        "field": "MT0.GB_TYPE",
+        "handler": "setBgDeletedCode"
+      },
+      {
+        "field": "REF_DATA",
+        "handler": "refData"
+      }
+    ],
+    "column_map": "IO_DATE→HISTORY_DATE,IO_NO→HISTORY_NO. Grid uses form/columnFix; gridColumns declares hideColumns REF_DATA and MT0.BOM_VER; shared/grid/template behavior may override actual display.",
+    "other_features": [
+      "gridSearch",
+      "gridColumns",
+      "gridCustomRowCell",
+      "gridDimension",
+      "gridPaging",
+      "gridDescription with search condition title",
+      "prevNextSlip",
+      "gridDeleteCode",
+      "gridShade HISTORY_DATE/HISTORY_NO",
+      "gridStyle"
+    ],
+    "unknown": "Complete current column catalog/labels/order, operation labels/colors, row/version grouping, number formatting, current form shape and returned history record meanings. No company row was collected."
+  },
+  "row_date_link_voucher_boundary": {
+    "refs": [
+      "ES303M.nested.onInitUnitGridCellHistoryDate.setColumnCustomCell",
+      "ES303M.nested.onInitUnitGridCellHistoryDate._ON_CLICK",
+      "ES303M.onInitUnitGridCellHistoryDate",
+      "ES303M.popupInfo.09"
+    ],
+    "link_guard": "For listed inventory FLAGs including09, when MT0_GB_TYPE==Z AND STATUS!=D, date is not turned into a link. Otherwise defines gridCell.link with displayed value. This does not establish the meaning of Z/D.",
+    "click": "Reads FLAG and popupInfo[FLAG]. If destination URL contains SVC, Request.Key comes from HISTORY_DATE/HISTORY_NO mapping, EditMode=02,FromProgramId=E040716,is_view_history=true. Other destinations receive EditFlag=M,isViewHistory=true and dimensions800×600. Print-specific routes have additional print parameters. Opens the configured destination.",
+    "purchase_example": "For symbolic FLAG09, source target is /ECERP/SVC/ESG/ESG009M?IsViewHistory=true, popupID ESG009M,Key{Date:HISTORY_DATE,No:HISTORY_NO}. Current selected FLAG must still be confirmed.",
+    "receiver": "Registers popupID message handlers: invoke returned callback if present, then searchManager.executeLastSearch().",
+    "critical_boundary": "This is a voucher/form route carrying modify-mode flags, not proof of a read-only history-detail viewer. Do not operate original input/save controls or infer no draft/autosave side effects from is_view_history flag alone. Destination enforcement remains unknown."
+  },
+  "row_H_history_detail": {
+    "refs": [
+      "ES303M.nested.onInitUnitGridCellHistory.setColumnCustomCell",
+      "ES303M.nested.onInitUnitGridCellHistory._ON_CLICK",
+      "ES303M.popupInfo.09"
+    ],
+    "link_guard": "Creates H link except when f==0 and row._MERGE_SET is nonempty (raw merge condition retained; semantics of f/template merge external).",
+    "click": "popupInfo[FLAG].hisData(row) builds detail key; if menuType absent add FLAG. Open hisUrl with param.Request and preventDefault. For09 hisUrl=/ECERP/SVC/Popup/ES303P and keys historySlipDate=HISTORY_DATE,historySlipNo=HISTORY_NO.",
+    "unknown": "ES303P source is not retained or fetched. Detail fields/tabs/export/close/server history scope/permissions are unknown. H detail is distinct from date voucher link and input main-row actions."
+  },
+  "other_row_links": {
+    "refs": [
+      "ES303M.onInitUnitGridCellHistoryNo",
+      "ES303M.onInitUnitGridCellRefData"
+    ],
+    "number": "HistoryNo becomes link only FLAG13 with nonempty CUST_DES orFLAG14 with nonempty PROD_CD; opens associated master route with EditFlag=M. It is not a universal inventory history number link.",
+    "ref_data": "Basic-mode RefData can open EGM024M with isFileManage=true; this is an attachment/file-management route, not confirmed read-only. Current inventory grid hides REF_DATA by declaration and external template may differ. No such route was executed."
+  },
+  "context_tabs": {
+    "refs": [
+      "ES303M.onInitFunctionUserTab",
+      "ES303M.onInitGroupTabContentsListTab",
+      "ES303M.onInitFunctionLoadListTabContents",
+      "ES303M.pageInfo.pageFunction"
+    ],
+    "search_tabs": "UserTab composite is disabled when isFromList||isFromMenuList. restoreTab is configured with isSetDefaultDate=false,isNotUseBasic=true. Current available saved criteria and permissions unknown.",
+    "list_tabs": "ListTab composite only created when isFromList. It receives InitDatas.ParentForm.listTab and activeTab, then delegates getListTabSetting. isFromMenuList alone does not create this listTab via this override.",
+    "delegated_history_tabs": "tabHistory/tabSentEmail/tabSentFax/tabSentMobile/tabHistoryGrp1..3/tabAdjSlip/tabAdjSlipCount delegate to shared loadListTabContents. Their inclusion in branch logic is not proof they all appear in current popup.",
+    "navigation": "Other status tabs can navigate/reload original list URLs, preserving order/apply/reference/approval context according to flags. Do not describe this as a current popup mutation or automatic apply.",
+    "reload": "For list/menu-list context, reloadPage preserves IsFromList,menuFormType,actTab,docFlag,useTabUnConfirm,useTabFax,isFromMenuList. Current source values unknown."
+  },
+  "footer_export_more_and_close": {
+    "refs": [
+      "ES303M.pageInfo.pageFooter",
+      "ES303M.pageInfo.pageFunction"
+    ],
+    "declared": "Footer formset_button contains outputExcel and moreData(label resourceBTN00979). set_formset_button function can supply additional form-driven buttons; current metadata is external.",
+    "Excel": "outputExcel SheetName=resourceLBL93393,PageNm=ES303M,getPathInfo returns same GetListChangeHistoryInv query path,UseECWorker2 disabled only when isFromBatchBackup==true. Actual click/security/download implementation is shared retained footer; exact current export permission/format/fields/filename/worker path and logging not established by this page alone.",
+    "MoreData": "Search manager moreCount5000 and moreData widget declared; shared implementation decides exact behavior/count/limits.",
+    "Close": "No explicit slipClose/close widget or Close/Escape handler is defined in ES303M page body. Popup shell/formset route may add one; current close/backdrop/Escape/focus/retention behavior unknown. Absence is not proof unavailable.",
+    "query_vs_settings": "Option includes searchTemplate_new/formListOption/filterSetting and header includes userTabSaveSearch. These can lead to preference/form settings; they are distinct from query and were not executed. No claim all popup controls are read-only."
+  },
+  "permissions_and_selection": {
+    "known": "CbnMenu required+whitelist,context readOnly locks and amount/time filter transforms are explicit. Current popup source has no checked-original-list-row selection guard before opening; prior V3/common entry body also no such guard.",
+    "unknown": "Original record/user authorization, query/Excel permissions, field masks, operation-history retention, result access, target view flags and upstream selection/visibility rules. Page declares no explicit permission object; enforcement can live in shared route/query backend. Anonymous route enum from prior action does not prove permission exemption."
+  },
+  "preserved_limits_and_storage": {
+    "baseline": "Original84/full statuses preserved. New source parse0/fullstatic+fullsemantic success adds exactly1body; cumulative85/25280039B,static83complete+2partial,semantic78complete+2partial+3timeout+2OOM.",
+    "raw": "Raw source and actual REA outputs remain scratch only, outside checkout. Contract may be copied separately; no original data/credentials/logs retained.",
+    "original_execution": "None. No original query endpoint or linked voucher route was called by worker."
+  },
+  "unknowns": [
+    "Current popup docFlag/FLAG/type/from-list flags and actual dynamic search/grid form labels.",
+    "Request/order/purchase route mapping beyond symbolic source entries without observed caller params.",
+    "Shared limitMonth exact calendar boundary/default date validation and current query results.",
+    "Linked voucher history-view enforcement/autosave/read-only behavior.",
+    "ES303P detail implementation, direct current close handler and runtime/export/security/authorization.",
+    "Server historical version/merge/retention/action meanings and numeric records."
+  ],
+  "files": {
+    "manifest": "$SCRATCH/purchasing-history-rea-20261018/extension-source-manifest.json",
+    "actual_REA_summary": "$SCRATCH/purchasing-history-rea-20261018/extension-normalized-analysis-summary.json",
+    "cumulative85": "$SCRATCH/purchasing-history-rea-20261018/cumulative-counts.json",
+    "exact_AST_spans": "$SCRATCH/purchasing-history-rea-20261018/popup-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/purchasing-history-rea-20261018/popup-actual-rea-reference-index.json"
+  }
+}

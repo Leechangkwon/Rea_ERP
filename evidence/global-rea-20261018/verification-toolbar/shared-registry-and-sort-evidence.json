@@ -1,0 +1,1383 @@
+{
+  "method": "Pinned REA parser static namespace registration and direct sort-wrapper extraction, joined to actual REA IR; no source execution.",
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "sources": [
+    {
+      "source_sha256": "ace675a147272aa619292aa5f3d0847cb90af5db519bc3aefe97a36ef37ac9a2",
+      "path": "$SCRATCH/barcode-shared-rea-20261018/bundle.inventorylib.common.6450304516276849014.20.js",
+      "registrations": [
+        {
+          "callee": "ecount.module",
+          "names": [
+            "ecmodule.inventory.calc"
+          ],
+          "span": [
+            1,
+            265,
+            1,
+            46128
+          ]
+        },
+        {
+          "callee": "ecount.module",
+          "names": [
+            "ecmodule.inventory.ecountCalc"
+          ],
+          "span": [
+            1,
+            46129,
+            1,
+            51347
+          ]
+        },
+        {
+          "callee": "ecount.module",
+          "names": [
+            "ecmodule.inventory.common"
+          ],
+          "span": [
+            1,
+            51348,
+            1,
+            65759
+          ]
+        },
+        {
+          "callee": "ecount.module",
+          "names": [
+            "ecmodule.common.prod"
+          ],
+          "span": [
+            1,
+            65760,
+            1,
+            93622
+          ]
+        }
+      ],
+      "open_sort_wrappers": [
+        {
+          "symbol": "openSortPopup",
+          "span": [
+            1,
+            54433,
+            1,
+            54719
+          ],
+          "callable_id": "callable:function:54433:54719",
+          "source_excerpt": "function(n,t){var i={url:\"/ECERP/ESD/ESD006P_04\",name:$.isEmpty(n.name)?\"SORT\":n.name,param:{width:ecount.infra.getPageWidthFromConfig(),height:200,Cols1:\"\",Cols2:\"\",Cols3:\"\",Dir:\"\",Type:\"\"}};$.isEmpty(t)?ecount.popup.openWindow($.extend({},i,n||{})):t.openWindow($.extend({},i,n||{}))}",
+          "calls": [
+            {
+              "callSiteId": "call:call:54487:54504",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54487
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54504
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54487
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54496
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": [
+                {
+                  "index": 0,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54497
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54503
+                    }
+                  },
+                  "spread": false
+                }
+              ]
+            },
+            {
+              "callSiteId": "call:call:54532:54569",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54532
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54569
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54532
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54567
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": []
+            },
+            {
+              "callSiteId": "call:call:54625:54637",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54625
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54637
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54625
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54634
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": [
+                {
+                  "index": 0,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54635
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54636
+                    }
+                  },
+                  "spread": false
+                }
+              ]
+            },
+            {
+              "callSiteId": "call:call:54638:54683",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54638
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54683
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54638
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54661
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": [
+                {
+                  "index": 0,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54662
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54682
+                    }
+                  },
+                  "spread": false
+                }
+              ]
+            },
+            {
+              "callSiteId": "call:call:54662:54682",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54662
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54682
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54662
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54670
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": [
+                {
+                  "index": 0,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54671
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54673
+                    }
+                  },
+                  "spread": false
+                },
+                {
+                  "index": 1,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54674
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54675
+                    }
+                  },
+                  "spread": false
+                },
+                {
+                  "index": 2,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54676
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54681
+                    }
+                  },
+                  "spread": false
+                }
+              ]
+            },
+            {
+              "callSiteId": "call:call:54684:54718",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54684
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54718
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54684
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54696
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": [
+                {
+                  "index": 0,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54697
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54717
+                    }
+                  },
+                  "spread": false
+                }
+              ]
+            },
+            {
+              "callSiteId": "call:call:54697:54717",
+              "kind": "call",
+              "callerCallableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54697
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54717
+                }
+              },
+              "calleeLocation": {
+                "start": {
+                  "line": 1,
+                  "column": 54697
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54705
+                }
+              },
+              "resolution": "unresolved",
+              "calleeCallableIds": [],
+              "arguments": [
+                {
+                  "index": 0,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54706
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54708
+                    }
+                  },
+                  "spread": false
+                },
+                {
+                  "index": 1,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54709
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54710
+                    }
+                  },
+                  "spread": false
+                },
+                {
+                  "index": 2,
+                  "location": {
+                    "start": {
+                      "line": 1,
+                      "column": 54711
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 54716
+                    }
+                  },
+                  "spread": false
+                }
+              ]
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54487
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54496
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54532
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54567
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54625
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54634
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54638
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54661
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54662
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54670
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54684
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54696
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "callableId": "callable:function:54433:54719",
+              "location": {
+                "start": {
+                  "line": 1,
+                  "column": 54697
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54705
+                }
+              },
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        }
+      ],
+      "array_sort_call_sites": [],
+      "parser_errors": []
+    },
+    {
+      "source_sha256": "77c6889499bc6dd87df18b949fc3d2d3cfa8db4c39303db370b18940973eef11",
+      "path": "$SCRATCH/barcode-shared-rea-20261018/bundle.eccomposite_v1.inventory.unit.widget.contentsform.-6844791285962540802.20.js",
+      "registrations": [
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.cust",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            826,
+            1,
+            11422
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.cust.acc",
+            "eccomposite_v1.unit.widget.cust"
+          ],
+          "span": [
+            1,
+            11423,
+            1,
+            14202
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.pjt_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            14203,
+            1,
+            17056
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.wh_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            17057,
+            1,
+            25262
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.wh_cd_t",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            25263,
+            1,
+            29411
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.emp_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            29412,
+            1,
+            32109
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.date",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            32110,
+            1,
+            35153
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.date.acc",
+            "eccomposite_v1.unit.widget.date"
+          ],
+          "span": [
+            1,
+            35154,
+            1,
+            37729
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.memo",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            37730,
+            1,
+            40194
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.ttl_ctt",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            40195,
+            1,
+            41666
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.io_type",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            41667,
+            1,
+            45045
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.order_mgt_tab_toggle",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            45046,
+            1,
+            46271
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.order_mgt_code",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            46272,
+            1,
+            49011
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.order_mgt_workflow",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            49012,
+            1,
+            53326
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.item_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            53327,
+            1,
+            54005
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.foreign_type",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            54006,
+            1,
+            57079
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.Address1",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            57080,
+            1,
+            59220
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.addr",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            59221,
+            1,
+            60320
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.phone",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            60321,
+            1,
+            61068
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.expect_date",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            61069,
+            1,
+            62194
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.expire_date",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            62195,
+            1,
+            63296
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.bad_flag",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            63297,
+            1,
+            64924
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.additional",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            64925,
+            1,
+            66266
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.mystorage",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            66267,
+            1,
+            66825
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.file_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            66826,
+            1,
+            68186
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.doc_no",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            68187,
+            1,
+            86598
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.doc_no_old",
+            "eccomposite_v1.unit.widget.doc_no"
+          ],
+          "span": [
+            1,
+            86599,
+            1,
+            87751
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.translip",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            87752,
+            1,
+            88936
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.slip_type",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            88937,
+            1,
+            92643
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.plant_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            92644,
+            1,
+            93482
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.time_date",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            93483,
+            1,
+            95322
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.p_flag",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            95323,
+            1,
+            96135
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.asRepairType",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            96136,
+            1,
+            97279
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.inputLabel",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            97280,
+            1,
+            97868
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.relation_date_link",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            97869,
+            1,
+            98698
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.bom_detail",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            98699,
+            1,
+            99083
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.bom_type",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            99084,
+            1,
+            99466
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.convert_main_product",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            99467,
+            1,
+            99803
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.add_txt",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            99804,
+            1,
+            101854
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.add_num",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            101855,
+            1,
+            103875
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.add_date",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            103876,
+            1,
+            105095
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.add_code",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            105096,
+            1,
+            110307
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.site",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            110308,
+            1,
+            112576
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.date_invoice_packing",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            112577,
+            1,
+            113769
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.adjust_amt",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            113770,
+            1,
+            115273
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.bill_no",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            115274,
+            1,
+            116357
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.invoice_type",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            116358,
+            1,
+            124521
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.link_invoice",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            124522,
+            1,
+            128633
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.supply_amt",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            128634,
+            1,
+            132640
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.subtab_selector",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            132641,
+            1,
+            133593
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.tax_invoice_detail",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            133594,
+            1,
+            135946
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.tax_type",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            135947,
+            1,
+            145031
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.tax_type.basic",
+            "eccomposite_v1.unit.widget.tax_type"
+          ],
+          "span": [
+            1,
+            145032,
+            1,
+            152684
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.tax_type.tw",
+            "eccomposite_v1.unit.widget.tax_type"
+          ],
+          "span": [
+            1,
+            152685,
+            1,
+            163699
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.tax_type.vn",
+            "eccomposite_v1.unit.widget.tax_type"
+          ],
+          "span": [
+            1,
+            163700,
+            1,
+            172137
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.vat_amt",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            172138,
+            1,
+            174392
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.withholding_tax",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            174393,
+            1,
+            176783
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.acct_no_t",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            176784,
+            1,
+            184116
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.amount_with_tax",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            184117,
+            1,
+            186130
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.pt_paymenttype",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            186131,
+            1,
+            191285
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.cost_group",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            191286,
+            1,
+            193532
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.income_tax_dv_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            193533,
+            1,
+            194634
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.pay_method_add_ctt",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            194635,
+            1,
+            195705
+          ]
+        },
+        {
+          "callee": "ecount.class",
+          "names": [
+            "eccomposite_v1.unit.widget.pay_method_cd",
+            "eccomposite_v1.unit.widget"
+          ],
+          "span": [
+            1,
+            195706,
+            1,
+            196805
+          ]
+        }
+      ],
+      "open_sort_wrappers": [],
+      "array_sort_call_sites": [
+        {
+          "callee": "t.sort",
+          "span": [
+            1,
+            6681,
+            1,
+            6756
+          ],
+          "excerpt": "t.sort(function(n){return n.id==this.columnMap.io_type.id?1:-1}.bind(this))"
+        }
+      ],
+      "parser_errors": []
+    }
+  ]
+}

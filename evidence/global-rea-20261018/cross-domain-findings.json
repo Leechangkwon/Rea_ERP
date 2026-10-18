@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "scope": "Original source evidence usable beyond the existing inventory/purchasing/customizing focus, with explicit boundaries.",
+  "findings": [
+    {
+      "area": "application-bootstrap-and-navigation-infrastructure",
+      "status": "original-inert-static-evidence",
+      "finding": "Versioned module resolution, dependency collection and initializer strategy source are available; this is infrastructure evidence rather than an observed full-menu business implementation.",
+      "evidence": [
+        {
+          "source_sha256": "47d8626a9443d9cd8ab3e53bc46129438ce83e39ba8aa0821dd128a166db5b3e",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/47d8626a9443d9cd-ecount.browser.entry.10f53951.20.js",
+          "symbol": "loadV3ModulesAsync",
+          "callable_id": "callable:function:732:3494",
+          "span": [
+            1,
+            732,
+            1,
+            3494
+          ],
+          "call_count": 19,
+          "unknown_count": 18,
+          "catalog_artifact": "actions-47d8626a9443d9cd.json"
+        },
+        {
+          "source_sha256": "47d8626a9443d9cd8ab3e53bc46129438ce83e39ba8aa0821dd128a166db5b3e",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/47d8626a9443d9cd-ecount.browser.entry.10f53951.20.js",
+          "symbol": "resolveFetchFileUrl",
+          "callable_id": "callable:method:10241:10605",
+          "span": [
+            1,
+            10241,
+            1,
+            10605
+          ],
+          "call_count": 4,
+          "unknown_count": 4,
+          "catalog_artifact": "actions-47d8626a9443d9cd.json"
+        }
+      ]
+    },
+    {
+      "area": "login-and-authentication-ui",
+      "status": "original-inert-static-evidence",
+      "finding": "Login module contains popup/error/CAPTCHA and site-data/cookie-blocked branches. Actual authentication, credential handling, server policy and successful login were not executed or inferred.",
+      "evidence": [
+        {
+          "source_sha256": "fd048c85645cb2684a16e4e520abf3bf9e51f3731f662f489882389c38152167",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/fd048c85645cb268-app.login.erp_login.827a45ec.20.js",
+          "symbol": "checkCaptcha",
+          "callable_id": "callable:function:2517:3166",
+          "span": [
+            1,
+            2517,
+            1,
+            3166
+          ],
+          "call_count": 6,
+          "unknown_count": 6,
+          "catalog_artifact": "actions-fd048c85645cb268.json"
+        },
+        {
+          "source_sha256": "fd048c85645cb2684a16e4e520abf3bf9e51f3731f662f489882389c38152167",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/fd048c85645cb268-app.login.erp_login.827a45ec.20.js",
+          "symbol": "openERPErrorPopup",
+          "callable_id": "callable:function:9785:23955",
+          "span": [
+            1,
+            9785,
+            1,
+            23955
+          ],
+          "call_count": 58,
+          "unknown_count": 49,
+          "catalog_artifact": "actions-fd048c85645cb268.json"
+        },
+        {
+          "source_sha256": "fd048c85645cb2684a16e4e520abf3bf9e51f3731f662f489882389c38152167",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/fd048c85645cb268-app.login.erp_login.827a45ec.20.js",
+          "symbol": "checkSiteDataAndCookieBlocked",
+          "callable_id": "callable:function:4757:5465",
+          "span": [
+            1,
+            4757,
+            1,
+            5465
+          ],
+          "call_count": 6,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-fd048c85645cb268.json"
+        }
+      ]
+    },
+    {
+      "area": "shared-validation",
+      "status": "original-inert-static-evidence",
+      "finding": "Shared attribute module includes password, numeric/date and IP-format validation syntax; its presence does not establish server validation behavior or universal use.",
+      "evidence": [
+        {
+          "source_sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/0217bbe7fe883148-ecount.infra.attribute.85b62891.20.js",
+          "symbol": "validatePassword",
+          "callable_id": "callable:function:3611:5647",
+          "span": [
+            1,
+            3611,
+            1,
+            5647
+          ],
+          "call_count": 24,
+          "unknown_count": 29,
+          "catalog_artifact": "actions-0217bbe7fe883148.json"
+        },
+        {
+          "source_sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/0217bbe7fe883148-ecount.infra.attribute.85b62891.20.js",
+          "symbol": "checkIpFormat",
+          "callable_id": "callable:function:19693:20072",
+          "span": [
+            1,
+            19693,
+            1,
+            20072
+          ],
+          "call_count": 5,
+          "unknown_count": 6,
+          "catalog_artifact": "actions-0217bbe7fe883148.json"
+        },
+        {
+          "source_sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/0217bbe7fe883148-ecount.infra.attribute.85b62891.20.js",
+          "symbol": "checkDateFromTo",
+          "callable_id": "callable:function:9272:9702",
+          "span": [
+            1,
+            9272,
+            1,
+            9702
+          ],
+          "call_count": 7,
+          "unknown_count": 7,
+          "catalog_artifact": "actions-0217bbe7fe883148.json"
+        }
+      ]
+    },
+    {
+      "area": "shared-form-cache-and-print-models",
+      "status": "original-inert-static-evidence",
+      "finding": "Common formset source includes form cache registration, clear and view-model/print-list helpers; no original form rendering or printing was observed.",
+      "evidence": [
+        {
+          "source_sha256": "ab97e8aa154d0516d991481b9fdade7cb56d956087a000a9109cdd0296b2f15a",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/ab97e8aa154d0516-ecount.formset.-8545507540860893780.20.js",
+          "symbol": "addForm",
+          "callable_id": "callable:function:3261:3725",
+          "span": [
+            1,
+            3261,
+            1,
+            3725
+          ],
+          "call_count": 2,
+          "unknown_count": 2,
+          "catalog_artifact": "actions-ab97e8aa154d0516.json"
+        },
+        {
+          "source_sha256": "ab97e8aa154d0516d991481b9fdade7cb56d956087a000a9109cdd0296b2f15a",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/ab97e8aa154d0516-ecount.formset.-8545507540860893780.20.js",
+          "symbol": "clear",
+          "callable_id": "callable:function:3986:4121",
+          "span": [
+            1,
+            3986,
+            1,
+            4121
+          ],
+          "call_count": 0,
+          "unknown_count": 6,
+          "catalog_artifact": "actions-ab97e8aa154d0516.json"
+        },
+        {
+          "source_sha256": "ab97e8aa154d0516d991481b9fdade7cb56d956087a000a9109cdd0296b2f15a",
+          "source_path": ".artifacts/global-rea-20261018/restored-public-originals/ab97e8aa154d0516-ecount.formset.-8545507540860893780.20.js",
+          "symbol": "getXFormViewModelPrintList",
+          "callable_id": "callable:function:5969:7048",
+          "span": [
+            1,
+            5969,
+            1,
+            7048
+          ],
+          "call_count": 7,
+          "unknown_count": 12,
+          "catalog_artifact": "actions-ab97e8aa154d0516.json"
+        }
+      ]
+    },
+    {
+      "area": "production-bom-adjacent-candidate",
+      "status": "inventory-module-integration-boundary-only",
+      "finding": "Inventory usecase source constructs BOM lookup popup/action DTOs. It does not provide a standalone production workflow or private BOM expansion rules.",
+      "evidence": [
+        {
+          "source_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+          "source_path": ".artifacts/request-original/usecase.js",
+          "symbol": "GetListBOMRavelingProgram",
+          "callable_id": "callable:class:175558:177729",
+          "span": [
+            1,
+            175558,
+            1,
+            177729
+          ],
+          "call_count": 0,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-2a3c4db153644d85.json"
+        },
+        {
+          "source_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+          "source_path": ".artifacts/request-original/usecase.js",
+          "symbol": "GetListBOMRavelingProgram",
+          "callable_id": "callable:method:362732:362797",
+          "span": [
+            1,
+            362732,
+            1,
+            362797
+          ],
+          "call_count": 0,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-2a3c4db153644d85.json"
+        },
+        {
+          "source_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+          "source_path": ".artifacts/request-original/usecase.js",
+          "symbol": "GetApplyBomSettingProgram",
+          "callable_id": "callable:class:198928:199177",
+          "span": [
+            1,
+            198928,
+            1,
+            199177
+          ],
+          "call_count": 0,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-2a3c4db153644d85.json"
+        },
+        {
+          "source_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+          "source_path": ".artifacts/request-original/usecase.js",
+          "symbol": "GetApplyBomSettingProgram",
+          "callable_id": "callable:method:363002:363067",
+          "span": [
+            1,
+            363002,
+            1,
+            363067
+          ],
+          "call_count": 0,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-2a3c4db153644d85.json"
+        }
+      ]
+    },
+    {
+      "area": "sales-quotation-print-adjacent-candidate",
+      "status": "inventory-module-integration-boundary-only",
+      "finding": "Quotation print program passes slip identifiers and foreign-currency basic type to a print popup. Sales workflow and rendering output remain unobserved.",
+      "evidence": [
+        {
+          "source_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+          "source_path": ".artifacts/request-original/usecase.js",
+          "symbol": "OpenPrintQuotationSlipProgram",
+          "callable_id": "callable:class:177881:178775",
+          "span": [
+            1,
+            177881,
+            1,
+            178775
+          ],
+          "call_count": 0,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-2a3c4db153644d85.json"
+        },
+        {
+          "source_sha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+          "source_path": ".artifacts/request-original/usecase.js",
+          "symbol": "OpenPrintQuotationSlipProgram",
+          "callable_id": "callable:method:362798:362871",
+          "span": [
+            1,
+            362798,
+            1,
+            362871
+          ],
+          "call_count": 0,
+          "unknown_count": 0,
+          "catalog_artifact": "actions-2a3c4db153644d85.json"
+        }
+      ]
+    },
+    {
+      "area": "payment-and-electronic-approval-adjacent-candidates",
+      "status": "inventory-module-integration-boundary-only",
+      "finding": "Inventory action source constructs payment-popup and approval-slip arguments. Payment processing, accounting posting, approval state transitions and external transmission are unverified.",
+      "evidence": [
+        {
+          "source_sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+          "source_path": ".artifacts/request-original/actions.js",
+          "symbol": "_openV3SavePaymentPopup",
+          "callable_id": "callable:method:427996:428809",
+          "span": [
+            1,
+            427996,
+            1,
+            428809
+          ],
+          "call_count": 6,
+          "unknown_count": 6,
+          "catalog_artifact": "actions-e70f31a1ac77f70c.json"
+        },
+        {
+          "source_sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+          "source_path": ".artifacts/request-original/actions.js",
+          "symbol": "_openV3SavePaymentPopup",
+          "callable_id": "callable:method:473099:476613",
+          "span": [
+            1,
+            473099,
+            1,
+            476613
+          ],
+          "call_count": 15,
+          "unknown_count": 15,
+          "catalog_artifact": "actions-e70f31a1ac77f70c.json"
+        },
+        {
+          "source_sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+          "source_path": ".artifacts/request-original/actions.js",
+          "symbol": "getApprovalSlipInfo",
+          "callable_id": "callable:function:10822:11577",
+          "span": [
+            1,
+            10822,
+            1,
+            11577
+          ],
+          "call_count": 4,
+          "unknown_count": 6,
+          "catalog_artifact": "actions-e70f31a1ac77f70c.json"
+        }
+      ]
+    }
+  ],
+  "not_established": [
+    "Standalone accounting, payroll, groupware, production, bank or tax business semantics across the full ERP.",
+    "An exhaustive original UI button inventory, current visibility, popup layout or click outcomes.",
+    "Original ECOUNT private server behavior, authorization decisions or transactional invariants."
+  ]
+}

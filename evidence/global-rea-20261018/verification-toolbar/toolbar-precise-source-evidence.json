@@ -1,0 +1,4126 @@
+{
+  "schema": 1,
+  "method": "REA parser static property keys joined to actual REA callable/call/frontier IR by exact source span. Inert source only.",
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "sources": [
+    {
+      "source_sha256": "dcb3ec6130686b607a44ae538018693aa77876f7488569a9c4be196b8252e578",
+      "path": "$SCRATCH/barcode-toolbar-rea-20261018/xfm080p_02.1200061039448367638.20.js",
+      "entries": [
+        {
+          "symbol": "init",
+          "span": [
+            1,
+            285,
+            1,
+            357
+          ],
+          "callable_id": "callable:function:285:357",
+          "calls": [
+            {
+              "span": [
+                1,
+                296,
+                1,
+                334
+              ],
+              "callee": "this._super.init.apply",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                335,
+                1,
+                356
+              ],
+              "callee": "this.initProperties",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                296,
+                1,
+                318
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                335,
+                1,
+                354
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            365,
+            1,
+            407
+          ],
+          "callable_id": "callable:function:365:407",
+          "calls": [
+            {
+              "span": [
+                1,
+                376,
+                1,
+                406
+              ],
+              "callee": "this._super.render.apply",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                376,
+                1,
+                400
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onInitHeader",
+          "span": [
+            1,
+            421,
+            1,
+            681
+          ],
+          "callable_id": "callable:function:421:681",
+          "calls": [
+            {
+              "span": [
+                1,
+                436,
+                1,
+                455
+              ],
+              "callee": "n.notUsedBookmark",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                456,
+                1,
+                543
+              ],
+              "callee": "n.setTitle",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                597,
+                1,
+                658
+              ],
+              "callee": "t.push",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                659,
+                1,
+                679
+              ],
+              "callee": "n.add",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                436,
+                1,
+                453
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                456,
+                1,
+                466
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                597,
+                1,
+                603
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                659,
+                1,
+                664
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onInitContents",
+          "span": [
+            1,
+            697,
+            1,
+            1516
+          ],
+          "callable_id": "callable:function:697:1516",
+          "calls": [
+            {
+              "span": [
+                1,
+                734,
+                1,
+                745
+              ],
+              "callee": "t.toolbar",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                748,
+                1,
+                756
+              ],
+              "callee": "t.form",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                759,
+                1,
+                770
+              ],
+              "callee": "t.control",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                773,
+                1,
+                780
+              ],
+              "callee": "t.div",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                783,
+                1,
+                791
+              ],
+              "callee": "t.grid",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1478
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable(!0,0,0).setEventWidgetTriggerObj(this.pageEvents).setStyleBorderRemoveLeftRight(!0).setKeyColumn([\"COL_CD\"]).setColumnSortable(!1).setCustomRowCell(\"COL_CD\",this.setGridDataCustomColCd.bind(this)).setCustomRowCell",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1406
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable(!0,0,0).setEventWidgetTriggerObj(this.pageEvents).setStyleBorderRemoveLeftRight(!0).setKeyColumn([\"COL_CD\"]).setColumnSortable(!1).setCustomRowCell",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1340
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable(!0,0,0).setEventWidgetTriggerObj(this.pageEvents).setStyleBorderRemoveLeftRight(!0).setKeyColumn([\"COL_CD\"]).setColumnSortable",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1318
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable(!0,0,0).setEventWidgetTriggerObj(this.pageEvents).setStyleBorderRemoveLeftRight(!0).setKeyColumn",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1293
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable(!0,0,0).setEventWidgetTriggerObj(this.pageEvents).setStyleBorderRemoveLeftRight",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1259
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable(!0,0,0).setEventWidgetTriggerObj",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1217
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns(r).setEditable",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1197
+              ],
+              "callee": "i.setRowData(this.viewBag.InitDatas.RowData).setColumns",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1139,
+                1,
+                1183
+              ],
+              "callee": "i.setRowData",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1367,
+                1,
+                1405
+              ],
+              "callee": "this.setGridDataCustomColCd.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1437,
+                1,
+                1477
+              ],
+              "callee": "this.setGridDataCustomAscDesc.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1479,
+                1,
+                1515
+              ],
+              "callee": "n.addGrid",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                734,
+                1,
+                743
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                748,
+                1,
+                754
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                759,
+                1,
+                768
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                773,
+                1,
+                778
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                783,
+                1,
+                789
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1423
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1357
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1336
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1306
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1289
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1242
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1209
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1194
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1139,
+                1,
+                1151
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1367,
+                1,
+                1399
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1437,
+                1,
+                1471
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1479,
+                1,
+                1488
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onChangeControl",
+          "span": [
+            1,
+            1533,
+            1,
+            1545
+          ],
+          "callable_id": "callable:function:1533:1545",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "onInitFooter",
+          "span": [
+            1,
+            1559,
+            1,
+            1857
+          ],
+          "callable_id": "callable:function:1559:1857",
+          "calls": [
+            {
+              "span": [
+                1,
+                1577,
+                1,
+                1603
+              ],
+              "callee": "widget.generator.toolbar",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1606,
+                1,
+                1632
+              ],
+              "callee": "widget.generator.control",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1633,
+                1,
+                1847
+              ],
+              "callee": "t.addLeft(i.define(\"widget.button\",\"apply\").label(this.isFromInputSetupFlag?ecount.resource.BTN00065:ecount.resource.BTN00069).clickOnce()).addLeft",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1633,
+                1,
+                1772
+              ],
+              "callee": "t.addLeft",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1643,
+                1,
+                1771
+              ],
+              "callee": "i.define(\"widget.button\",\"apply\").label(this.isFromInputSetupFlag?ecount.resource.BTN00065:ecount.resource.BTN00069).clickOnce",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1643,
+                1,
+                1759
+              ],
+              "callee": "i.define(\"widget.button\",\"apply\").label",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1643,
+                1,
+                1676
+              ],
+              "callee": "i.define",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1781,
+                1,
+                1846
+              ],
+              "callee": "i.define(\"widget.button\",\"close\").label",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1781,
+                1,
+                1814
+              ],
+              "callee": "i.define",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1848,
+                1,
+                1856
+              ],
+              "callee": "n.add",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1577,
+                1,
+                1601
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1606,
+                1,
+                1630
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1633,
+                1,
+                1780
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1633,
+                1,
+                1642
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1643,
+                1,
+                1769
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1643,
+                1,
+                1682
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1643,
+                1,
+                1651
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1781,
+                1,
+                1820
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1781,
+                1,
+                1789
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1848,
+                1,
+                1853
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onLoadComplete",
+          "span": [
+            1,
+            1873,
+            1,
+            1885
+          ],
+          "callable_id": "callable:function:1873:1885",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "onFooterClose",
+          "span": [
+            1,
+            1900,
+            1,
+            1924
+          ],
+          "callable_id": "callable:function:1900:1924",
+          "calls": [
+            {
+              "span": [
+                1,
+                1911,
+                1,
+                1923
+              ],
+              "callee": "this.close",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1911,
+                1,
+                1921
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onFooterApply",
+          "span": [
+            1,
+            1939,
+            1,
+            2038
+          ],
+          "callable_id": "callable:function:1939:2038",
+          "calls": [
+            {
+              "span": [
+                1,
+                1950,
+                1,
+                1971
+              ],
+              "callee": "this.canSaveProcess",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2000,
+                1,
+                2017
+              ],
+              "callee": "this.actionSave",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2018,
+                1,
+                2036
+              ],
+              "callee": "this.actionApply",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1950,
+                1,
+                1969
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2000,
+                1,
+                2015
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2018,
+                1,
+                2034
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "ON_KEY_F8",
+          "span": [
+            1,
+            2049,
+            1,
+            2113
+          ],
+          "callable_id": "callable:function:2049:2113",
+          "calls": [
+            {
+              "span": [
+                1,
+                2060,
+                1,
+                2090
+              ],
+              "callee": "ecount.global.isDisableAlert",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2092,
+                1,
+                2112
+              ],
+              "callee": "this.onFooterApply",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2060,
+                1,
+                2088
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2092,
+                1,
+                2110
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onDropdownDefaultSettings",
+          "span": [
+            1,
+            2140,
+            1,
+            2408
+          ],
+          "callable_id": "callable:function:2140:2408",
+          "calls": [
+            {
+              "span": [
+                1,
+                2151,
+                1,
+                2407
+              ],
+              "callee": "this.openWindow",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2151,
+                1,
+                2166
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onGridRenderComplete",
+          "span": [
+            1,
+            2430,
+            1,
+            2674
+          ],
+          "callable_id": "callable:function:2430:2674",
+          "calls": [
+            {
+              "span": [
+                1,
+                2463,
+                1,
+                2533
+              ],
+              "callee": "ecount.page.popup.prototype.onGridRenderComplete.apply",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2534,
+                1,
+                2578
+              ],
+              "callee": "this.grid.settings().setEventFocusOnInit",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2534,
+                1,
+                2554
+              ],
+              "callee": "this.grid.settings",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2585,
+                1,
+                2607
+              ],
+              "callee": "this.grid.getRowList",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2608,
+                1,
+                2673
+              ],
+              "callee": "r.forEach",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2618,
+                1,
+                2672
+              ],
+              "callee": "function(n){this.setControlDefaultValue(n)}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2463,
+                1,
+                2517
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2534,
+                1,
+                2574
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2534,
+                1,
+                2552
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2585,
+                1,
+                2605
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2608,
+                1,
+                2617
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2618,
+                1,
+                2666
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onMessageHandler",
+          "span": [
+            1,
+            2692,
+            1,
+            2932
+          ],
+          "callable_id": "callable:function:2692:2932",
+          "calls": [
+            {
+              "span": [
+                1,
+                2854,
+                1,
+                2906
+              ],
+              "callee": "this.onAllSubmitSelf",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                2919,
+                1,
+                2931
+              ],
+              "callee": "t.callback",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2854,
+                1,
+                2874
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2919,
+                1,
+                2929
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "initProperties",
+          "span": [
+            1,
+            2948,
+            1,
+            3011
+          ],
+          "callable_id": "callable:function:2948:3011",
+          "calls": [
+            {
+              "span": [
+                1,
+                2988,
+                1,
+                3010
+              ],
+              "callee": "this.getSortCdOption",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                2988,
+                1,
+                3008
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "getSortCdOption",
+          "span": [
+            1,
+            3028,
+            1,
+            3427
+          ],
+          "callable_id": "callable:function:3028:3427",
+          "calls": [
+            {
+              "span": [
+                1,
+                3054,
+                1,
+                3202
+              ],
+              "callee": "this.columnList.where",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3210,
+                1,
+                3252
+              ],
+              "callee": "n.push",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3253,
+                1,
+                3414
+              ],
+              "callee": "i.forEach",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3263,
+                1,
+                3413
+              ],
+              "callee": "function(i){t+=1;var r=\"A\"+t.toString().padLeft(3,\"0\");n.where(function(n){return n[0]==i.realId}).length==0&&n.push([i.realId,i.title,r])}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3415,
+                1,
+                3426
+              ],
+              "callee": "n.sortBy",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3054,
+                1,
+                3075
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3210,
+                1,
+                3216
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3253,
+                1,
+                3262
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3263,
+                1,
+                3407
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3415,
+                1,
+                3423
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "setGridDataCustomColCd",
+          "span": [
+            1,
+            3451,
+            1,
+            3787
+          ],
+          "callable_id": "callable:function:3451:3787",
+          "calls": [
+            {
+              "span": [
+                1,
+                3563,
+                1,
+                3701
+              ],
+              "callee": "function(n,t){if(!$.isEmpty(t.newValue)){var i=this.contents.getGrid().grid,r=t.rowKey;this.setControlDefaultValue(t.rowItem)}}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3715,
+                1,
+                3783
+              ],
+              "callee": "function(n,t){t.isLastCell===!0&&this.setGridLastFocus()}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3563,
+                1,
+                3695
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3715,
+                1,
+                3777
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "setGridDataCustomAscDesc",
+          "span": [
+            1,
+            3813,
+            1,
+            4079
+          ],
+          "callable_id": "callable:function:3813:4079",
+          "calls": [
+            {
+              "span": [
+                1,
+                3999,
+                1,
+                4076
+              ],
+              "callee": "function(n,t){this.grid.setCell(\"SORT_DV_CD\",t.rowKey,t.newValue)}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3999,
+                1,
+                4070
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "setGridLastFocus",
+          "span": [
+            1,
+            4097,
+            1,
+            4152
+          ],
+          "callable_id": "callable:function:4097:4152",
+          "calls": [
+            {
+              "span": [
+                1,
+                4108,
+                1,
+                4151
+              ],
+              "callee": "this.footer.getControl(\"apply\").setFocus",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4108,
+                1,
+                4139
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4108,
+                1,
+                4148
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4108,
+                1,
+                4130
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "setControlDefaultValue",
+          "span": [
+            1,
+            4176,
+            1,
+            4392
+          ],
+          "callable_id": "callable:function:4176:4392",
+          "calls": [
+            {
+              "span": [
+                1,
+                4237,
+                1,
+                4256
+              ],
+              "callee": "$.isEmpty",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4272,
+                1,
+                4331
+              ],
+              "callee": "this.contents.getGrid().grid.setEditable",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4272,
+                1,
+                4295
+              ],
+              "callee": "this.contents.getGrid",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4332,
+                1,
+                4391
+              ],
+              "callee": "this.contents.getGrid().grid.setEditable",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4332,
+                1,
+                4355
+              ],
+              "callee": "this.contents.getGrid",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4196,
+                1,
+                4235
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4237,
+                1,
+                4246
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4272,
+                1,
+                4312
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4272,
+                1,
+                4293
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4332,
+                1,
+                4372
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4332,
+                1,
+                4353
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "actionApply",
+          "span": [
+            1,
+            4405,
+            1,
+            4919
+          ],
+          "callable_id": "callable:function:4405:4919",
+          "calls": [
+            {
+              "span": [
+                1,
+                4434,
+                1,
+                4456
+              ],
+              "callee": "this.grid.getRowList",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4459,
+                1,
+                4501
+              ],
+              "callee": "t.where",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4504,
+                1,
+                4527
+              ],
+              "callee": "this.getSaveSortData",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4593,
+                1,
+                4723
+              ],
+              "callee": "this.grid.setCellShowError",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4724,
+                1,
+                4807
+              ],
+              "callee": "this.grid.setCellFocus",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4809,
+                1,
+                4828
+              ],
+              "callee": "this.completeSave",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4851,
+                1,
+                4872
+              ],
+              "callee": "this.close.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4874,
+                1,
+                4898
+              ],
+              "callee": "this.sendMessage",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4899,
+                1,
+                4918
+              ],
+              "callee": "this.completeSave",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4434,
+                1,
+                4454
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4459,
+                1,
+                4466
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4504,
+                1,
+                4524
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4593,
+                1,
+                4619
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4634,
+                1,
+                4678
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4724,
+                1,
+                4746
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4761,
+                1,
+                4805
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4809,
+                1,
+                4826
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4851,
+                1,
+                4866
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4874,
+                1,
+                4890
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4899,
+                1,
+                4916
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "actionSave",
+          "span": [
+            1,
+            4931,
+            1,
+            5469
+          ],
+          "callable_id": "callable:function:4931:5469",
+          "calls": [
+            {
+              "span": [
+                1,
+                4960,
+                1,
+                4982
+              ],
+              "callee": "this.grid.getRowList",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4985,
+                1,
+                5027
+              ],
+              "callee": "i.where",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5030,
+                1,
+                5053
+              ],
+              "callee": "this.getSaveSortData",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5074,
+                1,
+                5093
+              ],
+              "callee": "this.completeSave",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5185,
+                1,
+                5468
+              ],
+              "callee": "ecount.common.api",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5286,
+                1,
+                5312
+              ],
+              "callee": "Object.toJSON",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5321,
+                1,
+                5414
+              ],
+              "callee": "function(){var t={data:n,callback:this.close.bind(this)};this.sendMessage(this,t)}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5424,
+                1,
+                5466
+              ],
+              "callee": "function(){this.completeSave()}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4960,
+                1,
+                4980
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4985,
+                1,
+                4992
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5030,
+                1,
+                5050
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5074,
+                1,
+                5091
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5185,
+                1,
+                5202
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5286,
+                1,
+                5299
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5321,
+                1,
+                5408
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5424,
+                1,
+                5460
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "getSaveSortData",
+          "span": [
+            1,
+            5486,
+            1,
+            6141
+          ],
+          "callable_id": "callable:function:5486:6141",
+          "calls": [
+            {
+              "span": [
+                1,
+                5504,
+                1,
+                5526
+              ],
+              "callee": "this.grid.getRowList",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5547,
+                1,
+                6127
+              ],
+              "callee": "n.forEach",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5557,
+                1,
+                6126
+              ],
+              "callee": "function(n){if(r.where(function(t){return t.COL_CD==n.COL_CD}).length>1)return t==0?(this.grid.setCellShowError(\"COL_CD\",n[ecount.grid.constValue.keyColumnPropertyName],{placement:\"top\",message:ecount.resource.MSG03976,showDirect:!0}),this.grid.setCellFocus(\"COL_CD\",n[ecount.grid.constValue.keyColumnPropertyName])):this.grid.setCellShowError(\"COL_CD\",n[ecount.grid.constValue.keyColumnPropertyName],{placement:\"top\",message:ecount.resource.MSG03976}),t=1,!0;t==0&&i.push({COL_CD:n.COL_CD,SORT_SNO:u++,TAB_CD:n.TAB_CD,SORT_DV_CD:n.SORT_DV_CD==\"B\"?\"D\":\"A\"})}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5504,
+                1,
+                5524
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5547,
+                1,
+                5556
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5557,
+                1,
+                6120
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "startSave",
+          "span": [
+            1,
+            6152,
+            1,
+            6181
+          ],
+          "callable_id": "callable:function:6152:6181",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "completeSave",
+          "span": [
+            1,
+            6195,
+            1,
+            6305
+          ],
+          "callable_id": "callable:function:6195:6305",
+          "calls": [
+            {
+              "span": [
+                1,
+                6206,
+                1,
+                6237
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6239,
+                1,
+                6286
+              ],
+              "callee": "this.footer.getControl(\"apply\").setAllowClick",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6239,
+                1,
+                6270
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6206,
+                1,
+                6228
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6239,
+                1,
+                6284
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6239,
+                1,
+                6261
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "canSaveProcess",
+          "span": [
+            1,
+            6321,
+            1,
+            6354
+          ],
+          "callable_id": "callable:function:6321:6354",
+          "calls": [],
+          "unknowns": []
+        }
+      ],
+      "declarations": [],
+      "routes": [
+        {
+          "route": "/ECERP/SVC/Popup/FM080P_02",
+          "span": [
+            1,
+            2172,
+            1,
+            2200
+          ]
+        },
+        {
+          "route": "/ECERP/SVC/Popup/FM080P_02",
+          "span": [
+            1,
+            2875,
+            1,
+            2903
+          ]
+        },
+        {
+          "route": "/SVC/Common/Form/SaveCofsMainsetInSort",
+          "span": [
+            1,
+            5208,
+            1,
+            5248
+          ]
+        }
+      ],
+      "shortcut_literals": [
+        "ON_KEY_F8"
+      ],
+      "has_local_F3_literal": false,
+      "parser_recovered_errors": []
+    },
+    {
+      "source_sha256": "f1c88733e46dcc471d07af161af6a7bf32426b5dc6c5731982ed8a455544d4a8",
+      "path": "$SCRATCH/barcode-toolbar-rea-20261018/barcodeverification.3840202323517767939.20.js",
+      "entries": [
+        {
+          "symbol": "init",
+          "span": [
+            1,
+            169,
+            1,
+            365
+          ],
+          "callable_id": "callable:function:169:365",
+          "calls": [
+            {
+              "span": [
+                1,
+                180,
+                1,
+                206
+              ],
+              "callee": "this.initDefaultPageData",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                207,
+                1,
+                245
+              ],
+              "callee": "this._super.init.apply",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                246,
+                1,
+                270
+              ],
+              "callee": "this.isPopupTypeWindow",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                272,
+                1,
+                364
+              ],
+              "callee": "this.ecRequire",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                180,
+                1,
+                204
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                207,
+                1,
+                229
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                246,
+                1,
+                268
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                272,
+                1,
+                286
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            373,
+            1,
+            642
+          ],
+          "callable_id": "callable:function:373:642",
+          "calls": [
+            {
+              "span": [
+                1,
+                400,
+                1,
+                440
+              ],
+              "callee": "this._super.render.apply",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                443,
+                1,
+                489
+              ],
+              "callee": "this.getComposite(\"prod\").getInputFormDetail",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                443,
+                1,
+                468
+              ],
+              "callee": "this.getComposite",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                618,
+                1,
+                641
+              ],
+              "callee": "this.resizeLayer",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                400,
+                1,
+                424
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                443,
+                1,
+                487
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                443,
+                1,
+                460
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                533,
+                1,
+                534
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                555,
+                1,
+                556
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                579,
+                1,
+                580
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                608,
+                1,
+                609
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                618,
+                1,
+                634
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "initDefaultPageData",
+          "span": [
+            1,
+            663,
+            1,
+            700
+          ],
+          "callable_id": "callable:function:663:700",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "initProperties",
+          "span": [
+            1,
+            716,
+            1,
+            3428
+          ],
+          "callable_id": "callable:function:716:3428",
+          "calls": [
+            {
+              "span": [
+                1,
+                817,
+                1,
+                870
+              ],
+              "callee": "this.pageOption.parentColumnMap.PROD_CD.toUpperCase",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                940,
+                1,
+                994
+              ],
+              "callee": "this.pageOption.parentColumnMap.PROD_DES.toUpperCase",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1055,
+                1,
+                1109
+              ],
+              "callee": "this.pageOption.parentColumnMap.SIZE_DES.toUpperCase",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1160,
+                1,
+                1209
+              ],
+              "callee": "this.pageOption.parentColumnMap.QTY.toUpperCase",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                1262,
+                1,
+                1312
+              ],
+              "callee": "this.pageOption.parentColumnMap.UQTY.toUpperCase",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                817,
+                1,
+                868
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                940,
+                1,
+                992
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1055,
+                1,
+                1107
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1160,
+                1,
+                1207
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                1262,
+                1,
+                1310
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "onInitGroupGridProd",
+          "span": [
+            1,
+            3449,
+            1,
+            4232
+          ],
+          "callable_id": "callable:function:3449:4232",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            3490,
+            1,
+            3772
+          ],
+          "callable_id": "callable:function:3490:3772",
+          "calls": [
+            {
+              "span": [
+                1,
+                3502,
+                1,
+                3566
+              ],
+              "callee": "eccomposite_v1.group.grid.prototype.render.apply",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3567,
+                1,
+                3607
+              ],
+              "callee": "$.isNull",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3662,
+                1,
+                3695
+              ],
+              "callee": "this.getComposite",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3702,
+                1,
+                3721
+              ],
+              "callee": "this.createLayout",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3722,
+                1,
+                3771
+              ],
+              "callee": "n.addGrid",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3502,
+                1,
+                3550
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3567,
+                1,
+                3575
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3662,
+                1,
+                3679
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3702,
+                1,
+                3719
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3722,
+                1,
+                3731
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "getInputFormDetail",
+          "span": [
+            1,
+            3792,
+            1,
+            4230
+          ],
+          "callable_id": "callable:function:3792:4230",
+          "calls": [
+            {
+              "span": [
+                1,
+                3926,
+                1,
+                3988
+              ],
+              "callee": "ecount.bitmask.decode",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                3991,
+                1,
+                4070
+              ],
+              "callee": "$.extend",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3926,
+                1,
+                3947
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                3985,
+                1,
+                3986
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3991,
+                1,
+                3999
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4040,
+                1,
+                4041
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4108,
+                1,
+                4109
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4135,
+                1,
+                4136
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                4161,
+                1,
+                4162
+              ],
+              "reason": "Computed member property is not a static string or number."
+            }
+          ]
+        },
+        {
+          "symbol": "onInitUnitWidgetFooterVerification",
+          "span": [
+            1,
+            4268,
+            1,
+            7376
+          ],
+          "callable_id": "callable:function:4268:7376",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "init",
+          "span": [
+            1,
+            4291,
+            1,
+            4366
+          ],
+          "callable_id": "callable:function:4291:4366",
+          "calls": [
+            {
+              "span": [
+                1,
+                4302,
+                1,
+                4365
+              ],
+              "callee": "eccomposite_v1.unit.widget.prototype.init.apply",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4302,
+                1,
+                4349
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "render",
+          "span": [
+            1,
+            4374,
+            1,
+            4649
+          ],
+          "callable_id": "callable:function:4374:4649",
+          "calls": [
+            {
+              "span": [
+                1,
+                4386,
+                1,
+                4451
+              ],
+              "callee": "eccomposite_v1.unit.widget.prototype.render.apply",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4452,
+                1,
+                4472
+              ],
+              "callee": "this.createLayout",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4488,
+                1,
+                4524
+              ],
+              "callee": "this.getColumnMapByKey",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4544,
+                1,
+                4596
+              ],
+              "callee": "this.getComposite",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4597,
+                1,
+                4623
+              ],
+              "callee": "this.saveShortCutKey",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4624,
+                1,
+                4648
+              ],
+              "callee": "this.createButtonEvent",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4386,
+                1,
+                4435
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4452,
+                1,
+                4469
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4488,
+                1,
+                4510
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4544,
+                1,
+                4561
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4597,
+                1,
+                4617
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4624,
+                1,
+                4646
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "createLayout",
+          "span": [
+            1,
+            4663,
+            1,
+            4864
+          ],
+          "callable_id": "callable:function:4663:4864",
+          "calls": [
+            {
+              "span": [
+                1,
+                4681,
+                1,
+                4707
+              ],
+              "callee": "widget.generator.control",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4708,
+                1,
+                4797
+              ],
+              "callee": "t.define(\"widget.button\",this.id).label",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4708,
+                1,
+                4741
+              ],
+              "callee": "t.define",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4826,
+                1,
+                4850
+              ],
+              "callee": "t.css",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4851,
+                1,
+                4863
+              ],
+              "callee": "n.addLeft",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4681,
+                1,
+                4705
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4708,
+                1,
+                4747
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4708,
+                1,
+                4716
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4826,
+                1,
+                4831
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4851,
+                1,
+                4860
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        },
+        {
+          "symbol": "execCreateComposite",
+          "span": [
+            1,
+            4885,
+            1,
+            4905
+          ],
+          "callable_id": "callable:function:4885:4905",
+          "calls": [],
+          "unknowns": []
+        },
+        {
+          "symbol": "_ON_CLICK",
+          "span": [
+            1,
+            4916,
+            1,
+            7374
+          ],
+          "callable_id": "callable:function:4916:7374",
+          "calls": [
+            {
+              "span": [
+                1,
+                4933,
+                1,
+                4964
+              ],
+              "callee": "this.gridComposite.getRowList",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4967,
+                1,
+                5065
+              ],
+              "callee": "v.where",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                4975,
+                1,
+                5064
+              ],
+              "callee": "function(n){return!$.isEmpty(n[this.gridComposite.getGridKeyCellData().name])}.bind",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5148,
+                1,
+                5290
+              ],
+              "callee": "this.gridComposite.setCellShowError",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5291,
+                1,
+                5357
+              ],
+              "callee": "this.gridComposite.setCellFocus",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5791,
+                1,
+                5988
+              ],
+              "callee": "i[t].push",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                5999,
+                1,
+                6033
+              ],
+              "callee": "Number",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6416,
+                1,
+                6508
+              ],
+              "callee": "r[t].push",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6519,
+                1,
+                6532
+              ],
+              "callee": "Number",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6577,
+                1,
+                6699
+              ],
+              "callee": "h.push",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6730,
+                1,
+                6844
+              ],
+              "callee": "h.push",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6867,
+                1,
+                6905
+              ],
+              "callee": "ecount.alert",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                6915,
+                1,
+                6983
+              ],
+              "callee": "this.gridComposite.getInputFormDetailByCellId",
+              "resolution": "unresolved",
+              "targets": []
+            },
+            {
+              "span": [
+                1,
+                7275,
+                1,
+                7373
+              ],
+              "callee": "this.openWindow",
+              "resolution": "unresolved",
+              "targets": []
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4933,
+                1,
+                4962
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4967,
+                1,
+                4974
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4975,
+                1,
+                5058
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5102,
+                1,
+                5146
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5148,
+                1,
+                5183
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5291,
+                1,
+                5322
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5497,
+                1,
+                5498
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5504,
+                1,
+                5531
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5563,
+                1,
+                5591
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5624,
+                1,
+                5652
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5684,
+                1,
+                5712
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5733,
+                1,
+                5761
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5766,
+                1,
+                5767
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5773,
+                1,
+                5774
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5781,
+                1,
+                5782
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5791,
+                1,
+                5800
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5793,
+                1,
+                5794
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5812,
+                1,
+                5839
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5852,
+                1,
+                5880
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5893,
+                1,
+                5921
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5929,
+                1,
+                5952
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5961,
+                1,
+                5985
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                5991,
+                1,
+                5992
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                5999,
+                1,
+                6005
+              ],
+              "reason": "Unresolved call target Number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6008,
+                1,
+                6031
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6122,
+                1,
+                6123
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6129,
+                1,
+                6156
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6188,
+                1,
+                6216
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6249,
+                1,
+                6277
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6309,
+                1,
+                6337
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6358,
+                1,
+                6386
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6391,
+                1,
+                6392
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6398,
+                1,
+                6399
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6406,
+                1,
+                6407
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6416,
+                1,
+                6425
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6418,
+                1,
+                6419
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6511,
+                1,
+                6512
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6519,
+                1,
+                6525
+              ],
+              "reason": "Unresolved call target Number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6550,
+                1,
+                6553
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6567,
+                1,
+                6570
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6577,
+                1,
+                6583
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6595,
+                1,
+                6598
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6622,
+                1,
+                6625
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6650,
+                1,
+                6653
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6674,
+                1,
+                6677
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6712,
+                1,
+                6715
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6730,
+                1,
+                6736
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6748,
+                1,
+                6751
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6775,
+                1,
+                6778
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6803,
+                1,
+                6806
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                6834,
+                1,
+                6837
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6867,
+                1,
+                6879
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                6915,
+                1,
+                6960
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                7275,
+                1,
+                7290
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ]
+        }
+      ],
+      "declarations": [
+        {
+          "kind": "type",
+          "name": "inventory",
+          "span": [
+            1,
+            1791,
+            1,
+            1807
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "group",
+          "span": [
+            1,
+            1927,
+            1,
+            1939
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "searchText",
+          "span": [
+            1,
+            2019,
+            1,
+            2036
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "sort",
+          "span": [
+            1,
+            2053,
+            1,
+            2064
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "barcode",
+          "span": [
+            1,
+            2081,
+            1,
+            2095
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "prodDeleteSelected",
+          "span": [
+            1,
+            2207,
+            1,
+            2232
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "carryIn",
+          "span": [
+            1,
+            2249,
+            1,
+            2263
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "prod",
+          "span": [
+            1,
+            2282,
+            1,
+            2293
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "prod_cd",
+          "span": [
+            1,
+            2318,
+            1,
+            2332
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "recalc_popup",
+          "span": [
+            1,
+            2412,
+            1,
+            2437
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "calc",
+          "span": [
+            1,
+            2440,
+            1,
+            2457
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "prod_information",
+          "span": [
+            1,
+            2475,
+            1,
+            2504
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "favoriteCode",
+          "span": [
+            1,
+            2507,
+            1,
+            2532
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "prod_manager",
+          "span": [
+            1,
+            2535,
+            1,
+            2560
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "formset_button",
+          "span": [
+            1,
+            2631,
+            1,
+            2652
+          ]
+        },
+        {
+          "kind": "type",
+          "name": "rebuildContent",
+          "span": [
+            1,
+            2727,
+            1,
+            2748
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "set_formset_button",
+          "span": [
+            1,
+            3328,
+            1,
+            3359
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "inputEvent",
+          "span": [
+            1,
+            3362,
+            1,
+            3385
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "permission",
+          "span": [
+            1,
+            3388,
+            1,
+            3411
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "route": "/ECERP/SVC/POPUP/BarcodeVerification",
+          "span": [
+            1,
+            1518,
+            1,
+            1556
+          ]
+        },
+        {
+          "route": "/ECERP/SVC/Popup/VerificationResult",
+          "span": [
+            1,
+            7296,
+            1,
+            7333
+          ]
+        }
+      ],
+      "shortcut_literals": [
+        "F8"
+      ],
+      "has_local_F3_literal": false,
+      "parser_recovered_errors": []
+    }
+  ]
+}

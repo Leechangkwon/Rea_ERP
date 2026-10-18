@@ -1,0 +1,95 @@
+{
+  "rea_version": "6.4.0",
+  "per_file_time_budget_seconds": 30,
+  "results": [
+    {
+      "rea_version": "6.4.0",
+      "sha256": "ace675a147272aa619292aa5f3d0847cb90af5db519bc3aefe97a36ef37ac9a2",
+      "bytes": 93751,
+      "parse_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 27179,
+      "scopes": 242,
+      "bindings": 797,
+      "callables": 129,
+      "call_sites": 1680,
+      "references": 4995,
+      "frontiers": 2187,
+      "call_resolution": {
+        "unresolved": 1669,
+        "exact": 11
+      },
+      "frontier_kinds": {
+        "dynamic-call": 1669,
+        "dynamic-property": 518
+      },
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      },
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "elapsed_ms": 886,
+      "semantic_status": "completed",
+      "target_executed": false,
+      "id": "ace675a147272aa6",
+      "original_paths": [
+        "barcode-shared-rea-20261018/bundle.inventorylib.common.6450304516276849014.20.js"
+      ],
+      "artifacts": "barcode-shared-rea-20261018/inputs/ace675a147272aa6",
+      "semantic_error": null
+    },
+    {
+      "rea_version": "6.4.0",
+      "sha256": "77c6889499bc6dd87df18b949fc3d2d3cfa8db4c39303db370b18940973eef11",
+      "bytes": 196812,
+      "parse_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 49357,
+      "scopes": 880,
+      "bindings": 1200,
+      "callables": 761,
+      "call_sites": 2951,
+      "references": 4823,
+      "frontiers": 3444,
+      "call_resolution": {
+        "unresolved": 2951
+      },
+      "frontier_kinds": {
+        "dynamic-call": 2951,
+        "dynamic-property": 493
+      },
+      "coverage": {
+        "status": "complete",
+        "omittedCount": 0
+      },
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "elapsed_ms": 1276,
+      "semantic_status": "completed",
+      "target_executed": false,
+      "id": "77c6889499bc6dd8",
+      "original_paths": [
+        "barcode-shared-rea-20261018/bundle.eccomposite_v1.inventory.unit.widget.contentsform.-6844791285962540802.20.js"
+      ],
+      "artifacts": "barcode-shared-rea-20261018/inputs/77c6889499bc6dd8",
+      "semantic_error": null
+    }
+  ]
+}

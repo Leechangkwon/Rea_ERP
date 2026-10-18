@@ -1,0 +1,19 @@
+{
+  "version": "0.29.0",
+  "scope": "Own single-metric purchase summary bar graph; category subset and single legend color.",
+  "source_basis": "Observed Filter/ApplyF8/Close and category/legend checkbox groups; new public GraphFilter body analyzed with actualREA.",
+  "selection": "Full axis tuple key, retains successful report order; unlike original caption-matching loops this does not merge repeated labels. Require category and one legend.",
+  "colors": "Own strict6hex legend color, in-memory staging copy. Original category color picker, palette and exact category/legend precedence remain unimplemented.",
+  "apply": "Immediate graph projection/rescaling; no reaggregation/query/document/stock/sequence/allocation/storage write. Full table and CSV stay unchanged. Print shows selected chart, selected/total counts and successful period/metric/basis/color.",
+  "cancel": "Button/Escape/drop edits destroy staged copy; own cancellation guarantee. Source explicitClose sends no message; alias/base-X/Escape original state restoration not established.",
+  "safety": "Old popup cannot apply after current result changes. F8 stays inside dialog; navigation/destroy closes it.",
+  "restore": "Clone selection keys/color separately from pending controls. Requery successful report; prune removed selected keys in BOTH actual graph and saved successful filter; do not reselect reappearing categories. If none remain, clear all report output. Normal fresh query resets all categories/defaultcolor.",
+  "legacy": "No graphSelection means all current categories and default blue. No stored record/schema change.",
+  "original_equivalence": false,
+  "remaining": [
+    "Category colors/palette and color precedence",
+    "Original dynamic message receiver/widget binding",
+    "Actual original settings popup/default/ranking controls",
+    "Original caption aggregation/renderers/backend/print parity"
+  ]
+}

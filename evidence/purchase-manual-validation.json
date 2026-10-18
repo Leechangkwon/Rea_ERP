@@ -1,0 +1,115 @@
+{
+  "version": "0.7.0",
+  "status": "passed",
+  "source": {
+    "manualDate": "2024-06-12",
+    "slides": 76,
+    "sha256": "0a9a8d67fc39fe4b24b39b4f8f59ca00aa96d35eaab8160272ba884cf62181c6"
+  },
+  "automated": {
+    "command": "npm test",
+    "checks": 505,
+    "groups": {
+      "menu": 10,
+      "work-tabs": 17,
+      "inventory": 31,
+      "entry-core": 17,
+      "entry-ui": 12,
+      "entry-tools": 14,
+      "entry-extra": 20,
+      "purchase-plan": 18,
+      "purchase-plan-ui": 6,
+      "item-registration": 35,
+      "item-integration": 8,
+      "inventory-modal": 24,
+      "item-list": 8,
+      "inventory-dom": 7,
+      "form-core": 18,
+      "form-dom": 14,
+      "gateway": 34,
+      "api-dom": 8,
+      "api-manual": 9,
+      "auth": 7,
+      "self-auth": 21,
+      "self-dom": 57,
+      "purchase-operations": 23,
+      "purchase-room-core": 40,
+      "purchase-process-data": 14,
+      "manual-simulation": 9,
+      "purchase-room-ui": 13,
+      "purchase-return-ui": 3,
+      "transfer-safety": 8
+    },
+    "logSha256": "b05178db0cb0e9c6e1e13f8a7433a7fe73adb13028177eb2f243b1c4a043c51e",
+    "postSuiteTargeted": [
+      "purchase-room-ui:13 passed after adding per-item side-by-side reconciliation values"
+    ]
+  },
+  "simulation": {
+    "scenarios": 9,
+    "operations": 56,
+    "processIdsCovered": [
+      "AST-01",
+      "AST-02",
+      "AST-03",
+      "CLS-01",
+      "CLS-02",
+      "CLS-03",
+      "CLS-04",
+      "CLS-05",
+      "CLS-06",
+      "CLS-07",
+      "CLS-08",
+      "CLS-09",
+      "ISS-01",
+      "ISS-02",
+      "ISS-03",
+      "ISS-04",
+      "PUR-01",
+      "PUR-02",
+      "PUR-03",
+      "PUR-04",
+      "REC-01",
+      "REC-02",
+      "REC-03",
+      "STK-01",
+      "STK-02",
+      "STK-03"
+    ],
+    "realExternalActions": {
+      "originalErpWrites": 0,
+      "emailsSent": 0,
+      "invoicesIssued": 0,
+      "paymentsSent": 0
+    }
+  },
+  "browser": {
+    "environment": "localhost 127.0.0.1:8782; loopback owner simulation; local app-ID login and synthetic browser data",
+    "passed": [
+      "v0.7.0 logged-in render",
+      "purchase inspection pass saved",
+      "RACK qty5 within accepted20 saved",
+      "independently entered synthetic statement/ledger/ERP matched 28 qty, 59000 supply, 5900 tax, 64900 total",
+      "reconciliation saved, reviewed and confirmed",
+      "390x844 viewport checklist checkbox saved; dialog width382.1875; no dialog overflow"
+    ],
+    "screenshots": [
+      ".artifacts/purchase-manual-reconciliation-070.jpg",
+      ".artifacts/purchase-manual-mobile-070.jpg"
+    ],
+    "notVerified": [
+      "real phone",
+      "physical printer or barcode scanner",
+      "real supplier mail send",
+      "actual tax issuance or payment",
+      "real hosted user business process"
+    ]
+  },
+  "reaEvidence": "evidence/purchase-manual-rea.json",
+  "boundaries": [
+    "Browser inventory and purchasing-room records stay in per-user localStorage; server API sandbox is separate.",
+    "Approval stages are local workflow records, not identity-verified multi-user electronic approval.",
+    "Physical FIFO notes do not implement financial FIFO costing.",
+    "Original manual and embedded company screenshots are excluded from tracked source and deployment."
+  ]
+}

@@ -1,0 +1,583 @@
+{
+  "schema": "plan-axis-code-name-order-retained82/v1",
+  "generated_at": "2026-10-18T10:18:26.467791+00:00",
+  "scope": "Next0.35 bounded retained82 source assessment. NoGET,newsemantics/retries,targetexecution,browser/privateAPI,app/priorcontract edits or tests.",
+  "answer": "The original UI confirms a distinct code-versus-code-name basis control for coded plan axes. Retained source exposes generic aggregate option/popup/serialization transport only; it does not identify its concrete field/value codes or actual ordering/grouping consumer. Basis↔direction mapping,validators,ties/locale and last-axis subtotal suppression remain unresolved external-control/backend boundaries.",
+  "current_original_UI": {
+    "source": "Parent original read-only UI messages; worker made no browser/runtime/API actions",
+    "page": {
+      "label": "발주계획현황",
+      "program": "E041015",
+      "navigation": "MENUTREE_002764",
+      "legacy": "ESG002R"
+    },
+    "observed_candidate_catalog": {
+      "heading": "집계조건",
+      "date": [
+        "일별",
+        "주차별",
+        "월별",
+        "분기별",
+        "반기별",
+        "연별"
+      ],
+      "발주요청": [
+        "담당자",
+        "창고",
+        "거래유형",
+        "관리항목"
+      ],
+      "partner": [
+        "거래처",
+        "거래처그룹1",
+        "거래처그룹2"
+      ],
+      "item": [
+        "품목명[규격]",
+        "품목그룹1",
+        "품목그룹2",
+        "품목그룹3"
+      ],
+      "project": [
+        "프로젝트",
+        "프로젝트그룹1",
+        "프로젝트그룹2"
+      ]
+    },
+    "aggregate_selection": [
+      "Initially2condition fields; choosing first 품목명[규격] immediately exposes third field.",
+      "Selected coded axis shows separate 코드순 button,direction ascending icon,subtotal icon."
+    ],
+    "single_axis_query": {
+      "headers": [
+        "품목명[규격]",
+        "수량",
+        "공급가액",
+        "부가세",
+        "합계"
+      ],
+      "generic_final_title_normalized": "합계",
+      "leaf_subtotal": "No additional non-grand title ending 계 observed in this single-axis query. This is not a universal last-axis suppression rule."
+    },
+    "basis_dropdown": {
+      "axis": "품목명[규격]",
+      "observed_entries": [
+        "코드순",
+        "코드명순"
+      ],
+      "initial_checked": "코드순",
+      "changed_button_label": "코드명순",
+      "selection_evidence": "Native AX anchor click had no effect; fresh DOM rectangle+coordinate selection changed displayed button label.",
+      "query_after_change": "Pending at request time; no actual sorted key/name sequence retained.",
+      "other_coded_axes": "Observed buttons default 코드순 in current session.",
+      "month_axis": "No code-order button observed.",
+      "distinct_from": "Separate direction button; no changed direction inferred from basis label change."
+    },
+    "data_and_write_boundary": "No company values retained; no original Save/Apply/main input rows; no worker GET/execution/browser/API/app/tests."
+  },
+  "program_binding": {
+    "facts": [
+      "E041015 and ESG002R literals are absent from retained82 exact discovery. Parent observation establishes their current page identity; no public page body/setup was newly captured.",
+      "The retained ESG002M planList input/list definition is a different identified source. Its predicates/columns are not reused as current ESG002R aggregate config.",
+      "V3 wrapper compatibility with the observed controls is static evidence, not identification of which wrapper/control variant is active."
+    ],
+    "missing": "Current ESG002R pageInfo.aggregateInfo,aggregateList,settingInfo.setOptions,typeMappings and actual control implementation."
+  },
+  "transport_fields": {
+    "field_assignment_status": "unresolved_external_control",
+    "candidate_names_only": [
+      "REPORT_SORT_INDEX",
+      "REPORT_SORT_TYPE",
+      "REPORT_SUBTOTAL_USE"
+    ],
+    "facts": [
+      "cmbSumFlagDate.onSetSearchParam clears these fields to empty string when base detail value1 is selected. This is their only exact named occurrence in retained82.",
+      "No source establishes which of SORT_INDEX/TYPE carries code-vs-name basis,which carries A/D direction,or possible value encodings. Names alone are not assigned semantics.",
+      "Generic search form/control serialize helpers carry fields through; dataViewType copies serialized REPORT_* to graph form-info request. This is not a semantic consumer/comparator or current plan query request.",
+      "New-type _setCondition transfers CONDITIONS, while aggregationType.createConditions copies CODE_DES,COL_CD,CONVERT_COL_NM,RESX_SUB_DES,DATA_TYPE1/2 from dynamic pivot metadata. No explicit basis/direction field appears in this returned projection."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onSetSearchParam": {
+        "symbol": "cmbSumFlagDate.onSetSearchParam",
+        "span": [
+          1,
+          21479,
+          1,
+          22703
+        ],
+        "offsets": [
+          21479,
+          22703
+        ],
+        "actual_REA_callable_id": "callable:function:21479:22703",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "cmbSumFlagDate._getParameter": {
+        "symbol": "cmbSumFlagDate._getParameter",
+        "span": [
+          1,
+          23649,
+          1,
+          23730
+        ],
+        "offsets": [
+          23649,
+          23730
+        ],
+        "actual_REA_callable_id": "callable:function:23649:23730",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "cmbSumFlagDate._getParameters": {
+        "symbol": "cmbSumFlagDate._getParameters",
+        "span": [
+          1,
+          23746,
+          1,
+          23870
+        ],
+        "offsets": [
+          23746,
+          23870
+        ],
+        "actual_REA_callable_id": "callable:function:23746:23870",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "cmbSumFlagDate._setCondition": {
+        "symbol": "cmbSumFlagDate._setCondition",
+        "span": [
+          1,
+          24931,
+          1,
+          25107
+        ],
+        "offsets": [
+          24931,
+          25107
+        ],
+        "actual_REA_callable_id": "callable:function:24931:25107",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "aggregationType.createConditions": {
+        "symbol": "aggregationType.createConditions",
+        "span": [
+          1,
+          50794,
+          1,
+          51212
+        ],
+        "offsets": [
+          50794,
+          51212
+        ],
+        "actual_REA_callable_id": "callable:function:50794:51212",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 3,
+        "direct_call_resolution": {
+          "unresolved": 3
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "aggregationType.onSetSearchParam": {
+        "symbol": "aggregationType.onSetSearchParam",
+        "span": [
+          1,
+          49229,
+          1,
+          50620
+        ],
+        "offsets": [
+          49229,
+          50620
+        ],
+        "actual_REA_callable_id": "callable:function:49229:50620",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "dataViewType._requestFormInfoFromSearchApi": {
+        "symbol": "dataViewType._requestFormInfoFromSearchApi",
+        "span": [
+          1,
+          252343,
+          1,
+          253154
+        ],
+        "offsets": [
+          252343,
+          253154
+        ],
+        "actual_REA_callable_id": "callable:function:252343:253154",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 12,
+        "direct_call_resolution": {
+          "unresolved": 12
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      }
+    }
+  },
+  "selection_protocol": {
+    "facts": [
+      "Legacy balanceCode_1..5 popup handlers supply selected axis metadata. _setBalanceCode sends FORM_TYPE,CONTROL_INDEX,REPORT_LIST entries{Index,Seq,Selected},IS_CONDITIONtrue,IS_TARGETfalse,IsUsingGroupColCdtrue.",
+      "This list describes axis selection and current selected candidate. It contains no explicitly named code/name basis,comparator,direction or locale field.",
+      "Wrappers pass pageOption.aggregateList as targetList and allow settings overrides; current selected template/server metadata can determine available coded/date controls.",
+      "The observed month-no-basis versus coded-axis-basis distinction is UI evidence. Retained wrapper does not establish a universal datatype-to-basis-button rule."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onInitControl": {
+        "symbol": "cmbSumFlagDate.onInitControl",
+        "span": [
+          1,
+          17559,
+          1,
+          18386
+        ],
+        "offsets": [
+          17559,
+          18386
+        ],
+        "actual_REA_callable_id": "callable:function:17559:18386",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "cmbSumFlagDate.onPopupHandler": {
+        "symbol": "cmbSumFlagDate.onPopupHandler",
+        "span": [
+          1,
+          18402,
+          1,
+          18912
+        ],
+        "offsets": [
+          18402,
+          18912
+        ],
+        "actual_REA_callable_id": "callable:function:18402:18912",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "cmbSumFlagDate._setBalanceCode": {
+        "symbol": "cmbSumFlagDate._setBalanceCode",
+        "span": [
+          1,
+          24179,
+          1,
+          24916
+        ],
+        "offsets": [
+          24179,
+          24916
+        ],
+        "actual_REA_callable_id": "callable:function:24179:24916",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 11,
+        "direct_call_resolution": {
+          "unresolved": 11
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "summaryCondition.onInitControl": {
+        "symbol": "summaryCondition.onInitControl",
+        "span": [
+          1,
+          26544,
+          1,
+          27159
+        ],
+        "offsets": [
+          26544,
+          27159
+        ],
+        "actual_REA_callable_id": "callable:function:26544:27159",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 1,
+        "direct_call_resolution": {
+          "unresolved": 1
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "summaryCondition._setBalanceCode": {
+        "symbol": "summaryCondition._setBalanceCode",
+        "span": [
+          1,
+          28472,
+          1,
+          29079
+        ],
+        "offsets": [
+          28472,
+          29079
+        ],
+        "actual_REA_callable_id": "callable:function:28472:29079",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 8,
+        "direct_call_resolution": {
+          "unresolved": 8
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "aggregationType.onInitControl": {
+        "symbol": "aggregationType.onInitControl",
+        "span": [
+          1,
+          46411,
+          1,
+          47177
+        ],
+        "offsets": [
+          46411,
+          47177
+        ],
+        "actual_REA_callable_id": "callable:function:46411:47177",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "rbReportType.onInitControl": {
+        "symbol": "rbReportType.onInitControl",
+        "span": [
+          1,
+          30510,
+          1,
+          31190
+        ],
+        "offsets": [
+          30510,
+          31190
+        ],
+        "actual_REA_callable_id": "callable:function:30510:31190",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 5,
+        "direct_call_resolution": {
+          "unresolved": 5
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      }
+    }
+  },
+  "defaults_and_validation": {
+    "facts": [
+      "코드순 is the observed initial checked basis for this item axis and other observed coded buttons in this session. Saved-user/global/program defaults and reset/persistence are not established.",
+      "Generic source defaultCompareValue0 concerns comparison period, not code/name basis. It must not be reused as a basis enum/default.",
+      "The actual basis dropdown click handler,value validation,required/unsupported combinations,empty name behavior and query application boundary are absent. No validator/effect is inferred from the visible label.",
+      "Source wrappers contain aggregate/pivot/graph guards, but none identified as code-versus-name validation. They are not used to claim this control rejects or accepts specific fields."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onInitControl": {
+        "symbol": "cmbSumFlagDate.onInitControl",
+        "span": [
+          1,
+          17559,
+          1,
+          18386
+        ],
+        "offsets": [
+          17559,
+          18386
+        ],
+        "actual_REA_callable_id": "callable:function:17559:18386",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "aggregationType.onInitControl": {
+        "symbol": "aggregationType.onInitControl",
+        "span": [
+          1,
+          46411,
+          1,
+          47177
+        ],
+        "offsets": [
+          46411,
+          47177
+        ],
+        "actual_REA_callable_id": "callable:function:46411:47177",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 7,
+        "direct_call_resolution": {
+          "unresolved": 7
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "rbReportType.onInitControl": {
+        "symbol": "rbReportType.onInitControl",
+        "span": [
+          1,
+          30510,
+          1,
+          31190
+        ],
+        "offsets": [
+          30510,
+          31190
+        ],
+        "actual_REA_callable_id": "callable:function:30510:31190",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 5,
+        "direct_call_resolution": {
+          "unresolved": 5
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      }
+    }
+  },
+  "grouping_identity_vs_order": {
+    "facts": [
+      "Visible button label change establishes selected UI state only; query-after-change was pending at task request. It does not show whether backend order,group identity,display caption or several fields change.",
+      "No retained V3 source maps this basis to original item/group SID,code,name/spec or name+spec projection. Same-code/different-name and same-name/different-code grouping are unverified.",
+      "Duplicate names,tie-break by code/stable input order,blank/null names,case/width/accent/Korean locale,natural numeric order and multi-axis precedence are unknown.",
+      "No ko locale or localeCompare comparator is identified for this V3 axis control. The retained V56 Flexion Kl string/Decimal comparison is a separate candidate path and is explicitly not promoted to ESG002R behavior.",
+      "Own implementation may sort existing own group buckets by own code or caption while preserving own identity,with explicit tie/blank/locale policy. That would be an independent policy,not original equivalence established here."
+    ],
+    "status": "source_consumer_unresolved"
+  },
+  "last_axis_subtotal_extension": {
+    "facts": [
+      "Owner observed single selected 품목명[규격] with subtotal icon,five result headers and only generic grand title 합계; no separate leaf subtotal title ending 계.",
+      "Retained V3 wrapper only clears REPORT_SUBTOTAL_USE in detail mode. It does not contain the active subtotal consumer/last-axis suppression algorithm,number accumulation or label renderer.",
+      "This one-axis observation cannot establish that the final axis is always suppressed in multi-axis reports,or that displayed icon flags alone determine emitted rows. Two/multi-axis comparisons are pending.",
+      "PurchaseV56 Flexion summary accumulator emission,selected-count colspan and show_subtotal filters are not reused to fill this legacy boundary."
+    ],
+    "refs": {
+      "cmbSumFlagDate.onSetSearchParam": {
+        "symbol": "cmbSumFlagDate.onSetSearchParam",
+        "span": [
+          1,
+          21479,
+          1,
+          22703
+        ],
+        "offsets": [
+          21479,
+          22703
+        ],
+        "actual_REA_callable_id": "callable:function:21479:22703",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      }
+    }
+  },
+  "separate_form_sort_popup": {
+    "facts": [
+      "V3 linkSort/linkSortTotal populate IsAppliedSort/MainsetOutSort and optional form/title/body/page/Columns configuration. Their dialog A/D fields are separate from per-axis 코드순/코드명순.",
+      "No proof binds legacy popup sort fields to this axis basis; they are excluded from field/value inference."
+    ],
+    "refs": {
+      "linkSort.onPreSearch": {
+        "symbol": "linkSort.onPreSearch",
+        "span": [
+          1,
+          69192,
+          1,
+          69635
+        ],
+        "offsets": [
+          69192,
+          69635
+        ],
+        "actual_REA_callable_id": "callable:function:69192:69635",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      },
+      "linkSortTotal.onPreSearch": {
+        "symbol": "linkSortTotal.onPreSearch",
+        "span": [
+          1,
+          73161,
+          1,
+          74130
+        ],
+        "offsets": [
+          73161,
+          74130
+        ],
+        "actual_REA_callable_id": "callable:function:73161:74130",
+        "semantic_IR": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json",
+        "direct_calls": 2,
+        "direct_call_resolution": {
+          "unresolved": 2
+        },
+        "basis": "retained complete full-original actualREA6.4; framework/dynamic calls not runtime binding"
+      }
+    }
+  },
+  "implementation_gate": {
+    "source_supported": [
+      "Show two observed basis labels as a distinct control from direction on observed coded plan axes.",
+      "Record initial 코드순 as session observation only; month lack of button as observed current UI."
+    ],
+    "needs_own_policy_or_more_evidence": [
+      "Actual serialized basis key/value and current program consumer binding",
+      "Query result order after changing basis,including repeated names,ties,empty labels and multi-axis precedence",
+      "Identity preservation versus name grouping",
+      "Default/reset/persistence scope",
+      "Multi-axis last-axis subtotal suppression and output row scope"
+    ],
+    "parity_limit": "Source-backed naming/state observation is stronger than absent UI, but original sorting/grouping/locale formula parity is not established."
+  },
+  "unknowns": [
+    "Current ESG002R public page/setup and concrete V3 aggregate control source.",
+    "Code/name basis field/value encodings and relation to REPORT_SORT_INDEX/TYPE versus direction.",
+    "Original apply/query timing,validation,default/persistence and graph-reset behavior specific to this basis change.",
+    "SID/code/name/spec grouping identity,duplicate-name/tie/null/locale and original server comparator.",
+    "Plan report subtotal last-axis suppression and backend calculations."
+  ],
+  "limits": [
+    "Retained header actualREA6.4 full static/semantic complete; dynamic/member calls remain unresolved and do not prove runtime invocation.",
+    "Corpus remains82/23,596,477B. Prior common OOM/Flexion timeout and all other partial states are preserved; no semantic retries.",
+    "No original company values/responses or app files modified. Previous0.34 contract SHA rechecked unchanged."
+  ],
+  "files": {
+    "manifest": "$SCRATCH/plan-axis-order-rea-20261018/source-manifest.json",
+    "owner_observations": "$SCRATCH/plan-axis-order-rea-20261018/owner-readonly-observations.json",
+    "source_spans": "$SCRATCH/plan-axis-order-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/plan-axis-order-rea-20261018/actual-rea-reference-index.json",
+    "82_discovery": "$SCRATCH/plan-axis-order-rea-20261018/corpus-discovery.json"
+  }
+}

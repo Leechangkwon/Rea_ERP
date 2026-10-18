@@ -1,0 +1,364 @@
+{
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "uikit",
+      "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "bytes": 756271,
+      "parse_error_count": 0,
+      "rows": [
+        {
+          "symbol": "updateHelperLocations",
+          "span": [
+            16,
+            372992,
+            16,
+            373343
+          ],
+          "offsets": [
+            413318,
+            413669
+          ],
+          "source": "options=>{let width=options.width||195,height=options.height||170,dragXtemp=(null==options?void 0:options.saturation)*width,dragYtemp=height-(null==options?void 0:options.value)*height,slideX=(null==options?void 0:options.hue)*width;return{dragX:Math.max(0,Math.min(width-8,dragXtemp-8)),dragY:Math.max(0,Math.min(width-8,dragYtemp-8)),slideX:slideX}}"
+        },
+        {
+          "symbol": "getColorInfo",
+          "span": [
+            16,
+            373357,
+            16,
+            373502
+          ],
+          "offsets": [
+            413683,
+            413828
+          ],
+          "source": "color=>{let colorInfo=tinycolor__default.default(color),hsv=colorInfo.toHsv();return{hue:hsv.h%360/360,saturation:hsv.s,value:hsv.v,alpha:hsv.a}}"
+        },
+        {
+          "symbol": "getColorData",
+          "span": [
+            16,
+            373516,
+            16,
+            373607
+          ],
+          "offsets": [
+            413842,
+            413933
+          ],
+          "source": "data=>tinycolor__default.default.fromRatio({h:data.hue,s:data.saturation,v:data.value,a:1})"
+        },
+        {
+          "symbol": "getPaletteColor",
+          "span": [
+            16,
+            373624,
+            16,
+            373696
+          ],
+          "offsets": [
+            413950,
+            414022
+          ],
+          "source": "hue=>tinycolor__default.default.fromRatio({h:hue,s:1,v:1}).toHexString()"
+        },
+        {
+          "symbol": "extractHexCode",
+          "span": [
+            16,
+            373712,
+            16,
+            373886
+          ],
+          "offsets": [
+            414038,
+            414212
+          ],
+          "source": "color=>{let hex_code=color;if(hex_code.startsWith(\"#\")&&(hex_code=hex_code.substring(1)),/^[A-Fa-f0-9]{3}$/.test(hex_code)||/^[A-Fa-f0-9]{6}$/.test(hex_code))return hex_code}"
+        },
+        {
+          "symbol": "parseCssToRgb",
+          "span": [
+            16,
+            373901,
+            16,
+            374303
+          ],
+          "offsets": [
+            414227,
+            414629
+          ],
+          "source": "css_color=>{if(\"undefined\"==typeof window||!window.document)return;let temp_el=document.createElement(\"span\");temp_el.style.cssText=\"position:fixed;left:-9999px;top:-9999px;visibility:hidden;\",temp_el.style.backgroundColor=css_color,window.document.body.appendChild(temp_el);let computed_style=window.getComputedStyle(temp_el),rgb_color=computed_style.backgroundColor;return temp_el.remove(),rgb_color}"
+        },
+        {
+          "symbol": "parseRgbToHex",
+          "span": [
+            16,
+            374318,
+            16,
+            374824
+          ],
+          "offsets": [
+            414644,
+            415150
+          ],
+          "source": "rgb_color=>{if(!rgb_color)return;let match=rgb_color.trim().match(/^rgba?\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*,\\s*(\\d+)\\s*(?:,\\s*([\\d.]+)\\s*)?\\)$/i);if(!match)return;let r=Math.max(0,Math.min(255,parseInt(match[1],10))),g=Math.max(0,Math.min(255,parseInt(match[2],10))),b=Math.max(0,Math.min(255,parseInt(match[3],10))),a=null!=match[4]?Math.max(0,Math.min(1,parseFloat(match[4]))):1;if(0===a)return\"transparent\";let toHex2=n=>n.toString(16).padStart(2,\"0\");return`#${toHex2(r)}${toHex2(g)}${toHex2(b)}`.toLowerCase()}"
+        },
+        {
+          "symbol": "parseCssToHex",
+          "span": [
+            16,
+            374839,
+            16,
+            374942
+          ],
+          "offsets": [
+            415165,
+            415268
+          ],
+          "source": "css_color=>{let rgb_color=parseCssToRgb(css_color),hex_color=parseRgbToHex(rgb_color);return hex_color}"
+        },
+        {
+          "symbol": "resolveCssToHex",
+          "span": [
+            16,
+            374959,
+            16,
+            375096
+          ],
+          "offsets": [
+            415285,
+            415422
+          ],
+          "source": "color=>{let hex_code=extractHexCode(color);if(hex_code)return`#${hex_code}`;let parsed_hex=parseCssToHex(color);return parsed_hex||color}"
+        },
+        {
+          "symbol": "PaletteMap",
+          "span": [
+            16,
+            375121,
+            16,
+            377123
+          ],
+          "offsets": [
+            415447,
+            417449
+          ],
+          "source": "function(props){let colorInfo=getColorInfo(props.color),colorPosition=updateHelperLocations(colorInfo),paletteColor=getPaletteColor(props.hue),paletteMapRef=React$1.useRef(null),colorChangedBySetHelper=React$1.useRef(!1),[isDragging,setIsDragging]=React$1.useState(!1),[gripPosition,setGripPosition]=React$1.useState({top:colorPosition.dragY.toString()+\"px\",left:colorPosition.dragX.toString()+\"px\"});React$1.useEffect(()=>{colorChangedBySetHelper.current||setGripPosition({top:colorPosition.dragY.toString()+\"px\",left:colorPosition.dragX.toString()+\"px\"})},[props.color]),React$1.useEffect(()=>{isDragging||(colorChangedBySetHelper.current=!1)},[isDragging]);let setHelper=e=>{let paletteMap=paletteMapRef.current;if(!paletteMap)return;let offset=$(paletteMap).offset(),dragX=Math.max(0,Math.min(e.pageX-(null==offset?void 0:offset.left),195)),dragY=Math.max(0,Math.min(e.pageY-(null==offset?void 0:offset.top),170)),saturation=dragX/195,value=(170-dragY)/170,newColor=getColorData({hue:props.hue,saturation:saturation,value:value});props.changeColor(newColor.toHexString());let position=updateHelperLocations({saturation,value}),newPosition={top:position.dragY.toString()+\"px\",left:position.dragX.toString()+\"px\"};setGripPosition(newPosition),colorChangedBySetHelper.current=!0,e.preventDefault()},handleMouseMove=React$1.useCallback(e=>{isDragging&&setHelper(e)},[isDragging]),handleMouseUp=React$1.useCallback(()=>{setIsDragging(!1)},[]);return React$1.useEffect(()=>(window.addEventListener(\"mousemove\",handleMouseMove),window.addEventListener(\"mouseup\",handleMouseUp),()=>{window.removeEventListener(\"mousemove\",handleMouseMove),window.removeEventListener(\"mouseup\",handleMouseUp)}),[handleMouseMove,handleMouseUp]),React__default.default.createElement(\"div\",{className:\"color-picker-palette-map\",style:{backgroundColor:paletteColor},onMouseDown:e=>{setIsDragging(!0),setHelper(e)},ref:paletteMapRef},React__default.default.createElement(\"div\",{className:\"palette-map-grip\",style:gripPosition}))}"
+        },
+        {
+          "symbol": "PaletteHue",
+          "span": [
+            16,
+            377149,
+            16,
+            378798
+          ],
+          "offsets": [
+            417475,
+            419124
+          ],
+          "source": "function(props){let colorPosition=updateHelperLocations({hue:props.hue}),paletteHueRangeRef=React$1.useRef(null),[isDragging,setIsDragging]=React$1.useState(!1),[gripPosition,setGripPosition]=React$1.useState({left:colorPosition.slideX.toString()+\"px\"});React$1.useEffect(()=>{let updateColorPosition=updateHelperLocations({hue:props.hue});setGripPosition({left:updateColorPosition.slideX.toString()+\"px\"})},[props.hue]);let setSlide=e=>{let paletteHueRange=paletteHueRangeRef.current;if(!paletteHueRange)return;let offset=$(paletteHueRange).offset(),dragX=Math.max(0,Math.min(e.pageX-(null==offset?void 0:offset.left),195)),hue=dragX/195;props.changeHue(hue);let colorInfo=getColorInfo(props.color),newColor=getColorData({hue,saturation:colorInfo.saturation,value:colorInfo.value});props.changeColor(newColor.toHexString());let updateColorPosition=updateHelperLocations({hue:hue});setGripPosition({left:updateColorPosition.slideX.toString()+\"px\"}),e.preventDefault()},handleMouseMove=React$1.useCallback(e=>{isDragging&&setSlide(e)},[isDragging]),handleMouseUp=React$1.useCallback(()=>{setIsDragging(!1)},[]);return React$1.useEffect(()=>(window.addEventListener(\"mousemove\",handleMouseMove),window.addEventListener(\"mouseup\",handleMouseUp),()=>{window.removeEventListener(\"mousemove\",handleMouseMove),window.removeEventListener(\"mouseup\",handleMouseUp)}),[handleMouseMove,handleMouseUp]),React__default.default.createElement(\"div\",{className:\"color-picker-palette-hue-range\",onMouseDown:e=>{setIsDragging(!0),setSlide(e)},ref:paletteHueRangeRef},React__default.default.createElement(\"div\",{className:\"palette-hue-range-grip\",style:gripPosition}))}"
+        },
+        {
+          "symbol": "PaletteValue",
+          "span": [
+            16,
+            378826,
+            16,
+            379769
+          ],
+          "offsets": [
+            419152,
+            420095
+          ],
+          "source": "function(props){var _props_color;let[inputValue,setInputValue]=React$1.useState(null===(_props_color=props.color)||void 0===_props_color?void 0:_props_color.substr(1));React$1.useEffect(()=>{var _props_color;setInputValue(null===(_props_color=props.color)||void 0===_props_color?void 0:_props_color.substr(1))},[props.color]);let style={backgroundColor:props.color};return React__default.default.createElement(\"div\",{className:\"palette-value\"},React__default.default.createElement(\"div\",{className:\"palette-value-display\",style:style}),React__default.default.createElement(\"div\",{className:\"palette-value-view\"},React__default.default.createElement(\"input\",{className:\"form-control\",maxLength:6,value:inputValue,onChange:e=>{setInputValue(e.target.value)},onBlur:e=>{let newColor=\"#\"+e.target.value;props.changeColor(newColor);let colorInfo=getColorInfo(newColor);colorInfo.saturation>0&&colorInfo.value>0&&props.changeHue(colorInfo.hue)}})))}"
+        },
+        {
+          "symbol": "PaletteButton",
+          "span": [
+            16,
+            379798,
+            16,
+            380082
+          ],
+          "offsets": [
+            420124,
+            420408
+          ],
+          "source": "function(props){return React__default.default.createElement(\"div\",{className:\"wrapper-toolbar text-right\"},React__default.default.createElement(\"button\",{className:\"btn btn-default btn-sm\",onClick:function(e){let event={...e,value:props.color};props.onClick(event)}},$Resx.rex00617))}"
+        },
+        {
+          "symbol": "ColorPicker",
+          "span": [
+            16,
+            380128,
+            16,
+            382398
+          ],
+          "offsets": [
+            420454,
+            422724
+          ],
+          "source": "function(props,ref){let hex_cache_ref=React$1.useRef(new Map),getHexColor=React$1.useCallback(color=>{let cached_hex_color=hex_cache_ref.current.get(color);if(cached_hex_color)return cached_hex_color;let resolved_hex_color=resolveCssToHex(color);return hex_cache_ref.current.set(color,resolved_hex_color),resolved_hex_color},[]),[color,setColor]=React$1.useState(()=>getHexColor(props.value)),[openPallete,setOpenPallete]=React$1.useState(props.isOpenPallete),layerApi=React$1.useContext(LayerApiContext),PresetComponent=props.PresetComponent,changeColor=color=>{setColor(getHexColor(color))},colorInfo=React$1.useMemo(()=>getColorInfo(color),[color]),[hue,setHue]=React$1.useState(colorInfo.hue),changeHue=hue=>{setHue(hue)},onChange=e=>{props.onChange(e),layerApi.close()};return React__default.default.createElement(\"ul\",{ref:ref,\"data-baseid\":props.id,className:\"dropdown-menu dropdown-menu-icon-list dropdown-menu-color-picker show\",onMouseEnter:props.onMouseEnter,onMouseLeave:props.onMouseLeave},React__default.default.createElement(\"li\",{className:\"dropdown-menu-text\"},React__default.default.createElement(\"div\",{className:\"wrapper-color-picker\"},PresetComponent&&React__default.default.createElement(PresetComponent,{color:color,changeColor:onChange}),React__default.default.createElement(\"div\",{className:\"color-picker-palette \"+(openPallete?\"\":\"hide \")},React__default.default.createElement(PaletteMap,{color:color,changeColor:changeColor,hue:hue}),React__default.default.createElement(PaletteHue,{color:color,changeColor:changeColor,changeHue:changeHue,hue:hue}),React__default.default.createElement(PaletteValue,{color:color,changeColor:changeColor,changeHue:changeHue}),React__default.default.createElement(PaletteButton,{color:color,onClick:onChange})))),React__default.default.createElement(\"li\",null,React__default.default.createElement(\"a\",{className:\"tool-color-more\",onClick:()=>{setOpenPallete(!openPallete)}},$Resx.rex02543)),props.useNoneColor&&React__default.default.createElement(\"li\",{className:`checked-item ${[\"transparent\",\"\"].includes(color)?\"active\":\"\"}`},React__default.default.createElement(\"a\",{className:\"tool-color-none\",onClick:()=>{setColor(\"transparent\"),props.onChange({value:\"transparent\"}),layerApi.close()}},$Resx.rex02545)))}"
+        },
+        {
+          "symbol": "PaletteMap.setHelper",
+          "span": [
+            16,
+            375795,
+            16,
+            376420
+          ],
+          "offsets": [
+            416121,
+            416746
+          ],
+          "source": "e=>{let paletteMap=paletteMapRef.current;if(!paletteMap)return;let offset=$(paletteMap).offset(),dragX=Math.max(0,Math.min(e.pageX-(null==offset?void 0:offset.left),195)),dragY=Math.max(0,Math.min(e.pageY-(null==offset?void 0:offset.top),170)),saturation=dragX/195,value=(170-dragY)/170,newColor=getColorData({hue:props.hue,saturation:saturation,value:value});props.changeColor(newColor.toHexString());let position=updateHelperLocations({saturation,value}),newPosition={top:position.dragY.toString()+\"px\",left:position.dragX.toString()+\"px\"};setGripPosition(newPosition),colorChangedBySetHelper.current=!0,e.preventDefault()}"
+        },
+        {
+          "symbol": "PaletteMap.handleMouseMove",
+          "span": [
+            16,
+            376457,
+            16,
+            376486
+          ],
+          "offsets": [
+            416783,
+            416812
+          ],
+          "source": "e=>{isDragging&&setHelper(e)}"
+        },
+        {
+          "symbol": "PaletteMap.handleMouseUp",
+          "span": [
+            16,
+            376535,
+            16,
+            376558
+          ],
+          "offsets": [
+            416861,
+            416884
+          ],
+          "source": "()=>{setIsDragging(!1)}"
+        },
+        {
+          "symbol": "PaletteMap.onMouseDown",
+          "span": [
+            16,
+            376973,
+            16,
+            377008
+          ],
+          "offsets": [
+            417299,
+            417334
+          ],
+          "source": "e=>{setIsDragging(!0),setHelper(e)}"
+        },
+        {
+          "symbol": "PaletteHue.setSlide",
+          "span": [
+            16,
+            377583,
+            16,
+            378117
+          ],
+          "offsets": [
+            417909,
+            418443
+          ],
+          "source": "e=>{let paletteHueRange=paletteHueRangeRef.current;if(!paletteHueRange)return;let offset=$(paletteHueRange).offset(),dragX=Math.max(0,Math.min(e.pageX-(null==offset?void 0:offset.left),195)),hue=dragX/195;props.changeHue(hue);let colorInfo=getColorInfo(props.color),newColor=getColorData({hue,saturation:colorInfo.saturation,value:colorInfo.value});props.changeColor(newColor.toHexString());let updateColorPosition=updateHelperLocations({hue:hue});setGripPosition({left:updateColorPosition.slideX.toString()+\"px\"}),e.preventDefault()}"
+        },
+        {
+          "symbol": "PaletteHue.handleMouseMove",
+          "span": [
+            16,
+            378154,
+            16,
+            378182
+          ],
+          "offsets": [
+            418480,
+            418508
+          ],
+          "source": "e=>{isDragging&&setSlide(e)}"
+        },
+        {
+          "symbol": "PaletteHue.handleMouseUp",
+          "span": [
+            16,
+            378231,
+            16,
+            378254
+          ],
+          "offsets": [
+            418557,
+            418580
+          ],
+          "source": "()=>{setIsDragging(!1)}"
+        },
+        {
+          "symbol": "PaletteHue.onMouseDown",
+          "span": [
+            16,
+            378638,
+            16,
+            378672
+          ],
+          "offsets": [
+            418964,
+            418998
+          ],
+          "source": "e=>{setIsDragging(!0),setSlide(e)}"
+        },
+        {
+          "symbol": "PaletteValue.onChange",
+          "span": [
+            16,
+            379547,
+            16,
+            379581
+          ],
+          "offsets": [
+            419873,
+            419907
+          ],
+          "source": "e=>{setInputValue(e.target.value)}"
+        },
+        {
+          "symbol": "PaletteValue.onBlur",
+          "span": [
+            16,
+            379589,
+            16,
+            379764
+          ],
+          "offsets": [
+            419915,
+            420090
+          ],
+          "source": "e=>{let newColor=\"#\"+e.target.value;props.changeColor(newColor);let colorInfo=getColorInfo(newColor);colorInfo.saturation>0&&colorInfo.value>0&&props.changeHue(colorInfo.hue)}"
+        },
+        {
+          "symbol": "PaletteButton.onClick",
+          "span": [
+            16,
+            379995,
+            16,
+            380063
+          ],
+          "offsets": [
+            420321,
+            420389
+          ],
+          "source": "function(e){let event={...e,value:props.color};props.onClick(event)}"
+        }
+      ]
+    }
+  ]
+}

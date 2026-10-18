@@ -1,0 +1,367 @@
+{
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "InventoryStatusUpdateDataModelResolver.OnExecuteAsync",
+          "span": [
+            776,
+            4,
+            860,
+            5
+          ],
+          "offsets": [
+            39404,
+            43952
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { vmc, payload, data_model, search_options, data_model_id, total_count, current_template_info, prev_template_info, data_view_format, } = dto;\n        if (data_model_id === undefined) {\n            return;\n        }\n        const program_context = this.execution_context.getProgramContext();\n        const dmc_map = program_context.data.dmc_map;\n        const _data_view_format = data_view_format || dto.search_dmc?.getValueByPropId('data_view_format');\n        if ((total_count ?? 0) >= 30 &&\n            _data_view_format?.is_graph &&\n            _.vIsEmpty(_data_view_format.setting?.comparatorColumn)) {\n            const status = await vmc.confirmAsync($Resx.rex03618);\n            if (!status) {\n                vmc.setPageState(\"search\" /* EN_CONST_ID.ISearchPageState */, (state) => {\n                    state.display_search_panel = true;\n                    state.display_search_button = false;\n                });\n                return;\n            }\n        }\n        // #region : UI 필터 사용 여부 판단\n        // 오천건 이상인지 판단\n        const search_limit_count = search_options?.limit;\n        const limit_count = program_context.sourceData.menu_attr?.page_size?.data.limit_count;\n        // UI 필터 레이어 사용 여부\n        const use_instant_layer = search_limit_count &&\n            limit_count &&\n            search_limit_count <= limit_count &&\n            search_limit_count > (total_count ?? 0);\n        // UI 필터 레이어 사용 불가능 한 경우 처리\n        if (!use_instant_layer) {\n            const instant_toolbar_data_model_id = 'instant_toolbar';\n            delete dmc_map[instant_toolbar_data_model_id];\n            const grid_request = this.execution_context.attr\n                .createRequestBuilder()\n                .setPAttrOwner(\"grid\" /* EN_P_ATTR_DETAIL_OWNER.grid */)\n                .build();\n            const grid_attributes = this.execution_context.attr.mget(grid_request);\n            if (grid_attributes.length > 0) {\n                const instant_dragdrop_attr = grid_attributes?.find((x) => x.attr_id == 'instant_dragdrop');\n                if (instant_dragdrop_attr && instant_dragdrop_attr.data) {\n                    instant_dragdrop_attr.data.use = false;\n                }\n                const pre_instant_data_handler_attr = grid_attributes?.find((x) => x.attr_id == common_.template_attrs.output.pre_instant_data_handler);\n                if (pre_instant_data_handler_attr) {\n                    pre_instant_data_handler_attr.data = {};\n                }\n                const instant_data_handler_attr = grid_attributes?.find((x) => x.attr_id == common_.template_attrs.output.instant_data_handler);\n                if (instant_data_handler_attr) {\n                    instant_data_handler_attr.data = {};\n                }\n            }\n        }\n        // #endregion\n        const grid_viewer_state = vmc.getViewerState({ data_model_id });\n        let preserve_viewer_state;\n        if (grid_viewer_state && !_data_view_format?.is_graph) {\n            const preserve_program = common$1.ProgramBuilder.create(\"common$SetPreserveViewerStateProgram\" /* EN_PROGRAM_ID.SetPreserveViewerStateProgram */, this.execution_context);\n            ({ preserve_viewer_state } = await preserve_program.executeAsync({\n                data_model_id,\n                list_viewer_state: grid_viewer_state,\n                template_unchange_tf: current_template_info?.sid == prev_template_info?.sid,\n                search_type: payload.search_type,\n            }));\n            if (_.vIsEquals(payload.search_type, 'MORE')) {\n                search_options.limit = payload.search_options.limit;\n                //정렬 초기화\n                delete search_options.sort;\n                vmc.setPageRuntime(\"ISortInfoRuntime\" /* EN_CONST_ID.ISortInfoRuntime */, undefined);\n            }\n        }\n        if (!preserve_viewer_state) {\n            preserve_viewer_state = {\n                [data_model_id]: {},\n            };\n        }\n        preserve_viewer_state[data_model_id][\"instant_layer_sate\" /* EN_CONST_ID.IGridViewerStateInstantLayer */] = { use: use_instant_layer };\n        // dmc rebuild program (= updateDataAsync 대체 프로그램)\n        const data_model_program = common$1.ProgramBuilder.create(\"common$DataModelRebuildProgram\" /* EN_PROGRAM_ID.DataModelRebuildProgram */, this.execution_context);\n        await data_model_program.executeAsync({\n            dmc_id: data_model_id,\n            xtemplate_info: dto.xtemplate_info,\n            template_set_sid: current_template_info?.sid,\n        });\n    }"
+        }
+      ]
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "createChartOption",
+          "span": [
+            8953,
+            0,
+            8991,
+            1
+          ],
+          "offsets": [
+            409865,
+            411354
+          ],
+          "source": "function createChartOption(platform_config, graphId = _.uniqueId('chart_')) {\n    const _platform_config = platform_config || {};\n    if (_platform_config.x1AxisList &&\n        !_platform_config.x2AxisList &&\n        _platform_config.y1AxisList &&\n        !_platform_config.y2AxisList) {\n        _platform_config.tooltipDataType = 'CATEGORY';\n    }\n    else {\n        _platform_config.tooltipDataType = 'LEGEND_TEXT';\n    }\n    if (_platform_config.x1AxisList &&\n        _platform_config.x2AxisList &&\n        _platform_config.y1AxisList &&\n        !_platform_config.y2AxisList) {\n        _platform_config.trandelineDataType = 'GROUPS';\n    }\n    else {\n        _platform_config.trandelineDataType = 'VALUES';\n    }\n    const chartOption = getChartOptionByMatrix({\n        config: _platform_config,\n        defaultConfig: ecount_browser_constant.ECChartDefaultConfig,\n        graphId,\n    });\n    // 페이지 그래프 id 로 selector 변경\n    chartOption.tooltipConfig.layoutSelector = `#${graphId}`;\n    if (!_.isEmpty(graphId)) {\n        chartOption.layoutSelector = `#${graphId}_ecChartLayout`;\n        if (chartOption.legendConfig) {\n            chartOption.legendConfig.layoutSelector = `#${graphId}_ecChartLegend`;\n        }\n    }\n    getChartOptionFilter({ chartOption, platform_config: _platform_config });\n    setChartOption({ chartOption, platform_config: _platform_config });\n    delete chartOption.legendConfig?.events;\n    delete chartOption.tooltipConfig?.events;\n    return chartOption;\n}"
+        },
+        {
+          "symbol": "getChartOptionByMatrix",
+          "span": [
+            8992,
+            0,
+            9026,
+            1
+          ],
+          "offsets": [
+            411355,
+            412615
+          ],
+          "source": "function getChartOptionByMatrix({ config, defaultConfig, graphId, }) {\n    const hasX2AxisData = !!(config.x2ColId && config.x2AxisList);\n    const hasY2AxisData = !!(config.y2ColId && config.y2AxisList);\n    const legendColors = _.cloneDeep(config.legendColors || defaultConfig.colors);\n    const categoryColors = config.categoryColors || undefined;\n    const result = {\n        graphId,\n        legendColors: legendColors,\n        categoryColors: categoryColors,\n        seriesColors: legendColors,\n        tooltipConfig: {},\n        datas: [],\n        legendConfig: {\n            shapeDatas: [],\n            textDatas: [],\n        },\n    };\n    //1*1\n    if (!hasX2AxisData && !hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getOnoByOneOptionOfECChart(config));\n    }\n    //1*2\n    if (!hasX2AxisData && hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getOnoByTwoOptionOfECChart(config));\n    }\n    //2*1\n    if (hasX2AxisData && !hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getTwoByOneOptionOfECChart(config));\n    }\n    //2*2\n    if (hasX2AxisData && hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getTwoByTwoOptionOfECChart(config));\n    }\n    return result;\n}"
+        },
+        {
+          "symbol": "getChartOptionFilter",
+          "span": [
+            9027,
+            0,
+            9180,
+            1
+          ],
+          "offsets": [
+            412616,
+            422569
+          ],
+          "source": "function getChartOptionFilter({ chartOption, platform_config, }) {\n    const _platform_config_config = platform_config || {};\n    const _filterData = platform_config.filterData;\n    /**\n     * 1. data filter\n     * 2. change data color\n     */\n    if (!_.isEmpty(_filterData)) {\n        switch (_platform_config_config.graphType) {\n            case 'pie':\n                {\n                    //category 제외\n                    const datas = [];\n                    _filterData?.checkedList.forEach(function (checkedData) {\n                        const checkedDataLastIndex = checkedData.lastIndexOf(ecount?.grid?.constValue?.rowKeySeparator);\n                        if (checkedDataLastIndex > -1) {\n                            const category = checkedData.substring(checkedDataLastIndex + 1);\n                            const categoryDataIndex = chartOption.datas.findIndex(function (data) {\n                                return category == data.category;\n                            });\n                            categoryDataIndex > -1 && datas.push(chartOption.datas.splice(categoryDataIndex, 1)[0]);\n                        }\n                    });\n                    chartOption.datas = datas;\n                    //legend 제외 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (!legendData.CHECKED) {\n                            const categoryDataIndex = chartOption.datas.findIndex(function (categoryData) {\n                                return categoryData.category == legendData.GROUPID;\n                            });\n                            categoryDataIndex > -1 && chartOption.datas.splice(categoryDataIndex, 1);\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            shapeDataIndex > -1 && chartOption.legendConfig.shapeDatas.splice(shapeDataIndex, 1);\n                            const textDataIndex = chartOption.legendConfig.textDatas.findIndex(function (textData) {\n                                return legendData.GROUPID == textData.groupId;\n                            });\n                            textDataIndex > -1 && chartOption.legendConfig.textDatas.splice(textDataIndex, 1);\n                        }\n                    });\n                    //legend 색상 변경 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (legendData.CHECKED && legendData.COLOR) {\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            if (shapeDataIndex > -1) {\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].strokeColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].fillColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapePositiveBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeNegativeBackgroundColor =\n                                    legendData.COLOR;\n                            }\n                            chartOption.datas.forEach(function (categoryData) {\n                                if (categoryData.category == legendData.GROUPID) {\n                                    categoryData.values.forEach(function (groupData) {\n                                        groupData.strokeColor = legendData.COLOR;\n                                        groupData.fillColor = legendData.COLOR;\n                                        groupData.shapeBackgroundColor = legendData.COLOR;\n                                        groupData.shapePositiveBackgroundColor = legendData.COLOR;\n                                        groupData.shapeNegativeBackgroundColor = legendData.COLOR;\n                                    });\n                                }\n                            });\n                        }\n                    });\n                }\n                break;\n            default:\n                {\n                    //category 제외\n                    _filterData?.categoryData.forEach(function (categoryData) {\n                        if (!categoryData.CHECKED) {\n                            const categoryDataIndex = chartOption.datas.findIndex(function (data) {\n                                return data.category == categoryData.SUB_GUBUN;\n                            });\n                            categoryDataIndex > -1 && chartOption.datas.splice(categoryDataIndex, 1);\n                        }\n                    });\n                    //legend 제외 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (!legendData.CHECKED) {\n                            chartOption.datas.forEach(function (categoryData) {\n                                const groupDataIndex = categoryData.values.findIndex(function (groupData) {\n                                    return legendData.GROUPID == groupData.groupId;\n                                });\n                                groupDataIndex > -1 && categoryData.values.splice(groupDataIndex, 1);\n                            });\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            shapeDataIndex > -1 && chartOption.legendConfig.shapeDatas.splice(shapeDataIndex, 1);\n                            const textDataIndex = chartOption.legendConfig.textDatas.findIndex(function (textData) {\n                                return legendData.GROUPID == textData.groupId;\n                            });\n                            textDataIndex > -1 && chartOption.legendConfig.textDatas.splice(textDataIndex, 1);\n                        }\n                    });\n                    //legend 색상 변경 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (legendData.CHECKED && legendData.COLOR) {\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            if (shapeDataIndex > -1) {\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].strokeColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].fillColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapePositiveBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeNegativeBackgroundColor =\n                                    legendData.COLOR;\n                            }\n                            chartOption.datas.forEach(function (categoryData) {\n                                const groupDataIndex = categoryData.values.findIndex(function (groupData) {\n                                    return legendData.GROUPID == groupData.groupId;\n                                });\n                                if (groupDataIndex > -1) {\n                                    categoryData.values[groupDataIndex].strokeColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].fillColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].shapeBackgroundColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].shapePositiveBackgroundColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].shapeNegativeBackgroundColor = legendData.COLOR;\n                                }\n                            });\n                        }\n                    });\n                    //category 색상 변경\n                    _filterData?.categoryData.forEach(function (categoryData) {\n                        if (categoryData.CHECKED && categoryData.COLOR) {\n                            const categoryDataIndex = chartOption.datas.findIndex(function (data) {\n                                return data.category == categoryData.SUB_GUBUN;\n                            });\n                            if (categoryDataIndex > -1) {\n                                chartOption.datas[categoryDataIndex].values.forEach(function (groupData) {\n                                    groupData.strokeColor = categoryData.COLOR;\n                                    groupData.fillColor = categoryData.COLOR;\n                                    groupData.shapeBackgroundColor = categoryData.COLOR;\n                                    groupData.shapePositiveBackgroundColor = categoryData.COLOR;\n                                    groupData.shapeNegativeBackgroundColor = categoryData.COLOR;\n                                });\n                            }\n                        }\n                    });\n                }\n                break;\n        }\n    }\n}"
+        },
+        {
+          "symbol": "GraphConfigBuilder.composePlatformConfig",
+          "span": [
+            30815,
+            4,
+            30832,
+            5
+          ],
+          "offsets": [
+            1384606,
+            1385407
+          ],
+          "source": "composePlatformConfig(axis_config) {\n        const platform_config = _.extend({}, this.graph_widget_config, axis_config);\n        // 비교대상 설정 - 상위 10개만, 하위 10개만\n        if (platform_config?.isShowHighest || platform_config?.isShowLowest) {\n            // pie 차트는 y1ColumnId 설정\n            if (platform_config.graphType === \"pie\" /* EN_GRAPH_TYPE.pie */) {\n                platform_config['comparatorPropName'] = platform_config?.y1ColumnId;\n            }\n            else {\n                platform_config['comparatorPropName'] = platform_config?.comparatorColumn;\n            }\n            // 집계 comparatorPropName 설정\n            if (this.is_aggregate) {\n                platform_config['comparatorPropName'] = platform_config?.y1ColumnId;\n            }\n        }\n        return platform_config;\n    }"
+        },
+        {
+          "symbol": "ConfigureGraphOptionsUserAction.executeAsync",
+          "span": [
+            56159,
+            26,
+            56257,
+            5
+          ],
+          "offsets": [
+            2635404,
+            2640986
+          ],
+          "source": "async (request) => {\n        const { vmc, owner, execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        // 페이지 기본 정보\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const search_data_model_id = search_attribute?.data_model_id.search;\n        const search_dmc = program_context.data.dmc_map[search_data_model_id];\n        // v3_menu_info\n        const v3_menu_info = program_context.sourceData.menu?.v3_menu_info;\n        const prg_id = v3_menu_info?.status?.prg_id;\n        const template_data_model_id = search_attribute?.data_model_id.template;\n        const template_dmc = program_context.data.dmc_map[template_data_model_id];\n        //집계\n        const aggregate_prop_id = search_dmc.getPropIdByReferType('aggregate');\n        const template_infos = program_context.sourceData.menu_attr?.template_info?.data;\n        const aggregate_key = search_dmc.getValueByPropId(aggregate_prop_id)?.aggregate_key?.key ??\n            _.vFirst(Object.keys(_.vSafe(template_infos, {})));\n        //유저가 조회중인 현재 양식의 sid\n        const current_template_info = template_dmc.getValueByPropId('applied_template');\n        const template = template_infos[aggregate_key].template_list.find((x) => x.sid === current_template_info);\n        const is_za_template = template?.is_za_template;\n        const screen_type = _.vSafe(template?.screen_type, \"print\" /* EN_SCREEN_TYPE.Print */);\n        //양식 정보 (X,Y축 검색조건 불러오기)\n        let form = request.vmc.getPageRuntime('formDesignData');\n        request.vmc.setPageRuntime('prev_template_info', current_template_info);\n        const prop_list_program = await common.ProgramBuilder.create(\"common$GetGraphColumnInfoProgram\" /* EN_PROGRAM_ID.GetGraphColumnInfoProgram */, request.execution_context);\n        form = await prop_list_program.executeAsync({\n            // dm_manager: request.dm_manager,\n            vmc: request.vmc,\n            current_template_info: current_template_info,\n            is_za_template,\n            screen_type,\n        });\n        if (_.vIsEmpty(form)) {\n            return;\n        }\n        request.vmc.setPageRuntime('formDesignData', form);\n        //5.0 화면 그릴 때 사용하는 pageRuntime을 null로 치환한다.\n        request.vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, null);\n        //------------------------------------------------------\n        // 양식데이터로 validate 체크 (그래프보기 제한되는 경우)\n        //------------------------------------------------------\n        const validator = await common.ProgramBuilder.create(\"common$GraphSettingValidatorAttrProgram\" /* EN_PROGRAM_ID.GraphSettingValidatorAttrProgram */, request.execution_context);\n        const is_valid = await validator.executeAsync({\n            vmc: request.vmc,\n            // dm_manager: request.dm_manager,\n            current_template_info: current_template_info,\n            is_za_template: is_za_template,\n            screen_type,\n            template_sub_type: template_infos[aggregate_key].template_sub_type,\n            menu_type: program_context.data.menu_type,\n            axis_info: form.axis_info,\n        });\n        if (is_valid === false) {\n            await request.vmc.alertAsync($Resx.rex10265);\n            return;\n        }\n        //------------------------------------------------------\n        // 그래프 보기 설정 팝업 호출\n        //------------------------------------------------------\n        const pageOption = {\n            axisInfo: form.axis_info,\n            graphSetting: template_dmc.getValueByPropId('data_view_format')?.setting,\n        };\n        const feature = request.execution_context.getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */);\n        const popup_result = await feature.openPopupAsync({\n            identifier: \"IConfigureGraphOptionsPage\" /* EN_PAGE_ID.IConfigureGraphOptionsPage */,\n            bizz_sid: program_context.data.bizz_sid,\n            param: {\n                from_program_id: prg_id,\n                pageOption: pageOption,\n            },\n        }, {});\n        // TODO GRAPH: 팝업 결과로 받아오는 그래프 설정 정보의 xAxis, yAxis 정보가 반대로 내려옴\n        // 소비처(ChartWidgetAstInterceptor)는 이와 무관하게 처리되어서 동작은 하나 추후 해당 팝업을 다른 소비처에서 호출시 문제 여지 있음\n        //------------------------------------------------------\n        // 그래프 설정 팝업창 동작 후 처리\n        //------------------------------------------------------\n        if (popup_result.message) {\n            popup_result.message.callback && popup_result.message.callback();\n            //TODO:SetPageRuntime or setValueByPropId 중 하나로 통일시켜야 함.\n            request.vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, popup_result.message.graphSetting);\n            request.vmc.setPageRuntime('isAppliedGraphOption', true);\n            if (popup_result.message.graphSetting?.graphTitle == undefined) {\n                const { bizz_type, menu_type } = program_context.data;\n                const header_data_model_id = common_$1.getHeaderModelId(bizz_type, menu_type);\n                const header_dmc = program_context.data.dmc_map[header_data_model_id];\n                const menu_display_attr = header_dmc\n                    .getAttrs()\n                    ?.filter((x) => x.prop_id == 'menu_name' && x.attr_id == 'display_name');\n                popup_result.message.graphSetting.graphTitle = menu_display_attr[0].data;\n            }\n            template_dmc?.setValueByPropId('data_view_format', {\n                setting: popup_result.message.graphSetting,\n                is_graph: true,\n            });\n        }\n        return;\n    }"
+        },
+        {
+          "symbol": "ConfigureGraphFilterUserAction.executeAsync",
+          "span": [
+            56268,
+            26,
+            56322,
+            5
+          ],
+          "offsets": [
+            2641917,
+            2644929
+          ],
+          "source": "async (request) => {\n        const { vmc, owner, execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const template_data_model_id = search_attribute?.data_model_id.template;\n        const template_dmc = program_context.data.dmc_map[template_data_model_id];\n        const data_view_format = template_dmc.getValueByPropId('data_view_format');\n        const setting = data_view_format?.setting;\n        if (!setting)\n            return;\n        const data_model_id = common_.CurrentUtil.getModelInfo(execution_context, \"status\" /* EN_MODEL_REFER_TYPE.Status */)\n            ?.model_id;\n        const { graph_config, platform_config, origin_graph_config } = vmc.getViewerStateWritable({\n            data_model_id,\n        });\n        const originDatas = origin_graph_config.datas;\n        const origin_legend_data = { legendData: origin_graph_config.legendConfig.textDatas };\n        const { legendData, categoryData, useYn } = getFilterData(_.extend({}, platform_config, graph_config), setting, originDatas, origin_legend_data);\n        //------------------------------------------------------\n        // 필터설정 팝업 호출\n        //------------------------------------------------------\n        const feature = execution_context.getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */);\n        const popup_result = await feature.openPopupAsync({\n            identifier: \"IConfigureGraphFilterPage\" /* EN_PAGE_ID.IConfigureGraphFilterPage */,\n            bizz_sid: program_context.data.bizz_sid,\n            param: {\n                legendData,\n                categoryData,\n                checkedList: graph_config.checkedList,\n                useYn: useYn,\n            },\n        }, {});\n        //------------------------------------------------------\n        // 필터설정 팝업창 동작 후 처리\n        //------------------------------------------------------\n        if (popup_result.message) {\n            const { checkedList, categoryData, legendData } = popup_result.message;\n            graph_config.filterData = popup_result.message;\n            const filter_graph_config = createChartOption(_.extend({}, platform_config, { filterData: popup_result.message }), graph_config.graphId);\n            filter_graph_config.checkedList = checkedList;\n            vmc.setViewerState({ data_model_id }, (viewer_state) => {\n                return {\n                    ...viewer_state,\n                    graph_config: _.extend(filter_graph_config, {\n                        checkedList: checkedList,\n                        categoryColors: _.map(categoryData, (data) => data.COLOR),\n                        legendColors: _.map(legendData, (data) => data.COLOR),\n                    }),\n                    is_reset_size: true,\n                };\n            });\n            popup_result.message.callback && popup_result.message.callback();\n        }\n        return;\n    }"
+        },
+        {
+          "symbol": "ChangeGraphSettingUserAction.executeAsync",
+          "span": [
+            61140,
+            26,
+            61156,
+            5
+          ],
+          "offsets": [
+            2882016,
+            2882872
+          ],
+          "source": "async (request) => {\n        const { vmc, owner, execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        // 그래프값 변경 owner\n        const data_view_format = owner.dmc?.getValueByPropId(owner.prop_id);\n        //generator 에서 사용하기 위해 추가\n        vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, data_view_format?.setting);\n        // 체크되어 있으면 종료, 체크해제면 hideError 진행\n        if (data_view_format?.is_graph) {\n            return;\n        }\n        // 집계 비교기간 유효성체크\n        const search_id = program_context.sourceData.menu_attr?.search?.data?.data_model_id.search;\n        const search_dmc = program_context.data.dmc_map[search_id];\n        const aggregate_prop_id = search_dmc.getPropIdByReferType('aggregate');\n        vmc.hideError({ dmc_id: search_id, prop_id: aggregate_prop_id });\n    }"
+        },
+        {
+          "symbol": "getFilterData",
+          "span": [
+            56327,
+            22,
+            56464,
+            1
+          ],
+          "offsets": [
+            2645188,
+            2650740
+          ],
+          "source": "(graphConfig, graphSetting, datas, origin_legend_data) => {\n    const legendData = [], categoryData = [], configColor = _.cloneDeep(graphConfig.seriesColors);\n    let useYn;\n    if (graphSetting?.graphType == 'bar' || graphSetting?.graphType == 'horizontalBar') {\n        useYn = true;\n    }\n    //범주 색지정\n    if (!graphConfig.categoryColors) {\n        graphConfig.categoryColors = [];\n    }\n    const vCategoryData = datas[0];\n    //범례 색지정\n    if (graphConfig.legendColors) {\n        vCategoryData.values.forEach(function (data, i) {\n            if (!graphConfig.legendColors[i]) {\n                graphConfig.legendColors[i] = configColor[i % configColor.length];\n            }\n        });\n    }\n    else {\n        graphConfig.legendColors = [];\n    }\n    switch (graphSetting?.graphType) {\n        case 'pie': {\n            //범례\n            const categoryCount = datas.length;\n            datas.forEach(function (categoryData, categoryDataIndex) {\n                if (categoryDataIndex == 0) {\n                    legendData.push({\n                        MAIN_GUBUN: $Resx.rex02523 || 'RES::범례',\n                        SUB_GUBUN: categoryData.category,\n                        COLOR: graphConfig.legendColors[categoryDataIndex],\n                        ID: categoryDataIndex,\n                        GROUPID: categoryData.category,\n                        ROW_CNT: categoryCount,\n                        DATA_TYPE: 2,\n                    });\n                }\n                else {\n                    legendData.push({\n                        MAIN_GUBUN: $Resx.rex02523 || 'RES::범례',\n                        SUB_GUBUN: categoryData.category,\n                        COLOR: graphConfig.legendColors[categoryDataIndex],\n                        ID: categoryDataIndex,\n                        GROUPID: categoryData.category,\n                        DATA_TYPE: 2,\n                    });\n                }\n            });\n            break;\n        }\n        default:\n            //범주\n            for (let i = 0, len = datas.length; i < len; i++) {\n                if (i == 0) {\n                    categoryData.push({\n                        MAIN_GUBUN: $Resx.rex02524 || 'RES::범주',\n                        SUB_GUBUN: datas[i].category,\n                        COLOR: graphConfig.categoryColors[i],\n                        ROW_CNT: len,\n                        DATA_TYPE: 1,\n                    });\n                }\n                else {\n                    categoryData.push({\n                        MAIN_GUBUN: $Resx.rex02524 || 'RES::범주',\n                        SUB_GUBUN: datas[i].category,\n                        COLOR: graphConfig.categoryColors[i],\n                        DATA_TYPE: 1,\n                    });\n                }\n            }\n            //2 * 1 matrix\n            if (graphConfig.x1AxisList && graphConfig.x2AxisList && !graphConfig.y2AxisList) {\n                //범례\n                for (let i = 0, len = vCategoryData.values.length; i < len; i++) {\n                    if (i == 0) {\n                        legendData.push({\n                            MAIN_GUBUN: $Resx.rex02523 || 'RES::범례',\n                            SUB_GUBUN: vCategoryData.values[i].groupId,\n                            COLOR: graphConfig.legendColors[i],\n                            ID: i,\n                            GROUPID: vCategoryData.values[i].groupId,\n                            ROW_CNT: len,\n                            DATA_TYPE: 2,\n                        });\n                    }\n                    else {\n                        legendData.push({\n                            MAIN_GUBUN: $Resx.rex02523 || 'RES::범례',\n                            SUB_GUBUN: vCategoryData.values[i].groupId,\n                            COLOR: graphConfig.legendColors[i],\n                            ID: i,\n                            GROUPID: vCategoryData.values[i].groupId,\n                            DATA_TYPE: 2,\n                        });\n                    }\n                }\n            }\n            else {\n                /*\n                1 * n matrix\n                2 * 2 matrix\n                */\n                //범례\n                for (let i = 0, len = vCategoryData.values.length; i < len; i++) {\n                    const legendTextData = origin_legend_data.legendData.find((data) => data.groupId == vCategoryData.values[i].groupId);\n                    if (i == 0) {\n                        legendData.push({\n                            MAIN_GUBUN: $Resx.rex02523 || 'RES::범례',\n                            SUB_GUBUN: (legendTextData && legendTextData.value) || '',\n                            COLOR: graphConfig.legendColors[i],\n                            ID: i,\n                            GROUPID: vCategoryData.values[i].groupId,\n                            ROW_CNT: len,\n                            DATA_TYPE: 2,\n                        });\n                    }\n                    else {\n                        legendData.push({\n                            MAIN_GUBUN: $Resx.rex02523 || 'RES::범례',\n                            SUB_GUBUN: (legendTextData && legendTextData.value) || '',\n                            COLOR: graphConfig.legendColors[i],\n                            ID: i,\n                            GROUPID: vCategoryData.values[i].groupId,\n                            DATA_TYPE: 2,\n                        });\n                    }\n                }\n            }\n            break;\n    }\n    return {\n        legendData: legendData,\n        categoryData: categoryData,\n        useYn: useYn,\n    };\n}"
+        }
+      ]
+    },
+    {
+      "id": "v3-header",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeFormSeq",
+          "span": [
+            1,
+            248385,
+            1,
+            248434
+          ],
+          "offsets": [
+            248385,
+            248434
+          ],
+          "source": "function(n){_.isEmpty(n.oldValue)||this._reset()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeFormType",
+          "span": [
+            1,
+            248452,
+            1,
+            248598
+          ],
+          "offsets": [
+            248452,
+            248598
+          ],
+          "source": "function(n){if(n.formType!=n.oldFormType){if(this.graphOption){var t=_.get(this.graphOption,\"formType\");if(t&&t==n.formType)return}this._reset()}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._reset",
+          "span": [
+            1,
+            250670,
+            1,
+            250931
+          ],
+          "offsets": [
+            250670,
+            250931
+          ],
+          "source": "function(){this.isAppliedGraphOption=!1;this.formDesignData=null;this.graphOption=null;this.myControl&&this.myControl.get(\"dataTypeLink\")&&(this.myControl.get(\"dataTypeLink\").removeClass(\"text-warning-inverse\"),this.myControl.get(\"dataTypeGraph\").setValue(\"\"))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onHeaderDataTypeLink",
+          "span": [
+            1,
+            251307,
+            1,
+            251542
+          ],
+          "offsets": [
+            251307,
+            251542
+          ],
+          "source": "function(){if(this.formDesignData){this.openGraphSetupSettingPopup();return}var n=this.getComposite(\"aggregationType\");if(n){this._requestFormInfo();return}if(this._getSumFlagComp()){this._checkSummary();return}this._requestFormInfo()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._requestFormInfo",
+          "span": [
+            1,
+            251560,
+            1,
+            252312
+          ],
+          "offsets": [
+            251560,
+            252312
+          ],
+          "source": "function(){var t=this.getComposite(\"outputFormManager\"),i=\"\",r=\"\",u=!1,n,f;t&&(n=t&&t.getNextFormInfo(),i=n.formType,r=n.formSeq,u=n.formSeq<1||n.formSeq>=1e3?!0:!1);this.settingInfo.getRequestFormInfo&&(n=this.settingInfo.getRequestFormInfo(),n&&(n.formType&&(i=n.formType),n.formSeq&&(r=n.formSeq),n.isFromZaOnly&&(u=n.isFromZaOnly)));f=Object.toJSON({Request:{FormType:i,FormSeq:r,ViewType:\"O\",IsFromZaOnly:u}});this.showProgressbarDelay();ecount.common.api({url:\"/SVC/Common/Form/GetXFormDesign\",ecPageID:this.ecPageID,progressbar:!0,data:f,success:function(n){this.hideProgressbarDelay();n.Data&&(this.formDesignData=n.Data,this.openGraphSetupSettingPopup())}.bind(this),error:function(n){this.hideProgressbarDelay();ecount.alert(n)}.bind(this)})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup",
+          "span": [
+            1,
+            253347,
+            1,
+            253925
+          ],
+          "offsets": [
+            253347,
+            253925
+          ],
+          "source": "function(n){var u,t;if(this._validate({formInfo:this.formDesignData})){var f={width:700,height:600,Request:{FromProgramId:this.pageOption.PROGRAM_ID},responseID:this.callbackID},i=_.cloneDeep(this._getFormColumns()),r=this.getComposite(\"gridCreateColumns\");r&&r.settingInfo.aggregationCriteriaItemInfo&&(i=r.getAggregationColumns(i));u=ecmodule.common.graph.getAxisData({columns:i});t={axisInfo:u,graphSetting:this.graphOption};_.isEmpty(n)||(t=_.extend(t,n));this.openWindow({url:\"/ECErp/SVC/Popup/GraphSetupSetting\",param:f,modal:!0,popupType:!1,additional:!1,pageOption:t})}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onMessageHandler_XGraphSetUpSetting",
+          "span": [
+            1,
+            254268,
+            1,
+            254504
+          ],
+          "offsets": [
+            254268,
+            254504
+          ],
+          "source": "function(n,t){_.isEmpty(t)||(this.graphOption=t.graphSetting,this.isAppliedGraphOption=!0,this.myControl&&this.myControl.get(\"dataTypeLink\")&&this.myControl.get(\"dataTypeLink\").addClass(\"text-warning-inverse\"),t.callback&&t.callback())}"
+        }
+      ]
+    },
+    {
+      "id": "v3-footer",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.init",
+          "span": [
+            1,
+            296491,
+            1,
+            296610
+          ],
+          "offsets": [
+            296491,
+            296610
+          ],
+          "source": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments);this.checkedList=null;this.filterSetting={}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.render",
+          "span": [
+            1,
+            296618,
+            1,
+            296742
+          ],
+          "offsets": [
+            296618,
+            296742
+          ],
+          "source": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n);this.createButtonEvent()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.createLayout",
+          "span": [
+            1,
+            296756,
+            1,
+            296915
+          ],
+          "offsets": [
+            296756,
+            296915
+          ],
+          "source": "function(n){var t=widget.generator.control();t.define(\"widget.button\",this.realId).label(this.settingInfo.label||ecount.resource.LBL19438).hide();n.addLeft(t)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.execCreateComposite",
+          "span": [
+            1,
+            296936,
+            1,
+            297178
+          ],
+          "offsets": [
+            296936,
+            297178
+          ],
+          "source": "function(){return this.pageOption.isFromApply?!1:this.pageOption.IsFromRef?!1:this.pageOption.isFromCS?!1:this.pageOption.isFromApprovalOutputApply?!1:this.pageOption.STETIsFromOrderMng&&[\"L\",\"V\"].contains(this.pageOption.STETLinkType)?!1:!0}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.onPostSearch",
+          "span": [
+            1,
+            297192,
+            1,
+            297311
+          ],
+          "offsets": [
+            297192,
+            297311
+          ],
+          "source": "function(n){if(this.checkedList=null,this.filterSetting={},n.isGraph())return this.buttonShow(n),!1;this.buttonHide(n)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter._ON_CLICK",
+          "span": [
+            1,
+            297322,
+            1,
+            297743
+          ],
+          "offsets": [
+            297322,
+            297743
+          ],
+          "source": "function(){var r=this.getComposite(\"dataViewType\"),t=r.getGraphSetting(),n,i;_.isEmpty(t)||(n={},this.filterSetting&&(n=_.extend(this.filterSetting,t)),n=ecmodule.common.graph.getFilterData({graphSetting:n}),i={width:380,height:420,legendData:n.legendData,categoryData:n.categoryData,checkedList:this.checkedList,useYn:n.useYn},this.openWindow({url:\"/ECErp/SVC/Popup/GraphFilter\",isChangePopupType:!1,modal:!0,param:i}))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter",
+          "span": [
+            1,
+            297773,
+            1,
+            298242
+          ],
+          "offsets": [
+            297773,
+            298242
+          ],
+          "source": "function(n,t){var r,i,u;this.checkedList=t.checkedList;r=this.getComposite(\"dataViewType\");i=r.getActivateGraph();this.filterSetting=_.extend(this.filterSetting,{legendColors:t.legendData.map(function(n){return n.COLOR}),categoryColors:t.categoryData.map(function(n){return n.COLOR})});u=ecmodule.common.graph.createGraphData({graphId:i.graphId,graphSetting:this.filterSetting,filterData:t});i.draw({rowData:i.getRowData(),graphData:u,graphSetting:this.filterSetting})}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T12:19:15.837115+00:00",
+  "scope": {
+    "task": "Current purchase list menu511 observed12headers+data-columnids;print/progress/creator/date/query source boundaries only",
+    "baseline86_fixed": {
+      "unique_bodies": 86,
+      "bytes": 25293345,
+      "static_complete": 84,
+      "static_partial": 2,
+      "semantic_complete": 79,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "new_GETs": 0,
+    "new_bodies": 0,
+    "new_semantic_runs_or_retries": 0,
+    "browser": 0,
+    "original_JS_execution": false,
+    "private_API_calls": 0,
+    "app_or_prior_contract_edits": false,
+    "tests": false
+  },
+  "answer": {
+    "status": "Current DOM→prop bindings known; PrintInfo Anchor/label/source dispatch found; final print action and backend/form semantics unknown",
+    "known": "Parent supplies exact12headers+prop IDs. Generic PrintInfo Anchor is clickable through print command/event; fixed display label and last-print tooltip differ from Boolean printed-status interpretation. Progress and confirmation are separately mapped/transmitted.",
+    "unknown": "Current print userAction ID/body/permissions/side effects,current runtime progress values,writer identity origin/snapshot behavior,current write-dtm format/zone and exact current network binding."
+  },
+  "parent_direct_DOM_evidence": {
+    "source": "Parent current read-only original menu511 DOM; worker did not browse,click or retain business values",
+    "header_prefix": "SR210_000000001_0_",
+    "header_suffix": "_head_cell",
+    "columns": [
+      {
+        "ordinal": 1,
+        "label": "선택",
+        "prop_id": null
+      },
+      {
+        "ordinal": 2,
+        "label": "일자-No.",
+        "prop_id": "inv_s$data_dt_no"
+      },
+      {
+        "ordinal": 3,
+        "label": "거래처명",
+        "prop_id": "inv_s$cust_nm"
+      },
+      {
+        "ordinal": 4,
+        "label": "사원(담당)명",
+        "prop_id": "emp$emp$cust_name"
+      },
+      {
+        "ordinal": 5,
+        "label": "창고명",
+        "prop_id": "wh$wh$wh_des"
+      },
+      {
+        "ordinal": 6,
+        "label": "품목명(요약)",
+        "prop_id": "inv_s$prod_summary"
+      },
+      {
+        "ordinal": 7,
+        "label": "상태",
+        "prop_id": "inv_s$progress_status"
+      },
+      {
+        "ordinal": 8,
+        "label": "금액합계",
+        "prop_id": "inv_s$amt"
+      },
+      {
+        "ordinal": 9,
+        "label": "인쇄",
+        "prop_id": "inv_s$print_info"
+      },
+      {
+        "ordinal": 10,
+        "label": "불러온전표",
+        "prop_id": "inv_s$to_slip_relation"
+      },
+      {
+        "ordinal": 11,
+        "label": "최초작성자",
+        "prop_id": "writer$user$uname"
+      },
+      {
+        "ordinal": 12,
+        "label": "최초작성일자",
+        "prop_id": "inv_s$write_dtm"
+      }
+    ],
+    "print_body": {
+      "structure": "A + SPAN",
+      "fixed_text_인쇄": true,
+      "linkPresent": true,
+      "clicked": false
+    },
+    "boundary": "DOM proves these current labels/prop identities and link shape; it is not a data payload,formatter definition or event execution trace."
+  },
+  "current_prop_interpretation": {
+    "direct": "Use observed prop IDs as stable evidence; do not replace employee/warehouse joins with guessed legacy EMP_DES/WH_DES properties.",
+    "date_no": "inv_s$data_dt_no is the displayed date-No property; its formatting/number padding and voucher-open event are external/current metadata here.",
+    "item_summary": "inv_s$prod_summary is observed; generic legacy mapping also maps MAPPER_PROD_DES to it. First-item/spec/count/aggregation construction is not shown.",
+    "amount": "inv_s$amt observed; quantity/full-vs-remaining,tax/FX/rounding/formula not established.",
+    "selection": "Header has null data-columnid; current checkbox renderer/key policy not assigned by inference."
+  },
+  "print_info_display_and_tooltip": {
+    "refs": [
+      "flexion::PrintInfo.qb",
+      "common::print_info$tooltip_message",
+      "common::createPrintInfoMessage"
+    ],
+    "display": "print_info_display_value returns empty only when state.hide_display_value===true; otherwise returns fixed resource rex00104. Parent observed current fixed text 인쇄. It does not print a boolean/count/last-print status value as the label.",
+    "data_shape": "Tooltip helper reads print_info[internal/print_datetime] and [internal/user]; C-Portal menu uses external/* instead. Missing datetime→empty message. Normal tooltip prefixes resource rex01148; C-Portal prefix is ◎ C-Portal.",
+    "formatting": "Tooltip timestamp is formatted through IValueFormatExecutorFeature$V56.executeValueFormatResolver using data_type $$datetime_timezone,then user/result are combined. Actual current actor/time were never read.",
+    "guard": "print_info$tooltip_message checks aliased data_dt key availability; absent key sets hide_display_value=true and returns. The helper delegates that alias-key check to shared function.",
+    "boundary": "PrintInfo contains print metadata and exposes an affordance. Source does not support treating this current cell as a simple printed/not-printed status column. Tooltip formatter is not evidence for creation-date column formatting."
+  },
+  "concrete_print_anchor_event_chain": [
+    {
+      "step": "View branch",
+      "refs": [
+        "flexion::PrintInfo.Fb.createView",
+        "flexion::PrintInfo.Mb.renderDefaultPrintInfo",
+        "flexion::PrintInfo.Pb.renderLabelPrintInfo",
+        "flexion::PrintInfo.Kb"
+      ],
+      "contract": "PRINT_INFO node has Label and Anchor views; default selects Anchor. Anchor renders ECDefaultPrintInfo with onClick; Label renders ECLabelPrintInfo without that local onClick. Current A+SPAN is compatible with Anchor,not proof of its final action ID."
+    },
+    {
+      "step": "Element supplier",
+      "refs": [
+        "flexion::PrintInfo.UI/fr",
+        "flexion::PrintInfo.UI/Le",
+        "uikit::Anchor",
+        "uikit::DefaultAnchor"
+      ],
+      "contract": "ECDefaultPrintInfo supplies tooltip and forwards label/onClick to generic Anchor. UIKit DefaultAnchor emits a with optional href and inner span for label. Click prevents default, then invokes callback only when not disabled,optionally debounced. Generic Flexion Anchor also maps Spacebar to onClick. Runtime disabled/layer/popover/metadata state was not inspected."
+    },
+    {
+      "step": "Command",
+      "refs": [
+        "flexion::PrintInfo.Mb.constructor",
+        "flexion::PrintInfo.Rb",
+        "flexion::PrintInfo.Lb.getEventCommandMap"
+      ],
+      "contract": "Anchor onClick dispatches CLICK_PRINT_INFO_ANCHOR_COMMAND with dataKey; eventHandler click map also names that command."
+    },
+    {
+      "step": "User action event boundary",
+      "refs": [
+        "flexion::PrintInfo.Hb"
+      ],
+      "contract": "FlexionAnchorPrintInfoPlugin registers command,sets is_shaded=true and dispatchByEventAsync({dataKey,eventType:print}). Current event binding/action payload/handler implementation and authorization are not captured."
+    }
+  ],
+  "print_not_promoted": {
+    "known": "Source establishes interactive generic anchor plumbing beyond plain text and explains current A+SPAN shape.",
+    "unknown": [
+      "Current print event userAction identifier,any override or disabled condition",
+      "Whether popup/preview/print/dialog/save/logging occurs and which records are selected",
+      "Print form/page/field permissions,original side effects and completion/error/close behavior",
+      "Original CSV/export representation of print_info"
+    ],
+    "separate": "A generic common PrintSlip action or legacy slipPrint cell having print in its name is not substituted for this current field event. No print command was executed."
+  },
+  "status_confirmation_distinction": {
+    "refs": [
+      "inventory::LegacyMasterMap.P_FLAG",
+      "inventory::LegacyMasterMap.GB_TYPE",
+      "inventory::SelectInventoryListProgram.onExecuteAsync",
+      "common::createProgressStatusRunTime",
+      "common::progress_status$layer_props",
+      "common::progress_status$display_state"
+    ],
+    "current_column": "Parent current 状態/상태 column prop is inv_s$progress_status.",
+    "mapping": "A retained legacy master/XForm transformation maps P_FLAG→inv_s$progress_status separately from GB_TYPE→inv_s$confirm_type. This mapping is inside ContractOutProcTransformUserAction.getPropsMapByTransform,not a current list formatter; it corroborates distinct schema concepts without proving current runtime values.",
+    "query": "Generic V56 SelectInventoryListProgram also sends additional.progress_status and additional.confirm_type separately.",
+    "runtime": "Common runtime builder filters enabled tab metadata,uses confirmation enum N=UnConfirm/Y=Confirm for settable roots and child actions with sid/code/name/confirm_type. Current custom progress labels/IDs/tab metadata are absent; do not interpret raw progress status as a confirmation Boolean.",
+    "display_guard_scope": "progress_status$display_state can hide the field only in Input/upload target-model context when bizz.use_confirm===true. This rule is not applied to current list by that branch.",
+    "layer_items": "Layer items come from IRelatedProgressStatusRuntime[prop_id] or IProgressStatusRuntime; current values/labels/permissions not captured.",
+    "unknown": "Current status enumeration,render text/colors,comparison with order completion/approval/confirmation,click behavior and state transition permissions. Own status policy remains separate."
+  },
+  "creator_creation_date_source": {
+    "refs": [
+      "inventory::LegacyMasterMap.WRITER_ID",
+      "inventory::LegacyMasterMap.WDATE",
+      "inventory::LegacyMasterMap.MAPPER_WRITE_DT",
+      "inventory::LegacyMasterMap.MAPPER_WRITER_ID",
+      "inventory::LegacyMasterMap.LAST_EDITOR_ID"
+    ],
+    "direct_current_DOM": "Current first-writer header→writer$user$uname; first-write-date header→inv_s$write_dtm. Last editor is not a header in the supplied12columns.",
+    "corroborating_legacy_map": "Within the separate ContractOutProcTransform master mapping, WRITER_ID/MAPPER_WRITER_ID→writer$user$uname;WDATE/MAPPER_WRITE_DT→inv_s$write_dtm;LAST_EDITOR_ID→updater$user$uname. This is conversion metadata,not original business records or current query execution.",
+    "not_inferred": [
+      "Whether writer name is captured at creation or resolved from current user master",
+      "Historical rename/inactive/deleted actor behavior,IDs/fallback/permission masks",
+      "Creation date timezone/locale/seconds/date-only formatting,tenant/user offsets or Excel serialization",
+      "Current session user is the original creator",
+      "print_info tooltip datetime format also applies to write_dtm"
+    ],
+    "timeformat_boundary": "Current creation-date data-type/value_format/form attributes and a masked display-format observation were not supplied. Exact current format and timezone remain unknown.",
+    "own_policy": "Own persisted creator/timestamp and documented missing-legacy fallback are independent policies,not evidence of original identity/date equivalence."
+  },
+  "loaded_slip_and_relation_display": {
+    "ref": "common::NumericInterceptor.afterConvert",
+    "current_prop": "inv_s$to_slip_relation",
+    "contract": "For refer_type slip_relation/to_slip_relation, generic NumericInterceptor sets warning-inverse when numeric value>0; display label is fixed resource rex00123 (comment calls it 조회) when alias-key checks allow it,otherwise empty. Thus raw relation count need not be the visible text.",
+    "boundary": "Current field data-type/refer-type/runtime alias configuration and link userAction were not read; current loaded-slip popup/count/row query/delete behavior not established. No relation action executed."
+  },
+  "current_query_and_form_binding": {
+    "refs": [
+      "purchases-list-wrapper::PurchasesListPage.page_impl",
+      "inventory::SelectInventoryListProgram.onExecuteAsync",
+      "inventory::SelectInventoryListProgram._checkUseStatusType"
+    ],
+    "page_wrapper": "Retained PurchasesListPage is empty BasePage decorated with IPurchasesListPage,setup IGetInventorySetupProgram,data_model IGetInventoryDataModelProgram. It contains no local12column schema or print-event binding.",
+    "compatible_list_pipeline": "Retained SelectInventoryListProgram calls common DataModelModifierForSearchConditionProgram with search DMC and sends conditions/sorts/groups,bizz_sid,page/limit,quick filter,progress_status/confirm_type/use_status_type,template_set_sid,current template titles to /ec56/api/inventory/action/SelectInventorySearchListAction. Returns result.data and result.total_number.",
+    "guards": "use_status_type is based on presence of status_type prop. Extra search options can override additional fields. Excel-convert path additionally records security history in finally; not invoked here.",
+    "binding_limit": "Current menu511 runtime setup/model IDs,bizz/template metadata,event attributes and original network request were not captured. Treat this as retained compatible query implementation,not a claim this exact request ran.",
+    "form": "Observed SR210_000000001_0_ header prefix establishes current form-instance DOM identity only. It does not fix all users/forms,widths/formatting/permissions or imply original exported schema.",
+    "unknown": "Current SQL/joins,amount/item-summary construction,price/field masks,server defaults/paging,source creator identity/date formatting and actual print binding."
+  },
+  "owner0_42_policy_record": {
+    "source": "Parent implementation intent; no app changes by worker",
+    "print_column": "Use fixed disabled 인쇄 button with unverified-connection title; remove misleading 미기록/boolean-print-state display; own CSV value 미지원.",
+    "boundary": "This is explicit own unsupported interaction/export policy. Original current cell is an anchor and generic source dispatches print,so own disabledbutton is not claimed equivalent. Original print/CSV event remains unknown.",
+    "other_columns": "Observed stable prop IDs/headers support own display mapping; own status/amount/creator/date policies remain documented separately."
+  },
+  "analysis_limits": {
+    "baseline86": {
+      "unique_bodies": 86,
+      "bytes": 25293345,
+      "static_complete": 84,
+      "static_partial": 2,
+      "semantic_complete": 79,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "common": "Retained full static complete; full semantic2GiB OOM preserved. This report uses original AST spans only for common symbols; no new excerpt semantic or full retry.",
+    "Flexion": "Retained full static complete; full semantic30s timeout preserved; PrintInfo refs are static AST only.",
+    "inventory_uikit_wrapper": "Existing completed full semantic IR reused. Their dynamic calls/metadata are not runtime proofs.",
+    "storage": "All new research artifacts in scratch only. No source payload,company records,credentials,original API or source execution."
+  },
+  "files": {
+    "source_manifest": "$SCRATCH/purchase-list-columns-rea-20261018/source-manifest.json",
+    "source_AST": "$SCRATCH/purchase-list-columns-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/purchase-list-columns-rea-20261018/actual-rea-reference-index.json"
+  }
+}

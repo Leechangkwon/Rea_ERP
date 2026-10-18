@@ -1,0 +1,115 @@
+(function(root){
+  'use strict';
+  const C=root.InventoryCore,E=root.EntryCore,copy=value=>JSON.parse(JSON.stringify(value));
+  const N=(tag,text,cls)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node;};
+  const button=(label,run,cls='')=>{const node=N('button',label,cls);node.type='button';node.addEventListener('click',run);return node;};
+  const input=(label,value='',type='text')=>{const node=N('input');node.type=type;node.setAttribute('aria-label',label);if(type==='checkbox')node.checked=!!value;else node.value=value??'';return node;};
+  const select=(label,values,value)=>{const node=N('select');node.setAttribute('aria-label',label);for(const [id,name]of values){const option=N('option',name);option.value=id;node.append(option);}node.value=value;return node;};
+  const field=(label,control)=>{const node=N('label',undefined,'inv-field');node.append(N('span',label),control);return node;};
+  const db=options=>typeof options.db==='function'?options.db():options.db;
+  const writable=options=>!(typeof options.readOnly==='function'?options.readOnly():options.readOnly)&&(!root.AuthUI||root.AuthUI.can('inventory.write'));
+  const number=value=>Number(value||0).toLocaleString('ko-KR',{maximumFractionDigits:6});
+  function numeric(value,label,min=0,max=1e12){const n=Number(value);if(value===''||value===null||typeof value==='boolean'||!Number.isFinite(n)||n<min||n>max)throw Error(label+' 값을 확인하세요.');return n;}
+  function quantity(value){const n=C.quantity(numeric(value,'수량',0.000001));if(n<=0)throw Error('수량은 0보다 커야 합니다.');return n;}
+  function table(headers,rows){const wrap=N('div',undefined,'inv-table-wrap'),t=N('table',undefined,'inv-table'),head=N('thead'),tr=N('tr'),body=N('tbody');for(const label of headers)tr.append(N('th',label));head.append(tr);for(const cells of rows){const row=N('tr');for(const value of cells){const td=N('td');td.append(value instanceof Node?value:N('span',String(value??'')));row.append(td);}body.append(row);}t.append(head,body);wrap.append(t);return wrap;}
+  function dialog(title,options){
+    const previous=document.getElementById('entry-tools-dialog');if(previous){previous.close();previous.remove();}
+    const d=N('dialog',undefined,'inv-dialog entry-tools-dialog'),head=N('div',undefined,'inv-modal-head'),body=N('div',undefined,'inv-modal-body'),error=N('p',undefined,'inv-error');d.id='entry-tools-dialog';d.setAttribute('aria-label',title);error.setAttribute('role','alert');
+    const close=()=>{d.close();d.remove();};head.append(N('h2',title),button('×',close));d.append(head,body);d.addEventListener('close',()=>d.remove());
+    d.addEventListener('cancel',event=>{event.preventDefault();event.stopPropagation();close();});d.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close();}});
+    body.append(N('p','작성 중인 전표에만 적용됩니다. 전표를 저장하기 전까지 업무 자료와 재고는 변경되지 않습니다.','inv-note'));
+    if(!writable(options))body.append(N('p','조회 전용입니다. 적용에는 입력 권한이 필요합니다.','inv-note'));
+    const guard=()=>{if(!writable(options)){error.textContent='입력 권한이 필요합니다.';return false;}return d.open;};
+    const fail=e=>{error.textContent=e.message||String(e);};let busy=false;
+    const apply=(build,{keepOpen=false}={})=>{if(busy||!guard())return false;error.textContent='';try{const result=build();if(!guard())return false;busy=true;const accepted=options.onApply(result);if(accepted===false)return false;if(!keepOpen)close();return true;}catch(e){fail(e);return false;}finally{busy=false;}};
+    document.body.append(d);return {d,body,error,close,guard,fail,apply,show(){body.append(error);d.showModal();return d;}};
+  }
+  function enabledItem(database,code){const item=C.master(database,'items',code);if(!item||item.disabled)throw Error(code+': 사용 중인 품목코드를 입력하세요.');return item;}
+  function itemPrice(database,draft,item){return C.priceFor(database,item,draft.partner||'',E.purchaseTypes.includes(draft.type),draft.vatRate);}
+  function addItems(database,draft,selections){
+    if(draft.sourceId)throw Error('잔량 연결 전표는 전표 불러오기에서 원본 품목과 수량을 선택하세요.');
+    const result=copy(draft);result.lines=result.lines||[];
+    for(const selected of selections){enabledItem(database,selected.item);const qty=quantity(selected.qty),matches=result.lines.filter(line=>line.item===selected.item);if(matches.length>1)throw Error(selected.item+': 분할된 기존 행이 있습니다. 변경할 행에서 수량을 직접 입력하세요.');const old=matches[0];if(old){old.qty=quantity(Number(old.qty)+qty);delete old.supply;delete old.tax;delete old.total;}else result.lines.push({item:selected.item,qty,price:itemPrice(database,result,selected.item),discount:0});}
+    if(result.lines.length>500)throw Error('품목은 500행까지 입력할 수 있습니다.');return result;
+  }
+  function footer(ui,options,action,label='적용'){const row=N('div',undefined,'inv-toolbar'),apply=button(label,action,'primary');apply.disabled=!writable(options);row.append(apply,button('취소',ui.close));ui.body.append(row);return apply;}
+  function openFind(options={}){
+    const ui=dialog('품목 찾기',options),query=input('품목 검색'),selected=new Map(),values=new Map(),holder=N('div'),summary=N('p',undefined,'inv-note'),pager=N('div',undefined,'inv-toolbar');let page=0,rows=[];
+    const previous=button('이전 페이지',()=>{page=Math.max(0,page-1);draw();}),next=button('다음 페이지',()=>{if((page+1)*50<rows.length)page++;draw();}),pageText=N('span');pager.append(previous,pageText,next);ui.body.append(field('코드·품목명·규격·바코드',query),summary,holder,pager);
+    function draw(){
+      const needle=query.value.trim().toLocaleLowerCase('ko-KR');rows=db(options).masters.items.filter(i=>!i.disabled&&[i.code,i.name,i.spec,i.barcode].some(v=>String(v||'').toLocaleLowerCase('ko-KR').includes(needle))).sort((a,b)=>a.code.localeCompare(b.code,'ko-KR',{numeric:true}));page=Math.min(page,Math.max(0,Math.ceil(rows.length/50)-1));
+      holder.replaceChildren(table(['선택','품목코드','품목명','규격','바코드','추가 수량'],rows.slice(page*50,(page+1)*50).map(i=>{
+        const check=input('품목 선택 '+i.code,selected.has(i.code),'checkbox'),qty=input('추가 수량 '+i.code,values.get(i.code)??1,'number');qty.min='0.000001';qty.step='any';check.disabled=qty.disabled=!writable(options);check.addEventListener('change',()=>{if(!ui.guard())return;if(check.checked)selected.set(i.code,qty.value);else selected.delete(i.code);status();});qty.addEventListener('input',()=>{values.set(i.code,qty.value);if(selected.has(i.code))selected.set(i.code,qty.value);});return [check,i.code,i.name,i.spec||'',i.barcode||'',qty];
+      })));previous.disabled=page===0;next.disabled=(page+1)*50>=rows.length;pageText.textContent=(page+1)+' / '+Math.max(1,Math.ceil(rows.length/50))+' 페이지';status();
+    }
+    function status(){summary.textContent=rows.length+'개 검색 · '+selected.size+'개 선택 (검색 밖 선택도 유지)';}
+    query.addEventListener('input',()=>{page=0;draw();});footer(ui,options,()=>ui.apply(()=>{if(!selected.size)throw Error('추가할 품목을 선택하세요.');return addItems(db(options),options.getDraft(),[...selected].map(([item,qty])=>({item,qty})));}),'선택 품목 추가');draw();return ui.show();
+  }
+  function createRowFind({gridRoot}){
+    const panel=N('div',undefined,'inv-toolbar entry-row-find'),query=input('입력 행에서 찾기'),status=N('span'),trigger=button('찾기(F3)',toggle);panel.hidden=true;status.setAttribute('role','status');let searched=false;
+    function clear(){for(const cell of gridRoot.querySelectorAll('.entry-found-cell'))cell.classList.remove('entry-found-cell');}
+    function text(node){if(node.nodeType===3)return node.textContent;if(node.nodeType!==1||node.hidden)return '';if(node.matches('select'))return [...node.selectedOptions].map(x=>x.textContent).join(' ');if(node.matches('input,textarea'))return ['checkbox','radio','hidden'].includes(node.type)?'':node.value;if(node.matches('button'))return '';return [...node.childNodes].map(text).join(' ');}
+    function refresh(){clear();if(panel.hidden||!searched)return;const term=query.value.trim().normalize('NFKC').toLocaleLowerCase('ko-KR');if(!term){status.textContent='찾을 내용을 입력하세요.';return;}let matches=0;for(const cell of gridRoot.querySelectorAll('tbody td'))if(!cell.hidden&&!cell.closest('[hidden]')&&text(cell).normalize('NFKC').toLocaleLowerCase('ko-KR').includes(term)){cell.classList.add('entry-found-cell');matches++;}status.textContent=matches?matches+'개 항목 일치':'일치하는 입력 항목이 없습니다.';gridRoot.querySelector('.entry-found-cell')?.scrollIntoView?.({block:'nearest'});}
+    function close(){panel.hidden=true;clear();trigger.setAttribute('aria-expanded','false');searched=false;}
+    function open(){panel.hidden=false;trigger.setAttribute('aria-expanded','true');query.disabled=false;query.focus();query.select();status.textContent='찾을 내용을 입력하고 Enter를 누르세요.';}
+    function toggle(){panel.hidden?open():close();}
+    const search=()=>{searched=true;refresh();};query.addEventListener('input',event=>{event.stopPropagation();searched=false;clear();status.textContent='Enter를 눌러 입력 행에서 찾으세요.';});query.addEventListener('change',event=>event.stopPropagation());query.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key==='Escape'){event.preventDefault();event.stopPropagation();if(event.key==='Enter')search();else{close();trigger.focus();}}});panel.addEventListener('focusout',event=>{if(event.relatedTarget&&!panel.contains(event.relatedTarget)&&event.relatedTarget!==trigger)close();});panel.append(field('찾을 내용',query),button('찾기',search),status,button('찾기 닫기',()=>{close();trigger.focus();}));trigger.setAttribute('aria-expanded','false');return {button:trigger,panel,open,toggle,close,refresh};
+  }
+  function openSort(options={}){
+    const ui=dialog('입력 품목 정렬',options),definitions=[['code','품목코드'],['name','품목명'],['spec','규격'],['unit','단위'],['qty','수량'],['price','단가'],['priceVat','단가(vat포함)'],['supply','공급가액'],['tax','부가세'],['total','합계'],['memo','적요'],['supplier','거래처코드'],['supplierName','거래처명']],requested=options.sortFields?.(),available=requested?definitions.filter(([key])=>requested.some(field=>field.id===key)).map(([key,label])=>[key,requested.find(field=>field.id===key)?.label||label]):definitions,controls=[],preview=N('div');let snapshot='',databaseSnapshot='',staged;
+    for(let index=0;index<3;index++){const criterion=select('입력 정렬 '+(index+1)+' 기준',[['','없음'],...available],''),direction=select('입력 정렬 '+(index+1)+' 방향',[['asc','오름차순'],['desc','내림차순']],'asc');controls.push({criterion,direction});criterion.addEventListener('change',refresh);direction.addEventListener('change',refresh);}
+    function refresh(){staged=null;ui.error.textContent='';for(const x of controls)x.direction.disabled=!x.criterion.value;try{const original=options.getDraft(),database=db(options),rules=controls.filter(x=>x.criterion.value).map(x=>({field:x.criterion.value,direction:x.direction.value}));snapshot=JSON.stringify(original);databaseSnapshot=JSON.stringify(database);if(!rules.length)throw Error('정렬 기준을 한 개 이상 선택하세요.');if(new Set(rules.map(x=>x.field)).size!==rules.length)throw Error('정렬 기준을 중복 선택할 수 없습니다.');const result=copy(original);
+      const value=(line,key)=>{const item=C.master(database,'items',line.item)||{};if(key==='code')return line.item;if(['name','spec','unit'].includes(key))return item[key]||'';if(key==='supplier')return line.supplier||'';if(key==='supplierName')return C.master(database,'partners',line.supplier)?.name||'';if(key==='memo')return line.memo||'';if(['qty','price'].includes(key))return numeric(line[key],key==='qty'?'수량':'단가',-1e12);if(key==='priceVat')return numeric(line.price,'단가',-1e12)*(1+numeric(original.vatRate??10,'부가세율')/100);return C.effectiveLineTotals(original,line)[key];};
+      result.lines=(result.lines||[]).map((line,index)=>({line,index,values:rules.map(rule=>value(line,rule.field))})).sort((a,b)=>{for(let i=0;i<rules.length;i++){const av=a.values[i],bv=b.values[i],difference=typeof av==='number'&&typeof bv==='number'?av-bv:String(av).localeCompare(String(bv),'ko-KR',{numeric:true});if(difference)return difference*(rules[i].direction==='desc'?-1:1);}return a.index-b.index;}).map(x=>x.line);staged=result;preview.replaceChildren(table(['순서','품목코드','품목명','수량'],result.lines.map((line,index)=>[index+1,line.item,C.master(database,'items',line.item)?.name||'',number(line.qty)])));
+    }catch(e){preview.replaceChildren();ui.fail(e);}}
+    ui.body.append(N('p','첫 번째 기준부터 순서대로 정렬합니다. 적용 전에는 작성 중인 행 순서가 바뀌지 않습니다.','inv-note'),table(['순서','정렬기준','정렬방법'],controls.map((x,index)=>[index+1,x.criterion,x.direction])),preview);const apply=()=>ui.apply(()=>{if(snapshot!==JSON.stringify(options.getDraft())||databaseSnapshot!==JSON.stringify(db(options)))throw Error('전표 또는 기준 자료가 변경됐습니다. 정렬 조건을 다시 선택하세요.');if(!staged)throw Error(ui.error.textContent||'정렬 기준을 확인하세요.');return staged;});footer(ui,options,apply,'정렬 적용');ui.d.addEventListener('keydown',event=>{if(event.key==='F8'){event.preventDefault();event.stopPropagation();apply();}});refresh();return ui.show();
+  }
+  function openDiscount(options={}){
+    const ui=dialog('할인율 적용',options),scope=select('할인 적용 대상',[['selected','선택 품목'],['all','전체 품목']],options.selectedItems?.().length?'selected':'all'),percent=input('할인율',0,'number'),preview=N('div');percent.min='0';percent.max='100';percent.step='any';ui.body.append(field('적용 대상',scope),field('할인율 (%)',percent),N('p','기존 할인율에 더하지 않고 입력한 할인율로 바꿉니다.','inv-note'),preview);let staged,snapshot='',selectionSnapshot='';
+    function refresh(){staged=null;ui.error.textContent='';try{const original=options.getDraft(),selected=options.selectedItems?.()||[],rate=numeric(percent.value,'할인율',0,100);snapshot=JSON.stringify(original);selectionSnapshot=JSON.stringify(selected);const targets=new Set(scope.value==='all'?(original.lines||[]).map(line=>line.item):selected);if(!targets.size)throw Error('할인 적용 품목을 선택하세요.');const result=copy(original),rows=[];
+      result.lines=result.lines.map(line=>{if(!targets.has(line.item))return line;const before=C.lineTotals(line,result.vatRate),after=C.lineTotals({...line,discount:rate},result.vatRate);rows.push([line.item,C.master(db(options),'items',line.item)?.name||'',number(before.discount)+'%',number(rate)+'%',number(before.total),number(after.total)]);return {...line,discount:rate,supply:after.supply,tax:after.tax,total:after.total};});if(!rows.length)throw Error('선택한 품목이 현재 전표에 없습니다.');staged=result;preview.replaceChildren(table(['품목코드','품목명','현재 할인율','적용 할인율','현재 금액','적용 금액'],rows));
+    }catch(e){preview.replaceChildren();ui.fail(e);}}
+    scope.addEventListener('change',refresh);percent.addEventListener('input',refresh);footer(ui,options,()=>ui.apply(()=>{if(!staged)throw Error('할인율과 적용 대상을 확인하세요.');if(snapshot!==JSON.stringify(options.getDraft())||scope.value==='selected'&&selectionSnapshot!==JSON.stringify(options.selectedItems?.()||[]))throw Error('전표 또는 선택 품목이 변경됐습니다. 할인율을 다시 입력해 미리보기를 갱신하세요.');return staged;}),'할인 적용');refresh();return ui.show();
+  }
+  function addBarcodeItem(database,draft,selected,mode){
+    if(draft.sourceId)throw Error('잔량 연결 전표는 전표 불러오기에서 원본 품목과 수량을 선택하세요.');
+    const record=enabledItem(database,selected.item),qty=quantity(selected.qty),result=copy(draft);result.lines=result.lines||[];const previous=result.lines.at(-1),serial=['required','optional'].includes(record.serialLotMode)||previous?.serialLot||previous?.serial||previous?.lot;
+    const merge=mode==='sum'&&draft.type!=='transfer'&&!serial&&previous?.item===record.code&&Number(previous.qty)>0&&(!previous.warehouse||previous.warehouse===draft.warehouse);
+    if(merge){previous.qty=quantity(Number(previous.qty)+qty);delete previous.supply;delete previous.tax;delete previous.total;}else result.lines.push({item:record.code,qty,price:itemPrice(database,result,record.code),discount:0});
+    if(result.lines.length>500)throw Error('품목은 500행까지 입력할 수 있습니다.');
+    const duplicate=new Set(result.lines.map(line=>line.item)).size!==result.lines.length;if(duplicate||result.lines.some(line=>line.lineId)){
+      if(draft.id&&!draft.lines.every(line=>line.lineId)&&database.documents.some(doc=>doc.sourceId===draft.id||doc.lines.some(line=>(line.planAllocations||[]).some(a=>a.documentId===draft.id))))throw Error('후속 전표가 있는 기존 전표는 품목행을 분할할 수 없습니다. 새 전표에서 개별 입력하세요.');
+      const used=new Set(result.lines.map(line=>line.lineId).filter(Boolean));let serial=0;for(const line of result.lines)if(!line.lineId){let id;do{id='BC'+(++serial);}while(used.has(id));line.lineId=id;used.add(id);}
+    }return result;
+  }
+  function openBarcode(options={}){
+    const ui=dialog('바코드 입력',options),code=input('바코드 또는 품목코드'),qty=input('바코드 수량',1,'number'),mode=select('바코드 수량 처리',[['sum','합산기본수량'],['individual','개별기본수량']],'sum'),status=N('p',undefined,'inv-note');qty.min='0.000001';qty.step='any';ui.body.append(field('바코드 / 품목코드',code),field('수량 처리',mode),field('추가 수량',qty),status);
+    const add=()=>{let message='';const ok=ui.apply(()=>{const value=code.value.trim();if(!value)throw Error('바코드 또는 품목코드를 입력하세요.');const database=db(options),matches=database.masters.items.filter(i=>!i.disabled&&(i.code===value||i.barcode===value));if(matches.length!==1)throw Error(matches.length?'같은 코드·바코드가 여러 품목에 등록되어 있습니다. 품목등록에서 확인하세요.':'일치하는 사용 중인 품목이 없습니다.');const result=addBarcodeItem(database,options.getDraft(),{item:matches[0].code,qty:qty.value},mode.value);message=matches[0].code+' · '+matches[0].name+' '+number(qty.value)+' 추가';return result;},{keepOpen:true});if(ok){status.textContent=message;code.value='';code.focus();}};
+    const apply=footer(ui,options,add,'품목 추가');code.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();event.stopPropagation();add();}});ui.show();code.focus();return ui.d;
+  }
+  function parseDelimited(text){
+    if(typeof text!=='string'||!text.trim())throw Error('CSV 또는 탭 구분 자료를 붙여 넣으세요.');if(new Blob([text]).size>2*1024*1024)throw Error('붙여 넣을 자료는 2MB 이하로 입력하세요.');text=text.replace(/^\uFEFF/,'');const first=text.split(/\r?\n/,1)[0],delimiter=first.includes('\t')?'\t':',';const rows=[];let row=[],cell='',quoted=false,closed=false;
+    const push=()=>{row.push(cell);cell='';closed=false;};
+    for(let i=0;i<text.length;i++){const char=text[i];if(quoted){if(char==='"'){if(text[i+1]==='"'){cell+='"';i++;}else{quoted=false;closed=true;}}else cell+=char;}else if(char==='"'){if(cell||closed)throw Error('따옴표 형식을 확인하세요.');quoted=true;}else if(char===delimiter){push();}else if(char==='\n'||char==='\r'){if(char==='\r'&&text[i+1]==='\n')i++;push();if(row.some(v=>v.trim()!==''))rows.push(row);row=[];if(rows.length>501)throw Error('자료는 500행까지 입력할 수 있습니다.');}else{if(closed&&!/\s/.test(char))throw Error('따옴표 뒤 구분 기호를 확인하세요.');if(!closed)cell+=char;}}
+    if(quoted)throw Error('닫히지 않은 따옴표가 있습니다.');push();if(row.some(v=>v.trim()!==''))rows.push(row);if(rows.length<2||rows.length>501)throw Error('머리글과 1~500행 자료를 입력하세요.');
+    const aliases={item:'item',code:'item','품목코드':'item',qty:'qty',quantity:'qty','수량':'qty',price:'price','단가':'price',discount:'discount','할인율':'discount',memo:'memo','적요':'memo'},headers=rows.shift().map(v=>aliases[v.trim().toLocaleLowerCase('ko-KR')]);
+    if(headers.some(h=>!h)||new Set(headers).size!==headers.length||!headers.includes('item')||!headers.includes('qty'))throw Error('머리글은 품목코드·수량(필수), 단가·할인율·적요를 한 번씩 사용하세요.');
+    return rows.map((cells,index)=>{if(cells.length!==headers.length)throw Error((index+2)+'행의 열 수가 머리글과 다릅니다.');return Object.fromEntries(headers.map((key,i)=>[key,key==='memo'?cells[i]:cells[i].trim()]));});
+  }
+  function pasteDraft(database,draft,text,replace){
+    if(draft.sourceId)throw Error('잔량 연결 전표에는 웹자료를 섞을 수 없습니다.');const rows=parseDelimited(text),result=copy(draft),seen=new Set();result.lines=replace?[]:result.lines||[];
+    for(const [index,row]of rows.entries()){
+      try{enabledItem(database,row.item);if(seen.has(row.item)||result.lines.some(l=>l.item===row.item))throw Error('같은 품목이 이미 있습니다. 한 행으로 합치거나 기존 행 덮어쓰기를 선택하세요.');seen.add(row.item);const qty=quantity(row.qty),price=row.price===undefined||row.price===''?itemPrice(database,result,row.item):numeric(row.price,'단가'),discount=row.discount===undefined||row.discount===''?0:numeric(row.discount,'할인율',0,100),memo=row.memo||'';if(memo.length>2000)throw Error('적요는 2000자 이하로 입력하세요.');const line=C.lineTotals({item:row.item,qty,price,discount,memo},result.vatRate);result.lines.push(line);}catch(e){throw Error((index+2)+'행: '+e.message);}
+    }
+    if(result.lines.length>500)throw Error('전표 품목은 500행까지 입력할 수 있습니다.');return {draft:result,count:rows.length};
+  }
+  function openPaste(options={}){
+    const ui=dialog('웹자료올리기',options),text=N('textarea'),mode=select('웹자료 기존 행 처리',[['append','기존 행에 추가'],['replace','기존 행 덮어쓰기']],'append'),preview=N('div'),summary=N('p',undefined,'inv-note');text.setAttribute('aria-label','CSV 또는 탭 구분 자료');text.rows=10;text.placeholder='품목코드\t수량\t단가\t할인율\t적요\nP001\t2\t1000\t0\t예시';let staged=null,snapshot='',dbSnapshot='';
+    const invalidate=()=>{staged=null;preview.replaceChildren();summary.textContent='자료 또는 처리 방식을 바꾼 뒤 미리보기를 확인하세요.';apply.disabled=true;};
+    const inspect=button('전체 행 검증 / 미리보기',()=>{staged=null;apply.disabled=true;ui.error.textContent='';try{const current=options.getDraft(),database=db(options),result=pasteDraft(database,current,text.value,mode.value==='replace');staged=result.draft;snapshot=JSON.stringify(current);dbSnapshot=JSON.stringify(database);preview.replaceChildren(table(['품목코드','품목명','수량','단가','할인율','금액','적요'],staged.lines.map(line=>[line.item,C.master(database,'items',line.item)?.name||'',number(line.qty),number(line.price),number(line.discount)+'%',number(C.lineTotals(line,staged.vatRate).total),line.memo||''])));summary.textContent=result.count+'행 검증 완료 · 적용 후 '+staged.lines.length+'행';apply.disabled=!writable(options);}catch(e){preview.replaceChildren();summary.textContent='자료를 수정한 뒤 다시 검증하세요.';ui.fail(e);}});
+    ui.body.append(N('p','첫 줄에 품목코드·수량 머리글을 넣으세요. 단가·할인율·적요는 선택 항목입니다. CSV의 쉼표는 따옴표로 감싸고, 엑셀 셀은 그대로 복사해 붙일 수 있습니다. 최대 500행.','inv-note'),text,field('기존 행',mode),inspect,summary,preview);
+    const apply=footer(ui,options,()=>ui.apply(()=>{if(!staged)throw Error('전체 행 검증과 미리보기를 먼저 확인하세요.');if(snapshot!==JSON.stringify(options.getDraft())||dbSnapshot!==JSON.stringify(db(options)))throw Error('전표 또는 기준 자료가 변경됐습니다. 미리보기를 다시 확인하세요.');if(mode.value==='replace'&&(options.getDraft().lines||[]).length&&!root.confirm('작성 중인 품목 행을 미리보기 자료로 덮어쓸까요?'))throw Error('덮어쓰기를 취소했습니다.');return staged;}),'미리보기 적용');apply.disabled=true;text.addEventListener('input',invalidate);mode.addEventListener('change',invalidate);return ui.show();
+  }
+  function validate(options={}){const database=db(options),draft=options.getDraft(),result=C.command(database,'document',draft);return {valid:true,totals:C.totals(result.result),warnings:E.safetyWarnings(database,draft)};}
+  root.EntryTools={openFind,createRowFind,openSort,openDiscount,openBarcode,openPaste,validate};
+})(typeof globalThis==='object'?globalThis:this);

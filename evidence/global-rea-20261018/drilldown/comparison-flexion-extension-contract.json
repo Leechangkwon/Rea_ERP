@@ -1,0 +1,708 @@
+{
+  "schema": "period-comparison-retained-flexion-extension/v1",
+  "generated_at": "2026-10-18T09:40:00.705173+00:00",
+  "scope": "Read-only retained82 extension; new_GET0,new_semantic_runs0,new_body0,target_execution0,browser0,private_API0,app/prior_doc_edits0,tests0",
+  "prior_contract": "$SCRATCH/period-comparison-rea-20261018/period-comparison-contract.json",
+  "retained_bodies": 82,
+  "baseline_prior_contract_bodies": 78,
+  "new_bodies_this_task": 0,
+  "answer": "Retained Flexion closes the source-level comparison engine handoff: each grid uses exact extracted-axis keys to union period rows into one record with suffixed fields. It does not establish current purchase runtime binding, original date-offset generation or backend equivalence. Earlier unknowns are narrowed in this extension only; prior documents are preserved.",
+  "analysis_limits": {
+    "actual_REA": {
+      "sha256": "8f89fd21c49a9d7c1de6245f02c34fbf9c58cd133fdf2bd13f489a84247e5563",
+      "bytes": 3995664,
+      "source": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-originals/Flexion.e92f3d17.js",
+      "analysis_dir": "$SCRATCH/aggregate-subtotals-rea-20261018/flexion-analysis/8f89fd21c49a9d7c",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "heap_limit_MiB": 2048,
+      "source_executed": false,
+      "process_status": "timeout",
+      "exit_code": null,
+      "elapsed_ms": 30065,
+      "static_status": "complete",
+      "semantic_status": "unknown_timeout",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 1052715,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ]
+    },
+    "static_only": "Flexion full static parse0errors/1,052,715ASTnodes; full semantic30s timeout has no callable/call/frontier counts. No retries. New exact spans come from pinned inert AST reading.",
+    "common": "Prior full common semantic2GiB OOM persists; retained excerpt semantic IDs are range-specific only.",
+    "cumulative_counts_unchanged": {
+      "unique_bodies": 82,
+      "bytes": 23596477,
+      "static_complete": 81,
+      "static_partial": 1,
+      "semantic_complete": 76,
+      "semantic_partial": 1,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    }
+  },
+  "entry_and_guards": {
+    "facts": [
+      "Retained InventoryStatusNormalizeDataModelResolver marks first response array __period_index1, second array2, concatenates them only when normalization guard passes. No row/date query was executed.",
+      "Common comparison feature returns for string0, undefined compare-date runtime or undefined trx_dt prop. buildCompareDate returns[] unless all origin/compare endpoints truthy. Date ranges are received, not generated.",
+      "Flexion Qa modifier returns when compare_date.length<=1; otherwise builds per-period columns/row variants. Pl producer has no same date-count guard of its own; it is gated by feature availability in Gc. A feature with empty labels could therefore have mismatched stages; current valid purchase date runtime is unobserved.",
+      "Pl independently handles each grid and only GridBodyRow with source raw. No raw rows→that grid unchanged. Nonraw entries are retained and placed before merged raw rows.",
+      "Bl reads __period_index: finite positive Number accepted, otherwise1. Producer has no explicit integer/two-period validation; normalizer path supplies1/2.",
+      "Existing V56 before-search rejects comparison with unwind_prop_iteration; existing V3 pivot/graph guards are compatibility-specific and not current binding proof."
+    ],
+    "refs": {
+      "Sl": {
+        "span": [
+          7,
+          597193,
+          7,
+          597592
+        ],
+        "offsets": [
+          3402458,
+          3402857
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Fl": {
+        "span": [
+          7,
+          603109,
+          7,
+          603180
+        ],
+        "offsets": [
+          3408374,
+          3408445
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Bl": {
+        "span": [
+          7,
+          603601,
+          7,
+          603703
+        ],
+        "offsets": [
+          3408866,
+          3408968
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "zi": {
+        "span": [
+          7,
+          518401,
+          7,
+          518420
+        ],
+        "offsets": [
+          3323666,
+          3323685
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Qa": {
+        "span": [
+          7,
+          553572,
+          7,
+          557721
+        ],
+        "offsets": [
+          3358837,
+          3362986
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Pl": {
+        "span": [
+          7,
+          601553,
+          7,
+          603108
+        ],
+        "offsets": [
+          3406818,
+          3408373
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Gc": {
+        "span": [
+          7,
+          640659,
+          7,
+          641892
+        ],
+        "offsets": [
+          3445924,
+          3447157
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "export.PERIOD_INDEX_KEY": {
+        "span": [
+          7,
+          1000782,
+          7,
+          1000803
+        ],
+        "offsets": [
+          3806047,
+          3806068
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "export.PRIMARY_PERIOD_INDEX": {
+        "span": [
+          7,
+          1000804,
+          7,
+          1000828
+        ],
+        "offsets": [
+          3806069,
+          3806093
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    },
+    "prior_ref_names": [
+      "inventory.InventoryStatusNormalizeDataModelResolver.OnExecuteAsync",
+      "inventory.InventoryStatusNormalizeDataModelResolver.requiredNormalization",
+      "common.grid$comparison_period_dlt_feature_config",
+      "common.buildCompareDate",
+      "inventory.InventoryStatusUpdateVMCStateBeforeSearchResolver.OnExecuteAsync"
+    ]
+  },
+  "join_identity": {
+    "facts": [
+      "Only comparison_period_criteria defines grouping identity. sort_criteria affects order and does not join rows. Fixed criteria are details_target.props; free criteria are selected condition slots in numeric order.",
+      "kl calls supplied value_extractor for each criterion in order: nil→empty string, object→JSON.stringify, other→String; joins parts with NUL. All raw rows having that key are collected regardless of period.",
+      "If comparison criteria is empty, each raw input gets a unique __row_N key. It does not align the two periods by input row index.",
+      "The key is serialization of values, not proven original SID/business identity: nil/empty and numeric/string values can collide, object property order and embedded NUL are not escaped/canonicalized by this function. No malformed/collision tests were run.",
+      "Common extractor maps $$code→code, $$date_no→data_dt$data_no, $$date_record_seq_no→data_dt$data_no$record_seq_no; otherwise raw. No relative-date offset/normalization exists in kl/Pl. Date-axis cross-period alignment therefore depends on upstream values/criteria and remains unknown."
+    ],
+    "refs": {
+      "Pl": {
+        "span": [
+          7,
+          601553,
+          7,
+          603108
+        ],
+        "offsets": [
+          3406818,
+          3408373
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "kl": {
+        "span": [
+          7,
+          603438,
+          7,
+          603601
+        ],
+        "offsets": [
+          3408703,
+          3408866
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    },
+    "prior_ref_names": [
+      "common.getComparisonPeriodCriteria",
+      "common.createComparisonValueExtractor"
+    ]
+  },
+  "merge_and_duplicate_contract": {
+    "facts": [
+      "Key group rows are sorted by numeric period ascending. Each source field except __period_index is copied to field|period. Duplicate same-key same-period inputs overwrite each field with later visited values; no sum, average or Cartesian pair expansion occurs here. Earlier fields absent from a later duplicate remain.",
+      "Representative base row is last visited primary-period1 row, else first row in the sorted group. Unsuffixed fields copy that representative; model_id/index/meta are inherited from it. This is not a deep merge of both original business records.",
+      "meta.period_indices is unique observed periods sorted ascending; is_supplementary=true when period1 absent. Primary-only, compare-only and matched groups all survive the union. __period_index is not copied into merged data.",
+      "Output record remains GridBodyRow/source raw. display_index is assigned sequentially starting from first raw input index after sorting."
+    ],
+    "refs": {
+      "Pl": {
+        "span": [
+          7,
+          601553,
+          7,
+          603108
+        ],
+        "offsets": [
+          3406818,
+          3408373
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Bl": {
+        "span": [
+          7,
+          603601,
+          7,
+          603703
+        ],
+        "offsets": [
+          3408866,
+          3408968
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "export.PRIMARY_PERIOD_INDEX": {
+        "span": [
+          7,
+          1000804,
+          7,
+          1000828
+        ],
+        "offsets": [
+          3806069,
+          3806093
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    }
+  },
+  "sorting_and_comparator": {
+    "facts": [
+      "Common chooses sort_search.sort first, else widget.attribute.sort; sorts entries by sort_seq and maps D to descending. Aggregate axis direction is separate comparison criteria.",
+      "Pl passes Ll(primaryRow,firstSortedRow,explicitSorts,axisCriteria,extractor). Ll constructs values: primary explicit values, then primary axis values, then fallback axis values when fallback object differs from primary. Missing primary yields undefined for the first two lists.",
+      "Comparator criteria array is explicitSorts followed by axisCriteria. It reads only that array length. Appended fallback-axis values in Ll are not consumed by this comparator. No fallback comparison is implied merely by constructing those extra values.",
+      "Kl uses numeric comparison only for properties definition typed Decimal/DecimalCondition/Integer: nil→0 via external Decimal, lt/gt. Other types use nil→empty string then JS string lexical < and >. No locale/natural sort. descending negates the first unequal comparison.",
+      "All compared keys equal→comparator0. No explicit tie-break on representative index or key. Before sort, groups follow first key encounter. Tie stability depends on JS Array.sort runtime semantics; no original runtime evaluation performed.",
+      "Compare-only groups can have undefined primary sort values despite actual secondary keys. Do not replace that behavior with an assumed secondary code/name sort and call it equivalent."
+    ],
+    "refs": {
+      "Pl": {
+        "span": [
+          7,
+          601553,
+          7,
+          603108
+        ],
+        "offsets": [
+          3406818,
+          3408373
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Ll": {
+        "span": [
+          7,
+          603180,
+          7,
+          603438
+        ],
+        "offsets": [
+          3408445,
+          3408703
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Kl": {
+        "span": [
+          7,
+          603703,
+          7,
+          603906
+        ],
+        "offsets": [
+          3408968,
+          3409171
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Ml": {
+        "span": [
+          7,
+          601500,
+          7,
+          601552
+        ],
+        "offsets": [
+          3406765,
+          3406817
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    },
+    "prior_ref_names": [
+      "common.getSort",
+      "common.getComparisonPeriodCriteria",
+      "common.grid$comparison_period_dlt_feature_config"
+    ]
+  },
+  "date_ranges_and_headers": {
+    "facts": [
+      "Common buildCompareDate formats origin and compare endpoint pairs via external IValueFormatExecutorFeature $$date_range and returns those values/labels in that order. No date subtraction/clamp/ISO calculation here.",
+      "Qa uses compare_date.length as period count; repeats widths/head-cell blocks, inserts top period_label_row, one label per period spanning the original header block width. It uses compare_date[i].label verbatim.",
+      "Qa/Pl do not use config.date_prop_id to shift records. This narrows the consumer path only, not all upstream code.",
+      "Source is compatible with the owner-observed2date-range headers plus2sets of5columns; current labels/precise formatter/calendar endpoints are not verified by source reading."
+    ],
+    "refs": {
+      "Qa": {
+        "span": [
+          7,
+          553572,
+          7,
+          557721
+        ],
+        "offsets": [
+          3358837,
+          3362986
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "es": {
+        "span": [
+          7,
+          557722,
+          7,
+          557934
+        ],
+        "offsets": [
+          3362987,
+          3363199
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    },
+    "prior_ref_names": [
+      "common.buildCompareDate",
+      "common.buildPeriodLabelHeaderMeta",
+      "inventory.setPageData"
+    ]
+  },
+  "missing_period_cells_and_flags": {
+    "facts": [
+      "Qa replaces body definitions with period-mask variants. For2periods, variants have period_indices[1],[2],[1,2]. la/ca selects row definitions matching metadata (with missing filter/definition metadata treated as wildcard).",
+      "ts creates cell refs for present periods; absent-period ordinary cells keep style/span/merge data but no element_ref. It does not write numeric0. Final rendering of these blank definitions remains adapter-dependent.",
+      "always_fill_body_prop_ids is a sequence-prop list from common. Those cells retain refs even in absent periods; ns keeps the unsuffixed reference for that allowlist, otherwise uses prop|period. It is not a generic zero-fill flag.",
+      "view_type_preserved_prop_ids affects LABEL/ANCHOR view-type preservation (axis/standard/image props); it is not a join predicate or quantity-fill policy.",
+      "Qa duplicates summary/subtotal/page/total props per period and updates accumulator configs via as: association/target prop|period plus period_index. row_title_prop_id uses period1.",
+      "Ul accumulator skips measures if period_index not in row.meta.period_indices; included measures read nil as0 and Decimal.add. This total-stage0 default does not prove missing body cells are0. supplementary rows also interact with later Jl summary boundary handling."
+    ],
+    "refs": {
+      "Qa": {
+        "span": [
+          7,
+          553572,
+          7,
+          557721
+        ],
+        "offsets": [
+          3358837,
+          3362986
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "ts": {
+        "span": [
+          7,
+          557934,
+          7,
+          558463
+        ],
+        "offsets": [
+          3363199,
+          3363728
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "ns": {
+        "span": [
+          7,
+          558463,
+          7,
+          558571
+        ],
+        "offsets": [
+          3363728,
+          3363836
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "rs": {
+        "span": [
+          7,
+          558571,
+          7,
+          558685
+        ],
+        "offsets": [
+          3363836,
+          3363950
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "os": {
+        "span": [
+          7,
+          558685,
+          7,
+          558817
+        ],
+        "offsets": [
+          3363950,
+          3364082
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "is": {
+        "span": [
+          7,
+          558817,
+          7,
+          559042
+        ],
+        "offsets": [
+          3364082,
+          3364307
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "as": {
+        "span": [
+          7,
+          559042,
+          7,
+          559249
+        ],
+        "offsets": [
+          3364307,
+          3364514
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "la": {
+        "span": [
+          7,
+          530930,
+          7,
+          531115
+        ],
+        "offsets": [
+          3336195,
+          3336380
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "ca": {
+        "span": [
+          7,
+          531115,
+          7,
+          531788
+        ],
+        "offsets": [
+          3336380,
+          3337053
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Ul.accumulate": {
+        "span": [
+          7,
+          604309,
+          7,
+          604607
+        ],
+        "offsets": [
+          3409574,
+          3409872
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Ul.finalize": {
+        "span": [
+          7,
+          604607,
+          7,
+          604707
+        ],
+        "offsets": [
+          3409872,
+          3409972
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Jl.isMainRow": {
+        "span": [
+          7,
+          611209,
+          7,
+          611264
+        ],
+        "offsets": [
+          3416474,
+          3416529
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Jl.buildChunks": {
+        "span": [
+          7,
+          610547,
+          7,
+          611209
+        ],
+        "offsets": [
+          3415812,
+          3416474
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    },
+    "prior_ref_names": [
+      "common.getAlwaysFillBodyPropIds",
+      "common.getViewTypePreservedPropIds",
+      "common.getTitlePropids"
+    ]
+  },
+  "calculation_boundary": {
+    "facts": [
+      "Pl performs record matching/copying/order only: no subtraction, percentage, ratio or date-range calculation. Qa configures duplicated presentation/accumulators.",
+      "Per-period accumulation exists downstream through Ul Decimal.add with nil0; no explicit rounding/round/toFixed in those methods. External Decimal precision, output formatter and prior backend aggregate/tax formulas remain unknown.",
+      "No total/difference/percentage columns are created in the inspected Pl/Qa path. This is not a claim that the full original ERP lacks other comparisons/calculations.",
+      "No print/Excel/CSV parity or identical filters/date inclusion is established."
+    ],
+    "refs": {
+      "Pl": {
+        "span": [
+          7,
+          601553,
+          7,
+          603108
+        ],
+        "offsets": [
+          3406818,
+          3408373
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Qa": {
+        "span": [
+          7,
+          553572,
+          7,
+          557721
+        ],
+        "offsets": [
+          3358837,
+          3362986
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Ul.accumulate": {
+        "span": [
+          7,
+          604309,
+          7,
+          604607
+        ],
+        "offsets": [
+          3409574,
+          3409872
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      },
+      "Ul.finalize": {
+        "span": [
+          7,
+          604607,
+          7,
+          604707
+        ],
+        "offsets": [
+          3409872,
+          3409972
+        ],
+        "basis": "retained actualREA6.4 full static complete; inert AST, full semantic timeout30s, no callable ID"
+      }
+    }
+  },
+  "manual_conditional_source_example": {
+    "basis": "Manual static deduction only, no original code or test/simulation executed; fabricated IDs/integers, not company data.",
+    "assumptions": "One nonnumeric axis k, extractor returns its raw string, no explicit sort, ascending axis, no other producer changes.",
+    "input": [
+      {
+        "period": 1,
+        "k": "A",
+        "qty": 2
+      },
+      {
+        "period": 1,
+        "k": "B",
+        "qty": 3
+      },
+      {
+        "period": 2,
+        "k": "B",
+        "qty": 30
+      },
+      {
+        "period": 2,
+        "k": "C",
+        "qty": 40
+      }
+    ],
+    "key_union_before_order": [
+      "A",
+      "B",
+      "C"
+    ],
+    "merged_shape": [
+      {
+        "k": "A",
+        "qty|1": 2,
+        "period_indices": [
+          1
+        ],
+        "is_supplementary": false
+      },
+      {
+        "k": "B",
+        "qty|1": 3,
+        "qty|2": 30,
+        "period_indices": [
+          1,
+          2
+        ],
+        "is_supplementary": false
+      },
+      {
+        "k": "C",
+        "qty|2": 40,
+        "period_indices": [
+          2
+        ],
+        "is_supplementary": true
+      }
+    ],
+    "conditional_sort_order": [
+      "C",
+      "A",
+      "B"
+    ],
+    "sort_reason": "Primary row absent for C→undefined primary axis value→empty string in Kl, sorting before A/B. Secondary C key is appended by Ll but not read by comparator. This is not observed current purchase order.",
+    "missing_reason": "A has no qty|2 and C has no qty|1, not injected zeroes. A same-key second primary qty9 would overwrite qty|1 to9, not add11."
+  },
+  "implementation_blockers": [
+    "Exact nonzero mode code↔year/month/week/day labels and server range-provider binding remain unknown.",
+    "Origin/comparison endpoint generation, month-end clamp/overflow, leap day, inclusive endpoints, timezone/DST and ISO/company week are not supplied by Pl/Qa.",
+    "Current purchase runtime widget/config/template/proxy path was not executed; supplier and API names are static linkage evidence only.",
+    "Original backend response groups/keys/date normalization/SID-code-name equality are unknown. Date-key matching is especially not solved by generic client equality.",
+    "Own duplicate policy or comparison-only sorting may deliberately differ from this static candidate; such choices need own-policy labels, not original parity.",
+    "Missing cell presentation, count/average/rounding, click/drilldown and print/export after all stages remain partly external.",
+    "Common full semantics OOM and Flexion full semantic timeout persist; no retries or invented semantic callable IDs."
+  ],
+  "files": {
+    "source_manifest": "$SCRATCH/period-comparison-rea-20261018/flexion-source-manifest.json",
+    "source_spans": "$SCRATCH/period-comparison-rea-20261018/flexion-static-source-evidence.json",
+    "actual_refs": "$SCRATCH/period-comparison-rea-20261018/flexion-actual-rea-reference-index.json"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "version": "0.25.0",
+  "scope": "Own Self CSV workflow; not an original ECOUNT equivalence claim. No original browser actions, private API, company records or new public GET needed for this feature.",
+  "supported_columns": {
+    "items": [
+      "code",
+      "name",
+      "spec",
+      "unit",
+      "group",
+      "memo",
+      "buyPrice",
+      "sellPrice",
+      "safety"
+    ],
+    "partners": [
+      "code",
+      "name",
+      "kind",
+      "group1",
+      "group2",
+      "memo"
+    ]
+  },
+  "preview": "all imported supported fields shown; server validates entire <=500-row file; only first20 rows returned/shown with explicit limit notice",
+  "new_code_only": "existing code blocks preview/apply; corrected old help which incorrectly said existing codes were modified",
+  "staging": "text input or kind change removes pending preview and apply button; server businessRevision and app revision guards unchanged",
+  "downloads": "existing item CSV plus new partner CSV example; fixed synthetic values, UTF8 BOM, no API call/business mutation",
+  "storage": "No schema or stored-record format change; browser business records and D1 imports remain separate",
+  "hosted_authenticated_business_qa": false
+}

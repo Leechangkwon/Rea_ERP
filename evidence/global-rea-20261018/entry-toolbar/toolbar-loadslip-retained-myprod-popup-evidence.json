@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "source_sha256": "3910a50f9711c1fdca75350b4c3ff731a9cb76fee125623a866bc3374d120c6a",
+  "bytes": 4973,
+  "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/3910a50f9711c1fd-xemd001p_01.5852355541936928220.20.js",
+  "original_provenance": [
+    {
+      "record": ".artifacts/global-rea-20261018/download-manifest.json",
+      "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.popup.common/views/xemd001p_01.5852355541936928220.20.js",
+      "verification": "Ordinary unauthenticated public CDN GET; SHA256 matches historical record."
+    },
+    {
+      "record": "evidence/entry-extra-rea.json",
+      "pointer": "/source_manifest/additional/0/url",
+      "name": "xemd001p_01.5852355541936928220.20.js",
+      "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.popup.common/views/xemd001p_01.5852355541936928220.20.js",
+      "verification": "SHA256 matches retained original bytes."
+    }
+  ],
+  "provenance_boundary": "Retained source from the prior 41-body corpus, not freshly fetched or matched against the current popup DOM in this subtask.",
+  "methods": [
+    {
+      "symbol": "init",
+      "span": [
+        1,
+        221,
+        1,
+        271
+      ],
+      "source_excerpt": "function(){this._super.init.apply(this,arguments)}"
+    },
+    {
+      "symbol": "render",
+      "span": [
+        1,
+        279,
+        1,
+        321
+      ],
+      "source_excerpt": "function(){this._super.render.apply(this)}"
+    },
+    {
+      "symbol": "initProperties",
+      "span": [
+        1,
+        337,
+        1,
+        1292
+      ],
+      "source_excerpt": "function(){this.pageInfo={title:this.pageOption.isFromCS?ecount.resource.LBL12373:ecount.resource.LBL14189,searchFormParameter:{Request:{Data:{RootPrgId:this.pageOption.RootPrgId,WigtCd:this.pageOption.widgetCode,Wigt_dv_cd:this.pageOption.widgetDvCode}}},pageHeader:[{group:\"header\",id:\"header\",settingInfo:{bookmark:!1},child:[{unit:\"widget\",type:\"outputTitle\"}]}],pageContents:[{group:\"grid\",type:\"simppleInput\",id:\"grid1-EMD001P_01\",settingInfo:{columns:[{propertyName:\"TAB_NAME\",id:\"TAB_NAME\",title:ecount.resource.LBL11407,width:\"200\"},{propertyName:\"GROUP_NAME\",id:\"GROUP_NAME\",title:ecount.resource.LBL00754,width:\"300\"},{propertyName:\"IS_DEFAULT\",id:\"IS_DEFAULT\",title:ecount.resource.LBL00830,width:\"80\",controlType:\"widget.radio\",align:\"center\"}]}}],pageFooter:[{group:\"footer\",id:\"footer\",child:[{group:\"toolbar\",type:\"formset_button\",id:\"toolbarFooter\",settingInfo:{BUTN_LOC_TYPCD:\"B\"}},]}],pageFunction:[{\"function\":\"set_formset_button\"},]}}"
+    },
+    {
+      "symbol": "onInitGroupGridSimppleInput",
+      "span": [
+        1,
+        1321,
+        1,
+        2911
+      ],
+      "source_excerpt": "function(){return{init:function(){eccomposite_v1.group.grid.prototype.init.apply(this,arguments);this.gridId=this.id;this.parentId=this.id},render:function(n){eccomposite_v1.group.grid.prototype.render.apply(this,arguments);var t=this.createLayout();n.addGrid(this.id,t)},createLayout:function(){var n=widget.generator.grid();return n.setRowData(this.viewBag.InitDatas.ListLoad).setRowDataUrl(\"/SVC/Common/Infra/GetListMyProdFavoriteGroup\").setColumns(this.settingInfo.columns).setRowDataParameter(this.pageInfo.searchFormParameter).setColumnFixHeader(!0).setEventWidgetTriggerObj(this.events).setCustomRowCell(\"IS_DEFAULT\",this.setGridDateCustomDefault.bind(this)),this.pageOption.isFromCS||n.setHeaderTopLeftHTML(ecount.resource.LBL19073),n},setGridDateCustomDefault:function(n,t){var i={};return i.value=t.IS_DEFAULT,i.name=\"IS_DEFAULT\",i.event={click:function(n,t){var i=this.getComposite(\"grid\").getGrid();i.getRowList().forEach(function(n){n[ecount.grid.constValue.keyColumnPropertyName]==t.rowKey?i.setCell(\"IS_DEFAULT\",n[ecount.grid.constValue.keyColumnPropertyName],!0):i.setCell(\"IS_DEFAULT\",n[ecount.grid.constValue.keyColumnPropertyName],!1)})}.bind(this)},i},onMessageHandler_FavoriteCodeTreeSetup:function(n,t){var i,r;(t.callback&&t.callback(),this.getComposite(\"grid\").getGrid(this.gridId,this.tabId,!0).draw(this.pageInfo.searchFormParameter),i=this.getParentInstance(),i)&&(i.ecPageID&&i.ecPageID.indexOf(\"ES020P\")>-1?(r=i.getParentInstance(),r&&r.pageOption&&(r.pageOption.favoriteCodeCacheKey=t.cacheKey)):i.pageOption&&(i.pageOption.favoriteCodeCacheKey=t.cacheKey))}}}"
+    },
+    {
+      "symbol": "onInitGroupGridSimppleInput.init",
+      "span": [
+        1,
+        1344,
+        1,
+        1460
+      ],
+      "source_excerpt": "function(){eccomposite_v1.group.grid.prototype.init.apply(this,arguments);this.gridId=this.id;this.parentId=this.id}"
+    },
+    {
+      "symbol": "onInitGroupGridSimppleInput.render",
+      "span": [
+        1,
+        1468,
+        1,
+        1592
+      ],
+      "source_excerpt": "function(n){eccomposite_v1.group.grid.prototype.render.apply(this,arguments);var t=this.createLayout();n.addGrid(this.id,t)}"
+    },
+    {
+      "symbol": "onInitGroupGridSimppleInput.createLayout",
+      "span": [
+        1,
+        1606,
+        1,
+        2064
+      ],
+      "source_excerpt": "function(){var n=widget.generator.grid();return n.setRowData(this.viewBag.InitDatas.ListLoad).setRowDataUrl(\"/SVC/Common/Infra/GetListMyProdFavoriteGroup\").setColumns(this.settingInfo.columns).setRowDataParameter(this.pageInfo.searchFormParameter).setColumnFixHeader(!0).setEventWidgetTriggerObj(this.events).setCustomRowCell(\"IS_DEFAULT\",this.setGridDateCustomDefault.bind(this)),this.pageOption.isFromCS||n.setHeaderTopLeftHTML(ecount.resource.LBL19073),n}"
+    },
+    {
+      "symbol": "onInitGroupGridSimppleInput.setGridDateCustomDefault",
+      "span": [
+        1,
+        2090,
+        1,
+        2492
+      ],
+      "source_excerpt": "function(n,t){var i={};return i.value=t.IS_DEFAULT,i.name=\"IS_DEFAULT\",i.event={click:function(n,t){var i=this.getComposite(\"grid\").getGrid();i.getRowList().forEach(function(n){n[ecount.grid.constValue.keyColumnPropertyName]==t.rowKey?i.setCell(\"IS_DEFAULT\",n[ecount.grid.constValue.keyColumnPropertyName],!0):i.setCell(\"IS_DEFAULT\",n[ecount.grid.constValue.keyColumnPropertyName],!1)})}.bind(this)},i}"
+    },
+    {
+      "symbol": "onInitGroupGridSimppleInput.onMessageHandler_FavoriteCodeTreeSetup",
+      "span": [
+        1,
+        2532,
+        1,
+        2909
+      ],
+      "source_excerpt": "function(n,t){var i,r;(t.callback&&t.callback(),this.getComposite(\"grid\").getGrid(this.gridId,this.tabId,!0).draw(this.pageInfo.searchFormParameter),i=this.getParentInstance(),i)&&(i.ecPageID&&i.ecPageID.indexOf(\"ES020P\")>-1?(r=i.getParentInstance(),r&&r.pageOption&&(r.pageOption.favoriteCodeCacheKey=t.cacheKey)):i.pageOption&&(i.pageOption.favoriteCodeCacheKey=t.cacheKey))}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave",
+      "span": [
+        1,
+        2933,
+        1,
+        4043
+      ],
+      "source_excerpt": "function(){return{init:function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments)},render:function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n)},createLayout:function(n){var t=widget.generator.control();t.define(\"widget.button\",this.id).label(ecount.resource.BTN00065).clickOnce();this.settingInfo.isPrimary&&t.css(\"btn btn-primary\");n.addLeft(t);this.saveShortCutKey(\"F8\");this.createButtonEvent()},execCreateComposite:function(){return!0},_ON_CLICK:function(){var n=this,t=n.getComposite(\"save\").myControl,i=n.getComposite(\"grid\").getGrid().getRowList().select(function(t){if(t.IS_DEFAULT!=!1)return{ITEM_SNO:t.ITEM_SNO,PRG_ID:n.pageOption.RootPrgId,WIGT_CD:n.pageOption.widgetCode,WIGT_DV_CD:n.pageOption.widgetDvCode}});i.length==0?(ecount.alert(ecount.resource.MSG08298),t&&t.setAllowClick()):ecount.common.api({url:\"/SVC/Common/Infra/SaveMyProdFavoriteGroup\",ecPageID:n.ecPageID,data:Object.toJSON({Request:{Data:i[0]}}),success:function(t){t.Status!=\"200\"?ecount.alert(t.fullErrorMsg):n.close()},complete:function(){t&&t.setAllowClick()}})}}}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave.init",
+      "span": [
+        1,
+        2956,
+        1,
+        3031
+      ],
+      "source_excerpt": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments)}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave.render",
+      "span": [
+        1,
+        3039,
+        1,
+        3138
+      ],
+      "source_excerpt": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n)}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave.createLayout",
+      "span": [
+        1,
+        3152,
+        1,
+        3393
+      ],
+      "source_excerpt": "function(n){var t=widget.generator.control();t.define(\"widget.button\",this.id).label(ecount.resource.BTN00065).clickOnce();this.settingInfo.isPrimary&&t.css(\"btn btn-primary\");n.addLeft(t);this.saveShortCutKey(\"F8\");this.createButtonEvent()}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave.execCreateComposite",
+      "span": [
+        1,
+        3414,
+        1,
+        3434
+      ],
+      "source_excerpt": "function(){return!0}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave._ON_CLICK",
+      "span": [
+        1,
+        3445,
+        1,
+        4041
+      ],
+      "source_excerpt": "function(){var n=this,t=n.getComposite(\"save\").myControl,i=n.getComposite(\"grid\").getGrid().getRowList().select(function(t){if(t.IS_DEFAULT!=!1)return{ITEM_SNO:t.ITEM_SNO,PRG_ID:n.pageOption.RootPrgId,WIGT_CD:n.pageOption.widgetCode,WIGT_DV_CD:n.pageOption.widgetDvCode}});i.length==0?(ecount.alert(ecount.resource.MSG08298),t&&t.setAllowClick()):ecount.common.api({url:\"/SVC/Common/Infra/SaveMyProdFavoriteGroup\",ecPageID:n.ecPageID,data:Object.toJSON({Request:{Data:i[0]}}),success:function(t){t.Status!=\"200\"?ecount.alert(t.fullErrorMsg):n.close()},complete:function(){t&&t.setAllowClick()}})}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave._ON_CLICK.success",
+      "span": [
+        1,
+        3929,
+        1,
+        3996
+      ],
+      "source_excerpt": "function(t){t.Status!=\"200\"?ecount.alert(t.fullErrorMsg):n.close()}"
+    },
+    {
+      "symbol": "onInitUnitWidgetSave._ON_CLICK.complete",
+      "span": [
+        1,
+        4006,
+        1,
+        4038
+      ],
+      "source_excerpt": "function(){t&&t.setAllowClick()}"
+    },
+    {
+      "symbol": "onInitUnitWidgetFrequentlySetting",
+      "span": [
+        1,
+        4078,
+        1,
+        4970
+      ],
+      "source_excerpt": "function(){return{init:function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments)},render:function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n)},createLayout:function(n){var t=widget.generator.control();n.addLeft(t.define(\"widget.button\",this.id).label(ecount.resource.LBL19686));this.createButtonEvent()},execCreateComposite:function(){return!0},_ON_CLICK:function(){this.openWindow({url:\"/ECERP/SVC/Popup/FavoriteCodeTreeSetup\",name:ecount.resource.LBL19686,param:{Request:{PrgId:this.pageOption.RootPrgId,WigtCd:this.pageOption.widgetCode,Wigt_dv_cd:this.pageOption.widgetDvCode,PopupUrl:\"/ECERP/SVC/Popup/ES020P\",defaultParam:{isCheckBoxDisplayFlag:!1,isApplyDisplayFlag:!0,IsFromFavoriteCode:!0,isNewDisplayFlag:!0,checkMaxCount:200,PROD_SEARCH_TYPE:this.pageOption.PROD_SEARCH_TYPE}},width:300,height:600,isOpenPopup:!0}})}}}"
+    },
+    {
+      "symbol": "onInitUnitWidgetFrequentlySetting.init",
+      "span": [
+        1,
+        4101,
+        1,
+        4176
+      ],
+      "source_excerpt": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments)}"
+    },
+    {
+      "symbol": "onInitUnitWidgetFrequentlySetting.render",
+      "span": [
+        1,
+        4184,
+        1,
+        4283
+      ],
+      "source_excerpt": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n)}"
+    },
+    {
+      "symbol": "onInitUnitWidgetFrequentlySetting.createLayout",
+      "span": [
+        1,
+        4297,
+        1,
+        4444
+      ],
+      "source_excerpt": "function(n){var t=widget.generator.control();n.addLeft(t.define(\"widget.button\",this.id).label(ecount.resource.LBL19686));this.createButtonEvent()}"
+    },
+    {
+      "symbol": "onInitUnitWidgetFrequentlySetting.execCreateComposite",
+      "span": [
+        1,
+        4465,
+        1,
+        4485
+      ],
+      "source_excerpt": "function(){return!0}"
+    },
+    {
+      "symbol": "onInitUnitWidgetFrequentlySetting._ON_CLICK",
+      "span": [
+        1,
+        4496,
+        1,
+        4968
+      ],
+      "source_excerpt": "function(){this.openWindow({url:\"/ECERP/SVC/Popup/FavoriteCodeTreeSetup\",name:ecount.resource.LBL19686,param:{Request:{PrgId:this.pageOption.RootPrgId,WigtCd:this.pageOption.widgetCode,Wigt_dv_cd:this.pageOption.widgetDvCode,PopupUrl:\"/ECERP/SVC/Popup/ES020P\",defaultParam:{isCheckBoxDisplayFlag:!1,isApplyDisplayFlag:!0,IsFromFavoriteCode:!0,isNewDisplayFlag:!0,checkMaxCount:200,PROD_SEARCH_TYPE:this.pageOption.PROD_SEARCH_TYPE}},width:300,height:600,isOpenPopup:!0}})}"
+    }
+  ],
+  "routes": [
+    {
+      "route": "/SVC/Common/Infra/GetListMyProdFavoriteGroup",
+      "span": [
+        1,
+        1714,
+        1,
+        1760
+      ]
+    },
+    {
+      "route": "/SVC/Common/Infra/SaveMyProdFavoriteGroup",
+      "span": [
+        1,
+        3815,
+        1,
+        3858
+      ]
+    },
+    {
+      "route": "/ECERP/SVC/Popup/FavoriteCodeTreeSetup",
+      "span": [
+        1,
+        4528,
+        1,
+        4568
+      ]
+    },
+    {
+      "route": "/ECERP/SVC/Popup/ES020P",
+      "span": [
+        1,
+        4730,
+        1,
+        4755
+      ]
+    }
+  ],
+  "limitations": [
+    "Source only; no radio selection, save, tree mutation, server API or popup action executed.",
+    "Current live popup body equivalence is not asserted."
+  ]
+}

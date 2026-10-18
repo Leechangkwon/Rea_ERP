@@ -1,0 +1,81 @@
+{
+  "version": "0.10.0",
+  "base_commit": "127d01a9f295c1b0727c1cfaae0d21b32061e084",
+  "scope": "재고 I > 출력물 > 재고현황 > 기본 재고현황 (E040701)",
+  "rea": {
+    "version": "6.4.0",
+    "mode": "direct in-process static and semantic library functions; not CLI application graph",
+    "input": {
+      "path": "/workspace/scratch/bb556d5a9f94/rea-request/.artifacts/stock-original/stockReport.js",
+      "bytes": 18386,
+      "sha256": "1d0111594c06335202690011de44195a0640725f3aa699e8ec1a343e78147805"
+    },
+    "parse_status": "complete",
+    "parse_errors": 0,
+    "visited_ast_nodes": 4150,
+    "scopes": 73,
+    "bindings": 125,
+    "callables": 62,
+    "call_sites": 234,
+    "references": 372,
+    "frontiers": 237,
+    "coverage": {
+      "status": "complete",
+      "omittedCount": 0
+    },
+    "limitations": [
+      "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+      "Return sites include only direct callable returns; nested callable returns remain separate.",
+      "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+      "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+      "Cross-function mutation and dynamic property resolution remain unknown."
+    ],
+    "target_executed": false,
+    "child_processes_launched": false
+  },
+  "public_source": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.inventory/esz/views/xesz001r.-3347575537612825887.20.js",
+  "validation": {
+    "full_test_command": "NODE_OPTIONS=--test-isolation=none npm test",
+    "full_test_exit": 0,
+    "full_test_checks": 653,
+    "check_count_basis": {
+      "native_runner_tests": 395,
+      "json_checks": 127,
+      "plain_checks": 124,
+      "manual_scenarios": 9,
+      "duplicate_wrapper_tests_removed": 2
+    },
+    "new_stock_tests": {
+      "core": 13,
+      "ui": 10,
+      "whole_app_integration": 5
+    },
+    "full_test_log_sha256": "c6b52cb8bf23539745dcd066754b7f4035b2ab62e59cfbc34c766de05d149ac7",
+    "release_checks": 4
+  },
+  "browser_qa": {
+    "environment": "managed supervisor synthetic data, not hosted business QA",
+    "warehouse": "W001",
+    "item": "M001",
+    "as_of": "2026-10-16",
+    "quantity": 220,
+    "registered_cost": 2000,
+    "amount": 440000,
+    "ledger_opening": 200,
+    "ledger_purchase": 20,
+    "ledger_ending": 220,
+    "print_preview_columns": 5,
+    "sort_quantity_desc": [
+      220,
+      100,
+      50,
+      47
+    ],
+    "header_sort_buttons": false
+  },
+  "original_mutations": false,
+  "sources_modified": false,
+  "hosted_business_qa": false,
+  "real_phone_printer_scanner_qa": false,
+  "limits": "docs/stock-report-0.10.0.md"
+}

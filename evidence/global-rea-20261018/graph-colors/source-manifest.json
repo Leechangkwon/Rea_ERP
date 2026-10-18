@@ -1,0 +1,57 @@
+{
+  "scope": {
+    "retained_original_bodies": 81,
+    "original_bytes": 19600813,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "original_color_selection_input_apply": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "separate_from": "Owner0.30 category-color/palette implementation;0.29 release preserved"
+  },
+  "sources": [
+    {
+      "id": "uikit",
+      "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "bytes": 756271,
+      "actual_REA": "6.4.0",
+      "semantic_status": "complete",
+      "semantic_ir": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6/rea-semantic-ir.json",
+      "callables": 2203,
+      "calls": 7724,
+      "frontiers": 7033,
+      "SHA_rechecked": true
+    },
+    {
+      "id": "popup",
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/xgraphfilter.3840202323517767939.20.js",
+      "sha256": "1c59c121d20238ccef85df43c4fd11c6b0ad1b904a8c2022995785ead8cefe84",
+      "bytes": 5560,
+      "actual_REA": "6.4.0",
+      "semantic_status": "complete",
+      "semantic_ir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/1c59c121d20238cc/rea-semantic-ir.json",
+      "callables": 19,
+      "calls": 82,
+      "frontiers": 120,
+      "SHA_rechecked": true
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "actual_REA": "6.4.0",
+      "full_static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "semantic_status": "Prior full common2GB OOM, no retry/full IR",
+      "evidence_level": "Original static AST only",
+      "SHA_rechecked": true
+    }
+  ],
+  "evidence_files": {
+    "actual_REA_refs": "$SCRATCH/graph-colors-rea-20261018/actual-rea-reference-index.json",
+    "whole81_scan": "$SCRATCH/graph-colors-rea-20261018/corpus-color-scan.json"
+  }
+}

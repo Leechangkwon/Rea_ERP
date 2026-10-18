@@ -1,0 +1,3852 @@
+{
+  "schema": 1,
+  "observation_boundary": "The parent reports directly observing sort/subtotal and item-selection popups, up/down/delete, subtotal/total lines and apply/close. This worker only analyzes their observed public script URLs; source symbols are not independently verified UI labels or runtime outcomes.",
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "sources": [
+    {
+      "source_sha256": "8d06e671e1a4ba8dc0fc1a89de2ec3a127dffb0a060472c8e91f67e336b60d48",
+      "source_path": ".artifacts/global-rea-20261018/live-extension/originals/8d06e671e1a4ba8d-xfm079p_01.6182141805576162231.20.js",
+      "public_url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.popup.form/views/xfm079p_01.6182141805576162231.20.js",
+      "entries": [
+        {
+          "symbol": "onContentsUp",
+          "callable_id": "callable:function:12166:12249",
+          "span": [
+            1,
+            12166,
+            1,
+            12249
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                12177,
+                1,
+                12202
+              ],
+              "callee": "this.grid.moveUpChecked",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12203,
+                1,
+                12221
+              ],
+              "callee": "this.setGridSort",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12222,
+                1,
+                12248
+              ],
+              "callee": "this.setGridSortDisabled",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12177,
+                1,
+                12200
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12203,
+                1,
+                12219
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12222,
+                1,
+                12246
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onContentsDown",
+          "callable_id": "callable:function:12265:12350",
+          "span": [
+            1,
+            12265,
+            1,
+            12350
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                12276,
+                1,
+                12303
+              ],
+              "callee": "this.grid.moveDownChecked",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12304,
+                1,
+                12322
+              ],
+              "callee": "this.setGridSort",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12323,
+                1,
+                12349
+              ],
+              "callee": "this.setGridSortDisabled",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12276,
+                1,
+                12301
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12304,
+                1,
+                12320
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12323,
+                1,
+                12347
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onContentsDelete",
+          "callable_id": "callable:function:12368:12595",
+          "span": [
+            1,
+            12368,
+            1,
+            12595
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                12385,
+                1,
+                12414
+              ],
+              "callee": "this.grid.getCheckedKeyList",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12423,
+                1,
+                12451
+              ],
+              "callee": "this.setGridDeleteDisabled",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12478,
+                1,
+                12511
+              ],
+              "callee": "this.grid.setCell",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 3
+            },
+            {
+              "span": [
+                1,
+                12512,
+                1,
+                12548
+              ],
+              "callee": "this.grid.setCell",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 3
+            },
+            {
+              "span": [
+                1,
+                12549,
+                1,
+                12575
+              ],
+              "callee": "this.grid.removeChecked",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                12576,
+                1,
+                12594
+              ],
+              "callee": "this.setGridSort",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12385,
+                1,
+                12412
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12423,
+                1,
+                12449
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                12475,
+                1,
+                12476
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12478,
+                1,
+                12495
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12512,
+                1,
+                12529
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12549,
+                1,
+                12572
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12576,
+                1,
+                12592
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onButtonSave",
+          "callable_id": "callable:function:12609:12742",
+          "span": [
+            1,
+            12609,
+            1,
+            12742
+          ],
+          "branches": [
+            {
+              "kind": "if",
+              "condition": "this.isFromSearchFlag&&this.isFromZaFlag",
+              "span": [
+                1,
+                12620,
+                1,
+                12713
+              ],
+              "then": [
+                1,
+                12664,
+                1,
+                12713
+              ],
+              "else": null
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isFromSearchFlag",
+              "span": [
+                1,
+                12623,
+                1,
+                12663
+              ],
+              "right": [
+                1,
+                12646,
+                1,
+                12663
+              ]
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                12664,
+                1,
+                12713
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                12671,
+                1,
+                12709
+              ],
+              "callee": "ecount.alert",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                12713,
+                1,
+                12741
+              ],
+              "callee": "this.fnApplySaveData",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12671,
+                1,
+                12683
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12713,
+                1,
+                12733
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "validateData",
+          "callable_id": "callable:function:12756:13298",
+          "span": [
+            1,
+            12756,
+            1,
+            13298
+          ],
+          "branches": [
+            {
+              "kind": "conditional",
+              "condition": "this.isFormTypeForPagePat",
+              "span": [
+                1,
+                12803,
+                1,
+                12850
+              ],
+              "then": [
+                1,
+                12829,
+                1,
+                12841
+              ],
+              "else": [
+                1,
+                12842,
+                1,
+                12850
+              ]
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                12853,
+                1,
+                13297
+              ]
+            },
+            {
+              "kind": "conditional",
+              "condition": "u.where(function(t){return t.COL_CD.toUpperCase()==n.COL_CD.toUpperCase()}).length>1",
+              "span": [
+                1,
+                12860,
+                1,
+                13297
+              ],
+              "then": [
+                1,
+                12946,
+                1,
+                13293
+              ],
+              "else": [
+                1,
+                13295,
+                1,
+                13297
+              ]
+            },
+            {
+              "kind": "conditional",
+              "condition": "r==0",
+              "span": [
+                1,
+                12991,
+                1,
+                13205
+              ],
+              "then": [
+                1,
+                12997,
+                1,
+                13121
+              ],
+              "else": [
+                1,
+                13123,
+                1,
+                13205
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.footer.getControl(\"apply\")",
+              "span": [
+                1,
+                13210,
+                1,
+                13290
+              ],
+              "right": [
+                1,
+                13243,
+                1,
+                13290
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                12774,
+                1,
+                12796
+              ],
+              "callee": "this.grid.getRowList",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                12860,
+                1,
+                12935
+              ],
+              "callee": "u.where",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                12997,
+                1,
+                13093
+              ],
+              "callee": "this.grid.setCellShowError",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 3
+            },
+            {
+              "span": [
+                1,
+                13094,
+                1,
+                13121
+              ],
+              "callee": "this.grid.setCellFocus",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                13123,
+                1,
+                13205
+              ],
+              "callee": "this.grid.setCellShowError",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 3
+            },
+            {
+              "span": [
+                1,
+                13210,
+                1,
+                13241
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                13243,
+                1,
+                13290
+              ],
+              "callee": "this.footer.getControl(\"apply\").setAllowClick",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                13243,
+                1,
+                13274
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12774,
+                1,
+                12794
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12860,
+                1,
+                12867
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                12950,
+                1,
+                12989
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                12997,
+                1,
+                13023
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13094,
+                1,
+                13116
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13123,
+                1,
+                13149
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13210,
+                1,
+                13232
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13243,
+                1,
+                13288
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13243,
+                1,
+                13265
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "getSaveSortData",
+          "callable_id": "callable:function:13315:14005",
+          "span": [
+            1,
+            13315,
+            1,
+            14005
+          ],
+          "branches": [
+            {
+              "kind": "return",
+              "span": [
+                1,
+                13342,
+                1,
+                14004
+              ]
+            },
+            {
+              "kind": "conditional",
+              "condition": "n.forEach(function(n,r){if(!this.validateData(n))return t=1,!0;t==0&&i.push({SORT_SEQ:r+1,TAB_CD:n.TAB_CD,COL_CD:n.COL_CD,ASC_DESC:n.ASC_DESC==\"A\"?\"ASC\":\"DESC\",",
+              "span": [
+                1,
+                13348,
+                1,
+                14004
+              ],
+              "then": [
+                1,
+                13881,
+                1,
+                13885
+              ],
+              "else": [
+                1,
+                13887,
+                1,
+                14003
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                13349,
+                1,
+                13874
+              ],
+              "callee": "n.forEach",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                13359,
+                1,
+                13873
+              ],
+              "callee": "function(n,r){if(!this.validateData(n))return t=1,!0;t==0&&i.push({SORT_SEQ:r+1,TAB_CD:n.TAB_CD,COL_CD:n.COL_CD,ASC_DESC:n.ASC_DESC==\"A\"?\"ASC\":\"DESC\",SUBTOT_TF:",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                13889,
+                1,
+                13991
+              ],
+              "callee": "this.formDesignData.Mainset.Sort.where",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                13928,
+                1,
+                13990
+              ],
+              "callee": "function(n){return n.TAB_CD!=this.pageOption.tabCd}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                13992,
+                1,
+                14003
+              ],
+              "callee": "i.concat",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13349,
+                1,
+                13358
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13359,
+                1,
+                13867
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13889,
+                1,
+                13927
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13928,
+                1,
+                13984
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                13992,
+                1,
+                14000
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "fnApplySaveData",
+          "callable_id": "callable:function:15708:16154",
+          "span": [
+            1,
+            15708,
+            1,
+            16154
+          ],
+          "branches": [
+            {
+              "kind": "if",
+              "condition": "t==null",
+              "span": [
+                1,
+                15838,
+                1,
+                15858
+              ],
+              "then": [
+                1,
+                15849,
+                1,
+                15858
+              ],
+              "else": null
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                15849,
+                1,
+                15858
+              ]
+            },
+            {
+              "kind": "if",
+              "condition": "this.isLeftFixed()&&this.isCancelLeftFixed(t)&&(n==\"save\"||!this.isFromSearchFlag)",
+              "span": [
+                1,
+                15858,
+                1,
+                16127
+              ],
+              "then": [
+                1,
+                15944,
+                1,
+                16127
+              ],
+              "else": null
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isLeftFixed()&&this.isCancelLeftFixed(t)",
+              "span": [
+                1,
+                15861,
+                1,
+                15943
+              ],
+              "right": [
+                1,
+                15909,
+                1,
+                15942
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isLeftFixed()",
+              "span": [
+                1,
+                15861,
+                1,
+                15906
+              ],
+              "right": [
+                1,
+                15881,
+                1,
+                15906
+              ]
+            },
+            {
+              "kind": "short-circuit-||",
+              "condition": "n==\"save\"",
+              "span": [
+                1,
+                15909,
+                1,
+                15942
+              ],
+              "right": [
+                1,
+                15920,
+                1,
+                15942
+              ]
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                16120,
+                1,
+                16126
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                15726,
+                1,
+                15811
+              ],
+              "callee": "this.grid.getRowList().where",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                15726,
+                1,
+                15748
+              ],
+              "callee": "this.grid.getRowList",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                15814,
+                1,
+                15837
+              ],
+              "callee": "this.getSaveSortData",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                15861,
+                1,
+                15879
+              ],
+              "callee": "this.isLeftFixed",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                15881,
+                1,
+                15906
+              ],
+              "callee": "this.isCancelLeftFixed",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                15945,
+                1,
+                16119
+              ],
+              "callee": "ecount.confirm",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                15985,
+                1,
+                16118
+              ],
+              "callee": "function(i){i?this.executeApplySave(n,t):this.footer.getControl(\"apply\")&&this.footer.getControl(\"apply\").setAllowClick()}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                16127,
+                1,
+                16153
+              ],
+              "callee": "this.executeApplySave",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15726,
+                1,
+                15754
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15726,
+                1,
+                15746
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15814,
+                1,
+                15834
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15861,
+                1,
+                15877
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15881,
+                1,
+                15903
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15945,
+                1,
+                15959
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                15985,
+                1,
+                16112
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16127,
+                1,
+                16148
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "executeApplySave",
+          "callable_id": "callable:function:16602:18761",
+          "span": [
+            1,
+            16602,
+            1,
+            18761
+          ],
+          "branches": [
+            {
+              "kind": "if",
+              "condition": "this.isFormTypeForPagePat&&(f=t.findIndex(function(n){return ecount.common.isTrue(n.PAGE_PAT_TF)}.bind(this)),!!~f&&(o=t.some(function(n,t){var i=this.formTab.C",
+              "span": [
+                1,
+                16694,
+                1,
+                17126
+              ],
+              "then": [
+                1,
+                16998,
+                1,
+                17126
+              ],
+              "else": null
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isFormTypeForPagePat",
+              "span": [
+                1,
+                16697,
+                1,
+                16997
+              ],
+              "right": [
+                1,
+                16725,
+                1,
+                16996
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "!!~f",
+              "span": [
+                1,
+                16807,
+                1,
+                16996
+              ],
+              "right": [
+                1,
+                16814,
+                1,
+                16995
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.footer.getControl(\"apply\")",
+              "span": [
+                1,
+                17038,
+                1,
+                17118
+              ],
+              "right": [
+                1,
+                17071,
+                1,
+                17118
+              ]
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                17119,
+                1,
+                17125
+              ]
+            },
+            {
+              "kind": "if",
+              "condition": "n==\"save\"",
+              "span": [
+                1,
+                17126,
+                1,
+                18760
+              ],
+              "then": [
+                1,
+                17139,
+                1,
+                18462
+              ],
+              "else": [
+                1,
+                18467,
+                1,
+                18760
+              ]
+            },
+            {
+              "kind": "if",
+              "condition": "this.IsDetailPermit==!1",
+              "span": [
+                1,
+                17140,
+                1,
+                17515
+              ],
+              "then": [
+                1,
+                17167,
+                1,
+                17355
+              ],
+              "else": [
+                1,
+                17360,
+                1,
+                17515
+              ]
+            },
+            {
+              "kind": "if",
+              "condition": "s=this.viewBag.Permission.formUserPermit.Value,s!=\"W\"",
+              "span": [
+                1,
+                17168,
+                1,
+                17354
+              ],
+              "then": [
+                1,
+                17225,
+                1,
+                17354
+              ],
+              "else": null
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                17347,
+                1,
+                17353
+              ]
+            },
+            {
+              "kind": "if",
+              "condition": "this.SettingPermit==!1",
+              "span": [
+                1,
+                17360,
+                1,
+                17515
+              ],
+              "then": [
+                1,
+                17386,
+                1,
+                17515
+              ],
+              "else": null
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                17508,
+                1,
+                17514
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                16624,
+                1,
+                16661
+              ],
+              "callee": "this.grid.getRowItem",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                16664,
+                1,
+                16681
+              ],
+              "callee": "this.getColumns",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                16727,
+                1,
+                16806
+              ],
+              "callee": "t.findIndex",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                16739,
+                1,
+                16805
+              ],
+              "callee": "function(n){return ecount.common.isTrue(n.PAGE_PAT_TF)}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                16816,
+                1,
+                16993
+              ],
+              "callee": "t.some",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                16823,
+                1,
+                16992
+              ],
+              "callee": "function(n,t){var i=this.formTab.ColumnSet.find(function(t){return t.COL_CD.toUpperCase()==n.COL_CD.toUpperCase()}).DATA_TYPE1;return[\"NUM\"].contains(i)&&t<f}.b",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                16999,
+                1,
+                17037
+              ],
+              "callee": "ecount.alert",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17038,
+                1,
+                17069
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17071,
+                1,
+                17118
+              ],
+              "callee": "this.footer.getControl(\"apply\").setAllowClick",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                17071,
+                1,
+                17102
+              ],
+              "callee": "this.footer.getControl",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17226,
+                1,
+                17346
+              ],
+              "callee": "ecount.alert",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17239,
+                1,
+                17332
+              ],
+              "callee": "ecount.common.getAuthMessage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                17387,
+                1,
+                17507
+              ],
+              "callee": "ecount.alert",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17400,
+                1,
+                17493
+              ],
+              "callee": "ecount.common.getAuthMessage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                17517,
+                1,
+                17663
+              ],
+              "callee": "_.cloneDeep",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17679,
+                1,
+                17694
+              ],
+              "callee": "this.getBody",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17710,
+                1,
+                17725
+              ],
+              "callee": "this.getPage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17748,
+                1,
+                17770
+              ],
+              "callee": "this.getReportTitle",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17807,
+                1,
+                17826
+              ],
+              "callee": "this.getTabBasic",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17832,
+                1,
+                18461
+              ],
+              "callee": "ecount.common.api",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17925,
+                1,
+                17941
+              ],
+              "callee": "Object.toJSON",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                17950,
+                1,
+                18012
+              ],
+              "callee": "function(n){n.Status!=\"200\"&&alert(n.fullErrorMsg)}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                18019,
+                1,
+                18099
+              ],
+              "callee": "function(n,t,i){$.isEmpty(i.Message)||(e=!1,ecount.alert(i.Message))}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                18109,
+                1,
+                18459
+              ],
+              "callee": "function(){if(this.hideProgressbar(),e){var r={type:n,data:{sortData:t,TITLE_NM:_.get(i,\"TITLE_NM\"),PRINT_PAGE_SUM_TF:_.get(i,\"PRINT_PAGE_SUM_TF\"),BD_SUM_AREA_T",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                18503,
+                1,
+                18522
+              ],
+              "callee": "_.get",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                18541,
+                1,
+                18569
+              ],
+              "callee": "_.get",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                18585,
+                1,
+                18605
+              ],
+              "callee": "_.get",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                18622,
+                1,
+                18648
+              ],
+              "callee": "_.get",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            },
+            {
+              "span": [
+                1,
+                18677,
+                1,
+                18702
+              ],
+              "callee": "this.isCancelLeftFixed",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                18713,
+                1,
+                18734
+              ],
+              "callee": "this.close.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                18736,
+                1,
+                18760
+              ],
+              "callee": "this.sendMessage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16624,
+                1,
+                16644
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16664,
+                1,
+                16679
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16727,
+                1,
+                16738
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16739,
+                1,
+                16799
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16816,
+                1,
+                16822
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16823,
+                1,
+                16986
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                16999,
+                1,
+                17011
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17038,
+                1,
+                17060
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17071,
+                1,
+                17116
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17071,
+                1,
+                17093
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17226,
+                1,
+                17238
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17239,
+                1,
+                17267
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17387,
+                1,
+                17399
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17400,
+                1,
+                17428
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17517,
+                1,
+                17528
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17679,
+                1,
+                17691
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17710,
+                1,
+                17722
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17748,
+                1,
+                17767
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17807,
+                1,
+                17823
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17832,
+                1,
+                17849
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17925,
+                1,
+                17938
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                17950,
+                1,
+                18006
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18019,
+                1,
+                18093
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18109,
+                1,
+                18453
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18503,
+                1,
+                18508
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18541,
+                1,
+                18546
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18585,
+                1,
+                18590
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18622,
+                1,
+                18627
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18677,
+                1,
+                18699
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18713,
+                1,
+                18728
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18736,
+                1,
+                18752
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onFooterApply",
+          "callable_id": "callable:function:18776:18817",
+          "span": [
+            1,
+            18776,
+            1,
+            18817
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                18787,
+                1,
+                18816
+              ],
+              "callee": "this.fnApplySaveData",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18787,
+                1,
+                18807
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onFooterClose",
+          "callable_id": "callable:function:18832:18856",
+          "span": [
+            1,
+            18832,
+            1,
+            18856
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                18843,
+                1,
+                18855
+              ],
+              "callee": "this.close",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18843,
+                1,
+                18853
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "ON_KEY_F8",
+          "callable_id": "callable:function:18867:18931",
+          "span": [
+            1,
+            18867,
+            1,
+            18931
+          ],
+          "branches": [
+            {
+              "kind": "short-circuit-&&",
+              "condition": "ecount.global.isDisableAlert()",
+              "span": [
+                1,
+                18878,
+                1,
+                18930
+              ],
+              "right": [
+                1,
+                18910,
+                1,
+                18930
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                18878,
+                1,
+                18908
+              ],
+              "callee": "ecount.global.isDisableAlert",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                18910,
+                1,
+                18930
+              ],
+              "callee": "this.onFooterApply",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18878,
+                1,
+                18906
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18910,
+                1,
+                18928
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "ON_KEY_ESC",
+          "callable_id": "callable:function:18943:18967",
+          "span": [
+            1,
+            18943,
+            1,
+            18967
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                18954,
+                1,
+                18966
+              ],
+              "callee": "this.close",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                18954,
+                1,
+                18964
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "setGridDataCustomAscDesc",
+          "callable_id": "callable:function:20430:20834",
+          "span": [
+            1,
+            20430,
+            1,
+            20834
+          ],
+          "branches": [
+            {
+              "kind": "return",
+              "span": [
+                1,
+                20744,
+                1,
+                20833
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "$.isEmpty(t.COL_CD)||t.COL_CD==\"0\"",
+              "span": [
+                1,
+                20750,
+                1,
+                20793
+              ],
+              "right": [
+                1,
+                20789,
+                1,
+                20792
+              ]
+            },
+            {
+              "kind": "short-circuit-||",
+              "condition": "$.isEmpty(t.COL_CD)",
+              "span": [
+                1,
+                20751,
+                1,
+                20785
+              ],
+              "right": [
+                1,
+                20772,
+                1,
+                20785
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                20628,
+                1,
+                20737
+              ],
+              "callee": "function(n,t){t.newValue==\"B\"&&(t.newValue=\"D\");this.grid.setCell(\"ASC_DESC\",t.rowKey,t.newValue)}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                20751,
+                1,
+                20770
+              ],
+              "callee": "$.isEmpty",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                20628,
+                1,
+                20731
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                20751,
+                1,
+                20760
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "setGridDataCustomSubTotTf",
+          "callable_id": "callable:function:22376:23014",
+          "span": [
+            1,
+            22376,
+            1,
+            23014
+          ],
+          "branches": [
+            {
+              "kind": "return",
+              "span": [
+                1,
+                22701,
+                1,
+                23013
+              ]
+            },
+            {
+              "kind": "conditional",
+              "condition": "$.isEmpty(t.COL_CD)||t.COL_CD==\"0\"",
+              "span": [
+                1,
+                22708,
+                1,
+                22785
+              ],
+              "then": [
+                1,
+                22743,
+                1,
+                22746
+              ],
+              "else": [
+                1,
+                22747,
+                1,
+                22785
+              ]
+            },
+            {
+              "kind": "short-circuit-||",
+              "condition": "$.isEmpty(t.COL_CD)",
+              "span": [
+                1,
+                22708,
+                1,
+                22742
+              ],
+              "right": [
+                1,
+                22729,
+                1,
+                22742
+              ]
+            },
+            {
+              "kind": "short-circuit-||",
+              "condition": "[\"DATETIME\",\"TEXT\"].contains(u)",
+              "span": [
+                1,
+                22747,
+                1,
+                22785
+              ],
+              "right": [
+                1,
+                22781,
+                1,
+                22784
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isPageByPage()",
+              "span": [
+                1,
+                22786,
+                1,
+                22812
+              ],
+              "right": [
+                1,
+                22808,
+                1,
+                22811
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isFromSearchFlag&&this.isLeftFixed()",
+              "span": [
+                1,
+                22813,
+                1,
+                22861
+              ],
+              "right": [
+                1,
+                22857,
+                1,
+                22860
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isFromSearchFlag",
+              "span": [
+                1,
+                22813,
+                1,
+                22854
+              ],
+              "right": [
+                1,
+                22836,
+                1,
+                22854
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "ecount.common.isTrue(t.READONLY_SUBTOT_TF)",
+              "span": [
+                1,
+                22862,
+                1,
+                22911
+              ],
+              "right": [
+                1,
+                22907,
+                1,
+                22910
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.notUseSubTotalLineFormTypeList.includes(this.formDesignData.formType)",
+              "span": [
+                1,
+                22912,
+                1,
+                22993
+              ],
+              "right": [
+                1,
+                22989,
+                1,
+                22992
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                22518,
+                1,
+                22665
+              ],
+              "callee": "function(n,t){t.rowItem.DATA_TYPE1==\"DATETIME\"&&this.grid.setCell(\"SUBTOT_TYPE\",t.rowKey,\"M\");this.grid.refreshCell(\"DETAILS\",t.rowKey)}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                22674,
+                1,
+                22700
+              ],
+              "callee": "this.getDataType",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                22708,
+                1,
+                22727
+              ],
+              "callee": "$.isEmpty",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                22747,
+                1,
+                22778
+              ],
+              "callee": "[\"DATETIME\",\"TEXT\"].contains",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                22786,
+                1,
+                22805
+              ],
+              "callee": "this.isPageByPage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                22836,
+                1,
+                22854
+              ],
+              "callee": "this.isLeftFixed",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                22862,
+                1,
+                22904
+              ],
+              "callee": "ecount.common.isTrue",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                22912,
+                1,
+                22986
+              ],
+              "callee": "this.notUseSubTotalLineFormTypeList.includes",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22518,
+                1,
+                22659
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22674,
+                1,
+                22690
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22708,
+                1,
+                22717
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22747,
+                1,
+                22775
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22786,
+                1,
+                22803
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22836,
+                1,
+                22852
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22862,
+                1,
+                22882
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                22912,
+                1,
+                22956
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "setGridDataCustomSumSubTotal",
+          "callable_id": "callable:function:23639:24525",
+          "span": [
+            1,
+            23639,
+            1,
+            24525
+          ],
+          "branches": [
+            {
+              "kind": "short-circuit-&&",
+              "condition": "!this.isPageByPage()",
+              "span": [
+                1,
+                23778,
+                1,
+                23844
+              ],
+              "right": [
+                1,
+                23800,
+                1,
+                23844
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "this.isFromSearchFlag",
+              "span": [
+                1,
+                23802,
+                1,
+                23843
+              ],
+              "right": [
+                1,
+                23825,
+                1,
+                23843
+              ]
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                24018,
+                1,
+                24524
+              ]
+            },
+            {
+              "kind": "conditional",
+              "condition": "this.formDesignData.Mainset.TabBasic.length>0",
+              "span": [
+                1,
+                24025,
+                1,
+                24385
+              ],
+              "then": [
+                1,
+                24071,
+                1,
+                24230
+              ],
+              "else": [
+                1,
+                24231,
+                1,
+                24385
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "!$.isEmpty(this.__ecPageID)&&this.__ecPageID.indexOf(\"FM002P_01\")==-1&&ecount.common.isTrue(this.isBodyItemSeprate)",
+              "span": [
+                1,
+                24386,
+                1,
+                24522
+              ],
+              "right": [
+                1,
+                24504,
+                1,
+                24521
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "!$.isEmpty(this.__ecPageID)&&this.__ecPageID.indexOf(\"FM002P_01\")==-1",
+              "span": [
+                1,
+                24386,
+                1,
+                24501
+              ],
+              "right": [
+                1,
+                24457,
+                1,
+                24501
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "!$.isEmpty(this.__ecPageID)",
+              "span": [
+                1,
+                24386,
+                1,
+                24455
+              ],
+              "right": [
+                1,
+                24415,
+                1,
+                24455
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                23779,
+                1,
+                23798
+              ],
+              "callee": "this.isPageByPage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                23825,
+                1,
+                23843
+              ],
+              "callee": "this.isLeftFixed",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                23859,
+                1,
+                24015
+              ],
+              "callee": "function(n,t){this.grid.refreshCell(t.sectionType,\"DETAILS\",t.rowItem[ecount.constValue.keyColumnPropertyName],ecount.common.isTrue(t.newValue))}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24071,
+                1,
+                24230
+              ],
+              "callee": "this.formDesignData.Mainset.TabBasic.forEach",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24116,
+                1,
+                24229
+              ],
+              "callee": "function(t){t.TAB_CD==this.pageOption.tabCd&&(n.data=ecount.common.isTrue(t.TOTL_SUM_USE_TF)?\"1\":\"0\")}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24231,
+                1,
+                24385
+              ],
+              "callee": "this.formDesignData.Mainset.Body.forEach",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24272,
+                1,
+                24384
+              ],
+              "callee": "function(t){t.TAB_CD==this.pageOption.tabCd&&(n.data=ecount.common.isTrue(t.BD_SUM_AREA_TF)?\"1\":\"0\")}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24387,
+                1,
+                24413
+              ],
+              "callee": "$.isEmpty",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24415,
+                1,
+                24451
+              ],
+              "callee": "this.__ecPageID.indexOf",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                24457,
+                1,
+                24501
+              ],
+              "callee": "ecount.common.isTrue",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                23779,
+                1,
+                23796
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                23825,
+                1,
+                23841
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                23859,
+                1,
+                24009
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24071,
+                1,
+                24115
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24116,
+                1,
+                24223
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24231,
+                1,
+                24271
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24272,
+                1,
+                24378
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24387,
+                1,
+                24396
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24415,
+                1,
+                24438
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                24457,
+                1,
+                24477
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "setGridSortDisabled",
+          "callable_id": "callable:function:27423:27892",
+          "span": [
+            1,
+            27423,
+            1,
+            27892
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                27440,
+                1,
+                27465
+              ],
+              "callee": "this.grid.getRowKeyList",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                27468,
+                1,
+                27489
+              ],
+              "callee": "this.getPagepatItem",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                27495,
+                1,
+                27891
+              ],
+              "callee": "i.forEach",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                27505,
+                1,
+                27890
+              ],
+              "callee": "function(i){n.length===0?(this.grid.setCell(\"READONLY_SUBTOT_TF\",i,\"0\"),this.grid.refreshCell(\"SUBTOT_TF\",i)):t?i===n[0][ecount.constValue.keyColumnPropertyName",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                27440,
+                1,
+                27463
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                27468,
+                1,
+                27487
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                27495,
+                1,
+                27504
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                27505,
+                1,
+                27884
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "setGridDeleteDisabled",
+          "callable_id": "callable:function:27915:28183",
+          "span": [
+            1,
+            27915,
+            1,
+            28183
+          ],
+          "branches": [
+            {
+              "kind": "if",
+              "condition": "r.length!==0",
+              "span": [
+                1,
+                27988,
+                1,
+                28182
+              ],
+              "then": [
+                1,
+                28004,
+                1,
+                28182
+              ],
+              "else": null
+            },
+            {
+              "kind": "if",
+              "condition": "t=i[n],t===r[0][ecount.constValue.keyColumnPropertyName]",
+              "span": [
+                1,
+                28032,
+                1,
+                28099
+              ],
+              "then": [
+                1,
+                28092,
+                1,
+                28099
+              ],
+              "else": null
+            },
+            {
+              "kind": "return",
+              "span": [
+                1,
+                28092,
+                1,
+                28099
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                27932,
+                1,
+                27957
+              ],
+              "callee": "this.grid.getRowKeyList",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                27960,
+                1,
+                27981
+              ],
+              "callee": "this.getPagepatItem",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                28099,
+                1,
+                28144
+              ],
+              "callee": "this.grid.setCell",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 3
+            },
+            {
+              "span": [
+                1,
+                28145,
+                1,
+                28181
+              ],
+              "callee": "this.grid.refreshCell",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                27932,
+                1,
+                27955
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                27960,
+                1,
+                27979
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                28039,
+                1,
+                28040
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-property",
+              "span": [
+                1,
+                28051,
+                1,
+                28090
+              ],
+              "reason": "Computed member property is not a static string or number."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                28099,
+                1,
+                28116
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                28145,
+                1,
+                28166
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        }
+      ]
+    },
+    {
+      "source_sha256": "7e4a61047a393719aa3a6828087be91e9441f09d0b545d75ba609ba3d34e14e0",
+      "source_path": ".artifacts/global-rea-20261018/live-extension/originals/7e4a61047a393719-xfm083p_02.-3586235449574592508.20.js",
+      "public_url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.popup.form/views/xfm083p_02.-3586235449574592508.20.js",
+      "entries": [
+        {
+          "symbol": "sendSelect",
+          "callable_id": "callable:function:3812:3908",
+          "span": [
+            1,
+            3812,
+            1,
+            3908
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                3860,
+                1,
+                3881
+              ],
+              "callee": "this.close.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                3883,
+                1,
+                3907
+              ],
+              "callee": "this.sendMessage",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3860,
+                1,
+                3875
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3883,
+                1,
+                3899
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "getSearchingRow",
+          "callable_id": "callable:function:3925:4632",
+          "span": [
+            1,
+            3925,
+            1,
+            4632
+          ],
+          "branches": [
+            {
+              "kind": "return",
+              "span": [
+                1,
+                4014,
+                1,
+                4631
+              ]
+            },
+            {
+              "kind": "short-circuit-&&",
+              "condition": "rawchild.length>0",
+              "span": [
+                1,
+                4382,
+                1,
+                4629
+              ],
+              "right": [
+                1,
+                4402,
+                1,
+                4628
+              ]
+            }
+          ],
+          "calls": [
+            {
+              "span": [
+                1,
+                3942,
+                1,
+                4002
+              ],
+              "callee": "this.header.getQuickSearchControl().getValue().toUpperCase",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                3942,
+                1,
+                3988
+              ],
+              "callee": "this.header.getQuickSearchControl().getValue",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                3942,
+                1,
+                3977
+              ],
+              "callee": "this.header.getQuickSearchControl",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                4030,
+                1,
+                4188
+              ],
+              "callee": "this.formOutColumns.where",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4056,
+                1,
+                4187
+              ],
+              "callee": "function(n){return(!n._TREE_SET||n._TREE_SET._PARENT_GROUP_ID!=\"0000\")&&(n.TITLE||\"\").toUpperCase().indexOf(r)>-1?!0:!1}.bind",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4198,
+                1,
+                4278
+              ],
+              "callee": "rawchild.filter",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4288,
+                1,
+                4381
+              ],
+              "callee": "rawchild.filter",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4407,
+                1,
+                4474
+              ],
+              "callee": "rawchild.forEach",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4477,
+                1,
+                4488
+              ],
+              "callee": "$.unique",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4491,
+                1,
+                4606
+              ],
+              "callee": "this.formOutColumns.where",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4609,
+                1,
+                4628
+              ],
+              "callee": "$.merge",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 2
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3942,
+                1,
+                4000
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3942,
+                1,
+                3986
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                3942,
+                1,
+                3975
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4030,
+                1,
+                4055
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4056,
+                1,
+                4181
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4198,
+                1,
+                4213
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4288,
+                1,
+                4303
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4407,
+                1,
+                4423
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4477,
+                1,
+                4485
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4491,
+                1,
+                4516
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4609,
+                1,
+                4616
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onHeaderQuickSearch",
+          "callable_id": "callable:function:4653:4775",
+          "span": [
+            1,
+            4653,
+            1,
+            4775
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                4670,
+                1,
+                4692
+              ],
+              "callee": "this.getSearchingRow",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                4693,
+                1,
+                4754
+              ],
+              "callee": "this.gridObj.settings.setCheckBoxClearChecked().setRowData",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 1
+            },
+            {
+              "span": [
+                1,
+                4693,
+                1,
+                4740
+              ],
+              "callee": "this.gridObj.settings.setCheckBoxClearChecked",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            },
+            {
+              "span": [
+                1,
+                4755,
+                1,
+                4774
+              ],
+              "callee": "this.gridObj.draw",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4670,
+                1,
+                4690
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4693,
+                1,
+                4751
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4693,
+                1,
+                4738
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            },
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4755,
+                1,
+                4772
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onFooterApply",
+          "callable_id": "callable:function:4790:4802",
+          "span": [
+            1,
+            4790,
+            1,
+            4802
+          ],
+          "branches": [],
+          "calls": [],
+          "unknowns": [],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "onFooterClose",
+          "callable_id": "callable:function:4817:4841",
+          "span": [
+            1,
+            4817,
+            1,
+            4841
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                4828,
+                1,
+                4840
+              ],
+              "callee": "this.close",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4828,
+                1,
+                4838
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        },
+        {
+          "symbol": "ON_KEY_F8",
+          "callable_id": "callable:function:4852:4884",
+          "span": [
+            1,
+            4852,
+            1,
+            4884
+          ],
+          "branches": [],
+          "calls": [
+            {
+              "span": [
+                1,
+                4863,
+                1,
+                4883
+              ],
+              "callee": "this.onFooterApply",
+              "resolution": "unresolved",
+              "targets": [],
+              "argument_count": 0
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "dynamic-call",
+              "span": [
+                1,
+                4863,
+                1,
+                4881
+              ],
+              "reason": "Unsupported MemberExpression call target."
+            }
+          ],
+          "status": "static-source-candidate-unverified-by-this-worker-in-original-ui"
+        }
+      ]
+    }
+  ]
+}

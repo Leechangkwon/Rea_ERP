@@ -1,0 +1,477 @@
+{
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "method": "Existing full actual REA6.4.0 semantic IR; fresh inert AST coordinates, no full rerun/target execution",
+  "source": {
+    "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+    "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+    "bytes": 756271,
+    "actual_REA": "6.4.0",
+    "semantic_status": "complete",
+    "retained_semantic_ir": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6/rea-semantic-ir.json",
+    "parse_errors": 0,
+    "callables": 2203,
+    "calls": 7724,
+    "frontiers": 7033,
+    "SHA_rechecked": true
+  },
+  "references": {
+    "updateHelperLocations": {
+      "symbol": "updateHelperLocations",
+      "span": [
+        16,
+        372992,
+        16,
+        373343
+      ],
+      "offsets": [
+        413318,
+        413669
+      ],
+      "actual_REA_callable_id": "callable:function:413318:413669",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "getColorInfo": {
+      "symbol": "getColorInfo",
+      "span": [
+        16,
+        373357,
+        16,
+        373502
+      ],
+      "offsets": [
+        413683,
+        413828
+      ],
+      "actual_REA_callable_id": "callable:function:413683:413828",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "getColorData": {
+      "symbol": "getColorData",
+      "span": [
+        16,
+        373516,
+        16,
+        373607
+      ],
+      "offsets": [
+        413842,
+        413933
+      ],
+      "actual_REA_callable_id": "callable:function:413842:413933",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "getPaletteColor": {
+      "symbol": "getPaletteColor",
+      "span": [
+        16,
+        373624,
+        16,
+        373696
+      ],
+      "offsets": [
+        413950,
+        414022
+      ],
+      "actual_REA_callable_id": "callable:function:413950:414022",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "extractHexCode": {
+      "symbol": "extractHexCode",
+      "span": [
+        16,
+        373712,
+        16,
+        373886
+      ],
+      "offsets": [
+        414038,
+        414212
+      ],
+      "actual_REA_callable_id": "callable:function:414038:414212",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "parseCssToRgb": {
+      "symbol": "parseCssToRgb",
+      "span": [
+        16,
+        373901,
+        16,
+        374303
+      ],
+      "offsets": [
+        414227,
+        414629
+      ],
+      "actual_REA_callable_id": "callable:function:414227:414629",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "parseRgbToHex": {
+      "symbol": "parseRgbToHex",
+      "span": [
+        16,
+        374318,
+        16,
+        374824
+      ],
+      "offsets": [
+        414644,
+        415150
+      ],
+      "actual_REA_callable_id": "callable:function:414644:415150",
+      "direct_call_count": 18,
+      "direct_call_resolution": {
+        "unresolved": 15,
+        "exact": 3
+      }
+    },
+    "parseCssToHex": {
+      "symbol": "parseCssToHex",
+      "span": [
+        16,
+        374839,
+        16,
+        374942
+      ],
+      "offsets": [
+        415165,
+        415268
+      ],
+      "actual_REA_callable_id": "callable:function:415165:415268",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "exact": 2
+      }
+    },
+    "resolveCssToHex": {
+      "symbol": "resolveCssToHex",
+      "span": [
+        16,
+        374959,
+        16,
+        375096
+      ],
+      "offsets": [
+        415285,
+        415422
+      ],
+      "actual_REA_callable_id": "callable:function:415285:415422",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "exact": 2
+      }
+    },
+    "PaletteMap": {
+      "symbol": "PaletteMap",
+      "span": [
+        16,
+        375121,
+        16,
+        377123
+      ],
+      "offsets": [
+        415447,
+        417449
+      ],
+      "actual_REA_callable_id": "callable:function:415447:417449",
+      "direct_call_count": 16,
+      "direct_call_resolution": {
+        "exact": 3,
+        "unresolved": 13
+      }
+    },
+    "PaletteHue": {
+      "symbol": "PaletteHue",
+      "span": [
+        16,
+        377149,
+        16,
+        378798
+      ],
+      "offsets": [
+        417475,
+        419124
+      ],
+      "actual_REA_callable_id": "callable:function:417475:419124",
+      "direct_call_count": 11,
+      "direct_call_resolution": {
+        "exact": 1,
+        "unresolved": 10
+      }
+    },
+    "PaletteValue": {
+      "symbol": "PaletteValue",
+      "span": [
+        16,
+        378826,
+        16,
+        379769
+      ],
+      "offsets": [
+        419152,
+        420095
+      ],
+      "actual_REA_callable_id": "callable:function:419152:420095",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "PaletteButton": {
+      "symbol": "PaletteButton",
+      "span": [
+        16,
+        379798,
+        16,
+        380082
+      ],
+      "offsets": [
+        420124,
+        420408
+      ],
+      "actual_REA_callable_id": "callable:function:420124:420408",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "ColorPicker": {
+      "symbol": "ColorPicker",
+      "span": [
+        16,
+        380128,
+        16,
+        382398
+      ],
+      "offsets": [
+        420454,
+        422724
+      ],
+      "actual_REA_callable_id": "callable:function:420454:422724",
+      "direct_call_count": 22,
+      "direct_call_resolution": {
+        "unresolved": 22
+      }
+    },
+    "PaletteMap.setHelper": {
+      "symbol": "PaletteMap.setHelper",
+      "span": [
+        16,
+        375795,
+        16,
+        376420
+      ],
+      "offsets": [
+        416121,
+        416746
+      ],
+      "actual_REA_callable_id": "callable:function:416121:416746",
+      "direct_call_count": 14,
+      "direct_call_resolution": {
+        "unresolved": 12,
+        "exact": 2
+      }
+    },
+    "PaletteMap.handleMouseMove": {
+      "symbol": "PaletteMap.handleMouseMove",
+      "span": [
+        16,
+        376457,
+        16,
+        376486
+      ],
+      "offsets": [
+        416783,
+        416812
+      ],
+      "actual_REA_callable_id": "callable:function:416783:416812",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      }
+    },
+    "PaletteMap.handleMouseUp": {
+      "symbol": "PaletteMap.handleMouseUp",
+      "span": [
+        16,
+        376535,
+        16,
+        376558
+      ],
+      "offsets": [
+        416861,
+        416884
+      ],
+      "actual_REA_callable_id": "callable:function:416861:416884",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "PaletteMap.onMouseDown": {
+      "symbol": "PaletteMap.onMouseDown",
+      "span": [
+        16,
+        376973,
+        16,
+        377008
+      ],
+      "offsets": [
+        417299,
+        417334
+      ],
+      "actual_REA_callable_id": "callable:function:417299:417334",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 1,
+        "exact": 1
+      }
+    },
+    "PaletteHue.setSlide": {
+      "symbol": "PaletteHue.setSlide",
+      "span": [
+        16,
+        377583,
+        16,
+        378117
+      ],
+      "offsets": [
+        417909,
+        418443
+      ],
+      "actual_REA_callable_id": "callable:function:417909:418443",
+      "direct_call_count": 13,
+      "direct_call_resolution": {
+        "unresolved": 10,
+        "exact": 3
+      }
+    },
+    "PaletteHue.handleMouseMove": {
+      "symbol": "PaletteHue.handleMouseMove",
+      "span": [
+        16,
+        378154,
+        16,
+        378182
+      ],
+      "offsets": [
+        418480,
+        418508
+      ],
+      "actual_REA_callable_id": "callable:function:418480:418508",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "exact": 1
+      }
+    },
+    "PaletteHue.handleMouseUp": {
+      "symbol": "PaletteHue.handleMouseUp",
+      "span": [
+        16,
+        378231,
+        16,
+        378254
+      ],
+      "offsets": [
+        418557,
+        418580
+      ],
+      "actual_REA_callable_id": "callable:function:418557:418580",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "PaletteHue.onMouseDown": {
+      "symbol": "PaletteHue.onMouseDown",
+      "span": [
+        16,
+        378638,
+        16,
+        378672
+      ],
+      "offsets": [
+        418964,
+        418998
+      ],
+      "actual_REA_callable_id": "callable:function:418964:418998",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 1,
+        "exact": 1
+      }
+    },
+    "PaletteValue.onChange": {
+      "symbol": "PaletteValue.onChange",
+      "span": [
+        16,
+        379547,
+        16,
+        379581
+      ],
+      "offsets": [
+        419873,
+        419907
+      ],
+      "actual_REA_callable_id": "callable:function:419873:419907",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "PaletteValue.onBlur": {
+      "symbol": "PaletteValue.onBlur",
+      "span": [
+        16,
+        379589,
+        16,
+        379764
+      ],
+      "offsets": [
+        419915,
+        420090
+      ],
+      "actual_REA_callable_id": "callable:function:419915:420090",
+      "direct_call_count": 3,
+      "direct_call_resolution": {
+        "unresolved": 2,
+        "exact": 1
+      }
+    },
+    "PaletteButton.onClick": {
+      "symbol": "PaletteButton.onClick",
+      "span": [
+        16,
+        379995,
+        16,
+        380063
+      ],
+      "offsets": [
+        420321,
+        420389
+      ],
+      "actual_REA_callable_id": "callable:function:420321:420389",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    }
+  }
+}

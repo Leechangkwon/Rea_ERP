@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T05:06:19.664349+00:00",
+  "scope": {
+    "new_public_bodies": 2,
+    "observed_ui_by_parent": "Main purchase Save dropdown labels 저장/전자결재, 저장/내용유지, 저장/신규 observed; none clicked. This worker did no authenticated UI work.",
+    "source_execution": false,
+    "business_or_server_actions": false,
+    "application_edits": false,
+    "evidence_type": "inert public source plus actual REA; source-level contracts conditional on page configuration",
+    "span_evidence_file": "precise-source-evidence.json"
+  },
+  "save_variants": [
+    {
+      "id": "save",
+      "widget": "slipSave",
+      "resource_label": "BTN00065",
+      "source_behavior": "Default shortcut F8 unless settingInfo.shortCut is defined. Click sets saveType=save, saveTypeOrigin=1, then common saveAction.",
+      "success_navigation": "If popup: close (layer immediate, ordinary deferred). Otherwise normally submit current page with empty Request and optional order-manager common params; if ROOM_SEQ present, navigate listPath. Specific context branches can override. Does not explicitly preserve current unsaved controls.",
+      "evidence": [
+        "slipSave.render",
+        "slipSave._ON_CLICK",
+        "inputEvent.execSlipSave",
+        "inputEvent.saveAfterInputPageSubmit"
+      ]
+    },
+    {
+      "id": "save-retain",
+      "widget": "save_review",
+      "resource_label": "BTN00067",
+      "label_binding": "Correspondence to parent-observed 저장/내용유지 is inferred from resource/widget/consumer flow, not independent resource translation.",
+      "source_behavior": "Click sets saveType=saveReview, saveTypeOrigin=1, uses common save pipeline. After successful pipeline, submits same page with Request.EditMode=modify and Key.Date/No. Key comes from saved API response IoDate/IoNo when old page mode is new, otherwise old Master date/no. IsShowConfirmButton=false.",
+      "practical_contract": "Reopens the saved slip for continued editing; source does not describe a new duplicated slip with copied form values. Server-returned/reloaded values can differ from former controls.",
+      "evidence": [
+        "save_review._ON_CLICK",
+        "inputEvent.execSlipSaveReview",
+        "inputEvent.saveAfterInputPageSubmit"
+      ]
+    },
+    {
+      "id": "save-new",
+      "widget": "save_new",
+      "resource_label": "BTN00765",
+      "source_behavior": "Click sets saveType=saveNew, saveTypeOrigin=1, uses common save pipeline. After success, submits same page with Request.EditMode=new and Date/No reference key (API response for former new page, old Master key for modify page). Preserves selected navigation/UI/WMS context.",
+      "unknown": "New-page initializer/server decides which defaults or values the key carries; this consumer does not prove every field blank, retained, or duplicated.",
+      "evidence": [
+        "save_new._ON_CLICK",
+        "inputEvent.execSlipSaveNew",
+        "inputEvent.saveAfterInputPageSubmit"
+      ]
+    },
+    {
+      "id": "save-approval",
+      "widget": "save_approve",
+      "resource_label": "BTN00763",
+      "source_behavior": "Sets saveType=saveSlipApprove, then common saveAction. getSaveApiParam marks Request.isFromApproval true for this type. After saved response, builds ERPS=[{DATE:IoDate,NO:IoNo,PRG_ID:PROGRAM_ID}], calls createEApproval.execute; callback advances pipeline and normal post-save navigation.",
+      "unknown": "Approval popup creation/submission, authorization, actual approver routing and side effects are external; click is not proof approval finalized. execSlipApprove does not itself set saveTypeOrigin.",
+      "evidence": [
+        "save_approve._ON_CLICK",
+        "inputEvent.execSlipApprove",
+        "inputEvent.getSaveApiParam",
+        "inputEvent.saveAfterShowSlipApproval"
+      ]
+    },
+    {
+      "id": "save-print",
+      "widget": "slipSavePrint",
+      "resource_label": "BTN00064",
+      "source_behavior": "Default F7 unless overridden. Sets saveType=savePrint/saveTypeOrigin=2; common save first. show-print stage skips unless origin==2 and not saveSlipPay. Ordinary inventory path passes saved Date/No to slipPrintEvent.getPrintSlipData/showPrintSlipPopup (pageInfo.printPath); then pipeline advances. Popup post-save closes with close(false), ordinary page submit disables focus.",
+      "unknown": "Printing page/template, native printer action, successful physical output and permission variants are not observed. Invoicing branch has separate accounting print lookup/API.",
+      "evidence": [
+        "slipSavePrint.render",
+        "slipSavePrint._ON_CLICK",
+        "inputEvent.execSlipSavePrint",
+        "inputEvent.saveAfterShowSlipPrint",
+        "slipPrintEvent.getPrintSlipData",
+        "slipPrintEvent.showPrintSlipPopup",
+        "inputEvent.saveAfterInputPageSubmit"
+      ]
+    }
+  ],
+  "common_save_pipeline": {
+    "configurability": "initActionSetting installs defaults only if pageInfo.action.save absent. defaultActionFunction allows pageInfo.action.fn and customAsyncListCustom overrides; precise current purchase sequence may be page-specific.",
+    "default_order": "init-option, check-ajustVat, load-page, serial, order-manage, validate1, order-manage_validate_complete, detail-amt, cust-dupulication, check-EApprovalRelSlip, check-PreinvoicingData, check-NewInvSlip, get-collectiveInvocingAmt, validate2, check-collectiveSlip, validate-show, check-serial, create-docno, create-newdocNo, set-extraParam, check-limit, confirm-bomcheck, check-purchase-limit, check-sms, file-upload, save-slip, save-reference, certificate, change-loadslip-status, send-parent, show-print, show-payment, show-approval, show-pay-VAN, submit-page",
+    "validation": "Includes permission/user/date/type/foreign/date-required/grid checks, serial/stock/limit/linked-slip checks and optional page validators. Do not treat three visible Save dropdown choices as bypassing validation.",
+    "server_boundary": "getSaveApiParam uses pageInfo.params.footer.save() override, otherwise dynamic pageInfo.saveApi. Sends EditMode, ProgramId/GbType, CheckPermissionRequest, form key, form/grid data and published extension params. Exact main-purchase URL is not established by inspected footer/function bodies.",
+    "success": "callSaveApi success clears ecount.TemporarySave.localstorage, stores response.Data in async transaction temp, advances. Subsequent printing/approval/navigation depend on response and configured stages.",
+    "failure": "Empty Request.Data.Details.list throws before call. API error path distinguishes EXP00001, ERR00112 and generic network/error fallback; offers temporary save/recovery in some branches. No observed server acceptance/rollback/atomicity.",
+    "evidence": [
+      "inputEvent.initActionSetting",
+      "inputEvent.defaultActionFunction",
+      "inputEvent.saveValidate",
+      "inputEvent.getSaveApiParam",
+      "inputEvent.callSaveApi"
+    ]
+  },
+  "rebuildContent": {
+    "resource_label": "BTN00007",
+    "source_behavior": "Constructs new-mode page params with height600, popup/FromProgramId/WMS/IsRefNew context plus settingInfo.addParam, extends special invoice/return/QC/customer scenarios, then submitPage(pageInfo.path,params,mainTab). No saveAction, normal save API or explicit confirmation call in this handler.",
+    "practical_contract": "Restarts/reloads entry page in new mode. It is not sorting-only reset and does not call grid.toSort or clear a remembered sort array here.",
+    "unknown": "submitPage/base/page initialization may add navigation handling/defaults; source does not prove every field reset, autosave draft deletion, sort persistence or exact confirmation behavior.",
+    "visibility": "Blocked for modify mode, include/embedded slips, deleted-slip state, certain received/comparison/email/app contexts and isHidden; full exact predicate is in referenced method.",
+    "evidence": [
+      "rebuildContent.execCreateComposite",
+      "rebuildContent._ON_CLICK"
+    ]
+  },
+  "hold_pending": {
+    "widget": "pending",
+    "resource_label": "BTN80017",
+    "source_behavior": "New mode only. Click sets isClickSaveNew=true,isClickPending=true; launches action pending with explicit sequence [load-page,pending-slip,submit-page]. defaultActionFunction clears saveType for non-save action. This explicit sequence does not include ordinary save validation/save-slip steps, unless customized.",
+    "payload": "getPendingSaveDatas captures grid and pageHidden, pending Date/No, display metadata; getPendingApiParam adds extracted main-tab widget form data and total. If corresponding composites exist, removes serial data/SERIAL_IDX/SERIAL_TYPE, tax-image fields and allocation/VAT metadata.",
+    "server_boundary": "callPendingApi invokes /SVC/Common/Infra/InsertCmSlipSuspm with Request.Data.SUSP_CTT serialized, summary fields, Key(PRG_ID,SUSP_SLIP_DT,SUSP_SLIP_NO), and new-mode CheckPermissionRequest. This is a server write, not local draft-only save.",
+    "success_navigation": "API success advances transaction; post-submit takes normal page navigation branches because saveType was cleared.",
+    "restore": "pendingRestore.onLoadComplete parses InitDatas.SUSP_CTT, restores pageHidden/widgets and publishes restorePendedData for grid. No proof retained attachments/serial allocations survive.",
+    "unknown": "Persistence duration, list/retrieval UI, server permission enforcement, deletion semantics and whether getRowList returns clones are unverified.",
+    "evidence": [
+      "pending.execCreateComposite",
+      "pending._ON_CLICK",
+      "pending.getExecSequenceList",
+      "inputEvent.defaultActionFunction",
+      "inputEvent.getPendingApiParam",
+      "inputEvent.callPendingApi",
+      "pendingRestore.getPendingSaveDatas",
+      "pendingRestore.excludeSerialInGrid",
+      "pendingRestore.excludeTaxImgGrid",
+      "pendingRestore.excludeAllocateGrid",
+      "pendingRestore.onLoadComplete"
+    ]
+  },
+  "directPayment": {
+    "resource_label": "BTN00078",
+    "source_behavior": "Widget button group. On modify mode first contents.isVersionCheckSlip(callback); rejected Data==false alerts and stops. New mode invokes callback with Data true. Resolves configured URL for program E010409 and opens separate new payment window; this handler does not call inputEvent.saveAction/execSlipPay.",
+    "amounts": "Gets customer and foreign_type control values. Filters grid rows to SUPPLY_AMT nonempty,defined,!=string0; sums supply and VAT. Domestic foreignType=0 => TRX_AMT1=supply+VAT. Otherwise TRX_AMT1=VAT,TRX_AMT_F=supply,EXCHANGE_RATE=foreign control exchangeRate. Zero-supply rows with only VAT are not included by this filter. Literal VAT empty/undefined predicate was not executed.",
+    "popup_params": "Request EditMode=new,TrxType=20,SerNo=01,CUST/CUST_DES,amounts,PrevUrl,UIOption 800x600,CustomSaveButtonGroupList [{id:saveNew,label:BTN00765}],isViewListButton=false.",
+    "separate_from_save_pay": "save_pay calls execSlipPay(saveType=saveSlipPay,origin2), performs common save then opens pageInfo.slipApprovalPath in show-payment. Do not conflate this with directPayment popup-only path.",
+    "unknown": "Payment default account, validation, eventual posting, linking to current purchase, authorization/server side effects of opened page are outside captured handler.",
+    "evidence": [
+      "directPayment.createLayout",
+      "directPayment.execCreateComposite",
+      "directPayment._ON_CLICK",
+      "save_pay._ON_CLICK",
+      "inputEvent.execSlipPay",
+      "inputEvent.saveAfterShowSlipPayment"
+    ]
+  },
+  "basic_footer_boundary": {
+    "scope": "Basic/master-data footer, separate from inventory purchase inputEvent.",
+    "dispatch": {
+      "basic_save": "basic_event.execBasicSave",
+      "basic_save_new": "basic_event.execBasicSaveNew",
+      "basic_save_review": "basic_event.execBasicSaveReview",
+      "basic_save_print": "basic_event.execBasicSavePrint"
+    },
+    "new_review_visibility": "basic_save_new/basic_save_review require isAddGroup==true and FromProgramId!=E040716.",
+    "rebuild": "basic_rebuild submits current path as rebuild with new/modify context and basic Code key in modify; do not apply inventory new-only reset semantics to this master-data widget.",
+    "unknown": "basic_event implementation is absent from inspected retained core/inventory function bodies. These entrypoints do not establish actual master-data save/new/review postconditions. No extra URL guessed.",
+    "evidence": [
+      "basic_save._ON_CLICK",
+      "basic_save_new._ON_CLICK",
+      "basic_save_review._ON_CLICK",
+      "basic_save_print._ON_CLICK",
+      "basic_rebuild._ON_CLICK"
+    ]
+  },
+  "button_group": {
+    "source_behavior": "Generic widget.group builds children from configured current-step child list sorted by commonButtonSort. Filters/rendering depend on child execCreateComposite; constructs dropdown from resulting buttons, main click delegates getFirstButton child. Footer noAction menus use arrow up.",
+    "unknown": "These generic definitions do not establish exact live menu order/count without page model and current context; parent DOM observations remain separate.",
+    "evidence": [
+      "group.createItems",
+      "group.createLayout",
+      "group._ON_CLICK"
+    ]
+  },
+  "unknowns": [
+    "This is static/semantic source inspection, not observed successful Save/Hold/Payment execution or complete ERP equivalence.",
+    "REA retains syntax but all2088 new-body call sites are unresolved; dynamic property binding, cross-function mutation, server business logic and configured page-level overrides remain unknown.",
+    "Resource-key labels were not independently localized; UI wording is supplied by parent observation.",
+    "Server transaction atomicity, permission enforcement, validation error responses, approval workflow/printing/payment final state, post-save field defaults and draft lifetime were not executed/observed."
+  ]
+}

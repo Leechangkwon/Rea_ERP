@@ -1,0 +1,17 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const core=require('../dist/menu-core.js');
+const tree=JSON.parse(fs.readFileSync(path.join(__dirname,'../dist/menus.json'),'utf8')),rows=core.indexMenus(tree);
+let checks=0;
+assert.equal(tree.length,10);assert.equal(tree.reduce((n,t)=>n+t.groups.length,0),59);assert.equal(rows.length,759);assert.equal(new Set(rows.map(r=>r.id)).size,759);checks++;
+assert.equal(rows.filter(r=>r.path.length===3).length,248);assert.equal(rows.filter(r=>r.path.length===4).length,511);checks++;
+assert(core.search(rows,'판매입력').some(r=>r.path.join(' > ')==='재고 I > 영업관리 > 판매 > 판매입력'));checks++;
+assert(core.search(rows,'SELF customizing').length===0);assert(core.search(rows,'self-customizing').length>0);checks++;
+assert(core.search(rows,'재고I').some(r=>r.name==='품목등록'));assert.equal(core.search(rows,'    ').length,0);assert.equal(core.search(rows,'존재하지않는메뉴xyz').length,0);checks++;
+const id=rows[0].id,clean=core.cleanState({favorites:[id,id,'bad',3],recent:[id,'missing'],widgets:['calendar','calendar','fake']},rows);
+assert.deepEqual(clean.favorites,[id]);assert.deepEqual(clean.recent,[id]);assert.deepEqual(clean.widgets,['calendar']);checks++;
+assert.deepEqual(core.cleanState(null,rows),{});assert.deepEqual(core.cleanState({favorites:[]},rows).favorites,[]);checks++;
+const october=core.calendar(2026,9);assert.equal(october.filter(Boolean).length,31);assert.equal(october[4],1);assert.equal(october.at(-1),31);checks++;
+assert.equal(core.calendar(2024,1).filter(Boolean).length,29);assert.equal(core.calendar(2025,1).filter(Boolean).length,28);checks++;
+for(const row of rows){assert.equal(typeof row.name,'string');assert(row.name.length>0);assert.equal(row.path[0],tree[row.top].name);assert(row.path.every(p=>!/[<>]/.test(p)));}checks++;
+const result={status:'passed',checks,menu_count:759,top:10,groups:59,scope:'Observed menu labels/paths and independent local state/search/calendar behavior'};
+fs.writeFileSync(path.join(__dirname,'../evidence/core-verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));

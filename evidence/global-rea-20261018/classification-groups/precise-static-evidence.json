@@ -1,0 +1,249 @@
+{
+  "new_GETs": 0,
+  "source_executed": false,
+  "sources": [
+    {
+      "key": "common-original",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "scope": "Retained public original, pinned parser AST only, full common semantic OOM preserved",
+      "nodes": [
+        {
+          "kind": "ObjectProperty",
+          "symbol": "CUST_GROUP1",
+          "span": [
+            74066,
+            12,
+            74066,
+            107
+          ],
+          "original_utf16_offset": [
+            3512422,
+            3512517
+          ],
+          "source": "CUST_GROUP1: this.getItemCode(dto.last_search_datamodel['cust_journal$cust$cust_group1'] ?? '')"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "CUST_GROUP2",
+          "span": [
+            74067,
+            12,
+            74067,
+            107
+          ],
+          "original_utf16_offset": [
+            3512531,
+            3512626
+          ],
+          "source": "CUST_GROUP2: this.getItemCode(dto.last_search_datamodel['cust_journal$cust$cust_group2'] ?? '')"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PJT_CODE1",
+          "span": [
+            74077,
+            12,
+            74077,
+            102
+          ],
+          "original_utf16_offset": [
+            3513347,
+            3513437
+          ],
+          "source": "PJT_CODE1: this.getItemCode(dto.last_search_datamodel['pjt_journal$pjt$pjt_group1'] ?? '')"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PJT_CODE2",
+          "span": [
+            74078,
+            12,
+            74078,
+            102
+          ],
+          "original_utf16_offset": [
+            3513451,
+            3513541
+          ],
+          "source": "PJT_CODE2: this.getItemCode(dto.last_search_datamodel['pjt_journal$pjt$pjt_group2'] ?? '')"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PJT_CODE1",
+          "span": [
+            74242,
+            12,
+            74242,
+            94
+          ],
+          "original_utf16_offset": [
+            3523268,
+            3523350
+          ],
+          "source": "PJT_CODE1: this.getItemCode(dto.last_search_datamodel['pjt$pjt$pjt_group1']) ?? ''"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "PJT_CODE2",
+          "span": [
+            74243,
+            12,
+            74243,
+            94
+          ],
+          "original_utf16_offset": [
+            3523364,
+            3523446
+          ],
+          "source": "PJT_CODE2: this.getItemCode(dto.last_search_datamodel['pjt$pjt$pjt_group2']) ?? ''"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "CUST_GROUP1",
+          "span": [
+            74245,
+            12,
+            74245,
+            99
+          ],
+          "original_utf16_offset": [
+            3523553,
+            3523640
+          ],
+          "source": "CUST_GROUP1: this.getItemCode(dto.last_search_datamodel['cust$cust$cust_group1']) ?? ''"
+        },
+        {
+          "kind": "ObjectProperty",
+          "symbol": "CUST_GROUP2",
+          "span": [
+            74246,
+            12,
+            74246,
+            99
+          ],
+          "original_utf16_offset": [
+            3523654,
+            3523741
+          ],
+          "source": "CUST_GROUP2: this.getItemCode(dto.last_search_datamodel['cust$cust$cust_group2']) ?? ''"
+        }
+      ]
+    },
+    {
+      "key": "own-core",
+      "path": "$SCRATCH/rea-request/dist/inventory-core.js",
+      "sha256": "6a40e203d3d2fd1799794d74e037c001b76bd9f020eef6675070bcdcb120472c",
+      "bytes": 74276,
+      "parse_error_count": 0,
+      "scope": "Own implementation read-only snapshot, excluded from original78 counts",
+      "nodes": [
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "saveMaster",
+          "span": [
+            169,
+            2,
+            189,
+            3
+          ],
+          "original_utf16_offset": [
+            19988,
+            21680
+          ]
+        },
+        {
+          "kind": "FunctionDeclaration",
+          "symbol": "validateBackup",
+          "span": [
+            469,
+            2,
+            501,
+            3
+          ],
+          "original_utf16_offset": [
+            58854,
+            64423
+          ]
+        }
+      ]
+    },
+    {
+      "key": "own-ui",
+      "path": "$SCRATCH/rea-request/dist/inventory-ui.js",
+      "sha256": "0566ffb355941e1c6f08dfd4b08bfaf2fcc0ffb87be339473f5aeba9656fedc0",
+      "bytes": 113905,
+      "parse_error_count": 0,
+      "scope": "Own implementation read-only snapshot, excluded from original78 counts",
+      "nodes": [
+        {
+          "kind": "VariableDeclarator",
+          "symbol": "masterFields",
+          "span": [
+            103,
+            8,
+            107,
+            3
+          ],
+          "original_utf16_offset": [
+            18967,
+            19529
+          ],
+          "source": "masterFields={\n    items:[['spec','규격'],['unit','단위'],['buyPrice','입고단가','number'],['sellPrice','출고단가','number'],['safety','안전재고','number'],['barcode','바코드'],['group','품목그룹'],['supplier','구매처']],\n    partners:[['kind','거래처구분'],['businessNo','사업자등록번호'],['contact','담당자'],['phone','연락처'],['address','주소'],['priceGroup','특별단가그룹']],\n    warehouses:[['address','창고위치']],employees:[['department','부서']],currencies:[['rate','환율','number']],shops:[['url','쇼핑몰 주소']],resources:[['capacity','일 가용시간(분)','number']],approvals:[['approver','결재자'],['order','순서','number']]\n  }"
+        }
+      ]
+    },
+    {
+      "key": "own-gateway",
+      "path": "$SCRATCH/rea-request/worker/gateway.cjs",
+      "sha256": "3175bd97e7cfa8c26e88108ba0bbde0d4240ee68eaba04b941b2b9c469e3cdfe",
+      "bytes": 19840,
+      "parse_error_count": 0,
+      "scope": "Own implementation read-only snapshot, excluded from original78 counts",
+      "nodes": [
+        {
+          "kind": "VariableDeclarator",
+          "symbol": "master creation allowed fields",
+          "span": [
+            17,
+            457,
+            17,
+            584
+          ],
+          "original_utf16_offset": [
+            3506,
+            3633
+          ],
+          "source": "allowed=kind==='items'?[...I.defaultFields.map(f=>f.id),'group','custom','relatedItems']:['code','name','kind','memo','custom']"
+        }
+      ]
+    },
+    {
+      "key": "own-import",
+      "path": "$SCRATCH/rea-request/worker/app-service.cjs",
+      "sha256": "c89d4e4086366d1574f59d9ab0c0d3b37510b5af1f5b5c34f49dcf3a430fc0d6",
+      "bytes": 30975,
+      "parse_error_count": 0,
+      "scope": "Own implementation read-only snapshot, excluded from original78 counts",
+      "nodes": [
+        {
+          "kind": "ConditionalExpression",
+          "symbol": "import.preview item/partner fields",
+          "span": [
+            78,
+            215,
+            78,
+            344
+          ],
+          "original_utf16_offset": [
+            24657,
+            24786
+          ],
+          "source": "payload.kind==='items'?['code','name','spec','unit','group','memo','buyPrice','sellPrice','safety']:['code','name','kind','memo']"
+        }
+      ]
+    }
+  ]
+}

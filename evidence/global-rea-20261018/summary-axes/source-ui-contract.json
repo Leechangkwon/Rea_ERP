@@ -1,0 +1,561 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T06:37:03.963030+00:00",
+  "scope": {
+    "source_inspection": "Existing retained public originals and existing actual REA6.4.0 IR only. Literal discovery manifest is a worker-inspected subset inventory, not authoritative corpus total.",
+    "discovery_manifest": "$SCRATCH/aggregate-axes-inspected-sources-20261018.json",
+    "new_GETs": 0,
+    "source_execution": false,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "application_edits": false,
+    "existing_contract_files_modified": false,
+    "new_REA_runs": 0
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive",
+  "UI_observation_from_parent": {
+    "visible_conditions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "candidate_labels": [
+      "창고별",
+      "담당자별",
+      "프로젝트별"
+    ],
+    "warehouse_only_query_headers": [
+      "창고별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "evidence_type": "Original UI read/query observation supplied by parent, not browser actions performed by worker. No company result records retained.",
+    "limits": "Header existence/order does not prove aggregation/tax/quantity formulas or blank-bucket behavior."
+  },
+  "validation_findings": {
+    "aggregate_not_null": {
+      "status": "actual generic validator found; current form attachment/options unknown",
+      "source_contract": "When options?.is_use falsy =>true. Otherwise empty data=>false. Collect nonempty values in condition_01..condition_05 using _.isEmpty(record); returns false only if aggregate_key.type===free AND no collected condition value. It does not explicitly require condition_01.prop_id or check sequential filling/duplicates.",
+      "shape_limit": "A nonempty condition object is counted even though this predicate does not inspect prop_id. Other configured validation/control/server logic may reject incomplete objects.",
+      "evidence": [
+        "aggregate_not_null"
+      ]
+    },
+    "aggregate_special_regex": {
+      "status": "generic source predicate only",
+      "source_contract": "For slots1..5 with truthy condition object, test prop_id against regexp objects returned from configured option names; any matched invalid pattern returnsfalse. This is a character/pattern check, not an explicit duplicate or middle-gap check.",
+      "evidence": [
+        "aggregate_special_regex"
+      ]
+    },
+    "current_duplicate_axes": {
+      "status": "unknown",
+      "source_limit": "No explicit $$aggregate duplicate-prop or duplicate-semantic-axis predicate was found in the inspected consumers/validator definitions. Do not infer candidate exclusion or end-to-end acceptance from absence. Sorting-popup duplicate exclusion is a different feature."
+    },
+    "current_empty_middle_axis": {
+      "status": "unknown",
+      "source_limit": "aggregate_not_null alone permits a nonempty later slot while earlier slots empty; it has no adjacency check. getAggregateCondition filters empty values and keeps existing condition_NN keys; the called common.getAggregateConditionKeys implementation and current control/attribute/server validation are absent, so compaction/order/acceptance after gaps is not established."
+    },
+    "separate_summary_type": {
+      "status": "available source, not interchangeable with current aggregate field",
+      "source_contract": "summary_summary_not_null requires truthy condition_01.prop_id. summary_summary_verify_condition inspects raw prop_id of slots1..5 and rejects repeated truthy identical values; it does not check middle gaps or normalize case/trim. summary_summary_verify_target restricts repeat target length<=1 and requires target nonempty if first criterion selected.",
+      "datatype_boundary": "Source error map distinguishes type.$$summary with summary_not_null/verify_target/verify_condition from type.$$aggregate with not_null/special_regex/graph. Current search DMC datatype and attached attributes/options are dynamically provided and not captured here.",
+      "evidence": [
+        "summary_summary_not_null",
+        "summary_summary_verify_condition",
+        "summary_summary_verify_target"
+      ],
+      "type_facts": [
+        "$$summary",
+        "$$aggregate"
+      ]
+    },
+    "axis_count": {
+      "status": "4visible axes observed; no universal hard4limit proven",
+      "source_contract": "Generic aggregate validators loop slots1..5. Their existence neither proves a fifth visible axis nor changes the parent-observed four-slot current UI."
+    }
+  },
+  "predicate_only_examples_by_reasoning_not_execution": [
+    {
+      "case": "free, all slots absent/empty, is_use=true",
+      "aggregate_not_null": "false",
+      "current_UI_acceptance": "unknown"
+    },
+    {
+      "case": "free, only condition_03 is a nonempty record, is_use=true",
+      "aggregate_not_null": "true",
+      "middle_gap": "This predicate has no rejection; full current behavior unknown"
+    },
+    {
+      "case": "condition_01.prop_id=A,condition_02.prop_id=A",
+      "separate_summary_verify_condition": "false",
+      "current_aggregate_duplicate_behavior": "unknown"
+    },
+    {
+      "case": "condition_01.prop_id=A,condition_02 empty,condition_03.prop_id=B",
+      "separate_summary_first_and_duplicate_checks": "first present/unique pass those two checks only",
+      "current_UI_acceptance": "unknown"
+    }
+  ],
+  "axis_consumption": {
+    "getAggregateCondition": "Selects entries with nonempty value and keys matching /condition_\\d{2}/g, retaining original keys; no explicit renumber/slot-gap rejection here. This helper belongs to a drilldown action path.",
+    "free_summary_models": "InventoryStatusCreateDMCResolver calls external common.getAggregateConditionKeys(aggregate), then creates summary1..N model ids and subtotal1..N reference types by returned list length/order. The helper implementation is missing, so do not infer axis-slot compaction or duplicate handling.",
+    "classification": "checkAggregate treats fixed+details_target.value=line as nonaggregate; free with sole selected prop_id matching summary_line also nonaggregate. This is mode classification, not group-sum arithmetic or validation.",
+    "query": "SelectInventoryStatusProgram delegates conditions/sorts/groups generation to common$DataModelModifierForSearchConditionProgram, sends query to /ec56/api/inventory/action/SelectInventorySearchStatusAction and returns response data/total/date. No backend query or aggregation executed by worker.",
+    "evidence": [
+      "getAggregateCondition",
+      "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+      "checkAggregate",
+      "SelectInventoryStatusProgram.onExecuteAsync"
+    ]
+  },
+  "axis_semantics": [
+    {
+      "UI_label": "창고별",
+      "summary_refer_type": "summary_wh",
+      "drilldown_search_refer_type": "wh",
+      "mapping_fact": "summary_wh",
+      "auxiliary_field_mapping": "wh",
+      "auxiliary_meaning": "widget.code.wh / wh_cd",
+      "meaning_status": "Symbol mapping explicit; specific current report group expression/source field identity still dynamic."
+    },
+    {
+      "UI_label": "담당자별",
+      "summary_refer_type": "summary_pic",
+      "drilldown_search_refer_type": "pic",
+      "mapping_fact": "summary_pic",
+      "auxiliary_field_mapping": "pic",
+      "auxiliary_meaning": "widget.code.PIC / emp_cd",
+      "meaning_status": "Person-in-charge(employee) conversion naming explicit; no claim this is every employee field or current header/line data placement."
+    },
+    {
+      "UI_label": "프로젝트별",
+      "summary_refer_type": "summary_pjt",
+      "drilldown_search_refer_type": "pjt",
+      "mapping_fact": "summary_pjt",
+      "auxiliary_field_mapping": "pjt",
+      "auxiliary_meaning": "widget.code.project / pjt_cd",
+      "meaning_status": "Project conversion mapping explicit; current report field/group expression dynamic."
+    }
+  ],
+  "mapping_consumer_boundary": {
+    "consumer": "generateAggregateSearchDataModel used by StandardUserAction drilldown",
+    "source_contract": "For each selected condition, map refer_type through summary_code_condition_map, resolve target search prop (optional item-meaning-id mapping first, otherwise by mapped refer_type), read clicked summary-row condition.prop_id plus comparison suffix. For $$multi_code with nonempty value.code, emits [value]; other types use separate date/default handling. Unknown mapping/search prop =>skip.",
+    "proves": "These symbolic axes can become wh/pic/pjt search filters when drilling into an aggregate result.",
+    "does_not_prove": "This is not backend GROUP BY implementation or current candidate renderer binding, employee permissions, null/blank bucket grouping, multi-axis nesting/ordering, warehouse subtotal/grand-total formulas.",
+    "evidence": [
+      "generateAggregateSearchDataModel",
+      "_StandardUserAction.executeAsync"
+    ]
+  },
+  "unknowns": [
+    "Current axis-picker duplicate exclusion and empty-middle-axis UI normalization/rejection remain unobserved and not source-bound.",
+    "Current aggregate datatype/options/validator attributes and common.getAggregateConditionKeys/condition modifier implementation are dynamically provided or missing.",
+    "Do not apply separate $$summary first-axis/duplicate rules to $$aggregate without binding evidence.",
+    "No formulas for qty/supply_amt/vat_amt/amt, rounding, warehouse code/name grouping, deleted/missing references or grand total were inferred from field names or five observed headers.",
+    "No current-original multi-axis Apply/query/save experiments performed by this worker."
+  ],
+  "sources": {
+    "attribute": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/0217bbe7fe883148-ecount.infra.attribute.85b62891.20.js",
+      "sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+      "bytes": 340878,
+      "public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.infra.attribute/ecount.infra.attribute.85b62891.20.js"
+      ],
+      "actual_REA_version": "6.4.0",
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/0217bbe7fe883148-ecount.infra.attribute.85b62891.20-0217bbe7fe88/rea-semantic-ir.json",
+      "prior_analysis_status": "completed",
+      "hash_rechecked": true,
+      "new_GET": false
+    },
+    "inventory": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js"
+      ],
+      "actual_REA_version": "6.4.0",
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "prior_analysis_status": "completed",
+      "hash_rechecked": true,
+      "new_GET": false
+    },
+    "actions": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js"
+      ],
+      "actual_REA_version": "6.4.0",
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/04-actions-e70f31a1ac77/rea-semantic-ir.json",
+      "prior_analysis_status": "completed",
+      "hash_rechecked": true,
+      "new_GET": false
+    }
+  },
+  "callable_evidence": {
+    "aggregate_special_regex": {
+      "source": "attribute",
+      "symbol": "aggregate_special_regex",
+      "span": [
+        1,
+        124884,
+        1,
+        125266
+      ],
+      "actual_REA_callable_id": "callable:function:124884:125266",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "summary_summary_not_null": {
+      "source": "attribute",
+      "symbol": "summary_summary_not_null",
+      "span": [
+        1,
+        143342,
+        1,
+        143500
+      ],
+      "actual_REA_callable_id": "callable:function:143342:143500",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "summary_summary_verify_condition": {
+      "source": "attribute",
+      "symbol": "summary_summary_verify_condition",
+      "span": [
+        1,
+        143534,
+        1,
+        144347
+      ],
+      "actual_REA_callable_id": "callable:function:143534:144347",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "summary_summary_verify_target": {
+      "source": "attribute",
+      "symbol": "summary_summary_verify_target",
+      "span": [
+        1,
+        144378,
+        1,
+        144606
+      ],
+      "actual_REA_callable_id": "callable:function:144378:144606",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "aggregate_not_null": {
+      "source": "attribute",
+      "symbol": "aggregate_not_null",
+      "span": [
+        1,
+        146897,
+        1,
+        147239
+      ],
+      "actual_REA_callable_id": "callable:function:146897:147239",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "aggregate_graph": {
+      "source": "attribute",
+      "symbol": "aggregate_graph",
+      "span": [
+        1,
+        149907,
+        1,
+        149973
+      ],
+      "actual_REA_callable_id": "callable:function:149907:149973",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "getAggregateCondition": {
+      "source": "actions",
+      "symbol": "getAggregateCondition",
+      "span": [
+        1,
+        577947,
+        1,
+        578131
+      ],
+      "actual_REA_callable_id": "callable:function:577947:578131",
+      "direct_call_count": 5,
+      "call_resolution": {
+        "unresolved": 5
+      }
+    },
+    "generateAggregateSearchDataModel": {
+      "source": "actions",
+      "symbol": "generateAggregateSearchDataModel",
+      "span": [
+        1,
+        578165,
+        1,
+        580093
+      ],
+      "actual_REA_callable_id": "callable:function:578165:580093",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo": {
+      "source": "inventory",
+      "symbol": "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "span": [
+        508,
+        4,
+        518,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25457:25961",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo": {
+      "source": "inventory",
+      "symbol": "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+      "span": [
+        498,
+        4,
+        507,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25067:25452",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "checkAggregate": {
+      "source": "inventory",
+      "symbol": "checkAggregate",
+      "span": [
+        9854,
+        0,
+        9881,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:475648:476856",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "SelectInventoryStatusProgram.onExecuteAsync": {
+      "source": "inventory",
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      }
+    },
+    "_StandardUserAction.executeAsync": {
+      "source": "actions",
+      "symbol": "_StandardUserAction.executeAsync",
+      "span": [
+        1,
+        570354,
+        1,
+        576590
+      ],
+      "actual_REA_callable_id": "callable:function:570354:576590",
+      "direct_call_count": 35,
+      "call_resolution": {
+        "unresolved": 32,
+        "exact": 3
+      }
+    }
+  },
+  "static_mapping_facts": {
+    "pic": {
+      "source": "actions",
+      "span": [
+        1,
+        383931,
+        1,
+        383981
+      ],
+      "owner_variable": "convert_map1",
+      "classification": "auxiliary inventory widget conversion mapping; separate from report query aggregation"
+    },
+    "wh": {
+      "source": "actions",
+      "span": [
+        1,
+        383982,
+        1,
+        384029
+      ],
+      "owner_variable": "convert_map1",
+      "classification": "auxiliary inventory widget conversion mapping; separate from report query aggregation"
+    },
+    "pjt": {
+      "source": "actions",
+      "span": [
+        1,
+        384218,
+        1,
+        384272
+      ],
+      "owner_variable": "convert_map1",
+      "classification": "auxiliary inventory widget conversion mapping; separate from report query aggregation"
+    },
+    "summary_pic": {
+      "source": "actions",
+      "span": [
+        1,
+        577060,
+        1,
+        577077
+      ],
+      "classification": "static property map; not runtime binding proof"
+    },
+    "summary_wh": {
+      "source": "actions",
+      "span": [
+        1,
+        577078,
+        1,
+        577093
+      ],
+      "classification": "static property map; not runtime binding proof"
+    },
+    "summary_pjt": {
+      "source": "actions",
+      "span": [
+        1,
+        577122,
+        1,
+        577139
+      ],
+      "classification": "static property map; not runtime binding proof"
+    },
+    "$$aggregate": {
+      "source": "attribute",
+      "span": [
+        1,
+        152224,
+        1,
+        152318
+      ],
+      "classification": "separate error-message map data types, not evidence current attached validation attributes"
+    },
+    "$$summary": {
+      "source": "attribute",
+      "span": [
+        1,
+        152319,
+        1,
+        152458
+      ],
+      "classification": "separate error-message map data types, not evidence current attached validation attributes"
+    }
+  },
+  "parent_followup_ui_observation": {
+    "candidate_other_selected_axes_excluded": true,
+    "single_axes_headers": {
+      "창고별": [
+        "창고별",
+        "수량",
+        "공급가액",
+        "부가세",
+        "합계"
+      ],
+      "담당자별": [
+        "담당자별",
+        "수량",
+        "공급가액",
+        "부가세",
+        "합계"
+      ],
+      "프로젝트별": [
+        "프로젝트별",
+        "수량",
+        "공급가액",
+        "부가세",
+        "합계"
+      ]
+    },
+    "four_axes_headers": [
+      "프로젝트별",
+      "창고별",
+      "담당자별",
+      "품목별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "clear_second_slot": [
+      "프로젝트별",
+      "",
+      "담당자별",
+      "품목별"
+    ],
+    "clear_first_three_slots": [
+      "",
+      "",
+      "",
+      "품목별"
+    ],
+    "fourth_slot_only_success_headers": [
+      "품목별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "observed_extra_per_axis_controls": [
+      "btn-asc",
+      "btn-add-sum"
+    ],
+    "not_in_this_release": [
+      "Per-axis direction toggle",
+      "Per-axis subtotal toggle"
+    ],
+    "business_or_settings_saves": 0,
+    "company_records_retained": false,
+    "initial_visible_slots": 4,
+    "filling_first_four_slots_added_fifth": true,
+    "grown_fifth_persisted_after_clearing_other_slots": true,
+    "all_five_filled_no_sixth_observed": true,
+    "five_axes_headers": [
+      "프로젝트별",
+      "창고별",
+      "담당자별",
+      "품목별",
+      "거래처별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ]
+  }
+}

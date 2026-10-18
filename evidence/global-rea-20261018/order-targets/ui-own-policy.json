@@ -1,0 +1,44 @@
+{
+  "version": "0.39.0",
+  "source_UI_observation": {
+    "page": "발주서현황 E040306/menu515 ordinaryorder,distinctoutstanding307",
+    "target_candidates": [
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "headers_1_qty_tax": [
+      "품목명[규격]",
+      "수량",
+      "부가세"
+    ],
+    "headers_2_tax_only": [
+      "품목명[규격]",
+      "거래처",
+      "부가세"
+    ],
+    "subtotal_grand_span": 2,
+    "grand_title": "합계",
+    "headers_2_empty_targets": [
+      "품목명[규격]",
+      "거래처",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "interaction": "TransientlookupcheckboxApply,individualtokenremove andallclear; no settingsSave/businessSave/inputrow/output/privateAPI.",
+    "restore": "Clearedtargets then内역/F8; finalSearchF3readbackverifiedseparately.",
+    "business_data_in_files_or_runtime": false
+  },
+  "REA_references": [
+    "../order-aggregate/order-status-extension-contract.json",
+    "../aggregate-targets/aggregate-target-contract.json"
+  ],
+  "source_supported": "ActualREA ESG016R completeinitProperties aggregateInfo.isTargetUse true,menu515/FromProgramE040306 matchescurrent; sharedheader REPORT_TARGET→Seq list separatefromaxes.",
+  "source_unknowns": "ActualSeqIDs/currentColumnForm/output/comparison/quantity/tax/currency/serverconsumers; no original fullvsremainingformula established.",
+  "own_policy": "Enableonlypurchaseorder onshared0.38targetimplementation. OwnstableIDs/canonicalorder/projectedrows-subtotals-grand-CSV-print,firstnumericmoneyformatter. Preservefullinputorderqty evenafterpartial/fullreceipts;notoutstanding ororiginalserverequivalence. Request/purchasetargetsremaingated. Legacy17axes/2growth/prefixnonleaf/합계unchanged.",
+  "corpus": "Retained84bodies25247564B unchanged; noGET/semanticretry/originalexecution. commonOOM/Flexiontimeout/gridpartial5errors preserved.",
+  "schema_changed": false
+}

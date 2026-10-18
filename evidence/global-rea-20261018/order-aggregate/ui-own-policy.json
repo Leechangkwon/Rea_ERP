@@ -1,0 +1,112 @@
+{
+  "version": "0.35.0",
+  "source_UI_observation": {
+    "page": "발주서현황 MENUTREE_000515/E040306 ordinary order; source ESG016R concrete menu515/config/FromProgram binding, distinct outstandingE040307",
+    "mode": "내역/집계 radio, read-only searches",
+    "selected_axes": [
+      "품목명[규격]",
+      "거래처",
+      "담당자",
+      "창고",
+      "월별"
+    ],
+    "visible_slots_by_selected_count": {
+      "0": 2,
+      "1": 3,
+      "2": 4,
+      "3": 5,
+      "4": 5,
+      "5": 5
+    },
+    "candidate_catalog": [
+      "일별",
+      "주차별",
+      "월별",
+      "분기별",
+      "반기별",
+      "연별",
+      "담당자",
+      "창고",
+      "거래유형",
+      "관리항목",
+      "거래처",
+      "거래처그룹1",
+      "거래처그룹2",
+      "품목명[규격]",
+      "품목그룹1",
+      "품목그룹2",
+      "품목그룹3",
+      "프로젝트",
+      "프로젝트그룹1",
+      "프로젝트그룹2"
+    ],
+    "headers_1": [
+      "품목명[규격]",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "headers_2": [
+      "품목명[규격]",
+      "거래처",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "headers_5": [
+      "품목명[규격]",
+      "거래처",
+      "담당자",
+      "창고",
+      "월별",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "selected_controls": [
+      "코드순 dropdown",
+      "ascending ",
+      "subtotalON ",
+      "clear "
+    ],
+    "subtotal": "No leafsubtotal1/2/5;5axis run3→2→1→0 where corresponding boundaries present, colspan5, grand합계",
+    "upperOFF_observation": {
+      "first_axis_disabled": true,
+      "remaining_subtotal_indices": [
+        3,
+        2,
+        1
+      ],
+      "disabled_upper_changed_with_equal_lower_display_opportunity": true,
+      "any_active_subtotal_crossed_disabled_upper_display": false,
+      "ambiguous_title_mapping": false,
+      "scope": "Displayed-label comparison only; raw SID/code identities/backend not retained or proven"
+    },
+    "restore": "First subtotalOFF→ON confirmed glyph, 내역/F8 restored. Current source output10 dynamic columns captured as headers only; own prior grouped detail not promoted equivalent.",
+    "business_data_in_evidence_or_runtime": false,
+    "Save_Apply_print_export": false
+  },
+  "own_policy": {
+    "supported_axes": "17nonidentity aliases over existing own dimensions; week/tradeType/managed unavailable",
+    "labels": "Legacy plan/order aliases; item master name[spec], other master name fallbackcode; rawkeys remaincodes",
+    "initial_slots": "2, monotonic min(5,selectedcount+2), sparse fifth kept; reset2; snapshots2..5",
+    "hierarchy": "Legacy plan/order finalleaf excluded, fullselectedprefix boundary, grand합계. Purchase branch remains enabledaxes-only/leafsubtotals/grand총합계.",
+    "sort": "existing own raw code directions, no new code/name dropdown or explicit sort UI policy claimed",
+    "filters": "Existing ordinary order dates/due/currency/master/query, listed-state exclusion and mixed-currency rejection",
+    "output": "Full aligned table/exportRows and shared print; no purchase-only detail callback. Track normal report print child and remove on destroy/navigation; integration regression for discovered leak.",
+    "not_implemented": [
+      "dynamic 집계대상/outputform",
+      "코드순/코드명순 comparator/encoding",
+      "week/tradeType/managed axes",
+      "graph/comparison/approval rules",
+      "order summary drilldown",
+      "source quantity/tax/currency/server output equivalence"
+    ],
+    "quantities": "Own effectiveLineTotals over selected order input lines. Partial/complete purchase receipts do not subtract orderqty; not originalserver equivalence or outstanding report."
+  },
+  "corpus": "84bodies25247564B=82baseline+2new; static82complete/2partial; semantic77complete/2partial/3timeout/2OOM. Newgrid5parser errors,recoveredAST partial. No originalexecution/privateAPI or previousfailure retry.",
+  "static_contract": "ActualREA6.4 xesg016r complete28/50/53; grid recoveredpartial3121/18299/25130; endpoints configuration only, not invoked. Full-vs-remaining source formula unknown."
+}

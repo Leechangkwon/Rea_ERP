@@ -1,0 +1,43 @@
+{
+  "source_sha256": "d138900b87027f4934ee2672ba4c39656d060d32c84b6aa8f150889429896cf5",
+  "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.core.2075066825770250059.20.js",
+  "span_format": [
+    "start_line",
+    "start_column_zero_based",
+    "end_line",
+    "end_column_zero_based"
+  ],
+  "definitions": [
+    {
+      "kind": "F3-to-handler-alias",
+      "span": [
+        1,
+        21904,
+        1,
+        21918
+      ],
+      "source_excerpt": "F3:\"ON_KEY_F3\""
+    },
+    {
+      "kind": "conditional-key-event-registration-loop",
+      "span": [
+        1,
+        22155,
+        1,
+        22255
+      ],
+      "source_excerpt": "for(e in f)this[f[e]]&&this.addEventCallbackHandler({event:e,key:n,callback:this[f[e]].bind(this)});"
+    },
+    {
+      "kind": "popup-id-message-dispatch-registration",
+      "span": [
+        1,
+        22514,
+        1,
+        23045
+      ],
+      "source_excerpt": "this.addEventCallbackHandler({event:\"message\",key:this._messageHandlerPopupIdList[u]+o,subKey:{id:s||this.id},callback:this.gridVersion==\"v3\"?function(n,t,i){var r=Array.prototype.slice.call(arguments),u;if(r.remove(0),this.onCodeItemSelect){u=i.gridDataKey||i.data.rowKey||i.control.rowKey;i.position=i.addPosition;this.onCodeItemSelect(u,_.extend(i,{message:i}))}this[\"onMessageHandler_\"+n].apply(this,r)}.bind(this,this._messageHandlerPopupIdList[u]+r):this[\"onMessageHandler_\"+this._messageHandlerPopupIdList[u]+r].bind(this)})"
+    }
+  ],
+  "limitation": "Generic dispatcher aliases do not supply a local searchText/sort/rebuildContent widget or next-match/comparator implementation."
+}

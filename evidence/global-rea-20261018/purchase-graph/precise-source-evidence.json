@@ -1,0 +1,2263 @@
+{
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "inventory",
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.constructor",
+          "span": [
+            1613,
+            4,
+            1615,
+            5
+          ],
+          "offsets": [
+            80149,
+            80239
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphUpdateVMCStateBeforeSearchResolver.OnExecuteAsync",
+          "span": [
+            1616,
+            4,
+            1678,
+            5
+          ],
+          "offsets": [
+            80244,
+            83467
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { current_template_info, template_dmc, vmc } = dto;\n        const cloned_data_view_format = _.cloneDeep(template_dmc?.getValueByPropId('data_view_format'));\n        if (cloned_data_view_format == undefined) {\n            return;\n        }\n        if (_.vIsEmpty(cloned_data_view_format.setting)) {\n            //그래프로 보기 체크만 하고 검색 시\n            const prop_list_program = common$1.ProgramBuilder.create(\"common$GetGraphColumnInfoProgram\" /* EN_PROGRAM_ID.GetGraphColumnInfoProgram */, this.execution_context);\n            const result = await prop_list_program.executeAsync({\n                current_template_info: current_template_info?.code,\n                vmc,\n                is_za_template: current_template_info?.is_za_template,\n                screen_type: current_template_info?.screen_type,\n            });\n            //검색 기본값 주기\n            cloned_data_view_format.setting = {\n                axisInfo: result.axis_info,\n                x1ColumnId: _.first(result.axis_info?.xaxis)?.id,\n                x1Label: _.first(result.axis_info?.xaxis)?.title,\n                xLabel: _.first(result.axis_info?.xaxis)?.title,\n                y1ColumnId: _.first(result.axis_info?.yaxis)?.id,\n                y1Label: _.first(result.axis_info?.yaxis)?.title,\n                yLabel: _.first(result.axis_info?.yaxis)?.title,\n                graphType: \"bar\" /* EN_GRAPH_TYPE.bar */,\n                useGrid: true,\n                usePointLabel: true,\n                useFormattedNumberLabel: true,\n                useLegend: true,\n                hasTrendlineForY1: false,\n                hasTrendlineForY2: false,\n                isShowHighest: false,\n                isShowLowest: false,\n                isShowGraphTitle: true,\n                defaultAxisIndex: 1,\n                isShowXTitle: true,\n                isShowYTitle: true,\n            };\n        }\n        //validate 결과가 false면 error 반환\n        const validator = common$1.ProgramBuilder.create(\"common$GraphSettingValidatorAttrProgram\" /* EN_PROGRAM_ID.GraphSettingValidatorAttrProgram */, this.execution_context);\n        const is_valid = await validator.executeAsync({\n            vmc,\n            current_template_info: current_template_info?.code,\n            is_za_template: current_template_info?.is_za_template,\n            screen_type: current_template_info?.screen_type,\n            template_sub_type: dto.template_sub_type,\n            menu_type: this.execution_context.getProgramContext().data.menu_type,\n            axis_info: cloned_data_view_format?.setting?.axisInfo,\n        });\n        if (is_valid === false) {\n            await vmc.alertAsync($Resx.rex10265);\n            throw new common_.Exception('SEARCH_FAIL');\n        }\n        vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, cloned_data_view_format?.setting);\n        //wf.1200, 그래프로보기에 체크만 하고 검색 시 \"설정\"에 음영 들어오게 됨. (변경사항)\n        template_dmc?.setValueByPropId('data_view_format', cloned_data_view_format);\n        //서치탭 닫기\n        vmc.setPageState(\"search\" /* EN_CONST_ID.ISearchPageState */, (state) => {\n            state.display_search_panel = false;\n            state.display_search_button = true;\n        });\n    }"
+        },
+        {
+          "symbol": "resolveStatusGraphContext",
+          "span": [
+            1933,
+            0,
+            1937,
+            1
+          ],
+          "offsets": [
+            95374,
+            95735
+          ],
+          "source": "async function resolveStatusGraphContext(execution_context, dto, template_type, target_model_id) {\n    const resolved = await resolveStatusContext(execution_context, dto, template_type);\n    // ctx_template_attribute(데이터 조회)는 grid 그대로, 디스플레이용 xtemplate_info 만 빈 chart 위젯으로 교체.\n    return { ...resolved, xtemplate_info: toGraphXTemplateInfo(target_model_id) };\n}"
+        },
+        {
+          "symbol": "toGraphXTemplateInfo",
+          "span": [
+            1990,
+            0,
+            1996,
+            1
+          ],
+          "offsets": [
+            98062,
+            98333
+          ],
+          "source": "function toGraphXTemplateInfo(target_model_id) {\n    const widget_id = `${target_model_id}_chart_widget`;\n    return {\n        root_id: widget_id,\n        xml_map: { [widget_id]: `<widget id=\"${widget_id}\" type=\"chart\" model_id=\"${target_model_id}\"></widget>` },\n    };\n}"
+        },
+        {
+          "symbol": "InventorySumStatusGraphGetContextResolver.constructor",
+          "span": [
+            2390,
+            4,
+            2392,
+            5
+          ],
+          "offsets": [
+            115009,
+            115099
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusGraphGetContextResolver.OnExecuteAsync",
+          "span": [
+            2393,
+            4,
+            2403,
+            5
+          ],
+          "offsets": [
+            115104,
+            115848
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        await new Promise((resolve) => {\n            require([/*'d3lib', 'ecchart', */ 'graph.data', 'jqplot.style', 'jqplot.script'], resolve);\n        });\n        const program_context = this.execution_context.getProgramContext();\n        const grid_model_id = program_context.sourceData.menu?.definition?.model_info_list.find((x) => x.model_refer_type === \"sum_status\" /* EN_MODEL_REFER_TYPE.SumStatus */)?.model_id;\n        if (!grid_model_id) {\n            throw new Error('[InventorySumStatusGraphGetContextResolver] status grid model_id를 찾을 수 없습니다.');\n        }\n        return resolveStatusGraphContext(this.execution_context, dto, \"sum_status_list\" /* EN_TEMPLATE_TYPE.SumStatusList */, grid_model_id);\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphGetContextResolver.constructor",
+          "span": [
+            2470,
+            4,
+            2472,
+            5
+          ],
+          "offsets": [
+            119205,
+            119295
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphGetContextResolver.OnExecuteAsync",
+          "span": [
+            2473,
+            4,
+            2495,
+            5
+          ],
+          "offsets": [
+            119300,
+            120531
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        // graph 차트 lib가 Array.prototype 의 메서드를 덮어씌워 다른 곳에서의 Array 메서드 동작이 달라지는 이슈\n        const proto = Array.prototype;\n        const proto_backup = {};\n        for (const name of Object.getOwnPropertyNames(proto)) {\n            proto_backup[name] = proto[name];\n        }\n        await new Promise((resolve) => {\n            require([/*'d3lib', 'ecchart', */ 'graph.data', 'jqplot.style', 'jqplot.script'], resolve);\n        });\n        // 차트 lib가 덮어쓴 프로퍼티를 baseline으로 원상복귀\n        for (const name of Object.keys(proto_backup)) {\n            if (proto[name] !== proto_backup[name]) {\n                proto[name] = proto_backup[name];\n            }\n        }\n        const program_context = this.execution_context.getProgramContext();\n        const grid_model_id = program_context.sourceData.menu?.definition?.model_info_list.find((x) => x.model_refer_type === \"status\" /* EN_MODEL_REFER_TYPE.Status */)?.model_id;\n        if (!grid_model_id) {\n            throw new Error('[InventoryStatusGraphGetContextResolver] status grid model_id를 찾을 수 없습니다.');\n        }\n        return resolveStatusGraphContext(this.execution_context, dto, \"status_list\" /* EN_TEMPLATE_TYPE.StatusList */, grid_model_id);\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphGetDataModelIdResover.constructor",
+          "span": [
+            2498,
+            4,
+            2500,
+            5
+          ],
+          "offsets": [
+            120610,
+            120700
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphGetDataModelIdResover.OnExecuteAsync",
+          "span": [
+            2501,
+            4,
+            2514,
+            5
+          ],
+          "offsets": [
+            120705,
+            121658
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { ctx_template_attribute } = dto;\n        const program_context = this.execution_context.getProgramContext();\n        dto.search_dmc?.getValueByReferType('aggregate')?.aggregate_key?.type ?? \"fixed\" /* EN_TEMPLATE_SUB_TYPE.Fixed */;\n        // if (_.vIsEquals(aggregate_type, EN_TEMPLATE_SUB_TYPE.Fixed)) {\n        // \tconst grid_attributes = ctx_template_attribute?.widget.grid ?? {};\n        // \tdelete grid_attributes['data_generator']?.data['pagetotal'];\n        // \tdelete grid_attributes['data_generator']?.data['subtotal'];\n        // \tdelete grid_attributes['data_generator']?.data['summary'];\n        // \tdelete grid_attributes['data_generator']?.data['total'];\n        // }\n        const data_model_id = program_context.sourceData.menu?.definition?.model_info_list.find((x) => x.model_refer_type === \"status\" /* EN_MODEL_REFER_TYPE.Status */)?.model_id;\n        return { ...dto, data_model_id };\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusGraphGetDataModelIdResover.constructor",
+          "span": [
+            2517,
+            4,
+            2519,
+            5
+          ],
+          "offsets": [
+            121740,
+            121830
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusGraphGetDataModelIdResover.OnExecuteAsync",
+          "span": [
+            2520,
+            4,
+            2533,
+            5
+          ],
+          "offsets": [
+            121835,
+            122795
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { ctx_template_attribute } = dto;\n        const program_context = this.execution_context.getProgramContext();\n        dto.search_dmc?.getValueByReferType('aggregate')?.aggregate_key?.type ?? \"fixed\" /* EN_TEMPLATE_SUB_TYPE.Fixed */;\n        // if (_.vIsEquals(aggregate_type, EN_TEMPLATE_SUB_TYPE.Fixed)) {\n        // \tconst grid_attributes = ctx_template_attribute?.widget.grid ?? {};\n        // \tdelete grid_attributes['data_generator']?.data['pagetotal'];\n        // \tdelete grid_attributes['data_generator']?.data['subtotal'];\n        // \tdelete grid_attributes['data_generator']?.data['summary'];\n        // \tdelete grid_attributes['data_generator']?.data['total'];\n        // }\n        const data_model_id = program_context.sourceData.menu?.definition?.model_info_list.find((x) => x.model_refer_type === \"sum_status\" /* EN_MODEL_REFER_TYPE.SumStatus */)?.model_id;\n        return { ...dto, data_model_id };\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphHeaderSearchResolver.constructor",
+          "span": [
+            2536,
+            4,
+            2538,
+            5
+          ],
+          "offsets": [
+            122873,
+            122963
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphHeaderSearchResolver.OnExecuteAsync",
+          "span": [
+            2539,
+            4,
+            2555,
+            5
+          ],
+          "offsets": [
+            122968,
+            123642
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { ctx_template_attribute, search_options, template_dmc, vmc } = dto;\n        const program_context = this.execution_context.getProgramContext();\n        //퀵서치 초기화\n        delete search_options?.quick_search;\n        delete search_options?.condition_quick;\n        //조회 검색 제한 초기화\n        const limit_count = program_context.sourceData.menu_attr?.page_size?.data.limit_count;\n        search_options.limit = limit_count;\n        applyInventoryStatusDefaultSortSearchOption({\n            vmc,\n            search_options: search_options,\n            template_dmc,\n            ctx_template_attribute,\n        });\n        return dto;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphQuickSearchResolver.constructor",
+          "span": [
+            2558,
+            4,
+            2560,
+            5
+          ],
+          "offsets": [
+            123719,
+            123809
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphQuickSearchResolver.OnExecuteAsync",
+          "span": [
+            2561,
+            4,
+            2577,
+            5
+          ],
+          "offsets": [
+            123814,
+            124672
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { payload, search_options, vmc } = dto;\n        if (search_options === undefined) {\n            return dto;\n        }\n        const program_context = this.execution_context.getProgramContext();\n        //조회 검색 제한 초기화\n        const limit_count = program_context.sourceData.menu_attr?.page_size?.data.limit_count;\n        search_options.limit = limit_count;\n        //유저가 입력한 값을 search_options에 할당\n        search_options.quick_search = payload.search_options.quick_search;\n        const is_continue = await common$1.ProgramBuilder.create(\"common$ConfigureQuickSearchCommonProgram\" /* EN_PROGRAM_ID.ConfigureQuickSearchCommonProgram */, this.execution_context).executeAsync({ search_options, vmc });\n        if (!is_continue) {\n            throw new common_.Exception('SEARCH_FAIL');\n        }\n        return dto;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSetDefaultGraphSearchOptionResolver.constructor",
+          "span": [
+            2697,
+            4,
+            2699,
+            5
+          ],
+          "offsets": [
+            129930,
+            130020
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSetDefaultGraphSearchOptionResolver.OnExecuteAsync",
+          "span": [
+            2700,
+            4,
+            2704,
+            5
+          ],
+          "offsets": [
+            130025,
+            130155
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { search_options } = dto;\n        delete search_options?.page;\n        return dto;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphSearchDataModelResolver.constructor",
+          "span": [
+            3146,
+            4,
+            3148,
+            5
+          ],
+          "offsets": [
+            149890,
+            149980
+          ],
+          "source": "constructor(execution_context) {\n        this.execution_context = execution_context;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusGraphSearchDataModelResolver.OnExecuteAsync",
+          "span": [
+            3149,
+            4,
+            3200,
+            5
+          ],
+          "offsets": [
+            149985,
+            152912
+          ],
+          "source": "async OnExecuteAsync(dto) {\n        const { ctx_template_attribute, current_template_info, file_info_title, search_options, search_dmc, template_sub_type, vmc, } = dto;\n        const program_context = this.execution_context.getProgramContext();\n        let data_model = [];\n        let total_count = 0;\n        let date;\n        let is_aggregate = true;\n        const grid_attributes = ctx_template_attribute?.widget?.grid ?? {};\n        const v3_menu_info = program_context.sourceData.menu?.v3_menu_info;\n        const addtional_param = {\n            form_type: v3_menu_info?.status.form_type,\n            item_separate_tf: Object.values(grid_attributes)?.find((x) => x.attr_id === 'item_separate_tf')?.data ?? false,\n        };\n        // body 사용하는 경우에만 data_model 조회\n        const body_use_tf = Object.values(grid_attributes)?.find((x) => x.attr_id === 'body_use_tf')?.data;\n        if (body_use_tf !== false) {\n            //data_model 조회\n            const data_model_program = common$1.ProgramBuilder.create(\"inventory$SelectInventoryStatusProgram\" /* EN_PROGRAM_ID.SelectInventoryStatusProgram */, this.execution_context);\n            // 데이터 모델 불러오는 프로그램 실행하는 함수(재호출 될 수 있어 별도의 func로 분리)\n            const executeDataModelProgram = async () => {\n                return await data_model_program.executeAsync({\n                    bizz_sid: program_context.data.bizz_sid,\n                    search_options: search_options,\n                    search_data_model_container: search_dmc,\n                    data_model_id: dto.data_model_id,\n                    template_info: {\n                        current_template: current_template_info?.code,\n                        current_template_name: current_template_info?.name,\n                        current_template_title: file_info_title,\n                        is_za_template: current_template_info?.is_za_template,\n                        template_sub_type: template_sub_type,\n                        screen_type: current_template_info?.screen_type,\n                    },\n                    additional: addtional_param,\n                });\n            };\n            ({ data_model, total_count, date, is_aggregate } = await executeDataModelProgram());\n        }\n        //----------------------------------------------------------------------\n        // 그래프로보기 - 설정 눌렀을 때 data_model이 없다면 alert 팝업 보여주고, 다시 검색 옵션 설정하는 곳으로 돌아감.\n        //----------------------------------------------------------------------\n        if (data_model.length == 0) {\n            await vmc.alertAsync($Resx.rex02522);\n            //서치탭 다시 열기\n            vmc.setPageState(\"search\" /* EN_CONST_ID.ISearchPageState */, (state) => {\n                state.display_search_panel = true;\n                state.display_search_button = false;\n            });\n            throw new common_.Exception('SEARCH_FAIL');\n        }\n        return { ...dto, data_model, total_count, date, is_aggregate };\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSearchBuildProcessFeature.constructor",
+          "span": [
+            3369,
+            4,
+            3373,
+            5
+          ],
+          "offsets": [
+            160832,
+            161026
+          ],
+          "source": "constructor(execution_context, search_param) {\n        this.context = execution_context;\n        this.is_graph = search_param.is_graph;\n        this.search_type = search_param.search_type;\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSearchBuildProcessFeature.buildSearchOptionProcess",
+          "span": [
+            3374,
+            4,
+            3383,
+            5
+          ],
+          "offsets": [
+            161031,
+            161441
+          ],
+          "source": "buildSearchOptionProcess() {\n        return [\n            InventoryStatusGetDefaultSearchOptionResolver,\n            InventoryStatusCheckTemplateInfoResolver,\n            ...getContextResolvers$1(this.is_graph),\n            ...getDataModelIdResolver$1(this.is_graph),\n            ...modifySearchOptionResolvers$1(this.search_type, this.is_graph),\n            InventoryGetFileInfoTitleResolver,\n        ];\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSearchBuildProcessFeature.buildPrepareProcess",
+          "span": [
+            3384,
+            4,
+            3386,
+            5
+          ],
+          "offsets": [
+            161446,
+            161553
+          ],
+          "source": "buildPrepareProcess() {\n        return getPrepareProcessResolvers$2(this.search_type, this.is_graph);\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSearchBuildProcessFeature.buildSearchProcess",
+          "span": [
+            3387,
+            4,
+            3389,
+            5
+          ],
+          "offsets": [
+            161558,
+            161644
+          ],
+          "source": "buildSearchProcess() {\n        return getSearchProcessResolver$1(this.is_graph);\n    }"
+        },
+        {
+          "symbol": "InventoryStatusSearchBuildProcessFeature.buildPostProcess",
+          "span": [
+            3390,
+            4,
+            3399,
+            5
+          ],
+          "offsets": [
+            161649,
+            162026
+          ],
+          "source": "buildPostProcess() {\n        return [\n            InventoryStatusNormalizeDataModelResolver,\n            InventoryStatusCreateDMCResolver,\n            InventoryProcessBizzAndDataModelResolver,\n            InventoryStatusUpdateVMCStateAfterSearchResolver,\n            ...getPostProcessResolver$2(this.search_type),\n            common.AlertMaxLimitCountResolver,\n        ];\n    }"
+        },
+        {
+          "symbol": "getContextResolvers$1",
+          "span": [
+            3401,
+            0,
+            3407,
+            1
+          ],
+          "offsets": [
+            162029,
+            162267
+          ],
+          "source": "function getContextResolvers$1(is_graph) {\n    const resolvers = [\n        is_graph ? InventoryStatusGraphGetContextResolver : InventoryStatusGetContextResolver,\n        InventoryStatusModifyContextResolver,\n    ];\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "getDataModelIdResolver$1",
+          "span": [
+            3408,
+            0,
+            3414,
+            1
+          ],
+          "offsets": [
+            162268,
+            162456
+          ],
+          "source": "function getDataModelIdResolver$1(is_graph) {\n    const resolvers = [];\n    if (is_graph) {\n        resolvers.push(InventoryStatusGraphGetDataModelIdResover);\n    }\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "modifySearchOptionResolvers$1",
+          "span": [
+            3415,
+            0,
+            3439,
+            1
+          ],
+          "offsets": [
+            162457,
+            163763
+          ],
+          "source": "function modifySearchOptionResolvers$1(search_type, is_graph) {\n    // search_type과 관련 없는 필수 resolver 호출\n    const resolvers = [\n        is_graph ? InventoryStatusSetDefaultGraphSearchOptionResolver : InventoryStatusSetDefaultSearchOptionResolver,\n    ];\n    const resolverMap = {\n        //SIMPLE 과 HEADER의 로직이 동일하여 같은 Resolver를 호출한다.\n        HEADER: is_graph ? InventoryStatusGraphHeaderSearchResolver : InventoryStatusHeaderSearchResolver,\n        SIMPLE: is_graph ? InventoryStatusGraphHeaderSearchResolver : InventoryStatusHeaderSearchResolver,\n        QUICK: is_graph ? InventoryStatusGraphQuickSearchResolver : InventoryStatusQuickSearchResolver,\n        LAST: is_graph ? null : InventoryStatusLastSearchResolver,\n        //그래프와 상관 없는 경우(그리드의 경우에만 존재하는 ISearchEventType)\n        SORT: InventoryStatusSortSearchResolver,\n        PAGING: InventoryPagingSearchResolver,\n        MORE: InventoryStatusMoreSearchResolver,\n        EXCEL: InventoryExcelSearchResolver,\n    };\n    // 주어진 search_type에 맞는 resolver 호출\n    resolverMap[search_type] && resolvers.push(resolverMap[search_type]);\n    // EXCEL 및 그래프가 아닌 경우 / 페이지 조회 방법이 1페이지씩일 때에만 row_count를 적용하는 resolver\n    if (search_type !== 'EXCEL' && is_graph === false) {\n        resolvers.push(InventoryStatusRowCountResolver);\n    }\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "getPrepareProcessResolvers$2",
+          "span": [
+            3440,
+            0,
+            3462,
+            1
+          ],
+          "offsets": [
+            163764,
+            164629
+          ],
+          "source": "function getPrepareProcessResolvers$2(search_type, is_graph) {\n    const resolvers = [];\n    if (search_type === 'SIMPLE') {\n        resolvers.push(common.UpdateDateForSimpleSearchResolver); //이름 변경 필요\n    }\n    if (['HEADER', 'SIMPLE'].includes(search_type)) {\n        resolvers.push(SetDefaultSearchConditionsResolver);\n        resolvers.push(common.ValidateDataModelResolver);\n        resolvers.push(RemoveQuickSearchResolver);\n    }\n    if (search_type === 'EXCEL') {\n        resolvers.push(common.ValidateSearchableResolver);\n    }\n    // //GRAPH 여부에 따라 다른 로직 실행\n    if (is_graph) {\n        resolvers.push(InventoryStatusGraphUpdateVMCStateBeforeSearchResolver); // 꼭!!!!!!!!!쪼개야 함\n    }\n    else {\n        resolvers.push(InventoryStatusUpdateVMCStateBeforeSearchResolver);\n    }\n    resolvers.push(common.ClearPreserveStorageResolver);\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "getSearchProcessResolver$1",
+          "span": [
+            3463,
+            0,
+            3468,
+            1
+          ],
+          "offsets": [
+            164630,
+            164865
+          ],
+          "source": "function getSearchProcessResolver$1(is_graph) {\n    if (is_graph) {\n        return [InventoryStatusGraphSearchDataModelResolver];\n    }\n    return [InventoryStatusAdditionalDefinitionResolver, InventoryStatusSearchDataModelResolver];\n}"
+        },
+        {
+          "symbol": "InventorySumStatusSearchBuildProcessFeature.constructor",
+          "span": [
+            3478,
+            4,
+            3482,
+            5
+          ],
+          "offsets": [
+            165287,
+            165481
+          ],
+          "source": "constructor(execution_context, search_param) {\n        this.context = execution_context;\n        this.is_graph = search_param.is_graph;\n        this.search_type = search_param.search_type;\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusSearchBuildProcessFeature.buildSearchOptionProcess",
+          "span": [
+            3483,
+            4,
+            3492,
+            5
+          ],
+          "offsets": [
+            165486,
+            165890
+          ],
+          "source": "buildSearchOptionProcess() {\n        return [\n            InventoryStatusGetDefaultSearchOptionResolver,\n            InventoryStatusCheckTemplateInfoResolver,\n            ...getContextResolvers(this.is_graph),\n            ...getDataModelIdResolver(this.is_graph),\n            ...modifySearchOptionResolvers(this.search_type, this.is_graph),\n            InventoryGetFileInfoTitleResolver,\n        ];\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusSearchBuildProcessFeature.buildPrepareProcess",
+          "span": [
+            3493,
+            4,
+            3495,
+            5
+          ],
+          "offsets": [
+            165895,
+            166002
+          ],
+          "source": "buildPrepareProcess() {\n        return getPrepareProcessResolvers$1(this.search_type, this.is_graph);\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusSearchBuildProcessFeature.buildSearchProcess",
+          "span": [
+            3496,
+            4,
+            3498,
+            5
+          ],
+          "offsets": [
+            166007,
+            166091
+          ],
+          "source": "buildSearchProcess() {\n        return getSearchProcessResolver(this.is_graph);\n    }"
+        },
+        {
+          "symbol": "InventorySumStatusSearchBuildProcessFeature.buildPostProcess",
+          "span": [
+            3499,
+            4,
+            3508,
+            5
+          ],
+          "offsets": [
+            166096,
+            166473
+          ],
+          "source": "buildPostProcess() {\n        return [\n            InventoryStatusNormalizeDataModelResolver,\n            InventoryStatusCreateDMCResolver,\n            InventoryProcessBizzAndDataModelResolver,\n            InventoryStatusUpdateVMCStateAfterSearchResolver,\n            ...getPostProcessResolver$1(this.search_type),\n            common.AlertMaxLimitCountResolver,\n        ];\n    }"
+        },
+        {
+          "symbol": "getContextResolvers",
+          "span": [
+            3510,
+            0,
+            3516,
+            1
+          ],
+          "offsets": [
+            166476,
+            166718
+          ],
+          "source": "function getContextResolvers(is_graph) {\n    const resolvers = [\n        is_graph ? InventorySumStatusGraphGetContextResolver : InventorySumStatusGetContextResolver,\n        InventoryStatusModifyContextResolver,\n    ];\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "getDataModelIdResolver",
+          "span": [
+            3517,
+            0,
+            3523,
+            1
+          ],
+          "offsets": [
+            166719,
+            166908
+          ],
+          "source": "function getDataModelIdResolver(is_graph) {\n    const resolvers = [];\n    if (is_graph) {\n        resolvers.push(InventorySumStatusGraphGetDataModelIdResover);\n    }\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "modifySearchOptionResolvers",
+          "span": [
+            3524,
+            0,
+            3548,
+            1
+          ],
+          "offsets": [
+            166909,
+            168217
+          ],
+          "source": "function modifySearchOptionResolvers(search_type, is_graph) {\n    // search_type과 관련 없는 필수 resolver 호출\n    const resolvers = [\n        is_graph ? InventoryStatusSetDefaultGraphSearchOptionResolver : InventoryStatusSetDefaultSearchOptionResolver,\n    ];\n    const resolverMap = {\n        //SIMPLE 과 HEADER의 로직이 동일하여 같은 Resolver를 호출한다.\n        HEADER: is_graph ? InventoryStatusGraphHeaderSearchResolver : InventoryStatusHeaderSearchResolver,\n        SIMPLE: is_graph ? InventoryStatusGraphHeaderSearchResolver : InventoryStatusHeaderSearchResolver,\n        QUICK: is_graph ? InventoryStatusGraphQuickSearchResolver : InventoryStatusQuickSearchResolver,\n        LAST: is_graph ? null : InventoryStatusLastSearchResolver,\n        // 그래프와 상관 없는 경우(그리드의 경우에만 존재하는 ISearchEventType)\n        // SORT: InventoryStatusSortSearchResolver,\n        PAGING: InventoryPagingSearchResolver,\n        MORE: InventoryStatusMoreSearchResolver,\n        EXCEL: InventoryExcelSearchResolver,\n    };\n    // 주어진 search_type에 맞는 resolver 호출\n    resolverMap[search_type] && resolvers.push(resolverMap[search_type]);\n    // EXCEL 및 그래프가 아닌 경우 / 페이지 조회 방법이 1페이지씩일 때에만 row_count를 적용하는 resolver\n    if (search_type !== 'EXCEL' && is_graph === false) {\n        resolvers.push(InventoryStatusRowCountResolver);\n    }\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "getPrepareProcessResolvers$1",
+          "span": [
+            3549,
+            0,
+            3571,
+            1
+          ],
+          "offsets": [
+            168218,
+            169083
+          ],
+          "source": "function getPrepareProcessResolvers$1(search_type, is_graph) {\n    const resolvers = [];\n    if (search_type === 'SIMPLE') {\n        resolvers.push(common.UpdateDateForSimpleSearchResolver); //이름 변경 필요\n    }\n    if (['HEADER', 'SIMPLE'].includes(search_type)) {\n        resolvers.push(SetDefaultSearchConditionsResolver);\n        resolvers.push(common.ValidateDataModelResolver);\n        resolvers.push(RemoveQuickSearchResolver);\n    }\n    if (search_type === 'EXCEL') {\n        resolvers.push(common.ValidateSearchableResolver);\n    }\n    // //GRAPH 여부에 따라 다른 로직 실행\n    if (is_graph) {\n        resolvers.push(InventoryStatusGraphUpdateVMCStateBeforeSearchResolver); // 꼭!!!!!!!!!쪼개야 함\n    }\n    else {\n        resolvers.push(InventoryStatusUpdateVMCStateBeforeSearchResolver);\n    }\n    resolvers.push(common.ClearPreserveStorageResolver);\n    return resolvers;\n}"
+        },
+        {
+          "symbol": "getSearchProcessResolver",
+          "span": [
+            3572,
+            0,
+            3577,
+            1
+          ],
+          "offsets": [
+            169084,
+            169317
+          ],
+          "source": "function getSearchProcessResolver(is_graph) {\n    if (is_graph) {\n        return [InventoryStatusGraphSearchDataModelResolver];\n    }\n    return [InventoryStatusAdditionalDefinitionResolver, InventoryStatusSearchDataModelResolver];\n}"
+        },
+        {
+          "symbol": "SelectInventoryStatusUserAction.executeAsync",
+          "span": [
+            21208,
+            26,
+            21458,
+            5
+          ],
+          "offsets": [
+            1091230,
+            1103279
+          ],
+          "source": "async (request) => {\n        const { execution_context, vmc, payload } = request;\n        const program_context = execution_context.getProgramContext();\n        const dmc_map = program_context.data.dmc_map;\n        const search = program_context.sourceData.menu_attr?.search?.data;\n        const template_info = _getTemplateInfo(dmc_map, search);\n        //----------------------------------------------------------------------\n        // [alert] 모든 양식에 대해 조회권한이 없습니다.\\n마스터에게 문의 바랍니다.\n        //----------------------------------------------------------------------\n        if (_.vIsEmpty(template_info?.template_list)) {\n            vmc.alert($Resx.rex01595);\n            return;\n        }\n        await loadTemplateResourcesAsync(template_info);\n        // data_view_format (graph 체크 여부)에 따라 호출하는 resolver가 달라져 Feature에 전달 필요.\n        const template_model_id = search?.data_model_id.template;\n        const template_dmc = dmc_map[template_model_id];\n        const is_graph = template_dmc.getValueByPropId('data_view_format')?.is_graph ?? false;\n        const search_program = common$1.ProgramBuilder.create(\"common$SearchDataModelGenerateProgram\" /* EN_PROGRAM_ID.SearchDataModelGenerateProgram */, execution_context, (context) => {\n            context.setFeature(\"IBuildProcessFeature$V56\" /* EN_FEATURE_ID.IBuildProcessFeature */, new InventoryStatusSearchBuildProcessFeature(execution_context, {\n                search_type: payload.search_type,\n                is_graph,\n            }));\n        });\n        try {\n            await search_program.executeAsync({\n                payload: {\n                    search_options: payload.search_options,\n                    search_type: payload.search_type,\n                    file_type: payload.file_type,\n                    download_mode: payload.download_mode,\n                },\n                vmc,\n            });\n        }\n        catch (e) {\n            const exception = common_.Exception.verifyOrThrow(e);\n            if (exception.name === 'SEARCH_FAIL')\n                return;\n            throw e;\n        }\n        function _getTemplateInfo(dmc_map, search_attribute) {\n            const search_data_model_id = search_attribute.data_model_id.search;\n            const search_dmc = dmc_map[search_data_model_id];\n            const template_infos = program_context.sourceData.menu_attr?.template_info?.data;\n            const aggregate_key = search_dmc.getValueByReferType('aggregate')?.aggregate_key?.key ??\n                _.vFirst(Object.keys(_.vSafe(template_infos, {})));\n            const template_info = template_infos?.[aggregate_key];\n            return template_info;\n        }\n        async function loadTemplateResourcesAsync(template_info) {\n            const { bizz_sid, menu_sid, menu_type } = program_context.data;\n            const search_template_dmc = program_context.data.dmc_map[\"static\\u222CSearchTemplateModel\" /* EN_COMMON_MODEL_ID.SearchTemplateModel */];\n            const current_template_set_sid = search_template_dmc.getValueByPropId('applied_template');\n            const tenant_sid = common_$1.getTenantSid({ execution_context, current_template_info: current_template_set_sid });\n            const data_model_id = program_context.sourceData.menu?.definition?.model_info_list?.find((x) => x.model_refer_type === \"status\" /* EN_MODEL_REFER_TYPE.Status */)?.model_id ?? '';\n            const status_definition_key = {\n                tenant_sid,\n                bizz_sid,\n                template_set_sid: current_template_set_sid,\n                group_sub_type: template_info?.template_sub_type,\n            };\n            const prg_ctx = {\n                data: {\n                    action_mode: program_context.data.action_mode,\n                    bizz_id: program_context.data.bizz_id,\n                    bizz_sid: program_context.data.bizz_sid,\n                    bizz_type: program_context.data.bizz_type,\n                    menu_sid: program_context.data.menu_sid,\n                    menu_type: program_context.data.menu_type,\n                    template_set_sid: current_template_set_sid,\n                    tenant_sid: execution_context.session.tenant_sid,\n                    user_sid: program_context.data.user_sid,\n                },\n            };\n            const ctx_definition_keys = [\n                {\n                    key: {\n                        model_id: data_model_id,\n                        key: status_definition_key,\n                    },\n                },\n                ...common_.EN_AGGREGATE_MODEL_REFER_TYPES.map((model_id) => ({\n                    key: {\n                        model_id,\n                        key: {\n                            tenant_sid,\n                            bizz_sid,\n                            template_set_sid: current_template_set_sid,\n                            source_model_id: data_model_id,\n                            template_sub_type: template_info?.template_sub_type,\n                        },\n                    },\n                })),\n                //코드치환표를 위해 추가로 내려가는 MODEL DEFINITION KEYS\n                {\n                    key: {\n                        model_id: \"__d$ctx_tenant\" /* EN_TENANT_DATA_ID.ctx_tenant */,\n                        key: {\n                            tenant_sid: execution_context.session.tenant_sid,\n                            bizz_sid,\n                            menu_sid,\n                            template_set_sid: current_template_set_sid,\n                        },\n                    },\n                },\n                {\n                    key: {\n                        model_id: \"__d$ctx_sc_inventory\" /* EN_TENANT_DATA_ID.ctx_sc_inventory */,\n                        key: {\n                            tenant_sid: execution_context.session.tenant_sid,\n                            bizz_sid,\n                            menu_sid,\n                            template_set_sid: current_template_set_sid,\n                        },\n                    },\n                },\n                {\n                    key: {\n                        model_id: \"__d$ctx_runtime\" /* EN_RUNTIME_DATA_ID.ctx_runtime */,\n                        key: {\n                            tenant_sid: execution_context.session.tenant_sid,\n                            bizz_sid,\n                            menu_sid,\n                            template_set_sid: current_template_set_sid,\n                        },\n                    },\n                },\n                {\n                    key: {\n                        model_id: \"__d$ctx_menu\" /* EN_MENU_DATA_ID.ctx_menu */,\n                        key: {\n                            tenant_sid: execution_context.session.tenant_sid,\n                            bizz_sid,\n                            menu_sid,\n                            template_set_sid: current_template_set_sid,\n                        },\n                    },\n                },\n                {\n                    key: {\n                        model_id: 'currentContextXbase',\n                        key: {\n                            tenant_sid: execution_context.session.tenant_sid,\n                            bizz_sid,\n                            menu_sid,\n                            template_set_sid: current_template_set_sid,\n                        },\n                    },\n                },\n                {\n                    key: {\n                        model_id: 'currentContextXgrid',\n                        key: {\n                            tenant_sid: execution_context.session.tenant_sid,\n                            bizz_sid,\n                            menu_sid,\n                            template_set_sid: current_template_set_sid,\n                        },\n                    },\n                },\n            ];\n            const template_item_definition_key = common_$1.buildTemplateItemDefinitionEntityKey(execution_context);\n            await execution_context._entity.loadEntityDataAsync(execution_context, {\n                keys: {\n                    [\"__d$ctx_template_item\" /* EN_DATA_ID.ctx_template_item */]: {\n                        id: \"__d$ctx_template_item\" /* EN_DATA_ID.ctx_template_item */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    template_set_sid: current_template_set_sid,\n                                    menu_sid,\n                                    menu_type,\n                                    group_sub_type: template_info?.template_sub_type,\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$ctx_template_attribute\" /* EN_DATA_ID.ctx_template_attribute */]: {\n                        id: \"__d$ctx_template_attribute\" /* EN_DATA_ID.ctx_template_attribute */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    template_set_sid: current_template_set_sid,\n                                    menu_sid,\n                                    menu_type,\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$template_xml\" /* EN_DATA_ID.template_xml */]: {\n                        id: \"__d$template_xml\" /* EN_DATA_ID.template_xml */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    template_set_sid: current_template_set_sid,\n                                    menu_sid,\n                                    template_type: \"status_list\" /* EN_TEMPLATE_TYPE.StatusList */,\n                                },\n                            },\n                        ],\n                    },\n                    ['ctx_definition']: {\n                        id: 'ctx_definition',\n                        keys: ctx_definition_keys,\n                    },\n                    [\"__d$code_replace\" /* EN_DATA_ID.code_replace */]: {\n                        id: \"__d$code_replace\" /* EN_DATA_ID.code_replace */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    menu_sid,\n                                    menu_type,\n                                    template_set_sid: current_template_set_sid,\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$template_item_definition\" /* EN_DATA_ID.template_item_definition */]: {\n                        id: \"__d$template_item_definition\" /* EN_DATA_ID.template_item_definition */,\n                        keys: [{ key: template_item_definition_key }],\n                    },\n                    [\"__d$get_unwind_prop_iteration\" /* EN_DATA_ID.get_unwind_prop_iteration */]: {\n                        id: \"__d$get_unwind_prop_iteration\" /* EN_DATA_ID.get_unwind_prop_iteration */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    menu_sid,\n                                    menu_type,\n                                    template_set_sid: current_template_set_sid,\n                                },\n                            },\n                        ],\n                    },\n                },\n            }, {\n                set_id: 'current_template_sid',\n                prg_ctx,\n            });\n        }\n    }"
+        },
+        {
+          "symbol": "SelectInventorySumStatusUserAction.executeAsync",
+          "span": [
+            21469,
+            26,
+            21717,
+            5
+          ],
+          "offsets": [
+            1104206,
+            1117215
+          ],
+          "source": "async (request) => {\n        const { execution_context, vmc, payload } = request;\n        const program_context = execution_context.getProgramContext();\n        const dmc_map = program_context.data.dmc_map;\n        const search = program_context.sourceData.menu_attr?.search?.data;\n        const template_info = _getTemplateInfo(dmc_map, search);\n        await loadTemplateResourcesAsync(template_info);\n        //----------------------------------------------------------------------\n        // [alert] 모든 양식에 대해 조회권한이 없습니다.\\n마스터에게 문의 바랍니다.\n        //----------------------------------------------------------------------\n        if (_.vIsEmpty(template_info?.template_list)) {\n            vmc.alert($Resx.rex01595);\n            return;\n        }\n        // data_view_format (graph 체크 여부)에 따라 호출하는 resolver가 달라져 Feature에 전달 필요.\n        const template_model_id = search?.data_model_id.template;\n        const template_dmc = dmc_map[template_model_id];\n        const is_graph = template_dmc.getValueByPropId('data_view_format')?.is_graph ?? false;\n        const search_program = common$1.ProgramBuilder.create(\"common$SearchDataModelGenerateProgram\" /* EN_PROGRAM_ID.SearchDataModelGenerateProgram */, execution_context, (context) => {\n            context.setFeature(\"IBuildProcessFeature$V56\" /* EN_FEATURE_ID.IBuildProcessFeature */, new InventorySumStatusSearchBuildProcessFeature(execution_context, {\n                search_type: payload.search_type,\n                is_graph,\n            }));\n        });\n        try {\n            await search_program.executeAsync({\n                payload: {\n                    search_options: payload.search_options,\n                    search_type: payload.search_type,\n                    file_type: payload.file_type,\n                    download_mode: payload.download_mode,\n                },\n                vmc,\n            });\n        }\n        catch (e) {\n            const exception = common_.Exception.verifyOrThrow(e);\n            if (exception.name === 'SEARCH_FAIL')\n                return;\n            throw e;\n        }\n        function _getTemplateInfo(dmc_map, search_attribute) {\n            const search_data_model_id = search_attribute.data_model_id.search;\n            const search_dmc = dmc_map[search_data_model_id];\n            const template_infos = program_context.sourceData.menu_attr?.template_info?.data;\n            const aggregate_key = search_dmc.getValueByReferType('aggregate')?.aggregate_key?.key ??\n                _.vFirst(Object.keys(_.vSafe(template_infos, {})));\n            const template_info = template_infos?.[aggregate_key];\n            return template_info;\n        }\n        async function loadTemplateResourcesAsync(template_info) {\n            const { bizz_sid, menu_sid, menu_type } = program_context.data;\n            const search_template_dmc = program_context.data.dmc_map[\"static\\u222CSearchTemplateModel\" /* EN_COMMON_MODEL_ID.SearchTemplateModel */];\n            const current_template_set_sid = search_template_dmc.getValueByPropId('applied_template');\n            const tenant_sid = common_$1.getTenantSid({ execution_context, current_template_info: current_template_set_sid });\n            const data_model_id = program_context.sourceData.menu?.definition?.model_info_list?.find((x) => x.model_refer_type === \"sum_status\" /* EN_MODEL_REFER_TYPE.SumStatus */)?.model_id ?? '';\n            const status_definition_key = {\n                tenant_sid: execution_context.session.tenant_sid,\n                bizz_sid,\n                template_set_sid: current_template_set_sid,\n            };\n            const prg_ctx = {\n                data: {\n                    action_mode: program_context.data.action_mode,\n                    bizz_id: program_context.data.bizz_id,\n                    bizz_sid: program_context.data.bizz_sid,\n                    bizz_type: program_context.data.bizz_type,\n                    menu_sid: program_context.data.menu_sid,\n                    menu_type: program_context.data.menu_type,\n                    template_set_sid: current_template_set_sid,\n                    tenant_sid: execution_context.session.tenant_sid,\n                    user_sid: program_context.data.user_sid,\n                },\n            };\n            const template_item_definition_key = common_$1.buildTemplateItemDefinitionEntityKey(execution_context);\n            await execution_context._entity.loadEntityDataAsync(execution_context, {\n                keys: {\n                    [\"__d$ctx_template_item\" /* EN_DATA_ID.ctx_template_item */]: {\n                        id: \"__d$ctx_template_item\" /* EN_DATA_ID.ctx_template_item */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    template_set_sid: current_template_set_sid,\n                                    menu_sid,\n                                    menu_type,\n                                    group_sub_type: template_info?.template_sub_type,\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$ctx_template_attribute\" /* EN_DATA_ID.ctx_template_attribute */]: {\n                        id: \"__d$ctx_template_attribute\" /* EN_DATA_ID.ctx_template_attribute */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    template_set_sid: current_template_set_sid,\n                                    menu_sid,\n                                    menu_type,\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$template_xml\" /* EN_DATA_ID.template_xml */]: {\n                        id: \"__d$template_xml\" /* EN_DATA_ID.template_xml */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    template_set_sid: current_template_set_sid,\n                                    menu_sid,\n                                    template_type: \"sum_status_list\" /* EN_TEMPLATE_TYPE.SumStatusList */,\n                                },\n                            },\n                        ],\n                    },\n                    ['ctx_definition']: {\n                        id: 'ctx_definition',\n                        keys: [\n                            {\n                                key: {\n                                    model_id: data_model_id,\n                                    key: status_definition_key,\n                                },\n                            },\n                            ...common_.EN_AGGREGATE_MODEL_REFER_TYPES.map((model_id) => ({\n                                key: {\n                                    model_id,\n                                    key: {\n                                        tenant_sid,\n                                        bizz_sid,\n                                        template_set_sid: current_template_set_sid,\n                                        source_model_id: data_model_id,\n                                        template_sub_type: template_info?.template_sub_type,\n                                    },\n                                },\n                            })),\n                            //코드치환표를 위해 추가로 내려가는 MODEL DEFINITION KEYS\n                            {\n                                key: {\n                                    model_id: \"__d$ctx_tenant\" /* EN_TENANT_DATA_ID.ctx_tenant */,\n                                    key: {\n                                        tenant_sid: execution_context.session.tenant_sid,\n                                        bizz_sid,\n                                        menu_sid,\n                                        template_set_sid: current_template_set_sid,\n                                    },\n                                },\n                            },\n                            {\n                                key: {\n                                    model_id: \"__d$ctx_sc_inventory\" /* EN_TENANT_DATA_ID.ctx_sc_inventory */,\n                                    key: {\n                                        tenant_sid: execution_context.session.tenant_sid,\n                                        bizz_sid,\n                                        menu_sid,\n                                        template_set_sid: current_template_set_sid,\n                                    },\n                                },\n                            },\n                            {\n                                key: {\n                                    model_id: \"__d$ctx_runtime\" /* EN_RUNTIME_DATA_ID.ctx_runtime */,\n                                    key: {\n                                        tenant_sid: execution_context.session.tenant_sid,\n                                        bizz_sid,\n                                        menu_sid,\n                                        template_set_sid: current_template_set_sid,\n                                    },\n                                },\n                            },\n                            {\n                                key: {\n                                    model_id: \"__d$ctx_menu\" /* EN_MENU_DATA_ID.ctx_menu */,\n                                    key: {\n                                        tenant_sid: execution_context.session.tenant_sid,\n                                        bizz_sid,\n                                        menu_sid,\n                                        template_set_sid: current_template_set_sid,\n                                    },\n                                },\n                            },\n                            {\n                                key: {\n                                    model_id: 'currentContextXbase',\n                                    key: {\n                                        tenant_sid: execution_context.session.tenant_sid,\n                                        bizz_sid,\n                                        menu_sid,\n                                        template_set_sid: current_template_set_sid,\n                                    },\n                                },\n                            },\n                            {\n                                key: {\n                                    model_id: 'currentContextXgrid',\n                                    key: {\n                                        tenant_sid: execution_context.session.tenant_sid,\n                                        bizz_sid,\n                                        menu_sid,\n                                        template_set_sid: current_template_set_sid,\n                                    },\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$code_replace\" /* EN_DATA_ID.code_replace */]: {\n                        id: \"__d$code_replace\" /* EN_DATA_ID.code_replace */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    menu_sid,\n                                    menu_type,\n                                    template_set_sid: current_template_set_sid,\n                                },\n                            },\n                        ],\n                    },\n                    [\"__d$template_item_definition\" /* EN_DATA_ID.template_item_definition */]: {\n                        id: \"__d$template_item_definition\" /* EN_DATA_ID.template_item_definition */,\n                        keys: [{ key: template_item_definition_key }],\n                    },\n                    [\"__d$get_unwind_prop_iteration\" /* EN_DATA_ID.get_unwind_prop_iteration */]: {\n                        id: \"__d$get_unwind_prop_iteration\" /* EN_DATA_ID.get_unwind_prop_iteration */,\n                        keys: [\n                            {\n                                key: {\n                                    tenant_sid,\n                                    bizz_sid,\n                                    menu_sid,\n                                    menu_type,\n                                    template_set_sid: current_template_set_sid,\n                                },\n                            },\n                        ],\n                    },\n                },\n            }, {\n                set_id: 'current_template_sid',\n                prg_ctx,\n            });\n        }\n    }"
+        }
+      ]
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "createChartOption",
+          "span": [
+            8953,
+            0,
+            8991,
+            1
+          ],
+          "offsets": [
+            409865,
+            411354
+          ],
+          "source": "function createChartOption(platform_config, graphId = _.uniqueId('chart_')) {\n    const _platform_config = platform_config || {};\n    if (_platform_config.x1AxisList &&\n        !_platform_config.x2AxisList &&\n        _platform_config.y1AxisList &&\n        !_platform_config.y2AxisList) {\n        _platform_config.tooltipDataType = 'CATEGORY';\n    }\n    else {\n        _platform_config.tooltipDataType = 'LEGEND_TEXT';\n    }\n    if (_platform_config.x1AxisList &&\n        _platform_config.x2AxisList &&\n        _platform_config.y1AxisList &&\n        !_platform_config.y2AxisList) {\n        _platform_config.trandelineDataType = 'GROUPS';\n    }\n    else {\n        _platform_config.trandelineDataType = 'VALUES';\n    }\n    const chartOption = getChartOptionByMatrix({\n        config: _platform_config,\n        defaultConfig: ecount_browser_constant.ECChartDefaultConfig,\n        graphId,\n    });\n    // 페이지 그래프 id 로 selector 변경\n    chartOption.tooltipConfig.layoutSelector = `#${graphId}`;\n    if (!_.isEmpty(graphId)) {\n        chartOption.layoutSelector = `#${graphId}_ecChartLayout`;\n        if (chartOption.legendConfig) {\n            chartOption.legendConfig.layoutSelector = `#${graphId}_ecChartLegend`;\n        }\n    }\n    getChartOptionFilter({ chartOption, platform_config: _platform_config });\n    setChartOption({ chartOption, platform_config: _platform_config });\n    delete chartOption.legendConfig?.events;\n    delete chartOption.tooltipConfig?.events;\n    return chartOption;\n}"
+        },
+        {
+          "symbol": "getChartOptionByMatrix",
+          "span": [
+            8992,
+            0,
+            9026,
+            1
+          ],
+          "offsets": [
+            411355,
+            412615
+          ],
+          "source": "function getChartOptionByMatrix({ config, defaultConfig, graphId, }) {\n    const hasX2AxisData = !!(config.x2ColId && config.x2AxisList);\n    const hasY2AxisData = !!(config.y2ColId && config.y2AxisList);\n    const legendColors = _.cloneDeep(config.legendColors || defaultConfig.colors);\n    const categoryColors = config.categoryColors || undefined;\n    const result = {\n        graphId,\n        legendColors: legendColors,\n        categoryColors: categoryColors,\n        seriesColors: legendColors,\n        tooltipConfig: {},\n        datas: [],\n        legendConfig: {\n            shapeDatas: [],\n            textDatas: [],\n        },\n    };\n    //1*1\n    if (!hasX2AxisData && !hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getOnoByOneOptionOfECChart(config));\n    }\n    //1*2\n    if (!hasX2AxisData && hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getOnoByTwoOptionOfECChart(config));\n    }\n    //2*1\n    if (hasX2AxisData && !hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getTwoByOneOptionOfECChart(config));\n    }\n    //2*2\n    if (hasX2AxisData && hasY2AxisData) {\n        return _.extend(result, ecount?.graph?.data?.getTwoByTwoOptionOfECChart(config));\n    }\n    return result;\n}"
+        },
+        {
+          "symbol": "getChartOptionFilter",
+          "span": [
+            9027,
+            0,
+            9180,
+            1
+          ],
+          "offsets": [
+            412616,
+            422569
+          ],
+          "source": "function getChartOptionFilter({ chartOption, platform_config, }) {\n    const _platform_config_config = platform_config || {};\n    const _filterData = platform_config.filterData;\n    /**\n     * 1. data filter\n     * 2. change data color\n     */\n    if (!_.isEmpty(_filterData)) {\n        switch (_platform_config_config.graphType) {\n            case 'pie':\n                {\n                    //category 제외\n                    const datas = [];\n                    _filterData?.checkedList.forEach(function (checkedData) {\n                        const checkedDataLastIndex = checkedData.lastIndexOf(ecount?.grid?.constValue?.rowKeySeparator);\n                        if (checkedDataLastIndex > -1) {\n                            const category = checkedData.substring(checkedDataLastIndex + 1);\n                            const categoryDataIndex = chartOption.datas.findIndex(function (data) {\n                                return category == data.category;\n                            });\n                            categoryDataIndex > -1 && datas.push(chartOption.datas.splice(categoryDataIndex, 1)[0]);\n                        }\n                    });\n                    chartOption.datas = datas;\n                    //legend 제외 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (!legendData.CHECKED) {\n                            const categoryDataIndex = chartOption.datas.findIndex(function (categoryData) {\n                                return categoryData.category == legendData.GROUPID;\n                            });\n                            categoryDataIndex > -1 && chartOption.datas.splice(categoryDataIndex, 1);\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            shapeDataIndex > -1 && chartOption.legendConfig.shapeDatas.splice(shapeDataIndex, 1);\n                            const textDataIndex = chartOption.legendConfig.textDatas.findIndex(function (textData) {\n                                return legendData.GROUPID == textData.groupId;\n                            });\n                            textDataIndex > -1 && chartOption.legendConfig.textDatas.splice(textDataIndex, 1);\n                        }\n                    });\n                    //legend 색상 변경 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (legendData.CHECKED && legendData.COLOR) {\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            if (shapeDataIndex > -1) {\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].strokeColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].fillColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapePositiveBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeNegativeBackgroundColor =\n                                    legendData.COLOR;\n                            }\n                            chartOption.datas.forEach(function (categoryData) {\n                                if (categoryData.category == legendData.GROUPID) {\n                                    categoryData.values.forEach(function (groupData) {\n                                        groupData.strokeColor = legendData.COLOR;\n                                        groupData.fillColor = legendData.COLOR;\n                                        groupData.shapeBackgroundColor = legendData.COLOR;\n                                        groupData.shapePositiveBackgroundColor = legendData.COLOR;\n                                        groupData.shapeNegativeBackgroundColor = legendData.COLOR;\n                                    });\n                                }\n                            });\n                        }\n                    });\n                }\n                break;\n            default:\n                {\n                    //category 제외\n                    _filterData?.categoryData.forEach(function (categoryData) {\n                        if (!categoryData.CHECKED) {\n                            const categoryDataIndex = chartOption.datas.findIndex(function (data) {\n                                return data.category == categoryData.SUB_GUBUN;\n                            });\n                            categoryDataIndex > -1 && chartOption.datas.splice(categoryDataIndex, 1);\n                        }\n                    });\n                    //legend 제외 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (!legendData.CHECKED) {\n                            chartOption.datas.forEach(function (categoryData) {\n                                const groupDataIndex = categoryData.values.findIndex(function (groupData) {\n                                    return legendData.GROUPID == groupData.groupId;\n                                });\n                                groupDataIndex > -1 && categoryData.values.splice(groupDataIndex, 1);\n                            });\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            shapeDataIndex > -1 && chartOption.legendConfig.shapeDatas.splice(shapeDataIndex, 1);\n                            const textDataIndex = chartOption.legendConfig.textDatas.findIndex(function (textData) {\n                                return legendData.GROUPID == textData.groupId;\n                            });\n                            textDataIndex > -1 && chartOption.legendConfig.textDatas.splice(textDataIndex, 1);\n                        }\n                    });\n                    //legend 색상 변경 - groupId\n                    _filterData?.legendData.forEach(function (legendData) {\n                        if (legendData.CHECKED && legendData.COLOR) {\n                            const shapeDataIndex = chartOption.legendConfig.shapeDatas.findIndex(function (shapeData) {\n                                return legendData.GROUPID == shapeData.groupId;\n                            });\n                            if (shapeDataIndex > -1) {\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].strokeColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].fillColor = legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapePositiveBackgroundColor =\n                                    legendData.COLOR;\n                                chartOption.legendConfig.shapeDatas[shapeDataIndex].shapeNegativeBackgroundColor =\n                                    legendData.COLOR;\n                            }\n                            chartOption.datas.forEach(function (categoryData) {\n                                const groupDataIndex = categoryData.values.findIndex(function (groupData) {\n                                    return legendData.GROUPID == groupData.groupId;\n                                });\n                                if (groupDataIndex > -1) {\n                                    categoryData.values[groupDataIndex].strokeColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].fillColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].shapeBackgroundColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].shapePositiveBackgroundColor = legendData.COLOR;\n                                    categoryData.values[groupDataIndex].shapeNegativeBackgroundColor = legendData.COLOR;\n                                }\n                            });\n                        }\n                    });\n                    //category 색상 변경\n                    _filterData?.categoryData.forEach(function (categoryData) {\n                        if (categoryData.CHECKED && categoryData.COLOR) {\n                            const categoryDataIndex = chartOption.datas.findIndex(function (data) {\n                                return data.category == categoryData.SUB_GUBUN;\n                            });\n                            if (categoryDataIndex > -1) {\n                                chartOption.datas[categoryDataIndex].values.forEach(function (groupData) {\n                                    groupData.strokeColor = categoryData.COLOR;\n                                    groupData.fillColor = categoryData.COLOR;\n                                    groupData.shapeBackgroundColor = categoryData.COLOR;\n                                    groupData.shapePositiveBackgroundColor = categoryData.COLOR;\n                                    groupData.shapeNegativeBackgroundColor = categoryData.COLOR;\n                                });\n                            }\n                        }\n                    });\n                }\n                break;\n        }\n    }\n}"
+        },
+        {
+          "symbol": "setChartOption",
+          "span": [
+            9181,
+            0,
+            9202,
+            1
+          ],
+          "offsets": [
+            422570,
+            423363
+          ],
+          "source": "function setChartOption({ chartOption, platform_config, }) {\n    switch (platform_config.graphType) {\n        case 'area':\n        case 'line':\n            chartOption.lineConfig = { groupConfig: {} };\n            chartOption.scatterConfig = { groupConfig: {} };\n            // 라인 정보 설정\n            _.first(chartOption.datas)?.values.forEach((data) => {\n                chartOption.lineConfig.groupConfig[data.groupId] = {\n                    visible: true,\n                    strokeWidth: 1,\n                    strokeOpacity: 1,\n                };\n                chartOption.scatterConfig.groupConfig[data.groupId] = {\n                    visible: true,\n                    strokeWidth: 1,\n                    strokeOpacity: 1,\n                };\n            });\n            break;\n    }\n}"
+        },
+        {
+          "symbol": "GraphConfigBuilder.constructor",
+          "span": [
+            30654,
+            4,
+            30660,
+            5
+          ],
+          "offsets": [
+            1376454,
+            1376726
+          ],
+          "source": "constructor(params) {\n        this.execution_context = params.execution_context;\n        this.dmc = params.dmc;\n        this.graph_widget_config = params.graph_widget_config;\n        this.all_props = params.all_props;\n        this.is_aggregate = params.is_aggregate;\n    }"
+        },
+        {
+          "symbol": "GraphConfigBuilder.build",
+          "span": [
+            30661,
+            4,
+            30668,
+            5
+          ],
+          "offsets": [
+            1376731,
+            1377199
+          ],
+          "source": "build() {\n        const { xaxis, yaxis, axisDatas, key_merged_props } = this.resolveAxes();\n        const prop_states = this.resolvePropAttrStates([...xaxis, ...yaxis]);\n        const axis_config = this.buildAxisConfig(axisDatas, key_merged_props, prop_states);\n        const platform_config = this.composePlatformConfig(axis_config);\n        const graph_config = createChartOption(platform_config);\n        return { axis_config, platform_config, graph_config };\n    }"
+        },
+        {
+          "symbol": "GraphConfigBuilder.resolveAxes",
+          "span": [
+            30670,
+            4,
+            30683,
+            5
+          ],
+          "offsets": [
+            1377225,
+            1378069
+          ],
+          "source": "resolveAxes() {\n        const axisInfo = this.graph_widget_config?.axisInfo;\n        const axis_candidates = resolveAxisProps([...(axisInfo?.xaxis ?? []), ...(axisInfo?.yaxis ?? [])], this.all_props);\n        const xaxis = axis_candidates;\n        const yaxis = getPropsWithNumberDataType({ props: axis_candidates });\n        const key_merged_props = this.all_props.filter((prop) => prop.refer_type === 'record_sid');\n        const axisDatas = [\n            { prefix: 'x', index: 1, postfix: 'ColumnId', mergedProps: xaxis },\n            { prefix: 'x', index: 2, postfix: 'ColumnId', mergedProps: xaxis },\n            { prefix: 'y', index: 1, postfix: 'ColumnId', mergedProps: yaxis },\n            { prefix: 'y', index: 2, postfix: 'ColumnId', mergedProps: yaxis },\n        ];\n        return { xaxis, yaxis, axisDatas, key_merged_props };\n    }"
+        },
+        {
+          "symbol": "GraphConfigBuilder.resolvePropAttrStates",
+          "span": [
+            30685,
+            4,
+            30699,
+            5
+          ],
+          "offsets": [
+            1378110,
+            1378654
+          ],
+          "source": "resolvePropAttrStates(props) {\n        const result = {};\n        const prop_list = Array.from(props ?? []);\n        for (const prop_definition of prop_list) {\n            const prop_id = prop_definition?.prop_id;\n            if (!prop_id) {\n                continue;\n            }\n            result[prop_id] = {\n                data_type: prop_definition?.data_type,\n                value_format_data: this.dmc.getAttrByAttrId(\"value_format\" /* EN_ATTR_ID.value_format */, prop_id)?.data,\n            };\n        }\n        return result;\n    }"
+        },
+        {
+          "symbol": "GraphConfigBuilder.buildAxisConfig",
+          "span": [
+            30701,
+            4,
+            30731,
+            5
+          ],
+          "offsets": [
+            1378714,
+            1380373
+          ],
+          "source": "buildAxisConfig(axisDatas, key_merged_props, prop_states) {\n        const axis_config = {};\n        for (const axisData of axisDatas) {\n            const axisKey = `${axisData.prefix}${axisData.index}${axisData.postfix}`;\n            const axisValue = this.graph_widget_config?.[axisKey];\n            if (axisValue) {\n                const dataKey = `${axisData.prefix}${axisData.index}AxisList`;\n                const colIdKey = `${axisData.prefix}${axisData.index}ColId`;\n                const colInfoKey = `${axisData.prefix}${axisData.index}ColInfo`;\n                const colNameKey = `${axisData.prefix}${axisData.index}ColName`;\n                const columnIdKey = `${axisData.prefix}${axisData.index}ColumnId`;\n                const mergedProp = this.all_props.find((prop) => prop.prop_id == axisValue);\n                // @ts-ignore\n                const { result: data_models, valueFormatter } = this.makeChartDataModels({\n                    mergedProps: axisData.mergedProps,\n                    keyMergedProps: key_merged_props,\n                    prop_states,\n                });\n                const v3_value_format = convertFromV3ToV5(valueFormatter[axisValue]?.prop, valueFormatter[axisValue]?.value_format.option);\n                axis_config[dataKey] = data_models;\n                axis_config[colIdKey] = axisValue;\n                axis_config[colInfoKey] = {\n                    propertyName: mergedProp.prop_id,\n                    ...v3_value_format,\n                };\n                axis_config[colNameKey] = axisValue;\n                axis_config[columnIdKey] = axisValue;\n            }\n        }\n        return axis_config;\n    }"
+        },
+        {
+          "symbol": "GraphConfigBuilder.makeChartDataModels",
+          "span": [
+            30732,
+            4,
+            30813,
+            5
+          ],
+          "offsets": [
+            1380378,
+            1384551
+          ],
+          "source": "makeChartDataModels({ mergedProps, keyMergedProps, prop_states, }) {\n        const result = [];\n        const valueFormatter = {};\n        const datas = this.dmc.getDataModelWritable();\n        const valueFormatExecutor = this.execution_context.getFeature(\"IValueFormatExecutorFeature$V56\" /* EN_FEATURE_ID.IValueFormatExecutorFeature */);\n        for (let data_index = 0, len = datas.length; data_index < len; data_index++) {\n            const data = datas[data_index];\n            const rowData = {\n                'K-E-Y': makeKey({\n                    data_model: data,\n                    mergedProps: keyMergedProps,\n                }),\n            };\n            for (const mergedProp of mergedProps) {\n                const prop_state = prop_states[mergedProp.prop_id] ?? {};\n                const data_type = mergedProp.data_type;\n                // 1. numeric value_format\n                let value_format_option;\n                if (data_type === '$$numeric' || data_type === '$$decimal') {\n                    value_format_option = resolveValueFormatOption(this.execution_context, mergedProp, prop_state.value_format_data);\n                    valueFormatter[mergedProp.prop_id] = {\n                        prop: mergedProp,\n                        value_format: { option: value_format_option },\n                    };\n                }\n                // 2. basic_tf 처리\n                const option = prop_state.value_format_data?.option;\n                let value_format_data_for_executor = prop_state.value_format_data;\n                if (!option || option.format === 'default') {\n                    value_format_data_for_executor = { basic_tf: true };\n                }\n                // 3. 날짜형 데이터(date_no) - 분해\n                let exec_value = data[mergedProp.prop_id];\n                if (data_type === '$$date_no' && typeof exec_value === 'string') {\n                    const sep_idx = exec_value.indexOf('-');\n                    if (sep_idx >= 0) {\n                        exec_value = { data_dt: exec_value.slice(0, sep_idx), data_no: exec_value.slice(sep_idx + 1) };\n                    }\n                    else {\n                        exec_value = { data_dt: exec_value, data_no: undefined };\n                    }\n                }\n                // 4. display_value 포매팅\n                const { done, result: formatted } = valueFormatExecutor.executeValueFormatResolver(exec_value, {\n                    execution_context: this.execution_context,\n                    data_type: mergedProp.data_type,\n                    refer_type: mergedProp.refer_type,\n                    refer_group: mergedProp.refer_group,\n                    view_mode: \"view\" /* EN_ITEM_VIEW_MODE.View */,\n                    value_format_data: value_format_data_for_executor,\n                });\n                let display_value;\n                if (done) {\n                    display_value = formatted;\n                }\n                else {\n                    display_value = String(data[mergedProp.prop_id] ?? '');\n                }\n                // 5. 숫자형 항목 value format revert\n                if (data_type === '$$numeric' || data_type === '$$decimal') {\n                    // 천단위 구분자 제거 + 소수 구분자 '.' 정규화\n                    const thou_separator = getSeparator(value_format_option?.thou_separator ?? 'P');\n                    const dec_separator = getSeparator(value_format_option?.dec_separator ?? 'C');\n                    display_value = String(display_value)\n                        .replace(new RegExp(thou_separator, 'g'), '')\n                        .replace(new RegExp(`\\\\${dec_separator}`, 'g'), '.');\n                }\n                else if (data_type === '$$txt') {\n                    // 빈 텍스트 → '없음'\n                    if (String(display_value).trim() === '') {\n                        display_value = $Resx.rex00082;\n                    }\n                }\n                rowData[mergedProp.prop_id] = display_value;\n            }\n            // nextv5 utils.ts:631 — K-E-Y 있을 때만 push\n            if (rowData['K-E-Y']) {\n                result.push(rowData);\n            }\n        }\n        return { result, valueFormatter };\n    }"
+        },
+        {
+          "symbol": "GraphConfigBuilder.composePlatformConfig",
+          "span": [
+            30815,
+            4,
+            30832,
+            5
+          ],
+          "offsets": [
+            1384606,
+            1385407
+          ],
+          "source": "composePlatformConfig(axis_config) {\n        const platform_config = _.extend({}, this.graph_widget_config, axis_config);\n        // 비교대상 설정 - 상위 10개만, 하위 10개만\n        if (platform_config?.isShowHighest || platform_config?.isShowLowest) {\n            // pie 차트는 y1ColumnId 설정\n            if (platform_config.graphType === \"pie\" /* EN_GRAPH_TYPE.pie */) {\n                platform_config['comparatorPropName'] = platform_config?.y1ColumnId;\n            }\n            else {\n                platform_config['comparatorPropName'] = platform_config?.comparatorColumn;\n            }\n            // 집계 comparatorPropName 설정\n            if (this.is_aggregate) {\n                platform_config['comparatorPropName'] = platform_config?.y1ColumnId;\n            }\n        }\n        return platform_config;\n    }"
+        },
+        {
+          "symbol": "resolveAxisProps",
+          "span": [
+            30837,
+            0,
+            30842,
+            1
+          ],
+          "offsets": [
+            1385504,
+            1385744
+          ],
+          "source": "function resolveAxisProps(axis, props) {\n    if (!axis?.length)\n        return [];\n    const prop_by_id = new Map(props.map((prop) => [prop.prop_id, prop]));\n    return axis.map((item) => prop_by_id.get(item.id)).filter((prop) => !!prop);\n}"
+        },
+        {
+          "symbol": "makeKey",
+          "span": [
+            30843,
+            0,
+            30849,
+            1
+          ],
+          "offsets": [
+            1385745,
+            1385937
+          ],
+          "source": "function makeKey({ data_model, mergedProps }) {\n    const result = [];\n    for (const prop of mergedProps) {\n        result.push(data_model[prop.prop_id]);\n    }\n    return result.join('$');\n}"
+        },
+        {
+          "symbol": "ChartWidgetAstInterceptor.afterConvert",
+          "span": [
+            30857,
+            4,
+            30891,
+            5
+          ],
+          "offsets": [
+            1386695,
+            1388114
+          ],
+          "source": "afterConvert(params) {\n        const ast = super.afterConvert(params);\n        const { element, converter_context } = params;\n        const execution_context = converter_context.data.execution_context;\n        const model_id = element.model_info?.model_id;\n        if (!model_id)\n            return ast;\n        const chart_dmc = execution_context.getProgramContext().data.dmc_map[model_id];\n        if (!chart_dmc)\n            return ast;\n        const props = chart_dmc.getDefinition().getProps();\n        if (!props)\n            return ast;\n        const chart_leaf = findChartLeaf(ast);\n        if (!chart_leaf)\n            return ast;\n        const graph_widget_config = ast.state.graph_widget_config;\n        if (!graph_widget_config)\n            return ast;\n        const { platform_config, graph_config } = new GraphConfigBuilder({\n            execution_context,\n            dmc: chart_dmc,\n            graph_widget_config,\n            all_props: Array.from(props),\n            is_aggregate: ast.state.is_aggregate,\n        }).build();\n        const leaf_state = chart_leaf.state;\n        leaf_state.graph_config = graph_config;\n        leaf_state.platform_config = platform_config;\n        const widget_state = ast.state;\n        widget_state.graph_config = graph_config;\n        widget_state.platform_config = platform_config;\n        widget_state.origin_graph_config = graph_config;\n        return ast;\n    }"
+        },
+        {
+          "symbol": "ChartWidgetAstInterceptor.registerLazyLoadModules",
+          "span": [
+            30892,
+            4,
+            30894,
+            5
+          ],
+          "offsets": [
+            1388119,
+            1388193
+          ],
+          "source": "registerLazyLoadModules() {\n        return ['ecount.browser.graph'];\n    }"
+        },
+        {
+          "symbol": "ConfigureGraphOptionsUserAction.executeAsync",
+          "span": [
+            56159,
+            26,
+            56257,
+            5
+          ],
+          "offsets": [
+            2635404,
+            2640986
+          ],
+          "source": "async (request) => {\n        const { vmc, owner, execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        // 페이지 기본 정보\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const search_data_model_id = search_attribute?.data_model_id.search;\n        const search_dmc = program_context.data.dmc_map[search_data_model_id];\n        // v3_menu_info\n        const v3_menu_info = program_context.sourceData.menu?.v3_menu_info;\n        const prg_id = v3_menu_info?.status?.prg_id;\n        const template_data_model_id = search_attribute?.data_model_id.template;\n        const template_dmc = program_context.data.dmc_map[template_data_model_id];\n        //집계\n        const aggregate_prop_id = search_dmc.getPropIdByReferType('aggregate');\n        const template_infos = program_context.sourceData.menu_attr?.template_info?.data;\n        const aggregate_key = search_dmc.getValueByPropId(aggregate_prop_id)?.aggregate_key?.key ??\n            _.vFirst(Object.keys(_.vSafe(template_infos, {})));\n        //유저가 조회중인 현재 양식의 sid\n        const current_template_info = template_dmc.getValueByPropId('applied_template');\n        const template = template_infos[aggregate_key].template_list.find((x) => x.sid === current_template_info);\n        const is_za_template = template?.is_za_template;\n        const screen_type = _.vSafe(template?.screen_type, \"print\" /* EN_SCREEN_TYPE.Print */);\n        //양식 정보 (X,Y축 검색조건 불러오기)\n        let form = request.vmc.getPageRuntime('formDesignData');\n        request.vmc.setPageRuntime('prev_template_info', current_template_info);\n        const prop_list_program = await common.ProgramBuilder.create(\"common$GetGraphColumnInfoProgram\" /* EN_PROGRAM_ID.GetGraphColumnInfoProgram */, request.execution_context);\n        form = await prop_list_program.executeAsync({\n            // dm_manager: request.dm_manager,\n            vmc: request.vmc,\n            current_template_info: current_template_info,\n            is_za_template,\n            screen_type,\n        });\n        if (_.vIsEmpty(form)) {\n            return;\n        }\n        request.vmc.setPageRuntime('formDesignData', form);\n        //5.0 화면 그릴 때 사용하는 pageRuntime을 null로 치환한다.\n        request.vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, null);\n        //------------------------------------------------------\n        // 양식데이터로 validate 체크 (그래프보기 제한되는 경우)\n        //------------------------------------------------------\n        const validator = await common.ProgramBuilder.create(\"common$GraphSettingValidatorAttrProgram\" /* EN_PROGRAM_ID.GraphSettingValidatorAttrProgram */, request.execution_context);\n        const is_valid = await validator.executeAsync({\n            vmc: request.vmc,\n            // dm_manager: request.dm_manager,\n            current_template_info: current_template_info,\n            is_za_template: is_za_template,\n            screen_type,\n            template_sub_type: template_infos[aggregate_key].template_sub_type,\n            menu_type: program_context.data.menu_type,\n            axis_info: form.axis_info,\n        });\n        if (is_valid === false) {\n            await request.vmc.alertAsync($Resx.rex10265);\n            return;\n        }\n        //------------------------------------------------------\n        // 그래프 보기 설정 팝업 호출\n        //------------------------------------------------------\n        const pageOption = {\n            axisInfo: form.axis_info,\n            graphSetting: template_dmc.getValueByPropId('data_view_format')?.setting,\n        };\n        const feature = request.execution_context.getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */);\n        const popup_result = await feature.openPopupAsync({\n            identifier: \"IConfigureGraphOptionsPage\" /* EN_PAGE_ID.IConfigureGraphOptionsPage */,\n            bizz_sid: program_context.data.bizz_sid,\n            param: {\n                from_program_id: prg_id,\n                pageOption: pageOption,\n            },\n        }, {});\n        // TODO GRAPH: 팝업 결과로 받아오는 그래프 설정 정보의 xAxis, yAxis 정보가 반대로 내려옴\n        // 소비처(ChartWidgetAstInterceptor)는 이와 무관하게 처리되어서 동작은 하나 추후 해당 팝업을 다른 소비처에서 호출시 문제 여지 있음\n        //------------------------------------------------------\n        // 그래프 설정 팝업창 동작 후 처리\n        //------------------------------------------------------\n        if (popup_result.message) {\n            popup_result.message.callback && popup_result.message.callback();\n            //TODO:SetPageRuntime or setValueByPropId 중 하나로 통일시켜야 함.\n            request.vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, popup_result.message.graphSetting);\n            request.vmc.setPageRuntime('isAppliedGraphOption', true);\n            if (popup_result.message.graphSetting?.graphTitle == undefined) {\n                const { bizz_type, menu_type } = program_context.data;\n                const header_data_model_id = common_$1.getHeaderModelId(bizz_type, menu_type);\n                const header_dmc = program_context.data.dmc_map[header_data_model_id];\n                const menu_display_attr = header_dmc\n                    .getAttrs()\n                    ?.filter((x) => x.prop_id == 'menu_name' && x.attr_id == 'display_name');\n                popup_result.message.graphSetting.graphTitle = menu_display_attr[0].data;\n            }\n            template_dmc?.setValueByPropId('data_view_format', {\n                setting: popup_result.message.graphSetting,\n                is_graph: true,\n            });\n        }\n        return;\n    }"
+        },
+        {
+          "symbol": "ConfigureGraphFilterUserAction.executeAsync",
+          "span": [
+            56268,
+            26,
+            56322,
+            5
+          ],
+          "offsets": [
+            2641917,
+            2644929
+          ],
+          "source": "async (request) => {\n        const { vmc, owner, execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const template_data_model_id = search_attribute?.data_model_id.template;\n        const template_dmc = program_context.data.dmc_map[template_data_model_id];\n        const data_view_format = template_dmc.getValueByPropId('data_view_format');\n        const setting = data_view_format?.setting;\n        if (!setting)\n            return;\n        const data_model_id = common_.CurrentUtil.getModelInfo(execution_context, \"status\" /* EN_MODEL_REFER_TYPE.Status */)\n            ?.model_id;\n        const { graph_config, platform_config, origin_graph_config } = vmc.getViewerStateWritable({\n            data_model_id,\n        });\n        const originDatas = origin_graph_config.datas;\n        const origin_legend_data = { legendData: origin_graph_config.legendConfig.textDatas };\n        const { legendData, categoryData, useYn } = getFilterData(_.extend({}, platform_config, graph_config), setting, originDatas, origin_legend_data);\n        //------------------------------------------------------\n        // 필터설정 팝업 호출\n        //------------------------------------------------------\n        const feature = execution_context.getFeature(\"IHandleRouteFeature$V56\" /* EN_FEATURE_ID.IHandleRouteFeature */);\n        const popup_result = await feature.openPopupAsync({\n            identifier: \"IConfigureGraphFilterPage\" /* EN_PAGE_ID.IConfigureGraphFilterPage */,\n            bizz_sid: program_context.data.bizz_sid,\n            param: {\n                legendData,\n                categoryData,\n                checkedList: graph_config.checkedList,\n                useYn: useYn,\n            },\n        }, {});\n        //------------------------------------------------------\n        // 필터설정 팝업창 동작 후 처리\n        //------------------------------------------------------\n        if (popup_result.message) {\n            const { checkedList, categoryData, legendData } = popup_result.message;\n            graph_config.filterData = popup_result.message;\n            const filter_graph_config = createChartOption(_.extend({}, platform_config, { filterData: popup_result.message }), graph_config.graphId);\n            filter_graph_config.checkedList = checkedList;\n            vmc.setViewerState({ data_model_id }, (viewer_state) => {\n                return {\n                    ...viewer_state,\n                    graph_config: _.extend(filter_graph_config, {\n                        checkedList: checkedList,\n                        categoryColors: _.map(categoryData, (data) => data.COLOR),\n                        legendColors: _.map(legendData, (data) => data.COLOR),\n                    }),\n                    is_reset_size: true,\n                };\n            });\n            popup_result.message.callback && popup_result.message.callback();\n        }\n        return;\n    }"
+        },
+        {
+          "symbol": "ChangeGraphSettingUserAction.executeAsync",
+          "span": [
+            61140,
+            26,
+            61156,
+            5
+          ],
+          "offsets": [
+            2882016,
+            2882872
+          ],
+          "source": "async (request) => {\n        const { vmc, owner, execution_context } = request;\n        const program_context = execution_context.getProgramContext();\n        // 그래프값 변경 owner\n        const data_view_format = owner.dmc?.getValueByPropId(owner.prop_id);\n        //generator 에서 사용하기 위해 추가\n        vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, data_view_format?.setting);\n        // 체크되어 있으면 종료, 체크해제면 hideError 진행\n        if (data_view_format?.is_graph) {\n            return;\n        }\n        // 집계 비교기간 유효성체크\n        const search_id = program_context.sourceData.menu_attr?.search?.data?.data_model_id.search;\n        const search_dmc = program_context.data.dmc_map[search_id];\n        const aggregate_prop_id = search_dmc.getPropIdByReferType('aggregate');\n        vmc.hideError({ dmc_id: search_id, prop_id: aggregate_prop_id });\n    }"
+        },
+        {
+          "symbol": "ChangeAggregateTypeUserAction.executeAsync",
+          "span": [
+            61172,
+            26,
+            61258,
+            5
+          ],
+          "offsets": [
+            2883888,
+            2888692
+          ],
+          "source": "async (request) => {\n        const { vmc, payload, owner, execution_context } = request;\n        const { target_refer_type, target_hide_refer_types } = payload;\n        const program_context = execution_context.getProgramContext();\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const template_id = search_attribute?.data_model_id.template;\n        const template_dmc = program_context.data.dmc_map[template_id];\n        const preserve_data_model = vmc.getPreserveDataModel(template_id, owner.data_model_index);\n        const check_once_whether_preserved = vmc.getPageRuntime('CheckOnce_ChangeAggregateType');\n        if (preserve_data_model && !check_once_whether_preserved) {\n            vmc.setPageRuntime('CheckOnce_ChangeAggregateType', true);\n        }\n        const dmc = owner.dmc ?? program_context.data.dmc_map[owner.model_id];\n        if (!dmc)\n            return;\n        const template_infos = program_context.sourceData.menu_attr?.template_info?.data;\n        const prev_aggregate_info = vmc.getPageRuntime(\"IAggregateKey\" /* EN_CONST_ID.IAggregateKey */);\n        const prev_aggregate_key = prev_aggregate_info?.key ?? _.vFirst(Object.keys(_.vSafe(template_infos, {})));\n        const aggregate_data = dmc.getValueByPropId(owner.prop_id);\n        if (!aggregate_data)\n            return;\n        const { aggregate_key, details_target } = aggregate_data;\n        if (target_hide_refer_types) {\n            target_hide_refer_types.forEach((refer_type) => {\n                const prop_id = dmc.getPropIdByReferType(refer_type);\n                if (prop_id) {\n                    vmc.setPropState(owner.model_id, prop_id, {\n                        display_state: aggregate_key.type === \"fixed\" /* EN_TEMPLATE_SUB_TYPE.Fixed */ &&\n                            _.vSafe(details_target?.value) == \"line\" /* EN_AGGREGATE_DETAILS_TYPE.Line */,\n                    });\n                }\n            });\n        }\n        if (prev_aggregate_key === aggregate_key?.key) {\n            // 현황 집계항목 변경 시 그래프 검색조건 초기화\n            const data_view_format = template_dmc?.getValueByPropId('data_view_format');\n            if (aggregate_key.type == \"free\" /* EN_TEMPLATE_SUB_TYPE.Free */ && data_view_format?.is_graph) {\n                const cloned_data_view_format = _.cloneDeep(data_view_format);\n                cloned_data_view_format.setting = {};\n                vmc.setPageRuntime(\"IGraphOption\" /* EN_CONST_ID.IGraphOption */, {});\n                template_dmc.setValueByPropId('data_view_format', cloned_data_view_format);\n            }\n            return;\n        }\n        vmc.setPageRuntime(\"IAggregateKey\" /* EN_CONST_ID.IAggregateKey */, aggregate_key);\n        const template_key = aggregate_key?.key ?? _.vFirst(Object.keys(_.vSafe(template_infos, {})));\n        const template_info = template_infos[template_key];\n        const mapped_template_list = template_info?.template_list?.map((template) => {\n            const style = template?.is_za_template ? { isWaringItem: true } : { isEditableItem: true };\n            return {\n                label: template.name,\n                value: template.sid,\n                dataItemKey: template?.is_za_template ? 'za_template' : undefined,\n                ...style,\n            };\n        });\n        mapped_template_list?.push({\n            label: $Resx.rex01166,\n            value: 'new_template',\n            isFooterItem: true,\n        });\n        // reload시에 subscribe_data_model 어트리뷰트로 인해 UserAction이 실행된 경우에는\n        // template_list는 menu에 있는것으로 update하고, current_template은 보존된 state를 그대로 써야한다.\n        if (preserve_data_model && !check_once_whether_preserved) {\n            vmc.setPageState(\"template_info\" /* EN_CONST_ID.ITemplateInfoState */, (draft) => {\n                draft.template_list = mapped_template_list;\n            });\n            return;\n        }\n        vmc.setPageState(\"template_info\" /* EN_CONST_ID.ITemplateInfoState */, (draft) => {\n            if (draft) {\n                if (draft.template_list)\n                    draft.template_list = mapped_template_list;\n                if (draft.current_template)\n                    draft.current_template = template_info?.default_template;\n            }\n        });\n        //tp.10075 적용양식이 없는 메뉴일 때 스크립트오류 안나도록\n        if (!_.vIsEmpty(template_dmc)) {\n            const applied_template_id = template_dmc.getPropIdByReferType(target_refer_type ?? 'template_list');\n            const applied_template_info = vmc.getPageState(\"template_info\" /* EN_CONST_ID.ITemplateInfoState */);\n            if (applied_template_id) {\n                template_dmc.setValueByPropId(applied_template_id, applied_template_info?.current_template);\n            }\n            template_dmc.setValueByPropId('data_view_format', false);\n        }\n    }"
+        },
+        {
+          "symbol": "GraphSettingValidatorAttrProgram.declareProgramContext",
+          "span": [
+            62100,
+            4,
+            62106,
+            5
+          ],
+          "offsets": [
+            2931817,
+            2932054
+          ],
+          "source": "declareProgramContext(dto) {\n        const program_context = this.execution_context.getProgramContext();\n        return {\n            data_type: 'GetTemplateItemDefinitionProgram',\n            data: program_context.data,\n        };\n    }"
+        },
+        {
+          "symbol": "GraphSettingValidatorAttrProgram.onExecuteAsync",
+          "span": [
+            62107,
+            4,
+            62157,
+            5
+          ],
+          "offsets": [
+            2932059,
+            2934310
+          ],
+          "source": "async onExecuteAsync(dto) {\n        const program_context = this.execution_context.getProgramContext();\n        //비교기간 선택 여부 확인\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const search_data_model_id = search_attribute?.data_model_id.search;\n        const search_dmc = program_context.data.dmc_map[search_data_model_id];\n        const aggregate_comparison_period = search_dmc.getValueByReferType('aggregate')?.comparison_period ?? \"0\" /* EN_COMPARISON_PERIOD.None */;\n        const request_menu_type = getTemporaryMenuTypeForSumStatus(dto.menu_type);\n        // 밸리데이션 액션 호출 (일단 sort랑 같이 쓰기)\n        const racCommand = common.RacCommandBuilder.createCommon(\"/ec56/api/app.setup/action/template/GetTemplateSortConfigAction\" /* EN_ACTION_ID.IGetTemplateSortConfigAction */, this.execution_context);\n        const validate_check = await racCommand.executeAsync({\n            template_set_sid: dto.current_template_info,\n            za_tf: dto.is_za_template,\n            screen_type: dto.screen_type,\n            template_sub_type: dto.template_sub_type,\n            menu_type: request_menu_type,\n        });\n        /**\n         * 해당 양식으로는 그래프 변환을 할 수 없습니다.<br>다음 사항을 확인 바랍니다.<br><br>\n         * 1. 표영역분리 설정을 사용으로 설정한 경우<br>\n         * 2. 페이지조회방법을 한 페이지씩으로 설정한 경우<br>\n         * 3. 반복설정을 적용한 경우<br>\n         * 4. 문자형 또는 숫자형 항목이 없는 경우\n         * 5. 비교기간을 선택한 경우\n         */\n        // 반복 설정이 되어 있는 경우\n        if (validate_check.repeat_tf == true) {\n            return false;\n        }\n        // 고정형반복설정 항목이 있는 경우\n        if (validate_check.fixed_pivot_tf == true) {\n            return false;\n        }\n        // 표영역 분리 사용인 경우\n        if (validate_check.item_separate_tf == true) {\n            return false;\n        }\n        // 한페이씩 설정인 경우\n        if (validate_check.page_option.page_lookup_type == \"T\" /* EN_TEMPLATE_PAGE_LOOKUP_TYPE.Current */) {\n            return false;\n        }\n        //비교기간을 선택한 경우\n        if (aggregate_comparison_period !== \"0\" /* EN_COMPARISON_PERIOD.None */) {\n            return false;\n        }\n        // 문자형 또는 숫자형 항목이 없는 경우\n        if (_.vIsEmpty(dto.axis_info?.xaxis) || _.vIsEmpty(dto.axis_info?.yaxis)) {\n            return false;\n        }\n        return true;\n    }"
+        },
+        {
+          "symbol": "GetGraphColumnInfoProgram.declareProgramContext",
+          "span": [
+            71549,
+            4,
+            71555,
+            5
+          ],
+          "offsets": [
+            3391888,
+            3392125
+          ],
+          "source": "declareProgramContext(dto) {\n        const program_context = this.execution_context.getProgramContext();\n        return {\n            data_type: 'GetTemplateItemDefinitionProgram',\n            data: program_context.data,\n        };\n    }"
+        },
+        {
+          "symbol": "GetGraphColumnInfoProgram.onExecuteAsync",
+          "span": [
+            71556,
+            4,
+            71627,
+            5
+          ],
+          "offsets": [
+            3392130,
+            3395907
+          ],
+          "source": "async onExecuteAsync(request) {\n        const program_context = this.execution_context.getProgramContext();\n        //search\n        const search_attribute = program_context.sourceData.menu_attr?.search?.data;\n        const search_data_model_id = search_attribute?.data_model_id.search;\n        const search_dmc = program_context.data.dmc_map[search_data_model_id];\n        //집계\n        const aggregate_prop_id = search_dmc.getPropIdByReferType('aggregate');\n        const aggregate_type = search_dmc.getValueByPropId(aggregate_prop_id)?.aggregate_key?.type ?? \"fixed\" /* EN_TEMPLATE_SUB_TYPE.Fixed */;\n        // 현황 ID\n        const menu_type = _.vSafe(program_context.data.menu_type);\n        const data_model_id = program_context.sourceData.menu?.definition?.model_info_list.find((x) => x.model_refer_type === menu_type)?.model_id;\n        //기본값\n        const axis_info = { xaxis: [], yaxis: [] };\n        //서버-액션을 통해 prop_id를 불러오기\n        const racCommand = common.RacCommandBuilder.createCommon(\"/ec56/api/app.setup/action/template/GetPropDisplayNameAction\" /* EN_ACTION_ID.IGetPropDisplayNameAction */, this.execution_context);\n        const request_menu_type = getTemporaryMenuTypeForSumStatus(menu_type);\n        const api_result = await racCommand.executeAsync({\n            bizz_sid: program_context.data.bizz_sid,\n            menu_sid: program_context.data.menu_sid,\n            menu_type: request_menu_type,\n            template_set_sid: request.current_template_info,\n            template_sub_type: aggregate_type,\n            za_tf: request.is_za_template,\n            data_model_id: getTemporaryDataModelIdForSumStatus(data_model_id),\n            screen_type: request.screen_type,\n        });\n        //////////////////////////////////////////////////\n        //axias_info 정리하기\n        //////////////////////////////////////////////////\n        //data_type이 numeric이지만, yaxis에 들어가야 하는 값들\n        //TODO: 수정예정\n        const yaxis_list = ['cust$cust$cust_limit_term', 'prod$prod$deno_rate'];\n        if (aggregate_type === \"free\" /* EN_TEMPLATE_SUB_TYPE.Free */) {\n            // 집계인 경우\n            //가로축 : 집계조건\n            //세로축 : 설정해둔 항목 중 숫자형 항목 (데이터타입)\n            const condition_list = search_dmc.getValueByPropId(aggregate_prop_id);\n            axis_info.xaxis.push(..._.keys(condition_list)\n                .filter((x) => x.startsWith('condition') && !_.isNil(condition_list[x]?.prop_id))\n                .map((x) => {\n                return {\n                    id: condition_list[x].prop_id,\n                    title: condition_list[x].prop_name,\n                };\n            }));\n            //집계조건이 없는 경우 예외처리\n            if (aggregate_type === \"free\" /* EN_TEMPLATE_SUB_TYPE.Free */ && axis_info.xaxis.length === 0) {\n                await request.vmc.alertAsync($Resx.rex00371);\n                return {};\n            }\n            api_result.forEach((prop) => {\n                if (prop.prop_data_type === \"$$decimal\" /* EN_DATA_TYPE_ID_OLD.$$decimal */) {\n                    axis_info.yaxis.push({ id: prop.prop_id, title: prop.prop_name });\n                }\n            });\n        }\n        else {\n            // 내역인 경우\n            //가로축 : 설정해둔 항목 중 decimal 항목이 아닌 것 (데이터타입)\n            //세로축 : 설정해둔 항목 중 decimal 항목 (데이터타입)\n            api_result.forEach((prop) => {\n                const target_axis = prop.prop_data_type === \"$$decimal\" /* EN_DATA_TYPE_ID_OLD.$$decimal */ || yaxis_list.includes(prop.prop_id)\n                    ? axis_info.yaxis\n                    : axis_info.xaxis;\n                target_axis.push({ id: prop.prop_id, title: prop.prop_name });\n            });\n        }\n        // 이미지 제외\n        axis_info.xaxis = axis_info.xaxis.filter((item) => item.id != 'prod$prod$prod_img');\n        return { axis_info };\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor.shouldExecute",
+          "span": [
+            85636,
+            4,
+            85641,
+            5
+          ],
+          "offsets": [
+            4123786,
+            4123960
+          ],
+          "source": "shouldExecute() {\n        const template_id = this._getTemplateModelId();\n        if (!template_id)\n            return false;\n        return this._isGraph(template_id);\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor.executeAsync",
+          "span": [
+            85642,
+            4,
+            85667,
+            5
+          ],
+          "offsets": [
+            4123965,
+            4124980
+          ],
+          "source": "async executeAsync({ section_data_modifiers }) {\n        const grid_model_id = this._getGridModelId();\n        const template_id = this._getTemplateModelId();\n        if (!grid_model_id || !template_id)\n            return;\n        const modifier = section_data_modifiers[grid_model_id];\n        if (!modifier)\n            return;\n        const data_view_format = this._getDataViewFormat(template_id);\n        const graph_config = data_view_format?.setting;\n        const view_type = this._getChartViewType(graph_config?.graphType);\n        // chart 위젯에 graph_config / view_type attr 주입\n        modifier.addAttribute({\n            prop_id: '',\n            attr_type: \"Renderer\" /* EN_ATTR_TYPE.Renderer */,\n            attr_id: 'graph_config',\n            data: graph_config,\n        });\n        modifier.addAttribute({\n            prop_id: '',\n            attr_type: \"Renderer\" /* EN_ATTR_TYPE.Renderer */,\n            attr_id: 'view_type',\n            data: view_type,\n        });\n        modifier.execute();\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor._getGridModelId",
+          "span": [
+            85669,
+            4,
+            85673,
+            5
+          ],
+          "offsets": [
+            4125058,
+            4125350
+          ],
+          "source": "_getGridModelId() {\n        const program_context = this.execution_context.getProgramContext();\n        const menu_type = program_context.data.menu_type;\n        return program_context.sourceData.menu?.definition?.model_info_list.find((x) => x.model_refer_type === menu_type)?.model_id;\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor._getTemplateModelId",
+          "span": [
+            85675,
+            4,
+            85679,
+            5
+          ],
+          "offsets": [
+            4125428,
+            4125656
+          ],
+          "source": "_getTemplateModelId() {\n        const program_context = this.execution_context.getProgramContext();\n        const search = program_context.sourceData.menu_attr?.search?.data;\n        return search?.data_model_id?.template;\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor._getDataViewFormat",
+          "span": [
+            85680,
+            4,
+            85684,
+            5
+          ],
+          "offsets": [
+            4125661,
+            4125915
+          ],
+          "source": "_getDataViewFormat(template_id) {\n        const program_context = this.execution_context.getProgramContext();\n        const template_dmc = program_context.data.dmc_map[template_id];\n        return template_dmc?.getValueByPropId('data_view_format');\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor._isGraph",
+          "span": [
+            85685,
+            4,
+            85687,
+            5
+          ],
+          "offsets": [
+            4125920,
+            4126021
+          ],
+          "source": "_isGraph(template_id) {\n        return this._getDataViewFormat(template_id)?.is_graph ?? false;\n    }"
+        },
+        {
+          "symbol": "StatusGraphWidgetAttrContributor._getChartViewType",
+          "span": [
+            85688,
+            4,
+            85702,
+            5
+          ],
+          "offsets": [
+            4126026,
+            4126748
+          ],
+          "source": "_getChartViewType(graph_type) {\n        switch (graph_type) {\n            case \"horizontalBar\" /* EN_GRAPH_TYPE.horizontalBar */:\n                return \"HORIZONTALBAR_CHART\" /* EN_VIEW_TYPE.HorizontalbarChart */;\n            case \"line\" /* EN_GRAPH_TYPE.line */:\n                return \"LINE_CHART\" /* EN_VIEW_TYPE.LineChart */;\n            case \"pie\" /* EN_GRAPH_TYPE.pie */:\n                return \"PIE_CHART\" /* EN_VIEW_TYPE.PieChart */;\n            case \"area\" /* EN_GRAPH_TYPE.area */:\n                return \"AREA_CHART\" /* EN_VIEW_TYPE.AreaChart */;\n            case \"bar\" /* EN_GRAPH_TYPE.bar */:\n            default:\n                return \"VERTICALBAR_CHART\" /* EN_VIEW_TYPE.VerticalbarChart */;\n        }\n    }"
+        }
+      ]
+    },
+    {
+      "id": "v3-header",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.init",
+          "span": [
+            1,
+            246493,
+            1,
+            246740
+          ],
+          "offsets": [
+            246493,
+            246740
+          ],
+          "source": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments);this.mappingEventCallbackHandler(\"custom\",null,\"onHeaderDataTypeLink\",!0);this.addEventCallbackHandler(\"click\",\"onHeaderDataTypeLink\",this.onHeaderDataTypeLink.bind(this))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.render",
+          "span": [
+            1,
+            246748,
+            1,
+            246857
+          ],
+          "offsets": [
+            246748,
+            246857
+          ],
+          "source": "function(){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.bindEvent(\"dataTypeGraph\")}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onInitControl",
+          "span": [
+            1,
+            246872,
+            1,
+            247603
+          ],
+          "offsets": [
+            246872,
+            247603
+          ],
+          "source": "function(n,t){var i,r,u,f;n==\"dataViewType\"&&(i=widget.generator.control(),t.exchangeControlType(\"widget.customizer\",\"dataViewType\",\"dataViewType\",\"dataViewType\"),r=i.define(\"widget.checkbox\",\"dataTypeGraph\",\"dataTypeGraph\",\"dataTypeGraph\").label(ecount.resource.LBL40167).value([\"Y\"]).select().setInlineIndex(0).noneFlex(!0),this.pageOption.isFromAutomation&&r.readOnly(!0),t.addControl(r.end()),u=i.define(\"widget.link\",\"dataTypeLink\",\"dataTypeLink\",\"dataTypeLink\").label(ecount.resource.BTN00168).setInlineIndex(0).noneFlex(!0).hide(),f=this.getComposite(\"searchManager\").getSearchParam(),f&&f.isAppliedGraphOption&&u.setOptions({css:\"text-warning-inverse\"}),t.addControl(u.end()),this.pageOption.isFromCS&&t.hideRow(),t.end())}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeControl",
+          "span": [
+            1,
+            247620,
+            1,
+            247781
+          ],
+          "offsets": [
+            247620,
+            247781
+          ],
+          "source": "function(n){switch(n.cid){case\"dataTypeGraph\":ecount.common.isTrue(n.value)?this.myControl.get(\"dataTypeLink\").show():this.myControl.get(\"dataTypeLink\").hide()}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onSearchValidate",
+          "span": [
+            1,
+            247799,
+            1,
+            248368
+          ],
+          "offsets": [
+            247799,
+            248368
+          ],
+          "source": "function(){this.pageOption.asyncApiStep.add({fn:function(){var r=this.myControl.get(\"dataTypeGraph\").getValue(),t,n,i;if(!ecount.common.isTrue(r)){this.pageOption.asyncApiStep.next();return}if(ecount.constValue.isIE){this.pageOption.asyncApiStep=null;ecount.alert(ecount.resource.MSG11671);return}if(t=this.getComposite(\"header\").getCurrentTabId(),n=this.getControls(\"cmbSumFlag_comparePeriod\",t),n&&(n.hideError(),i=n.getValue(),i!==\"0\")){n.showError(ecount.resource.MSG40095);this.pageOption.asyncApiStep=null;return}this.pageOption.asyncApiStep.next()}.bind(this)})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeFormSeq",
+          "span": [
+            1,
+            248385,
+            1,
+            248434
+          ],
+          "offsets": [
+            248385,
+            248434
+          ],
+          "source": "function(n){_.isEmpty(n.oldValue)||this._reset()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onChangeFormType",
+          "span": [
+            1,
+            248452,
+            1,
+            248598
+          ],
+          "offsets": [
+            248452,
+            248598
+          ],
+          "source": "function(n){if(n.formType!=n.oldFormType){if(this.graphOption){var t=_.get(this.graphOption,\"formType\");if(t&&t==n.formType)return}this._reset()}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onSaveUserTabParam",
+          "span": [
+            1,
+            248618,
+            1,
+            249145
+          ],
+          "offsets": [
+            248618,
+            249145
+          ],
+          "source": "function(n){var t,r,i;this.myControl.get(\"dataTypeGraph\").getValue()&&(t={},t[n.keyMap.param.colCd]=\"dataViewType\",t[n.keyMap.param.name]=\"isAppliedGraphOption\",t[n.keyMap.param.value]=!0,n.addItemFn(t),this.graphOption&&(t={},t[n.keyMap.param.colCd]=\"dataViewType\",t[n.keyMap.param.name]=\"graphOption\",r=this.getComposite(\"outputFormManager\"),i=\"\",r&&(i=r.getFormInfo().formType),_.isEmpty(i)||(this.graphOption=_.extend(this.graphOption,{formType:i})),t[n.keyMap.param.value]=Object.toJSON(this.graphOption),n.addItemFn(t)))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onRestoreUserTabParam",
+          "span": [
+            1,
+            249168,
+            1,
+            249669
+          ],
+          "offsets": [
+            249168,
+            249669
+          ],
+          "source": "function(n){var i,t;this._reset();i=n(\"isAppliedGraphOption\");ecount.common.isTrue(i)&&(this.isAppliedGraphOption=!0,this.myControl&&this.myControl.get(\"dataTypeLink\")&&this.myControl.get(\"dataTypeLink\").show(),t=n(\"graphOption\"),_.isEmpty(t)||(this.graphOption=JSON.parse(t),this.myControl&&this.myControl.get(\"dataTypeLink\")&&this.myControl.get(\"dataTypeLink\").addClass(\"text-warning-inverse\"),this.myControl&&this.myControl.get(\"dataTypeGraph\")&&this.myControl.get(\"dataTypeGraph\").setValue(\"Y\")))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onStoreState",
+          "span": [
+            1,
+            249683,
+            1,
+            249897
+          ],
+          "offsets": [
+            249683,
+            249897
+          ],
+          "source": "function(n){var t={dataViewTypeData:{}};this.myControl.get(\"dataTypeGraph\").getValue()&&(t.dataViewTypeData.isAppliedGraphOption=!0,this.graphOption&&(t.dataViewTypeData.graphOption=this.graphOption),n.setItem(t))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onRestoreState",
+          "span": [
+            1,
+            249913,
+            1,
+            250428
+          ],
+          "offsets": [
+            249913,
+            250428
+          ],
+          "source": "function(n){n&&n.dataViewTypeData&&(this.isAppliedGraphOption=n.dataViewTypeData.isAppliedGraphOption,this.graphOption=n.dataViewTypeData.graphOption,this.isAppliedGraphOption&&this.myControl&&this.myControl.get(\"dataTypeLink\")&&this.myControl.get(\"dataTypeLink\").show(),this.graphOption&&(this.myControl&&this.myControl.get(\"dataTypeLink\")&&this.myControl.get(\"dataTypeLink\").addClass(\"text-warning-inverse\"),this.myControl&&this.myControl.get(\"dataTypeGraph\")&&this.myControl.get(\"dataTypeGraph\").setValue(\"Y\")))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onSetSearchParam",
+          "span": [
+            1,
+            250446,
+            1,
+            250662
+          ],
+          "offsets": [
+            250446,
+            250662
+          ],
+          "source": "function(n){this.pageOption.asyncApiStep.add({fn:function(){n.searchParam.dataTypeGraph&&(n.searchParam.dataTypeGraph=_.isEmpty(n.searchParam.dataTypeGraph)?\"N\":\"Y\");this.pageOption.asyncApiStep.next()}.bind(this)})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._reset",
+          "span": [
+            1,
+            250670,
+            1,
+            250931
+          ],
+          "offsets": [
+            250670,
+            250931
+          ],
+          "source": "function(){this.isAppliedGraphOption=!1;this.formDesignData=null;this.graphOption=null;this.myControl&&this.myControl.get(\"dataTypeLink\")&&(this.myControl.get(\"dataTypeLink\").removeClass(\"text-warning-inverse\"),this.myControl.get(\"dataTypeGraph\").setValue(\"\"))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._validate",
+          "span": [
+            1,
+            250942,
+            1,
+            251285
+          ],
+          "offsets": [
+            250942,
+            251285
+          ],
+          "source": "function(n){var t,i,r,u;if(n){if(t=this._getFormOption(n.formInfo),t&&((i=_.get(t,\"isPivot\"),ecount.common.isTrue(i))||(r=_.get(t,\"BD_ITEM_SEPARATE_TF\"),ecount.common.isTrue(r))||(u=_.get(t,\"pageScrnCopsTypCd\"),u==\"T\")))return ecount.alert(ecount.resource.MSG40094),!1;if(this.settingInfo.validate)return this.settingInfo.validate(n)}return!0}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onHeaderDataTypeLink",
+          "span": [
+            1,
+            251307,
+            1,
+            251542
+          ],
+          "offsets": [
+            251307,
+            251542
+          ],
+          "source": "function(){if(this.formDesignData){this.openGraphSetupSettingPopup();return}var n=this.getComposite(\"aggregationType\");if(n){this._requestFormInfo();return}if(this._getSumFlagComp()){this._checkSummary();return}this._requestFormInfo()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._requestFormInfo",
+          "span": [
+            1,
+            251560,
+            1,
+            252312
+          ],
+          "offsets": [
+            251560,
+            252312
+          ],
+          "source": "function(){var t=this.getComposite(\"outputFormManager\"),i=\"\",r=\"\",u=!1,n,f;t&&(n=t&&t.getNextFormInfo(),i=n.formType,r=n.formSeq,u=n.formSeq<1||n.formSeq>=1e3?!0:!1);this.settingInfo.getRequestFormInfo&&(n=this.settingInfo.getRequestFormInfo(),n&&(n.formType&&(i=n.formType),n.formSeq&&(r=n.formSeq),n.isFromZaOnly&&(u=n.isFromZaOnly)));f=Object.toJSON({Request:{FormType:i,FormSeq:r,ViewType:\"O\",IsFromZaOnly:u}});this.showProgressbarDelay();ecount.common.api({url:\"/SVC/Common/Form/GetXFormDesign\",ecPageID:this.ecPageID,progressbar:!0,data:f,success:function(n){this.hideProgressbarDelay();n.Data&&(this.formDesignData=n.Data,this.openGraphSetupSettingPopup())}.bind(this),error:function(n){this.hideProgressbarDelay();ecount.alert(n)}.bind(this)})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._requestFormInfoFromSearchApi",
+          "span": [
+            1,
+            252343,
+            1,
+            253154
+          ],
+          "offsets": [
+            252343,
+            253154
+          ],
+          "source": "function(){var t=this.getComposite(\"outputFormManager\"),i=\"\",r,n,u;if(t&&(r=t&&t.getNextFormInfo(),i=r.formType),n={Request:{Data:{FORM_TYPE:i,FORM_SEQ:null,IsFromZaOnly:!0,SUM_FLAG:\"9\",PRG_ID:this.pageOption.PROGRAM_ID}}},u=this._getSumFlagComp().myControl.serialize(),_.forEach(u,function(t){t.key.includes(\"REPORT_\")&&(n.Request.Data[t.key]=t.value)}),_.isEmpty(n.Request.Data.REPORT_CONDITION)){ecount.alert(ecount.resource.MSG08884);return}this.showProgressbarDelay();ecount.common.api({url:\"/SVC/Common/GetAggregateSelectInfo\",ecPageID:this.ecPageID,progressbar:!0,data:Object.toJSON(n),success:function(n){this.hideProgressbarDelay();n.Data&&(this.formDesignData=n.Data.ColumnForm,this.openGraphSetupSettingPopup())}.bind(this),error:function(n){this.hideProgressbarDelay();ecount.alert(n)}.bind(this)})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._checkSummary",
+          "span": [
+            1,
+            253169,
+            1,
+            253319
+          ],
+          "offsets": [
+            253169,
+            253319
+          ],
+          "source": "function(){var n=this._getSumFlagComp(),t=n._getSumFlagWithType(n.myControl)||\"1\";t==\"9\"?this._requestFormInfoFromSearchApi():this._requestFormInfo()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.openGraphSetupSettingPopup",
+          "span": [
+            1,
+            253347,
+            1,
+            253925
+          ],
+          "offsets": [
+            253347,
+            253925
+          ],
+          "source": "function(n){var u,t;if(this._validate({formInfo:this.formDesignData})){var f={width:700,height:600,Request:{FromProgramId:this.pageOption.PROGRAM_ID},responseID:this.callbackID},i=_.cloneDeep(this._getFormColumns()),r=this.getComposite(\"gridCreateColumns\");r&&r.settingInfo.aggregationCriteriaItemInfo&&(i=r.getAggregationColumns(i));u=ecmodule.common.graph.getAxisData({columns:i});t={axisInfo:u,graphSetting:this.graphOption};_.isEmpty(n)||(t=_.extend(t,n));this.openWindow({url:\"/ECErp/SVC/Popup/GraphSetupSetting\",param:f,modal:!0,popupType:!1,additional:!1,pageOption:t})}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._getFormOption",
+          "span": [
+            1,
+            253941,
+            1,
+            254042
+          ],
+          "offsets": [
+            253941,
+            254042
+          ],
+          "source": "function(n){return n?n.FormTabs?_.get(_.first(n.FormTabs),\"ViewModel.option\"):_.get(n,\"option\"):null}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._getFormColumns",
+          "span": [
+            1,
+            254059,
+            1,
+            254231
+          ],
+          "offsets": [
+            254059,
+            254231
+          ],
+          "source": "function(){return this.formDesignData?this.formDesignData.FormTabs?_.get(_.first(this.formDesignData.FormTabs),\"ViewModel.columns\"):_.get(this.formDesignData,\"columns\"):[]}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.onMessageHandler_XGraphSetUpSetting",
+          "span": [
+            1,
+            254268,
+            1,
+            254504
+          ],
+          "offsets": [
+            254268,
+            254504
+          ],
+          "source": "function(n,t){_.isEmpty(t)||(this.graphOption=t.graphSetting,this.isAppliedGraphOption=!0,this.myControl&&this.myControl.get(\"dataTypeLink\")&&this.myControl.get(\"dataTypeLink\").addClass(\"text-warning-inverse\"),t.callback&&t.callback())}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.isGraph",
+          "span": [
+            1,
+            254513,
+            1,
+            254591
+          ],
+          "offsets": [
+            254513,
+            254591
+          ],
+          "source": "function(){var n=this.myControl.get(\"dataTypeGraph\");return n?n.getValue():!1}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.reset",
+          "span": [
+            1,
+            254598,
+            1,
+            254623
+          ],
+          "offsets": [
+            254598,
+            254623
+          ],
+          "source": "function(){this._reset()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.getGraphSetting",
+          "span": [
+            1,
+            254640,
+            1,
+            255292
+          ],
+          "offsets": [
+            254640,
+            255292
+          ],
+          "source": "function(){var i=this.getComposite(\"outputFormManager\").getOutputForm(),u=this.getActivateGraph(),f=\"\",r,n,t;return f=_.get(i,\"option.formTitle\")||this.getComposite(\"header\").getHeaderTitle(),r={},r=ecmodule.common.graph.getAxisData({columns:i.columns}),n={},n=this.graphOption?this.graphOption:ecmodule.common.graph.getGraphOption({graphTitle:f,axisInfo:r}),t={form:i,graphOption:n,keyColumns:u.settingInfo.keyColumn,rowDatas:u.getRowData()},n.x1ColumnId&&(t.x1ColumnId=n.x1ColumnId),n.x2ColumnId&&(t.x2ColumnId=n.x2ColumnId),n.y1ColumnId&&(t.y1ColumnId=n.y1ColumnId),n.y2ColumnId&&(t.y2ColumnId=n.y2ColumnId),ecmodule.common.graph.getGraphSetting(t)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType._getSumFlagComp",
+          "span": [
+            1,
+            255309,
+            1,
+            255458
+          ],
+          "offsets": [
+            255309,
+            255458
+          ],
+          "source": "function(){var n=_.get(this.pageOption,\"columnMap.widget.SUM_FLAG\");return this.getComposite(n?{typeKey:\"cmbSumFlagDate\",realId:n}:\"cmbSumFlagDate\")}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.getActivateGraph",
+          "span": [
+            1,
+            255476,
+            1,
+            255659
+          ],
+          "offsets": [
+            255476,
+            255659
+          ],
+          "source": "function(){var i=this.getLayout(\"contents\"),n,t;return i&&(n=i.getGraph(),n&&(t=_.find(n,function(n){return n.isShow()==!0}),t))?this.getComposite({typeKey:\"graph\",realId:t.id}):null}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.dataViewType.getGraphOption",
+          "span": [
+            1,
+            255675,
+            1,
+            255732
+          ],
+          "offsets": [
+            255675,
+            255732
+          ],
+          "source": "function(){return this.graphOption?this.graphOption:null}"
+        }
+      ]
+    },
+    {
+      "id": "v3-footer",
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.init",
+          "span": [
+            1,
+            52740,
+            1,
+            52815
+          ],
+          "offsets": [
+            52740,
+            52815
+          ],
+          "source": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.render",
+          "span": [
+            1,
+            52823,
+            1,
+            52947
+          ],
+          "offsets": [
+            52823,
+            52947
+          ],
+          "source": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n);this.createButtonEvent()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.createLayout",
+          "span": [
+            1,
+            52961,
+            1,
+            53113
+          ],
+          "offsets": [
+            52961,
+            53113
+          ],
+          "source": "function(n){var t=widget.generator.control();t.define(\"widget.button\",this.realId).label(this.settingInfo.label||ecount.resource.LBL11585);n.addLeft(t)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.execCreateComposite",
+          "span": [
+            1,
+            53134,
+            1,
+            53376
+          ],
+          "offsets": [
+            53134,
+            53376
+          ],
+          "source": "function(){return this.pageOption.isFromApply?!1:this.pageOption.IsFromRef?!1:this.pageOption.isFromCS?!1:this.pageOption.isFromApprovalOutputApply?!1:this.pageOption.STETIsFromOrderMng&&[\"L\",\"V\"].contains(this.pageOption.STETLinkType)?!1:!0}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.onChangeListType",
+          "span": [
+            1,
+            53394,
+            1,
+            53471
+          ],
+          "offsets": [
+            53394,
+            53471
+          ],
+          "source": "function(n){this.isHideGraph=!1;n.type===\"STATUSLIST\"&&(this.isHideGraph=!0)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.onPostSearch",
+          "span": [
+            1,
+            53485,
+            1,
+            54129
+          ],
+          "offsets": [
+            53485,
+            54129
+          ],
+          "source": "function(n){if(this.isHideGraph===!0)return this.buttonHide(n),!1;var t=this.getComposite(\"outputFormManager\");if(t&&t.getOutputForm().option.BitMaskType==\"CalendarOption\"||t&&t._outputForm.length>1||n.isGraph())return this.buttonHide(n),!1;if(!this.getComposite(\"listTab\"))return this.buttonShow(n),!1;switch(this.getComposite(\"listTab\").getActiveTab()){case\"tabAll\":case\"tabConfirm\":case\"tabUnconfirmed\":case\"tabSApproval\":case\"tabIng\":case\"tabInProgress\":case\"tabComplete\":case\"tabFinished\":case\"tabUnsent\":case\"tabCS\":case\"tabAllCS\":case\"tabIngCS\":case\"tabCompleteCS\":case\"tabConfirmCS\":this.buttonShow(n);break;default:this.buttonHide(n)}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph._ON_CLICK",
+          "span": [
+            1,
+            54140,
+            1,
+            55142
+          ],
+          "offsets": [
+            54140,
+            55142
+          ],
+          "source": "function(){var e,o;if(ecount.constValue.isIE){ecount.alert(ecount.resource.MSG11671);return}if(this.getLayout(\"contents\").getGraph()){ecount.alert(ecount.resource.MSG40096);return}var i=this.getLayout(\"contents\").itemList,t=this.getComposite(\"dataView\"),s=this.getComposite(\"outputFormManager\").getOutputForm().option,r=this.getComposite(\"searchManager\"),h=this.getPopupMetadata(),c=s.formTitle||this.getComposite(\"header\").getHeaderTitle(),u=this.openGraphSetupForGrid,f=this.openGraphForGrid,n;r&&(e=r.getSearchParam(),e.TABLE_TYPE==\"dataView\"&&(u=this.openGraphSetupForDataView,f=this.openGraphForDataView));t&&t.isShow()?n=t.getDataView():i.length>1?(o=i.head(function(n){return n.isShow()}),n=this.getComposite({typeKey:\"grid\",gridId:o.id}).getGrid()):n=this.getComposite(\"grid\").getGrid();ecount.global.findCallback(ecPageID,this.callbackID)||(this.callbackID=ecount.global.registerCallback(this.ecPageID,function(t,i){f.call(this,i,n,i.callback)}.bind(this)));u.call(this,n,h,c,this.callbackID)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.openGraphSetupForGrid",
+          "span": [
+            1,
+            55165,
+            1,
+            56119
+          ],
+          "offsets": [
+            55165,
+            56119
+          ],
+          "source": "function(n,t,i,r){var h=this.getComposite(\"outputFormManager\").getOutputForm().option,e={isVisibilityColumn:0},s,u;if(h.BD_ITEM_SEPARATE_TF==\"1\")return ecount.alert(ecount.resource.MSG09916);n.settings().getCommonColumnType()==ecount.grid.constValue.columnType.separate&&(e.sectionType=ecount.grid.constValue.sectionType.tbody);var o=n.getTbodyColumnInfoList(e),f=this.getColumnTypeOfString(o),c=this.getColumnTypeOfNumber(o);if(f=f.filter(function(n){return n.id!=\"sale003_img.prod_img\"}),n.getTbodyRowCount()>1)s={graphTitle:i,xaxis:f,yaxis:c};else{ecount.alert(ecount.resource.LBL19078);return}u={width:1e3,height:1200,Request:{axisInfo:s,FromProgramId:this.pageOption.PROGRAM_ID},graphFormType:this.pageInfo.graphFormType,responseID:r};this.settingInfo.getRequestParam&&(u=_.extend({},u,this.settingInfo.getRequestParam()));ecount.popup.openWindow($.extend({url:\"/ECErp/SVC/Popup/GraphSetup\",name:ecount.resource.LBL11580,param:u,popType:!1},t||{}))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.openGraphForGrid",
+          "span": [
+            1,
+            56137,
+            1,
+            57832
+          ],
+          "offsets": [
+            56137,
+            57832
+          ],
+          "source": "function(n,t,i){var r;if(n.x1AxisList=this.getColumnDataForAxis(t,n.x1ColumnId),n.x1ColumnId.indexOf(\"serial\"))for(r=0;r<n.x1AxisList.length;r++)n.x1AxisList[r][n.x1ColumnId.toUpperCase()]==\"0\"&&(n.x1AxisList[r][n.x1ColumnId.toUpperCase()]=r+1);if(n.x1ColumnId&&(n.x1ColId=n.x1ColumnId,n.x1ColName=this.getColumnName(t,\"propertyName\",n.x1ColumnId),n.x1ColType=this.getColumnName(t,\"dataType\",n.x1ColumnId),n.x1ColInfo=t.getTbodyColumnInfo(n.x1ColumnId)),n.y1ColumnId&&(n.y1AxisList=this.getColumnDataForAxis(t,n.y1ColumnId),n.y1ColName=this.getColumnName(t,\"propertyName\",n.y1ColumnId),n.y1ColId=n.y1ColumnId,n.y1ColInfo=t.getTbodyColumnInfo(n.y1ColumnId)),(n.isShowHighest||n.isShowLowest)&&(n.comparatorPropName=n.graphType==\"pie\"?this.getColumnName(t,\"propertyName\",n.y1ColumnId):this.getColumnName(t,\"propertyName\",n.comparatorColumn)),n.graphType!=\"pie\"){if(n.x2ColumnId&&(n.x2AxisList=this.getColumnDataForAxis(t,n.x2ColumnId),n.x2ColId=n.x2ColumnId,n.x2ColName=this.getColumnName(t,\"propertyName\",n.x2ColumnId),n.x2ColType=this.getColumnName(t,\"dataType\",n.x2ColumnId),n.x2ColInfo=t.getTbodyColumnInfo(n.x2ColumnId),n.x2ColumnId.indexOf(\"serial\")))for(r=0;r<n.x2AxisList.length;r++)n.x2AxisList[r][n.x2ColumnId.toUpperCase()]==\"0\"&&(n.x2AxisList[r][n.x2ColumnId.toUpperCase()]=r+1);n.y2ColumnId&&(n.y2AxisList=this.getColumnDataForAxis(t,n.y2ColumnId),n.y2ColName=this.getColumnName(t,\"propertyName\",n.y2ColumnId),n.y2ColId=n.y2ColumnId,n.y2ColInfo=t.getTbodyColumnInfo(n.y2ColumnId))}(n.isShowHighest||n.isShowLowest)&&(n.comparatorPropName=n.graphType==\"pie\"?this.getColumnName(t,\"propertyName\",n.y1ColumnId):this.getColumnName(t,\"propertyName\",n.comparatorColumn));this.openGraph(n,i)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.openGraphSetupForDataView",
+          "span": [
+            1,
+            57859,
+            1,
+            58530
+          ],
+          "offsets": [
+            57859,
+            58530
+          ],
+          "source": "function(n,t,i,r){var h=n.getTheadRowList(),f=n.getTbodyColumnInfoList(),c=n.getTbodyRowCount(),e,o,s,u;if(c<1)return ecount.alert(ecount.resource.LBL19078);if(h.length>1)return ecount.alert(ecount.resource.MSG09916);e=this.getColumnTypeOfString(f);o=this.getColumnTypeOfNumber(f);s={graphTitle:i,xaxis:e,yaxis:o};u={width:1e3,height:1200,Request:{axisInfo:s,FromProgramId:this.pageOption.PROGRAM_ID},graphFormType:this.pageInfo.graphFormType,responseID:r};this.settingInfo.getRequestParam&&(u=_.extend({},u,this.settingInfo.getRequestParam()));ecount.popup.openWindow($.extend({url:\"/ECErp/SVC/Popup/GraphSetup\",name:ecount.resource.LBL11580,param:u,popType:!1},t||{}))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.openGraphForDataView",
+          "span": [
+            1,
+            58552,
+            1,
+            59671
+          ],
+          "offsets": [
+            58552,
+            59671
+          ],
+          "source": "function(n,t,i){n.x1AxisList=this.getColumnDataForAxis(t,n.x1ColumnId);n.x1ColumnId&&(n.x1ColId=n.x1ColumnId,n.x1ColName=this.getColumnName(t,\"id\",n.x1ColumnId),n.x1ColType=this.getColumnName(t,\"dataType\",n.x1ColumnId),n.x1ColInfo=t.getTbodyColumnInfo(n.x1ColumnId));n.y1ColumnId&&(n.y1AxisList=this.getColumnDataForAxis(t,n.y1ColumnId),n.y1ColName=this.getColumnName(t,\"id\",n.y1ColumnId),n.y1ColId=n.y1ColumnId,n.y1ColInfo=t.getTbodyColumnInfo(n.y1ColumnId));n.graphType!=\"pie\"&&(n.x2ColumnId&&(n.x2AxisList=this.getColumnDataForAxis(t,n.x2ColumnId),n.x2ColId=n.x2ColumnId,n.x2ColName=this.getColumnName(t,\"id\",n.x2ColumnId),n.x2ColType=this.getColumnName(t,\"dataType\",n.x2ColumnId),n.x2ColInfo=t.getTbodyColumnInfo(n.x2ColumnId)),n.y2ColumnId&&(n.y2AxisList=this.getColumnDataForAxis(t,n.y2ColumnId),n.y2ColName=this.getColumnName(t,\"propertyName\",n.y2ColumnId),n.y2ColId=n.y2ColumnId,n.y2ColInfo=t.getTbodyColumnInfo(n.y2ColumnId)));(n.isShowHighest||n.isShowLowest)&&(n.comparatorPropName=n.graphType==\"pie\"?this.getColumnName(t,\"id\",n.y1ColumnId):this.getColumnName(t,\"id\",n.comparatorColumn));this.openGraph(n,i)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.openGraph",
+          "span": [
+            1,
+            59682,
+            1,
+            59864
+          ],
+          "offsets": [
+            59682,
+            59864
+          ],
+          "source": "function(n,t){var i={graphOption:n,author:\"ECOUNT\",keywords:n.pageID,subject:ecount.resource.LBL11585,name:ecount.resource.LBL11585,templateName:\"GraphBasic\",isFormsetApply:!0};t(i)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.getGraphData",
+          "span": [
+            1,
+            59878,
+            1,
+            60715
+          ],
+          "offsets": [
+            59878,
+            60715
+          ],
+          "source": "function(n,t){var h=this.getColumnName(n,\"propertyName\",t.comparatorColumn),f=function(n){return n?[]:\"\"},i,r,o,e,s,u;if(!t.isShowHighest10&&!t.isShowLowest10)return{};for(i=n.getTbodyRowList(\"\",{filterFunc:function(n){return!n[ecount.grid.constValue.rowVariableNames.rowType]}}),r={x1List:f(t.x1ColumnId),x2List:f(t.x2ColumnId),y1List:f(t.y1ColumnId),y2List:f(t.y2ColumnId)},i=_.sortBy(i,[h]),t.isShowHighest10?(o=i.length-10,i=i.slice(o>0?o:0,a.length-1)):i=i.slice(0,10),e=0,s=i.length;e<s;e++)u=i[e],this.setColumnData(this.getColumnName(n,\"propertyName\",t.x1ColumnId),u,r.x1List),this.setColumnData(this.getColumnName(n,\"propertyName\",t.x2ColumnId),u,r.x2List),this.setColumnData(this.getColumnName(n,\"propertyName\",t.y1ColumnId),u,r.y1List),this.setColumnData(this.getColumnName(n,\"propertyName\",t.y2ColumnId),u,r.y2List);return r}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.setColumnData",
+          "span": [
+            1,
+            60730,
+            1,
+            60897
+          ],
+          "offsets": [
+            60730,
+            60897
+          ],
+          "source": "function(n,t,i){var r={};n&&i&&(n=n.toUpperCase(),r[ecount.grid.constValue.keyColumnPropertyName]=t[ecount.grid.constValue.keyColumnPropertyName],r[n]=t[n],i.push(r))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.getColumnName",
+          "span": [
+            1,
+            60912,
+            1,
+            61192
+          ],
+          "offsets": [
+            60912,
+            61192
+          ],
+          "source": "function(n,t,i){var r;return i==\"\"?\"\":(r=n.settings().getCommonColumnType()==ecount.grid.constValue.columnType.separate?n.getTbodyColumnInfo(i):n.getTheadColumnInfo(i),r)?r[t]:i==ecount.grid.constValue.rowVariableNames.rowTitle?ecount.grid.constValue.rowVariableNames.rowTitle:\"\"}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.getColumnTypeOfString",
+          "span": [
+            1,
+            61215,
+            1,
+            61338
+          ],
+          "offsets": [
+            61215,
+            61338
+          ],
+          "source": "function(n){return n.where(function(n){if(n.dataType1!=\"NUM\")return n}).select(function(n){return{id:n.id,title:n.title}})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.getColumnTypeOfNumber",
+          "span": [
+            1,
+            61361,
+            1,
+            61484
+          ],
+          "offsets": [
+            61361,
+            61484
+          ],
+          "source": "function(n){return n.where(function(n){if(n.dataType1==\"NUM\")return n}).select(function(n){return{id:n.id,title:n.title}})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.getColumnDataForAxis",
+          "span": [
+            1,
+            61506,
+            1,
+            61658
+          ],
+          "offsets": [
+            61506,
+            61658
+          ],
+          "source": "function(n,t){return t==\"\"?\"\":n.getTbodyRowList(t,{filterFunc:function(n){return n[ecount.grid.constValue.rowVariableNames.rowType]==undefined?!0:!1}})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graph.getGroupedColumnDataForAxis",
+          "span": [
+            1,
+            61687,
+            1,
+            61829
+          ],
+          "offsets": [
+            61687,
+            61829
+          ],
+          "source": "function(n){return n.getTbodyRowList(\"\",{filterFunc:function(n){return n[ecount.grid.constValue.rowVariableNames.rowType]==undefined?!0:!1}})}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.init",
+          "span": [
+            1,
+            296491,
+            1,
+            296610
+          ],
+          "offsets": [
+            296491,
+            296610
+          ],
+          "source": "function(){eccomposite_v1.unit.widget.prototype.init.apply(this,arguments);this.checkedList=null;this.filterSetting={}}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.render",
+          "span": [
+            1,
+            296618,
+            1,
+            296742
+          ],
+          "offsets": [
+            296618,
+            296742
+          ],
+          "source": "function(n){eccomposite_v1.unit.widget.prototype.render.apply(this,arguments);this.createLayout(n);this.createButtonEvent()}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.createLayout",
+          "span": [
+            1,
+            296756,
+            1,
+            296915
+          ],
+          "offsets": [
+            296756,
+            296915
+          ],
+          "source": "function(n){var t=widget.generator.control();t.define(\"widget.button\",this.realId).label(this.settingInfo.label||ecount.resource.LBL19438).hide();n.addLeft(t)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.execCreateComposite",
+          "span": [
+            1,
+            296936,
+            1,
+            297178
+          ],
+          "offsets": [
+            296936,
+            297178
+          ],
+          "source": "function(){return this.pageOption.isFromApply?!1:this.pageOption.IsFromRef?!1:this.pageOption.isFromCS?!1:this.pageOption.isFromApprovalOutputApply?!1:this.pageOption.STETIsFromOrderMng&&[\"L\",\"V\"].contains(this.pageOption.STETLinkType)?!1:!0}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.onPostSearch",
+          "span": [
+            1,
+            297192,
+            1,
+            297311
+          ],
+          "offsets": [
+            297192,
+            297311
+          ],
+          "source": "function(n){if(this.checkedList=null,this.filterSetting={},n.isGraph())return this.buttonShow(n),!1;this.buttonHide(n)}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter._ON_CLICK",
+          "span": [
+            1,
+            297322,
+            1,
+            297743
+          ],
+          "offsets": [
+            297322,
+            297743
+          ],
+          "source": "function(){var r=this.getComposite(\"dataViewType\"),t=r.getGraphSetting(),n,i;_.isEmpty(t)||(n={},this.filterSetting&&(n=_.extend(this.filterSetting,t)),n=ecmodule.common.graph.getFilterData({graphSetting:n}),i={width:380,height:420,legendData:n.legendData,categoryData:n.categoryData,checkedList:this.checkedList,useYn:n.useYn},this.openWindow({url:\"/ECErp/SVC/Popup/GraphFilter\",isChangePopupType:!1,modal:!0,param:i}))}"
+        },
+        {
+          "symbol": "eccomposite_v1.unit.widget.graphFilter.onMessageHandler_GraphFilter",
+          "span": [
+            1,
+            297773,
+            1,
+            298242
+          ],
+          "offsets": [
+            297773,
+            298242
+          ],
+          "source": "function(n,t){var r,i,u;this.checkedList=t.checkedList;r=this.getComposite(\"dataViewType\");i=r.getActivateGraph();this.filterSetting=_.extend(this.filterSetting,{legendColors:t.legendData.map(function(n){return n.COLOR}),categoryColors:t.categoryData.map(function(n){return n.COLOR})});u=ecmodule.common.graph.createGraphData({graphId:i.graphId,graphSetting:this.filterSetting,filterData:t});i.draw({rowData:i.getRowData(),graphData:u,graphSetting:this.filterSetting})}"
+        }
+      ]
+    },
+    {
+      "id": "v3-graph",
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_4.-1784347108654919872.20.js",
+      "sha256": "8fec93a16b0eb2bb8829d29bc6e249b8580b573ab60c42b0ab8cd072288ef004",
+      "bytes": 84158,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.init",
+          "span": [
+            1,
+            79593,
+            1,
+            79885
+          ],
+          "offsets": [
+            79593,
+            79885
+          ],
+          "source": "function(){var t=this.ecPageID.split(\"_\"),n=this.id;t.length>1&&(n=n.replace(t[0],this.ecPageID));this.graphId=n;this.realId=n;this.parentId=n;this.id=n;this.graph=null;this.graphData=null;this.graphSetting=null;this.rowData=[];eccomposite_v1.group.graph.prototype.init.apply(this,arguments)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.render",
+          "span": [
+            1,
+            79893,
+            1,
+            79996
+          ],
+          "offsets": [
+            79893,
+            79996
+          ],
+          "source": "function(n){eccomposite_v1.group.graph.prototype.render.apply(this,arguments);n.addGraph(this.graphId)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.clear",
+          "span": [
+            1,
+            80003,
+            1,
+            80082
+          ],
+          "offsets": [
+            80003,
+            80082
+          ],
+          "source": "function(){this.graph&&this.graph.destroy();this.myGraph&&this.myGraph.clear()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.hide",
+          "span": [
+            1,
+            80088,
+            1,
+            80133
+          ],
+          "offsets": [
+            80088,
+            80133
+          ],
+          "source": "function(){this.myGraph&&this.myGraph.hide()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.show",
+          "span": [
+            1,
+            80139,
+            1,
+            80184
+          ],
+          "offsets": [
+            80139,
+            80184
+          ],
+          "source": "function(){this.myGraph&&this.myGraph.show()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.isShow",
+          "span": [
+            1,
+            80192,
+            1,
+            80246
+          ],
+          "offsets": [
+            80192,
+            80246
+          ],
+          "source": "function(){return this.myGraph&&this.myGraph.isShow()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setChartWidth",
+          "span": [
+            1,
+            80261,
+            1,
+            80348
+          ],
+          "offsets": [
+            80261,
+            80348
+          ],
+          "source": "function(n){this.myGraph&&this.myGraph.setChartWidth(ecview.util.getCssValueFormat(n))}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setChartHeight",
+          "span": [
+            1,
+            80364,
+            1,
+            80452
+          ],
+          "offsets": [
+            80364,
+            80452
+          ],
+          "source": "function(n){this.myGraph&&this.myGraph.setChartHeight(ecview.util.getCssValueFormat(n))}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setGraphData",
+          "span": [
+            1,
+            80466,
+            1,
+            80533
+          ],
+          "offsets": [
+            80466,
+            80533
+          ],
+          "source": "function(){this.myGraph&&this.myGraph.setGraphData(this.graphData)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setGraphSetting",
+          "span": [
+            1,
+            80550,
+            1,
+            80623
+          ],
+          "offsets": [
+            80550,
+            80623
+          ],
+          "source": "function(){this.myGraph&&this.myGraph.setGraphSetting(this.graphSetting)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setChartEventBind",
+          "span": [
+            1,
+            80642,
+            1,
+            80997
+          ],
+          "offsets": [
+            80642,
+            80997
+          ],
+          "source": "function(){_.set(this.graphData,this._CONST.BIND_EVENT.ON_CHART_RENDER_COMPLETED,this.myGraph.onChartRenderCompleted.bind(this.myGraph));_.set(this.graphData,this._CONST.BIND_EVENT.ON_MOUSE_OVER,this.myGraph.onChartMouseOver.bind(this.myGraph));_.set(this.graphData,this._CONST.BIND_EVENT.ON_MOUSE_LEAVE,this.myGraph.onChartMouseLeave.bind(this.myGraph))}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setLegendEventBind",
+          "span": [
+            1,
+            81017,
+            1,
+            81316
+          ],
+          "offsets": [
+            81017,
+            81316
+          ],
+          "source": "function(){_.set(this.graphData,String.format(\"legendConfig.{0}\",this._CONST.BIND_EVENT.ON_MOUSE_OVER),this.myGraph.onLegendMouseOver.bind(this.myGraph));_.set(this.graphData,String.format(\"legendConfig.{0}\",this._CONST.BIND_EVENT.ON_MOUSE_LEAVE),this.myGraph.onLegendMouseLeave.bind(this.myGraph))}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setTooltipEventBind",
+          "span": [
+            1,
+            81337,
+            1,
+            81781
+          ],
+          "offsets": [
+            81337,
+            81781
+          ],
+          "source": "function(){_.set(this.graphData,String.format(\"tooltipConfig.{0}\",this._CONST.BIND_EVENT.ON_MOUSE_OVER),this.myGraph.onTooltipMouseOver.bind(this.myGraph));_.set(this.graphData,String.format(\"tooltipConfig.{0}\",this._CONST.BIND_EVENT.ON_MOUSE_OUT),this.myGraph.onTooltipMouseOut.bind(this.myGraph));_.set(this.graphData,String.format(\"tooltipConfig.{0}\",this._CONST.BIND_EVENT.ON_MOUSE_MOVE),this.myGraph.onTooltipMouseMove.bind(this.myGraph))}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setLineSetting",
+          "span": [
+            1,
+            81797,
+            1,
+            82257
+          ],
+          "offsets": [
+            81797,
+            82257
+          ],
+          "source": "function(){switch(this.graphSetting.graphType){case this._CONST.GRAPH_TYPE.LINE:case this._CONST.GRAPH_TYPE.AREA:this.graphData.lineConfig={groupConfig:{}};this.graphData.scatterConfig={groupConfig:{}};_.first(this.graphData.datas).values.forEach(function(n){this.graphData.lineConfig.groupConfig[n.groupId]={visible:!0,strokeWidth:1,strokeOpacity:1};this.graphData.scatterConfig.groupConfig[n.groupId]={visible:!0,strokeWidth:1,strokeOpacity:1}}.bind(this))}}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.setLegendSetting",
+          "span": [
+            1,
+            82275,
+            1,
+            82397
+          ],
+          "offsets": [
+            82275,
+            82397
+          ],
+          "source": "function(){var n=!0;this.graphData.legendConfig&&(this.graphData.legendConfig.visible||(n=!1));this.myGraph.showLegend(n)}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.createGraph",
+          "span": [
+            1,
+            82410,
+            1,
+            83060
+          ],
+          "offsets": [
+            82410,
+            83060
+          ],
+          "source": "function(){switch(this.graphSetting.graphType){case this._CONST.GRAPH_TYPE.BAR:this.graph=new ecount.ECChart.ECVerticalBarChart(this.graphData);this.graph.reload();break;case this._CONST.GRAPH_TYPE.HORIZONTAL_BAR:this.graph=new ecount.ECChart.ECHorizontalBarChart(this.graphData);this.graph.reload();break;case this._CONST.GRAPH_TYPE.PIE:this.graph=new ecount.ECChart.ECPieChart(this.graphData);this.graph.reload();break;case this._CONST.GRAPH_TYPE.LINE:this.graph=new ecount.ECChart.ECLineChart(this.graphData);this.graph.reload();break;case this._CONST.GRAPH_TYPE.AREA:this.graph=new ecount.ECChart.ECAreaChart(this.graphData);this.graph.reload()}}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getHtml",
+          "span": [
+            1,
+            83069,
+            1,
+            83141
+          ],
+          "offsets": [
+            83069,
+            83141
+          ],
+          "source": "function(n){this.myGraph.isShow()&&(n.contents+=this.myGraph.getHtml())}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getRowData",
+          "span": [
+            1,
+            83153,
+            1,
+            83184
+          ],
+          "offsets": [
+            83153,
+            83184
+          ],
+          "source": "function(){return this.rowData}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getGraphData",
+          "span": [
+            1,
+            83198,
+            1,
+            83231
+          ],
+          "offsets": [
+            83198,
+            83231
+          ],
+          "source": "function(){return this.graphData}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getGraphSetting",
+          "span": [
+            1,
+            83248,
+            1,
+            83284
+          ],
+          "offsets": [
+            83248,
+            83284
+          ],
+          "source": "function(){return this.graphSetting}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getWidth",
+          "span": [
+            1,
+            83294,
+            1,
+            83336
+          ],
+          "offsets": [
+            83294,
+            83336
+          ],
+          "source": "function(){return this.myGraph.getWidth()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getChartRect",
+          "span": [
+            1,
+            83350,
+            1,
+            83396
+          ],
+          "offsets": [
+            83350,
+            83396
+          ],
+          "source": "function(){return this.myGraph.getChartRect()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getChartContainerRect",
+          "span": [
+            1,
+            83419,
+            1,
+            83474
+          ],
+          "offsets": [
+            83419,
+            83474
+          ],
+          "source": "function(){return this.myGraph.getChartContainerRect()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getLegendRect",
+          "span": [
+            1,
+            83489,
+            1,
+            83536
+          ],
+          "offsets": [
+            83489,
+            83536
+          ],
+          "source": "function(){return this.myGraph.getLegendRect()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getChartImageData",
+          "span": [
+            1,
+            83555,
+            1,
+            83606
+          ],
+          "offsets": [
+            83555,
+            83606
+          ],
+          "source": "function(){return this.myGraph.getChartImageData()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.getLegendImageData",
+          "span": [
+            1,
+            83626,
+            1,
+            83678
+          ],
+          "offsets": [
+            83626,
+            83678
+          ],
+          "source": "function(){return this.myGraph.getLegendImageData()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.isShowLegend",
+          "span": [
+            1,
+            83692,
+            1,
+            83738
+          ],
+          "offsets": [
+            83692,
+            83738
+          ],
+          "source": "function(){return this.myGraph.isShowLegend()}"
+        },
+        {
+          "symbol": "eccomposite_v1.group.graph.basic.draw",
+          "span": [
+            1,
+            83744,
+            1,
+            84155
+          ],
+          "offsets": [
+            83744,
+            84155
+          ],
+          "source": "function(n){this.show();this.clear();this.graphData=n&&n.graphData||{};this.graphSetting=n&&n.graphSetting||{};this.rowData=n&&n.rowData||[];this.setGraphData();this.setGraphSetting();this.setChartWidth(this.graphData.width);this.setChartHeight(this.graphData.height);this.setChartEventBind();this.setLegendEventBind();this.setTooltipEventBind();this.setLineSetting();this.setLegendSetting();this.createGraph()}"
+        }
+      ]
+    },
+    {
+      "id": "own-core",
+      "path": "$SCRATCH/rea-request/dist/purchasing-report-core.js",
+      "sha256": "d57b91fe1ee0ef7e4fb3e32c46892ecb4a30603f3d0953aeb903b608e5de161f",
+      "bytes": 18636,
+      "parse_error_count": 0,
+      "method": "Pinned REA6.4.0 inert AST coordinates, no original execution/new whole semantics",
+      "rows": [
+        {
+          "symbol": "sortResult",
+          "span": [
+            32,
+            1,
+            35,
+            2
+          ],
+          "offsets": [
+            3930,
+            4909
+          ],
+          "source": "function sortResult(result,fields,order){\n  if(order.length){const indexes=new Map(fields.map((f,i)=>[f.id,i])),decorated=result.rows.map((row,index)=>({row,index}));decorated.sort((a,b)=>{for(const rule of order){const i=indexes.get(rule.field),left=a.row[i],right=b.row[i],emptyA=left==null||left==='',emptyB=right==null||right==='';let value=emptyA||emptyB?(emptyA===emptyB?0:emptyA?-1:1):fields[i].kind==='number'?Number(left)-Number(right):String(left).localeCompare(String(right),'ko',{numeric:true});if(value)return rule.direction==='desc'?-value:value;}return a.index-b.index;});result.rows=decorated.map(x=>x.row);if(result.rowRecords)result.rowRecords=decorated.map(x=>result.rowRecords[x.index]);if(result.records)result.records=decorated.map(x=>result.records[x.index]);}\n  result.sort=order;result.sortFields=fields;result.sortLabel=order.map(r=>(fields.find(f=>f.id===r.field)?.label||r.field)+' '+(r.direction==='desc'?'내림차순':'오름차순')).join(' / ');return result;\n }"
+        },
+        {
+          "symbol": "search",
+          "span": [
+            42,
+            1,
+            78,
+            2
+          ],
+          "offsets": [
+            5406,
+            10414
+          ],
+          "source": "function search(db,type,filter={}){\n  const spec=specifications[type];if(!spec)throw Error('직접 관찰되지 않은 현황 화면입니다.');\n  validateDates(filter);\n  const mode=filter.mode||'detail';if(!['detail','summary'].includes(mode))throw Error('조회 메뉴를 확인하세요.');\n  if(mode==='summary'&&type!=='purchase')throw Error('이 화면의 집계 결과는 아직 확인하지 않았습니다.');\n  let axes=[],axisDirections=[];if(mode==='summary'){\n   if(!Array.isArray(filter.axes)||filter.axes.some(x=>typeof x!=='string'))throw Error('집계조건은 1개 이상 선택해야 합니다.');\n   if(filter.axes.length>5)throw Error('집계조건은 최대 5개입니다.');\n   const directions=filter.axisDirections===undefined?[]:filter.axisDirections;if(!Array.isArray(directions)||directions.length&&directions.length!==filter.axes.length||directions.some(x=>!['asc','desc'].includes(x)))throw Error('집계 방향을 확인하세요.');\n   axisDirections=filter.axes.flatMap((axis,i)=>axis?[directions[i]||'asc']:[]);\n   axes=filter.axes.filter(Boolean);if(!axes.length)throw Error('집계조건은 1개 이상 선택해야 합니다.');\n   if(axes.some(x=>!summaryAxes.includes(x)))throw Error('지원하는 집계조건을 선택하세요.');\n   if(new Set(axes).size!==axes.length)throw Error('집계조건을 중복 선택할 수 없습니다.');\n  }\n  if(mode==='detail'&&filter.grouping&&filter.grouping!=='라인별')throw Error('이 구분의 결과 화면은 아직 확인하지 않았습니다.');\n  const fields=sortFields(type,{mode,axes}),order=validateSort(type,filter,fields);\n  if(filter.tradeType||filter.serialLot)throw Error('해당 검색 조건의 원본 하위 규칙은 아직 확인하지 않았습니다.');\n  if(filter.managedItem)throw Error('관리항목 조회 규칙은 아직 확인하지 않았습니다.');\n  if(filter.comparison&&filter.comparison!=='사용안함')throw Error('기간 비교 결과는 아직 확인하지 않았습니다.');\n  const query=String(filter.query||'').trim().toLowerCase(),groups=[];\n  for(const doc of db.documents){\n   if(doc.type!==type||!C.listed(doc)||!within(doc.date,filter.from,filter.to)||filter.number&&!doc.id.includes(filter.number)||filter.warehouse&&doc.warehouse!==filter.warehouse||filter.project&&doc.project!==filter.project)continue;\n   const foreign=Boolean(doc.currency&&doc.currency!=='KRW');if(filter.currency==='domestic'&&foreign||filter.currency==='foreign'&&!foreign)continue;\n   const lines=doc.lines.filter(line=>within(line.dueDate||doc.dueDate,filter.dueFrom,filter.dueTo)&&(!filter.partner||(line.supplier||doc.partner)===filter.partner)&&(!filter.item||line.item===filter.item));\n   if(!lines.length)continue;\n   const lineState=line=>C.purchasingLineState?C.purchasingLineState(doc,line).progress:line.progress??(C.purchasingState?C.purchasingState(doc).progress:doc.status);\n   const state=doc.lines.every(l=>lineState(l)==='완료')?'완료':'진행중';\n   const headerValues={id:doc.date+' '+doc.id,partner:lookup(db,'partners',doc.partner),employee:lookup(db,'employees',doc.employee),warehouse:lookup(db,'warehouses',doc.warehouse),dueDate:doc.dueDate||'',reference:doc.reference||'',progress:state};\n   const header=spec.headerKeys.map(key=>headerValues[key]??'');\n   const details=lines.map(line=>{const item=C.master(db,'items',line.item),amount=C.effectiveLineTotals(doc,line),name=(item?.name||line.item)+(item?.spec?(type==='request'?' ('+item.spec+')':' ['+item.spec+']'):'');const order=doc.sourceId?db.documents.find(d=>d.id===doc.sourceId&&d.type==='purchaseorder'):null;const fields={receipt:doc.date+' '+doc.id,order:order?order.date+' '+order.id:'',warehouse:lookup(db,'warehouses',doc.warehouse),employee:lookup(db,'employees',doc.employee),partner:lookup(db,'partners',line.supplier||doc.partner),item:line.item,spec:item?.spec||'',vatPrice:C.money(amount.price*(1+Number(doc.vatRate??10)/100)),boxUnit:item?.boxUnit??'',unit:item?.unit??'',total:amount.total,memo:line.memo??'',group1:item?.group1Name??item?.group1??'',group2:item?.group2Name??item?.group2??'',group3:item?.group3Name??item?.group3??'',name:spec.flat?(item?.name||line.item):name,qty:amount.qty,price:amount.price,supply:amount.supply,tax:amount.tax,blank:'',dueDate:line.dueDate||doc.dueDate||''};return {line,amount,values:spec.lineKeys.map(key=>fields[key]??'')};});\n   if(query&&!JSON.stringify([header,details.map(x=>x.values)]).toLowerCase().includes(query))continue;\n   groups.push({document:doc,header,lines:details});\n  }\n  groups.sort((a,b)=>a.document.date.localeCompare(b.document.date)||a.document.id.localeCompare(b.document.id));\n  if(mode==='summary')return sortResult(summarize(db,groups,axes,spec.title,axisDirections),fields,order);\n  return sortResult({layout:spec.flat?'flat':'grouped',columns:[...spec.header],rows:spec.flat?groups.flatMap(g=>g.lines.map(l=>l.values)):undefined,rowRecords:spec.flat?groups.flatMap(g=>g.lines.map(l=>({document:g.document,line:l.line}))):undefined,title:spec.title,headerColumns:[...spec.header],lineColumns:[...spec.line],groups,summary:{documents:groups.length,lines:groups.reduce((n,g)=>n+g.lines.length,0),quantity:C.quantity(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.qty,0),0)),supply:C.money(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.supply,0),0)),tax:C.money(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.tax,0),0))}},fields,order);\n }"
+        },
+        {
+          "symbol": "summarize",
+          "span": [
+            89,
+            1,
+            101,
+            2
+          ],
+          "offsets": [
+            12288,
+            14507
+          ],
+          "source": "function summarize(db,documents,axes,title,axisDirections){\n  const currencies=new Set(documents.map(g=>g.document.currency||'KRW'));if(currencies.size>1)throw Error('서로 다른 통화는 함께 집계할 수 없습니다. 내·외자 또는 거래처 조건을 좁혀 주세요.');\n  const groups=new Map(),summary={documents:documents.length,lines:0,quantity:0,supply:0,tax:0,total:0};\n  for(const group of documents){const positions=axes.includes('라인별')?new Map(group.document.lines.map((line,i)=>[line,i+1])):null;for(const detail of group.lines){\n   const doc=group.document,line=detail.line,position=positions?.get(line),axis=axes.map(x=>summaryAxisCode(db,doc,line,x,position)),key=JSON.stringify(axis);\n   let row=groups.get(key);if(!row){row={axis,labels:axis.map((code,i)=>summaryAxisLabel(db,axes[i],code,doc,position)),quantity:0,supply:0,tax:0,total:0};groups.set(key,row);}\n   row.quantity=C.quantity(row.quantity+detail.amount.qty);summary.quantity=C.quantity(summary.quantity+detail.amount.qty);summary.lines++;\n   for(const k of ['supply','tax','total']){row[k]=C.money(row[k]+detail.amount[k]);summary[k]=C.money(summary[k]+detail.amount[k]);}\n  }}\n  const records=[...groups.values()].sort((a,b)=>{for(let i=0;i<axes.length;i++){const order=(summaryDimensions[axes[i]].identity?a.labels[i]:a.axis[i]).localeCompare(summaryDimensions[axes[i]].identity?b.labels[i]:b.axis[i],'ko',{numeric:true});if(order)return axisDirections[i]==='desc'?-order:order;}return JSON.stringify(a.axis).localeCompare(JSON.stringify(b.axis));});\n  const columns=[...axes,'수량','공급가액','부가세','합계'];\n  const currency=[...currencies][0]||'';return {layout:'summary',title:title+' 집계'+(currency?' · '+currency:''),columns,headerColumns:columns,lineColumns:columns,rows:records.map(r=>[...r.labels,r.quantity,r.supply,r.tax,r.total]),records,axes:[...axes],identityBasisLabel:axes.some(axis=>summaryDimensions[axis].identity)?'전표별·라인별은 REA 전표 번호와 현재 행 번호로 표시합니다.':'',groupBasisLabel:['품목','거래처','프로젝트'].filter(name=>axes.some(axis=>axis.startsWith(name+'그룹'))).map(name=>name+'그룹은 현재 '+name+' 등록정보 기준으로 집계합니다.').join(' '),axisDirections:[...axisDirections],axisOrderLabel:axes.map((axis,i)=>axis+' '+(axisDirections[i]==='desc'?'내림차순':'오름차순')).join(' / '),groups:documents,summary,currency};\n }"
+        }
+      ]
+    }
+  ]
+}

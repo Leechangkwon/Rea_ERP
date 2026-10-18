@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T06:54:42.787943+00:00",
+  "scope": {
+    "source": "2 exact DOM-observed public URLs supplied by parent; ordinary unauthenticated GET once each; inert text only.",
+    "new_GET_attempts": 2,
+    "no_cookies_or_browser_state": true,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "target_execution": false,
+    "application_or_checkout_edits": false,
+    "prior_contract_edits": false,
+    "deployment_boundary": "Future evidence extension; original72/0.19 evidence remains unchanged."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; original offsets use UTF16. Common full static AST spans are in original-static-span-evidence.json. Excerpt callable IDs are local to their excerpt, never claimed as full common IR.",
+  "files": {
+    "sources": "source-manifest.json",
+    "actual_analysis_status": "analysis-summary.json",
+    "original_static_AST": "original-static-span-evidence.json",
+    "selected_map": "selected-source-map.json",
+    "consumer_map": "consumer-source-map.json",
+    "cumulative_counts": "cumulative-counts.json"
+  },
+  "body_results": [
+    {
+      "source": "common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "static_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 452374,
+      "full_semantic_status": "unknown_oom",
+      "callables": null,
+      "calls": null,
+      "frontiers": null
+    },
+    {
+      "source": "infra_common.66b0fcc1.js",
+      "sha256": "c8bfe06ad2f6e8dd90db8518e5e39239af1b614907515175809a30ebcf3bbf89",
+      "bytes": 392801,
+      "static_status": "complete",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 40587,
+      "full_semantic_status": "completed",
+      "callables": 1080,
+      "calls": 1968,
+      "frontiers": 2119
+    }
+  ],
+  "actual_excerpt_results": [
+    {
+      "rea_version": "6.4.0",
+      "scope": "selected-source excerpts; not full body semantic completion",
+      "budget_seconds": 8,
+      "source_executed": false,
+      "process_status": "completed",
+      "exit_code": 0,
+      "elapsed_ms": 315,
+      "parse_status": "complete",
+      "parse_error_count": 0,
+      "callables": 37,
+      "call_sites": 91,
+      "frontiers": 93,
+      "semantic_status": "completed",
+      "analysis_dir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts"
+    },
+    {
+      "rea_version": "6.4.0",
+      "scope": "selected source consumers only; common full semantic remains OOM",
+      "budget_seconds": 8,
+      "source_executed": false,
+      "process_status": "completed",
+      "exit_code": 0,
+      "elapsed_ms": 265,
+      "parse_status": "complete",
+      "parse_error_count": 0,
+      "callables": 10,
+      "call_sites": 30,
+      "frontiers": 30,
+      "semantic_status": "completed",
+      "analysis_dir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-consumer-excerpts"
+    }
+  ],
+  "parent_current_UI_observations": {
+    "five_axes_query_header_count": 9,
+    "all_five_filled_sixth_row_appears": false,
+    "initial_empty_rows": 4,
+    "four_filled_adds_fifth": true,
+    "clear_first_three_keep_condition4_item_query_allowed": true,
+    "selected_axes_excluded_from_candidates": true,
+    "per_axis_buttons": [
+      "btn-asc",
+      "btn-add-sum"
+    ],
+    "limits": "Supplied read/query UI observations, not worker browser observations. Original direction/subtotal click transition verification remains with owner.",
+    "direction_toggle": {
+      "axis": "condition1=프로젝트별",
+      "before_class": "btn-asc",
+      "after_one_click_class": "btn-desc",
+      "query_after_toggle_executed": false,
+      "reverse_toggle": "Owner plans restore; completed reverse transition not supplied."
+    },
+    "subtotal_toggle": {
+      "axis": "condition1=프로젝트별",
+      "before_class": "btn-add-sum",
+      "after_one_click_class": "btn-unadd-sum",
+      "query_after_toggle_executed": false,
+      "reverse_toggle": "Owner plans restore; completed reverse transition not supplied."
+    }
+  },
+  "contracts": {
+    "new_axis_selection": {
+      "status": "Compatible generic selector/return contract found; current control action binding/overrides not proven",
+      "source": "OpenTemplateItemPopupUserAction collects current owner.dmc value members owning prop_id into except_props, limits target_props to summary/summary_code definition entries, passes keyword only for action_target CHANGE. $$aggregate uses is_multi_select=false. First returned template_item is mapped to a condition object.",
+      "returned_fields": {
+        "prop_id": "selected prop_id",
+        "label": "display_name",
+        "sort_type": "A (Asc)",
+        "show_subtotal": true,
+        "refer_type": "prop_refer_type",
+        "data_type": "prop_data_type",
+        "prop_name": "prop_name",
+        "item_meaning_id": "prop_item_meaning_id"
+      },
+      "evidence": [
+        "OpenTemplateItemPopupUserAction.executeAsync",
+        "getAggregateConditionData"
+      ],
+      "boundary": "This is the selector returned default for newly selected free axis. It is not the empty form default or fixed(details_target) conversion default; receiving component may override."
+    },
+    "selected_axis_order_and_gaps": {
+      "source": "getAggregateConditionKeys keeps only /^condition_\\d{2}$/ keys with truthy value AND truthy prop_id, then sorts by numeric suffix. Thus later populated slots are retained and compact consumers iterate selected slots in condition-number order.",
+      "evidence": [
+        "getAggregateConditionKeys"
+      ],
+      "boundary": "This helper itself has no maximum5 or adjacent-slot requirement. Actual initial4->5 and no6 after five are current UI facts; component insertion/cap implementation is not captured."
+    },
+    "direction_values": {
+      "status": "Source initializer A=Asc; explicit D=Desc consumer found",
+      "source": "getComparisonPeriodCriteria reads free aggregate selected conditions, returns {prop_id,descending:value.sort_type===D}. Other values, including A, give false.",
+      "evidence": [
+        "getAggregateConditionData",
+        "getComparisonPeriodCriteria"
+      ],
+      "consumption_scope": "Comparison-period DLT configuration, not a general proof of server ordering. common grid$comparison_period_dlt_feature_config [27308,1,27337,2] stores criteria as comparison_period_criteria [27320..27336].",
+      "separate_option_sort": "SearchSortDescriptor.toSortsFromOption emits type D iff option.sort_type===D, otherwise A; options are distinct from aggregate condition slots.",
+      "unknown": [
+        "Actual btn-asc/btn-desc toggle handler",
+        "Whether current component overrides selector default",
+        "Axis sort_type extraction into request.sorts/server general ORDER BY"
+      ],
+      "owner_implementation_boundary": "Owner plans0.20 to use own local group-code ordering: existing explicit sort first, axis direction for ties. This precedence is an independent implementation policy, not proven original generic query ordering."
+    },
+    "aggregate_to_query_conditions": {
+      "status": "Actual retained implementation now identified; common full static + selected semantic evidence",
+      "steps": [
+        "onExecuteAsync routes dto.dmc through _createSearchRequestDto, else legacy shape conversion.",
+        "For data_type $$aggregate it configures condition=equal_condition and group=aggregate, with no sort mapper id set by this branch.",
+        "SearchModelDescriptor.toRequestDto executes registered Condition/Sort/Group callbacks from DMC metadata, resolves list property IDs, deduplicates group IDs, returns conditions/sorts/groups plus optional flow_condition.",
+        "Then _applySearchRequestNormalizers dispatches registered $$aggregate normalizeAggregateRequest and _mergeOptionSorts applies separate option_sort.",
+        "normalizeAggregateRequest gets the DMC aggregate value and resolved list prop; if a matching condition exists, replaces its value with buildNormalizedAggregate output; always rebuilds groups."
+      ],
+      "evidence": [
+        "DataModelModifierForSearchConditionProgram.onExecuteAsync",
+        "DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+        "SearchModelDescriptor.toRequestDto",
+        "SearchModelDescriptor.defineMapperFn",
+        "DataModelModifierForSearchConditionProgram._applySearchRequestNormalizers",
+        "normalizeAggregateRequest",
+        "DataModelModifierForSearchConditionProgram._mergeOptionSorts"
+      ],
+      "registry_registration_span": [
+        62529,
+        0,
+        62529,
+        121
+      ],
+      "unknown": "Actual equal_condition / aggregate callback registrations are external and were not identified in inspected retained sources. Runtime DMC definitions/mappers/current page binding and server processing remain unknown."
+    },
+    "free_aggregate_normalization": {
+      "source": "For type free, buildNormalizedAggregate removes only details_target and returns the remaining object. All retained condition_0N nested fields, including sort_type and show_subtotal if present, are preserved without local coercion/renumbering.",
+      "evidence": [
+        "buildNormalizedAggregate"
+      ],
+      "boundary": "Preservation inside a condition value is not proof that request.sorts is populated or a server uses a given field."
+    },
+    "fixed_details_conversion": {
+      "source": "For non-free with details_target, filter props with truthy prop_id, slice to external EN_CONDITION_KEYS.length, and create condition objects in those external key slots. Created fields use sort_type=A and show_subtotal=false. With no details_target, return aggregate_key/comparison_period only.",
+      "evidence": [
+        "buildNormalizedAggregate",
+        "buildConditionsFromDetails"
+      ],
+      "boundary": "These fixed-mode defaults must not replace free selector show_subtotal=true. EN_CONDITION_KEYS definition is not present in these2 bodies."
+    },
+    "group_membership": {
+      "source": "rebuildAggregateGroups returns [] for fixed+details_target.value=line. Otherwise it loops external EN_CONDITION_KEYS, skips absent/falsy prop_id and duplicate identical prop_id, and emits {prop_id} only. It does not inspect show_subtotal or sort_type.",
+      "evidence": [
+        "rebuildAggregateGroups"
+      ],
+      "implication": "In this client normalizer, a selected axis remains a group when show_subtotal=false; direction/subtotal do not become fields on group descriptors. This does not prove backend group formulas or arbitrary duplicate input acceptance."
+    },
+    "request_sorts_boundary": {
+      "source": "The $$aggregate branch does not define a sort mapper. Its normalizer replaces condition.value and result.groups but does not modify result.sorts. Separate options get converted and merged, with option entries winning by identical prop_id and final priority order.",
+      "evidence": [
+        "DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+        "normalizeAggregateRequest",
+        "rebuildAggregateGroups",
+        "DataModelModifierForSearchConditionProgram._mergeOptionSorts",
+        "SearchSortDescriptor.toSortsFromOption",
+        "SearchSortDescriptor.mergeSorts"
+      ],
+      "unknown": "No direct condition_NN.sort_type -> request.sorts mapper implementation identified. Do not claim that axis direction is ignored: it remains nested in the free aggregate condition value and server interpretation is unknown."
+    },
+    "show_subtotal_to_grid_config": {
+      "source": "buildSummarySort enumerates getAggregateConditionKeys and maps each selected condition to consecutive sort_seq, sort_prop=prop_id, subtot_tf=show_subtotal. This synthetic sort hard-codes asc_desc=A. createSummaryConfig passes it to getGroupAggregateConfigs; free grid$aggregate_dlt_feature_config stores returned config as feature_configs.data_generator.summary_config.",
+      "evidence": [
+        "buildSummarySort",
+        "createSummaryConfig",
+        "getGroupAggregateConfigs",
+        "grid$aggregate_dlt_feature_config"
+      ],
+      "guards": "getGroupAggregateConfigs skips missing group section DMC/prop/datatype, numeric sort props, configured Count grouping in aggregate modes, and resolveDateUnit Skip. Eligible config carries subtot_tf unchanged plus dynamically resolved accumulators/title metadata.",
+      "boundary": "This is a local grid/DLT configuration consumer. It does not reveal the original server measure/tax/rounding formulas or show final generated rows without the external generator/current dynamic definitions. Synthetic asc_desc=A is not evidence that request direction is always A.",
+      "override": "Separate grid$ui_sort_dlt_feature_config [27596,2,27621,2] may replace subtotal_config and delete existing summary_config. Current runtime override state is unobserved."
+    },
+    "response_and_print": {
+      "status": "Local grid config consumer found; server response/print field consumer unknown",
+      "known": "The preceding chain feeds aggregate flags into local summary generation configuration. The retained inventory SelectInventoryStatusProgram consumer returns server result.data/total_number/date; no source server action was executed.",
+      "unknown": [
+        "Original server response formula and whether show_subtotal changes response rows or only local display",
+        "External data_generator behavior and actual current template section definitions",
+        "A direct print-specific consumer of show_subtotal; no print equivalence is asserted"
+      ]
+    },
+    "actual_control_buttons": {
+      "status": "unknown",
+      "source_scan": "No btn-add-sum / btn-asc / btn-desc literals in either newly captured body. Source field contracts above are separated from control class/event implementation.",
+      "unknown": [
+        "Actual JS handlers and runtime binding",
+        "Serialized field values after each UI click",
+        "Reverse-cycle behavior until restore is completed",
+        "Post-query ordering/subtotal rows and original formulas",
+        "Empty-row insertion component implementation and general persistence/reset scope"
+      ],
+      "UI_scope": "Parent directly observed asc->desc and add-sum->unadd-sum after one click on project axis. Actual JS handler and serialized field transitions remain unknown; no query ran with those options."
+    }
+  },
+  "actual_REA_evidence": {
+    "getAggregateConditionKeys": {
+      "source_analysis": "common_selected",
+      "symbol": "getAggregateConditionKeys",
+      "original_span": [
+        111,
+        0,
+        124,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:110:636",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "OpenTemplateItemPopupUserAction.executeAsync": {
+      "source_analysis": "common_selected",
+      "symbol": "OpenTemplateItemPopupUserAction.executeAsync",
+      "original_span": [
+        56005,
+        26,
+        56063,
+        5
+      ],
+      "actual_REA_callable_id": "callable:function:57378:60712",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 16,
+      "call_resolution": {
+        "unresolved": 15,
+        "exact": 1
+      }
+    },
+    "getAggregateConditionData": {
+      "source_analysis": "common_selected",
+      "symbol": "getAggregateConditionData",
+      "original_span": [
+        56068,
+        0,
+        56080,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:60720:61175",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 0,
+      "call_resolution": {}
+    },
+    "normalizeAggregateRequest": {
+      "source_analysis": "common_selected",
+      "symbol": "normalizeAggregateRequest",
+      "original_span": [
+        62452,
+        0,
+        62462,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:68201:68754",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 5,
+      "call_resolution": {
+        "unresolved": 3,
+        "exact": 2
+      }
+    },
+    "buildNormalizedAggregate": {
+      "source_analysis": "common_selected",
+      "symbol": "buildNormalizedAggregate",
+      "original_span": [
+        62464,
+        0,
+        62487,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:68756:69608",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "buildConditionsFromDetails": {
+      "source_analysis": "common_selected",
+      "symbol": "buildConditionsFromDetails",
+      "original_span": [
+        62489,
+        0,
+        62504,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:69610:70182",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "rebuildAggregateGroups": {
+      "source_analysis": "common_selected",
+      "symbol": "rebuildAggregateGroups",
+      "original_span": [
+        62508,
+        0,
+        62528,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:70186:71095",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 4,
+      "call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "DataModelModifierForSearchConditionProgram.onExecuteAsync": {
+      "source_analysis": "common_selected",
+      "symbol": "DataModelModifierForSearchConditionProgram.onExecuteAsync",
+      "original_span": [
+        62542,
+        4,
+        62547,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:71397:71642",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "DataModelModifierForSearchConditionProgram._createSearchRequestDto": {
+      "source_analysis": "common_selected",
+      "symbol": "DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+      "original_span": [
+        62628,
+        4,
+        62736,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:75647:82223",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "DataModelModifierForSearchConditionProgram._applySearchRequestNormalizers": {
+      "source_analysis": "common_selected",
+      "symbol": "DataModelModifierForSearchConditionProgram._applySearchRequestNormalizers",
+      "original_span": [
+        62755,
+        4,
+        62771,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:82984:83573",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 4,
+      "call_resolution": {
+        "unresolved": 3,
+        "exact": 1
+      }
+    },
+    "DataModelModifierForSearchConditionProgram._mergeOptionSorts": {
+      "source_analysis": "common_selected",
+      "symbol": "DataModelModifierForSearchConditionProgram._mergeOptionSorts",
+      "original_span": [
+        62741,
+        4,
+        62746,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:82391:82659",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "buildSummarySort": {
+      "source_analysis": "common_selected",
+      "symbol": "buildSummarySort",
+      "original_span": [
+        21028,
+        0,
+        21048,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:21540:22314",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 2,
+      "call_resolution": {
+        "exact": 1,
+        "unresolved": 1
+      }
+    },
+    "getGroupAggregateConfigs": {
+      "source_analysis": "common_consumers",
+      "symbol": "getGroupAggregateConfigs",
+      "original_span": [
+        20808,
+        0,
+        20863,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:20807:23259",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "createSummaryConfig": {
+      "source_analysis": "common_consumers",
+      "symbol": "createSummaryConfig",
+      "original_span": [
+        21004,
+        29,
+        21026,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:23429:24257",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 6,
+      "call_resolution": {
+        "unresolved": 5,
+        "exact": 1
+      }
+    },
+    "getComparisonPeriodCriteria": {
+      "source_analysis": "common_consumers",
+      "symbol": "getComparisonPeriodCriteria",
+      "original_span": [
+        27465,
+        0,
+        27484,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:30697:31901",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 5,
+      "call_resolution": {
+        "unresolved": 5
+      }
+    },
+    "grid$aggregate_dlt_feature_config": {
+      "source_analysis": "common_consumers",
+      "symbol": "grid$aggregate_dlt_feature_config",
+      "original_span": [
+        27484,
+        43,
+        27530,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:31943:34209",
+      "callable_id_scope": "Derived selected excerpt only; not full common IR. Original line/column mapping preserved.",
+      "direct_calls": 5,
+      "call_resolution": {
+        "unresolved": 4,
+        "exact": 1
+      }
+    },
+    "SearchMapperFnRegistry.register": {
+      "source_analysis": "infra_full",
+      "symbol": "SearchMapperFnRegistry.register",
+      "original_span": [
+        1648,
+        4,
+        1656,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:68319:68680",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "getSearchMapperFn": {
+      "source_analysis": "infra_full",
+      "symbol": "getSearchMapperFn",
+      "original_span": [
+        1664,
+        0,
+        1670,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:68874:69185",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "SearchModelDescriptor.toRequestDto": {
+      "source_analysis": "infra_full",
+      "symbol": "SearchModelDescriptor.toRequestDto",
+      "original_span": [
+        1932,
+        4,
+        2012,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:80569:84372",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 26,
+      "call_resolution": {
+        "unresolved": 23,
+        "exact": 3
+      }
+    },
+    "SearchModelDescriptor.defineMapperFn": {
+      "source_analysis": "infra_full",
+      "symbol": "SearchModelDescriptor.defineMapperFn",
+      "original_span": [
+        2016,
+        4,
+        2029,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:84481:85136",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "SearchSortDescriptor.toSortsFromOption": {
+      "source_analysis": "infra_full",
+      "symbol": "SearchSortDescriptor.toSortsFromOption",
+      "original_span": [
+        2237,
+        4,
+        2246,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:94262:94638",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "SearchSortDescriptor.mergeSorts": {
+      "source_analysis": "infra_full",
+      "symbol": "SearchSortDescriptor.mergeSorts",
+      "original_span": [
+        2247,
+        4,
+        2259,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:94643:95101",
+      "callable_id_scope": "Full infra original",
+      "direct_calls": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    }
+  },
+  "limits": [
+    "common full semantic analysis failed OOM at18173ms under2GiB; no full-body retry occurred. Excerpt successes do not promote it.",
+    "Common selected excerpts completed actual REA6.4 separately (37/91/93 and10/30/30 callable/call/frontier); excluded from original body totals.",
+    "New corpus totals74body/17067099B belong to future research, while existing72/0.19 evidence is unchanged.",
+    "Dynamic calls and callback registry bindings remain static candidates. Current DOM preloading does not prove every referenced path was invoked.",
+    "Current UI max5 is observed on this form. Neither helper regex nor external EN_CONDITION_KEYS reference alone establishes a universal UI limit."
+  ]
+}

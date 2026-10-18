@@ -1,0 +1,428 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T05:23:11.111958+00:00",
+  "scope": {
+    "retained_unique_original_bodies_inspected": 65,
+    "inspected_hash_manifest": "$SCRATCH/save-review-inspected-sources-20261018.json",
+    "method": "Read-only literal inventory across retained public bodies; bounded REA6.4 parser traversal for exact nodes; relevant methods joined to existing actual REA6.4 semantic IR. No source evaluation or new analysis-completion claims.",
+    "browser_actions": 0,
+    "new_GETs": 0,
+    "source_execution": false,
+    "application_edits": false,
+    "live_runtime_bindings_verified": false,
+    "original_main_row_interaction": "Stopped by owner because row control interaction alone caused blank autosave; this worker did no row actions."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn], end exclusive; not byte offsets",
+  "programs": [
+    {
+      "screen": "발주요청",
+      "id": "request",
+      "input_program_id": "E040314",
+      "bizz_sid": "B_000000E040314",
+      "input_routes": {
+        "legacy": "/ECERP/SVC/ESG/ESG018M",
+        "declared_current_version": "V56",
+        "V56": "/ec56/view/inventory/input"
+      },
+      "input_source_status": "Retained V56 purchase_request_input and purchase_request_bottom_button templates present. No captured legacy ESG018M page-specific model. Current tenant/version route not independently re-observed.",
+      "save_review_exposure": {
+        "status": "explicit-template-declaration",
+        "label_comment": "저장/내용유지",
+        "template": "purchase_request_bottom_button",
+        "item": "save_review child of save",
+        "live_display_or_permission_gating": "unknown; DynamicBottomButtonModel and runtime setup/attributes may hide or bind actions",
+        "evidence": [
+          "request_meta",
+          "request_footer",
+          "request_input"
+        ]
+      },
+      "post_save_behavior": {
+        "status": "generic-V56-review-action-explicit-GET_MODIFY; runtime binding to active button remains unverified",
+        "retained_v56_implementation": "CreateAndModifyInventoryReviewSlipUserAction executes inventory$ExecuteInventorySlipSaveProgram. Falsy result returns without navigation; successful result deletes temporary-save feature data, resolves response data_sid/version_no/data_dt/data_no, reloads same menu/bizz with action_mode GET_MODIFY. Popup/window parent-message branch occurs after reload.",
+        "legacy_v5_implementation": "Separate actions.js implementation also reloads GET_MODIFY using successful response keys; reads menu save_action_mode before ExecuteSetupMainProgram and restores GET_CREATE/GET_MODIFY on failure/no-continue.",
+        "overrides": "The V56 review action is a separate implementation, not v3 pageInfo.action.fn/inputEvent dispatch. No page-specific request override replacing its GET_MODIFY navigation was found in inspected bodies. Setup-main/custom features can block or alter saved data; complete runtime attributes/registry are unavailable.",
+        "evidence": [
+          "request_review_v56",
+          "request_review_v56_target",
+          "request_review_v56_reload",
+          "v56_save_pipeline",
+          "request_review_v5"
+        ]
+      },
+      "implementation_boundary": "Source supports saved-response-key modify re-entry for this review action. It does not establish currently visible button/action binding, server acceptance, validation parity or all field values; do not claim v3 pipeline equivalence."
+    },
+    {
+      "screen": "발주계획",
+      "id": "plan",
+      "input_program_symbol": "ecount.programId.Inventory.PurchasePlanInput",
+      "input_route": "/ECERP/SVC/ESG/ESG001M",
+      "menu_sequence_mapping": "506",
+      "input_source_status": "absent-from-inspected-retained-corpus; ESG002M list source and route/transfer references only",
+      "save_review_exposure": {
+        "status": "unknown",
+        "reason": "No ESG001M input page/model or purchase_plan bottom-button template captured. Plan list footer is not input Save dropdown evidence."
+      },
+      "post_save_behavior": {
+        "status": "unknown",
+        "reason": "Cannot inspect pageInfo.action.save/action.fn/footer.save/customAsyncListCustom for an absent input page. Shared v3 save_review modify branch alone does not establish this screen uses it unchanged."
+      },
+      "evidence": [
+        "input_route_506"
+      ],
+      "related_retained_list": {
+        "path": "$SCRATCH/rea-request/.artifacts/purchasing-original/planList.js",
+        "sha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe"
+      },
+      "implementation_boundary": "No source-backed exposure/override basis yet for extending purchase-only save-review to this screen."
+    },
+    {
+      "screen": "발주서",
+      "id": "purchaseorder",
+      "bizz_sid_from_meta": "B_000000E040301",
+      "input_program_symbol": "ecount.programId.Inventory.PurchaseOrderInput",
+      "input_route": "/ECERP/SVC/ESG/ESG004M",
+      "menu_sequence_mapping": "508",
+      "input_source_status": "absent-from-inspected-retained-corpus; purchase_order_page_meta covers outstanding-status page only, not input",
+      "save_review_exposure": {
+        "status": "unknown",
+        "reason": "No ESG004M input page/model or purchase_order bottom-button template captured."
+      },
+      "post_save_behavior": {
+        "status": "unknown",
+        "reason": "Page-specific action/save override and runtime handler not captured; shared footer existence is insufficient."
+      },
+      "evidence": [
+        "input_route_508",
+        "order_meta"
+      ],
+      "implementation_boundary": "No source-backed exposure/override basis yet for extending purchase-only save-review to this screen."
+    },
+    {
+      "screen": "구매",
+      "id": "purchase",
+      "status": "baseline handled by owner; original dropdown labels observed by owner, not this worker",
+      "shared_v3_contract": "save_review -> execSlipSaveReview -> saveType saveReview -> save pipeline -> same page Request.EditMode modify and saved/current slip Date/No. First mode branch precedes isPopup close branch.",
+      "shared_contract_file": "$SCRATCH/footer-save-rea-20261018/footer-save-contract.json",
+      "branch_order_file": "$SCRATCH/footer-save-rea-20261018/branch-order-clarification.json",
+      "page_specific_overrides": "Current purchase pageInfo/action.fn data is not a captured original body in this retained set; source-level shared behavior is conditional on current configuration."
+    }
+  ],
+  "override_inspection": {
+    "v3_override_mechanism": "inputEvent.defaultActionFunction selects explicit sequence or pageInfo.action[name], allows customAsyncListCustom, and prefers pageInfo.action.fn[step] over default step handlers. initActionSetting supplies default save sequence only when absent; getSaveApiParam supports pageInfo.params.footer.save.",
+    "v3_source_evidence": "$SCRATCH/footer-save-rea-20261018/precise-source-evidence.json",
+    "retained_page_specific_findings": "No request/plan/order input legacy pageInfo/action save override body found. Absence in inspected corpus is not proof absent at runtime. condition_bundle_event has its own save-after-submit implementation, but no binding to requested three screens was found; do not transfer its behavior.",
+    "v56_save_pipeline": "ExecuteInventorySlipSaveProgram delegates request_execute_setup_main; request.additional_info.block_save can stop; exception/no-continue returns without successful navigation. It does not override the review action successful GET_MODIFY target in the inspected implementation.",
+    "v56_current_binding_unknown": "Both retained app.inventory.user_action V5 and inventory V56 expose review action classes. Bundle presence and template ids do not establish which registry/action/setup current tenant selects."
+  },
+  "ROW_MOVEABLE": {
+    "handler_definition_status": "not-found-in-inspected-65-original-bodies",
+    "exact_uppercase_occurrences": 1,
+    "field_evidence": [
+      "row_column_mapping",
+      "row_payload_field"
+    ],
+    "meaning_of_hits": "ROW_MOVEABLE is an empty payload field within OpenCalculateProfitUserAction; row_moveable/ROWMOVEABLE mappings identify a column. These are data/configuration, not action handlers.",
+    "delegation_evidence": [
+      "prod_grid_v2",
+      "prod_grid_v3"
+    ],
+    "delegation": "Product grid createGridV2/createGridV3 call external widget.generator.grid().setEditRowMoveable(gridSettingOption.rowMoveable). Under useRowLineLock guard, included page and useInputLock conditions can skip setup. Actual grid engine control/menu/drag handler is not retained.",
+    "scope_limits": "BOM/tree grids have separate enable/disable settings and custom cells; these do not prove main purchase row-control behavior. No inferred row insert/delete/move/menu contract is recorded.",
+    "blank_autosave": "Parent UI observation is separate. Source hits do not establish causal path from ROW_MOVEABLE click to temporary-save request."
+  },
+  "sources": {
+    "inventory": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "known_public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.5b28ea0e.js"
+      ],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 1926,
+        "call_sites": 7148,
+        "frontiers": 8012
+      }
+    },
+    "actions": {
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/actions.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "known_public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js"
+      ],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/04-actions-e70f31a1ac77/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 1002,
+        "call_sites": 4618,
+        "frontiers": 4942
+      }
+    },
+    "orders": {
+      "path": "$SCRATCH/rea-request/.artifacts/request-original/orders.js",
+      "sha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+      "bytes": 138464,
+      "known_public_urls": [
+        "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js"
+      ],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/06-orders-162603c7e8b4/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 233,
+        "call_sites": 700,
+        "frontiers": 808
+      }
+    },
+    "grid": {
+      "path": "$SCRATCH/toolbar-core-rea-20261018/bundle.eccomposite_v1.group.core_3.-1691984462285639727.20.js",
+      "sha256": "457fb04dc2400a351a0a57b566b8820d657d538df9b0b2d1dbc57698f898aeba",
+      "bytes": 208059,
+      "known_public_urls": [],
+      "hash_rechecked": true,
+      "actual_prior_REA_version": "6.4.0",
+      "actual_prior_REA_ir": "$SCRATCH/toolbar-core-rea-20261018/inputs/457fb04dc2400a35/rea-semantic-ir.json",
+      "actual_prior_REA": {
+        "parse_status": "complete",
+        "parse_error_count": 0,
+        "semantic_status": "completed",
+        "callables": 484,
+        "call_sites": 3138,
+        "frontiers": 3976
+      }
+    }
+  },
+  "evidence": {
+    "request_meta": {
+      "source": "inventory",
+      "span": [
+        6311,
+        6,
+        6358,
+        1
+      ]
+    },
+    "order_meta": {
+      "source": "inventory",
+      "span": [
+        6624,
+        6,
+        6641,
+        1
+      ]
+    },
+    "request_footer": {
+      "source": "inventory",
+      "span": [
+        24270,
+        1,
+        24350,
+        6
+      ],
+      "save_review": [
+        {
+          "span": [
+            24287,
+            12,
+            24287,
+            56
+          ],
+          "source": "<item id='save_review' type='button'></item>"
+        }
+      ],
+      "bottom_template_bind": []
+    },
+    "request_input": {
+      "source": "inventory",
+      "span": [
+        24352,
+        1,
+        24619,
+        6
+      ],
+      "save_review": [],
+      "bottom_template_bind": [
+        {
+          "span": [
+            24612,
+            12,
+            24612,
+            63
+          ],
+          "source": "<x x-template='purchase_request_bottom_button'></x>"
+        }
+      ]
+    },
+    "request_review_v56": {
+      "source": "inventory",
+      "span": [
+        15035,
+        26,
+        15125,
+        5
+      ],
+      "symbol": "CreateAndModifyInventoryReviewSlipUserAction.executeAsync",
+      "actual_REA_callable_id": "callable:function:745774:751241",
+      "direct_call_count": 19,
+      "call_resolution": {
+        "exact": 2,
+        "unresolved": 17
+      }
+    },
+    "request_review_v5": {
+      "source": "actions",
+      "span": [
+        1,
+        175537,
+        1,
+        182014
+      ],
+      "symbol": "CreateAndModifyInventoryReviewSlipUserAction.executeAsync",
+      "actual_REA_callable_id": "callable:function:175537:182014",
+      "direct_call_count": 27,
+      "call_resolution": {
+        "exact": 2,
+        "unresolved": 25
+      }
+    },
+    "v56_save_pipeline": {
+      "source": "inventory",
+      "span": [
+        7011,
+        4,
+        7061,
+        5
+      ],
+      "symbol": "ExecuteInventorySlipSaveProgram.onExecuteAsync",
+      "actual_REA_callable_id": "callable:method:329073:332122",
+      "direct_call_count": 10,
+      "call_resolution": {
+        "unresolved": 10
+      }
+    },
+    "input_route_504": {
+      "source": "orders",
+      "span": [
+        1881,
+        4,
+        1890,
+        5
+      ]
+    },
+    "input_route_506": {
+      "source": "orders",
+      "span": [
+        1891,
+        4,
+        1899,
+        5
+      ]
+    },
+    "input_route_508": {
+      "source": "orders",
+      "span": [
+        1910,
+        4,
+        1919,
+        5
+      ]
+    },
+    "prod_grid_v2": {
+      "source": "grid",
+      "span": [
+        1,
+        3444,
+        1,
+        5950
+      ],
+      "symbol": "eccomposite_v1.group.grid.prod.createGridV2",
+      "actual_REA_callable_id": "callable:function:3444:5950",
+      "direct_call_count": 43,
+      "call_resolution": {
+        "unresolved": 43
+      }
+    },
+    "prod_grid_v3": {
+      "source": "grid",
+      "span": [
+        1,
+        5964,
+        1,
+        10391
+      ],
+      "symbol": "eccomposite_v1.group.grid.prod.createGridV3",
+      "actual_REA_callable_id": "callable:function:5964:10391",
+      "direct_call_count": 75,
+      "call_resolution": {
+        "unresolved": 75
+      }
+    },
+    "row_column_mapping": {
+      "source": "actions",
+      "span": [
+        1,
+        297610,
+        1,
+        297679
+      ]
+    },
+    "row_payload_field": {
+      "source": "actions",
+      "span": [
+        1,
+        303201,
+        1,
+        303216
+      ],
+      "owner": "OpenCalculateProfitUserAction.executeAsync slipdata1.details payload",
+      "classification": "payload field; not a ROW_MOVEABLE handler definition"
+    },
+    "request_review_v56_target": {
+      "source": "inventory",
+      "span": [
+        15077,
+        16,
+        15077,
+        41
+      ]
+    },
+    "request_review_v56_reload": {
+      "source": "inventory",
+      "span": [
+        15073,
+        12,
+        15073,
+        30
+      ]
+    },
+    "request_review_v56_save": {
+      "source": "inventory",
+      "span": [
+        15046,
+        55,
+        15046,
+        98
+      ]
+    }
+  },
+  "unknowns": [
+    "Explicit template declaration is not original UI visibility/action-binding or successful save proof.",
+    "Missing plan/order input source prevents per-screen override equivalence claims; absence does not mean feature unsupported.",
+    "No server saves, permissions, modal lifecycle or business data were exercised; source response field mappings do not prove field reset/retention."
+  ]
+}

@@ -1,0 +1,456 @@
+{
+  "actual_REA_version": "6.4.0",
+  "new_semantic_runs": 0,
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn]; end-exclusive UTF16 offsets",
+  "sources": [
+    {
+      "id": "uikit",
+      "path": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "bytes": 756271,
+      "actual_REA": "6.4.0",
+      "semantic_status": "complete",
+      "semantic_ir": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6/rea-semantic-ir.json",
+      "callables": 2203,
+      "calls": 7724,
+      "frontiers": 7033,
+      "SHA_rechecked": true
+    },
+    {
+      "id": "popup",
+      "path": "$SCRATCH/graph-filter-rea-20261018/originals/xgraphfilter.3840202323517767939.20.js",
+      "sha256": "1c59c121d20238ccef85df43c4fd11c6b0ad1b904a8c2022995785ead8cefe84",
+      "bytes": 5560,
+      "actual_REA": "6.4.0",
+      "semantic_status": "complete",
+      "semantic_ir": "$SCRATCH/graph-filter-rea-20261018/popup-analysis/1c59c121d20238cc/rea-semantic-ir.json",
+      "callables": 19,
+      "calls": 82,
+      "frontiers": 120,
+      "SHA_rechecked": true
+    },
+    {
+      "id": "common",
+      "path": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "actual_REA": "6.4.0",
+      "full_static": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57/rea-static.json",
+      "semantic_status": "Prior full common2GB OOM, no retry/full IR",
+      "evidence_level": "Original static AST only",
+      "SHA_rechecked": true
+    }
+  ],
+  "references": {
+    "uikit::useLayerBox.closeAction": {
+      "symbol": "useLayerBox.closeAction",
+      "span": [
+        16,
+        43417,
+        16,
+        44717
+      ],
+      "offsets": [
+        83743,
+        85043
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:83743:85043",
+      "direct_call_count": 5,
+      "direct_call_resolution": {
+        "unresolved": 5
+      }
+    },
+    "uikit::updateHelperLocations": {
+      "symbol": "updateHelperLocations",
+      "span": [
+        16,
+        372992,
+        16,
+        373343
+      ],
+      "offsets": [
+        413318,
+        413669
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:413318:413669",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "uikit::getColorInfo": {
+      "symbol": "getColorInfo",
+      "span": [
+        16,
+        373357,
+        16,
+        373502
+      ],
+      "offsets": [
+        413683,
+        413828
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:413683:413828",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "uikit::getColorData": {
+      "symbol": "getColorData",
+      "span": [
+        16,
+        373516,
+        16,
+        373607
+      ],
+      "offsets": [
+        413842,
+        413933
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:413842:413933",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "uikit::getPaletteColor": {
+      "symbol": "getPaletteColor",
+      "span": [
+        16,
+        373624,
+        16,
+        373696
+      ],
+      "offsets": [
+        413950,
+        414022
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:413950:414022",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "uikit::extractHexCode": {
+      "symbol": "extractHexCode",
+      "span": [
+        16,
+        373712,
+        16,
+        373886
+      ],
+      "offsets": [
+        414038,
+        414212
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:414038:414212",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "uikit::parseCssToRgb": {
+      "symbol": "parseCssToRgb",
+      "span": [
+        16,
+        373901,
+        16,
+        374303
+      ],
+      "offsets": [
+        414227,
+        414629
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:414227:414629",
+      "direct_call_count": 4,
+      "direct_call_resolution": {
+        "unresolved": 4
+      }
+    },
+    "uikit::parseRgbToHex": {
+      "symbol": "parseRgbToHex",
+      "span": [
+        16,
+        374318,
+        16,
+        374824
+      ],
+      "offsets": [
+        414644,
+        415150
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:414644:415150",
+      "direct_call_count": 18,
+      "direct_call_resolution": {
+        "unresolved": 15,
+        "exact": 3
+      }
+    },
+    "uikit::parseCssToHex": {
+      "symbol": "parseCssToHex",
+      "span": [
+        16,
+        374839,
+        16,
+        374942
+      ],
+      "offsets": [
+        415165,
+        415268
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:415165:415268",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "exact": 2
+      }
+    },
+    "uikit::resolveCssToHex": {
+      "symbol": "resolveCssToHex",
+      "span": [
+        16,
+        374959,
+        16,
+        375096
+      ],
+      "offsets": [
+        415285,
+        415422
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:415285:415422",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "exact": 2
+      }
+    },
+    "uikit::PaletteMap": {
+      "symbol": "PaletteMap",
+      "span": [
+        16,
+        375121,
+        16,
+        377123
+      ],
+      "offsets": [
+        415447,
+        417449
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:415447:417449",
+      "direct_call_count": 16,
+      "direct_call_resolution": {
+        "exact": 3,
+        "unresolved": 13
+      }
+    },
+    "uikit::PaletteHue": {
+      "symbol": "PaletteHue",
+      "span": [
+        16,
+        377149,
+        16,
+        378798
+      ],
+      "offsets": [
+        417475,
+        419124
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:417475:419124",
+      "direct_call_count": 11,
+      "direct_call_resolution": {
+        "exact": 1,
+        "unresolved": 10
+      }
+    },
+    "uikit::PaletteValue": {
+      "symbol": "PaletteValue",
+      "span": [
+        16,
+        378826,
+        16,
+        379769
+      ],
+      "offsets": [
+        419152,
+        420095
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:419152:420095",
+      "direct_call_count": 7,
+      "direct_call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "uikit::PaletteButton": {
+      "symbol": "PaletteButton",
+      "span": [
+        16,
+        379798,
+        16,
+        380082
+      ],
+      "offsets": [
+        420124,
+        420408
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:420124:420408",
+      "direct_call_count": 2,
+      "direct_call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "uikit::ColorPicker": {
+      "symbol": "ColorPicker",
+      "span": [
+        16,
+        380128,
+        16,
+        382398
+      ],
+      "offsets": [
+        420454,
+        422724
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:420454:422724",
+      "direct_call_count": 22,
+      "direct_call_resolution": {
+        "unresolved": 22
+      }
+    },
+    "uikit::DefaultColorPickerButton": {
+      "symbol": "DefaultColorPickerButton",
+      "span": [
+        16,
+        382458,
+        16,
+        383817
+      ],
+      "offsets": [
+        422784,
+        424143
+      ],
+      "source_id": "uikit",
+      "actual_REA_callable_id": "callable:function:422784:424143",
+      "direct_call_count": 12,
+      "direct_call_resolution": {
+        "exact": 1,
+        "unresolved": 11
+      }
+    },
+    "popup::GraphFilter.setChangeControlCallback": {
+      "symbol": "GraphFilter.setChangeControlCallback",
+      "span": [
+        1,
+        3150,
+        1,
+        3749
+      ],
+      "offsets": [
+        3150,
+        3749
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:3150:3749",
+      "direct_call_count": 10,
+      "direct_call_resolution": {
+        "unresolved": 10
+      }
+    },
+    "popup::GraphFilter.onFooterApply": {
+      "symbol": "GraphFilter.onFooterApply",
+      "span": [
+        1,
+        3807,
+        1,
+        4976
+      ],
+      "offsets": [
+        3807,
+        4976
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:3807:4976",
+      "direct_call_count": 12,
+      "direct_call_resolution": {
+        "unresolved": 12
+      }
+    },
+    "popup::GraphFilter.onFooterClose": {
+      "symbol": "GraphFilter.onFooterClose",
+      "span": [
+        1,
+        4991,
+        1,
+        5015
+      ],
+      "offsets": [
+        4991,
+        5015
+      ],
+      "source_id": "popup",
+      "actual_REA_callable_id": "callable:function:4991:5015",
+      "direct_call_count": 1,
+      "direct_call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "common::getChartOptionFilter": {
+      "symbol": "getChartOptionFilter",
+      "span": [
+        9027,
+        0,
+        9180,
+        1
+      ],
+      "offsets": [
+        412616,
+        422569
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common semantic OOM; static evidence only"
+    },
+    "common::ConfigureGraphFilterUserAction.executeAsync": {
+      "symbol": "ConfigureGraphFilterUserAction.executeAsync",
+      "span": [
+        56268,
+        26,
+        56322,
+        5
+      ],
+      "offsets": [
+        2641917,
+        2644929
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common semantic OOM; static evidence only"
+    },
+    "common::getFilterData": {
+      "symbol": "getFilterData",
+      "span": [
+        56327,
+        22,
+        56464,
+        1
+      ],
+      "offsets": [
+        2645188,
+        2650740
+      ],
+      "source_id": "common",
+      "actual_REA_callable_id": "unavailable: full common semantic OOM; static evidence only"
+    }
+  }
+}

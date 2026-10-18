@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-18",
+  "version": "0.11.2",
+  "surface": "User signed into another cloud tab; fresh visible ECOUNT purchase screen verified",
+  "account": "Another real operating brand, never treated as disposable",
+  "private_values_retained": false,
+  "company_data_or_settings_changed": false,
+  "search": {
+    "observed": [
+      "Inline searchText input appears inside verification toolbar",
+      "Entered and cleared an observation-only query against blank rows",
+      "No item picker or item insertion appeared"
+    ],
+    "not_verified": [
+      "Populated original row matching",
+      "Repeat/F3/Enter traversal and highlighting semantics"
+    ]
+  },
+  "sort": {
+    "page": "FM080P_02",
+    "observed": [
+      "Three initial priority rows",
+      "No criterion disables direction control",
+      "Choices: none, product code, product name, BOX, quantity",
+      "Selecting product code enables ascending toggle; clicked descending",
+      "Option shows default settings",
+      "Closed without applying or saving"
+    ],
+    "not_verified": [
+      "Maximum original priority count",
+      "Parent result with populated rows",
+      "Default-settings persistence",
+      "BOX conversion",
+      "Comparator rules"
+    ]
+  },
+  "account_registration": {
+    "previous_screen_observed": "E010107 search controls and footer labels",
+    "new_account_sitemap": "Account registration was not shown; cause is not inferred",
+    "public_source_analysis": "Complete parsing; editor and server contracts remain separate unknowns"
+  },
+  "implementation": {
+    "search": "Own substring matching/cycling/highlighting on verification rows; shared-widget equivalence unknown",
+    "sort": "Three priorities against current scan values; staged apply, cancel, empty/duplicate/stale guards",
+    "no_on_apply": true,
+    "no_storage_changes": true
+  }
+}

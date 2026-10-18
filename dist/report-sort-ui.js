@@ -1,0 +1,36 @@
+(function(root){
+ 'use strict';
+ const N=(tag,text,cls)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node;};
+ const button=(text,action)=>{const b=N('button',text);b.type='button';b.onclick=action;return b;};
+ function open(options){
+  const fields=options.getFields().map(f=>({...f})),context=JSON.stringify(fields),focus=document.activeElement;
+  const d=N('dialog',undefined,'inv-dialog report-sort-dialog');d.id='purchasing-report-sort';d.setAttribute('aria-label','정렬/소계설정');
+  const error=N('p','','inv-error');error.setAttribute('role','alert');const body=N('div',undefined,'inv-modal-body'),grid=N('div',undefined,'inv-table-wrap');let picker=null,closed=false,sequence=0;
+  const fresh=()=>({key:++sequence,field:'',direction:'asc',selected:false}),rows=(options.order||[]).map(x=>({...fresh(),...x}));while(rows.length<Math.min(5,Math.max(3,(options.order||[]).length+1)))rows.push(fresh());
+  const finish=()=>{if(closed)return;closed=true;picker?.remove();picker=null;d.remove();options.onClose?.();if(focus?.isConnected)focus.focus();};
+  const close=()=>d.close();d.addEventListener('close',finish);d.addEventListener('cancel',e=>{e.preventDefault();close();});
+  const header=N('div',undefined,'inv-modal-head');header.append(N('h2','정렬/소계설정'),button('닫기',close));d.append(header,body);
+  function choose(row){
+   if(picker)return;const child=N('dialog',undefined,'inv-dialog report-sort-picker');child.id='purchasing-report-sort-fields';child.setAttribute('aria-label','정렬 항목추가');picker=child;
+   const selected=new Set(rows.filter(r=>r!==row).map(r=>r.field)),search=N('input');search.type='search';search.setAttribute('aria-label','정렬 항목 검색');const list=N('div',undefined,'inv-table-wrap'),childBody=N('div',undefined,'inv-modal-body'),childHead=N('div',undefined,'inv-modal-head');
+   const closeChild=()=>child.close();childHead.append(N('h2','항목추가'),button('닫기',closeChild));childBody.append(search,list);child.append(childHead,childBody);
+   function show(){const query=search.value.trim().toLocaleLowerCase('ko-KR'),table=N('table',undefined,'inv-table'),thead=N('thead'),tr=N('tr'),tbody=N('tbody');tr.append(N('th','항목명'));thead.append(tr);const available=fields.filter(f=>!selected.has(f.id)&&(!query||(f.label+' '+f.id).toLocaleLowerCase('ko-KR').includes(query)));
+    for(const f of available){const rowElement=N('tr'),cell=N('td'),pick=button(f.label,()=>{if(!rows.includes(row)){error.textContent='정렬 기준 행이 변경됐습니다. 다시 선택하세요.';closeChild();return;}row.field=f.id;if(rows.length<5&&rows.every(r=>r.field))rows.push(fresh());draw();closeChild();});pick.setAttribute('aria-label','정렬 항목 '+f.label);cell.append(pick);rowElement.append(cell);tbody.append(rowElement);}
+    if(!available.length){const tr=N('tr');tr.append(N('td','선택할 항목이 없습니다.'));tbody.append(tr);}table.append(thead,tbody);list.replaceChildren(table);
+   }
+   search.oninput=show;search.onkeydown=e=>{if(e.key==='Enter')e.preventDefault();};child.addEventListener('cancel',e=>{e.preventDefault();closeChild();});child.addEventListener('keydown',e=>e.stopPropagation());child.addEventListener('close',()=>{child.remove();picker=null;grid.querySelector('[data-sort-key="'+row.key+'"]')?.focus();});document.body.append(child);show();child.showModal();search.focus();
+  }
+  function move(direction){if(direction<0){for(let i=1;i<rows.length;i++)if(rows[i].selected&&!rows[i-1].selected)[rows[i-1],rows[i]]=[rows[i],rows[i-1]];}else for(let i=rows.length-2;i>=0;i--)if(rows[i].selected&&!rows[i+1].selected)[rows[i+1],rows[i]]=[rows[i],rows[i+1]];draw();}
+  function draw(){
+   const table=N('table',undefined,'inv-table'),head=N('thead'),tr=N('tr'),body=N('tbody'),all=N('input');all.type='checkbox';all.setAttribute('aria-label','정렬 기준 전체 선택');all.checked=rows.length>0&&rows.every(r=>r.selected);all.indeterminate=rows.some(r=>r.selected)&&!all.checked;all.onchange=()=>{rows.forEach(r=>r.selected=all.checked);draw();};const first=N('th');first.append(all);tr.append(first);for(const label of ['순서','정렬/소계기준','페이지분할','정렬방법','소계라인','상세설정'])tr.append(N('th',label));head.append(tr);
+   rows.forEach((row,index)=>{const tr=N('tr'),check=N('input');check.type='checkbox';check.checked=row.selected;check.setAttribute('aria-label','정렬 기준 선택 '+(index+1));check.onchange=()=>{row.selected=check.checked;draw();};const selectCell=N('td');selectCell.append(check);const criterion=N('input');criterion.readOnly=true;criterion.value=fields.find(f=>f.id===row.field)?.label||'';criterion.placeholder='정렬/소계기준';criterion.setAttribute('aria-label','정렬/소계기준 '+(index+1));criterion.dataset.sortKey=row.key;criterion.ondblclick=()=>choose(row);criterion.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();choose(row);}};const chooseButton=button('선택',()=>choose(row));chooseButton.setAttribute('aria-label','정렬 항목 선택 '+(index+1));const cell=N('td');cell.append(criterion,chooseButton);
+    const page=N('input');page.type='checkbox';page.disabled=true;page.setAttribute('aria-label','페이지분할 '+(index+1));page.title='페이지 분할 출력은 아직 지원하지 않습니다.';const pageCell=N('td');pageCell.append(page);
+    const direction=button(row.direction==='desc'?'내림차순':'오름차순',()=>{row.direction=row.direction==='desc'?'asc':'desc';draw();});direction.setAttribute('aria-label','정렬방법 '+(index+1));direction.disabled=!row.field;const directionCell=N('td');directionCell.append(direction);
+    const subtotal=N('input');subtotal.type='checkbox';subtotal.disabled=true;subtotal.setAttribute('aria-label','소계라인 '+(index+1));subtotal.title='소계 출력은 아직 지원하지 않습니다.';const subtotalCell=N('td');subtotalCell.append(subtotal);const detail=button('설정',()=>{});detail.disabled=true;detail.title='소계 상세 설정은 아직 지원하지 않습니다.';const detailCell=N('td');detailCell.append(detail);tr.append(selectCell,N('td',String(index+1)),cell,pageCell,directionCell,subtotalCell,detailCell);body.append(tr);
+   });table.append(head,body);grid.replaceChildren(table);
+  }
+  function apply(){if(picker)return;if(JSON.stringify(options.getFields())!==context){error.textContent='조회 항목이 변경됐습니다. 닫고 정렬 기준을 다시 선택하세요.';return;}const order=rows.filter(r=>r.field).map(r=>({field:r.field,direction:r.direction}));if(order.length>5||new Set(order.map(r=>r.field)).size!==order.length||order.some(r=>!fields.some(f=>f.id===r.field)||!['asc','desc'].includes(r.direction))){error.textContent='정렬 기준과 방법을 확인하세요.';return;}try{if(options.onApply(order)!==false)close();}catch(e){error.textContent=e.message;}}
+  const tools=N('div',undefined,'inv-toolbar');tools.append(button('올림',()=>move(-1)),button('내림',()=>move(1)),button('선택삭제',()=>{for(const row of rows){if(row.selected){row.field='';row.direction='asc';}row.selected=false;}draw();}));const actions=N('div',undefined,'inv-toolbar');actions.append(button('적용(F8)',apply),button('닫기',close));body.append(N('p','정렬 기준을 적용한 뒤 검색(F8)을 누르세요.','inv-note'),tools,error,grid,actions);d.addEventListener('keydown',e=>{if(e.key==='F8'){e.preventDefault();e.stopPropagation();apply();}});document.body.append(d);draw();d.showModal();return {element:d,destroy(){if(closed)return;closed=true;picker?.remove();picker=null;d.remove();options.onClose?.();}};
+ }
+ root.ReportSortUI={open};
+})(typeof globalThis==='object'?globalThis:this);

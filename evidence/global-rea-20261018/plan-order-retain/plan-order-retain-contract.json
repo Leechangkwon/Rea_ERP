@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T08:00:04.775408+00:00",
+  "scope": {
+    "read_only": true,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "original_source_execution": false,
+    "original_saves_or_input_edits": false,
+    "app_edits": false,
+    "prior_contract_edits": false,
+    "tests_executed": false,
+    "original_bodies_scanned": 78,
+    "original_bytes": 19149569,
+    "corpus_increment": 0,
+    "independent_of": "Owner 0.25 CSV full checks; this report does not establish their result"
+  },
+  "conclusion": {
+    "original_plan_retain": "unknown",
+    "original_purchaseorder_retain": "unknown",
+    "own_extension_feasibility": "Existing shared own editor/core can support a deliberate same-document modification flow, conditional on original toolbar exposure/binding evidence and acceptance cases below; no implementation or test result is claimed.",
+    "single_flag_warning": "Actual current flag is InventoryUI.docEditor.retainSupported, not a module named EntrySave/supportsRetain. It gates button, optimistic conflict check, latest reload, existing-editor capture, and main F7 ID/base rebasing together."
+  },
+  "original_programs": [
+    {
+      "id": "plan",
+      "label": "발주계획",
+      "route": "/ECERP/SVC/ESG/ESG001M",
+      "program": "ecount.programId.Inventory.PurchasePlanInput",
+      "route_evidence": [
+        "input_route_506"
+      ],
+      "retained_input_body": "not captured in inspected 78; retained ESG002M list is not input/footer proof",
+      "save_review_template": "not found in inspected bodies",
+      "generic_GET_MODIFY_binding": "unknown",
+      "pageInfo_action_save_action_fn_footer_save_override": "unknown",
+      "scope_note": "A retained route string and shared footer cannot prove which save pipeline this input selects; no feature-unsupported conclusion."
+    },
+    {
+      "id": "purchaseorder",
+      "label": "발주서",
+      "route": "/ECERP/SVC/ESG/ESG004M",
+      "program": "ecount.programId.Inventory.PurchaseOrderInput",
+      "route_evidence": [
+        "input_route_508",
+        "order_meta"
+      ],
+      "retained_input_body": "not captured in inspected 78; purchase_order_page_meta only covers outstanding-status page",
+      "save_review_template": "not found in inspected bodies",
+      "generic_GET_MODIFY_binding": "unknown",
+      "pageInfo_action_save_action_fn_footer_save_override": "unknown",
+      "scope_note": "B_000000E040301 outstanding metadata does not prove input Save dropdown binding."
+    }
+  ],
+  "original_generic_contracts": [
+    {
+      "kind": "V3 shared inventory footer",
+      "flow": [
+        "save_review._ON_CLICK",
+        "inputEvent.execSlipSaveReview",
+        "inputEvent.saveAfterInputPageSubmit"
+      ],
+      "facts": "Click delegates inputEvent.execSlipSaveReview; assigns saveType=saveReview and saveTypeOrigin=1 then saveAction. Successful shared post-save branch submits same page Request.EditMode=modify using saved response date/no for formerly-new input, otherwise current master date/no. saveReview/saveNew branch precedes later isPopup close branch.",
+      "conditional_boundary": "Page-specific action sequences/step functions/footer.save params can replace behavior. Runtime plan/order binding, server success and exact field retention remain unknown.",
+      "override_evidence": [
+        "inputEvent.defaultActionFunction",
+        "inputEvent.initActionSetting",
+        "inputEvent.getSaveApiParam"
+      ],
+      "branch_order_report": "$SCRATCH/footer-save-rea-20261018/branch-order-clarification.json"
+    },
+    {
+      "kind": "V56 shared inventory review action",
+      "evidence": [
+        "request_review_v56",
+        "request_review_v56_target",
+        "request_review_v56_reload",
+        "v56_save_pipeline"
+      ],
+      "facts": "CreateAndModifyInventoryReviewSlipUserAction executes inventory$ExecuteInventorySlipSaveProgram. Falsy/no-continuation response returns; on success removes temporary-save feature, resolves response data keys and reloads same menu/bizz with GET_MODIFY. Popup parent/window handling comes afterward.",
+      "limits": "Full actual REA available for inventory/action bodies; many external calls unresolved. Request input template exists, plan/order template or registry binding absent. Do not transfer request exposure or generic code to plan/order as confirmed behavior."
+    },
+    {
+      "kind": "Additional common V56 body",
+      "facts": "Only ESG001M/ESG004M route-table literals were found for these input pages; generic save_review wrapper message hits are not per-page save routing.",
+      "analysis_limit": "common.dd26f1e8 full static completed; full semantic OOM at 2GB preserved, no retry. This report reuses its literal/static evidence only.",
+      "evidence_file": "$SCRATCH/plan-order-retain-rea-20261018/corpus-scan.json"
+    }
+  ],
+  "own_snapshot": [
+    {
+      "path": "$SCRATCH/rea-request/dist/inventory-ui.js",
+      "sha256": "641248cddbf3915c5336dbcb303e571fda4526896483743e8220b9c9f7ea1807",
+      "bytes": 114348,
+      "parser": "REA6.4.0 parseJavaScriptSource; inert AST only, no own-app behavioral test or semantic analysis",
+      "parse_error_count": 0
+    },
+    {
+      "path": "$SCRATCH/rea-request/dist/inventory-core.js",
+      "sha256": "08b0885231ccc84931d76729e5fbcad98bcc6f89f3f175a29756e90eefe4cb53",
+      "bytes": 74749,
+      "parser": "REA6.4.0 parseJavaScriptSource; inert AST only, no own-app behavioral test or semantic analysis",
+      "parse_error_count": 0
+    },
+    {
+      "path": "$SCRATCH/rea-request/dist/purchase-plan-core.js",
+      "sha256": "59725d222272b48cdd774f09d4fd6dd040b5461fcb94b6230bc77700cdcb8e99",
+      "bytes": 9754,
+      "parser": "REA6.4.0 parseJavaScriptSource; inert AST only, no own-app behavioral test or semantic analysis",
+      "parse_error_count": 0
+    }
+  ],
+  "own_current_contracts": [
+    {
+      "topic": "Gate and same-ID re-entry",
+      "refs": [
+        "inventory-ui.js::retainSupported",
+        "inventory-ui.js::save",
+        "inventory-ui.js::getDoc",
+        "inventory-ui.js::save_modes"
+      ],
+      "fact": "Only request/purchase content-retain button enabled. Successful retain clears draft, enters docEditor(type,result), switches modal key from new to saved ID, sets modify title/baseline. getDoc uses existing.id and core saveDoc replaces that ID rather than generating another. Existing plan/order dropdown retain remains disabled."
+    },
+    {
+      "topic": "Line identity and opaque row metadata",
+      "refs": [
+        "inventory-ui.js::identifyLines",
+        "inventory-ui.js::legacyAllocations",
+        "inventory-ui.js::readLines",
+        "inventory-ui.js::getDoc",
+        "inventory-core.js::lineTotals",
+        "inventory-core.js::ownLineIds"
+      ],
+      "fact": "readLines spreads originalLine and lineTotals spreads line, preserving lineId/sourceLineId/planAllocations/importedFrom/progress/custom. Plan/request assign unused L IDs, preserve existing IDs; linked legacy rows without IDs deliberately avoid new IDs. Generated purchaseorder rows already have PL IDs. Re-entry must use saved result and must not renumber/regenerate identity."
+    },
+    {
+      "topic": "Generated PO provenance",
+      "refs": [
+        "inventory-core.js::allocations",
+        "inventory-core.js::validateProvenance",
+        "inventory-core.js::saveDoc",
+        "inventory-ui.js::syncSourceLocks",
+        "inventory-ui.js::generated_locks",
+        "purchase-plan-core.js::preview"
+      ],
+      "fact": "Actual own field is line.planAllocations, not sourceAllocations. GeneratedFrom=purchase-plan PO uses per-line many-plan allocations and planGeneration context, forbids combined sourceId; each allocation matches plan item/optional stable sourceLineId and warehouse, positive quantity, no duplicate source key; sum equals PO row quantity. UI disables generated item and quantity changes; preserves original allocation metadata. saveDoc forbids removing generatedFrom. Saving a retained PO is document update, not regeneration."
+    },
+    {
+      "topic": "Remainder and downstream links",
+      "refs": [
+        "inventory-core.js::remaining",
+        "inventory-core.js::validateLinks",
+        "inventory-core.js::saveDoc",
+        "purchase-plan-core.js::candidateRows",
+        "purchase-plan-core.js::commit"
+      ],
+      "fact": "Remaining subtracts active child allocations by exact sourceLineId or legacy item fallback. validateLinks rejects inactive source with active child and over-allocation per item/per exact row. Plan generation recomputes candidate remainder and compares source/item/doc snapshot at commit. Retained plan edits must invalidate stale generation preview; retained PO edits must preserve purchase children/plan allocations and cannot shrink below downstream usage."
+    },
+    {
+      "topic": "State and side effects",
+      "refs": [
+        "inventory-core.js::purchasingState",
+        "inventory-core.js::validateLineProgress",
+        "inventory-core.js::validatePurchasingState",
+        "inventory-core.js::applyLinkedProgressRules",
+        "inventory-ui.js::states",
+        "inventory-ui.js::getDoc",
+        "inventory-core.js::movements"
+      ],
+      "fact": "Own confirmation/progress are separate from special cancelled/held statuses. getDoc normalizes listed statuses from fields; plan per-line progress remains metadata. Confirmation affects active/remainder; generation excludes completed plan lines. Configured linked progress rules may update source document/plan line after save and revalidate. Plan/PO themselves are absent from stock movement posting branches; linked purchase remains separate. These are own policies, not original status formulas."
+    },
+    {
+      "topic": "Conflict, failed commit, drafts",
+      "refs": [
+        "inventory-ui.js::baseSnapshot",
+        "inventory-ui.js::save",
+        "inventory-ui.js::commit",
+        "inventory-ui.js::reload",
+        "inventory-ui.js::capture",
+        "inventory-ui.js::editorDialog",
+        "inventory-ui.js::navigation",
+        "inventory-core.js::applyPolicy",
+        "inventory-core.js::command"
+      ],
+      "fact": "For retainSupported only, existing saves compare current in-memory DB document JSON with captured base. Latest reload explicitly discards own draft. commit evaluates cloned DB then persists localStorage before assigning current DB; failure returns false and save keeps controls. Existing plan/order generic capture currently skipped, while explicit list/hold/modal-close paths may separately store drafts. drafts/draftBases are in-memory maps, not durable browser-reload storage. Original server revisions/cross-client conflict handling are not implemented by this JSON check."
+    },
+    {
+      "topic": "F7 special risk",
+      "refs": [
+        "inventory-ui.js::save",
+        "inventory-ui.js::F7_F8",
+        "inventory-ui.js::getDoc"
+      ],
+      "fact": "Main F7 saves then docEditor(type,result) only when retainSupported; plan F7 button is moved to secondary tools but form F7 key still calls save(true). For currently unsupported new plan/order, getDoc continues returning id undefined after F7 because re-entry is skipped; a subsequent save may create another document. This is a static control/data-flow risk, not executed reproduction. Supported extension must rebase saved ID/base before printing. Modal F7 closes then prints, a separate lifecycle that must be preserved."
+    }
+  ],
+  "required_acceptance_cases_not_run": [
+    {
+      "id": "same_identity",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "New Save/Retain -> modify title + saved ID. Edit memo/price then repeat retain/F8; document count and sequence do not grow on update; all stable line IDs persist. Existing edit follows same ID. Modal key/baseline updates, close/reopen restores the correct saved document."
+    },
+    {
+      "id": "plan_metadata",
+      "applies": [
+        "plan"
+      ],
+      "case": "Distinct repeated item rows, per-line supplier/progress/custom fields and header dueDate/context survive retain, repaint/options, close/navigation. Legacy no-ID plan with existing legacy children keeps compatibility and remainder; linked request plan keeps sourceId/sourceLineId and locks. Adding rows gets unique IDs; renumbering/deleting allocated source IDs cannot silently lose provenance."
+    },
+    {
+      "id": "generated_po",
+      "applies": [
+        "purchaseorder"
+      ],
+      "case": "Generate PO from multiple plans, including same-item merged line and distinct sourceLineIds. Retain price/memo then repeat save: generatedFrom, planGeneration, row lineId, all planAllocations and importedFrom unchanged, no new PO/generation, plan remainder unchanged. Quantity/item locks persist after re-entry. Any forged removal/invalid allocation is rejected without persisted mutation."
+    },
+    {
+      "id": "remainder_bounds",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "Retained plan quantity cannot fall below generated PO allocation; allocated source-row/item/warehouse deletion/change cannot strand links. Retained PO quantity cannot fall below downstream purchases. Partial/full/cancelled/unconfirmed child cases use active allocation rules once; save does not double subtract. Plan/order leave stock unaffected; existing purchase stock does not duplicate."
+    },
+    {
+      "id": "preview_staleness",
+      "applies": [
+        "plan"
+      ],
+      "case": "Open generation preview then retain-edit source quantity/supplier/date/status; stale preview commit rejects, fresh preview reflects current source. Completion and per-line progress exclude candidates correctly; no blanket reset to 진행."
+    },
+    {
+      "id": "states_rules",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "Preserve confirmation/progress, line progress, cancelled/held special status, custom/tax/supply policies. Test enabled linked progress rules and plan-line rule targets; retained view/source editors detect resulting changes. Accounted/closed-period/disabled-master/permission guards stay effective."
+    },
+    {
+      "id": "stale_edit",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "Two same-document editors/list or purchase-room update: stale retained save rejects while preserving unsaved controls; confirmed latest reload replaces draft and base. Missing original ID rejects; repeated valid retain rebases base so next edit succeeds. Cross-tab/server concurrency remains separately unspecified."
+    },
+    {
+      "id": "failure_atomicity",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "Form/core/provenance/stock/rule failure, localStorage exception and runtime permission loss leave persisted DB/document/sequence/allocations/remainder unchanged and keep edit controls. Retain never clears draft/baseline before successful persist."
+    },
+    {
+      "id": "draft_scope",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "After successful retain, edit then navigate/close/Escape/options repaint; correct saved-ID draft and original base persist in current app session. Reopen does not convert draft to a new document or overwrite a newer saved document; explicit reset/latest reload clears both maps. Do not claim persistence across browser reload."
+    },
+    {
+      "id": "F7",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "New F7 -> print saved result, retained current ID/base; second F7 and later F8 update same document without duplicate IDs/count/allocations. Existing F7 refreshes base after persist. Modal F7 close/return and plan relocated button/keyboard tested separately. Print failure must not imply unsaved or trigger repeat creation."
+    },
+    {
+      "id": "original_boundary",
+      "applies": [
+        "plan",
+        "purchaseorder"
+      ],
+      "case": "Before product parity claim, root independently observes exact Save dropdown exposure for each screen; source binding/per-page overrides remain labelled unknown absent retained body/runtime evidence. No original Save or main-row interaction needed or authorized for this research."
+    }
+  ],
+  "evidence_files": {
+    "corpus_scan": "$SCRATCH/plan-order-retain-rea-20261018/corpus-scan.json",
+    "original_actual_REA": "$SCRATCH/plan-order-retain-rea-20261018/original-rea-reference-evidence.json",
+    "own_AST_source": "$SCRATCH/plan-order-retain-rea-20261018/own-source-evidence.json",
+    "own_span_index": "$SCRATCH/plan-order-retain-rea-20261018/own-span-index.json"
+  },
+  "unknowns": [
+    "Original plan/order Save/Retain exposure is pending owner UI inspection; no original save was executed.",
+    "Captured shared V3/V56 action does not establish plan/order handler registry, response acceptance, custom save override, permissions or actual field retention.",
+    "Source JSON optimistic comparison covers the loaded in-memory DB view; authoritative cross-client revisions and server conflicts are outside this own local-flow evidence.",
+    "All acceptance cases above are proposed; no tests were run and no implementation changed in this research.",
+    "78 originals and previous actual REA limits are preserved: static77 complete+1 partial; semantic73 complete+1 partial+2 timeouts+2 OOM. This task adds no bodies or promotes incomplete semantic results."
+  ]
+}

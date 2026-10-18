@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T11:58:58.098443+00:00",
+  "scope": {
+    "retained_body_count": 85,
+    "cumulative_fixed": {
+      "unique_bodies": 85,
+      "bytes": 25280039,
+      "static_complete": 83,
+      "static_partial": 2,
+      "semantic_complete": 78,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "new_GETs": 0,
+    "new_semantic_runs_or_retries": 0,
+    "browser": 0,
+    "private_API_calls": 0,
+    "original_JS_execution": false,
+    "app_or_prior_contract_edits": false,
+    "tests": false
+  },
+  "answer": {
+    "status": "Current request IHistoryListPage UI distinguished from order/purchase ES303M; popup implementation/query binding still partly missing",
+    "confirmed": "Parent observed request menu505 opens IHistoryListPage without selection,10columns,F3 search fields and one unchecked modified-date sort checkbox; no latest-history checkbox displayed. Order menu509/purchase menu511 each open ES303M with11columns.",
+    "source": "Retained common HistoryListUserAction provides matching generic IHistoryListPage entry. Retained ES303M supplies its own latest/sort payload; no source supports transferring those legacy flags to current request.",
+    "not_claimed": "Current request grid prop-ID definitions, exact actual search endpoint/checkbox mapper, latest/all backend rule, sort direction or export/close parity."
+  },
+  "parent_direct_UI_evidence": {
+    "provenance": "Parent current read-only original list/popup/F3 DOM observations; worker did not browse. No business values/rows/logs retained.",
+    "request": {
+      "list_menu": "505",
+      "popup_identifier": "IHistoryListPage",
+      "opened_without_selection": true,
+      "column_count": 10,
+      "headers": [
+        "작업일자",
+        "일자-No.",
+        "행위",
+        "거래처명",
+        "품목명(요약)",
+        "담당자코드",
+        "담당자명",
+        "작업자",
+        "전표상태",
+        "이력"
+      ],
+      "Search_F3_fields": [
+        "작업일자",
+        "거래처",
+        "품목코드",
+        "창고",
+        "프로젝트",
+        "담당자",
+        "금액",
+        "작업자",
+        "행위"
+      ],
+      "visible_checkbox": {
+        "label": "수정일자순(정렬)",
+        "checked": false
+      },
+      "latest_history_checkbox_visible": false
+    },
+    "purchaseorder": {
+      "list_menu": "509",
+      "popup": "ES303M",
+      "column_count": 11,
+      "headers_not_fully_supplied": true
+    },
+    "purchase": {
+      "list_menu": "511",
+      "popup": "ES303M",
+      "column_count": 11,
+      "headers_not_fully_supplied": true
+    },
+    "boundary": "Current visible labels/counts are UI evidence. They do not establish backend property names, hidden flags, record-version grouping, result formulas or data retention."
+  },
+  "current_request_entry_source": {
+    "ref": "common::HistoryListUserAction.executeAsync",
+    "span": [
+      51283,
+      4,
+      51315,
+      6
+    ],
+    "contract": "Read current bizz_sid and guard nonempty; resolve IHistoryListPage history menu_sid from utility map or sourceData.bizz.menu_sid_map.History and guard nonempty. openPopupAsync(module current,identifier IHistoryListPage,bizz_sid,menu_type History,param={},reqData fields) at700x600.",
+    "selection": "This entry action body reads no selected list row and requires no checked row; parent confirmed no-selection open. Upstream action ID and current bizz/history menu values not captured, so UI→exact action dispatch remains compatible rather than independently instrumented.",
+    "permissions": "reqData.authority_type empty-string/Anonymous is route metadata, not permission exemption. Record/query/export authorization external.",
+    "what_is_new": "Prior84 contract per-list popup identity was unknown. Parent now establishes request current popup identity and10-column/condition shape; this supplement supersedes only that UI unknown, preserving old files."
+  },
+  "request_fields_search_and_actual_query_boundary": {
+    "field_defs": "Ten labels and nine search fields are now directly observed. IHistoryListPage implementation and runtime setup/grid/search DMC definitions are not retained, so labels are not assigned to target_data_*/update_dtm or other backend prop IDs.",
+    "source_scan": "Across85, IHistoryListPage token occurs only4times in common entry comments/lookup/route identifiers; no concrete popup class/body or current request search-control schema found.",
+    "compatible_query_pieces": {
+      "refs": [
+        "v5-actions::SelectInventoryHistoryUserAction.executeAsync",
+        "v5-usecase::SelectInventoryHistoryProgram.onExecuteAsync",
+        "v5-usecase::ISelectInventorySearchHistoryAction.identifier"
+      ],
+      "action": "V5 action creates ISearchDataModelGenerateProgram with InventoryHistorySearchBuildProcessFeature(search_type),passes search_options/search_type and swallows SEARCH_FAIL only.",
+      "program": "V5 history program transforms search model, sends menu_type history/bizz_sid/sort/page/limit/condition/quick/additional/template_info/is_excel_convert to SelectInventorySearchHistoryAction; returns data_model/count.",
+      "endpoint_candidate": "/api/app.inventory/action/SelectInventorySearchHistoryAction",
+      "unknown": "InventoryHistorySearchBuildProcessFeature implementation and current popup action/program binding are absent. Endpoint is retained V5 candidate, not a captured current request network request. V56/common dmc mapper route and this older data_model/definition route are not silently merged."
+    },
+    "missing": "Current search model/mapping callback IDs, required/filter validation/default dates/ranges, actual query endpoint/body, latest/all policy, page limits, grid masks/permissions and error behavior."
+  },
+  "modified_date_sort_compatible_shared_mapper": {
+    "refs": [
+      "infra-common::SORT_ITEM_MEANING_ID_MAP",
+      "infra-common::SearchModelDescriptor.resolveSortPropId",
+      "infra-common::SearchModelDescriptor.toRequestDto",
+      "infra-common::SearchSortDescriptor.toSortsFromOption",
+      "infra-common::SearchSortDescriptor.mergeSorts"
+    ],
+    "source_facts": [
+      "infra_common comment says 수정일자순 and maps item-meaning modified_sort→update_dtm.",
+      "resolveSortPropId checks search_prop_def.item_meaning_id against that map; if mapped, resolves list_dmc prop by update_dtm item-meaning, converts object to SID prop when applicable, otherwise falls back to depend_key.",
+      "toRequestDto uses DMC-registered sort callback IDs and values, skips empty mapper results, resolves target prop and stores last result per same target key in sort_map; returns request.sorts.",
+      "Separate option-sort conversion emits D when option.sort_type==D, otherwiseA. That is not evidence the current unchecked checkbox emits either direction."
+    ],
+    "current_binding": "Compatible generic support only. Current request checkbox data-prop,item-meaning,data_type,mapper metadata and produced value/sort DTO were not observed. Actual update_dtm sort callback registration/implementation not found in retained85.",
+    "unknown": [
+      "Whether current request checkbox uses modified_sort at all",
+      "Checked/unchecked payload and default sort",
+      "Ascending/descending/ties or interaction with grid header sorts",
+      "Exact timestamp timezone/precision and calendar range",
+      "Relation to ES303M SORT_MODIFIED_DT"
+    ]
+  },
+  "ES303M_distinction": {
+    "source_contract": "$SCRATCH/purchasing-history-rea-20261018/history-popup-extension-contract.json",
+    "latest_contract": "$SCRATCH/purchasing-history-rea-20261018/latest-history-filter-supplement.json",
+    "ref": "v3-footer::viewHistory._ON_CLICK",
+    "entry": "V3 viewHistory opens ES303M with isFromMenuList/docFlag/isFromApply/customer/FromProgramId context; no selected-row guard in the click body. Parent now confirms ES303M for current509/511.",
+    "legacy_control": "ES303M has CHK_OTHER values1/2 with source default1; prior parent UI maps1=최종이력만 검색 and2=수정순. They emit ETC_CHK/SORT_MODIFIED_DT. Current request UI exposes a different single checkbox label and no latest checkbox.",
+    "legacy_query": "GetListChangeHistoryInv page/Excel path is established for ES303M only. No source binds that endpoint/11-column form or ETC_CHK field to IHistoryListPage request.",
+    "source_locations": {
+      "legacy_checkboxes": [
+        1,
+        21717,
+        1,
+        22475
+      ],
+      "legacy_flag_map": [
+        1,
+        21978,
+        1,
+        22473
+      ]
+    },
+    "boundary": "Source default-select1 is ES303M configuration. Current order/purchase backend latest identity/filter order and full11headers remain dynamic/UI/server boundaries, not solved by shared page name."
+  },
+  "latest_filter_vs_no_visible_control": {
+    "request": "No latest checkbox is visible in current request search UI. This supports hiding that control in own UI.",
+    "not_established": "It does not establish original request backend returns all versions/events, applies no implicit latest rule, or groups history by any particular key. Fixed metadata/server defaults could exist; not captured.",
+    "order_purchase": "Legacy latest-checkbox transport is known, but latest-before-filter versus filter-before-latest, grouping key/action scope/time/pagination/5000 order still unknown.",
+    "owner_policy": "Own request whole-record listing and order/purchase latest=true are independent local policies using future own metadata; do not call them original server equivalence."
+  },
+  "0_40_owner_scope_alignment": {
+    "source": "Parent proposed own implementation plan; worker did not edit app",
+    "request": "10observed headers; observed search conditions; one unchecked modified-date-sort checkbox; no latest control. Own full local history records as explicit policy.",
+    "order_purchase": "11column presentation and latest defaulttrue planned; complete original11labels/export fields still need own explicit schema/observation boundary.",
+    "CSV_close": "Own CSV and close behavior can be local implementation choices. Current request source has no proven export button/download format/close handler; original parity remains unknown.",
+    "future_metadata": "Own event metadata must describe own events and current implementation. Do not synthesize or import original logs/company history.",
+    "H_details": "Original H-detail body/read-only/permission/close behavior still unverified. No new GET/row click was performed or recommended here."
+  },
+  "preserved_limits": {
+    "baseline85": {
+      "unique_bodies": 85,
+      "bytes": 25280039,
+      "static_complete": 83,
+      "static_partial": 2,
+      "semantic_complete": 78,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "common": "Full static complete/full semantic2GiB OOM preserved; HistoryList action referenced as static AST only.",
+    "infra_common": "Existing full semantic complete1080callables/1968calls/2119frontiers parse0; no new semantic run.",
+    "other": "Full Flexion timeout and grid partial states unchanged; neither is used to infer IHistoryListPage fields or latest/all behavior."
+  },
+  "files": {
+    "source_manifest": "$SCRATCH/purchasing-history-rea-20261018/request-distinction-source-manifest.json",
+    "actual_REA_refs": "$SCRATCH/purchasing-history-rea-20261018/request-distinction-actual-rea-reference-index.json",
+    "generic_sort_original_AST": "$SCRATCH/purchasing-history-rea-20261018/request-modified-sort-source-evidence.json",
+    "retained85_scan": "$SCRATCH/purchasing-history-rea-20261018/request-distinction-corpus-scan.json"
+  }
+}

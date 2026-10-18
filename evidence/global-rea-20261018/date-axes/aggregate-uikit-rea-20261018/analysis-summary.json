@@ -1,0 +1,65 @@
+{
+  "rea_version": "6.4.0",
+  "new_unique_analyses": [
+    {
+      "sha256": "74d1da98d59e5ac6e99e082eccb48c8104187d46043ce958727f3db3f3df1b06",
+      "bytes": 756271,
+      "source": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.browser.uikit.93043ecc.20.js",
+      "analysis_dir": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "source_executed": false,
+      "exit_code": 0,
+      "process_status": "completed",
+      "elapsed_ms": 3931,
+      "static_status": "complete",
+      "semantic_status": "completed",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 140228,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "callables": 2203,
+      "calls": 7724,
+      "frontiers": 7033,
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "actual_summary": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/74d1da98d59e5ac6/summary.json"
+    },
+    {
+      "sha256": "4bd755c60b9c4f5584fccf5c35ea85ffd8ca0a2c94e8e4c1633afd0c37c843f9",
+      "bytes": 35008,
+      "source": "$SCRATCH/aggregate-uikit-rea-20261018/ecount.infra.bridge.2ba74f2d.20.js",
+      "analysis_dir": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/4bd755c60b9c4f55",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "source_executed": false,
+      "exit_code": 0,
+      "process_status": "completed",
+      "elapsed_ms": 315,
+      "static_status": "complete",
+      "semantic_status": "completed",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 3592,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "callables": 28,
+      "calls": 234,
+      "frontiers": 249,
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "actual_summary": "$SCRATCH/aggregate-uikit-rea-20261018/analysis/4bd755c60b9c4f55/summary.json"
+    }
+  ]
+}

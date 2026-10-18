@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "requested-toolbar-behavior-remains-unproven",
+  "findings": [
+    {
+      "request": "searchText / find / repeated find / F3 / row highlighting",
+      "finding": "No identifiable requested toolbar definition was found in these two bodies. Exact requested searchText, ON_KEY_F3, rebuildContent, repeat, Find and findNext tokens have zero matches. The contentsform bundle registers top-form input widget classes such as customer, warehouse, date and memo, rather than the requested toolbar classes.",
+      "limit": "Literal nonmatches alone do not prove absence elsewhere or exclude minified implementations."
+    },
+    {
+      "request": "name / specification / quantity sorting, receiving model and reset",
+      "finding": "No product name/specification/quantity comparator, requested sort payload receiver or rebuildContent/reset implementation was recovered. The inventory utility openSortPopup delegates to a separate ESD006P_04 page; that wrapper is not FM080P_02 receiving/sorting logic. The unrelated contentsform array sort concerns header field ordering.",
+      "evidence": "registry-and-sort-evidence.json",
+      "implementation_label": "Retain partial for repeated-find and numeric product sorting. Do not claim original toolbar equivalence."
+    }
+  ],
+  "boundaries": [
+    "No original source was executed; no original UI or private server action was performed.",
+    "These are static source findings only; no app source was modified.",
+    "No additional or guessed URL was fetched."
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "version": "0.14.0",
+  "program": "E040303",
+  "grouped_entries": true,
+  "original_full_equivalence": false,
+  "all_button_counts_unknown": true,
+  "source_evidence": [
+    "../entry-toolbar/",
+    "../entry-sort/"
+  ],
+  "entries": [
+    {
+      "label": "찾기(F3)",
+      "state": "partial",
+      "own_behavior": "Current entered cells searched/highlighted; item addition separated.",
+      "remaining": "Original grid comparator/cycling/normalization exact rules.",
+      "synthetic_tests": "tests/entry-tools.cjs, tests/purchasing-input.cjs"
+    },
+    {
+      "label": "정렬",
+      "state": "partial",
+      "own_behavior": "Three priorities using supported visible columns and numeric money; stale data guard.",
+      "remaining": "Original full comparator/default storage/BOX/serial/custom calculated columns.",
+      "synthetic_tests": "tests/entry-tools.cjs"
+    },
+    {
+      "label": "거래내역보기(구매)",
+      "state": "partial",
+      "own_behavior": "Own document selection/copy helper.",
+      "remaining": "Original transaction-history fields and drill-down equivalence.",
+      "synthetic_tests": "tests/entry-ui.cjs"
+    },
+    {
+      "label": "My품목",
+      "state": "partial",
+      "own_behavior": "Per company/user/type explicit default loads into own draft.",
+      "remaining": "Original favorite-code row consumer and server-shared groups.",
+      "synthetic_tests": "tests/entry-extra.cjs"
+    },
+    {
+      "label": "My품목설정",
+      "state": "partial",
+      "own_behavior": "Separate local personal-group editor, explicit save and cancel.",
+      "remaining": "Original tab/group/default server editor and My-code tree.",
+      "synthetic_tests": "tests/entry-extra.cjs"
+    },
+    {
+      "label": "발주 / 주문 / 전표불러오기",
+      "state": "partial",
+      "own_behavior": "Own source document selection, copy/linked remainder, provenance.",
+      "remaining": "Original page-specific forms, filtering and server transaction rules.",
+      "synthetic_tests": "tests/entry-ui.cjs, tests/purchasing-integration.cjs"
+    },
+    {
+      "label": "할인",
+      "state": "partial",
+      "own_behavior": "Own reviewed amount/rate/rounding adjustments with preservation.",
+      "remaining": "Original discount popup and all formula/allocation rules.",
+      "synthetic_tests": "tests/entry-extra.cjs"
+    },
+    {
+      "label": "재고불러오기",
+      "state": "partial",
+      "own_behavior": "Own current stock columns without replacing entered quantities.",
+      "remaining": "Original field visibility, company settings and server stock evaluation.",
+      "synthetic_tests": "tests/inventory-modal.cjs"
+    },
+    {
+      "label": "바코드",
+      "state": "partial",
+      "own_behavior": "Aggregate preceding eligible row or individual basic quantity; stable row IDs.",
+      "remaining": "Additional-quantity modes, serial/negative/full focus/hardware grammar.",
+      "synthetic_tests": "tests/entry-tools.cjs, tests/purchasing-input.cjs"
+    },
+    {
+      "label": "전표 바코드",
+      "state": "partial",
+      "own_behavior": "Own checksummed voucher code and ID importer.",
+      "remaining": "Original ECOUNT encoded voucher format and scanner/server validation.",
+      "synthetic_tests": "tests/entry-extra.cjs"
+    },
+    {
+      "label": "검증",
+      "state": "partial",
+      "own_behavior": "Independent scans, composite identity, mismatch result popup; no business draft change.",
+      "remaining": "Success alert exact flow, source engine details, additional quantity/hardware.",
+      "synthetic_tests": "tests/entry-extra.cjs"
+    },
+    {
+      "label": "저장(F8)",
+      "state": "partial",
+      "own_behavior": "Own validation and stock/links kernel with browser persistence.",
+      "remaining": "Original server validations, accounting, concurrent users, all save pipeline stages.",
+      "synthetic_tests": "tests/inventory-core.cjs, tests/inventory-modal.cjs"
+    },
+    {
+      "label": "저장/전표(F7)",
+      "state": "partial",
+      "own_behavior": "Own save followed by print preview.",
+      "remaining": "Original print templates/popup/physical output and configured post-save stages.",
+      "synthetic_tests": "tests/inventory-modal.cjs"
+    },
+    {
+      "label": "저장/내용유지",
+      "state": "partial",
+      "own_behavior": "Purchase-only save and reopen same ID modify; local stale-draft conflict/reload.",
+      "remaining": "Original server reloaded values, other programs, submitPage lifecycle.",
+      "synthetic_tests": "tests/entry-save.cjs"
+    },
+    {
+      "label": "저장/전자결재",
+      "state": "unimplemented",
+      "own_behavior": "Disabled in own UI.",
+      "remaining": "Actual approval routing, authorization, approval side effects.",
+      "synthetic_tests": ""
+    },
+    {
+      "label": "저장/신규",
+      "state": "unimplemented",
+      "own_behavior": "Disabled in own UI.",
+      "remaining": "Key-based new initializer/default/retained-field rules.",
+      "synthetic_tests": ""
+    },
+    {
+      "label": "다시 작성",
+      "state": "partial",
+      "own_behavior": "Own draft reset with confirmation and separate verification reset.",
+      "remaining": "Original new-page defaults, draft lifetime, context/selection/sort restoration.",
+      "synthetic_tests": "tests/inventory-modal.cjs, tests/entry-extra.cjs"
+    },
+    {
+      "label": "현금지급",
+      "state": "unimplemented",
+      "own_behavior": "Disabled in own UI.",
+      "remaining": "Separate E010409 payment screen/posting; distinct from save-and-pay.",
+      "synthetic_tests": ""
+    },
+    {
+      "label": "리스트",
+      "state": "partial",
+      "own_behavior": "Own list/dialog transition preserving query/page/scroll and draft guard.",
+      "remaining": "Original list/filter/permission/server behavior across programs.",
+      "synthetic_tests": "tests/inventory-modal.cjs"
+    },
+    {
+      "label": "웹자료올리기",
+      "state": "partial",
+      "own_behavior": "Own CSV/TSV review, atomic validation and apply to current draft.",
+      "remaining": "Original file templates/upload/server responses and external import formats.",
+      "synthetic_tests": "tests/entry-tools.cjs"
+    },
+    {
+      "label": "행 번호 / 이동",
+      "state": "unimplemented",
+      "own_behavior": "Own unverified row control disabled; original main-row interaction stopped after blank autosave cleanup.",
+      "remaining": "Actual ROW_MOVEABLE input, movement, selection and persistence contract.",
+      "synthetic_tests": ""
+    }
+  ],
+  "limits": [
+    "Grouped entries are a review checklist, not a verified-button count.",
+    "All business tests use synthetic own ERP data; original business save/settings actions not executed.",
+    "Real source static candidates and own behavior are separate."
+  ]
+}

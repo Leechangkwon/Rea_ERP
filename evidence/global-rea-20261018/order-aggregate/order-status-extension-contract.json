@@ -1,0 +1,372 @@
+{
+  "schema": "order-status-public-source-extension84/v1",
+  "generated_at": "2026-10-18T10:27:31.622863+00:00",
+  "scope": "Next0.35 source extension,82baseline fixed. Exactly2authorized ordinary unauthenticatedGETs,new2unique inert bodies; actualREA6.4 each30s/2GiB; no originalexecution/privateAPI/browser/app/tests. Not retroactive0.34evidence.",
+  "answer": "New ESG016R source supplies explicit ordinary purchase-order page configuration matching the owner program/menu context through menu515,purchase-order config and FromProgramIdE040306. This identification uses code,not filename. Axes/form columns/server quantity and calculation semantics remain dynamic. New grid source has5parser errors and only recovered-AST semantics.",
+  "body_statuses": [
+    {
+      "source": "$SCRATCH/order-status-rea-20261018/extension-originals/xesg016r.6420224041262296222.20.js",
+      "sha256": "580201f20dc67ad1118a5dbab7bce5091e538afda72842f785b872c3ad4ac660",
+      "bytes": 12750,
+      "REA": "6.4.0",
+      "time_budget_s": 30,
+      "heap_MiB": 2048,
+      "elapsed_ms": 315,
+      "static_status": "complete",
+      "parse_errors": 0,
+      "semantic_traversal": "completed",
+      "semantic_source_scope": "complete",
+      "callables": 28,
+      "calls": 50,
+      "frontiers": 53
+    },
+    {
+      "source": "$SCRATCH/order-status-rea-20261018/extension-originals/bundle.ecount.grid.-3036729489893836383.20.js",
+      "sha256": "591745ae2c4e2c998583ce7dbf9a45d830b0f2cf99486001d9f6638e314bc860",
+      "bytes": 1638337,
+      "REA": "6.4.0",
+      "time_budget_s": 30,
+      "heap_MiB": 2048,
+      "elapsed_ms": 9450,
+      "static_status": "partial",
+      "parse_errors": 5,
+      "semantic_traversal": "completed",
+      "semantic_source_scope": "partial_recovered_AST",
+      "callables": 3121,
+      "calls": 18299,
+      "frontiers": 25130
+    }
+  ],
+  "counts": {
+    "baseline_fixed": {
+      "unique_bodies": 82,
+      "bytes": 23596477,
+      "static_complete": 81,
+      "static_partial": 1,
+      "semantic_complete": 76,
+      "semantic_partial": 1,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "cumulative": {
+      "unique_bodies": 84,
+      "bytes": 25247564,
+      "static_complete": 82,
+      "static_partial": 2,
+      "semantic_complete": 77,
+      "semantic_partial": 2,
+      "semantic_timeout": 3,
+      "semantic_OOM": 2
+    },
+    "new_bytes": 1651087,
+    "new_callable_call_frontier_counts": [
+      3149,
+      18349,
+      25183
+    ],
+    "semantic_partial_policy": "Grid IR counts are retained recovered-AST counts,not full-source completion. Newcomplete1+partial1. Prior OOM/timeouts unchanged."
+  },
+  "page_configuration": {
+    "facts": [
+      "ecount.page.factory pageESG016R; menuSeqInput515; USE_CONFIRM_PURCHASE_ORDER/CAN_CONFIRM user flag/USE_SLIPAUTH_PURCHASE_ORDER; FromProgramIdE040306 in slipLink. Together these are concrete currentorder-compatible source identity anchors.",
+      "form search SM200(normal)/OM200(CS),output+printSO200. SUM_FLAG widget mapped cmbSumFlag; typecmbSumFlagDate included. aggregateInfo use=true,type=select,isTargetUse=true,isPeriodUse=true.",
+      "Search manager isFirstLoadSearch=false,defaultSearchParam SUM_FLAG3,useSignBoxtrue. These are configured defaults; restored forms/context can override current state.",
+      "Grid key fields ORD_DATE,ORD_NO,PROD_CD,SER_NO; renderType typeStatusList. Explicit gridCell widgets attach to sale040 order/date/status and sale041 qty_unit/serial,etc. This list is customization metadata,not complete selected output columns.",
+      "Allowed axes/columnForm/link metadata come from shared summaryPage/outputFormManager and server response. No fixed current seven-column definition or literal full candidate catalog is declared."
+    ],
+    "exact_anchors": {
+      "new-page::ESG016R.initProperties@327": {
+        "span": [
+          1,
+          327,
+          1,
+          11140
+        ],
+        "callable_id": "callable:function:327:11140",
+        "semantic_scope": "completed original source semantics"
+      },
+      "new-page::ESG016R.onInitUnitWidgetCmbSumFlagDate@12330": {
+        "span": [
+          1,
+          12330,
+          1,
+          12484
+        ],
+        "callable_id": "callable:function:12330:12484",
+        "semantic_scope": "completed original source semantics"
+      },
+      "new-page::page.property.menuSeqInput@732": {
+        "span": [
+          1,
+          732,
+          1,
+          748
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.USE_CONFIRM@749": {
+        "span": [
+          1,
+          749,
+          1,
+          811
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.CAN_CONFIRM@812": {
+        "span": [
+          1,
+          812,
+          1,
+          869
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.USE_SLIPAUTH@870": {
+        "span": [
+          1,
+          870,
+          1,
+          929
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.formType@951": {
+        "span": [
+          1,
+          951,
+          1,
+          1032
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.aggregateInfo@1033": {
+        "span": [
+          1,
+          1033,
+          1,
+          1109
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.api@1282": {
+        "span": [
+          1,
+          1282,
+          1,
+          1336
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.keyColumn@6035": {
+        "span": [
+          1,
+          6035,
+          1,
+          6085
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.api@7551": {
+        "span": [
+          1,
+          7551,
+          1,
+          7606
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.keyColumn@8951": {
+        "span": [
+          1,
+          8951,
+          1,
+          9001
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.api@9121": {
+        "span": [
+          1,
+          9121,
+          1,
+          9176
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.isFirstLoadSearch@10570": {
+        "span": [
+          1,
+          10570,
+          1,
+          10590
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.defaultSearchParam@10591": {
+        "span": [
+          1,
+          10591,
+          1,
+          10638
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      },
+      "new-page::page.property.FromProgramId@10866": {
+        "span": [
+          1,
+          10866,
+          1,
+          10889
+        ],
+        "callable_id": null,
+        "semantic_scope": "actualREA static plus inert AST metadata constant,not a callable"
+      }
+    }
+  },
+  "query_and_filters": {
+    "facts": [
+      "Normal grid where dataTypeGraphN;graph group where dataTypeGraphY. Both declare GetStatusXFormSlipCommon. Excel uses GetStatusXFormSlipCommonExcel. These source endpoints were not invoked.",
+      "Explicit search widgets include cmbSumFlagDate;base/order/expected/request date variants;uQty,qty,price,userPriceVat,supplyAmt,vatAmt,pamt1/2 numeric conditions;size/doc/remarks/text;prod/cust quick-search. Dynamic form metadata may add other controls.",
+      "slipStatusInfo source sets resource labels4,values empty/Z/N/Y,initialSelect[Y]. Generic consumer writes STATE_INFO,may replace Y with specific progress codes. Resource-label Korean meaning/actual restored choice is not inferred.",
+      "Purchase-order confirm/slip-auth configuration exists; it is not proof of electronic approval filter states or current access.",
+      "Currency/exchange-code and source-document filters are not explicitly attached in this small page body; globally captured generic controls alone do not prove current use. No currency conversion algorithm,source-line predicate,receipt/open status relation established."
+    ],
+    "refs": [
+      "ESG016R.initProperties",
+      "header-v3::slipStatusInfo.onSetSearchParam",
+      "header-v3::txtExCd.onInitControl"
+    ],
+    "ref_index": "$SCRATCH/order-status-rea-20261018/actual-rea-reference-index.json"
+  },
+  "quantities_and_measures": {
+    "facts": [
+      "Owner single-axis query shows axis+qty/supply/vat/total5headers. This is structural UI evidence,not numeric formula evidence.",
+      "The page declares qty/unit widgets and numeric search controls but delegates report records,aggregates and columnForm to shared server query. It does not calculate fullordered qty,remaining qty,receipts,allocation residuals,supply/VAT/total or currency amounts.",
+      "E040307/outstanding remaining/incoming context is distinct from observed E040306 ordinary order status. No outstanding filter/formula is imported.",
+      "Root own effectiveLineTotals/fullinputqty policy is independent and remains explicitly separated from original backend equivalence."
+    ],
+    "status": "original formula unknown"
+  },
+  "graph_and_links": {
+    "facts": [
+      "Source has graph group/graphSearch and graph query endpoint alongside normal grid. This confirms configured graph branch,not exact current checkbox availability,metric/type,ranking or numerical parity.",
+      "summaryLink dateKeyORD_DATE is configured separately from slipLink. Dynamic grid summarySlip cells come from columnForm.link Code/Name metadata; current all-axis click predicates remain external.",
+      "slipLink explicitly opens input ProgramIdE040301 with EditMode.modify,ORD_DATE/ORD_NO key and FocusRowNumberSER_NO||1. Do not treat date/voucher links as query-only aggregate drilldown. No such link was executed by worker.",
+      "onInitUnitWidgetCmbSumFlagDate overrides link-column aggregate base value1 except programE040710. This is a link-mode override,not current aggregation result grouping/measure proof."
+    ],
+    "ref_names": [
+      "ESG016R.initProperties",
+      "ESG016R.onInitUnitWidgetCmbSumFlagDate"
+    ]
+  },
+  "grid_partial_and_legacy_limits": {
+    "parser_diagnostics": [
+      {
+        "message": "Deleting local variable in strict mode. (1:1190606)",
+        "loc": {
+          "line": 1,
+          "column": 1190606,
+          "index": 1190606
+        },
+        "pos": 1190606,
+        "raisedAt": null
+      },
+      {
+        "message": "Deleting local variable in strict mode. (1:1190616)",
+        "loc": {
+          "line": 1,
+          "column": 1190616,
+          "index": 1190616
+        },
+        "pos": 1190616,
+        "raisedAt": null
+      },
+      {
+        "message": "Deleting local variable in strict mode. (1:1190626)",
+        "loc": {
+          "line": 1,
+          "column": 1190626,
+          "index": 1190626
+        },
+        "pos": 1190626,
+        "raisedAt": null
+      },
+      {
+        "message": "Deleting local variable in strict mode. (1:1190636)",
+        "loc": {
+          "line": 1,
+          "column": 1190636,
+          "index": 1190636
+        },
+        "pos": 1190636,
+        "raisedAt": null
+      },
+      {
+        "message": "Deleting local variable in strict mode. (1:1190646)",
+        "loc": {
+          "line": 1,
+          "column": 1190646,
+          "index": 1190646
+        },
+        "pos": 1190646,
+        "raisedAt": null
+      }
+    ],
+    "facts": [
+      "All5diagnostics are deleting-local-variable-in-strict-mode atline1 columns1190606/1190616/1190626/1190636/1190646. These are REA parser diagnostics,not a claim current browser rejects original code.",
+      "Grid recovered AST contains generic SUBTOT_TF/TOT_TF column-option transfer,total/subtotal row rendering/counting and rowData.param.SORT_TYPE A/D sort option. None establishes current axis code-vs-name basis or server formula.",
+      "REPORT_SORT_INDEX/REPORT_SORT_TYPE/REPORT_SUBTOTAL_USE/REPORT_CONDITION do not occur in the grid text. Partial analysis/absence is not proof unsupported; external V3 control/server path remains unknown.",
+      "Generic _row_type total/subtotal handling and optional grid auto-row paths are separate from current legacy final-axis suppression. Source inspected does not bind that policy to ESG016R/ESG002R.",
+      "No code/name field encoding,ko locale,tie/duplicate-name rule or multi-axis leaf/prefix subtotal algorithm is established; plan basis remains blocked."
+    ],
+    "evidence": "$SCRATCH/order-status-rea-20261018/extension-source-evidence.json"
+  },
+  "owner_UI_observations": {
+    "source": "Parent current read-only DOM/query shape messages only; no business rows/values retained",
+    "program": "E040306",
+    "menu": "MENUTREE_000515",
+    "page_label": "발주서현황",
+    "catalog": "Owner observed same catalog as plan,with main section발주서;17own-supported axes plus week/trade/manage candidates. This is current UI evidence,not hard-coded source list.",
+    "initial_slots": "2;choose first품목명[규격]→3",
+    "single_axis_headers": [
+      "품목명[규격]",
+      "수량",
+      "공급가액",
+      "부가세",
+      "합계"
+    ],
+    "subtotal_observation": "No extra leafsubtotal;grand title합계",
+    "pending": "2/5axis queries;code/name-order remains unimplemented/unknown",
+    "own_policy_supplied": "Own orderbase report uses effectiveLineTotals/fullinput qty;kept separate from outstanding/receipts,not asserted server equivalence."
+  },
+  "unknowns": [
+    "Current dynamic aggregateList/template columns/columnForm and actual restored filter/approval/currency/source settings.",
+    "Original ordinary-order fullordered versus residual quantity and receipt/cancel/completion allocation semantics;tax/round/currency formulas.",
+    "Multi-axis subtotal final-leaf/prefix behavior and code/name basis/server comparator.",
+    "Graph metric/data/formulas,print/Excel output,source/model/SID identity and exact drilldown query filters.",
+    "Grid source-level semantics partial after5parser diagnostics; no full retry or promotion."
+  ],
+  "files": {
+    "capture_manifest": "$SCRATCH/order-status-rea-20261018/extension-source-manifest.json",
+    "raw_actual_statuses": "$SCRATCH/order-status-rea-20261018/extension-analysis-summary.json",
+    "normalized_statuses": "$SCRATCH/order-status-rea-20261018/extension-normalized-analysis-summary.json",
+    "source_spans": "$SCRATCH/order-status-rea-20261018/extension-source-evidence.json",
+    "actual_refs": "$SCRATCH/order-status-rea-20261018/actual-rea-reference-index.json",
+    "cumulative_counts": "$SCRATCH/order-status-rea-20261018/cumulative-counts.json",
+    "baseline82_contract": "$SCRATCH/order-status-rea-20261018/order-status-contract.json"
+  }
+}

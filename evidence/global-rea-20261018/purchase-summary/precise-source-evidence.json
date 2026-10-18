@@ -1,0 +1,938 @@
+{
+  "schema": 1,
+  "method": "Actual REA6.4 static/semantic IR joined to inert parser locations; textual interpretation is source evidence, not execution.",
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive. New V3 and current preload sources are one line; retained V56 module spans original multiline source.",
+  "sources": {
+    "header-v3": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.header.2075066825770250059.20.js",
+      "sha256": "00a984221627297659ee4db4374f4e24549b3a3c511ad220cac70d64803165bd",
+      "bytes": 255743,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/00a9842216272976/rea-semantic-ir.json"
+    },
+    "contents-v3": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.contents.-1904147712028340650.20.js",
+      "sha256": "fcad48f8f56b63fe54284cb25e7a8e9f2f60db39c86234399a841cb21df981f4",
+      "bytes": 30909,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/fcad48f8f56b63fe/rea-semantic-ir.json"
+    },
+    "footer-v3": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/bundle.eccomposite_v1.output.unit.widget.footer.6019050170160939405.20.js",
+      "sha256": "beca20c9cbaf4d70e354bb416e47669ad5fd925750df86df6a22de35f61c14ba",
+      "bytes": 299475,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/inputs/beca20c9cbaf4d70/rea-semantic-ir.json"
+    },
+    "status-page-current-preload": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.inventory_status.bfb13ad4.20.js",
+      "sha256": "6bdc598e619328fe08e0d0fa8211b5d3c8c3ba777dc876863ed7d12621806dce",
+      "bytes": 1030,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/6bdc598e619328fe/rea-semantic-ir.json"
+    },
+    "actions-current-preload": {
+      "path": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/app.inventory.user_action.ee732992.20.js",
+      "sha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+      "bytes": 596933,
+      "actual_REA_ir": "$SCRATCH/purchase-report-widgets-rea-20261018/current-v56-preload/inputs/e70f31a1ac77f70c/rea-semantic-ir.json"
+    },
+    "inventory-v56-retained": {
+      "path": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/restored-public-originals/1c60d0effd69fe88-inventory.5b28ea0e.js",
+      "sha256": "1c60d0effd69fe88360a7f50b22170cc9dca96a07b6d252574040171c4ed32a1",
+      "bytes": 5069436,
+      "actual_REA_ir": "$SCRATCH/rea-request/.artifacts/global-rea-20261018/inputs/1c60d0effd69fe88-inventory.5b28ea0e-1c60d0effd69/rea-semantic-ir.json"
+    }
+  },
+  "methods": {
+    "titlebar.onSearchDraw": {
+      "source": "contents-v3",
+      "symbol": "eccomposite_v1.unit.widget.titlebar.onSearchDraw",
+      "span": [
+        1,
+        2407,
+        1,
+        4123
+      ],
+      "actual_REA_callable_id": "callable:function:2407:4123",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "outputExcel.createLayout": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.outputExcel.createLayout",
+      "span": [
+        1,
+        45805,
+        1,
+        46282
+      ],
+      "actual_REA_callable_id": "callable:function:45805:46282",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "outputExcel.execCreateComposite": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.outputExcel.execCreateComposite",
+      "span": [
+        1,
+        46303,
+        1,
+        46643
+      ],
+      "actual_REA_callable_id": "callable:function:46303:46643",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "outputExcel._ON_CLICK": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.outputExcel._ON_CLICK",
+      "span": [
+        1,
+        47075,
+        1,
+        48384
+      ],
+      "actual_REA_callable_id": "callable:function:47075:48384",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "outputExcel.getExcelParam": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.outputExcel.getExcelParam",
+      "span": [
+        1,
+        48399,
+        1,
+        50470
+      ],
+      "actual_REA_callable_id": "callable:function:48399:50470",
+      "direct_call_count": 26,
+      "call_resolution": {
+        "unresolved": 26
+      }
+    },
+    "print._ON_CLICK": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.print._ON_CLICK",
+      "span": [
+        1,
+        99152,
+        1,
+        99560
+      ],
+      "actual_REA_callable_id": "callable:function:99152:99560",
+      "direct_call_count": 11,
+      "call_resolution": {
+        "unresolved": 11
+      }
+    },
+    "printHtml.onPostSearch": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.printHtml.onPostSearch",
+      "span": [
+        1,
+        100509,
+        1,
+        100982
+      ],
+      "actual_REA_callable_id": "callable:function:100509:100982",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "printHtml._ON_CLICK": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.printHtml._ON_CLICK",
+      "span": [
+        1,
+        100993,
+        1,
+        101021
+      ],
+      "actual_REA_callable_id": "callable:function:100993:101021",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      },
+      "exact_source": "function(){this.pagePrint()}"
+    },
+    "printHtml.ON_KEY_F2": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.printHtml.ON_KEY_F2",
+      "span": [
+        1,
+        101032,
+        1,
+        101072
+      ],
+      "actual_REA_callable_id": "callable:function:101032:101072",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      },
+      "exact_source": "function(n){n.ctrlKey&&this.pagePrint()}"
+    },
+    "printHtml._printHtml": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.printHtml._printHtml",
+      "span": [
+        1,
+        102223,
+        1,
+        103156
+      ],
+      "actual_REA_callable_id": "callable:function:102223:103156",
+      "direct_call_count": 14,
+      "call_resolution": {
+        "unresolved": 14
+      }
+    },
+    "printHtml.pagePrint": {
+      "source": "footer-v3",
+      "symbol": "eccomposite_v1.unit.widget.printHtml.pagePrint",
+      "span": [
+        1,
+        103671,
+        1,
+        104704
+      ],
+      "actual_REA_callable_id": "callable:function:103671:104704",
+      "direct_call_count": 4,
+      "call_resolution": {
+        "unresolved": 3,
+        "exact": 1
+      }
+    },
+    "cmbSumFlagDate.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.cmbSumFlagDate.onInitControl",
+      "span": [
+        1,
+        17559,
+        1,
+        18386
+      ],
+      "actual_REA_callable_id": "callable:function:17559:18386",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "cmbSumFlagDate.onSetSearchParam": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.cmbSumFlagDate.onSetSearchParam",
+      "span": [
+        1,
+        21479,
+        1,
+        22703
+      ],
+      "actual_REA_callable_id": "callable:function:21479:22703",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "cmbSumFlagDate._formWidgetShowHide": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.cmbSumFlagDate._formWidgetShowHide",
+      "span": [
+        1,
+        22983,
+        1,
+        23634
+      ],
+      "actual_REA_callable_id": "callable:function:22983:23634",
+      "direct_call_count": 22,
+      "call_resolution": {
+        "unresolved": 22
+      }
+    },
+    "rbReportType.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.rbReportType.onInitControl",
+      "span": [
+        1,
+        30510,
+        1,
+        31190
+      ],
+      "actual_REA_callable_id": "callable:function:30510:31190",
+      "direct_call_count": 5,
+      "call_resolution": {
+        "unresolved": 5
+      }
+    },
+    "aggregationType.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.aggregationType.onInitControl",
+      "span": [
+        1,
+        46411,
+        1,
+        47177
+      ],
+      "actual_REA_callable_id": "callable:function:46411:47177",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "aggregationType.onValidateAfterOutputForm": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.aggregationType.onValidateAfterOutputForm",
+      "span": [
+        1,
+        48089,
+        1,
+        48548
+      ],
+      "actual_REA_callable_id": "callable:function:48089:48548",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "aggregationType.onSetSearchParam": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.aggregationType.onSetSearchParam",
+      "span": [
+        1,
+        49229,
+        1,
+        50620
+      ],
+      "actual_REA_callable_id": "callable:function:49229:50620",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "aggregationType.createConditions": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.aggregationType.createConditions",
+      "span": [
+        1,
+        50794,
+        1,
+        51212
+      ],
+      "actual_REA_callable_id": "callable:function:50794:51212",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "linkSort.onPreSearch": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSort.onPreSearch",
+      "span": [
+        1,
+        69192,
+        1,
+        69635
+      ],
+      "actual_REA_callable_id": "callable:function:69192:69635",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "linkSort.onHeaderLinkSort": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSort.onHeaderLinkSort",
+      "span": [
+        1,
+        70116,
+        1,
+        70882
+      ],
+      "actual_REA_callable_id": "callable:function:70116:70882",
+      "direct_call_count": 9,
+      "call_resolution": {
+        "unresolved": 9
+      }
+    },
+    "linkSort.openSortPopup": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSort.openSortPopup",
+      "span": [
+        1,
+        70897,
+        1,
+        71288
+      ],
+      "actual_REA_callable_id": "callable:function:70897:71288",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "linkSort.onMessageHandler_FM053P_01": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSort.onMessageHandler_FM053P_01",
+      "span": [
+        1,
+        71986,
+        1,
+        72378
+      ],
+      "actual_REA_callable_id": "callable:function:71986:72378",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "linkSort._reset": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSort._reset",
+      "span": [
+        1,
+        72386,
+        1,
+        72535
+      ],
+      "actual_REA_callable_id": "callable:function:72386:72535",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      },
+      "exact_source": "function(){this.isAppliedSort=!1;this.formDesignSortData=null;this.formDesignData=null;var n=this.myControl;n&&n.removeClass(\"text-warning-inverse\")}"
+    },
+    "linkSortTotal.onPreSearch": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSortTotal.onPreSearch",
+      "span": [
+        1,
+        73161,
+        1,
+        74130
+      ],
+      "actual_REA_callable_id": "callable:function:73161:74130",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "linkSortTotal.openSortPopup": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSortTotal.openSortPopup",
+      "span": [
+        1,
+        76921,
+        1,
+        77780
+      ],
+      "actual_REA_callable_id": "callable:function:76921:77780",
+      "direct_call_count": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    },
+    "linkSortTotal.onMessageHandler_FM079P_01": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSortTotal.onMessageHandler_FM079P_01",
+      "span": [
+        1,
+        79420,
+        1,
+        81489
+      ],
+      "actual_REA_callable_id": "callable:function:79420:81489",
+      "direct_call_count": 17,
+      "call_resolution": {
+        "unresolved": 17
+      }
+    },
+    "linkSortTotal._reset": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.linkSortTotal._reset",
+      "span": [
+        1,
+        81497,
+        1,
+        81708
+      ],
+      "actual_REA_callable_id": "callable:function:81497:81708",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "unresolved": 1
+      }
+    },
+    "rbType.onInitControl": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.rbType.onInitControl",
+      "span": [
+        1,
+        156445,
+        1,
+        156627
+      ],
+      "actual_REA_callable_id": "callable:function:156445:156627",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "rbType.getOptionList": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.rbType.getOptionList",
+      "span": [
+        1,
+        156642,
+        1,
+        156935
+      ],
+      "actual_REA_callable_id": "callable:function:156642:156935",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "sumFlag.onSetSearchParam": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.sumFlag.onSetSearchParam",
+      "span": [
+        1,
+        172321,
+        1,
+        172611
+      ],
+      "actual_REA_callable_id": "callable:function:172321:172611",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "search.createLayout": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.search.createLayout",
+      "span": [
+        1,
+        215787,
+        1,
+        216009
+      ],
+      "actual_REA_callable_id": "callable:function:215787:216009",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 7
+      }
+    },
+    "search._ON_CLICK": {
+      "source": "header-v3",
+      "symbol": "eccomposite_v1.unit.widget.search._ON_CLICK",
+      "span": [
+        1,
+        216346,
+        1,
+        216562
+      ],
+      "actual_REA_callable_id": "callable:function:216346:216562",
+      "direct_call_count": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    },
+    "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusCreateDMCResolver.getSearchAggregateModelInfo",
+      "span": [
+        498,
+        4,
+        507,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25067:25452",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusCreateDMCResolver.getFreeAggregateModelInfo",
+      "span": [
+        508,
+        4,
+        518,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25457:25961",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "InventoryStatusCreateDMCResolver.getFixedAggregateModelInfo": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusCreateDMCResolver.getFixedAggregateModelInfo",
+      "span": [
+        519,
+        4,
+        526,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:25966:26422",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "InventoryStatusCreateDMCResolver.resolveStatusGridDefinitionAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusCreateDMCResolver.resolveStatusGridDefinitionAsync",
+      "span": [
+        532,
+        4,
+        566,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:26632:28686",
+      "direct_call_count": 9,
+      "call_resolution": {
+        "unresolved": 9
+      }
+    },
+    "InventoryStatusDownloadExcelResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusDownloadExcelResolver.OnExecuteAsync",
+      "span": [
+        572,
+        4,
+        597,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:28855:30296",
+      "direct_call_count": 6,
+      "call_resolution": {
+        "unresolved": 6
+      }
+    },
+    "InventoryStatusNormalizeDataModelResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusNormalizeDataModelResolver.OnExecuteAsync",
+      "span": [
+        624,
+        4,
+        636,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:31903:32362",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "InventoryStatusNormalizeDataModelResolver.requiredNormalization": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusNormalizeDataModelResolver.requiredNormalization",
+      "span": [
+        637,
+        4,
+        643,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:32367:32787",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 3
+      }
+    },
+    "InventoryStatusGetDefaultSearchOptionResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusGetDefaultSearchOptionResolver.OnExecuteAsync",
+      "span": [
+        2412,
+        4,
+        2443,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:116075:117863",
+      "direct_call_count": 10,
+      "call_resolution": {
+        "unresolved": 8,
+        "exact": 2
+      }
+    },
+    "InventoryStatusHeaderSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusHeaderSearchResolver.OnExecuteAsync",
+      "span": [
+        2583,
+        4,
+        2603,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:124840:125726",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "unresolved": 2,
+        "exact": 1
+      }
+    },
+    "InventoryStatusQuickSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusQuickSearchResolver.OnExecuteAsync",
+      "span": [
+        2628,
+        4,
+        2672,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:126608:128913",
+      "direct_call_count": 13,
+      "call_resolution": {
+        "unresolved": 13
+      }
+    },
+    "InventoryStatusSortSearchResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusSortSearchResolver.OnExecuteAsync",
+      "span": [
+        2748,
+        4,
+        2803,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:131713:134416",
+      "direct_call_count": 15,
+      "call_resolution": {
+        "unresolved": 15
+      }
+    },
+    "InventoryStatusSearchDataModelResolver.OnExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusSearchDataModelResolver.OnExecuteAsync",
+      "span": [
+        3206,
+        4,
+        3257,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:153083:156040",
+      "direct_call_count": 10,
+      "call_resolution": {
+        "unresolved": 8,
+        "exact": 2
+      }
+    },
+    "InventoryStatusSearchBuildProcessFeature.buildSearchOptionProcess": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildSearchOptionProcess",
+      "span": [
+        3374,
+        4,
+        3383,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:161031:161441",
+      "direct_call_count": 3,
+      "call_resolution": {
+        "exact": 3
+      }
+    },
+    "InventoryStatusSearchBuildProcessFeature.buildSearchProcess": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildSearchProcess",
+      "span": [
+        3387,
+        4,
+        3389,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:161558:161644",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "exact": 1
+      },
+      "exact_source": "buildSearchProcess() {\n        return getSearchProcessResolver$1(this.is_graph);\n    }"
+    },
+    "InventoryStatusSearchBuildProcessFeature.buildPostProcess": {
+      "source": "inventory-v56-retained",
+      "symbol": "InventoryStatusSearchBuildProcessFeature.buildPostProcess",
+      "span": [
+        3390,
+        4,
+        3399,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:161649:162026",
+      "direct_call_count": 1,
+      "call_resolution": {
+        "exact": 1
+      }
+    },
+    "SelectInventoryStatusProgram.onExecuteAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "SelectInventoryStatusProgram.onExecuteAsync",
+      "span": [
+        9774,
+        4,
+        9834,
+        5
+      ],
+      "actual_REA_callable_id": "callable:method:471751:474903",
+      "direct_call_count": 7,
+      "call_resolution": {
+        "unresolved": 6,
+        "exact": 1
+      }
+    },
+    "SelectInventoryStatusUserAction.executeAsync": {
+      "source": "inventory-v56-retained",
+      "symbol": "SelectInventoryStatusUserAction.executeAsync",
+      "span": [
+        21208,
+        26,
+        21458,
+        5
+      ],
+      "actual_REA_callable_id": "callable:function:1091230:1103279",
+      "direct_call_count": 9,
+      "call_resolution": {
+        "unresolved": 7,
+        "exact": 2
+      }
+    },
+    "_SelectInventoryStatusUserAction.executeAsync": {
+      "source": "actions-current-preload",
+      "symbol": "_SelectInventoryStatusUserAction.executeAsync",
+      "span": [
+        1,
+        325114,
+        1,
+        328768
+      ],
+      "actual_REA_callable_id": "callable:function:325114:328768",
+      "direct_call_count": 13,
+      "call_resolution": {
+        "unresolved": 12,
+        "exact": 1
+      }
+    },
+    "_StandardStatusUserAction.executeAsync": {
+      "source": "actions-current-preload",
+      "symbol": "_StandardStatusUserAction.executeAsync",
+      "span": [
+        1,
+        567533,
+        1,
+        569043
+      ],
+      "actual_REA_callable_id": "callable:function:567533:569043",
+      "direct_call_count": 16,
+      "call_resolution": {
+        "unresolved": 16
+      }
+    },
+    "setPageData": {
+      "source": "inventory-v56-retained",
+      "symbol": "setPageData",
+      "span": [
+        877,
+        0,
+        914,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:44595:46783",
+      "direct_call_count": 14,
+      "call_resolution": {
+        "unresolved": 14
+      }
+    },
+    "applyInventoryStatusDefaultSortSearchOption": {
+      "source": "inventory-v56-retained",
+      "symbol": "applyInventoryStatusDefaultSortSearchOption",
+      "span": [
+        2000,
+        0,
+        2015,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:98457:99284",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "modifySearchOptionResolvers$1": {
+      "source": "inventory-v56-retained",
+      "symbol": "modifySearchOptionResolvers$1",
+      "span": [
+        3415,
+        0,
+        3439,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:162457:163763",
+      "direct_call_count": 2,
+      "call_resolution": {
+        "unresolved": 2
+      }
+    },
+    "getSearchProcessResolver$1": {
+      "source": "inventory-v56-retained",
+      "symbol": "getSearchProcessResolver$1",
+      "span": [
+        3463,
+        0,
+        3468,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:164630:164865",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "getPostProcessResolver$2": {
+      "source": "inventory-v56-retained",
+      "symbol": "getPostProcessResolver$2",
+      "span": [
+        3469,
+        0,
+        3473,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:164866:165101",
+      "direct_call_count": 0,
+      "call_resolution": {}
+    },
+    "checkAggregate": {
+      "source": "inventory-v56-retained",
+      "symbol": "checkAggregate",
+      "span": [
+        9854,
+        0,
+        9881,
+        1
+      ],
+      "actual_REA_callable_id": "callable:function:475648:476856",
+      "direct_call_count": 8,
+      "call_resolution": {
+        "unresolved": 8
+      }
+    },
+    "_StandardUserAction.executeAsync": {
+      "source": "actions-current-preload",
+      "symbol": "_StandardUserAction.executeAsync",
+      "span": [
+        1,
+        570354,
+        1,
+        576590
+      ],
+      "actual_REA_callable_id": "callable:function:570354:576590",
+      "direct_call_count": 35,
+      "call_resolution": {
+        "unresolved": 32,
+        "exact": 3
+      }
+    }
+  }
+}

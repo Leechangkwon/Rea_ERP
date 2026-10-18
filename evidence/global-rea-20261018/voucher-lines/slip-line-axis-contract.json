@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T07:29:12.690452+00:00",
+  "scope": {
+    "new_GETs": 0,
+    "new_original_bodies": 0,
+    "browser_operations": 0,
+    "private_API_or_business_requests": 0,
+    "source_execution": false,
+    "source_input_or_save_actions": 0,
+    "application_or_prior_contract_edits": false,
+    "new_full_semantic_runs": 0,
+    "corpus": "Existing78 originals/actualREA. Independent of0.22 product-group work."
+  },
+  "span_format": "[startLine,zeroBasedStartColumn,endLine,zeroBasedEndColumn] end exclusive; UTF16 offsets",
+  "files": [
+    "precise-static-evidence.json",
+    "rea-reference-evidence.json"
+  ],
+  "conclusion": "Source establishes summary_slip/summary_line refer types and generic record/navigation identifier fields. Current ordinary aggregate identity keys/SID binding/display and exact-row drilldown are not established. Own document ID and stable lineId grouping can be an explicitly independent local policy.",
+  "parent_UI_evidence": {
+    "candidate_labels": [
+      "전표별",
+      "라인별"
+    ],
+    "single_axis_headers": "Pending observation at generation; not inferred from other5header axes.",
+    "no_company_values_retained": true
+  },
+  "axes": [
+    {
+      "observed_candidate": "전표별",
+      "refer_type": "summary_slip",
+      "V5_drilldown_map": {
+        "search_refer_type": "data_dt",
+        "span": [
+          1,
+          576792,
+          1,
+          576814
+        ],
+        "target_prop_id": "Dynamic getPropIdByReferType unless item-meaning override"
+      },
+      "V56_drilldown_map": {
+        "search_prop_id": "inv_s$data_dt",
+        "span": [
+          83616,
+          4,
+          83616,
+          33
+        ]
+      },
+      "ordinary_axis_actual_prop_id_and_datatype": "Not retained; selected template metadata supplies them dynamically. No direct source proof binds this label to $$date_no or $$date_record_seq_no."
+    },
+    {
+      "observed_candidate": "라인별",
+      "refer_type": "summary_line",
+      "V5_drilldown_map": {
+        "search_refer_type": "data_dt",
+        "span": [
+          1,
+          576769,
+          1,
+          576791
+        ],
+        "target_prop_id": "Dynamic getPropIdByReferType unless item-meaning override"
+      },
+      "V56_drilldown_map": {
+        "search_prop_id": "inv_s$data_dt",
+        "span": [
+          83615,
+          4,
+          83615,
+          33
+        ]
+      },
+      "ordinary_axis_actual_prop_id_and_datatype": "Not retained; selected template metadata supplies them dynamically. No direct source proof binds this label to $$date_no or $$date_record_seq_no."
+    }
+  ],
+  "identifier_evidence": {
+    "navigation_record_fields": {
+      "source": "actions.getRecordInfo1 reads row fields by refer_type at owner.data_model_index(default0), including bizz_sid,menu_sid,data_sid,record_sid,hid,data_dt,data_no,record_seq_no. actions.movePage1 passes those distinct fields to IInventoryInputPage navigation param.",
+      "evidence": [
+        "actions.getRecordInfo1",
+        "actions.movePage1",
+        "actions.openPopup$2"
+      ],
+      "boundary": "This identifies actual field names used for generic input navigation. It does not prove which fields current aggregate summary rows contain, their lifetime/uniqueness, or equality to own doc.id/lineId. No navigation or edit was executed."
+    },
+    "sequence_vs_opaque_ID": {
+      "source": "Original navigation keeps data_sid,record_sid and record_seq_no as separate parameters. widget$$initialize_focus consumes record_seq_no or legacy FocusRowNumber as focus_row_no and sets data_model_index=focus_row_no-1.",
+      "evidence": [
+        "common.widget$$initialize_focus",
+        "common.record_seq_no focus index"
+      ],
+      "boundary": "record_seq_no has a positional-focus use. Source does not prove it immutable or interchangeable with record_sid or an own stable lineId."
+    },
+    "generic_comparison_identity": {
+      "source": "createComparisonValueExtractor returns data_dt$data_no for $$date_no; data_dt$data_no$record_seq_no for $$date_record_seq_no; code for $$code.",
+      "evidence": [
+        "common.createComparisonValueExtractor"
+      ],
+      "explicit_exclusion": "This is comparison-period matching configuration only. It is not proof of current ordinary 전표별/라인별 GROUPBY, canonical stable identity or display format, and is not used to assert original-axis datatype binding."
+    }
+  },
+  "drilldown_filter_boundary": {
+    "source": "summary_line and summary_slip lookup to date search. When target search property is $$date_range_condition, generateAggregateSearchDataModel reads clicked row data_dt_no.data_dt and calls convertToDateByDateReferType. Neither summary_line nor summary_slip has a specialized conversion case, so default creates same-date from/to.",
+    "output_shape": "{simple_search_id:D,type:range,value:{from_date:base_date,to_date:base_date}}",
+    "row_scope_limit": "This helper itself does not write a data_no,record_seq_no,data_sid or record_sid filter for these refer types. Other actions/defaults/context may narrow scope; current binding unknown. Do not claim this source opens exactly one original document/row.",
+    "priority_limit": "Among date-typed selected conditions, StandardUserAction priority ranks summary_line before summary_slip before day/week/month/quarter/half/year. This priority concerns drilldown condition selection, not ordinary aggregate grouping.",
+    "receiver": "Common StandardUserAction resets aggregate towards default/fixed line details_target or removes it for certain submenus, overlays generated search filters, opens a popup and configures header search. This is aggregate-result drilldown, not the row edit/navigation path above.",
+    "evidence": [
+      "actions.StandardUserAction.executeAsync",
+      "actions.generateAggregateSearchDataModel",
+      "actions.convertToDateByDateReferType",
+      "common.StandardUserAction.executeAsync"
+    ]
+  },
+  "ordinary_group_metadata_consumer": {
+    "selection": "Compatible selector returns template_item.prop_id,label/refer_type/data_type/item_meaning_id. Concrete current values absent.",
+    "layout": "processFreeAggregateCondition carries selected prop and dynamic DMC attributes/label into layout; this does not define a doc/line stable ID projection.",
+    "query": "Free normalizer preserves selected condition objects and rebuilds groups from unique selected nonempty prop_id. Fixed+details_target=line branch clears groups. Free summary_line is not locally special-cased by that groups builder.",
+    "evidence": [
+      "common.getAggregateConditionData",
+      "common.processFreeAggregateCondition",
+      "common.buildNormalizedAggregate",
+      "common.rebuildAggregateGroups",
+      "query.DataModelModifierForSearchConditionProgram._createSearchRequestDto",
+      "query.SearchModelDescriptor.toRequestDto"
+    ],
+    "server_boundary": "No captured ordinary server GROUPBY/projection or current template property definition proves a document/line identity formula."
+  },
+  "line_only_mode_flag": {
+    "source": "inventory.checkAggregate returns false for fixed+details_target=line. For free, collects nonempty prop IDs, resolves grid_dmc.getPropIdByReferType(summary_line), and returns false if this is the sole unique selected ID. Otherwise true.",
+    "span": [
+      9854,
+      0,
+      9881,
+      1
+    ],
+    "evidence": [
+      "inventory.checkAggregate"
+    ],
+    "order_boundary": "SelectInventoryStatusProgram calls the query using transformed conditions/sorts/groups first, then computes is_aggregate from search/grid DMC after response. Thus this client mode flag is not proof of clearing free-line request.groups, changing server grouping or stable identity.",
+    "evidence_query": [
+      "inventory.SelectInventoryStatusProgram.onExecuteAsync"
+    ]
+  },
+  "own_independent_policy_assessment": {
+    "provided_model_facts": "Parent supplies own document id/date and stable lineId. Worker did not execute/read business records.",
+    "feasibility": "Use own doc.id for document buckets and own doc.id+stable lineId for line buckets. Own doc.date and current display line number can be presentation fields.",
+    "legacy_boundary": "A separate tagged fallback for legacy position-derived rows is an own compatibility policy; do not describe it as original record_sid/record_seq_no equivalence or universal stable identity.",
+    "display_boundary": "Current-order line number is display only; it must not replace stable line identity. Original doc-number/date/row formatting remains unknown until masked UI observation.",
+    "equivalence_boundary": "Own identifiers, stable key semantics and local numeric aggregation are independent implementation policies. Original SID/code/display/GROUPBY/server totals remain unknown."
+  },
+  "unknowns": [
+    "Current original selected summary_slip/summary_line prop_id/data_type/value_format and backing projection",
+    "Original ordinary document/row grouping key and whether same date/number across bizz/menu or duplicate lines are distinct",
+    "Opaque data_sid/record_sid/hid lifetime, uniqueness, missing values and relation to displayed data_no/record_seq_no",
+    "Original sequence behavior after reorder/delete/insert and legacy row numbering",
+    "Original document/line caption and masked display formats plus single-axis headers pending observation",
+    "Original exact document/row drilldown restriction versus date-only helper, other route/context filters",
+    "Server sum/subtotal/tax/rounding and original ordering/explicit-sort precedence"
+  ],
+  "limits": [
+    "Generic comparison key and focus-position branches are explicitly not promoted to current ordinary grouping equivalence.",
+    "Full common semantic OOM is preserved; static AST and selected excerpt references do not promote it.",
+    "Actual V5 semantic references are existing completed REA6.4; dynamic/member calls and current binding remain unknown.",
+    "No original save/input row/control or browser/private API action occurred."
+  ]
+}

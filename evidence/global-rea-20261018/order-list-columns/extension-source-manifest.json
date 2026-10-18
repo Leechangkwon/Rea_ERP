@@ -1,0 +1,45 @@
+{
+  "baseline_file": "$SCRATCH/purchasing-history-rea-20261018/cumulative-counts.json",
+  "baseline_fixed": {
+    "unique_bodies": 85,
+    "bytes": 25280039,
+    "static_complete": 83,
+    "static_partial": 2,
+    "semantic_complete": 78,
+    "semantic_partial": 2,
+    "semantic_timeout": 3,
+    "semantic_OOM": 2
+  },
+  "provenance": "Parent exact original purchaseorder list menu509 gridForm-ESG005M DOM script[src]; body binding inspected separately",
+  "sources": [
+    {
+      "url": "https://resourcev3.ecount.com/ec3/ecerp/contents/pages/view.inventory/esg/views/xesg005m.-2616615531764698946.20.js",
+      "provenance": "Exact parent read-only original purchaseorder list ESG005M DOM script[src]",
+      "attempts": 1,
+      "authenticated": false,
+      "cookies_sent": false,
+      "UA_changed": false,
+      "target_executed": false,
+      "existing_basename_match": false,
+      "downloaded_at": "2026-10-18T12:03:14.456624+00:00",
+      "http_status": 200,
+      "headers": {
+        "Content-Type": "application/x-javascript",
+        "Content-Encoding": "gzip",
+        "Content-Length": "3508",
+        "Last-Modified": "Thu, 25 Sep 2025 21:14:50 GMT",
+        "ETag": "\"2799fbbecc6bb9d598677e1ff32d6545\"",
+        "Date": "Sun, 18 Oct 2026 12:03:20 GMT"
+      },
+      "transport_bytes": 3508,
+      "gzip_magic": true,
+      "sha256": "ee16664371fa12568729e89f11c955152cd173926898ba92c5927586dded15ce",
+      "bytes": 13306,
+      "new_unique_body": true,
+      "gzip_decoded": true,
+      "path": "$SCRATCH/purchaseorder-list-columns-rea-20261018/extension-originals/xesg005m.-2616615531764698946.20.js",
+      "SHA_verified_after_save": true,
+      "status": "captured"
+    }
+  ]
+}

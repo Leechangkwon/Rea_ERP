@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T08:11:12.208847+00:00",
+  "scope": {
+    "retained_unique_original_bodies": 78,
+    "bytes": 19149569,
+    "new_bodies": 0,
+    "new_GETs": 0,
+    "browser_actions": 0,
+    "original_JS_execution": false,
+    "original_private_API_calls": 0,
+    "original_save_or_main_row_actions": false,
+    "app_or_prior_contract_edits": false,
+    "tests_executed": false,
+    "separate_from": "Owner 0.26 implementation/full checks"
+  },
+  "conclusion": {
+    "WebUploader_open_autosave": "No direct autosave call found in retained V3 click or V56 open action. Whole open lifecycle remains unknown: page/window delegate, popup implementation, global input events and arbitrary callbacks not established. Do not certify opening original main input as side-effect-free.",
+    "saveNew": "This is an explicit persistent Save action followed by configured new-input navigation, not a read-only reset. General field retention/reset cannot be proven from these shared navigation branches.",
+    "recommended_next_scope": "Keep original main input/rows untouched. Own Save/New or upload implementation must be scoped to independently observed labels plus declared own data/confirmation policy; source does not justify full original field reset/import equivalence."
+  },
+  "owner_UI_observation": {
+    "source": "Parent fresh AX + visible DOM, current task message; worker did not browse",
+    "purchaseorder_save_dropdown": [
+      "저장/전자결재",
+      "저장/내용유지",
+      "저장/신규"
+    ],
+    "save_links_clicked": false,
+    "main_rows_edited": false,
+    "limits": "SaveNew exposure confirmed only for purchaseorder in this new observation; behavior, field reset, default settings and server response not observed."
+  },
+  "saveNew_V3": {
+    "entry": {
+      "refs": [
+        "prior-footer::save_new._ON_CLICK",
+        "prior-footer::inputEvent.execSlipSaveNew"
+      ],
+      "contract": "save_new click -> inputEvent.execSlipSaveNew -> pageHidden.saveType=saveNew; saveTypeOrigin=1; saveAction(). It enters common validation/save API pipeline. Rendering depends on page/program/settings exclusions, not universal availability."
+    },
+    "post_success": {
+      "refs": [
+        "input::eccomposite_v1.function.inputEvent.saveAfterInputPageSubmit"
+      ],
+      "contract": "For saveNew/saveReview/saveSlipPayAssistant, first branch precedes popup-close handling. Request.EditMode is new for saveNew and modify for saveReview. Submit same pageInfo.path on main tab. Key date/no uses saved response when old input was new, current master when old input was modify. Additional context includes FromProgramId, PrevUrl, RoomSeq/MenuSeq, next/confirm UI options; WMS data and order-manager context conditionally added.",
+      "important_limit": "Request.Key is navigation/reference context in this local code; no evidence here establishes copied-source semantics, full data carry-over, a field reset list or page initializer defaults."
+    },
+    "save_and_temp_effects": {
+      "refs": [
+        "input::eccomposite_v1.function.inputEvent.callSaveApi",
+        "input::eccomposite_v1.function.inputEvent.callApi"
+      ],
+      "contract": "callSaveApi explicitly calls save API. Successful response clears ecount.TemporarySave.localstorage before continuing. Certain error paths ask for confirmation then call fnTemporarySave / applyTemporarySaved; generic callApi supplies saveTemporaryfnc callback to ecount.common.api. These effects belong to saving/error recovery, not evidence that opening WebUploader executes them."
+    },
+    "overrides": {
+      "refs": [
+        "prior-footer::inputEvent.defaultActionFunction",
+        "prior-footer::inputEvent.initActionSetting",
+        "prior-footer::inputEvent.getSaveApiParam"
+      ],
+      "contract": "pageInfo action/save sequence, custom step functions and footer.save parameter builder may change pipeline. Current plan/order input page body and binding remain uncaptured; observed dropdown does not resolve their configuration."
+    }
+  },
+  "saveNew_V56_inventory": {
+    "ref": "inventory::CreateAndModifyInventoryNewSlipUserAction.executeAsync",
+    "steps": [
+      "Execute inventory$ExecuteInventorySlipSaveProgram; falsy result returns.",
+      "On success, delete temporary-save feature data. Read menu attribute save_action_mode.",
+      "Build navigation reqData from current route reqData plus barcode_option.use_tf; preserve barcode use/focus-list/list values.",
+      "If route param action_mode is USE_HOLD, change it to GET_CREATE before navigation.",
+      "save_action_mode NEW -> reloadPageAsync(option); UPDATE -> reload same bizz/menu with param.action_mode GET_CREATE and preserve barcode options.",
+      "Reload precedes popup/window parent redraw/approval/attach messaging branches."
+    ],
+    "explicit_preserve_only": [
+      "barcode use_tf",
+      "barcode_focus_list",
+      "barcode_list",
+      "spread current route reqData, whose arbitrary contents/default semantics are not fully known"
+    ],
+    "unknown_fields": [
+      "partner",
+      "warehouse",
+      "date",
+      "employee/project/currency",
+      "item rows/quantities/prices",
+      "memo/custom fields",
+      "provenance/source links",
+      "new page model initializers/default settings"
+    ],
+    "binding": "Generic inventory V56 implementation retained with full actual REA; runtime purchaseorder/plan binding and receiver defaults unknown. Older V5 compiled action also retained; current version selection unknown.",
+    "V5_ref": "actions::CreateAndModifyInventoryNewSlipUserAction.executeAsync"
+  },
+  "WebUploader_V3": {
+    "visibility": {
+      "ref": "core::eccomposite_v1.unit.widget.webUploader.execCreateComposite",
+      "contract": "Normally hidden for modify unless settingInfo.isUseAddData=true; also gated by include/approval/hidden/collected-invoice and some program/config conditions. A button can be configured with form sequence dropdown; presence is not upload proof."
+    },
+    "open": {
+      "ref": "core::eccomposite_v1.unit.widget.webUploader._ON_CLICK",
+      "contract": "Construct /ECERP/Popup.Common/BulkUploadForm window options (1000x640), form type/optional bundle form/sequence, origin program, WMS/config and CheckPermissionRequest(webUpload, PFlag9; optional price permission). settingInfo.setParam may mutate params. isUseAddData asks confirmation before open; otherwise direct openWindow. No row mutation, saveAction, fnTemporarySave or API save call appears in this method.",
+      "direct_delegate": "core::core-delegate.openWindow",
+      "delegate_contract": "Adds tabID when appropriate then delegates common.page.openWindow. Implementation/listeners beyond this event boundary are not retained in this inspected path."
+    },
+    "popup_return": {
+      "ref": "core::eccomposite_v1.unit.widget.webUploader.onMessageHandler_BulkUploadForm",
+      "contract": "If custom settingInfo.messageHandler exists, invokes it. Otherwise redraws searchManager if present. It does not parse/upload/apply rows in this method.",
+      "unknown": "BulkUploadForm body, file parsing, preview validation, actual apply/save/cancel handlers and custom messageHandler definitions for current input are not captured. Default redraw can re-query; it is not evidence of a read-only import operation."
+    }
+  },
+  "WebUploader_V56_common": {
+    "refs": [
+      "common::OpenWebUploaderUserAction.executeAsync",
+      "common::OpenWebUploaderUserAction._openWebUploaderPopupAsync"
+    ],
+    "evidence_level": "Original common static AST; full common semantic OOM at2GB preserved, no retry or full IR. Do not label these as fully resolved semantic call chains.",
+    "routing": [
+      "Read confirm_type from master model and bizz settings.",
+      "Explicit payload.form_seq -> IV3WebUploaderPage with confirm_type/form_seq.",
+      "Certain sales deploy/config branch performs CheckSalesFlagAction request, may alert/reload top window on false; this is an external request on opening, not proof of a persistent business write.",
+      "Eligible bizz settings -> IWebUploaderPage; otherwise IV3WebUploaderPage.",
+      "V5 page menu uses bizz.menu_sid_map.web_upload fallback current menu, with two tax-sale menu overrides; params include bizz/menu, menu_type upload, action_mode NEW, title and confirm_type."
+    ],
+    "return_callback": "All shown popup branches invoke popup_result.message?.callback?.() after openPopupAsync resolves. No check in these local functions distinguishes apply from cancel; callback producer/semantics are not retained. No direct temporary-save call is present.",
+    "boundary": "openPopupAsync route/page implementation is external. Current purchaseorder version/bizz/settings and callback binding unknown; do not equate this route with retained V3 input widget unconditionally."
+  },
+  "automatic_draft_boundary": {
+    "refs": [
+      "temporary::eccomposite_v1.group.toolbar.temporarySave.getTempSaveConfig",
+      "core::core-delegate.setTempSaveConfig",
+      "core::core-delegate.fnTemporarySave"
+    ],
+    "source_facts": "Retained V3 input temporarySave toolbar constructs use:true config for new/modify, grid data/tab/context, version and applyOnReload:true, then delegates tempSaveSetting. fnTemporarySave separately delegates common.page.fnTemporarySave. No captured body here resolves actual timer/blur/write trigger implementation or joins it to WebUploader open.",
+    "owner_observation": "Earlier original main-input and row-control interactions created temporary drafts even without typing. This is retained as separate UI observation; the source does not prove a WebUploader-open causal trigger.",
+    "decision": "Opening on original main input cannot be certified harmless; keep the owner prohibition on original input/row interaction. Inquiry page WebUploader may also have external popup/callback effects; scope requires explicit read-only boundaries before product claims."
+  },
+  "implementation_selection_conditions_not_tests": [
+    "Save/New requires explicit save confirmation/permission and success response before clearing state; failed save retains unsaved draft and fields.",
+    "Specify own new-document policy per field, including provenance, line identity, dates/defaults and barcode settings; label differences rather than infer from Request.Key.",
+    "After successful own Save/New, use a new-document context intentionally; do not leave saved ID or downstream planAllocations/source allocations accidentally attached.",
+    "Own upload open/preview should perform no persistent writes by policy; only explicit validated apply/save may commit, with cancel preserving existing draft. This is an own acceptance condition, not proven original behavior.",
+    "Keep file parsing, validation, preview, draft application and persistent save as separately stated boundaries; original popup importer implementation is missing."
+  ],
+  "evidence_files": {
+    "precise_source": "$SCRATCH/save-new-upload-rea-20261018/precise-source-evidence.json",
+    "actual_REA_refs": "$SCRATCH/save-new-upload-rea-20261018/actual-rea-reference-index.json",
+    "whole_78_scan": "$SCRATCH/save-new-upload-rea-20261018/corpus-scan.json"
+  },
+  "unknowns": [
+    "Exact save_after literal is absent from inspected78; saveNew/save_new/save_action_mode are retained related symbols. No absence proves unsupported behavior.",
+    "No full field preservation/reset contract or initializer for current plan/order input.",
+    "No current WebUploader popup body/apply/cancel consumer or external page/window event implementation; no end-to-end autosave safety guarantee.",
+    "Original permission/server validation/import formulas and successful SaveNew response not exercised.",
+    "No new original analyses or downloads; previous cumulative REA limits remain unchanged: static77 complete+1 partial; semantic73 complete+1 partial+2 timeouts+2 OOM."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "baseline_file": "$SCRATCH/rea-request/evidence/global-rea-20261018/report-sort-config/corpus-summary.json",
+  "baseline_deployment_boundary": "Owner planned0.19 uses previous72 original bodies; new2 are next-batch research only. No app/evidence checkout modified.",
+  "baseline": {
+    "unique_bodies": 72,
+    "bytes": 12121611,
+    "static_complete": 71,
+    "static_partial": 1,
+    "semantic_complete": 70,
+    "semantic_partial": 1,
+    "semantic_unknown_timeout": 1
+  },
+  "added": {
+    "unique_bodies": 2,
+    "bytes": 4945488,
+    "static_complete": 2,
+    "semantic_complete": 1,
+    "semantic_unknown_oom": 1
+  },
+  "cumulative_research_only": {
+    "unique_bodies": 74,
+    "bytes": 17067099,
+    "static_complete": 73,
+    "static_partial": 1,
+    "semantic_complete": 71,
+    "semantic_partial": 1,
+    "semantic_unknown_timeout": 1,
+    "semantic_unknown_oom": 1
+  },
+  "excerpt_runs_excluded_from_body_counts": 2,
+  "limits": "Counts represent SHA-deduplicated inert public bodies, not verified UI/buttons/server behavior. Common semantic OOM remains unknown. Baseline prior partial parse/semantic and menu timeout remain unchanged."
+}

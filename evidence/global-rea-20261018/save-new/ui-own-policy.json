@@ -1,0 +1,21 @@
+{
+  "version": "0.27.0",
+  "own_policy": {
+    "types": [
+      "request",
+      "plan",
+      "purchaseorder",
+      "purchase"
+    ],
+    "success": "Commit once, discard current draft only after persistence, then fresh input using current registered defaults and selected own form defaults. Modal rekeys to same context new draft and updates title/baseline.",
+    "failure": "Validation, localStorage failure, permission loss or stale existing edit retains original controls, database and current identity.",
+    "separate_pending_draft": "Before any save, block SaveNew from existing modal if another new draft is already retained for same base route; it remains accessible through New. Save or explicitly reset that draft before retry.",
+    "source_provenance": "Saved linked/generated voucher retains sourceId/sourceLineId/planGeneration/planAllocations. Next fresh document has no inherited source links and normal editable controls.",
+    "reset_fix": "Existing modal Reset failed to rebase baseline, so later close could recreate empty pending draft. After confirmed reset now establishes fresh baseline/dirty=false; rejection leaves fields intact.",
+    "menu": "Plan only SaveRetain/SaveNew, no unobserved approval option; others retain three observed options with external approval disabled.",
+    "barcode_boundary": "Original generic new action keeps specific barcode options; exact mapping to own helper state and original generic field-reset policy unverified. Own fresh/current-default behavior is explicit, not original field parity.",
+    "schema_or_stored_record_format_changed": false
+  },
+  "full_original_equivalence": false,
+  "hosted_authenticated_business_qa": false
+}

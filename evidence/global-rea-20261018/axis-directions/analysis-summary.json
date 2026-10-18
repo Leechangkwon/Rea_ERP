@@ -1,0 +1,94 @@
+{
+  "rea_version": "6.4.0",
+  "new_unique_analyses": [
+    {
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "bytes": 4552687,
+      "source": "$SCRATCH/aggregate-common-rea-20261018/common.dd26f1e8.js",
+      "analysis_dir": "$SCRATCH/aggregate-common-rea-20261018/analysis/8fb54ef102207d57",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "source_executed": false,
+      "exit_code": -6,
+      "process_status": "failed",
+      "elapsed_ms": 18173,
+      "static_status": "complete",
+      "semantic_status": "unknown_oom",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 452374,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "failure": "Node 2GiB heap exhausted; exit-6. No full-body retry. Full static complete0errors preserved.",
+      "full_body_semantic_IR": false
+    },
+    {
+      "sha256": "c8bfe06ad2f6e8dd90db8518e5e39239af1b614907515175809a30ebcf3bbf89",
+      "bytes": 392801,
+      "source": "$SCRATCH/aggregate-common-rea-20261018/infra_common.66b0fcc1.js",
+      "analysis_dir": "$SCRATCH/aggregate-common-rea-20261018/analysis/c8bfe06ad2f6e8dd",
+      "rea_version": "6.4.0",
+      "time_budget_seconds": 30,
+      "source_executed": false,
+      "exit_code": 0,
+      "process_status": "completed",
+      "elapsed_ms": 1432,
+      "static_status": "complete",
+      "semantic_status": "completed",
+      "parse_error_count": 0,
+      "visited_ast_nodes": 40587,
+      "static_limitations": [
+        "JavaScript syntax was parsed as data and was never evaluated."
+      ],
+      "callables": 1080,
+      "calls": 1968,
+      "frontiers": 2119,
+      "semantic_limitations": [
+        "Values and aliases were recovered from inert syntax only; no JavaScript was executed.",
+        "Return sites include only direct callable returns; nested callable returns remain separate.",
+        "Local call, argument, return, and closure relations are static candidates and do not prove runtime invocation.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Cross-function mutation and dynamic property resolution remain unknown."
+      ],
+      "actual_summary": "$SCRATCH/aggregate-common-rea-20261018/analysis/c8bfe06ad2f6e8dd/summary.json"
+    }
+  ],
+  "selected_excerpt_runs": [
+    {
+      "rea_version": "6.4.0",
+      "scope": "selected-source excerpts; not full body semantic completion",
+      "budget_seconds": 8,
+      "source_executed": false,
+      "process_status": "completed",
+      "exit_code": 0,
+      "elapsed_ms": 315,
+      "parse_status": "complete",
+      "parse_error_count": 0,
+      "callables": 37,
+      "call_sites": 91,
+      "frontiers": 93,
+      "semantic_status": "completed",
+      "analysis_dir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-selected-excerpts"
+    },
+    {
+      "rea_version": "6.4.0",
+      "scope": "selected source consumers only; common full semantic remains OOM",
+      "budget_seconds": 8,
+      "source_executed": false,
+      "process_status": "completed",
+      "exit_code": 0,
+      "elapsed_ms": 265,
+      "parse_status": "complete",
+      "parse_error_count": 0,
+      "callables": 10,
+      "call_sites": 30,
+      "frontiers": 30,
+      "semantic_status": "completed",
+      "analysis_dir": "$SCRATCH/aggregate-common-rea-20261018/analysis/common-consumer-excerpts"
+    }
+  ],
+  "limits": [
+    "Selected excerpts have line/column identity maps to original source but omit external lexical context. They are not new original bodies and do not change common full-body OOM status.",
+    "Original JavaScript was never executed; only actual REA parser/analyzers ran on inert text."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": "0.6.0",
+  "status": "passed",
+  "checks": {
+    "menu": 10,
+    "inventory_core": 31,
+    "inventory_dom": 7,
+    "form_core": 18,
+    "form_dom": 14,
+    "api_gateway": 26,
+    "api_dom": 8,
+    "api_manual": 8,
+    "auth_ui": 7,
+    "app_auth_server": 21,
+    "self_dom": 57
+  },
+  "total": 207,
+  "release_checks": 4,
+  "routes": {
+    "menu": 759,
+    "inventory": 230,
+    "self": 31,
+    "api_management": 2
+  },
+  "api_operations": 36,
+  "settings_actions": 24,
+  "provider_references": 28,
+  "scope": "automated fixtures and DOM tests; not a live ECOUNT call; passwords and tokens synthetic and excluded"
+}
