@@ -3,7 +3,7 @@ const http = require('node:http'), fs = require('node:fs'), path = require('node
 const {readEnvironment, configuration} = require('./runtime-config.cjs'), {sqliteD1} = require('./sqlite-d1.cjs'), {createSupabaseDB} = require('../worker/supabase-db.cjs');
 const forwarded = ['forwarded','x-forwarded-for','x-forwarded-host','x-forwarded-proto','cf-connecting-ip','cf-ray'];
 
-async function startServer({input = readEnvironment(), worker, DB, port, mailInput} = {}) {
+async function startServer({input = readEnvironment(), worker, DB, port, mailInput, webmailStore} = {}) {
   const config = configuration(input);
   if (!worker) worker = (await import(pathToFileURL(path.resolve(__dirname, '../dist/server/index.js')).href)).default;
   let ownDB = false;
@@ -16,6 +16,7 @@ async function startServer({input = readEnvironment(), worker, DB, port, mailInp
     DB = sqliteD1(config.sqliteFile); ownDB = true;
     fs.chmodSync(config.sqliteFile, 0o600);
   }
+  if(!webmailStore){if(config.backend==='supabase'){const {createMailStore}=await import('./mail-rest-store.mjs');webmailStore=createMailStore({url:input.SUPABASE_URL,key:input.SUPABASE_SECRET_KEY});}else if(DB?.raw){webmailStore=require('./mail-sqlite-store.cjs').createSqliteMailStore(DB.raw,{directory:path.resolve(config.sqliteFile+'.mail-files')});}}
   let localOrigin;
   const server = http.createServer(async (req, res) => {
     try {
@@ -30,14 +31,16 @@ async function startServer({input = readEnvironment(), worker, DB, port, mailInp
       }
       const origin = direct ? localOrigin : config.publicOrigin, chunks = [];
       let size = 0;
-      for await (const chunk of req) { size += chunk.length; if (size > 250000) { res.writeHead(413).end(); return; } chunks.push(chunk); }
+      for await (const chunk of req) { size += chunk.length; if (size > (req.url==='/api/webmail/attachments'?4300000:300000)) { res.writeHead(413).end(); return; } chunks.push(chunk); }
       const headers = new Headers();
       for (const [key, value] of Object.entries(req.headers)) if (value !== undefined && !['host','connection','content-length','transfer-encoding'].includes(key)) headers.set(key, Array.isArray(value) ? value.join(', ') : value);
       for (const key of [...headers.keys()]) if (key.startsWith('oai-')) headers.delete(key);
       headers.set('CF-Connecting-IP', direct ? req.socket.remoteAddress : req.headers['cf-connecting-ip']);
       // Snapshot only Gmail settings per mail request; setup needs no ERP restart.
-      const mail = req.url.startsWith('/api/mail/') ? require('./gmail-transport.cjs').createGmail(mailInput ? mailInput() : input) : undefined;
-      const env = {...config.environment, ...(mail ? {MAIL:mail} : {}), ...(DB ? {DB} : {}), REA_BOOTSTRAP_LOCAL: direct};
+      const isMail=req.url.startsWith('/api/mail/')||req.url.startsWith('/api/webmail/'),mailSettings=isMail&&mailInput?mailInput():input;
+      const mail=isMail?require('./gmail-transport.cjs').createGmail(mailSettings):undefined;
+      const webmail=req.url.startsWith('/api/webmail/')?{providers:{gmail:mail,cloudflare:require('./domain-mail-transport.cjs').createDomainMail(mailSettings)}}:undefined;
+      const env = {...config.environment, ...(mail ? {MAIL:mail} : {}), ...(webmail ? {WEBMAIL:webmail,WEBMAIL_STORE:webmailStore}:{}), ...(DB ? {DB} : {}), REA_BOOTSTRAP_LOCAL: direct};
       const response = await worker.fetch(new Request(origin + req.url, {method: req.method, headers, ...(!['GET','HEAD'].includes(req.method) ? {body: Buffer.concat(chunks)} : {})}), env);
       const responseHeaders = Object.fromEntries(response.headers);
       if (response.headers.getSetCookie) {

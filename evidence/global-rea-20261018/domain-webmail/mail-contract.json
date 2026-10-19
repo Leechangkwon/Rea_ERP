@@ -1,0 +1,27 @@
+{
+  "version": "0.46.0",
+  "scope": "independent own-domain mailbox",
+  "entry": [
+    "top toolbar mail",
+    "Self-Customizing Webmail settings",
+    "purchase-order Email own mailbox compose"
+  ],
+  "features": [
+    "mailbox membership and separate mail permissions",
+    "inbox/sent/draft/spam/trash",
+    "search and paging",
+    "read status and reply threading",
+    "explicit draft save and review before send",
+    "durable duplicate send prevention",
+    "private attachments and purchase-order PDFs",
+    "authenticated independent cloud MIME ingress",
+    "source hash receive deduplication",
+    "private backup integrity and add-only restore"
+  ],
+  "limitations": [
+    "external domain delivery requires activation and separately verified provider",
+    "Gmail mailbox uses send-only integration; no personal mailbox synchronization",
+    "original ECOUNT server/webmail equivalence not asserted"
+  ],
+  "evidence": "../../domain-webmail-20261019.json"
+}

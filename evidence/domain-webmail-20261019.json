@@ -1,0 +1,122 @@
+{
+  "version": "0.46.0",
+  "status": "validated-awaiting-operational-rollout",
+  "baselineCommit": "6e367a0",
+  "plan": "docs/plan-domain-webmail-20261019.md",
+  "documentation": "docs/domain-webmail-0.46.0.md",
+  "contract": "global-rea-20261018/domain-webmail/mail-contract.json",
+  "verification": {
+    "command": "npm run verify:local",
+    "exitCode": 0,
+    "log": ".artifacts/domain-mail-20261019/final-verify-local.log",
+    "logSha256": "5a23dc2884bf173744eb7eb0942a8a99b4c58e9de5dca46d3c600c3cf6ed9042",
+    "newMailboxNodeTests": 17,
+    "mailAndRuntimeRelatedPassed": 50,
+    "newBrowserFlows": 6,
+    "browserPassed": 18,
+    "releaseChecks": 4,
+    "rea": [
+      {
+        "group": "domain-mail-core",
+        "key": "0f1b6d9c5684b58e6bd447e5606fa0f8013ec56418d8cb86b81346fa1828dfad",
+        "inputs": [
+          {
+            "file": "dist/webmail-core.js",
+            "bytes": 3436,
+            "sha256": "ff23f7ef6cebf876ca63ecbdf4b136d3da8dcbbd58fefc36092ca2e60e7abecd"
+          },
+          {
+            "file": "worker/webmail.cjs",
+            "bytes": 16678,
+            "sha256": "7d28129d639127225d9e87191900a86a39ad4ed3a2b27277bc590543b2328df0"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "partial": false,
+        "resultSha256": "a66fe2881556b3fb76ddc5b65cdd379c75dffa461a1cb666a02a074ba5f2f3e3",
+        "scope": "own static code; no original equivalence claim"
+      },
+      {
+        "group": "domain-mail-ui",
+        "key": "5254862ac0ca025d4c7d21a0444acbb442b1831619de482c2564572fc3aeea64",
+        "inputs": [
+          {
+            "file": "dist/webmail-ui.js",
+            "bytes": 17408,
+            "sha256": "8120c3df3a95723901b8fb6b93f9a6f9848fcd5152b3a8c0f2f9d74fa22dd77d"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "partial": false,
+        "resultSha256": "9ef83439173f0e985143e3800851c7293f60baff0f54d85209b8de6a693444fe",
+        "scope": "own static code; no original equivalence claim"
+      },
+      {
+        "group": "domain-mail-entry",
+        "key": "44f0ffde3d121ae3e78928c2096f7b5fc478e7e6134da5f1a708b3cfe7ecb68a",
+        "inputs": [
+          {
+            "file": "dist/app.js",
+            "bytes": 26874,
+            "sha256": "6dbb281012147038c3be64f46dd0df7994cf521a7c57e2a98402670954754590"
+          },
+          {
+            "file": "dist/purchase-mail-ui.js",
+            "bytes": 8444,
+            "sha256": "355ac7c14d0eaa8ff3cfdf1c7130fc73171ecb519d237f3871f04cdeb48609f8"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "partial": false,
+        "resultSha256": "120b2b3774f8b1fdd0986f77d9c3d4c6bb5ef1ed7d02f27ef9702d6e38e8c653",
+        "scope": "own static code; no original equivalence claim"
+      }
+    ],
+    "runtimeScope": "scripts/Edge MIME/backup tested outside existing REA dist/worker allowlist"
+  },
+  "originalComparison": {
+    "independentFeatureRequestedByUser": true,
+    "fullOriginalEquivalence": false,
+    "historical86BodyCorpusUnchanged": true
+  },
+  "cloudflare": {
+    "domain": "qaredi.com",
+    "accountLoginVerified": true,
+    "currentWorkersPlan": "Free",
+    "workersBasePaidUsdPerMonth": 5,
+    "additionalUsageMayApply": true,
+    "existingDnsRecords": {
+      "CNAME": 5,
+      "TXT": 2,
+      "MX": 0
+    },
+    "existingReaTunnelPreserved": true,
+    "billingChanged": false,
+    "dnsChanged": false,
+    "receiverWorkerDeployed": false,
+    "domainSmtpConfigured": false
+  },
+  "storage": {
+    "schemaApplied": false,
+    "privateBucketPrepared": false,
+    "edgeIngressDeployed": false
+  },
+  "preservation": {
+    "privatePredeploymentBackupPrepared": true,
+    "credentialsCopiedOnlyToPrivateBackup": true,
+    "existingGmailKept": true
+  },
+  "deployment": {
+    "status": "pending",
+    "publicOrigin": "https://rea.qaredi.com",
+    "backend": "supabase"
+  },
+  "actualExternalEmailSent": false,
+  "actualExternalEmailReceived": false
+}

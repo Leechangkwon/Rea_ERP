@@ -231,7 +231,7 @@
     document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();if(!mapDialog.open&&!utilityDialog.open)focusSearch();}else if(event.key==='Escape')closeSearch();});
     for(const button of document.querySelectorAll('[data-tool]'))button.addEventListener('click',()=>{
       const name=button.dataset.tool;
-      if(name==='최근 메뉴')recentMenus();else if(name==='위젯 선택'){homePage();el('widget-picker').hidden=false;}
+      if(name==='메일'&&typeof WebmailUI!=='undefined')WebmailUI.open();else if(name==='최근 메뉴')recentMenus();else if(name==='위젯 선택'){homePage();el('widget-picker').hidden=false;}
       else if(name==='일정관리'){homePage();if(!state.widgets.includes('calendar')){state.widgets.unshift('calendar');persist();renderWidgets();}el('widget-board').querySelector('[data-widget="calendar"]').scrollIntoView({block:'nearest'});}
       else if(name==='전자결재')showUtility(name,'등록된 데이터가 없습니다.');
       else showUtility(name,'메뉴검색(Ctrl+K), 사이트맵, 즐겨찾기(☆), 업무 탭과 위젯을 사용할 수 있습니다. 이 샘플의 범위는 메인 화면과 메뉴 탐색입니다.');
