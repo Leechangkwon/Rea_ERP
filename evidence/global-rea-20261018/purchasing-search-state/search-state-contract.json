@@ -1,0 +1,39 @@
+{
+  "version": "0.48.0",
+  "originalObservation": "Windows in-app browser four current list routes after user relogin, no company field values or business rows retained",
+  "screens": [
+    "request",
+    "plan",
+    "purchaseorder",
+    "purchase"
+  ],
+  "confirmedOriginalBehavior": [
+    "explicit search(F8) on four list screens",
+    "search panel closes after successful search",
+    "request pending synthetic number input does not change displayed list structure before search"
+  ],
+  "independentBehavior": [
+    "three list applied criteria isolated from pending controls",
+    "status tabs and asynchronous mail labels use applied criteria",
+    "CSV uses currently displayed applied result",
+    "invalid reversed dates preserve prior result and selection",
+    "IME/modifier/repeat Enter ignored",
+    "in-memory list snapshot preserves applied criteria, pending controls, selection, stage, page and scroll",
+    "plan staged quantities and original snapshot guard survive detail refresh"
+  ],
+  "preserved": [
+    "existing stable form field IDs and user layouts",
+    "prior workflow, account, document and mailbox data",
+    "plan request voucher grouping",
+    "Gmail and domain email sending implementation",
+    "read-only permissions and no source business writes"
+  ],
+  "notClaimed": [
+    "original server query operators or tax/currency formulas",
+    "current company layout as a universal default",
+    "original print, approval, deletion or server-save equivalence",
+    "all original semantic graphs complete",
+    "full original equivalence"
+  ],
+  "fullOriginalEquivalence": false
+}

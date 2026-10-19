@@ -1,6 +1,6 @@
 {
-  "version": "0.47.2",
-  "status": "mailbox-renamed-auto-routing-verified-spam-investigation-pending",
+  "version": "0.48.0",
+  "status": "purchasing-search-state-local-verified-awaiting-deployment",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -27,6 +27,7 @@
     "verified_button_count": false
   },
   "current_feature_contracts": [
+    "purchasing-search-state/search-state-contract.json",
     "purchase-list-columns/ui-own-policy.json",
     "purchase-list-columns/purchase-list-columns-contract.json",
     "order-list-columns/ui-own-policy.json",
@@ -84,9 +85,9 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 20,
+    "browserSynthetic": 22,
     "verifyLocalPassed": true,
-    "reference": "../mail-routing-20261019.json",
+    "reference": "../purchasing-search-state-20261019.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -94,12 +95,14 @@
     "mailAndRuntimeRelated": 66,
     "workerRegression": 3,
     "routingAdapterNodeTests": 6,
-    "runtimeNodeTests": 20
+    "runtimeNodeTests": 20,
+    "purchasingSearchStateRelatedNode": 92,
+    "purchasingSearchStateNewNode": 9
   },
-  "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
+  "future_research": "Four list routes freshly observed after relogin; explicit search and panel close implemented with applied/draft isolation and list view preservation. Company-specific header variants preserved through stable existing form IDs. Remaining request pickers, foreign transaction semantics, management fields, modified sorting, source status/print/writers/tax/server/approval and full equivalence remain unverified.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
-    "reference": "../mail-routing-20261019.json",
+    "reference": "../purchasing-search-state-20261019.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
     "deployedSourceCommit": "305cde5",
@@ -147,6 +150,8 @@
     "currentAddressTrialGmailAuthenticationPass": true,
     "currentAddressTrialReplyToMatchesSender": true,
     "currentAddressTrialWasReply": true,
-    "existingAccountReloginVerifiedAfterFinalTrial": true
+    "existingAccountReloginVerifiedAfterFinalTrial": true,
+    "currentPurchasingListSearchLocalVerifiedVersion": "0.48.0",
+    "currentPurchasingListSearchHostedVerified": false
   }
 }

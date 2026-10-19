@@ -21,3 +21,7 @@ test('plan reversed date range preserves previous applied result and all source 
 test('read-only plan search remains usable without enabling mutations',()=>{
  const f=fixture(false);try{const before=JSON.stringify(f.db());f.click('Search(F3)');f.change('발주계획 시작일','2026-10-11');f.click('검색(F8)');assert.equal(f.host.querySelectorAll('tbody .inv-link').length,0);assert.equal(f.button('변경 저장').disabled,true);assert.equal(f.button('발주서 생성').disabled,true);assert.equal(f.saved(),0);assert.equal(JSON.stringify(f.db()),before);}finally{f.dom.window.close();}
 });
+
+test('plan quick Enter ignores composition, modified and held keys and closes successful search',()=>{
+ const f=fixture();try{const before=JSON.stringify(f.db()),q=f.control('발주계획 빠른검색');f.click('Search(F3)');q.value='pending-no-match';for(const flags of [{isComposing:true},{ctrlKey:true},{altKey:true},{metaKey:true},{shiftKey:true},{repeat:true}]){q.dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true,...flags}));assert.equal(f.host.querySelectorAll('tbody .inv-link').length,4);}q.dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert.equal(f.host.querySelectorAll('tbody .inv-link').length,0);assert.equal(f.host.querySelector('.inv-plan-search').hidden,true);assert.equal(JSON.stringify(f.db()),before);}finally{f.dom.window.close();}
+});

@@ -1,0 +1,110 @@
+{
+  "version": "0.48.0",
+  "status": "local-verified-awaiting-deployment",
+  "sourceBaseline": "e4690e5",
+  "plan": "docs/plan-purchasing-search-state-20261019.md",
+  "contract": "global-rea-20261018/purchasing-search-state/search-state-contract.json",
+  "originalObservation": ".artifacts/purchasing-search-state-20261019/original-observation.json",
+  "fullOriginalEquivalence": false,
+  "deployment": {
+    "status": "not-yet-deployed",
+    "publicOrigin": "https://rea.qaredi.com",
+    "priorVersion": "0.47.2",
+    "manualServer": true,
+    "autoStartAdded": false
+  },
+  "verification": {
+    "command": "npm run verify:local",
+    "exitCode": 0,
+    "log": ".artifacts/purchasing-search-state-20261019/verify-local.log",
+    "logSha256": "9c07bec79799d7a43f7e13e5ae321f8132cb5a936905c917bb0ea3894432abae",
+    "relatedNodeTestsIncluded": 92,
+    "newNodeRegressions": 9,
+    "browser": 22,
+    "newBrowserWorkflows": 2,
+    "release": 4,
+    "ownRea": [
+      {
+        "group": "purchasing-search-state-list",
+        "key": "ed666d7977cb1bc9904a3897551dfbb9ccbe58dba50e706ee4bc2300010e14e9",
+        "files": [
+          {
+            "file": "dist/inventory-ui.js",
+            "bytes": 125061,
+            "sha256": "73d3d8810ffd4f6ffaae9bbc28135981412f1b90bf912441a06123bcbd12e009"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "partialReported": false,
+        "semanticCoverageIsNotEquivalence": true,
+        "resultSha256": "aa3ce8ae9806f2539aac75f6c496b71bb528ac6f0568de98e6f33d847d110ab5"
+      },
+      {
+        "group": "purchasing-search-state-plan",
+        "key": "a48e822e6f45a864512cc337ef3034ce97e919b5b6d78a271e99fb307f856600",
+        "files": [
+          {
+            "file": "dist/purchasing-plan-list-ui.js",
+            "bytes": 16687,
+            "sha256": "20e39c1cd0928dd138d523e3f90dc0da3107f9edef2862ea541c1dc24b3bd98a"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "partialReported": false,
+        "semanticCoverageIsNotEquivalence": true,
+        "resultSha256": "b149bede4c464b5b4260e4decf303fc6ab79d3ec324b191132023855f78e7e97"
+      }
+    ],
+    "initialRegressionFailures": 5,
+    "initialVersionMetadataMismatchFixed": true,
+    "visiblePlanDueDateWorkflowVerified": true
+  },
+  "originalComparison": {
+    "freshAuthenticatedFourListsObserved": true,
+    "businessRowsRead": false,
+    "originalBusinessWrites": false,
+    "originalInputRowsTouched": false,
+    "currentHeadersCounts": {
+      "request": 11,
+      "plan": 14,
+      "purchaseorder": 12,
+      "purchase": 10
+    },
+    "existingOwnDefaultHeadersCounts": {
+      "request": 11,
+      "plan": 14,
+      "purchaseorder": 10,
+      "purchase": 12
+    },
+    "existingStableFieldIdsAndUserFormsPreserved": true,
+    "publicSourceManifest": ".artifacts/purchasing-search-state-20261019/source-manifest.json",
+    "publicSourceBodies": 3,
+    "publicSourceBytes": 1101802,
+    "parseFailures": 0,
+    "wholeSemanticPartial": 2,
+    "scopedSearchFragmentsAnalyzed": 2,
+    "scopedParseFailures": 0,
+    "scopedPartialReported": false,
+    "scopedExternalBindingsAndRuntimeDispatchUnverified": true,
+    "historicalCorpus86Unchanged": true,
+    "sourceExecuted": false
+  },
+  "preservation": {
+    "privatePredeploymentBackupVerified": true,
+    "appRevisionBefore": 19,
+    "gatewayRevisionBefore": 0,
+    "mailboxes": 3,
+    "messages": 8,
+    "files": 1,
+    "restorePreviewConflicts": 0,
+    "restoreApplied": false,
+    "storageSchemaChanged": false,
+    "runtimeSecretsOrMailSettingsChanged": false,
+    "productionDataComparisonPending": true
+  },
+  "screenshots": [
+    ".artifacts/purchasing-search-state-20261019/synthetic-search-state.png"
+  ]
+}
