@@ -1,6 +1,6 @@
 {
-  "version": "0.43.0",
-  "status": "deployed-existing-account-login-verified",
+  "version": "0.44.0",
+  "status": "purchasing-search-local-validated",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -71,12 +71,18 @@
     "axis-directions/aggregate-consumer-contract.json",
     "summary-axes/source-ui-contract.json",
     "report-sort-config/sort-config-contract.json",
-    "request-save-retain/retained-source-contract.json"
+    "request-save-retain/retained-source-contract.json",
+    "purchasing-search/search-contract.json"
   ],
   "checks": {
     "total": 998,
     "release": 4,
-    "hosted_authenticated_business_qa": false
+    "hosted_authenticated_business_qa": false,
+    "totalIsHistoricalFeatureBaseline": true,
+    "purchasingSearchRelated": 75,
+    "browserSynthetic": 8,
+    "verifyLocalPassed": true,
+    "reference": "../purchasing-search-round2-20261019.json"
   },
   "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",

@@ -1,0 +1,173 @@
+{
+  "version": "0.44.0",
+  "recordedAt": "2026-10-19T05:06:34.510682+00:00",
+  "status": "local-validated-deployment-pending",
+  "baselineCommit": "db383d0",
+  "publicOrigin": "https://rea.qaredi.com",
+  "contract": "global-rea-20261018/purchasing-search/search-contract.json",
+  "sourceObservation": {
+    "method": "authenticated original UI, visible labels and native F3; no input values or business rows retained",
+    "screens": [
+      "request lookup",
+      "plan lookup",
+      "purchaseorder lookup",
+      "purchase lookup"
+    ],
+    "mutatingOriginalActions": false,
+    "artifactDirectory": ".artifacts/purchasing-round2-20261019",
+    "observationHashes": {
+      "purchase-fields.json": "2b50f1b1ea5d30d4a0a05f9c0ae6058c4a91a34c6e808c7aa7616825cde1f50d",
+      "plan-fields.json": "ee8ce2083a9c2b54050edfae2c2cacc2c6aa063551d896da71204406a9c5c0ce",
+      "request-fields.json": "228194ae3069b9d4c634275223b9911af4a8452cf86d866b937c68c5eb4724bf",
+      "order-fields.json": "3ae9413596ca0548058e78cbc70513d663581484e17022b5b78ed9b688a545f4"
+    }
+  },
+  "REA": {
+    "ownChangedFiles": [
+      {
+        "group": "round2-plan-search",
+        "version": "6.4.0",
+        "cacheKey": "a348e70c2687b393d33f5f4036adb68bb7fee81cdb4bb792c702089153337c73",
+        "cacheReused": false,
+        "inputs": [
+          {
+            "file": "dist/purchasing-plan-list-ui.js",
+            "bytes": 15415,
+            "sha256": "9c0ed525395871556bfaaa1e8ce68b06e0074e7e4cc0e3533a6dde53c419a296"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "staticCoverage": {
+          "status": "complete",
+          "truncated": false,
+          "omitted_count": 0,
+          "limits": []
+        },
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "omitted_nodes": 0,
+          "omitted_relations": 0,
+          "limits": []
+        },
+        "resultSha256": "8762561cb7fea20cc41abfed47dff3317bb978c22759276334aad8f3916c3ab8",
+        "equivalenceEstablished": false
+      },
+      {
+        "group": "round2-list-search",
+        "version": "6.4.0",
+        "cacheKey": "79f5904e0d5c96cf7aca5af8b501a5d8d6d332ef71ff996f16f55ba174c6202e",
+        "cacheReused": true,
+        "inputs": [
+          {
+            "file": "dist/inventory-ui.js",
+            "bytes": 122007,
+            "sha256": "04cdc6e9824a590355d9820ff1c65f08268ecdb899e0585886bcc1665c19afc0"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "staticCoverage": {
+          "status": "complete",
+          "truncated": false,
+          "omitted_count": 0,
+          "limits": []
+        },
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "omitted_nodes": 0,
+          "omitted_relations": 0,
+          "limits": []
+        },
+        "resultSha256": "12dc12c7ec50f2c221380b86109f2e2a818b53303cad763d0c06953768987b5a",
+        "equivalenceEstablished": false
+      }
+    ],
+    "originalCachedBundles": [
+      {
+        "publicUrl": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.usecase.inventory/ecount.usecase.inventory.6616c92f.20.js",
+        "inputSha256": "2a3c4db153644d85276d2cf7dc7708f585b7bd06759f85ae3eb8daceeefe95e4",
+        "resultSha256": "27520f7920cea10f76a072556a76b0ba02502572f77c1bd8e6179cb0ac32001e",
+        "inputAndResultHashesReverified": true,
+        "semanticCoverage": {
+          "status": "partial",
+          "truncated": true,
+          "limits": [
+            {
+              "name": "semantic_graph_node_ceiling",
+              "value": 100000,
+              "unit": "items"
+            }
+          ]
+        },
+        "evidenceValidated": true
+      },
+      {
+        "publicUrl": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.inventory/app.inventory.user_action.ee732992.20.js",
+        "inputSha256": "e70f31a1ac77f70cbc0e59c3737513141b5d0fe2c20181a436193fe2a6650103",
+        "resultSha256": "04ba9c1deed897ab5d12a58a48c59ee33228647e753f604a2fcf9c221bdbf17c",
+        "inputAndResultHashesReverified": true,
+        "semanticCoverage": {
+          "status": "partial",
+          "truncated": true,
+          "limits": [
+            {
+              "name": "semantic_graph_node_ceiling",
+              "value": 100000,
+              "unit": "items"
+            }
+          ]
+        },
+        "evidenceValidated": true
+      },
+      {
+        "publicUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory.order_management/inventory.order_management.ff2d28de.js",
+        "inputSha256": "162603c7e8b450151b613cdb7f5cdc7f183a512be0f5a096ab569e40786ed56c",
+        "resultSha256": "8fc89edf385a89011e882c03756a0a376605efb41e4187a9d1a48489f4cc5181",
+        "inputAndResultHashesReverified": true,
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "limits": []
+        },
+        "evidenceValidated": true
+      }
+    ],
+    "historical86BodyCorpusUnchanged": true,
+    "fullOriginalEquivalence": false
+  },
+  "verification": {
+    "relatedTests": 75,
+    "relatedPassed": 75,
+    "newNodeTests": 7,
+    "newBrowserTests": 2,
+    "browserTests": 8,
+    "command": "npm run verify:local",
+    "log": ".artifacts/purchasing-round2-20261019/verify-local.log",
+    "exitCode": 0,
+    "releaseChecks": 4,
+    "browserPassed": 8,
+    "logSha256": "a70d563f90636fdfe0e1dab42796a00a2d9e6937f4e914635eb3770016849a45"
+  },
+  "preservation": {
+    "schemaChanged": false,
+    "dataMigration": false,
+    "sourceSQLiteRetained": true,
+    "existingFormsAndStagedEditsTested": true,
+    "predeployPrivateSnapshotCreated": true
+  },
+  "deployment": {
+    "status": "pending",
+    "previousRuntimeVersion": "0.43.0"
+  },
+  "remaining": [
+    "plan item/voucher grouping contract",
+    "plan quantity zero basis versus residual basis",
+    "original server request number operators and currency rules",
+    "source send/approval/print/private-server equivalence"
+  ]
+}

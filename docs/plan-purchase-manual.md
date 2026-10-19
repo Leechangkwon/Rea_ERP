@@ -2,6 +2,8 @@
 
 ## 현재 인계: Windows 관찰 / Linux 분석·구현 (2026-10-19)
 
+현재 후속 기준: 운영 전환과 기존 계정 실제 로그인 검증을 마친 0.43.0/db383d0에서, 사용자 요청으로 **발주요청·발주계획·발주서·구매** 대조 개발을 다시 진행한다. 이번 조회 검색 보완의 범위와 합격 조건은 [구매 검색 후속 계획](plan-purchasing-search-20261019.md)을 따른다. 아래 초기 0.42.0 연결 범위와 미커밋 목록은 당시 기록이다. 운영 자료를 바꾸지 않고 관련 로컬 합성 검사로 개발한다.
+
 이 기존 계획을 인계 기준으로 이어간다. 현재 작업 경로와 관찰·배포 제한은 [AGENTS.md](../AGENTS.md), 현재 기능과 누계는 [current-release.json](../evidence/global-rea-20261018/current-release.json)을 우선한다. 아래 과거 계획의 Windows 경로·작업자 분담·비공개 배포 표현은 당시 기록이다. 현재 배포는 사용자가 재확인한 로컬·Supabase·Cloudflare 구성을 따른다. 기존 Sites 공개 설정과 URL은 과거 기록이며 현재 Cloudflare 경로로 간주하지 않는다. ERP 자체 인증과 자료는 보존한다.
 
 연결 보완의 현재 상태는 [로컬·Supabase·Cloudflare 계획](plan-local-supabase-cloudflare-20261019.md)을 따른다. 이 작업에서 외부 배포나 업무자료 자동 이관은 하지 않는다.

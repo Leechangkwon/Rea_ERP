@@ -1,0 +1,47 @@
+{
+  "version": "0.44.0",
+  "sourceObservationDate": "2026-10-19",
+  "scope": {
+    "request": [
+      "currency criteria",
+      "request number criteria"
+    ],
+    "plan": [
+      "date range",
+      "warehouse",
+      "project",
+      "row supplier",
+      "item",
+      "F3 detail panel",
+      "F8 apply"
+    ],
+    "purchaseorder": [
+      "currency criteria"
+    ],
+    "purchase": [
+      "currency criteria"
+    ]
+  },
+  "existingBehaviorPreserved": [
+    "line identity",
+    "staged plan edits",
+    "selection",
+    "progress and remaining separation",
+    "legacy user forms",
+    "read-only permissions",
+    "existing documents and account state"
+  ],
+  "independentRules": {
+    "domesticCurrency": "missing or KRW, consistent with existing own reports",
+    "requestNumber": "case-insensitive literal substring of own document ID",
+    "planDefaultDates": "empty preserves existing full-history list",
+    "planApply": "F8/search or quick Enter; F3 does not apply draft criteria"
+  },
+  "notInferred": [
+    "original server SQL matching and tax conversion",
+    "plan item-voucher grouping",
+    "plan zero-quantity versus residual basis",
+    "source send, print, approval and save behavior"
+  ],
+  "fullOriginalEquivalence": false
+}
