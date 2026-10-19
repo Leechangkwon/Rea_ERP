@@ -1,7 +1,7 @@
 {
   "version": "0.44.1",
-  "recordedAt": "2026-10-19T06:27:34.141828+00:00",
-  "status": "local-validated-deployment-pending",
+  "recordedAt": "2026-10-19T06:31:55.993292+00:00",
+  "status": "deployed-voucher-display-verified",
   "baselineCommit": "c5a4a38",
   "plan": "docs/plan-plan-request-import-20261019.md",
   "contract": "global-rea-20261018/plan-request-import/voucher-contract.json",
@@ -107,10 +107,50 @@
     "schemaChanged": false,
     "storageMigration": false,
     "privatePredeploySnapshot": true,
-    "userExistingEditorWillNotBeReloadedForQa": true
+    "userExistingEditorWillNotBeReloadedForQa": true,
+    "remoteBeforeAfter": {
+      "app_state": {
+        "revisionUnchanged": true,
+        "bodyUnchanged": true
+      },
+      "gateway_state": {
+        "revisionUnchanged": true,
+        "bodyUnchanged": true
+      }
+    }
   },
   "deployment": {
-    "status": "pending",
-    "previousRuntime": "0.44.0"
+    "status": "active",
+    "version": "0.44.1",
+    "sourceCommit": "6c62f21",
+    "publicOrigin": "https://rea.qaredi.com",
+    "backend": "supabase",
+    "tunnel": "rea-erp-local",
+    "existingAuthenticatedSessionRetained": true,
+    "qaUsedSeparateBrowserTab": true,
+    "hostedReadOnlyObservation": {
+      "sourceEligibleItemLines": 5,
+      "displayedVoucherRows": 1,
+      "uniqueVouchers": 1,
+      "defaultGrouping": "document",
+      "directRequestMode": "linked",
+      "genericMode": "copy",
+      "editableAggregateQuantityFields": 0,
+      "actualApplyOrSave": false
+    },
+    "publicChecks": {
+      "loginStatus": 200,
+      "version0441": true,
+      "anonymousAuthenticated": false,
+      "anonymousBusinessStatus": 401
+    },
+    "screenshot": "Windows browser-handoff/rea-plan-voucher-import-0.44.1-20261019.png",
+    "hostedRealBusinessMutationQa": false
+  },
+  "managementPage": {
+    "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
+    "sequence": 61,
+    "readbackVerified": true,
+    "historyPreserved": true
   }
 }
