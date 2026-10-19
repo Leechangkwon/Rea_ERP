@@ -78,7 +78,12 @@
         "scope": "own static code; no original equivalence claim"
       }
     ],
-    "runtimeScope": "scripts/Edge MIME/backup tested outside existing REA dist/worker allowlist"
+    "runtimeScope": "scripts/Edge MIME/backup tested outside existing REA dist/worker allowlist",
+    "cloudflareReceiverBundleDryRun": {
+      "wrangler": "4.151.1",
+      "exitCode": 0,
+      "deployed": false
+    }
   },
   "originalComparison": {
     "independentFeatureRequestedByUser": true,
@@ -146,7 +151,8 @@
     "existingGatewayStateExactlyPreserved": true,
     "gatewayStateRevision": 0,
     "runtimeConfigurationExactlyPreserved": true,
-    "existingGmailSmtpReauthenticatedWithoutSend": true
+    "existingGmailSmtpReauthenticatedWithoutSend": true,
+    "finalReadOnlyComparisonAfterPatch": true
   },
   "deployment": {
     "status": "deployed",
@@ -165,7 +171,9 @@
     "syntheticDraftFinalReviewVerified": true,
     "realBusinessDocumentsModified": false,
     "savedDraftTrashRestoreImplemented": true,
-    "hostedSavedDraftTrashVerified": true
+    "hostedSavedDraftTrashVerified": true,
+    "publicLoginHttpStatus": 200,
+    "publicLocalHealthStatus": 404
   },
   "actualExternalEmailSent": false,
   "actualExternalEmailReceived": false,
