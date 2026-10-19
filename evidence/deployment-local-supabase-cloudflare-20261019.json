@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-10-19T04:26:00.377039+00:00",
-  "status": "active-existing-account-login-pending",
+  "recordedAt": "2026-10-19T04:41:24.496249+00:00",
+  "status": "active-existing-account-login-verified",
   "version": "0.43.0",
   "sourceRepository": "/home/lck/projects/Rea_ERP",
   "publicOrigin": "https://rea.qaredi.com",
@@ -51,7 +51,7 @@
     "publicRequestsObserved": 11,
     "requestErrorsObserved": 0
   },
-  "actualExistingAccountLoginVerified": false,
+  "actualExistingAccountLoginVerified": true,
   "sitesDeploymentUsed": false,
   "releaseCommit": "d0a26ff",
   "releasePushedBeforeStartup": true,
@@ -100,19 +100,41 @@
       "location": null
     }
   },
-  "remaining": [
-    "User enters existing credentials in the production browser; verify successful login and reload persistence."
-  ],
+  "remaining": [],
   "proof": {
-    "file": ".artifacts/cutover-20261019/production-login-0.43.0.png",
-    "sha256": "24625fcdb9a975dc6d7de290522a74bb2d35609befa71c002f57a30863f43d29",
-    "screen": "existing account login form, v0.43.0",
-    "authenticated": false
+    "file": ".artifacts/cutover-20261019/authenticated-0.43.0.png",
+    "sha256": "78157d09a95ec9cc8641150dbbc24b884631408d417c850acf04828d667f0e24",
+    "screen": "authenticated main dashboard after browser reload, v0.43.0",
+    "authenticated": true
   },
   "managementPage": {
     "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
     "updated": true,
-    "sequence": 58,
-    "loginStatusRecorded": "pending user credential entry"
+    "sequence": 59,
+    "loginStatusRecorded": "verified existing-account login and reload persistence"
+  },
+  "authentication": {
+    "userConfirmedLogin": true,
+    "existingMigratedAccount": true,
+    "productionDomain": "https://rea.qaredi.com",
+    "releaseVersion": "0.43.0",
+    "dashboardVisible": true,
+    "logoutControlVisible": true,
+    "reloadRetainsAuthentication": true,
+    "supabaseSuccessfulLoginRecordVerified": true,
+    "supabaseActiveSessionForExistingAccountVerified": true,
+    "supabaseLoginWritePersisted": true,
+    "newAccountsCreated": 0,
+    "passwordChanged": false,
+    "passwordCollected": false,
+    "credentialsAndCompanySettingsPreservedAfterLogin": true,
+    "sourceSQLiteBodyUnchanged": true,
+    "businessWriteOrOriginalEquivalenceClaimed": false
+  },
+  "preLoginProof": {
+    "file": ".artifacts/cutover-20261019/production-login-0.43.0.png",
+    "sha256": "24625fcdb9a975dc6d7de290522a74bb2d35609befa71c002f57a30863f43d29",
+    "screen": "existing account login form, v0.43.0",
+    "authenticated": false
   }
 }

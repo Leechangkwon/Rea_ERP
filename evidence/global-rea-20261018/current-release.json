@@ -1,6 +1,6 @@
 {
   "version": "0.43.0",
-  "status": "deployed-existing-account-login-pending",
+  "status": "deployed-existing-account-login-verified",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -85,6 +85,9 @@
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
     "deployedSourceCommit": "d0a26ff",
-    "publicVersionVerified": "0.43.0"
+    "publicVersionVerified": "0.43.0",
+    "actualExistingAccountLoginVerified": true,
+    "reloadRetainsAuthentication": true,
+    "supabaseLoginWritePersisted": true
   }
 }
