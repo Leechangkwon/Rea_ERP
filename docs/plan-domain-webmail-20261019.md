@@ -36,3 +36,7 @@ Cloudflare Paid 전환과 새 전용 수신 연결/발신 토큰의 최종 활�
 사용자가 Workers Paid 월 US$5+사용량과 약관/자동 청구, Wrangler 연결을 승인했다. 구매 완료 화면을 확인하고 제한한 OAuth 스코프(account/user 조회, Worker scripts 편집, zone 조회, 이메일 발신/라우팅 편집)로 연결했다. 수신 Worker/전용 키를 배포하고 qaredi.com 발신·수신 온보딩 DNS와 purchase@qaredi.com 수신 규칙을 적용했다. 기존 다섯 웹사이트 Tunnel/CNAME과 두 확인 TXT를 보존했다. 전체 DNS 18개(CNAME5/MX6/TXT7), 루트/반송 MX·SPF·DMARC 해석, 라우팅 enabled와 purchase 단일 규칙/기본 전체수신 비활성을 확인했다.
 
 사용자가 생성한 발신 토큰은 화면 표시값을 출력하지 않고 600 임시 파일로 전달해 SMTP 인증 후 runtime.env에 원자적으로 저장했고 임시 파일은 제거했다. 기존 모든 설정값은 동일하며 도메인/발신 토큰 두 키만 추가했다. 원래 도메인 입력에 qaredi가 들어가 생긴 설정 오류를 재현해 --domain 고정 입력과 사전 도메인 검증으로 보완했다. 웹메일 Node18개/관련51개·브라우저19개와 최종 verify:local 전체를 통과했다. 소스 2148428을 업로드 후 기존 수동 서버에 0.46.2를 반영했다. 원격 수신 경로·SMTP 인증은 연결됐고 실제 외부 메일 발송은 아직 없다. 운영 UI가 로그인 화면으로 돌아와 기존 계정 재로그인, 최종 두 방향 시험 메일 각1통의 명시적 발송 확인을 요청했다.
+
+## 0.46.3 실제 송수신 검증 중 수신 보완
+
+기존 계정으로 0.46.2 로그인 후 REA purchase@qaredi.com → Gmail 시험 1통의 실제 INBOX 도착을 확인했다. 승인된 반대 방향 1통은 Gmail 접수/SENT 후 Cloudflare Email Worker 예외로 일시 실패했다. Supabase에는 호출되지 않았다. Workers는 redirect:error를 지원하지 않아 요청 생성 시 예외가 발생한다. 설치된 Wrangler 4.151.1의 Miniflare/workerd에서 원래 옵션의 동일 예외와 manual 변경 후 성공을 재현했다. manual은 리디렉션을 따라가지 않으며 비정상 상태를 실패로 처리해 전용 키 전파를 막는다. MIME 스트림·리디렉션/일시 오류·크기/대상/설정 검증의 회귀 검사를 추가했다. 원래 외부 시험 메일은 추가 발송하지 않고 제공자 재시도를 기다린다.

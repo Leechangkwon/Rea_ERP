@@ -1,6 +1,6 @@
 {
-  "version": "0.46.2",
-  "status": "domain-mail-connected-final-login-and-real-mail-check-pending",
+  "version": "0.46.3",
+  "status": "worker-receive-fix-ready-awaiting-deployment-and-original-smtp-retry",
   "baselineCommit": "6e367a0",
   "plan": "docs/plan-domain-webmail-20261019.md",
   "documentation": "docs/domain-webmail-0.46.0.md",
@@ -8,10 +8,10 @@
   "verification": {
     "command": "npm run verify:local",
     "exitCode": 0,
-    "log": ".artifacts/domain-mail-20261019/setup-fix-verify-local.log",
-    "logSha256": "43b5b1dcf28d0d059211e393dd9246d9bc5221c47eb51f7005c761b7110dc2fd",
+    "log": ".artifacts/domain-mail-20261019/worker-fix-verify-local.log",
+    "logSha256": "2847ba90ff60cdaa5782a32e8172f0244d9e8baf0b60434966531cd14573157a",
     "newMailboxNodeTests": 18,
-    "mailAndRuntimeRelatedPassed": 51,
+    "mailAndRuntimeRelatedPassed": 54,
     "newBrowserFlows": 7,
     "browserPassed": 19,
     "releaseChecks": 4,
@@ -84,7 +84,15 @@
       "exitCode": 0,
       "deployed": false
     },
-    "compiledWorkerExcludesConfiguredSecrets": true
+    "compiledWorkerExcludesConfiguredSecrets": true,
+    "workerRegressionTests": 3,
+    "actualWorkerdRegression": {
+      "passed": true,
+      "artifact": ".artifacts/domain-mail-20261019/worker-runtime-regression.json",
+      "originalFailureReproduced": true,
+      "fixedSuccessVerified": true,
+      "redirectAndTemporaryFailureNotAcknowledged": true
+    }
   },
   "originalComparison": {
     "independentFeatureRequestedByUser": true,
@@ -202,7 +210,7 @@
     "manualServerRestarted": true,
     "existingTunnelPreserved": true,
     "anonymousMailboxStatus": 401,
-    "authenticatedMailUiVerified": false,
+    "authenticatedMailUiVerified": true,
     "existingLoginSessionMaintained": false,
     "mailboxComposeVerified": true,
     "purchaseorderOwnMailboxBridgeVerified": true,
@@ -213,12 +221,13 @@
     "hostedSavedDraftTrashVerified": true,
     "publicLoginHttpStatus": 200,
     "publicLocalHealthStatus": 404,
-    "currentAuthenticatedUiBlock": "existing account re-login required after reload",
-    "currentVersionAuthenticatedUiVerified": false,
+    "currentAuthenticatedUiBlock": null,
+    "currentVersionAuthenticatedUiVerified": true,
     "lastMaintainedLoginSessionVersion": "0.46.1",
-    "historicalAuthenticatedMailUiVersion": "0.46.1"
+    "historicalAuthenticatedMailUiVersion": "0.46.1",
+    "existingAccountReloginVerifiedVersion": "0.46.2"
   },
-  "actualExternalEmailSent": false,
+  "actualExternalEmailSent": true,
   "actualExternalEmailReceived": false,
   "sourceCommit": "2148428",
   "hostedScreenshots": [
@@ -242,5 +251,28 @@
     "sequence": 67,
     "readbackVerified": true,
     "priorHistoryPreserved": true
+  },
+  "realMailVerification": {
+    "userApprovedOneEachDirection": true,
+    "additionalExternalMessagesSent": false,
+    "reaToGmail": {
+      "sender": "purchase@qaredi.com",
+      "recipient": "pkdkak1@gmail.com",
+      "reaAccepted": true,
+      "gmailInboxDelivered": true,
+      "gmailTimestamp": "2026-10-19T09:58:32Z",
+      "evidence": ".artifacts/domain-mail-20261019/real-rea-to-gmail-test.json"
+    },
+    "gmailToRea": {
+      "sender": "pkdkak1@gmail.com",
+      "recipient": "purchase@qaredi.com",
+      "gmailAccepted": true,
+      "gmailSentLabelVerified": true,
+      "routingInitialResult": "temporary worker exception",
+      "rootCause": "Workers Request does not implement redirect:error",
+      "fix": "manual, no redirect following, non-2xx not acknowledged",
+      "awaitingOriginalProviderRetry": true,
+      "evidence": ".artifacts/domain-mail-20261019/real-gmail-to-rea-test.json"
+    }
   }
 }

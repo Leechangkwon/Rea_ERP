@@ -1,6 +1,6 @@
 {
-  "version": "0.46.2",
-  "status": "domain-mail-connected-final-login-and-real-mail-check-pending",
+  "version": "0.46.3",
+  "status": "worker-receive-fix-ready-awaiting-deployment-and-original-smtp-retry",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -90,7 +90,8 @@
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
     "mailboxNodeTests": 18,
-    "mailAndRuntimeRelated": 51
+    "mailAndRuntimeRelated": 54,
+    "workerRegression": 3
   },
   "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
@@ -100,12 +101,12 @@
     "originalEquivalenceUnchanged": true,
     "deployedSourceCommit": "2148428",
     "publicVersionVerified": "0.46.2",
-    "actualExistingAccountLoginVerified": false,
-    "lastExistingAccountLoginVerifiedVersion": "0.46.1",
-    "currentAuthenticatedUiBlock": "re-login required after reload",
+    "actualExistingAccountLoginVerified": true,
+    "lastExistingAccountLoginVerifiedVersion": "0.46.2",
+    "currentAuthenticatedUiBlock": null,
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
-    "actualGmailEmailSent": false,
+    "actualGmailEmailSent": true,
     "hostedGmailComposerUiVerified": true,
     "hostedPurchaseorderPdfDownloadVerified": true,
     "googleIdentityVerificationCompleted": true,
@@ -117,7 +118,7 @@
     "cloudMailboxStorageAndIngressVerified": true,
     "domainMailSendingActivated": true,
     "domainMailReceivingActivated": true,
-    "actualDomainMailSent": false,
+    "actualDomainMailSent": true,
     "actualDomainMailReceived": false,
     "actualDomainSmtpAuthenticationVerified": true,
     "cloudflareWorkersPlan": "Paid"
