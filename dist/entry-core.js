@@ -147,7 +147,7 @@
       if(mode==='linked'&&line.lineId)row.sourceLineId=line.lineId;else if(mode==='copy'){delete row.lineId;delete row.sourceLineId;delete row.planAllocations;}
       return {...row,qty,importedFrom:[{documentId:d.id,type:d.type,date:d.date,item:line.item,...(line.lineId?{sourceLineId:line.lineId}:{}),qty,mode}]};
     });
-    result.lines=mergeLines(replace?[]:result.lines,incoming,{type:result.type,structured:options.grouping==='item'&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
+    result.lines=mergeLines(replace?[]:result.lines,incoming,{type:result.type,structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
     if(mode==='linked'){
       const limits=new Map(C.remaining(view,source,result.type).map(l=>[l.lineId||l.item,l.qty]));
       for(const line of result.lines){const key=line.sourceLineId||line.item;if(!limits.has(key)||Number(line.qty)>limits.get(key)+0.000001)throw Error('원본 전표의 잔량을 초과하거나 원본에 없는 품목이 있습니다.');}

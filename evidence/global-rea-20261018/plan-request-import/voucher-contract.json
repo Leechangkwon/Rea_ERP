@@ -1,0 +1,27 @@
+{
+  "version": "0.44.1",
+  "requirementSource": "user reported plan request import must list vouchers rather than detailed item rows",
+  "default": "plan document loader and dedicated request loader open in document view",
+  "display": [
+    "one row and one checkbox per source document",
+    "item summary and eligible line count",
+    "original and available quantity totals",
+    "no editable aggregate quantity"
+  ],
+  "application": [
+    "expand selected voucher into eligible original lines",
+    "existing stageDocuments validation and source-line references",
+    "remaining-only linked mode",
+    "copy mode retains differing item terms and source provenance"
+  ],
+  "preserved": [
+    "line and item views",
+    "other target types and saved settings",
+    "current draft until apply",
+    "no database write before save",
+    "selection across document pages and filters",
+    "readonly and dynamic permission guards"
+  ],
+  "staleSource": "reject changed source document before staging voucher selection",
+  "originalPrivateServerEquivalence": false
+}

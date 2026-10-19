@@ -1,0 +1,116 @@
+{
+  "version": "0.44.1",
+  "recordedAt": "2026-10-19T06:27:34.141828+00:00",
+  "status": "local-validated-deployment-pending",
+  "baselineCommit": "c5a4a38",
+  "plan": "docs/plan-plan-request-import-20261019.md",
+  "contract": "global-rea-20261018/plan-request-import/voucher-contract.json",
+  "comparison": {
+    "basis": "user observed original expected voucher grouping and reported current live mismatch",
+    "freshOriginalMutatingActions": false,
+    "originalPrivateApiCalled": false
+  },
+  "fix": {
+    "files": [
+      "dist/entry-ui.js",
+      "dist/entry-core.js"
+    ],
+    "defaultView": "document for plan target",
+    "bothEntryPoints": true,
+    "copyStructuredTermsPreserved": true,
+    "linkedSourceIdsAndRemainingPreserved": true
+  },
+  "verification": {
+    "command": "npm run verify:local",
+    "log": ".artifacts/plan-request-import-20261019/verify-local.log",
+    "newNodeTests": 6,
+    "newBrowserTests": 1,
+    "relatedEarlier": {
+      "passed": 94,
+      "log": ".artifacts/plan-request-import-20261019/related-tests.log"
+    },
+    "finalDefaultAndSettingsRegression": {
+      "passed": 50,
+      "log": ".artifacts/plan-request-import-20261019/settings-regression.log"
+    },
+    "browserSyntheticExpected": 9,
+    "exitCode": 0,
+    "browserPassed": 9,
+    "releaseChecks": 4,
+    "logSha256": "68dfdf5deb570ed4b3e53b68e7d9f449d15126563dd2142a883f11e4c10af784"
+  },
+  "REA": {
+    "ownFiles": [
+      {
+        "group": "plan-request-import-core",
+        "version": "6.4.0",
+        "key": "72529528138049e894325f7543a064aa9a3ab0f65a4e48ae9bc0213fefb277f6",
+        "cacheReused": true,
+        "inputs": [
+          {
+            "file": "dist/entry-core.js",
+            "bytes": 18880,
+            "sha256": "426d5cf9b4114863a37bc28b0e6eaaf8a64e12d1baa8ec2050fd90306e244bdc"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "staticCoverage": {
+          "status": "complete",
+          "truncated": false,
+          "omitted_count": 0,
+          "limits": []
+        },
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "omitted_nodes": 0,
+          "omitted_relations": 0
+        },
+        "resultSha256": "1342b5b1a5aba87ec6b469e7a24342a39fda95312be6e4993226865e77bff426"
+      },
+      {
+        "group": "plan-request-import-ui",
+        "version": "6.4.0",
+        "key": "5c4786cedcbb2d4dc8a184dbb27c59b7938bd49d6e2416c9ca0fa5123cb8a874",
+        "cacheReused": false,
+        "inputs": [
+          {
+            "file": "dist/entry-ui.js",
+            "bytes": 22759,
+            "sha256": "2f7ddcf8e8bd58f90c56c06aee640176ad300b4140d0de8e44f577545d186f5c"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "parseFailures": 0,
+        "staticCoverage": {
+          "status": "complete",
+          "truncated": false,
+          "omitted_count": 0,
+          "limits": []
+        },
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "omitted_nodes": 0,
+          "omitted_relations": 0
+        },
+        "resultSha256": "453014847df5cb522168f5a34885bb569c4f2459be3d66e81961009f70a07ef4"
+      }
+    ],
+    "historical86BodyCorpusUnchanged": true,
+    "fullOriginalEquivalence": false
+  },
+  "preservation": {
+    "schemaChanged": false,
+    "storageMigration": false,
+    "privatePredeploySnapshot": true,
+    "userExistingEditorWillNotBeReloadedForQa": true
+  },
+  "deployment": {
+    "status": "pending",
+    "previousRuntime": "0.44.0"
+  }
+}
