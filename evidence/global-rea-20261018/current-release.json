@@ -1,6 +1,6 @@
 {
   "version": "0.43.0",
-  "status": "deployment-preparation",
+  "status": "deployed-existing-account-login-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -83,6 +83,8 @@
   "runtimeRelease": {
     "reference": "../deployment-local-supabase-cloudflare-20261019.json",
     "featureContractBaseline": "0.42.0",
-    "originalEquivalenceUnchanged": true
+    "originalEquivalenceUnchanged": true,
+    "deployedSourceCommit": "d0a26ff",
+    "publicVersionVerified": "0.43.0"
   }
 }

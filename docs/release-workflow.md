@@ -4,7 +4,7 @@
 
 사용자가 현재 구성을 **로컬·Supabase·Cloudflare**로 재확인했다. 이 지시가 아래 과거 Sites/D1 배포 기록보다 우선한다. 로컬 개발·검증은 `/home/lck/projects/Rea_ERP`에서 계속하며, Supabase 연결과 Cloudflare 공개 경로는 기존 설정을 확인한 뒤 이 기준으로 준비한다. Sites 업로드·새 버전 저장·배포를 실행하지 않는다.
 
-기존 D1 호환 API를 보존하는 Supabase 어댑터와 독립 로컬 실행기를 추가했다. `npm run dev:api`와 `npm run serve:local`은 같은 실행기를 사용하며 기본은 기존 로컬 SQLite다. 기존 `rea` Supabase 프로젝트의 REA 전용 테이블·RLS·서버 권한은 읽기 전용으로 확인했다. 사용자의 재지시에 따라 REA 전용 서버 키 `rea_erp_server`를 생성해 사용자 전용 설정(600)에 저장하고 기존 default 서버 비밀키를 폐기했다. 폐기 후에도 새 키로 두 테이블의 실제 읽기 전용 연결 검사가 통과했으며 공개용 default 키는 유지했다. 사용자가 Cloudflare 도메인 `rea.qaredi.com` 유지를 확정했고 전용 `rea-erp-local` Tunnel과 수동 실행·사전 검사 구성을 준비했다. DNS는 아직 과거 Sites CNAME을 유지하며 터널은 시작하지 않았다. `.openai/hosting.json`과 `rea.qaredi.com`의 과거 기록만으로 현재 대상을 확정하지 않는다. 상세 상태와 검증은 `docs/plan-local-supabase-cloudflare-20261019.md`를 따른다. 기존 앱 로그인·업무자료·운영 설정과 브라우저/서버 자료 분리를 보존하며 자동 이관하지 않는다.
+기존 D1 호환 API를 보존하는 Supabase 어댑터와 독립 로컬 실행기를 추가했다. `npm run dev:api`와 `npm run serve:local`은 같은 실행기를 사용하며 기본은 기존 로컬 SQLite다. 기존 `rea` Supabase 프로젝트의 REA 전용 테이블·RLS·서버 권한은 읽기 전용으로 확인했다. 사용자의 재지시에 따라 REA 전용 서버 키 `rea_erp_server`를 생성해 사용자 전용 설정(600)에 저장하고 기존 default 서버 비밀키를 폐기했다. 폐기 후에도 새 키로 두 테이블의 실제 읽기 전용 연결 검사가 통과했으며 공개용 default 키는 유지했다. 사용자가 Cloudflare 도메인 `rea.qaredi.com` 유지를 확정했고 전용 `rea-erp-local` Tunnel과 수동 실행·사전 검사 구성을 준비했다. 사용자가 기존 계정·자료를 보존하는 운영 전환을 명시적으로 요청해 원본 SQLite와 설정을 백업하고 비밀번호 해시·회사·설정·수정 번호를 검증하여 Supabase로 이관했다. 0.43.0 커밋 `d0a26ff`를 원격에 올린 뒤 로컬 서버를 Supabase로 재시작하고 `rea.qaredi.com`을 전용 Tunnel에 연결했다. 외부 HTTPS의 0.43.0 로그인 화면과 로그인 전 업무 접근 차단을 확인했으며 현재 기존 계정의 실제 로그인 입력을 기다린다. 운영 근거는 `evidence/deployment-local-supabase-cloudflare-20261019.json`이다. `.openai/hosting.json`과 `rea.qaredi.com`의 과거 기록만으로 현재 대상을 확정하지 않는다. 상세 상태와 검증은 `docs/plan-local-supabase-cloudflare-20261019.md`를 따른다. 기존 앱 로그인·업무자료·운영 설정과 브라우저/서버 자료 분리를 보존하며 자동 이관하지 않는다.
 
 ## 현재 진행 순서
 
@@ -31,7 +31,7 @@ npm run connection:check
 
 REA 전용 Cloudflare 주소가 확인되면 같은 비밀 설정 파일에 `REA_PUBLIC_ORIGIN=https://확인된-도메인`을 지정한다. 로컬 서버는 계속 127.0.0.1에만 바인딩하며, 공개 Host·HTTPS 전달 정보가 일치하는 요청만 수용한다. `deploy/cloudflared.example.yml`은 전용 Tunnel 설정 예제다. 기존 qaredi.com/다른 앱의 설정을 덮어쓰지 않는다. 직접 Worker 배포를 선택한 경우에만 `deploy/wrangler.example.jsonc`를 사용하며 서버 키는 Cloudflare secrets로 설정한다. 실제 계정·도메인·라우트는 예제에 가정하지 않는다.
 
-연결 보완 결과는 [현재 구현 계획](plan-local-supabase-cloudflare-20261019.md)에 기록한다. 실제 비밀키와 Cloudflare 대상이 확인되기 전에는 REST 저장·외부 접속·배포 완료로 기록하지 않는다. 현재 작업에서 Supabase·Cloudflare·Sites의 외부 설정과 자료를 변경하지 않았다.
+연결 보완 결과는 [현재 구현 계획](plan-local-supabase-cloudflare-20261019.md)에 기록한다. 실제 비밀키와 Cloudflare 대상이 확인되기 전에는 REST 저장·외부 접속·배포 완료로 기록하지 않는다. 후속 운영 전환 요청으로 Supabase 이관과 REA 전용 DNS 전환을 실행했다. 현재 상태·복구와 수동 실행은 [0.43.0 운영 전환](deployment-0.43.0.md)을 따른다.
 
 ---
 

@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-10-19T04:14:59.577796+00:00",
-  "status": "migrated-awaiting-server-and-dns",
+  "recordedAt": "2026-10-19T04:26:00.377039+00:00",
+  "status": "active-existing-account-login-pending",
   "version": "0.43.0",
   "sourceRepository": "/home/lck/projects/Rea_ERP",
   "publicOrigin": "https://rea.qaredi.com",
@@ -30,20 +30,89 @@
     "bodyAndRevisionMatched": true,
     "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/2026-10-19T04-15-10-194Z",
     "existingDifferentRowsOverwritten": false,
-    "localSourceRetained": true
+    "localSourceRetained": true,
+    "sourceQuickCheck": "ok",
+    "backupQuickCheck": "ok",
+    "companyAndSettingsPreserved": true
   },
   "dnsBefore": {
     "name": "rea.qaredi.com",
     "type": "CNAME",
     "target": "custom-domains.chatgpt.site",
     "observedTTL": 300,
-    "changed": false
+    "changed": true
   },
   "tunnel": {
     "id": "1efb377f-79bd-4600-9a93-c0ec2a7b0959",
     "name": "rea-erp-local",
-    "started": false
+    "started": true,
+    "activeConnectionsObserved": 4,
+    "otherTunnelsModified": false,
+    "publicRequestsObserved": 11,
+    "requestErrorsObserved": 0
   },
   "actualExistingAccountLoginVerified": false,
-  "sitesDeploymentUsed": false
+  "sitesDeploymentUsed": false,
+  "releaseCommit": "d0a26ff",
+  "releasePushedBeforeStartup": true,
+  "runtime": {
+    "backend": "supabase",
+    "port": 8781,
+    "bindAddress": "127.0.0.1",
+    "active": true,
+    "manualStart": true,
+    "automaticStartupInstalled": false
+  },
+  "dnsAfter": {
+    "name": "rea.qaredi.com",
+    "target": "1efb377f-79bd-4600-9a93-c0ec2a7b0959.cfargotunnel.com",
+    "cloudflaredRouteCommandSucceeded": true,
+    "publicVersion043Verified": true
+  },
+  "publicAnonymousChecks": {
+    "/login": {
+      "status": 200,
+      "tlsVerified": true,
+      "version043": true,
+      "loginPage": true
+    },
+    "/api/auth/status": {
+      "status": 200,
+      "tlsVerified": true,
+      "initialized": true,
+      "authenticated": false,
+      "bootstrapAllowed": false
+    },
+    "/__rea/health": {
+      "status": 404,
+      "location": null
+    },
+    "/": {
+      "status": 302,
+      "location": "/login?return_to=%2F"
+    },
+    "/api/self/state": {
+      "status": 401,
+      "location": null
+    },
+    "/api/admin/overview": {
+      "status": 403,
+      "location": null
+    }
+  },
+  "remaining": [
+    "User enters existing credentials in the production browser; verify successful login and reload persistence."
+  ],
+  "proof": {
+    "file": ".artifacts/cutover-20261019/production-login-0.43.0.png",
+    "sha256": "24625fcdb9a975dc6d7de290522a74bb2d35609befa71c002f57a30863f43d29",
+    "screen": "existing account login form, v0.43.0",
+    "authenticated": false
+  },
+  "managementPage": {
+    "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
+    "updated": true,
+    "sequence": 58,
+    "loginStatusRecorded": "pending user credential entry"
+  }
 }
