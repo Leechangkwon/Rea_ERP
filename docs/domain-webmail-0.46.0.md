@@ -1,4 +1,4 @@
-# REA 자체 웹메일 · 0.46.0 / 0.46.1
+# REA 자체 웹메일 · 0.46.0 / 0.46.2
 
 사용자가 회사 도메인의 송수신과 ERP 메일함 추가 개발을 요청했다. 이 기능은 독립 구현이며 원본 ECOUNT의 메일 서버·웹메일과의 전체 동등성을 선언하지 않는다. 기존 Gmail 발주서 경로와 계정·설정·전표·브라우저 자료를 보존한다.
 
@@ -28,7 +28,7 @@ Edge ingress는 전용 32바이트 임의 토큰의 SHA-256을 서버 전용 테
 
 npm run configure:domain-mail에서 인증된 도메인과 Cloudflare Email Sending 전용 API 토큰을 숨김 입력한다. smtp.mx.cloudflare.net:465/TLS 1.2 이상으로 인증만 확인한 뒤 runtime.env(600, 부모 700)에 저장하고 Gmail·Supabase·포트·공개 주소 설정을 보존한다. 기존 Gmail 발송은 유지하며 Email 창을 다시 열면 새 설정을 사용한다. npm run mailbox:check는 저장소·익명 수신 차단·설정된 도메인 SMTP 인증을 검사하며 메일을 보내지 않는다.
 
-Cloudflare에서 확인한 현재 플랜은 Workers Free이다. 공식 안내/실제 화면상 외부 거래처 도메인 발송은 Workers Paid(월 US$5 기본+초과 사용량)가 필요하다. 새 유료 구독·약관 동의·발신 토큰 생성/저장과 실제 외부 발송은 별도로 완료 여부를 기록한다. 기존 qaredi.com/rea.qaredi.com Tunnel과 DNS 레코드를 임의 교체하지 않는다.
+사용자의 요금·약관·자동청구/배포 도구 연결 승인을 받아 Workers Paid(월 US$5 기본+초과 사용량)를 활성화했다. qaredi.com 발신 도메인 DNS와 SMTP 인증·비공개 설정 저장을 완료했고 purchase@qaredi.com → rea-mail-ingress 수신 규칙을 켰다. 기존 CNAME 5개/확인 TXT 2개는 유지하고 메일용 11개를 추가했다(MX 6개/TXT 총7개). 실제 외부 테스트 메일과 최종 수신은 별도 승인/검증 상태로 기록한다. 설정창은 --domain qaredi.com으로 고정해 도메인 재입력 없이 토큰만 숨겨 받으며 불완전한 주소는 토큰 입력 전에 차단한다.
 
 ## 백업과 복구
 

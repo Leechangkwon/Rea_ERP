@@ -1,6 +1,6 @@
 {
-  "version": "0.46.1",
-  "status": "deployed-domain-activation-pending",
+  "version": "0.46.2",
+  "status": "domain-mail-connected-final-login-and-real-mail-check-pending",
   "baselineCommit": "6e367a0",
   "plan": "docs/plan-domain-webmail-20261019.md",
   "documentation": "docs/domain-webmail-0.46.0.md",
@@ -8,10 +8,10 @@
   "verification": {
     "command": "npm run verify:local",
     "exitCode": 0,
-    "log": ".artifacts/domain-mail-20261019/patch-verify-local.log",
-    "logSha256": "9881045d5f1df3248732f5132c3e94dae3faffa89dd2d22616f11d0ceac6a846",
-    "newMailboxNodeTests": 17,
-    "mailAndRuntimeRelatedPassed": 50,
+    "log": ".artifacts/domain-mail-20261019/setup-fix-verify-local.log",
+    "logSha256": "43b5b1dcf28d0d059211e393dd9246d9bc5221c47eb51f7005c761b7110dc2fd",
+    "newMailboxNodeTests": 18,
+    "mailAndRuntimeRelatedPassed": 51,
     "newBrowserFlows": 7,
     "browserPassed": 19,
     "releaseChecks": 4,
@@ -83,7 +83,8 @@
       "wrangler": "4.151.1",
       "exitCode": 0,
       "deployed": false
-    }
+    },
+    "compiledWorkerExcludesConfiguredSecrets": true
   },
   "originalComparison": {
     "independentFeatureRequestedByUser": true,
@@ -93,7 +94,7 @@
   "cloudflare": {
     "domain": "qaredi.com",
     "accountLoginVerified": true,
-    "currentWorkersPlan": "Free",
+    "currentWorkersPlan": "Paid",
     "workersBasePaidUsdPerMonth": 5,
     "additionalUsageMayApply": true,
     "existingDnsRecords": {
@@ -102,19 +103,51 @@
       "MX": 0
     },
     "existingReaTunnelPreserved": true,
-    "billingChanged": false,
-    "dnsChanged": false,
-    "receiverWorkerDeployed": false,
-    "domainSmtpConfigured": false,
-    "activationPending": [
-      "paid send plan approval",
-      "receiver Worker and dedicated ingress token registration",
-      "mail DNS and verified sender onboarding",
-      "SMTP send token configuration"
-    ],
+    "billingChanged": true,
+    "dnsChanged": true,
+    "receiverWorkerDeployed": true,
+    "domainSmtpConfigured": true,
+    "activationPending": [],
     "paidPlanUserApproval": true,
-    "paidPlanActivated": false,
-    "termsAndWranglerActionConfirmationPending": true
+    "paidPlanActivated": true,
+    "termsAndWranglerActionConfirmationPending": false,
+    "receiverWorkerName": "rea-mail-ingress",
+    "receiverWorkerVersion": "489f5d09-cf1c-45bc-91ba-8dd22999e2fa",
+    "dedicatedIngressTokenRegistered": true,
+    "domainSmtpAuthenticated": true,
+    "wranglerOAuthConfigured": true,
+    "sendingDomainOnboarded": true,
+    "sendingDomainStatus": "enabled",
+    "mailDnsResolutionVerified": true,
+    "receivingRouteEnabled": true,
+    "receivingAddress": "purchase@qaredi.com",
+    "receivingWorker": "rea-mail-ingress",
+    "catchAllEnabled": false,
+    "currentDnsRecords": {
+      "CNAME": 5,
+      "MX": 6,
+      "TXT": 7
+    },
+    "dnsPreservation": {
+      "existingReaTunnelPreserved": true,
+      "existingErp2TunnelPreserved": true,
+      "existingGTunnelPreserved": true,
+      "existingRootAndWwwTunnelPreserved": true,
+      "oldVerificationRecordsPreserved": true,
+      "cnameCount": 5,
+      "mxCount": 6,
+      "txtRecordNames": [
+        "cf2024-1._domainkey.qaredi.com",
+        "cf-bounce._domainkey.qaredi.com",
+        "cf-bounce.qaredi.com",
+        "_cf-custom-hostname.rea.qaredi.com",
+        "_dmarc.qaredi.com",
+        "_openai-site-verification.rea.qaredi.com",
+        "qaredi.com"
+      ],
+      "txtCount": 7
+    },
+    "receiverWorkerInitialUploadedVersion": "1777c090-82a9-4784-830a-ce8f46db694e"
   },
   "storage": {
     "schemaApplied": true,
@@ -150,21 +183,27 @@
     "appStateRevision": 9,
     "existingGatewayStateExactlyPreserved": true,
     "gatewayStateRevision": 0,
-    "runtimeConfigurationExactlyPreserved": true,
+    "runtimeConfigurationExactlyPreserved": false,
     "existingGmailSmtpReauthenticatedWithoutSend": true,
-    "finalReadOnlyComparisonAfterPatch": true
+    "finalReadOnlyComparisonAfterPatch": true,
+    "allPreexistingRuntimeConfigurationValuesPreserved": true,
+    "newRuntimeConfigurationKeys": [
+      "REA_MAIL_DOMAIN",
+      "REA_CF_MAIL_TOKEN"
+    ],
+    "allPreexistingAppAndGatewayStateExactlyPreservedAfterActivation": true
   },
   "deployment": {
     "status": "deployed",
     "publicOrigin": "https://rea.qaredi.com",
     "backend": "supabase",
-    "sourceCommit": "7e0bf0d",
-    "publicVersionVerified": "0.46.1",
+    "sourceCommit": "2148428",
+    "publicVersionVerified": "0.46.2",
     "manualServerRestarted": true,
     "existingTunnelPreserved": true,
     "anonymousMailboxStatus": 401,
-    "authenticatedMailUiVerified": true,
-    "existingLoginSessionMaintained": true,
+    "authenticatedMailUiVerified": false,
+    "existingLoginSessionMaintained": false,
     "mailboxComposeVerified": true,
     "purchaseorderOwnMailboxBridgeVerified": true,
     "syntheticDraftSaved": true,
@@ -173,15 +212,22 @@
     "savedDraftTrashRestoreImplemented": true,
     "hostedSavedDraftTrashVerified": true,
     "publicLoginHttpStatus": 200,
-    "publicLocalHealthStatus": 404
+    "publicLocalHealthStatus": 404,
+    "currentAuthenticatedUiBlock": "existing account re-login required after reload",
+    "currentVersionAuthenticatedUiVerified": false,
+    "lastMaintainedLoginSessionVersion": "0.46.1",
+    "historicalAuthenticatedMailUiVersion": "0.46.1"
   },
   "actualExternalEmailSent": false,
   "actualExternalEmailReceived": false,
-  "sourceCommit": "7e0bf0d",
+  "sourceCommit": "2148428",
   "hostedScreenshots": [
     "Windows browser-handoff/domain-mail-live-0.46.0.png",
     "Windows browser-handoff/domain-mail-review-live-0.46.0.png",
-    "Windows browser-handoff/domain-mail-live-0.46.1.png"
+    "Windows browser-handoff/domain-mail-live-0.46.1.png",
+    "Windows browser-handoff/domain-mail-paid-confirmed.png",
+    "Windows browser-handoff/domain-mail-sending-active.png",
+    "Windows browser-handoff/domain-mail-routing-active.png"
   ],
   "syntheticProductionData": {
     "externalMimeIngress": 1,
@@ -193,7 +239,7 @@
   },
   "managementPage": {
     "id": "page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 66,
+    "sequence": 67,
     "readbackVerified": true,
     "priorHistoryPreserved": true
   }
