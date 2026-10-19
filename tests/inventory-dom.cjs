@@ -8,7 +8,7 @@ const dom=new JSDOM('<!doctype html><html><body><section id="target"></section><
 const w=dom.window,d=w.document,toasts=[];w.print=()=>{};
 w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
 w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
-w.eval(fs.readFileSync('dist/form-core.js','utf8'));w.eval(fs.readFileSync('dist/inventory-core.js','utf8'));w.eval(fs.readFileSync('dist/form-options.js','utf8'));w.eval(fs.readFileSync('dist/inventory-ui.js','utf8'));
+w.eval(fs.readFileSync('dist/form-core.js','utf8'));w.eval(fs.readFileSync('dist/inventory-core.js','utf8'));w.eval(fs.readFileSync('dist/form-options.js','utf8'));w.eval(fs.readFileSync('dist/reference-picker-ui.js','utf8'));w.eval(fs.readFileSync('dist/inventory-ui.js','utf8'));
 const target=d.getElementById('target'),context={rows:all,open:id=>render(id),toast:x=>toasts.push(x)};
 const render=id=>{w.InventoryUI.beforeNavigate();target.replaceChildren();w.InventoryUI.render(target,all.find(r=>r.id===id),context);};
 const control=label=>{const x=d.querySelector(`[aria-label="${label}"]`);assert.ok(x,'missing '+label);return x;};

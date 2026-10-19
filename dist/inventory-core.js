@@ -47,9 +47,18 @@
       if(before&&!changes.length)changes.push('기타 전표 항목');
       const changedKeys=before?[...new Set([...Object.keys(before),...Object.keys(d)])].filter(k=>JSON.stringify(before[k])!==JSON.stringify(d[k])):[];
       const stripProgress=lines=>lines.map(({progress,...line})=>line),stateOnly=before&&changedKeys.length&&changedKeys.every(k=>['status','confirmation','progress','accounted'].includes(k)||k==='lines'&&JSON.stringify(stripProgress(before.lines))===JSON.stringify(stripProgress(d.lines)));
+      d.modifiedAt=at;
       history.records.unshift({id:'H'+sequence,sequence,at,workDate:today(),type:d.type,documentId:code(d.id),date:d.date,action:!before?'신규':['transition','planLineProgress'].includes(op)||stateOnly?'상태변경':'수정',partnerCode,partnerCodes,partnerName,itemCodes,itemName:(name('items',d.lines[0]?.item)||code(d.lines[0]?.item)).slice(0,200),itemCount:d.lines.length,employeeCode:code(d.employee),employeeName:name('employees',d.employee),warehouseCode:code(d.warehouse),projectCode:code(d.project),status:statusValue(d.status),changes});
     }
     history.records=history.records.slice(0,200);db.documentHistory=validateDocumentHistory(history);
+  }
+  const referenceCodes=value=>[...new Set((Array.isArray(value)?value:value?[value]:[]).filter(x=>typeof x==='string'&&x))];
+  const matchesReference=(filter,...values)=>{const codes=referenceCodes(filter);return !codes.length||values.some(value=>codes.includes(value));};
+  function sortModified(db,documents,enabled=true){
+    if(!enabled)return documents.slice();
+    const times=new Map();for(const r of db.documentHistory?.records||[]){const key=r.type+'|'+r.documentId,at=Date.parse(r.at);if(Number.isFinite(at))times.set(key,Math.max(times.get(key)||0,at));}
+    const time=d=>Math.max(Number.isFinite(Date.parse(d.modifiedAt))?Date.parse(d.modifiedAt):0,times.get(d.type+'|'+d.id)||0);
+    return documents.map((doc,index)=>({doc,index,at:time(doc)})).sort((a,b)=>b.at-a.at||a.index-b.index).map(x=>x.doc);
   }
   function documentHistory(db,type,filter={}){
     if(!purchasingTypes.includes(type)||!filter||typeof filter!=='object'||Array.isArray(filter))throw Error('이력 조회 조건을 확인하세요.');
@@ -278,6 +287,8 @@
     if(d.id&&index<0)throw Error('수정할 전표가 없습니다.');
     if(index>=0&&db.documents[index].type!==d.type)throw Error('전표 종류는 변경할 수 없습니다.');
     if(index>=0&&db.documents[index].accounted)throw Error('회계반영을 취소한 후 수정하세요.');
+    // Modification time belongs to successful commands, never to an incoming form payload.
+    if(purchasingTypes.includes(d.type)){if(index>=0&&db.documents[index].modifiedAt!==undefined)d.modifiedAt=db.documents[index].modifiedAt;else delete d.modifiedAt;}
     if(index>=0){const old=db.documents[index];if(old.generatedFrom==='purchase-plan'&&d.generatedFrom!==old.generatedFrom)throw Error('발주계획 생성 연결은 제거할 수 없습니다.');if(old.sourceId&&(db.documents.find(x=>x.id===old.sourceId)?.generatedFrom==='purchase-plan'||['purchasereturn','exchangereceipt'].includes(old.type)||old.type==='transfer'||old.type==='sale'&&db.documents.find(x=>x.id===old.sourceId)?.type==='transfer')&&d.sourceId!==old.sourceId)throw Error('처리한 원본 전표 연결은 제거하거나 바꿀 수 없습니다.');}
     if(d.sourceId){
       const source=db.documents.find(x=>x.id===d.sourceId);
@@ -556,6 +567,7 @@
     for(const i of db.masters.items){if(I){const validated=I.validate(i,db);for(const key of Object.keys(i))if(Object.hasOwn(validated,key))i[key]=validated[key];for(const key of ['buyPrice','sellPrice','safety'])i[key]=validated[key];}else {i.buyPrice=num(i.buyPrice||0,'입고단가');i.sellPrice=num(i.sellPrice||0,'출고단가');i.safety=num(i.safety||0,'안전재고');}if(i.relatedItems!==undefined&&(!Array.isArray(i.relatedItems)||i.relatedItems.length>200||i.relatedItems.some(code=>code===i.code||!master(db,'items',code))))throw Error('백업 관계 품목을 확인하세요.');}
     for(const d of db.documents){
       if(!d.id||!types[d.type]||!Array.isArray(d.lines)||!d.lines.length||!dateOK(d.date)||!master(db,'warehouses',d.warehouse))throw Error('백업 전표가 올바르지 않습니다.');
+      if(purchasingTypes.includes(d.type)&&d.modifiedAt!==undefined&&(typeof d.modifiedAt!=='string'||!Number.isFinite(Date.parse(d.modifiedAt))||new Date(d.modifiedAt).toISOString()!==d.modifiedAt))throw Error('전표 수정 시각을 확인하세요.');
       validatePurchasingState(d);if(d.status!==undefined&&!documentStatuses.includes(statusValue(d.status)))throw Error('백업 전표 처리 상태를 확인하세요.');
       if(d.accounted&&!active(d))throw Error('백업의 미확인·취소 전표는 회계반영할 수 없습니다.');
       if(d.partner&&!master(db,'partners',d.partner))throw Error('전표 거래처를 확인하세요.');
@@ -588,6 +600,6 @@
     for(const [type,partner,qty,item,price] of [['quote','C001',10,'P001',20000],['order','C001',8,'P001',20000],['sale','C001',3,'P001',20000],['purchaseorder','V001',40,'M001',2000],['purchase','V001',20,'M001',2000],['workorder','',5,'P001',12000],['shoporder','C001',2,'P002',30000]])db=command(db,'document',{...common,type,partner,lines:[{item,qty,price}],memo:'샘플 전표'}).db;
     return db;
   }
-  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions};
+  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,referenceCodes,matchesReference,sortModified};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.InventoryCore=api;
 })(typeof globalThis==='object'?globalThis:this);

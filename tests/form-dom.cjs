@@ -3,7 +3,7 @@ const all=M.indexMenus(require('../dist/menus.json'));
 function environment(saved){
   const dom=new JSDOM('<!doctype html><html><body><main id="target"></main></body></html>',{url:'http://127.0.0.1:8780/',runScripts:'outside-only'}),w=dom.window,d=w.document,toasts=[];
   w.print=()=>{};w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
-  if(saved)w.localStorage.setItem('ecount-inventory-v2',saved);for(const f of ['form-core.js','inventory-core.js','form-options.js','inventory-ui.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
+  if(saved)w.localStorage.setItem('ecount-inventory-v2',saved);for(const f of ['form-core.js','inventory-core.js','form-options.js','reference-picker-ui.js','inventory-ui.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
   const render=id=>{w.InventoryUI.beforeNavigate();d.getElementById('target').replaceChildren();w.InventoryUI.render(d.getElementById('target'),all.find(r=>r.id===id),{rows:all,open:render,toast:x=>toasts.push(x)});};
   const label=text=>{const x=[...d.querySelectorAll('[aria-label]')].find(x=>x.getAttribute('aria-label')===text);assert.ok(x,'missing '+text);return x;};
   const change=(text,value)=>{const x=label(text);if(x.type==='checkbox')x.checked=Boolean(value);else x.value=value;x.dispatchEvent(new w.Event('input',{bubbles:true}));x.dispatchEvent(new w.Event('change',{bubbles:true}));return x;};

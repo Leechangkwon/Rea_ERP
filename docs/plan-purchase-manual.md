@@ -2,6 +2,8 @@
 
 ## 현재 인계: Windows 관찰 / Linux 분석·구현 (2026-10-19)
 
+현재 후속은0.49.0 다중 선택·수정일자순이다. [이번 계획](plan-purchasing-multiselect-sort-20261020.md)과 [기능 기록](purchasing-multiselect-sort-0.49.0.md)을 먼저 읽는다. 아래0.48 및 이전 내용은 해당 시점 기록이다.
+
 현재 후속 기준은 메일 연결 검증까지 마친0.47.2/e4690e5에서 사용자 요청으로 발주요청·발주계획·발주서·구매 원본 대조 개발을 재개한 상태다. 이번0.48.0의 네 조회 검색 적용/패널 접힘·성공/대기 조건 분리·목록 재조회 보존은 [현재 후속 계획](plan-purchasing-search-state-20261019.md)과 [기능 기록](purchasing-search-state-0.48.0.md)을 따른다. 아래0.43/0.42 연결 범위와 미커밋 목록은 당시 기록이며 현재 코드/운영 상태를 대신하지 않는다. 원본 업무 저장 없이 현재 조회 구조·공개 코드·합성 자료로 개발한다.
 
 이 기존 계획을 인계 기준으로 이어간다. 현재 작업 경로와 관찰·배포 제한은 [AGENTS.md](../AGENTS.md), 현재 기능과 누계는 [current-release.json](../evidence/global-rea-20261018/current-release.json)을 우선한다. 아래 과거 계획의 Windows 경로·작업자 분담·비공개 배포 표현은 당시 기록이다. 현재 배포는 사용자가 재확인한 로컬·Supabase·Cloudflare 구성을 따른다. 기존 Sites 공개 설정과 URL은 과거 기록이며 현재 Cloudflare 경로로 간주하지 않는다. ERP 자체 인증과 자료는 보존한다.

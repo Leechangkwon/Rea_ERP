@@ -1,6 +1,6 @@
 {
-  "version": "0.48.0",
-  "status": "purchasing-search-state-deployed-authenticated-four-list-verified",
+  "version": "0.49.0",
+  "status": "purchasing-multiselect-sort-local-verified-pending-deployment",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -27,6 +27,7 @@
     "verified_button_count": false
   },
   "current_feature_contracts": [
+    "purchasing-multiselect-sort/picker-sort-contract.json",
     "purchasing-search-state/search-state-contract.json",
     "purchase-list-columns/ui-own-policy.json",
     "purchase-list-columns/purchase-list-columns-contract.json",
@@ -85,7 +86,7 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 22,
+    "browserSynthetic": 25,
     "verifyLocalPassed": true,
     "reference": "../purchasing-search-state-20261019.json",
     "cacheAuthRuntimeRegression": 56,
@@ -97,9 +98,11 @@
     "routingAdapterNodeTests": 6,
     "runtimeNodeTests": 20,
     "purchasingSearchStateRelatedNode": 92,
-    "purchasingSearchStateNewNode": 9
+    "purchasingSearchStateNewNode": 9,
+    "purchasingMultiSelectSortNewNode": 13,
+    "purchasingMultiSelectSortNewBrowser": 3
   },
-  "future_research": "Four list routes freshly observed after relogin; explicit search and panel close implemented with applied/draft isolation and list view preservation. Company-specific header variants preserved through stable existing form IDs. Remaining request pickers, foreign transaction semantics, management fields, modified sorting, source status/print/writers/tax/server/approval and full equivalence remain unverified.",
+  "future_research": "Observed four list reference search structures; multi picker implemented with original public apply limits. Request/purchase modified sorting uses explicit own recent-first policy; original server direction/ties/OR semantics, transaction/management fields, print/tax/status/approval/server and full equivalence remain unverified.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
     "reference": "../purchasing-search-state-20261019.json",

@@ -1,0 +1,44 @@
+{
+  "version": "0.49.0",
+  "date": "2026-10-20",
+  "status": "verified-locally-pending-production",
+  "scope": "four purchasing multi reference pickers; observed request/purchase modified sorting",
+  "contract": "global-rea-20261018/purchasing-multiselect-sort/picker-sort-contract.json",
+  "analysis": "global-rea-20261018/purchasing-multiselect-sort/analysis-summary.json",
+  "verification": {
+    "verifyLocalPassed": true,
+    "newNodeTests": 13,
+    "browserSynthetic": 25,
+    "newBrowserTests": 3,
+    "releaseChecks": 4
+  },
+  "preservationBeforeDeployment": {
+    "privateBackupTaken": true,
+    "browserVersion": 2,
+    "browserDocuments": 8,
+    "layoutsBackedUp": true,
+    "remoteRevisions": {
+      "app": 19,
+      "gateway": 0
+    },
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "restorePreviewConflicts": 0,
+      "restored": false
+    }
+  },
+  "production": {
+    "deployed": false,
+    "existingAuthenticatedUiVerified": false,
+    "businessWritesPerformed": false,
+    "emailsSent": 0
+  },
+  "limitations": [
+    "original server OR and filtering semantics",
+    "original sort direction/ties",
+    "transaction/management fields",
+    "tax/print/approval/server equivalence"
+  ]
+}

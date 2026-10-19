@@ -1,0 +1,95 @@
+{
+  "version": "0.49.0",
+  "observedDate": "2026-10-20",
+  "originalObservation": {
+    "browser": "Windows in-app browser; authenticated ECOUNT read-only list/search popups",
+    "businessRowsRead": false,
+    "inputValuesRetained": false,
+    "originalWrites": false,
+    "screens": {
+      "request": {
+        "pickerFields": [
+          "project",
+          "partner",
+          "item"
+        ],
+        "modifiedSortCheckbox": true,
+        "ownExistingWarehouseFilterPreserved": true
+      },
+      "plan": {
+        "pickerFields": [
+          "warehouse",
+          "project",
+          "partner",
+          "item"
+        ],
+        "legacyPartnerPopupObserved": true,
+        "modifiedSortCheckboxVisible": false
+      },
+      "purchaseorder": {
+        "pickerFields": [
+          "warehouse",
+          "project",
+          "partner",
+          "item"
+        ],
+        "modifiedSortCheckboxVisible": false
+      },
+      "purchase": {
+        "pickerFields": [
+          "warehouse",
+          "project",
+          "partner",
+          "item"
+        ],
+        "fourPopupHeadersCheckboxesApplyCloseObserved": true,
+        "modifiedSortCheckbox": true
+      }
+    },
+    "publicApplyAction": {
+      "scopes": [
+        "ApplyBasicCodeDataModelUserAction",
+        "ApplyECBasicCodeDataModelUserAction"
+      ],
+      "maxSelected": 200,
+      "emptySelectionBlocked": true,
+      "selectedRowMapUsed": true,
+      "runtimeBindingsUnresolved": true
+    },
+    "serverSortDirectionAndTiesVerified": false
+  },
+  "ownPolicy": {
+    "multiReferences": "OR inside each field; AND between fields; plan partner/item on the same line",
+    "popup": "50 rows/page; selection survives search and paging; apply 1..200; close/Escape discards; chips/outside clear stage search changes",
+    "nativeCompatibility": "legacy scalar selector/defaults retained; large native lists limited to 200 plus selected codes; popup searches full catalog",
+    "application": "picker apply stages values; list search(F8)/quick Enter applies; old rows/CSV/selection remain until success",
+    "sortScope": [
+      "request",
+      "purchase"
+    ],
+    "sort": "actual modification time descending; retained history fallback; equal/missing times preserve existing input order",
+    "timestamps": "optional canonical modifiedAt on successful actual purchasing changes only; no incoming timestamp override; no fabrication on old backups; retained after history cap; unrelated document metadata unaffected",
+    "preservation": [
+      "stable search field IDs",
+      "old defaults and saved layouts",
+      "draft/applied snapshots",
+      "plan quantity/price edits and stale-source guard",
+      "browser v2 backup compatibility"
+    ]
+  },
+  "checks": {
+    "newNodeTests": 13,
+    "newBrowserTests": 3,
+    "browserTotal": 25,
+    "releaseChecks": 4,
+    "verifyLocalPassed": true,
+    "hostedUiVerified": false
+  },
+  "fullOriginalEquivalence": false,
+  "unverified": [
+    "original server OR and filtering semantics",
+    "original sort direction/ties",
+    "transaction/management fields",
+    "tax/print/approval/server equivalence"
+  ]
+}
