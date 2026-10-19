@@ -1,7 +1,7 @@
 {
   "version": "0.45.0",
-  "recordedAt": "2026-10-19T16:53:45.414559+09:00",
-  "status": "deployed-hosted-composer-verified-gmail-credentials-pending",
+  "recordedAt": "2026-10-19T17:03:59.664612+09:00",
+  "status": "deployed-gmail-authenticated-not-sent",
   "baselineCommit": "f7e722f",
   "plan": "docs/plan-gmail-purchaseorder-20261019.md",
   "contract": "global-rea-20261018/gmail-purchaseorder/mail-contract.json",
@@ -67,6 +67,17 @@
       "actualEmailSent": false,
       "documentSavedOrChanged": false,
       "composerClosedAndSelectionCleared": true
+    },
+    "realGmailConnection": {
+      "reference": ".artifacts/gmail-purchaseorder-20261019/gmail-connected-check.json",
+      "smtpCommand": "npm run gmail:check",
+      "smtpExitCode": 0,
+      "configured": true,
+      "authenticated": true,
+      "sendsEmail": false,
+      "hostedConfiguredSenderVerified": true,
+      "hostedFinalReviewVerified": true,
+      "sendDisabledBeforeExplicitReviewAcknowledgement": true
     }
   },
   "REA": {
@@ -156,13 +167,16 @@
     "fontSha256": "6bcb2a0703aa137e874fc2dffa85f6c21ba9a67fa329e81b8c801663af7e992a"
   },
   "authentication": {
-    "credentialsConfigured": false,
-    "realGmailSmtpAuthenticationVerified": false,
+    "credentialsConfigured": true,
+    "realGmailSmtpAuthenticationVerified": true,
     "localHiddenInputWindowPrepared": true,
     "googleCredentialCreationUserHandoff": true,
     "actualEmailSent": false,
     "senderAccountConfirmedByUser": true,
-    "googleIdentityVerificationCompleted": true
+    "googleIdentityVerificationCompleted": true,
+    "credentialStorageFileMode": "600",
+    "credentialStorageDirectoryMode": "700",
+    "priorNonMailConfigurationPreserved": true
   },
   "deployment": {
     "status": "active",
@@ -180,7 +194,10 @@
     },
     "hostedGmailComposerUiVerified": true,
     "authenticatedUiBlock": null,
-    "actualEmailSent": false
+    "actualEmailSent": false,
+    "hostedConfiguredSenderVerified": true,
+    "hostedFinalReviewVerified": true,
+    "gmailConnectionAppliedWithoutServerRestart": true
   },
   "preservation": {
     "app_state": {
@@ -197,12 +214,47 @@
       "settings": true,
       "roles": true
     },
-    "newMailRecords": 0
+    "newMailRecords": 0,
+    "scope": "Before/after source deployment, prior to user re-login"
   },
   "managementPage": {
     "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 63,
+    "sequence": 64,
     "readbackVerified": true,
     "historyPreserved": true
+  },
+  "postConnectionPreservation": {
+    "checkedAt": "2026-10-19T08:02:44.773Z",
+    "readOnly": true,
+    "rows": {
+      "app_state": {
+        "revisionUnchanged": false,
+        "bodyUnchanged": false
+      },
+      "gateway_state": {
+        "revisionUnchanged": true,
+        "bodyUnchanged": true
+      }
+    },
+    "protected": {
+      "accountIdentityAndPasswordHashes": true,
+      "company": true,
+      "settings": true,
+      "roles": true
+    },
+    "changedStateFields": [
+      "users",
+      "sessions",
+      "attempts",
+      "audit",
+      "loginLogs"
+    ],
+    "userChangedFields": [
+      [
+        "lastLoginAt"
+      ]
+    ],
+    "changeExplanation": "Existing account re-login updated lastLoginAt, sessions, attempts, audit and loginLogs; no account credentials or roles changed",
+    "newMailRecords": 0
   }
 }

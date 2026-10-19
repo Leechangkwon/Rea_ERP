@@ -6,7 +6,7 @@
 
 소스 a2b8256을 원격에 올린 뒤 기존 WSL 서버를 재시작했다. https://rea.qaredi.com 의 공개 로그인 v0.45.0과 미인증 메일 API 401을 확인했다. 기존 계정·회사·설정·권한과 Supabase 두 상태의 내용·수정 번호는 전후 동일하다. 메일 레코드는 생성하지 않았다.
 
-**현재 Gmail 서버 인증정보가 없어 실제 Gmail 인증/발송은 미검증이다.** 기존 ERP 계정의 로그인 유지와 운영 Email 작성창·첨부 목록·샘플 발주서 PDF 다운로드를 확인했다. 확인창은 닫고 선택을 해제했으며 전표 저장/수정이나 발송은 하지 않았다. Google 본인 인증은 완료됐고 앱 이름 REA ERP가 입력된 생성 직전 화면과 숨김 로컬 설정 창을 사용자에게 인계했다. 앱 비밀번호 생성과 입력이 남아 있다. 설정은 인증만 확인해 저장하고, 완료 후 Email 창을 다시 열면 적용된다. 기존 구매실 초안은 그대로 미발송이며 실제 발송 이력으로 바꾸지 않는다. 상세: docs/gmail-purchaseorder-0.45.0.md 및 evidence/gmail-purchaseorder-20261019.json.
+**Gmail 서버 인증과 운영 화면 연결을 완료했다.** 숨김 TTY 입력 후 SMTP 인증을 검증해 비공개 runtime.env(600, 부모 700)에 저장했고 npm run gmail:check도 configured/authenticated=true, sendsEmail=false로 통과했다. 기존 비메일 설정은 동일하며 서버 재시작 없이 운영 Email 창의 발신 계정·첨부 목록·최종 확인과 확인 전 발송 차단을 확인했다. 기존 계정/비밀번호 해시·회사·설정·권한은 보존했고 재로그인의 lastLoginAt·세션·시도·인증 로그만 갱신됐다. 새 메일 기록은 0개이고 실제 메일은 발송하지 않았다. 상세: docs/gmail-purchaseorder-0.45.0.md 및 evidence/gmail-purchaseorder-20261019.json.
 
 
 ## 이전 기능 · 운영 버전 0.44.1 (2026-10-19)
