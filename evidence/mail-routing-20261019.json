@@ -1,6 +1,6 @@
 {
   "version": "0.47.2",
-  "status": "mailbox-renamed-auto-routing-and-new-address-incoming-verified-outbound-login-pending",
+  "status": "mailbox-renamed-auto-routing-and-new-address-bidirectional-verified",
   "plan": "docs/plan-mail-routing-20261019.md",
   "documentation": "docs/mail-routing-0.47.0.md",
   "contract": "global-rea-20261018/mail-routing/mail-contract.json",
@@ -100,7 +100,17 @@
       "files": 1,
       "restorePreviewConflicts": 0,
       "restoreApplied": false
-    }
+    },
+    "latestBidirectionalBackup": {
+      "verified": true,
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "restorePreviewConflicts": 0,
+      "restoreApplied": false
+    },
+    "afterFinalMailOldMessagesExactlyPreserved": 6,
+    "erpProtectedStateAfterReloginPreserved": true
   },
   "cloudflare": {
     "automaticScopedRoutingImplemented": true,
@@ -118,8 +128,6 @@
   },
   "spamInvestigation": {
     "connectedGmail": "pkdkak1@gmail.com",
-    "currentObservedDomainMailInboxCount": 2,
-    "currentObservedDomainMailSpamCount": 0,
     "latestObservedMessageSubject": "test",
     "spfPass": true,
     "dkimPass": true,
@@ -152,7 +160,20 @@
     },
     "newAddressTestsApprovedEachDirection": 1,
     "noGmailFilterOrMessageMovementPerformed": true,
-    "currentLabelsDoNotProveInitialClassification": true
+    "currentLabelsDoNotProveInitialClassification": true,
+    "previousObservedDomainMailInboxCountBeforeNewAddressTrial": 2,
+    "previousObservedDomainMailSpamCountBeforeNewAddressTrial": 0,
+    "newAddressTrialFirstObservedLabels": [
+      "UNREAD",
+      "IMPORTANT",
+      "CATEGORY_PERSONAL",
+      "INBOX"
+    ],
+    "newAddressTrialAuthenticationAllPass": true,
+    "newAddressTrialWasReply": true,
+    "newAddressTrialInboxVerified": true,
+    "newAddressResultDoesNotEstablishPriorSpamCause": true,
+    "additionalNewAddressTestsCompletedEachDirection": 1
   },
   "originalComparison": {
     "original86BodyCorpusUnchanged": true,
@@ -174,22 +195,27 @@
     "sourceCommit": "305cde5",
     "existingLoginMaintained": true,
     "hostedCurrentSettingsAndRoutingStateVerified": true,
-    "newAddressRealMailTestPending": true,
+    "newAddressRealMailTestPending": false,
     "publicLoginStatus": 200,
     "anonymousMailApiStatus": 401,
     "publicPrivateHealthStatus": 404,
     "manualServer": true,
     "autoStartAdded": false,
-    "currentAuthenticatedUiBlock": "Session expired during final send check; existing account login requested"
+    "currentAuthenticatedUiBlock": null,
+    "existingAccountReloginVerified": true,
+    "newAddressActualBidirectionalVerified": true,
+    "approvedNewAddressTrialSends": 2
   },
   "managementPage": {
     "id": "page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 71,
+    "sequence": 72,
     "readbackVerified": true,
     "priorHistoryPreserved": true
   },
   "screenshots": [
-    "Windows browser-handoff/mail-routing-live-0.47.2.png"
+    "Windows browser-handoff/mail-routing-live-0.47.2.png",
+    "Windows browser-handoff/mail-new-address-incoming-0.47.2.png",
+    "Windows browser-handoff/mail-new-address-sent-0.47.2.png"
   ],
   "actualNewAddressMail": {
     "subject": "REA 회사 메일 주소 변경 확인",
@@ -203,11 +229,33 @@
       "storedFolder": "inbox",
       "artifact": ".artifacts/mail-routing-20261019/actual-gmail-to-rea.json",
       "storedAt": "2026-10-19T12:10:57.989Z",
-      "hostedAuthenticatedUiVerified": false
+      "hostedAuthenticatedUiVerified": true,
+      "hostedBodyAndReadVerified": true
     },
     "reaToGmail": {
-      "sent": false,
-      "pending": "existing account UI session expired; login tab opened"
-    }
+      "sent": true,
+      "accepted": true,
+      "hostedAuthenticatedUiVerified": true,
+      "reaMessageId": "893d5da9-b400-4bf8-a704-a587499078fb",
+      "provider": "cloudflare",
+      "recipient": "pkdkak1@gmail.com",
+      "gmailMessageId": "1a15428056d2797d",
+      "firstObservedLabels": [
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_PERSONAL",
+        "INBOX"
+      ],
+      "spfPass": true,
+      "dkimPass": true,
+      "dmarcPass": true,
+      "replyToMatchesSender": true,
+      "replyThreadMatchesIncoming": true,
+      "sentAt": "2026-10-19T12:34:26.452+00:00",
+      "artifact": ".artifacts/mail-routing-20261019/actual-rea-to-gmail.json"
+    },
+    "approvedEachDirection": 1,
+    "sentEachDirection": 1,
+    "remainingApprovedTests": 0
   }
 }

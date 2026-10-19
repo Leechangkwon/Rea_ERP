@@ -106,7 +106,7 @@
     "publicVersionVerified": "0.47.2",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.47.2",
-    "currentAuthenticatedUiBlock": "Final outbound test: ERP session expired; existing account re-login pending",
+    "currentAuthenticatedUiBlock": null,
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
     "actualGmailEmailSent": true,
@@ -136,12 +136,17 @@
     "mailboxHistoricalMessagesPreserved": 6,
     "previousActualBidirectionalMailVerifiedVersion": "0.46.3",
     "previousActualBidirectionalAddress": "purchase@qaredi.com",
-    "currentAddressBidirectionalMailVerified": false,
+    "currentAddressBidirectionalMailVerified": true,
     "spamClassificationResolved": false,
     "reportedSpamMessageUserMovedToInbox": true,
     "currentAddressInboundMailVerified": true,
-    "currentAddressOutboundMailVerified": false,
+    "currentAddressOutboundMailVerified": true,
     "currentAddressTestApprovalEachDirection": 1,
-    "remainingApprovedOutboundTrialCount": 1
+    "remainingApprovedOutboundTrialCount": 0,
+    "currentAddressTrialGmailFirstObservedInboxVerified": true,
+    "currentAddressTrialGmailAuthenticationPass": true,
+    "currentAddressTrialReplyToMatchesSender": true,
+    "currentAddressTrialWasReply": true,
+    "existingAccountReloginVerifiedAfterFinalTrial": true
   }
 }
