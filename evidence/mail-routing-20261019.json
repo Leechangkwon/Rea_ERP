@@ -1,6 +1,6 @@
 {
-  "version": "0.47.1",
-  "status": "verified-locally-awaiting-final-ui-deployment",
+  "version": "0.47.2",
+  "status": "compiled-routing-save-regression-passed-awaiting-deployment",
   "plan": "docs/plan-mail-routing-20261019.md",
   "documentation": "docs/mail-routing-0.47.0.md",
   "contract": "global-rea-20261018/mail-routing/mail-contract.json",
@@ -9,12 +9,12 @@
   "verification": {
     "command": "npm run verify:local",
     "exitCode": 0,
-    "log": ".artifacts/mail-routing-20261019/final-verify-local.log",
-    "logSha256": "1b6577efd998020ffdd3a5570fd5ec8084b2bb4329caba608121f23bf6584119",
-    "mailboxNode": 22,
+    "log": ".artifacts/mail-routing-20261019/compiled-fix-verify-local.log",
+    "logSha256": "07d03f905ac664b7f9ab99c256e93a576da549355ee7ed85e566e02370867d02",
+    "mailboxNode": 23,
     "routingAdapterNode": 6,
     "runtimeNode": 20,
-    "relatedNode": 65,
+    "relatedNode": 66,
     "browser": 20,
     "release": 4,
     "additionalServerSecretTestPassed": true,
@@ -66,7 +66,8 @@
       }
     ],
     "nativeCloudflareRuntimeModuleTestedOutsideReaAllowlist": true,
-    "narrowViewportRoutingStateVerified": true
+    "narrowViewportRoutingStateVerified": true,
+    "actualCompiledWorkerRoutingSavePassed": true
   },
   "preservation": {
     "privatePrechangeBackupVerified": true,
