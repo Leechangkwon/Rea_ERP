@@ -1,7 +1,7 @@
 {
   "version": "0.49.0",
   "date": "2026-10-20",
-  "status": "deployed-public-verified-awaiting-existing-account-relogin",
+  "status": "deployed-authenticated-ui-and-preservation-verified",
   "scope": "four purchasing multi reference pickers; observed request/purchase modified sorting",
   "contract": "global-rea-20261018/purchasing-multiselect-sort/picker-sort-contract.json",
   "analysis": "global-rea-20261018/purchasing-multiselect-sort/analysis-summary.json",
@@ -31,12 +31,14 @@
   },
   "production": {
     "deployed": true,
-    "existingAuthenticatedUiVerified": false,
+    "existingAuthenticatedUiVerified": true,
     "businessWritesPerformed": false,
     "emailsSent": 0,
-    "currentBlock": "Existing session expired on refreshed 0.49.0; user relogin requested in existing REA login tab.",
+    "currentBlock": null,
     "serverPid": 387067,
-    "browserInventoryPostComparisonPending": true
+    "browserInventoryPostComparisonPending": false,
+    "verificationProbeCleared": true,
+    "uiScreenshot": "Windows browser-handoff/purchasing-multiselect-sort-live-0.49.0.png"
   },
   "limitations": [
     "original server OR and filtering semantics",
@@ -100,8 +102,387 @@
   },
   "managementPage": {
     "pageId": "page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 74,
+    "sequence": 75,
     "threeBlocksExactReadback": true,
     "priorHistoryExactPrefixPreserved": true
-  }
+  },
+  "authenticatedHostedChecks": {
+    "version": "0.49.0",
+    "authenticated": true,
+    "businessWritesPerformed": false,
+    "mailSent": false,
+    "checks": [
+      {
+        "title": "발주요청",
+        "route": "2-2-0-0",
+        "before": {
+          "headers": [
+            "",
+            "일자-No.",
+            "창고명",
+            "거래처명",
+            "품목명(요약)",
+            "사원(담당)명",
+            "발주요청수량합계",
+            "발주요청금액합계",
+            "진행상태",
+            "최종수정자",
+            "최초작성일자"
+          ],
+          "rows": 1
+        },
+        "after": {
+          "headers": [
+            "",
+            "일자-No.",
+            "창고명",
+            "거래처명",
+            "품목명(요약)",
+            "사원(담당)명",
+            "발주요청수량합계",
+            "발주요청금액합계",
+            "진행상태",
+            "최종수정자",
+            "최초작성일자"
+          ],
+          "rows": 1
+        },
+        "pickerFields": [
+          "거래처 필터",
+          "창고 필터",
+          "프로젝트 필터",
+          "품목 필터"
+        ],
+        "multiCountVisible": true,
+        "reopenedChecked": 2,
+        "cancelKept": true,
+        "stagedRows": 1,
+        "collapsed": true,
+        "sortPresent": true,
+        "baselineMatch": true
+      },
+      {
+        "title": "발주계획",
+        "route": "2-2-1-0",
+        "before": {
+          "headers": [
+            "",
+            "일자-No.",
+            "담당자명",
+            "입고창고명",
+            "거래처명",
+            "품목명",
+            "수량",
+            "단가",
+            "금액",
+            "부가세",
+            "합계",
+            "최종수정자",
+            "종결여부",
+            "진행상태"
+          ],
+          "rows": 0
+        },
+        "after": {
+          "headers": [
+            "",
+            "일자-No.",
+            "담당자명",
+            "입고창고명",
+            "거래처명",
+            "품목명",
+            "수량",
+            "단가",
+            "금액",
+            "부가세",
+            "합계",
+            "최종수정자",
+            "종결여부",
+            "진행상태"
+          ],
+          "rows": 0
+        },
+        "pickerFields": [
+          "발주계획 창고 필터",
+          "발주계획 프로젝트 필터",
+          "발주계획 거래처 필터",
+          "발주계획 품목 필터"
+        ],
+        "multiCountVisible": true,
+        "reopenedChecked": 2,
+        "cancelKept": true,
+        "stagedRows": 0,
+        "collapsed": true,
+        "sortPresent": false,
+        "baselineMatch": true
+      },
+      {
+        "title": "발주서",
+        "route": "2-2-3-0",
+        "before": {
+          "headers": [
+            "",
+            "일자-No.",
+            "거래처명",
+            "발주서발송",
+            "담당자명",
+            "입고창고명",
+            "품목명[규격명]",
+            "발주금액합계",
+            "최초작성자",
+            "최종수정자"
+          ],
+          "rows": 1
+        },
+        "after": {
+          "headers": [
+            "",
+            "일자-No.",
+            "거래처명",
+            "발주서발송",
+            "담당자명",
+            "입고창고명",
+            "품목명[규격명]",
+            "발주금액합계",
+            "최초작성자",
+            "최종수정자"
+          ],
+          "rows": 1
+        },
+        "pickerFields": [
+          "거래처 필터",
+          "창고 필터",
+          "프로젝트 필터",
+          "품목 필터"
+        ],
+        "multiCountVisible": true,
+        "reopenedChecked": 2,
+        "cancelKept": true,
+        "stagedRows": 1,
+        "collapsed": true,
+        "sortPresent": false,
+        "baselineMatch": true
+      },
+      {
+        "title": "구매",
+        "route": "2-2-4-0",
+        "before": {
+          "headers": [
+            "",
+            "일자-No.",
+            "거래처명",
+            "사원(담당)명",
+            "창고명",
+            "품목명(요약)",
+            "상태",
+            "금액합계",
+            "인쇄",
+            "불러온전표",
+            "최초작성자",
+            "최초작성일자"
+          ],
+          "rows": 1
+        },
+        "after": {
+          "headers": [
+            "",
+            "일자-No.",
+            "거래처명",
+            "사원(담당)명",
+            "창고명",
+            "품목명(요약)",
+            "상태",
+            "금액합계",
+            "인쇄",
+            "불러온전표",
+            "최초작성자",
+            "최초작성일자"
+          ],
+          "rows": 1
+        },
+        "pickerFields": [
+          "거래처 필터",
+          "창고 필터",
+          "프로젝트 필터",
+          "품목 필터"
+        ],
+        "multiCountVisible": true,
+        "reopenedChecked": 2,
+        "cancelKept": true,
+        "stagedRows": 1,
+        "collapsed": true,
+        "sortPresent": true,
+        "baselineMatch": true
+      }
+    ]
+  },
+  "hostedOtherReferencePopups": [
+    {
+      "title": "발주요청",
+      "field": "거래처",
+      "renderedChoices": 2,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주요청",
+      "field": "프로젝트",
+      "renderedChoices": 1,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주요청",
+      "field": "품목",
+      "renderedChoices": 4,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주계획",
+      "field": "거래처",
+      "renderedChoices": 2,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주계획",
+      "field": "프로젝트",
+      "renderedChoices": 1,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주계획",
+      "field": "품목",
+      "renderedChoices": 4,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주서",
+      "field": "거래처",
+      "renderedChoices": 2,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주서",
+      "field": "프로젝트",
+      "renderedChoices": 1,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "발주서",
+      "field": "품목",
+      "renderedChoices": 4,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "구매",
+      "field": "거래처",
+      "renderedChoices": 2,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "구매",
+      "field": "프로젝트",
+      "renderedChoices": 1,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    },
+    {
+      "title": "구매",
+      "field": "품목",
+      "renderedChoices": 4,
+      "pageLimitRespected": true,
+      "emptyAfterSearch": true,
+      "closed": true
+    }
+  ],
+  "hostedFinal": {
+    "version": "0.49.0",
+    "authenticated": true,
+    "allFourLiveChecksPassed": true,
+    "allOtherPopupsPassed": true,
+    "screenshotNoBusinessRows": true,
+    "screenshotModifiedSortChecked": true,
+    "verificationProbeCleared": true,
+    "restoredPurchaseRows": 1,
+    "sourceBusinessWritesPerformed": false,
+    "ownBusinessWritesPerformed": false,
+    "mailSent": false
+  },
+  "finalPreservationAfterRelogin": {
+    "version": "0.49.0",
+    "remote": {
+      "app": {
+        "beforeRevision": 19,
+        "afterRevision": 21,
+        "exactBodyAndRevisionEqual": false,
+        "protectedAccountCompanyConfigurationExact": true,
+        "allowedAuthBookkeepingOnly": true,
+        "allowedFields": [
+          "users.lastLoginAt",
+          "sessions",
+          "attempts",
+          "audit",
+          "loginLogs"
+        ]
+      },
+      "gateway": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "browser": {
+      "version": "0.49.0",
+      "validated": true,
+      "exactFileEqual": true,
+      "allDataEqual": true,
+      "formsExact": true,
+      "documentsBefore": 8,
+      "documentsAfter": 8,
+      "counts": {
+        "request": 1,
+        "plan": 0,
+        "purchaseorder": 1,
+        "purchase": 1
+      },
+      "noFabricatedModificationTimes": true
+    },
+    "restored": false
+  },
+  "sortVerificationBoundary": "Hosted request/purchase option apply and list preservation observed; real sorting order verified with isolated synthetic edits only, no production voucher writes."
 }

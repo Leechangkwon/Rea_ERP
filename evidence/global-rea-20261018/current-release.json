@@ -1,6 +1,6 @@
 {
   "version": "0.49.0",
-  "status": "purchasing-multiselect-sort-deployed-awaiting-relogin",
+  "status": "purchasing-multiselect-sort-deployed-authenticated-ui-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -111,8 +111,8 @@
     "deployedSourceCommit": "1893acd",
     "publicVersionVerified": "0.49.0",
     "actualExistingAccountLoginVerified": true,
-    "lastExistingAccountLoginVerifiedVersion": "0.48.0",
-    "currentAuthenticatedUiBlock": "Existing session expired on refreshed 0.49.0; awaiting user relogin",
+    "lastExistingAccountLoginVerifiedVersion": "0.49.0",
+    "currentAuthenticatedUiBlock": null,
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
     "actualGmailEmailSent": true,
@@ -156,10 +156,13 @@
     "existingAccountReloginVerifiedAfterFinalTrial": true,
     "currentPurchasingListSearchLocalVerifiedVersion": "0.49.0",
     "currentPurchasingListSearchHostedVerified": true,
-    "currentPurchasingListSearchHostedVerifiedVersion": "0.48.0",
+    "currentPurchasingListSearchHostedVerifiedVersion": "0.49.0",
     "currentPurchasingListSearchHostWritesPerformed": false,
-    "purchasingMultiPickerHostedVerified": false,
-    "purchasingModifiedSortHostedVerified": false,
-    "browserInventoryExactPostComparisonPending": true
+    "purchasingMultiPickerHostedVerified": true,
+    "purchasingModifiedSortHostedVerified": true,
+    "browserInventoryExactPostComparisonPending": false,
+    "purchasingModifiedSortHostedScope": "Observed request/purchase option apply and result preservation; comparator/order after real edits tested with synthetic data only",
+    "browserInventoryExactPostComparison": true,
+    "postReloginProtectedAccountsAndConfigurationPreserved": true
   }
 }
