@@ -1,17 +1,30 @@
 {
   "version": "0.48.0",
-  "status": "local-verified-awaiting-deployment",
+  "status": "deployed-authenticated-four-list-search-verified",
   "sourceBaseline": "e4690e5",
   "plan": "docs/plan-purchasing-search-state-20261019.md",
   "contract": "global-rea-20261018/purchasing-search-state/search-state-contract.json",
   "originalObservation": ".artifacts/purchasing-search-state-20261019/original-observation.json",
   "fullOriginalEquivalence": false,
   "deployment": {
-    "status": "not-yet-deployed",
+    "status": "deployed",
     "publicOrigin": "https://rea.qaredi.com",
     "priorVersion": "0.47.2",
     "manualServer": true,
-    "autoStartAdded": false
+    "autoStartAdded": false,
+    "publicVersionVerified": "0.48.0",
+    "sourceCommit": "46b9766",
+    "existingLoginMaintained": true,
+    "hostedFourListReadOnlySearchVerified": true,
+    "hostedRequestInvalidRangePreservesResult": true,
+    "productionBusinessWrites": false,
+    "productionMailSends": 0,
+    "serverPid": 339177,
+    "publicLoginStatus": 200,
+    "anonymousMailApiStatus": 401,
+    "publicPrivateHealthStatus": 404,
+    "dnsOrTunnelChanged": false,
+    "schemaChanged": false
   },
   "verification": {
     "command": "npm run verify:local",
@@ -102,9 +115,25 @@
     "restoreApplied": false,
     "storageSchemaChanged": false,
     "runtimeSecretsOrMailSettingsChanged": false,
-    "productionDataComparisonPending": true
+    "productionDataComparisonPending": false,
+    "appStateExactBeforeAfter": true,
+    "gatewayStateExactBeforeAfter": true,
+    "runtimeEnvExactlyPreserved": true,
+    "allExistingMailboxRecordsExactlyPreserved": true,
+    "currentAppRevision": 19,
+    "currentGatewayRevision": 0,
+    "productionComparisonArtifact": ".artifacts/purchasing-search-state-20261019/postdeploy-preservation.json"
   },
   "screenshots": [
-    ".artifacts/purchasing-search-state-20261019/synthetic-search-state.png"
-  ]
+    ".artifacts/purchasing-search-state-20261019/synthetic-search-state.png",
+    "Windows browser-handoff/purchasing-search-state-live-0.48.0.png"
+  ],
+  "sourceCommit": "46b9766",
+  "managementPage": {
+    "id": "page_61170ef3893c81919dd7d59c77385674",
+    "sequence": 73,
+    "readbackVerified": true,
+    "allPriorHistoryPreserved": true
+  },
+  "hostedVerification": ".artifacts/purchasing-search-state-20261019/hosted-ui-checks.json"
 }
