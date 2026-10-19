@@ -1,6 +1,6 @@
 {
   "version": "0.46.3",
-  "status": "outbound-delivered-receiver-fix-deployed-awaiting-original-smtp-retry",
+  "status": "actual-bidirectional-domain-mail-verified",
   "baselineCommit": "6e367a0",
   "plan": "docs/plan-domain-webmail-20261019.md",
   "documentation": "docs/domain-webmail-0.46.0.md",
@@ -197,6 +197,16 @@
       "restoreApplied": false,
       "credentialsIncluded": false,
       "artifact": ".artifacts/domain-mail-20261019/post-test-mail-backup.json"
+    },
+    "postBidirectionalBackup": {
+      "verified": true,
+      "boxes": 3,
+      "messages": 5,
+      "files": 1,
+      "restorePreviewConflicts": 0,
+      "restoreApplied": false,
+      "credentialsIncluded": false,
+      "artifact": ".artifacts/domain-mail-20261019/post-bidirectional-mail-backup.json"
     }
   },
   "preservation": {
@@ -259,10 +269,11 @@
     "currentVersionAuthenticatedUiVerified": true,
     "lastMaintainedLoginSessionVersion": "0.46.1",
     "historicalAuthenticatedMailUiVersion": "0.46.1",
-    "existingAccountReloginVerifiedVersion": "0.46.2"
+    "existingAccountReloginVerifiedVersion": "0.46.2",
+    "hostedActualInboxVerified": true
   },
   "actualExternalEmailSent": true,
-  "actualExternalEmailReceived": false,
+  "actualExternalEmailReceived": true,
   "sourceCommit": "5780f5f",
   "hostedScreenshots": [
     "Windows browser-handoff/domain-mail-live-0.46.0.png",
@@ -271,7 +282,8 @@
     "Windows browser-handoff/domain-mail-paid-confirmed.png",
     "Windows browser-handoff/domain-mail-sending-active.png",
     "Windows browser-handoff/domain-mail-routing-active.png",
-    "Windows browser-handoff/domain-mail-real-sent-0.46.3.png"
+    "Windows browser-handoff/domain-mail-real-sent-0.46.3.png",
+    "Windows browser-handoff/domain-mail-real-received-0.46.3.png"
   ],
   "syntheticProductionData": {
     "externalMimeIngress": 1,
@@ -283,13 +295,13 @@
   },
   "managementPage": {
     "id": "page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 68,
+    "sequence": 69,
     "readbackVerified": true,
     "priorHistoryPreserved": true
   },
   "realMailVerification": {
     "userApprovedOneEachDirection": true,
-    "additionalExternalMessagesSent": false,
+    "additionalExternalMessagesSent": true,
     "reaToGmail": {
       "sender": "purchase@qaredi.com",
       "recipient": "pkdkak1@gmail.com",
@@ -309,14 +321,40 @@
       "routingInitialResult": "temporary worker exception",
       "rootCause": "Workers Request does not implement redirect:error",
       "fix": "manual, no redirect following, non-2xx not acknowledged",
-      "awaitingOriginalProviderRetry": true,
+      "awaitingOriginalProviderRetry": false,
       "evidence": ".artifacts/domain-mail-20261019/real-gmail-to-rea-test.json",
       "lastObservedFailedAttemptsUtc": [
         "2026-10-19T09:54:29Z",
         "2026-10-19T09:59:47Z"
       ],
       "workerFixedAtUtc": "2026-10-19T10:07:40Z",
-      "additionalTrialApprovalRequested": true
-    }
+      "additionalTrialApprovalRequested": true,
+      "originalProviderRetrySucceeded": true,
+      "reaReceived": true,
+      "receivedAt": "2026-10-19T10:24:37.463Z",
+      "reaStatus": "received",
+      "reaFolder": "inbox",
+      "attachments": 0
+    },
+    "additionalTrialUserApproval": true,
+    "additionalTrialCount": 1,
+    "externalMessageCounts": {
+      "reaToGmail": 1,
+      "gmailToRea": 2,
+      "total": 3
+    },
+    "additionalTrial": {
+      "userApproved": true,
+      "gmailAccepted": true,
+      "gmailSentLabelVerified": true,
+      "reaReceived": true,
+      "receivedAt": "2026-10-19T10:23:23.760Z",
+      "hostedInboxAndBodyVerified": true,
+      "readFlagPersisted": true,
+      "exactHeaderRecordCount": 1,
+      "attachments": 0,
+      "artifact": ".artifacts/domain-mail-20261019/real-gmail-to-rea-recheck-1.json"
+    },
+    "bidirectionalCompleted": true
   }
 }

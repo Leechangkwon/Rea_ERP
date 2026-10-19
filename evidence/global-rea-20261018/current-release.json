@@ -1,6 +1,6 @@
 {
   "version": "0.46.3",
-  "status": "outbound-delivered-receiver-fix-deployed-awaiting-original-smtp-retry",
+  "status": "actual-bidirectional-domain-mail-verified",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -119,10 +119,14 @@
     "domainMailSendingActivated": true,
     "domainMailReceivingActivated": true,
     "actualDomainMailSent": true,
-    "actualDomainMailReceived": false,
+    "actualDomainMailReceived": true,
     "actualDomainSmtpAuthenticationVerified": true,
     "cloudflareWorkersPlan": "Paid",
     "gmailInboxDeliveryVerified": true,
-    "gmailDkimSpfDmarcPass": true
+    "gmailDkimSpfDmarcPass": true,
+    "actualBidirectionalMailVerified": true,
+    "hostedActualInboxBodyAndReadVerified": true,
+    "originalGmailProviderRetrySucceeded": true,
+    "additionalGmailTrialApprovedAndReceived": true
   }
 }
