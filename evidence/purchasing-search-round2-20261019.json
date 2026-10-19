@@ -1,7 +1,7 @@
 {
   "version": "0.44.0",
-  "recordedAt": "2026-10-19T05:06:34.510682+00:00",
-  "status": "local-validated-deployment-pending",
+  "recordedAt": "2026-10-19T05:11:51.241484+00:00",
+  "status": "deployed-readonly-ui-verified",
   "baselineCommit": "db383d0",
   "publicOrigin": "https://rea.qaredi.com",
   "contract": "global-rea-20261018/purchasing-search/search-contract.json",
@@ -156,24 +156,87 @@
       "passed": true,
       "log": ".artifacts/purchasing-round2-20261019/cache-regression.log",
       "sha256": "1367f04421c4d3763a2042cd6ca183647df527dc5f82cc76d8893a35da695da1",
-      "scope": "compiled HTML versioned local asset references; runtime/auth/manual regression"
-    }
+      "scope": "compiled HTML versioned local asset references; runtime/auth/manual regression",
+      "tests": 56,
+      "passedTests": 56,
+      "sourceCommit": "9e0566e"
+    },
+    "fullRegressionCommit": "1d445dc"
   },
   "preservation": {
     "schemaChanged": false,
     "dataMigration": false,
     "sourceSQLiteRetained": true,
     "existingFormsAndStagedEditsTested": true,
-    "predeployPrivateSnapshotCreated": true
+    "predeployPrivateSnapshotCreated": true,
+    "remoteBeforeAfter": {
+      "app_state": {
+        "revisionUnchanged": true,
+        "bodyUnchanged": true
+      },
+      "gateway_state": {
+        "revisionUnchanged": true,
+        "bodyUnchanged": true
+      }
+    }
   },
   "deployment": {
-    "status": "pending",
-    "previousRuntimeVersion": "0.43.0"
+    "status": "active",
+    "sourceCommit": "9e0566e",
+    "publicVersion": "0.44.0",
+    "backend": "supabase",
+    "publicOrigin": "https://rea.qaredi.com",
+    "tunnel": "rea-erp-local",
+    "existingAuthenticationRetainedAfterRestartAndReload": true,
+    "allFourLookupNewCriteriaVisible": true,
+    "planF3ToggleAndF8Verified": true,
+    "compiledAssetsHaveVersionedUrls": true,
+    "publicAnonymousChecks": {
+      "/login": {
+        "status": 200,
+        "type": "text/html; charset=utf-8",
+        "version044": true
+      },
+      "/": {
+        "status": 302,
+        "type": null,
+        "redirectToLogin": true
+      },
+      "/api/auth/status": {
+        "status": 200,
+        "type": "application/json; charset=utf-8",
+        "initialized": true,
+        "authenticated": false
+      },
+      "/__rea/health": {
+        "status": 404,
+        "type": null
+      },
+      "/api/inventory/documents": {
+        "status": 401,
+        "type": "application/json; charset=utf-8"
+      },
+      "localHealth": {
+        "runtime": "standalone",
+        "backend": "supabase",
+        "publicOrigin": "https://rea.qaredi.com",
+        "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+      }
+    },
+    "hostedAuthenticatedReadOnlyUiQa": true,
+    "hostedRealBusinessMutationQa": false,
+    "screenshot": "Windows browser-handoff/rea-purchasing-search-0.44.0-live-20261019.png"
   },
   "remaining": [
     "plan item/voucher grouping contract",
     "plan quantity zero basis versus residual basis",
     "original server request number operators and currency rules",
     "source send/approval/print/private-server equivalence"
-  ]
+  ],
+  "managementPage": {
+    "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
+    "sequence": 60,
+    "readbackVerified": true,
+    "historyPreserved": true
+  }
 }

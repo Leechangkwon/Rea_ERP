@@ -1,6 +1,6 @@
 {
   "version": "0.44.0",
-  "status": "purchasing-search-local-validated",
+  "status": "purchasing-search-deployed-readonly-ui-verified",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -82,18 +82,20 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 8,
     "verifyLocalPassed": true,
-    "reference": "../purchasing-search-round2-20261019.json"
+    "reference": "../purchasing-search-round2-20261019.json",
+    "cacheAuthRuntimeRegression": 56
   },
   "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
-    "reference": "../deployment-local-supabase-cloudflare-20261019.json",
+    "reference": "../purchasing-search-round2-20261019.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "d0a26ff",
-    "publicVersionVerified": "0.43.0",
+    "deployedSourceCommit": "9e0566e",
+    "publicVersionVerified": "0.44.0",
     "actualExistingAccountLoginVerified": true,
     "reloadRetainsAuthentication": true,
-    "supabaseLoginWritePersisted": true
+    "supabaseLoginWritePersisted": true,
+    "hostedReadOnlyPurchasingSearchUiVerified": true
   }
 }
