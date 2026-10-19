@@ -1,0 +1,60 @@
+{
+  "version": "0.45.0",
+  "basis": "user selected Gmail for independently implemented purchase-order email",
+  "ui": [
+    "purchaseorder lookup Email composer",
+    "same-partner selection only",
+    "recipient/subject/plain body review",
+    "server-rendered PDF download",
+    "explicit final review checkbox and send button",
+    "own-user result history and changed-document state"
+  ],
+  "provider": {
+    "smtpHost": "smtp.gmail.com",
+    "port": 465,
+    "implicitTls": true,
+    "tlsMinimum": "1.2",
+    "credentials": "private server runtime.env only",
+    "setup": "hidden manual input; SMTP verify without message sending",
+    "settingsRefreshedPerMailRequest": true
+  },
+  "security": [
+    "existing staff session",
+    "inventory.read/write permissions",
+    "same Origin and CSRF on POST",
+    "request size and structured-data validation",
+    "no arbitrary HTML/attachment paths/remote URLs",
+    "fixed authenticated sender",
+    "CAS durable idempotency reservation before SMTP",
+    "recheck permission before SMTP",
+    "no automatic resend for uncertain results",
+    "user-scoped history"
+  ],
+  "limits": {
+    "documents": 20,
+    "totalLines": 1000,
+    "attachmentBytes": 8000000,
+    "requestBytes": 250000,
+    "historyRecords": 500,
+    "perUserPerMinute": 10
+  },
+  "storage": {
+    "newSqlTables": false,
+    "optionalAppStateCollection": "mailDeliveries",
+    "metadataOnly": true,
+    "bodyAndPdfStoredInErp": false,
+    "existingBrowserDocumentsReplaced": false,
+    "legacyPurchaseRoomDraftsUnchanged": true
+  },
+  "resultSemantics": {
+    "accepted": "Gmail SMTP accepted; not proof of recipient delivery or reading",
+    "failed": "explicit rejection or pre-send failure",
+    "unknown": "outcome uncertain; check Gmail before any new send",
+    "sending": "durably reserved; duplicate request never initiates another SMTP call"
+  },
+  "notEstablished": [
+    "original ECOUNT email behavior equivalence",
+    "actual Gmail authentication until user enters credentials",
+    "real recipient delivery"
+  ]
+}

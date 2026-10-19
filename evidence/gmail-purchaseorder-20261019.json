@@ -1,0 +1,153 @@
+{
+  "version": "0.45.0",
+  "recordedAt": "2026-10-19T07:25:07.190301+00:00",
+  "status": "local-validated-gmail-authentication-pending",
+  "baselineCommit": "f7e722f",
+  "plan": "docs/plan-gmail-purchaseorder-20261019.md",
+  "contract": "global-rea-20261018/gmail-purchaseorder/mail-contract.json",
+  "implementation": [
+    "dist/purchase-mail-core.js",
+    "dist/purchase-mail-ui.js",
+    "worker/purchase-mail.cjs",
+    "scripts/gmail-transport.cjs",
+    "scripts/purchase-mail-pdf.cjs",
+    "scripts/configure-gmail.cjs"
+  ],
+  "verification": {
+    "command": "npm run verify:local",
+    "log": ".artifacts/gmail-purchaseorder-20261019/verify-local.log",
+    "newMailNodeTests": 14,
+    "newBrowserTests": 3,
+    "browserSyntheticExpected": 12,
+    "serverRuntimeRelatedPassed": 33,
+    "pdf": [
+      {
+        "name": "short",
+        "pages": 1,
+        "koreanText": true,
+        "hasLastItem": true,
+        "renderedPages": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "long",
+        "pages": 7,
+        "koreanText": true,
+        "hasLastItem": true,
+        "renderedPages": [
+          1,
+          7
+        ]
+      }
+    ],
+    "pdfVisualReview": "short first page and long final page rendered and visually inspected; Korean text and last item present",
+    "exitCode": 0,
+    "browserPassed": 12,
+    "releaseChecks": 4,
+    "logSha256": "3ce99af14d4274ad03276edd36a1edc3e21b765c6e55a7cc2f698c0a69202b92",
+    "pdfDownloadFlowRegression": {
+      "exitCode": 0,
+      "log": ".artifacts/gmail-purchaseorder-20261019/pdf-flow-regression.log",
+      "sha256": "b0f71d4a079be99f774b495a6ace834e892871fa25ebaeee4455e99a9d67a12f"
+    }
+  },
+  "REA": {
+    "ownGroups": [
+      {
+        "group": "gmail-mail-core",
+        "key": "1847e511da891177a670c30afa2396c0497c88de6ebee8762a36d5d9688a4432",
+        "toolVersion": "6.4.0",
+        "cacheReused": false,
+        "evidenceValidated": true,
+        "inputs": [
+          {
+            "file": "dist/purchase-mail-core.js",
+            "bytes": 5135,
+            "sha256": "dfe3ac8ca0c5f22fe257cf75dfcfc88f4c31dcf330355bf4e6efe416f76c1554"
+          },
+          {
+            "file": "worker/purchase-mail.cjs",
+            "bytes": 7815,
+            "sha256": "4a69833d78d2afe8ca72b5e2c6b715f51a7e516edd66741c26cf2f0bc04f7d04"
+          }
+        ],
+        "inputHashesVerified": true,
+        "parseFailures": 0,
+        "staticCoverage": {
+          "status": "complete",
+          "truncated": false,
+          "omitted_count": 0,
+          "limits": []
+        },
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "omitted_nodes": 0,
+          "omitted_relations": 0
+        },
+        "resultSha256": "48ad648f37ae54774f2d57e4003f49b47e1c2cf7f16f2af9a25e3f79ef921781"
+      },
+      {
+        "group": "gmail-mail-ui",
+        "key": "b27a4af4feddb182d81b6bd157235d0e1ab1b1f8880aeac76097e14d8653111b",
+        "toolVersion": "6.4.0",
+        "cacheReused": true,
+        "evidenceValidated": true,
+        "inputs": [
+          {
+            "file": "dist/inventory-ui.js",
+            "bytes": 122719,
+            "sha256": "e9db4fe517df4722d1a9a3f77db153b0fbf81f9327e19b77555fe156f379aea3"
+          },
+          {
+            "file": "dist/purchase-mail-ui.js",
+            "bytes": 8153,
+            "sha256": "fe455f92a29bde3d523083a5ded46cd842a48c449e2a12e5fecf638ff07c48ab"
+          }
+        ],
+        "inputHashesVerified": true,
+        "parseFailures": 0,
+        "staticCoverage": {
+          "status": "complete",
+          "truncated": false,
+          "omitted_count": 0,
+          "limits": []
+        },
+        "semanticCoverage": {
+          "status": "unknown",
+          "truncated": false,
+          "omitted_nodes": 0,
+          "omitted_relations": 0
+        },
+        "resultSha256": "449ee495ba70fe34db263a48a8d0e23a2a36813eef8ce73d6f256d194bd810a4"
+      }
+    ],
+    "runtimeScripts": "outside existing dist/worker adapter allowlist; node --check and runtime/PDF tests used",
+    "fullOriginalEquivalence": false,
+    "historical86BodyCorpusUnchanged": true
+  },
+  "dependencies": {
+    "nodemailer": "10.1.7",
+    "pdfkit": "0.20.2",
+    "font": {
+      "repository": "https://github.com/notofonts/noto-cjk",
+      "commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+      "font": "Sans/OTF/Korean/NotoSansCJKkr-Regular.otf",
+      "license": "SIL Open Font License 1.1"
+    },
+    "fontSha256": "6bcb2a0703aa137e874fc2dffa85f6c21ba9a67fa329e81b8c801663af7e992a"
+  },
+  "authentication": {
+    "credentialsConfigured": false,
+    "realGmailSmtpAuthenticationVerified": false,
+    "localHiddenInputWindowPrepared": true,
+    "googleCredentialCreationUserHandoff": true,
+    "actualEmailSent": false
+  },
+  "deployment": {
+    "status": "pending",
+    "previousRuntimeVersion": "0.44.1"
+  }
+}

@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), os = require('node:os'), net = require('node:net'), {parseEnv} = require('node:util');
 const defaultFile = () => path.join(os.homedir(), '.config', 'rea-erp', 'runtime.env');
-const keys = ['REA_STORAGE','SUPABASE_URL','SUPABASE_SECRET_KEY','REA_PUBLIC_ORIGIN','REA_PORT','REA_SQLITE_FILE','OUTBOUND_ALLOWED_HOSTS'];
+const keys = ['REA_STORAGE','SUPABASE_URL','SUPABASE_SECRET_KEY','REA_PUBLIC_ORIGIN','REA_PORT','REA_SQLITE_FILE','OUTBOUND_ALLOWED_HOSTS','REA_GMAIL_USER','REA_GMAIL_APP_PASSWORD'];
 
 function readEnvironment(input = process.env) {
   const file = input.REA_ENV_FILE || defaultFile();
@@ -26,7 +26,7 @@ function configuration(input) {
   }
   // An explicit backend prevents accidental use of a remote DB in local tests.
   if (backend === 'sqlite' && input.SUPABASE_SECRET_KEY && !input.REA_STORAGE) throw Error('Supabase 설정에는 REA_STORAGE를 명시하세요.');
-  return {backend, port, publicOrigin, sqliteFile: path.resolve(input.REA_SQLITE_FILE || '.artifacts/preview.sqlite'), environment: {...Object.fromEntries(keys.filter(k=>input[k]!==undefined).map(k=>[k,input[k]])), REA_RUNTIME: 'standalone', REA_STORAGE: backend}};
+  return {backend, port, publicOrigin, sqliteFile: path.resolve(input.REA_SQLITE_FILE || '.artifacts/preview.sqlite'), environment: {...Object.fromEntries(keys.filter(k=>!k.startsWith('REA_GMAIL_')&&input[k]!==undefined).map(k=>[k,input[k]])), REA_RUNTIME: 'standalone', REA_STORAGE: backend}};
 }
 
 module.exports = {readEnvironment, configuration, defaultFile, keys};

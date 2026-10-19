@@ -1,6 +1,6 @@
 {
-  "version": "0.44.1",
-  "status": "plan-request-voucher-import-deployed",
+  "version": "0.45.0",
+  "status": "gmail-local-validated-authentication-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -73,7 +73,8 @@
     "report-sort-config/sort-config-contract.json",
     "request-save-retain/retained-source-contract.json",
     "purchasing-search/search-contract.json",
-    "plan-request-import/voucher-contract.json"
+    "plan-request-import/voucher-contract.json",
+    "gmail-purchaseorder/mail-contract.json"
   ],
   "checks": {
     "total": 998,
@@ -81,11 +82,12 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 9,
+    "browserSynthetic": 12,
     "verifyLocalPassed": true,
-    "reference": "../plan-request-import-20261019.json",
+    "reference": "../gmail-purchaseorder-20261019.json",
     "cacheAuthRuntimeRegression": 56,
-    "planRequestImportRegressionPassed": true
+    "planRequestImportRegressionPassed": true,
+    "gmailNodeTests": 14
   },
   "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",

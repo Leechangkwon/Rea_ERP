@@ -77,3 +77,6 @@
 .inv-report-subtotal>*{font-weight:600;background:#eef3fa}.inv-report-total>*{font-weight:700;background:#e1e9f4;border-top:2px solid #607693}.inv-report-summary tbody th{text-align:left;white-space:normal;overflow-wrap:anywhere}
 
 .report-summary-detail{width:min(1360px,96vw)}.report-summary-detail .inv-table-wrap{max-height:58vh}.report-summary-detail .inv-toolbar{position:sticky;bottom:0;background:#fff;padding-top:10px}
+
+/* Purchase-order Gmail composer. */
+.purchase-mail-dialog{max-width:900px}.purchase-mail-fields{display:grid;gap:10px}.purchase-mail-fields .inv-field{display:grid;grid-template-columns:90px 1fr;align-items:start;gap:10px}.purchase-mail-fields input,.purchase-mail-fields textarea{box-sizing:border-box;width:100%}.purchase-mail-review{margin-top:16px;padding:16px;border:1px solid #b8cbe4;background:#f3f7fc}.purchase-mail-review[hidden]{display:none}.purchase-mail-review pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}.purchase-mail-review button{margin:10px 8px 0 0}.purchase-mail-history{margin-top:18px;overflow-wrap:anywhere}.purchase-mail-attachments{overflow-wrap:anywhere}@media(max-width:600px){.purchase-mail-fields .inv-field{grid-template-columns:1fr}.purchase-mail-dialog button{min-height:40px}}

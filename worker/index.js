@@ -5,6 +5,7 @@ export default {async fetch(request,env){
  try{
   env=Storage.resolveEnvironment(env);
   const u=new URL(request.url),path=u.pathname;
+  if(path.startsWith('/api/mail/'))return PurchaseMail.handle(request,env);
   if(/^\/api\/(auth|self|portal)\//.test(path))return app.handle(request,env);
   if(path.startsWith('/api/')){
     const ctx=await app.context(request,env),hasKey=!!request.headers.get('X-Api-Key');

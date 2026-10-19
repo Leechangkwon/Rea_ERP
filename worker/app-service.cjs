@@ -87,4 +87,4 @@ function createService(){let healthPromise;const health=()=>healthPromise||=(asy
     }catch(e){return json({error:{code:e.code||'validation_error',message:e.message||'요청을 처리하지 못했습니다.'}},e.status||400);}
   }};
 }
-module.exports={createService,load,change,context,publicContext,checkPermission,csrf,bootstrapAllowed,AppError};
+module.exports={createService,load,change,context,sessionContext,publicContext,checkPermission,csrf,bootstrapAllowed,AppError};
