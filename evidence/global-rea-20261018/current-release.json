@@ -1,6 +1,6 @@
 {
-  "version": "0.45.0",
-  "status": "gmail-deployed-authentication-pending",
+  "version": "0.46.1",
+  "status": "own-mailbox-deployed-domain-activation-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -74,7 +74,8 @@
     "request-save-retain/retained-source-contract.json",
     "purchasing-search/search-contract.json",
     "plan-request-import/voucher-contract.json",
-    "gmail-purchaseorder/mail-contract.json"
+    "gmail-purchaseorder/mail-contract.json",
+    "domain-webmail/mail-contract.json"
   ],
   "checks": {
     "total": 998,
@@ -82,23 +83,25 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 12,
+    "browserSynthetic": 19,
     "verifyLocalPassed": true,
-    "reference": "../gmail-purchaseorder-20261019.json",
+    "reference": "../domain-webmail-20261019.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
-    "gmailNodeTests": 14
+    "gmailNodeTests": 14,
+    "mailboxNodeTests": 17,
+    "mailAndRuntimeRelated": 50
   },
   "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
-    "reference": "../gmail-purchaseorder-20261019.json",
+    "reference": "../domain-webmail-20261019.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "a2b8256",
-    "publicVersionVerified": "0.45.0",
+    "deployedSourceCommit": "7e0bf0d",
+    "publicVersionVerified": "0.46.1",
     "actualExistingAccountLoginVerified": true,
-    "lastExistingAccountLoginVerifiedVersion": "0.45.0",
+    "lastExistingAccountLoginVerifiedVersion": "0.46.1",
     "currentAuthenticatedUiBlock": null,
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
@@ -107,6 +110,14 @@
     "hostedPurchaseorderPdfDownloadVerified": true,
     "googleIdentityVerificationCompleted": true,
     "hostedConfiguredGmailSenderVerified": true,
-    "hostedFinalSendReviewVerified": true
+    "hostedFinalSendReviewVerified": true,
+    "hostedOwnMailboxUiVerified": true,
+    "hostedPurchaseorderMailBridgeVerified": true,
+    "hostedSyntheticDraftSaved": true,
+    "cloudMailboxStorageAndIngressVerified": true,
+    "domainMailSendingActivated": false,
+    "domainMailReceivingActivated": false,
+    "actualDomainMailSent": false,
+    "actualDomainMailReceived": false
   }
 }
