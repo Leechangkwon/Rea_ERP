@@ -1,6 +1,6 @@
 {
-  "version": "0.47.0",
-  "status": "verified-locally-awaiting-deployment",
+  "version": "0.47.1",
+  "status": "verified-locally-awaiting-final-ui-deployment",
   "plan": "docs/plan-mail-routing-20261019.md",
   "documentation": "docs/mail-routing-0.47.0.md",
   "contract": "global-rea-20261018/mail-routing/mail-contract.json",
@@ -9,8 +9,8 @@
   "verification": {
     "command": "npm run verify:local",
     "exitCode": 0,
-    "log": ".artifacts/mail-routing-20261019/verify-local.log",
-    "logSha256": "23f24f8bc91f41c7104763753d718e975738d61a5bef608370f6f2cfcad3e1d8",
+    "log": ".artifacts/mail-routing-20261019/final-verify-local.log",
+    "logSha256": "1b6577efd998020ffdd3a5570fd5ec8084b2bb4329caba608121f23bf6584119",
     "mailboxNode": 22,
     "routingAdapterNode": 6,
     "runtimeNode": 20,
@@ -51,21 +51,22 @@
       },
       {
         "group": "mail-routing-ui",
-        "key": "0125f3dd353c0097245ed2d2ce07c5e262df84d90865070f0fe2326bf66f689a",
+        "key": "7ec1a35d41e7c91f51aba8b230e6ec0061cfb416eed2f8d133ddb3a402040c22",
         "inputs": [
           {
             "file": "dist/webmail-ui.js",
-            "bytes": 19192,
-            "sha256": "ec41dd4e565648b4964a1b35e60a3bbbd0db10972d5f26ab26cc8367140ce6c0"
+            "bytes": 19196,
+            "sha256": "8b7c7a421eaca24c1ef1a7f0284c8430625d1271b587882c937ada8f30280fe3"
           }
         ],
         "inputHashesVerified": true,
         "evidenceValidated": true,
         "partial": false,
-        "resultSha256": "cf13e6be4f9b558548e170dfbede6209726729dee5d464a15579053b6d90a301"
+        "resultSha256": "b1bb3f8799ed8ea12a32d2a6fd4df85c65c725f68f619fe6546e4788c039d23b"
       }
     ],
-    "nativeCloudflareRuntimeModuleTestedOutsideReaAllowlist": true
+    "nativeCloudflareRuntimeModuleTestedOutsideReaAllowlist": true,
+    "narrowViewportRoutingStateVerified": true
   },
   "preservation": {
     "privatePrechangeBackupVerified": true,
@@ -105,5 +106,13 @@
   "originalComparison": {
     "original86BodyCorpusUnchanged": true,
     "fullEquivalence": false
+  },
+  "schema": {
+    "routeSyncJsonbApplied": true,
+    "serverOnlyRlsMaintained": true,
+    "securityWarnings": 0,
+    "securityErrors": 0,
+    "serverOnlyRlsNoPolicyInfo": 5,
+    "performanceFindings": 0
   }
 }

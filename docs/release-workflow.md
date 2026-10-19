@@ -1,8 +1,8 @@
 # 개발과 검증 배포
 
-## 현재 개발 · 0.47.0 메일함 자동 수신 연동
+## 현재 개발 · 0.47.1 메일함 자동 수신 연동
 
-pkdkak1@qaredi.com 주소 변경과 REA 설정 저장→Cloudflare 수신 규칙 자동 연결을 구현했다. 같은 메일함ID/기존 메일을 보존하고 충돌·부분 실패·동시 저장·재시도를 처리한다. 관련 Node65·브라우저20·전체 verify:local·릴리스4·REA 변경3파일 검증을 통과했다. 현재 운영 반영과 실제 주소 변경 확인 전이다. docs/plan-mail-routing-20261019.md, docs/mail-routing-0.47.0.md와 evidence/mail-routing-20261019.json을 따른다.
+pkdkak1@qaredi.com 주소 변경과 REA 설정 저장→Cloudflare 수신 규칙 자동 연결을 구현했다. 같은 메일함ID/기존 메일을 보존하고 충돌·부분 실패·동시 저장·재시도를 처리한다. 관련 Node65·브라우저20·전체 verify:local·릴리스4·REA 변경3파일 검증을 통과했다. 서버/스키마 반영 후 좁은 화면의 연결 상태 표시를0.47.1로 보완했다. 최종 전체 검사와390px 회귀를 통과했고 실제 주소 저장 확인 전이다. docs/plan-mail-routing-20261019.md, docs/mail-routing-0.47.0.md와 evidence/mail-routing-20261019.json을 따른다.
 
 
 ## 현재 운영 · 0.46.3 (2026-10-19)
