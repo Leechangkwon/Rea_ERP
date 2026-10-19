@@ -1,5 +1,10 @@
 # 개발과 검증 배포
 
+## 현재 개발 · 0.47.0 메일함 자동 수신 연동
+
+pkdkak1@qaredi.com 주소 변경과 REA 설정 저장→Cloudflare 수신 규칙 자동 연결을 구현했다. 같은 메일함ID/기존 메일을 보존하고 충돌·부분 실패·동시 저장·재시도를 처리한다. 관련 Node65·브라우저20·전체 verify:local·릴리스4·REA 변경3파일 검증을 통과했다. 현재 운영 반영과 실제 주소 변경 확인 전이다. docs/plan-mail-routing-20261019.md, docs/mail-routing-0.47.0.md와 evidence/mail-routing-20261019.json을 따른다.
+
+
 ## 현재 운영 · 0.46.3 (2026-10-19)
 
 실제 양방향 송수신과 기존 계정 로그인을 확인했다. purchase@qaredi.com → pkdkak1@gmail.com은 Gmail INBOX 도착 및 SPF/DKIM/DMARC 모두 pass다. 사용자가 추가 시험1통을 승인해 Gmail → purchase@qaredi.com을 발송했고 19:23:23 KST에 받은편지함 저장, 운영 화면 본문·첨부0·읽음 저장과 해당 Message-ID 레코드1건을 확인했다. 원래 시험도 자동 재시도로 19:24:37 KST에 도착했다. 외부 시험은 회사→Gmail1통, Gmail→회사2통이며 모두 연결 안내만 포함했다.

@@ -1,0 +1,109 @@
+{
+  "version": "0.47.0",
+  "status": "verified-locally-awaiting-deployment",
+  "plan": "docs/plan-mail-routing-20261019.md",
+  "documentation": "docs/mail-routing-0.47.0.md",
+  "contract": "global-rea-20261018/mail-routing/mail-contract.json",
+  "sourceBaseline": "9d39c91",
+  "requestedAddress": "pkdkak1@qaredi.com",
+  "verification": {
+    "command": "npm run verify:local",
+    "exitCode": 0,
+    "log": ".artifacts/mail-routing-20261019/verify-local.log",
+    "logSha256": "23f24f8bc91f41c7104763753d718e975738d61a5bef608370f6f2cfcad3e1d8",
+    "mailboxNode": 22,
+    "routingAdapterNode": 6,
+    "runtimeNode": 20,
+    "relatedNode": 65,
+    "browser": 20,
+    "release": 4,
+    "additionalServerSecretTestPassed": true,
+    "rea": [
+      {
+        "group": "mail-routing-core",
+        "key": "ce523e312858c9bb3c813a9903d67484865aee7b2254edeb931cddb656ce3019",
+        "inputs": [
+          {
+            "file": "worker/webmail.cjs",
+            "bytes": 16972,
+            "sha256": "1c16b408c124b5f72e163c12fd9b02198b1a438a29f31fe3201a43831449d018"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "partial": false,
+        "resultSha256": "5075d79b1c88743c477dea8a6df6829ab8f54b81c96f973fce9609490c39714a"
+      },
+      {
+        "group": "mail-routing-state",
+        "key": "1dc4a3f0729c051acd2dc2a20719d474a0c16ab277ef927f1708149d31d16f68",
+        "inputs": [
+          {
+            "file": "worker/mailbox-settings.cjs",
+            "bytes": 2800,
+            "sha256": "f7170e3fb163cc5cfece02a807ede695482903a40a431b850b73d9072e94fa48"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "partial": false,
+        "resultSha256": "9ebe9c3e62fd0b23bc317debd94820809df0ff86e54721e5766859116b5174a4"
+      },
+      {
+        "group": "mail-routing-ui",
+        "key": "0125f3dd353c0097245ed2d2ce07c5e262df84d90865070f0fe2326bf66f689a",
+        "inputs": [
+          {
+            "file": "dist/webmail-ui.js",
+            "bytes": 19192,
+            "sha256": "ec41dd4e565648b4964a1b35e60a3bbbd0db10972d5f26ab26cc8367140ce6c0"
+          }
+        ],
+        "inputHashesVerified": true,
+        "evidenceValidated": true,
+        "partial": false,
+        "resultSha256": "cf13e6be4f9b558548e170dfbede6209726729dee5d464a15579053b6d90a301"
+      }
+    ],
+    "nativeCloudflareRuntimeModuleTestedOutsideReaAllowlist": true
+  },
+  "preservation": {
+    "privatePrechangeBackupVerified": true,
+    "backupBoxes": 3,
+    "backupMessages": 6,
+    "backupFiles": 1,
+    "sameMailboxIdPlanned": true,
+    "actualComparisonPending": true
+  },
+  "cloudflare": {
+    "automaticScopedRoutingImplemented": true,
+    "authentication": "existing authorized Wrangler OAuth via official auth token; stdout private, disk logs disabled",
+    "newOAuthScopesGranted": false,
+    "changesDns": false,
+    "changesCatchAll": false,
+    "deletesRules": false,
+    "productionSaveVerified": false
+  },
+  "spamInvestigation": {
+    "connectedGmail": "pkdkak1@gmail.com",
+    "currentObservedDomainMailInboxCount": 2,
+    "currentObservedDomainMailSpamCount": 0,
+    "latestObservedMessageSubject": "test",
+    "spfPass": true,
+    "dkimPass": true,
+    "dmarcPass": true,
+    "ptrAndForwardDnsMatch": true,
+    "replyToMatchesSenderImplemented": true,
+    "spamCauseEstablished": false,
+    "requestedReportedSpamMessageContext": true,
+    "inboxDeliveryGuarantee": false,
+    "sources": [
+      "https://support.google.com/mail/answer/81126",
+      "https://developers.cloudflare.com/changelog/post/2025-12-18-wrangler-auth-token/"
+    ]
+  },
+  "originalComparison": {
+    "original86BodyCorpusUnchanged": true,
+    "fullEquivalence": false
+  }
+}

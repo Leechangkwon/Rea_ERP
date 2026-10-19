@@ -18,6 +18,7 @@ async function startServer({input = readEnvironment(), worker, DB, port, mailInp
   }
   if(!webmailStore){if(config.backend==='supabase'){const {createMailStore}=await import('./mail-rest-store.mjs');webmailStore=createMailStore({url:input.SUPABASE_URL,key:input.SUPABASE_SECRET_KEY});}else if(DB?.raw){webmailStore=require('./mail-sqlite-store.cjs').createSqliteMailStore(DB.raw,{directory:path.resolve(config.sqliteFile+'.mail-files')});}}
   let localOrigin;
+  const routingCache=new Map();
   const server = http.createServer(async (req, res) => {
     try {
       const direct = req.headers.host === new URL(localOrigin).host && !forwarded.some(k => req.headers[k] !== undefined);
@@ -39,7 +40,8 @@ async function startServer({input = readEnvironment(), worker, DB, port, mailInp
       // Snapshot only Gmail settings per mail request; setup needs no ERP restart.
       const isMail=req.url.startsWith('/api/mail/')||req.url.startsWith('/api/webmail/'),mailSettings=isMail&&mailInput?mailInput():input;
       const mail=isMail?require('./gmail-transport.cjs').createGmail(mailSettings):undefined;
-      const webmail=req.url.startsWith('/api/webmail/')?{providers:{gmail:mail,cloudflare:require('./domain-mail-transport.cjs').createDomainMail(mailSettings)}}:undefined;
+      let routing;if(req.url.startsWith('/api/webmail/')){const signature=JSON.stringify([mailSettings.REA_MAIL_DOMAIN,mailSettings.REA_CF_ROUTING_ZONE_ID,mailSettings.REA_CF_ROUTING_WORKER,mailSettings.REA_CF_ROUTING_AUTH,mailSettings.REA_CF_ROUTING_TOKEN]);if(!routingCache.has(signature)){routingCache.clear();routingCache.set(signature,require('./cloudflare-mail-routing.cjs').createRouting(mailSettings));}routing=routingCache.get(signature);}
+      const webmail=req.url.startsWith('/api/webmail/')?{routing,providers:{gmail:mail,cloudflare:require('./domain-mail-transport.cjs').createDomainMail(mailSettings)}}:undefined;
       const env = {...config.environment, ...(mail ? {MAIL:mail} : {}), ...(webmail ? {WEBMAIL:webmail,WEBMAIL_STORE:webmailStore}:{}), ...(DB ? {DB} : {}), REA_BOOTSTRAP_LOCAL: direct};
       const response = await worker.fetch(new Request(origin + req.url, {method: req.method, headers, ...(!['GET','HEAD'].includes(req.method) ? {body: Buffer.concat(chunks)} : {})}), env);
       const responseHeaders = Object.fromEntries(response.headers);

@@ -1,6 +1,6 @@
 {
-  "version": "0.46.3",
-  "status": "actual-bidirectional-domain-mail-verified",
+  "version": "0.47.0",
+  "status": "mail-routing-verified-locally-awaiting-deployment",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -75,7 +75,8 @@
     "purchasing-search/search-contract.json",
     "plan-request-import/voucher-contract.json",
     "gmail-purchaseorder/mail-contract.json",
-    "domain-webmail/mail-contract.json"
+    "domain-webmail/mail-contract.json",
+    "mail-routing/mail-contract.json"
   ],
   "checks": {
     "total": 998,
@@ -83,20 +84,22 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 19,
+    "browserSynthetic": 20,
     "verifyLocalPassed": true,
-    "reference": "../domain-webmail-20261019.json",
+    "reference": "../mail-routing-20261019.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
-    "mailboxNodeTests": 18,
-    "mailAndRuntimeRelated": 54,
-    "workerRegression": 3
+    "mailboxNodeTests": 22,
+    "mailAndRuntimeRelated": 65,
+    "workerRegression": 3,
+    "routingAdapterNodeTests": 6,
+    "runtimeNodeTests": 20
   },
   "future_research": "Purchasefresh12columns nowcurrentDOMprop-backedlayout witholdc0..c9formmeaning preserved. Ownconfirmation/progresscomposite explicitlynotoriginalprogressenum; disabledfixedprint/CSVunsupported untilcurrentactionbindingverified. Retained86corpusunchanged. Continuecurrentrequest/planlistcomparisonsandunresolvedbuttoncontracts; originalstatus/print/creator/timezone/loadedrelation/query/amount,globalcoverage/axes/sort/graph/compare/approval/serveroutput/hostedbusinessQA remain.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
-    "reference": "../domain-webmail-20261019.json",
+    "reference": "../mail-routing-20261019.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
     "deployedSourceCommit": "5780f5f",
