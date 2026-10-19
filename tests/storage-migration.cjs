@@ -1,0 +1,7 @@
+const test=require('node:test'),assert=require('node:assert/strict'),{copyRows}=require('../scripts/migrate-supabase.cjs');
+const source={app_state:{id:'main',revision:7,body:JSON.stringify({users:[{passwordHash:'synthetic-only'}]}),updated_at:'2026-10-19'},gateway_state:{id:'sandbox',revision:12,body:JSON.stringify({db:{documents:[{id:'synthetic-document'}]}}),updated_at:'2026-10-19'}};
+function backend(initial={}){const rows=structuredClone(initial),writes=[];return {rows,writes,read:async d=>rows[d.source]||null,insert:async(d,row)=>{writes.push(d.target);rows[d.source]||=structuredClone(row);}};}
+test('migration preserves complete account/business bodies and revisions',async()=>{const b=backend();const r=await copyRows(source,b);assert.equal(r.passed,true);assert.deepEqual(b.rows,source);assert.equal(b.writes.length,2);});
+test('different destination blocks all writes including earlier empty table',async()=>{const b=backend({gateway_state:{revision:4,body:'{}'}});await assert.rejects(copyRows(source,b),{code:'destination_conflict'});assert.deepEqual(b.writes,[]);});
+test('identical existing copies make rerun idempotent',async()=>{const b=backend(source);await copyRows(source,b);assert.deepEqual(b.writes,[]);});
+test('concurrent destination insertion is detected without overwrite',async()=>{const b=backend();b.insert=async(d,row)=>{b.rows[d.source]={revision:9,body:'{}'};};await assert.rejects(copyRows(source,b),{code:'destination_changed'});assert.equal(b.rows.app_state.body,'{}');});

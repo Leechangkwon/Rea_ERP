@@ -11,6 +11,59 @@ function fixture(write=true){
  const rows=M.indexMenus(require('../dist/menus.json')),target=d.getElementById('target');const render=(type,kind)=>{w.InventoryUI.beforeNavigate();target.replaceChildren();const route=rows.find(row=>{const config=C.resolve(row);return config?.docType===type&&config.kind===kind&&config.name===C.types[type]+({list:'조회',form:'입력',report:'현황'})[kind];});assert.ok(route,type+' '+kind);w.InventoryUI.render(target,route,{rows,open(){},toast:t=>toasts.push(t)});return target.querySelector('#inventory-app');};
  const click=(text,scope=d)=>{const button=[...scope.querySelectorAll('button')].find(x=>x.textContent===text);assert.ok(button,'button '+text);button.click();return button;};return {w,d,dom,render,click,errors,downloads,blobs,ids,toasts,printed:()=>printed,stored:()=>w.localStorage.getItem('ecount-inventory-v2')};
 }
+test('all three purchasing lists apply project and item filters with F8 while F3 keeps list focus',()=>{
+ const f=fixture();try{
+  let db=JSON.parse(f.stored());db.masters.projects=[{code:'PR1',name:'첫 프로젝트'},{code:'PR2',name:'둘째 프로젝트'}];db.masters.items.push({code:'REVIEW-B',name:'추가 검증 품목'});
+  for(const type of ['request','purchaseorder','purchase']){
+   db.documents.find(d=>d.id===f.ids[type]).project='PR1';
+   for(const project of ['PR1','PR2'])db=C.command(db,'document',{type,date:C.today(),warehouse:'W001',partner:'V001',project,status:'진행',lines:[{item:'REVIEW-B',qty:3,price:200}]}).db;
+  }
+  f.w.InventoryUI.replace(db);const before=f.stored();
+  for(const type of ['request','purchaseorder','purchase']){
+   const host=f.render(type,'list'),quick=host.querySelector('.inv-request-head input'),form=host.querySelector('.inv-filters');
+   quick.dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'F3',bubbles:true,cancelable:true}));assert.equal(form.hidden,false);
+   const project=host.querySelector('[aria-label="프로젝트 필터"]'),item=host.querySelector('[aria-label="품목 필터"]');assert.ok(project);assert.ok(item);
+   project.value='PR1';item.value='M001';item.dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'F8',bubbles:true,cancelable:true}));
+   assert.equal(host.querySelectorAll('tbody .inv-link').length,1);assert.ok(host.querySelector('tbody .inv-link').textContent.includes(f.ids[type]));
+   f.click('Search(F3)',host);quick.dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'F3',bubbles:true,cancelable:true}));assert.equal(form.hidden,false);
+   project.value='PR2';item.value='REVIEW-B';f.click('검색(F8)',host);assert.equal(host.querySelectorAll('tbody .inv-link').length,1);assert.ok(!host.querySelector('tbody .inv-link').textContent.includes(f.ids[type]));
+   assert.equal(f.stored(),before);
+  }
+  assert.deepEqual(f.errors,[]);
+ }finally{f.w.close();}
+});
+test('saved search forms keep earlier field identities and append the new optional purchasing filters',()=>{
+ const f=fixture();try{
+  let db=JSON.parse(f.stored());const base=[f.w.FormCore.field('from','이전 시작','date'),f.w.FormCore.field('to','이전 종료','date'),f.w.FormCore.field('partner','이전 거래처','reference'),f.w.FormCore.field('warehouse','이전 창고','reference'),f.w.FormCore.field('query','이전 검색')];
+  for(const type of ['request','purchaseorder','purchase'])db.settings.customization=f.w.FormCore.save(db.settings.customization,'doc:'+type,'search',{id:'old-search',name:'이전 검색',fields:base});
+  f.w.InventoryUI.replace(db);const before=f.stored();
+  for(const type of ['request','purchaseorder','purchase']){const host=f.render(type,'list');assert.ok(host.querySelector('[aria-label="이전 검색"]'));assert.ok(host.querySelector('[data-form-field="project"] select'));assert.ok(host.querySelector('[data-form-field="item"] select'));assert.equal(f.stored(),before);}
+ }finally{f.w.close();}
+});
+test('renamed and moved selection columns keep current-page select-all in every purchasing list',()=>{
+ const f=fixture();try{
+  let db=JSON.parse(f.stored());
+  for(const type of ['request','purchaseorder','purchase']){
+   const labels=type==='request'?['선택','일자-No.','창고명','거래처명','품목명(요약)','사원(담당)명','발주요청수량합계','발주요청금액합계','진행상태','최종수정자','최초작성일자']:type==='purchaseorder'?['선택','일자-No.','발주서발송','담당자명','거래처명','입고창고명','품목명[규격명]','발주금액합계','진행상태','참조','생성한 전표','최초작성일자']:['선택','일자-No.','사원(담당)명','창고명','거래처명','품목명(요약)','공급가액합계','부가세합계','금액합계','불러온전표'];
+   const fields=labels.map((label,i)=>f.w.FormCore.field('c'+i,label));fields[0].label='업무 선택';fields.push(fields.shift());
+   db.settings.customization=f.w.FormCore.save(db.settings.customization,'doc:'+type,type+'-list-v1',{id:'moved-selection',name:'열 이동',fields});
+   for(let i=0;i<2;i++)db=C.command(db,'document',{type,date:C.today(),warehouse:'W001',partner:'V001',status:'진행',lines:[{item:'M001',qty:1,price:100}]}).db;
+  }
+  f.w.InventoryUI.replace(db);const before=f.stored();f.w.AuthUI.settings=()=>({conveniences:{pageSize:2}});
+  for(const type of ['request','purchaseorder','purchase']){
+   const host=f.render(type,'list'),all=()=>host.querySelector('[aria-label="현재 페이지 전체 선택"]'),checks=()=>[...host.querySelectorAll('tbody input[type="checkbox"]')];
+   assert.ok(all());assert.equal(all().closest('th').dataset.fieldId,'c0');assert.notEqual(host.querySelector('thead th'),all().closest('th'));
+   all().checked=true;all().dispatchEvent(new f.w.Event('change'));assert.ok(checks().every(c=>c.checked));
+   f.click('다음 페이지',host);assert.equal(checks().length,1);assert.equal(all().checked,false);assert.equal(all().indeterminate,false);
+   all().checked=true;all().dispatchEvent(new f.w.Event('change'));assert.equal(checks()[0].checked,true);
+   f.click('이전 페이지',host);assert.equal(all().checked,true);checks()[0].checked=false;checks()[0].dispatchEvent(new f.w.Event('change'));assert.equal(all().indeterminate,true);assert.equal(all().checked,false);
+   assert.equal(f.stored(),before);
+  }
+ }finally{f.w.close();}
+});
+test('intentionally hidden selection columns stay hidden without rewriting saved layouts',()=>{
+ const f=fixture();try{let db=JSON.parse(f.stored());for(const type of ['request','purchaseorder','purchase'])db.settings.customization=f.w.FormCore.save(db.settings.customization,'doc:'+type,type+'-list-v1',{id:'hidden-selection',name:'선택 숨김',fields:[f.w.FormCore.field('c0','숨긴 선택','text',{visible:false}),f.w.FormCore.field('c1','일자-No.')]});f.w.InventoryUI.replace(db);const before=f.stored();for(const type of ['request','purchaseorder','purchase']){const host=f.render(type,'list');assert.equal(host.querySelector('thead [data-field-id="c0"]'),null);assert.equal(host.querySelector('[aria-label="현재 페이지 전체 선택"]'),null);assert.equal(host.querySelector('tbody input[type="checkbox"]'),null);assert.equal(f.stored(),before);}}finally{f.w.close();}
+});
 test('index loads purchasing modules before InventoryUI in dependency order',()=>{for(const file of ['purchasing-plan-list-ui.js','purchasing-report-core.js','report-sort-ui.js','purchasing-report-ui.js'])assert.ok(scripts.indexOf(file)>scripts.indexOf('inventory-core.js')&&scripts.indexOf(file)<scripts.indexOf('inventory-ui.js'),file);assert.ok(scripts.indexOf('purchasing-report-core.js')<scripts.indexOf('purchasing-report-ui.js'));});
 test('real purchase order and purchase list routes render observed columns and bottom actions without row work cells',()=>{const f=fixture();try{for(const [type,expected]of [['purchaseorder',['','일자-No.','거래처명','발주서발송','담당자명','입고창고명','품목명[규격명]','발주금액합계','최초작성자','최종수정자']],['purchase',['','일자-No.','거래처명','사원(담당)명','창고명','품목명(요약)','상태','금액합계','인쇄','불러온전표','최초작성자','최초작성일자']]]){const host=f.render(type,'list');assert.deepEqual([...host.querySelectorAll('thead th')].map(x=>x.textContent),expected);assert.equal(host.querySelector('.inv-row-actions'),null);const footer=host.querySelector('.inv-request-footer'),table=host.querySelector('.inv-document-list');assert.ok(footer);assert.ok(table.compareDocumentPosition(footer)&f.w.Node.DOCUMENT_POSITION_FOLLOWING);assert.ok(footer.textContent.includes('신규(F2)'));const expectedActions=['신규(F2)','Email','진행상태변경','보내기','인쇄','바코드(품목)',...(type==='purchaseorder'?['다른전표생성']:[]),'전자결재','선택삭제','Excel','이력조회'];const actualActions=[...footer.children].map(x=>x.tagName==='DETAILS'?x.querySelector('summary').textContent:x.textContent).map(x=>x.startsWith('Excel')?'Excel':x);assert.deepEqual(actualActions.slice(0,expectedActions.length),expectedActions);if(type==='purchase')assert.deepEqual([...host.querySelectorAll('.inv-status-tabs button')].map(x=>x.textContent.replace(/\s+\d+$/,'')),['전체','결재중','미확인','확인']);}assert.deepEqual(f.errors,[]);}finally{f.w.close();}});
 test('read-only order default ten columns and nine CSV columns align partner, employee and recorded writer metadata without storing changes',async()=>{const f=fixture();try{let db=JSON.parse(f.stored());const doc=db.documents.find(d=>d.id===f.ids.purchaseorder);doc.createdBy='기록된 작성자';doc.modifiedBy='기록된 수정자';f.w.InventoryUI.replace(db);f.w.AuthUI.can=p=>p==='inventory.read';const before=f.stored(),host=f.render('purchaseorder','list'),cells=[...host.querySelectorAll('tbody tr:first-child td')];assert.equal(cells.length,10);assert.equal(cells[2].textContent,C.master(db,'partners',doc.partner).name);assert.equal(cells[3].textContent,'미연결');assert.equal(cells[4].textContent,C.master(db,'employees',doc.employee)?.name||'');assert.equal(cells[5].textContent,C.master(db,'warehouses',doc.warehouse).name);const item=C.master(db,'items',doc.lines[0].item);assert.equal(cells[6].textContent,item.name+(item.spec?'['+item.spec+']':''));assert.equal(cells[8].textContent,'기록된 작성자');assert.equal(cells[9].textContent,'기록된 수정자');assert.equal(host.querySelectorAll('tbody .inv-status-badge').length,0);f.click('Excel (CSV)',host);const csv=await blobText(f.w,f.blobs[0]),lines=csv.split('\r\n');assert.equal(lines[0],'"일자-No.","거래처명","발주서발송","담당자명","입고창고명","품목명[규격명]","발주금액합계","최초작성자","최종수정자"');assert.ok(lines.every(row=>row.split(',').length===9));assert.match(lines[1],/"기록된 작성자","기록된 수정자"$/);assert.equal(f.stored(),before);assert.deepEqual(f.errors,[]);}finally{f.w.close();}});

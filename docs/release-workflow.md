@@ -1,5 +1,44 @@
 # 개발과 검증 배포
 
+## 현재 배포 기준 — 사용자 재확인 (2026-10-19)
+
+사용자가 현재 구성을 **로컬·Supabase·Cloudflare**로 재확인했다. 이 지시가 아래 과거 Sites/D1 배포 기록보다 우선한다. 로컬 개발·검증은 `/home/lck/projects/Rea_ERP`에서 계속하며, Supabase 연결과 Cloudflare 공개 경로는 기존 설정을 확인한 뒤 이 기준으로 준비한다. Sites 업로드·새 버전 저장·배포를 실행하지 않는다.
+
+기존 D1 호환 API를 보존하는 Supabase 어댑터와 독립 로컬 실행기를 추가했다. `npm run dev:api`와 `npm run serve:local`은 같은 실행기를 사용하며 기본은 기존 로컬 SQLite다. 기존 `rea` Supabase 프로젝트의 REA 전용 테이블·RLS·서버 권한은 읽기 전용으로 확인했다. 사용자의 재지시에 따라 REA 전용 서버 키 `rea_erp_server`를 생성해 사용자 전용 설정(600)에 저장하고 기존 default 서버 비밀키를 폐기했다. 폐기 후에도 새 키로 두 테이블의 실제 읽기 전용 연결 검사가 통과했으며 공개용 default 키는 유지했다. 사용자가 Cloudflare 도메인 `rea.qaredi.com` 유지를 확정했고 전용 `rea-erp-local` Tunnel과 수동 실행·사전 검사 구성을 준비했다. DNS는 아직 과거 Sites CNAME을 유지하며 터널은 시작하지 않았다. `.openai/hosting.json`과 `rea.qaredi.com`의 과거 기록만으로 현재 대상을 확정하지 않는다. 상세 상태와 검증은 `docs/plan-local-supabase-cloudflare-20261019.md`를 따른다. 기존 앱 로그인·업무자료·운영 설정과 브라우저/서버 자료 분리를 보존하며 자동 이관하지 않는다.
+
+## 현재 진행 순서
+
+1. 기존 로컬 소스·계정·업무자료와 설정을 보존하고 필요한 백업·복원 방법을 확인한다.
+2. 기존 Supabase 프로젝트 연결과 Cloudflare 도메인·배포/접속 방식을 읽기 전용으로 확인한다. 현재 자료만으로 Pages/Workers 또는 로컬 서버 Tunnel 중 하나를 임의 선택하지 않는다.
+3. 현재 D1 호환 API·로컬 SQLite·브라우저 저장소와 Supabase의 자료/인증 경계를 정하고, 필요한 어댑터·이관·동시 수정·권한·복구를 로컬에서 검증한다. 기존 자체 인증을 Supabase Auth로 임의 교체하지 않는다.
+4. 배포할 버전과 커밋을 확정하고 `npm test`, `node scripts/check-release.cjs`, `npm run build` 및 관련 브라우저 검사를 실행한다. 분석 원문·관찰 자료·로컬 DB·인증정보는 공개 산출물에 포함하지 않는다.
+5. 대상과 연결 방식이 확인된 Cloudflare 구성으로 반영하고, 실제 주소에서 로그인·권한·주요 업무·새로고침 후 저장을 검증한다. 배포 성공과 실제 업무 검증을 구분한다.
+6. 변경·버전·커밋·접속 주소·자료 복원 방법·남은 제한을 현재 인계에 기록한다.
+
+## 로컬 설정과 실행
+
+```bash
+# 기존 Windows 수동 실행기도 같은 dev:api 명령을 사용한다.
+npm run build
+npm run dev:api
+
+# 별도 터미널에서 서버 비밀키 숨김 입력 + 읽기 전용 확인 후 저장
+npm run configure:supabase
+npm run connection:check
+```
+
+서버 키는 기본 `/home/lck/.config/rea-erp/runtime.env`(권한 600)에 저장한다. `REA_ENV_FILE`로 별도 사용자 전용 파일을 지정할 수 있다. 키를 소스·채팅·배포 예제에 넣지 않는다. 키 구성은 현재 백엔드 선택을 유지한다. 이관·최초 관리자 검증 후 `REA_STORAGE=supabase`를 명시한 다음 서버를 수동 재시작해야 Supabase를 사용한다. 기본 SQLite 파일과 계정은 그대로 남으며 자동으로 Supabase에 복사하지 않는다. 다른 백엔드의 최초 관리자가 없다면 직접 `http://127.0.0.1:8781`에서 등록한다. 공개 경로에서는 최초 등록과 Sites 소유자 헤더를 허용하지 않는다.
+
+REA 전용 Cloudflare 주소가 확인되면 같은 비밀 설정 파일에 `REA_PUBLIC_ORIGIN=https://확인된-도메인`을 지정한다. 로컬 서버는 계속 127.0.0.1에만 바인딩하며, 공개 Host·HTTPS 전달 정보가 일치하는 요청만 수용한다. `deploy/cloudflared.example.yml`은 전용 Tunnel 설정 예제다. 기존 qaredi.com/다른 앱의 설정을 덮어쓰지 않는다. 직접 Worker 배포를 선택한 경우에만 `deploy/wrangler.example.jsonc`를 사용하며 서버 키는 Cloudflare secrets로 설정한다. 실제 계정·도메인·라우트는 예제에 가정하지 않는다.
+
+연결 보완 결과는 [현재 구현 계획](plan-local-supabase-cloudflare-20261019.md)에 기록한다. 실제 비밀키와 Cloudflare 대상이 확인되기 전에는 REST 저장·외부 접속·배포 완료로 기록하지 않는다. 현재 작업에서 Supabase·Cloudflare·Sites의 외부 설정과 자료를 변경하지 않았다.
+
+---
+
+# 과거 Sites 배포 기록 — 현재 실행 절차 아님
+
+아래는 이전 방식의 이력 보존용이다. 사용자 재확인 이후의 배포 지시로 사용하지 않는다.
+
 ## 기준
 
 관리 페이지: https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674

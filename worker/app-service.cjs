@@ -7,6 +7,7 @@ const cookieName=url=>new URL(url).protocol==='https:'?'__Host-erp_session':'erp
 function cookie(request,value,seconds){return cookieName(request.url)+'='+value+'; Path=/; HttpOnly; SameSite=Strict; Max-Age='+seconds+(new URL(request.url).protocol==='https:'?'; Secure':'');}
 function cookieValue(request){return (request.headers.get('cookie')||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(cookieName(request.url)+'='))?.slice(cookieName(request.url).length+1)||'';}
 const ip=request=>request.headers.get('cf-connecting-ip')||'127.0.0.1';
+const bootstrapAllowed=(request,env)=>env.REA_RUNTIME==='standalone'||env.REA_STORAGE==='supabase'?env.REA_BOOTSTRAP_LOCAL===true:!!request.headers.get('oai-authenticated-user-id');
 function audit(s,actor,action,detail=''){s.audit.unshift({id:uid(),at:now(),actor,action,detail});s.audit=s.audit.slice(0,500);}
 function safeUser(u){return {id:u.id,loginId:u.loginId,name:u.name,roleId:u.roleId,status:u.status,kind:u.kind,partner:u.partner||'',portalGroupId:u.portalGroupId||'',createdAt:u.createdAt,lastLoginAt:u.lastLoginAt||null};}
 function checkPassword(value,state){if(typeof value!=='string'||Array.from(value).length<state.config.security.minPasswordLength||value.length>64||bcrypt.truncates(value))fail(400,'password_policy','비밀번호는 '+state.config.security.minPasswordLength+'자 이상, 최대 64자·UTF-8 72바이트 이하로 입력하세요.');return value;}
@@ -32,11 +33,11 @@ function redactedState(ctx,biz,request){const s=ctx.state,out={revision:ctx.revi
 }
 const actionPermission={company:'config.write',config:'config.write',branding:'config.write',user:'users.manage',role:'users.manage',approve:'users.manage',portalUser:'portal.manage',portalGroup:'portal.manage',mailUser:'config.write',payGroup:'config.write',allowlist:'security.manage',session:'security.manage',unlock:'security.manage',import:'data.manage',data:'data.manage',file:'data.manage'};
 function createService(){let healthPromise;const health=()=>healthPromise||=(async()=>{const h=await bcrypt.hash('worker-engine-self-check-only',10);return await bcrypt.compare('worker-engine-self-check-only',h);})();
-  return {context,publicContext,checkPermission,csrf,async handle(request,env){const url=new URL(request.url),path=url.pathname,json=(v,status=200,headers={})=>new Response(JSON.stringify(v),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff',...headers}});
+  return {context,publicContext,checkPermission,csrf,bootstrapAllowed,async handle(request,env){const url=new URL(request.url),path=url.pathname,json=(v,status=200,headers={})=>new Response(JSON.stringify(v),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff',...headers}});
     try{
       const base=await load(env.DB),ctx=await context(request,env);
       if(request.method==='GET'){
-        if(path==='/api/auth/status')return json({initialized:!!base.state.users.length,authenticated:!!ctx,bootstrapAllowed:!base.state.users.length&&!!request.headers.get('oai-authenticated-user-id'),passwordEngineReady:base.state.users.length?true:request.headers.get('oai-authenticated-user-id')?await health():null,company:{code:base.state.company.code,name:base.state.company.name},user:publicContext(ctx)});
+        if(path==='/api/auth/status')return json({initialized:!!base.state.users.length,authenticated:!!ctx,bootstrapAllowed:!base.state.users.length&&bootstrapAllowed(request,env),passwordEngineReady:base.state.users.length?true:bootstrapAllowed(request,env)?await health():null,company:{code:base.state.company.code,name:base.state.company.name},user:publicContext(ctx)});
         if(path==='/api/self/state'){checkPermission(ctx,'config.read');return json(redactedState(ctx,await business(env),request));}
         if(path==='/api/self/summary'){checkPermission(ctx,'config.read');const b=await business(env),docs=b.db.documents.filter(C.active),sum=type=>docs.filter(d=>d.type===type).reduce((n,d)=>n+C.totals(d).total,0);return json({items:b.db.masters.items.length,documents:docs.length,sales:sum('sale'),purchases:sum('purchase'),receivable:C.outstanding(b.db,'receivable'),payable:C.outstanding(b.db,'payable'),revision:b.revision,delivery:'not_connected'});}
         if(path==='/api/portal/data'){checkPermission(ctx,'portal.read');const s=ctx.state,group=s.portalGroups.find(g=>g.id===ctx.user.portalGroupId);if(!group||!group.enabled||!s.config.features.portalEnabled)fail(403,'portal_disabled','고객 포털 사용이 허용되지 않았습니다.');const b=await business(env);return json({company:s.company.name,title:s.config.portal.title,welcome:s.config.portal.welcome,partner:ctx.user.partner,documents:group.allowOrders?b.db.documents.filter(d=>d.partner===ctx.user.partner&&['quote','order','sale','shoporder'].includes(d.type)).map(d=>({id:d.id,date:d.date,type:d.type,status:d.status,total:C.totals(d).total})):[]});}
@@ -45,7 +46,7 @@ function createService(){let healthPromise;const health=()=>healthPromise||=(asy
       }
       if(request.method!=='POST')fail(405,'method_not_allowed','지원하지 않는 요청 방식입니다.');guardOrigin(request);const data=await body(request);
       if(path==='/api/auth/setup'){
-        if(!request.headers.get('oai-authenticated-user-id'))fail(403,'setup_owner_required','검증 사이트 소유자가 최초 관리자를 등록해야 합니다.');
+        if(!bootstrapAllowed(request,env))fail(403,'setup_owner_required','관리자가 허용된 로컬 접속에서 최초 계정을 등록해야 합니다.');
         if(base.state.users.length)fail(409,'already_setup','이미 앱 관리자가 등록되어 있습니다.');const loginId=S.userId(data.loginId),code=S.companyCode(data.companyCode),name=S.text(data.name,'관리자 이름',100,true),companyName=S.text(data.companyName,'회사명',100,true),password=checkPassword(data.password,base.state),hash=await bcrypt.hash(password,10);
         const r=await change(env.DB,s=>{if(s.users.length)fail(409,'already_setup','이미 앱 관리자가 등록되어 있습니다.');s.company.code=code;s.company.name=companyName;s.users.push({id:'owner',loginId,name,roleId:'admin',status:'active',kind:'staff',passwordHash:hash,authVersion:1,createdAt:now()});audit(s,loginId,'최초 관리자 등록');return {created:true};});return json({...r.value,revision:r.revision});
       }
@@ -86,4 +87,4 @@ function createService(){let healthPromise;const health=()=>healthPromise||=(asy
     }catch(e){return json({error:{code:e.code||'validation_error',message:e.message||'요청을 처리하지 못했습니다.'}},e.status||400);}
   }};
 }
-module.exports={createService,load,change,context,publicContext,checkPermission,csrf,AppError};
+module.exports={createService,load,change,context,publicContext,checkPermission,csrf,bootstrapAllowed,AppError};

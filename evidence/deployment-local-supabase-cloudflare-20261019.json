@@ -1,0 +1,49 @@
+{
+  "recordedAt": "2026-10-19T04:14:59.577796+00:00",
+  "status": "migrated-awaiting-server-and-dns",
+  "version": "0.43.0",
+  "sourceRepository": "/home/lck/projects/Rea_ERP",
+  "publicOrigin": "https://rea.qaredi.com",
+  "userAuthorized": {
+    "preserveAndMigrateExistingAccountsAndData": true,
+    "switchOperationalBackend": true,
+    "connectSameDomain": true,
+    "verifyActualLogin": true
+  },
+  "verification": {
+    "command": "npm run verify:local",
+    "exitCode": 0,
+    "runtimeSyntheticTests": 18,
+    "migrationSyntheticTests": 4,
+    "browserSyntheticTests": 6,
+    "releaseChecks": 4,
+    "log": ".artifacts/cutover-20261019/verify-local.log",
+    "logSha256": "58306ccaf1a78d22c3db9f15628c9835805684b14df5c0ceccd91bdc4d8a1cef"
+  },
+  "migration": {
+    "executed": true,
+    "sourceAccountsObserved": 1,
+    "remoteInitiallyEmpty": true,
+    "sourceDeleted": false,
+    "accountsPreserved": 1,
+    "passwordHashesPreserved": true,
+    "bodyAndRevisionMatched": true,
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/2026-10-19T04-15-10-194Z",
+    "existingDifferentRowsOverwritten": false,
+    "localSourceRetained": true
+  },
+  "dnsBefore": {
+    "name": "rea.qaredi.com",
+    "type": "CNAME",
+    "target": "custom-domains.chatgpt.site",
+    "observedTTL": 300,
+    "changed": false
+  },
+  "tunnel": {
+    "id": "1efb377f-79bd-4600-9a93-c0ec2a7b0959",
+    "name": "rea-erp-local",
+    "started": false
+  },
+  "actualExistingAccountLoginVerified": false,
+  "sitesDeploymentUsed": false
+}

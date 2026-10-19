@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-10-19T03:56:20.043813+00:00",
+  "status": "server-key-rotated-live-read-verified",
+  "serverKeySaveAuthorized": true,
+  "liveReadOnlyProbe": {
+    "passed": true,
+    "backend": "supabase",
+    "tables": [
+      "rea_app_state",
+      "rea_gateway_state"
+    ],
+    "readOnly": true,
+    "rowsInitialized": false
+  },
+  "credentialHandling": {
+    "incompleteUiRedactionDetected": true,
+    "credentialFragmentAppearedInToolOutput": true,
+    "replacementRequired": false,
+    "runtimeCopyRemoved": false,
+    "runtimeFileMode": "600",
+    "oldRemoteKeyRevoked": true,
+    "newKeyCreationSubmitted": true,
+    "userHandoffPrepared": false,
+    "replacementKeyName": "rea_erp_server",
+    "replacementSavedPrivately": true,
+    "publishableDefaultPreserved": true,
+    "replacementUserAuthorized": true,
+    "revocationVerification": "Old default secret row absent in dashboard; replacement secret and default publishable remain.",
+    "previousExposedKeyRuntimeCopyRemoved": true,
+    "postRevocationReadOnlyProbePassed": true,
+    "replacementValueOrFragmentLogged": false
+  },
+  "preserved": {
+    "runningBackend": "sqlite",
+    "serverRestarted": false,
+    "localAccountDataChanged": false,
+    "dnsChanged": false,
+    "tunnelStarted": false,
+    "remoteDataOrSchemaChanged": false
+  },
+  "checks": {
+    "runtimeTests": 18,
+    "result": "passed",
+    "hiddenKeyUtilityPreservesBackend": true
+  },
+  "proof": {
+    "screenshot": ".artifacts/runtime-connection-20261019/supabase-key-rotation-complete.png",
+    "sha256": "3e90461475018f62d091efac221f3e5e8a5aeeace1a21d452684317414fe720b",
+    "apiKeyValuesMaskedByDashboard": true
+  }
+}

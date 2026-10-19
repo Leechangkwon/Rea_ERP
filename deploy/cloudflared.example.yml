@@ -1,0 +1,10 @@
+# REA-specific configuration example; never overwrite another app's tunnel.
+# Replace the three placeholders only after confirming the intended tunnel/domain.
+# Start the ERP manually with the same REA_PUBLIC_ORIGIN before starting this tunnel.
+tunnel: <REA_TUNNEL_ID>
+credentials-file: <ABSOLUTE_REA_CREDENTIALS_FILE>
+ingress:
+  - hostname: <REA_HOSTNAME>
+    service: http://127.0.0.1:8781
+    # Keep the original public Host header; do not rewrite it to 127.0.0.1.
+  - service: http_status:404

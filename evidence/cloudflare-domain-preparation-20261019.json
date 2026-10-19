@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-10-19T03:56:20.043813+00:00",
+  "status": "server-key-ready-domain-transition-pending",
+  "confirmedDomain": "rea.qaredi.com",
+  "dnsObserved": {
+    "type": "CNAME",
+    "target": "custom-domains.chatgpt.site.",
+    "httpsStatus": 403,
+    "changed": false
+  },
+  "tunnel": {
+    "name": "rea-erp-local",
+    "id": "1efb377f-79bd-4600-9a93-c0ec2a7b0959",
+    "ingressValidated": true,
+    "activeConnections": 0,
+    "started": false,
+    "credentialsAcl": "current Windows user only",
+    "otherTunnelsChanged": false,
+    "discardedUnusedCredentialRevoked": true
+  },
+  "local": {
+    "publicOriginConfigured": "https://rea.qaredi.com",
+    "runtimeFileMode": "600",
+    "backendPreserved": "sqlite",
+    "initializedAccountCountObserved": 1,
+    "windowsToWslHttpStatus": 200,
+    "serverRestarted": false
+  },
+  "supabase": {
+    "existingDefaultServerKeyObservedMasked": true,
+    "newKeyCreated": true,
+    "keyRevealed": true,
+    "keyCopied": false,
+    "keyStored": true,
+    "saveConfirmationRequested": true,
+    "liveRestVerified": true,
+    "saveConfirmationGranted": true,
+    "liveRestWritesVerified": false,
+    "keyReplacementRequired": false,
+    "runtimeCopyRemoved": false,
+    "oldDefaultSecretRevoked": true,
+    "publishableDefaultPreserved": true,
+    "postRevocationLiveReadOnlyProbePassed": true
+  },
+  "checks": {
+    "runtimeSyntheticTests": 18,
+    "cloudflareGuardBlocksUnconfiguredBackend": true,
+    "sourceEvidence": ".artifacts/runtime-connection-20261019/domain-readiness-tests.json"
+  },
+  "sensitiveValuesInThisEvidence": false
+}

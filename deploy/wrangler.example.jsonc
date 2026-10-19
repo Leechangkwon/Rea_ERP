@@ -1,0 +1,16 @@
+// Alternative only when the user confirms direct Cloudflare Worker deployment.
+// This is an example, not an active deployment configuration.
+{
+  "name": "rea-erp",
+  "main": "../dist/server/index.js",
+  "compatibility_date": "2026-10-19",
+  "workers_dev": false,
+  "preview_urls": false,
+  "vars": {
+    "REA_STORAGE": "supabase",
+    "REA_RUNTIME": "standalone",
+    "SUPABASE_URL": "https://bzyvdergqijwswnjvozs.supabase.co"
+  }
+  // Set SUPABASE_SECRET_KEY using Cloudflare secrets, never here.
+  // Add the confirmed account/routes in a separate private deployment config.
+}

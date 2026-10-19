@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "checkedOn": "2026-10-19",
+  "scope": "Local Linux development tooling only",
+  "applicationVersion": "0.42.0",
+  "deployed": false,
+  "versions": {
+    "node": "24.22.0",
+    "npm": "11.19.1",
+    "python": "3.14.4",
+    "rea": "6.4.0",
+    "playwright": "1.64.1"
+  },
+  "changes": [
+    "Linux start and explicit menu preparation; npm installation no longer regenerates evidence",
+    "Pinned local development dependencies and environment check",
+    "SHA-256 keyed REA analysis cache with result hash and REA evidence validation",
+    "Stable retained analysis input snapshots, per-feature groups and compact summaries",
+    "Read-only historical original-source availability audit without download",
+    "Local Chromium setup with project-local OS libraries, isolated synthetic browser tests",
+    "Single primary agent and conditional independent review guidance"
+  ],
+  "checks": {
+    "environment": "passed",
+    "npmStartHttp": 200,
+    "toolTests": {
+      "passed": 2
+    },
+    "existingNpmTest": "passed",
+    "release": {
+      "passed": 4
+    },
+    "workerBuild": "passed",
+    "chromiumLaunch": "passed",
+    "syntheticBrowser": {
+      "passed": 4,
+      "flows": [
+        "search and selection",
+        "conversion precondition and preview cancellation",
+        "save and reload persistence",
+        "empty request validation"
+      ]
+    },
+    "reaMenu": {
+      "firstAnalysis": "passed",
+      "repeatCacheHit": true
+    },
+    "reaRequest": {
+      "parsedFiles": 10,
+      "parseFailures": 0,
+      "partial": true
+    },
+    "existingDependencyVersionsAndEngines": "preserved",
+    "gitDiffCheck": "passed"
+  },
+  "limitations": {
+    "originalSourceAuditScope": "Historical 11-source capture manifest only; not the entire retained corpus",
+    "missingHistoricalSources": 11,
+    "rawHistoricalAnalyses": [
+      {
+        "name": "original",
+        "present": false
+      },
+      {
+        "name": "baseline",
+        "present": false
+      },
+      {
+        "name": "rebuilt",
+        "present": false
+      }
+    ],
+    "hostedBrowserQa": false,
+    "originalErpObservation": false,
+    "authenticatedBusinessQa": false,
+    "originalEquivalence": false
+  },
+  "dependencyAudit": {
+    "moderate": 4,
+    "scope": "Existing drizzle-kit/esbuild development dependency chain; no force update"
+  },
+  "artifacts": {
+    "browserReport": ".artifacts/browser-report/index.html",
+    "reaSummary": ".artifacts/rea-cache/request-latest.json",
+    "sourceAvailability": ".artifacts/rea-source-availability.json"
+  }
+}

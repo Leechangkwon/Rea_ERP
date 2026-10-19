@@ -19,6 +19,9 @@ const write=(p,data)=>fs.writeFileSync(path.join(root,p),JSON.stringify(data,nul
 const arg=process.argv.indexOf('--rea-package');
 let rea=arg>=0?process.argv[arg+1]:process.env.REA_PACKAGE;
 if(!rea){
+ try{rea=path.dirname(createRequire(import.meta.url).resolve('rea-agents/package.json'));}catch{}
+}
+if(!rea){
  const cache=path.join(process.env.LOCALAPPDATA||'', 'npm-cache','_npx');
  if(fs.existsSync(cache))rea=fs.readdirSync(cache).map(d=>path.join(cache,d,'node_modules','rea-agents')).find(d=>fs.existsSync(path.join(d,'package.json'))&&read(path.join(d,'package.json')).version==='6.4.0');
 }

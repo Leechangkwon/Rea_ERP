@@ -1,6 +1,62 @@
-# 자동화 ERP · REA 재구성 검증 0.6.0
+# 자동화 ERP · REA 재구성 검증
 
-작업 경로: `C:\vibe\ecount-rea`. 기존 검증 Site와 소유자 전용 접근 범위를 유지합니다. 첫 접속에서 사용자가 회사코드·앱 ID·비밀번호를 정해 관리자를 등록합니다. 기본 계정이나 비밀번호는 배포하지 않습니다. ChatGPT의 호스팅 접근 허용과 ERP 앱 로그인은 별도로 검사합니다.
+작업 경로: `/home/lck/projects/Rea_ERP` (WSL2 Linux). 버전은 `package.json`, 최신 기능 누계는 `evidence/global-rea-20261018/current-release.json`을 기준으로 합니다. 현재 배포 기준은 사용자 지정 로컬·Supabase·Cloudflare 구성입니다. 과거 Sites 배포 기록은 현재 실행 절차가 아닙니다. ERP 자체 로그인·권한과 기존 자료를 유지합니다. 첫 접속에서 사용자가 회사코드·앱 ID·비밀번호를 정해 관리자를 등록합니다. 기본 계정이나 비밀번호는 배포하지 않습니다.
+
+## 현재 배포 기준 — 사용자 재확인 (2026-10-19)
+
+사용자가 현재 구성을 **로컬·Supabase·Cloudflare**로 재확인했다. 이 지시가 아래 과거 Sites/D1 배포 기록보다 우선한다. 로컬 개발·검증은 `/home/lck/projects/Rea_ERP`에서 계속하며, Supabase 연결과 Cloudflare 공개 경로는 기존 설정을 확인한 뒤 이 기준으로 준비한다. Sites 업로드·새 버전 저장·배포를 실행하지 않는다.
+
+기존 D1 호환 API를 보존하는 Supabase 어댑터와 독립 로컬 실행기를 추가했다. `npm run dev:api`와 `npm run serve:local`은 같은 실행기를 사용하며 기본은 기존 로컬 SQLite다. 기존 `rea` Supabase 프로젝트의 REA 전용 테이블·RLS·서버 권한은 읽기 전용으로 확인했다. 사용자의 재지시에 따라 REA 전용 서버 키 `rea_erp_server`를 생성해 사용자 전용 설정(600)에 저장하고 기존 default 서버 비밀키를 폐기했다. 폐기 후에도 새 키로 두 테이블의 실제 읽기 전용 연결 검사가 통과했으며 공개용 default 키는 유지했다. 사용자가 Cloudflare 도메인 `rea.qaredi.com` 유지를 확정했고 전용 `rea-erp-local` Tunnel과 수동 실행·사전 검사 구성을 준비했다. DNS는 아직 과거 Sites CNAME을 유지하며 터널은 시작하지 않았다. `.openai/hosting.json`과 `rea.qaredi.com`의 과거 기록만으로 현재 대상을 확정하지 않는다. 상세 상태와 검증은 `docs/plan-local-supabase-cloudflare-20261019.md`를 따른다. 기존 앱 로그인·업무자료·운영 설정과 브라우저/서버 자료 분리를 보존하며 자동 이관하지 않는다.
+
+## Linux 개발 시작
+
+Node 24.22.0, npm 11.19.1, Python 3.14.4와 procps의 `ps`를 기준으로 검사했습니다. Node/Python 기준 버전은 `.node-version`, `.python-version`에 기록합니다. REA 6.4.0, Playwright 1.64.1은 개발 의존성으로 고정합니다.
+
+```bash
+npm ci
+npm run browser:install
+npm run env:check
+npm start
+```
+
+`browser:install`은 Chromium 설치 후 실행까지 확인합니다. Ubuntu x64에서 NSPR/NSS/ALSA 라이브러리가 없으면 sudo 없이 apt 패키지를 `.artifacts/browser-libs/`에 다운로드·추출하고 브라우저 프로세스에만 적용합니다. 다운로드한 버전 목록도 해당 경로에 기록합니다. 다른 운영체제 의존성은 오류로 명시하며 자동으로 시스템 패키지를 변경하지 않습니다. `env:check`의 브라우저 설치 확인과 실제 브라우저 실행 검사는 별개입니다.
+
+| 명령 | 용도 |
+|---|---|
+| `npm run dev` | 루프백에만 바인딩한 합성 발주요청 화면, 기본 포트 4173 |
+| `npm run dev:api` / `npm run serve:local` | 독립 실행. 기본 SQLite, 비밀 설정으로 Supabase 명시 선택. 수동 시작 |
+| `npm run configure:supabase` | 숨김 입력으로 서버 키 설정, 테이블 읽기 전용 확인 후 프로젝트 밖에 저장 |
+| `npm run connection:check` | 실제 설정의 읽기 전용 연결 검사. 계정/업무 행을 만들지 않음 |
+| `npm run test:runtime` | Supabase 어댑터·자체 인증·독립 HTTP·저장 보존 합성 회귀 검사 |
+| `npm run test:tools` | 분석 캐시·인계 스키마·경로·민감값·정적 자원 응답 경계 검사 |
+| `npm run test:browser` | 별도 포트 4179에서 고립된 Chromium 합성 흐름 검사 |
+| `npm run verify:local` | 환경·도구·기존 전체 테스트·릴리스 검사·빌드·브라우저 검사 |
+| `npm run rea:analyze -- menu` | 작은 메뉴 분석. `request`, `reports`, `api`, `all`도 지원 |
+| `npm run rea:sources` | 과거 공개 원본 11개 목록의 보유·해시와 원시 분석 존재 여부 확인 |
+| `npm run rea:handoff -- <JSON 파일>` | Windows 로그인 관찰 수신 → 공개 JS 1개 정적 분석 → Linux 개발 검토 지점 연결 |
+| `npm run menu:prepare` | 명시적으로 메뉴와 관찰 근거 재생성 |
+
+REA 캐시는 `.artifacts/rea-cache/`에 저장하며 파일 목록·내용 SHA-256·REA 버전·분석 옵션이 모두 같고 결과 해시와 REA 근거 검증을 통과할 때만 재사용합니다. 기능 그룹은 작업용 입력 묶음이며 전체 의존 관계나 원본 동등성의 증명이 아닙니다. 생략·시간 초과 등 한계는 요약에 남기며 작은 범위로 다시 분석합니다. 원본 보유 점검의 11개는 과거 capture 목록이며 현재 누계의 86개 전체를 검증했다는 뜻이 아닙니다. 누락 자료는 자동 수집하지 않습니다.
+
+기존 추적 재실행은 `python3 -X utf8 scripts/rea_rebuild.py rebuilt`, `node scripts/rea_evidence.mjs --focus`이며 로컬에 고정 설치한 REA를 사용합니다. 후자는 original·baseline 원시 분석이 있어야 하며 현재 누계나 과거 증빙을 임의 대체하지 않습니다.
+
+브라우저 검사는 새 브라우저 컨텍스트와 가상 자료만 사용합니다. 검색·선택·변환 미리보기 취소·빈 전표 검증·저장 후 새로고침 보관을 검사하며 로그인·권한·호스팅된 업무 흐름은 별도 합격 조건입니다. 실패 시 결과는 `.artifacts/browser-results/`, HTML 보고서는 `.artifacts/browser-report/`에 남깁니다. 자동 테스트 복구는 사용하지 않습니다.
+
+반복 작업은 관련 검사만 수행하고, 통합 확인 시 `verify:local`을 실행합니다. 배포는 기존 `docs/release-workflow.md` 절차를 따릅니다. 별도 오케스트레이션 서버·상시 다중 에이전트·추가 MCP·컨테이너·모델 기본값 변경은 이번 환경 구성에 포함하지 않습니다.
+
+## Windows 브라우저 → Linux REA 연결
+
+Windows의 내장 브라우저 채팅에서 입력값을 읽지 않고 만든 인계 JSON을 Linux에서 다음 한 명령으로 처리합니다.
+
+```bash
+npm run rea:handoff -- /mnt/c/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/browser-handoff/ecount-login-20261019.json
+```
+
+현재 프로토콜 v1은 관찰된 로그인 화면의 메타데이터와 `resource.ecount.com`의 공개 로그인 JavaScript 한 개만 허용합니다. `schemaVersion`, `captureId`, `capturedAt`, `source`, `page`, `controls`, `assets`, `observations`, `unverified`만 받으며 하위 객체도 지정된 필드만 받습니다. `controls`의 `type=password`, `id=passwd`는 구조 메타데이터입니다. `value`·쿠키·헤더·비밀값·업무 레코드 같은 추가 필드, 임의 라벨/서술, 페이지 query/hash, 다른 자원 경로는 거부합니다. 일반 ERP 업무 화면용 수집기는 아니며 새 화면은 별도 스키마와 관찰 계약이 필요합니다.
+
+검증 후에만 인증·쿠키 없는 공개 GET을 실행합니다. 리다이렉트·로그인 HTML·크기 초과는 실패로 처리하고, 고정 REA 6.4.0 CLI로 저장된 JS를 실행 없이 분석합니다. 원문 SHA-256, 명령, 종료 코드, 검증된 REA 근거와 한계를 `.artifacts/browser-handoff/<실행별 폴더>/`에 남깁니다. `summary.json`은 Windows 관찰·정적 분석·미확인 ERP 동작을 구분하고, `development-plan.json`은 관찰 ID와 같은 REA 의미 노드 후보 및 기존 자체 코드의 파일/행/해시를 연결합니다. 같은 이름의 정적 노드는 실제 클릭 연결이나 동등성 증명이 아닙니다.
+
+인계 기준은 [기존 구매실 계획의 현재 인계](docs/plan-purchase-manual.md)입니다. 분석 결과는 실행별로 보존하며 앱 코드·원본 업무자료·배포 상태는 이 명령으로 변경하지 않습니다.
 
 ## 이번 재구성
 
@@ -16,6 +72,8 @@
 
 ## 자료와 저장소
 
+기존 D1 호환 상태와 Supabase의 `rea_gateway_state`/`rea_app_state` 연결은 같은 수정 번호 검사를 사용합니다. 서버 비밀키가 설정된 경우에만 Supabase를 사용하며 기본 로컬 SQLite와 자동 동기화하지 않습니다. 아래 D1 스키마 설명은 기존 구현의 저장 구조입니다.
+
 서버 D1의 기존 `gateway_state` 업무·API 키·송수신 이력은 보존합니다. 신규 `app_state`에 계정·회사·설정·접속·감사를 저장합니다. `drizzle/0001_tricky_maverick.sql`은 새 테이블만 추가하며 이미 적용된 0000 마이그레이션은 바꾸지 않습니다.
 
 재고 I 화면의 업무 자료는 여전히 브라우저 저장소이며 서버 API 업무 영역과 별도입니다. 첫 관리자(owner)의 기존 브라우저 자료는 그대로 사용하고, 다른 사용자는 ID별 브라우저 영역을 사용합니다. 서버 인증은 서버 API를 보호합니다. 브라우저 로컬 자료를 회사 전체의 서버 원장으로 간주하지 마세요. 연동센터의 복사 미리보기로 명시적으로 자료를 옮길 수 있지만 송수신 이력이 있으면 교체를 차단합니다.
@@ -24,8 +82,8 @@
 
 ## 실행과 검증
 
-`npm install`, `npm test`, `node scripts/check-release.cjs`, `npm run build` 순서로 검증합니다. 로컬 서버는 `npm run dev:api` (127.0.0.1:8781). 로컬 호스팅 소유자 헤더는 최초 등록만 허용하며 앱 계정 로그인 없이 업무에 진입하지 못합니다. `.artifacts`의 DB와 분석 원문은 배포하지 않습니다.
+`npm install`, `npm test`, `node scripts/check-release.cjs`, `npm run build` 순서로 검증합니다. 로컬 서버는 `npm run dev:api` (127.0.0.1:8781). 독립 실행의 최초 등록은 직접 로컬 접속에서만 허용하며 앱 계정 로그인 없이 업무에 진입하지 못합니다. `.artifacts`의 DB와 분석 원문은 배포하지 않습니다.
 
-REA 재실행은 `python -X utf8 scripts/rea_rebuild.py capture`, `baseline`, `original`, `rebuilt` 모드 및 `node scripts/rea_evidence.mjs --focus`를 사용합니다. 공개 원본 코드는 실행하지 않고 정적 텍스트로만 분석합니다. 인증정보·세션 쿼리·회사 업무 자료를 분석 입력에 포함하지 않습니다.
+REA 재실행은 `python3 -X utf8 scripts/rea_rebuild.py capture`, `baseline`, `original`, `rebuilt` 모드 및 `node scripts/rea_evidence.mjs --focus`를 사용합니다. `capture`는 원본 자료 확보가 명시적으로 필요한 별도 작업에서만 실행합니다. 공개 원본 코드는 실행하지 않고 정적 텍스트로만 분석합니다. 인증정보·세션 쿼리·회사 업무 자료를 분석 입력에 포함하지 않습니다.
 
 브라우저 검증과 자동 검증은 별개입니다. 로컬 합성 계정으로 로그인·회사정보 저장·새로고침·API센터·매뉴얼·로그아웃을 확인합니다. 배포에서는 최초 관리자 등록 화면과 저장소/암호 엔진 상태를 확인하고 실제 관리자 비밀번호는 사용자가 직접 입력합니다. 실 이카운트 호출·외부 발송·공유 사용자 접근 검증은 별도입니다.

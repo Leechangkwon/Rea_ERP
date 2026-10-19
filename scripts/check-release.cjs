@@ -1,6 +1,6 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm'),crypto=require('node:crypto');
-const pkg=JSON.parse(fs.readFileSync('package.json','utf8')),hosting=JSON.parse(fs.readFileSync('.openai/hosting.json','utf8')),html=fs.readFileSync('dist/index.html','utf8');
-assert.ok(hosting.project_id);assert.ok(hosting.d1!==undefined);assert.ok(!hosting.static);assert.ok(html.includes('PREVIEW '+pkg.version),'Preview version must match package.json');
+const pkg=JSON.parse(fs.readFileSync('package.json','utf8')),html=fs.readFileSync('dist/index.html','utf8');
+assert.ok(html.includes('PREVIEW '+pkg.version),'Preview version must match package.json');
 assert.ok(fs.readFileSync('dist/login.html','utf8').includes('v'+pkg.version),'Login version must match package.json');
 const root=path.resolve('dist'),pages=fs.readdirSync(root).filter(f=>f.endsWith('.html')),refs=pages.flatMap(page=>[...fs.readFileSync(path.join(root,page),'utf8').matchAll(/<(?:script|link)\b[^>]*(?:src|href)="([^"#]+)"/g)].map(m=>m[1].replace(/^\//,'')));
 for(const ref of refs){assert.ok(!/^(https?:|\/\/)/i.test(ref),'No external runtime assets');const p=path.resolve(root,ref);assert.ok(p.startsWith(root+path.sep)&&fs.statSync(p).isFile(),'Missing asset: '+ref);}

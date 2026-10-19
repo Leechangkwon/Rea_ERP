@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-19T01:23:25.497695+00:00",
+  "baseVersion": "0.42.0",
+  "baseCommit": "008c735313aeeddad3815ab16c7b7a71a652982e",
+  "status": "authenticated-read-only-observation-and-local-F3-fix-verified",
+  "source": {
+    "browser": "WSL Ego unofficial Linux port",
+    "authentication": "user manual login; ERP shell and request list observed",
+    "screen": "E040315",
+    "menu": "MENUTREE_000505",
+    "navigation": [
+      "재고 I",
+      "구매관리",
+      "발주요청",
+      "발주요청조회"
+    ],
+    "searchFieldMetadataCount": 19,
+    "originalF3ToggleObserved": true
+  },
+  "rea": {
+    "version": "6.4.0",
+    "parsedFiles": 2,
+    "parseFailures": 0,
+    "semanticNodes": 134,
+    "partial": false,
+    "scope": "two public list loader modules, 1470 bytes; delegated implementation and key binding unresolved",
+    "originalSourceExecuted": false,
+    "resultSha256": "032b460bf19effbc552f61293be3ff3468ee9fe04b1714ef72912c67bd61ddbc"
+  },
+  "implementation": {
+    "file": "dist/inventory-ui.js",
+    "behavior": "Request-list F3 invokes existing search toggle and returns focus to quick search on collapse; query, selection and saved vouchers preserved. Modifier/repeat/composition/handled/dialog events ignored.",
+    "schemaChanged": false
+  },
+  "checks": {
+    "finalRelatedNodeTests": {
+      "passed": 15,
+      "command": "node --test tests/request-list.cjs tests/document-history-ui.cjs"
+    },
+    "finalSyntheticBrowserTests": {
+      "passed": 5,
+      "command": "npm run test:browser"
+    },
+    "environment": "passed",
+    "build": "passed",
+    "syntax": "passed",
+    "diffWhitespace": "passed",
+    "fullAppTestsRerun": false
+  },
+  "preserved": {
+    "existingDirtyFiles": true,
+    "browserLogin": true,
+    "originalSaved": false,
+    "originalMainInputRowsTouched": false,
+    "deployed": false,
+    "versionChanged": false,
+    "currentReleaseTotalsChanged": false,
+    "inputValuesCollected": false,
+    "businessRowsCollected": false,
+    "credentialsCollected": false,
+    "sessionUrlsStored": false
+  },
+  "browserLimitations": [
+    "Ego locator matched a hidden menu at another visible control position; guard target computed visibility and center hit before actions.",
+    "Duplicate IDs in hidden search toolbar variants require a grounded visible-ancestor selector.",
+    "Observe state after UI transition, not immediately after key event."
+  ],
+  "unverified": [
+    "search picker behavior",
+    "Option submenu contracts",
+    "server search/validation/permissions",
+    "original save/delete/print/send behavior",
+    "hosted QA and full original equivalence"
+  ],
+  "files": [
+    {
+      "path": "dist/inventory-ui.js",
+      "sha256": "270bc4bb2b9b9dab2780a2da8d43cf6d03ab11c98cb15d2663cf2ca7b7b04e9f"
+    },
+    {
+      "path": "tests/request-list.cjs",
+      "sha256": "c88e859298fda04847d7593f0d6e1c057e9cbdec1fcc6b31cc559e0f4b58ba3a"
+    },
+    {
+      "path": "tests/browser/request.spec.cjs",
+      "sha256": "d5f4495c0513d458ee71f77da25ccc9aae2adc5c5c496f722aaa76df8419b747"
+    },
+    {
+      "path": ".artifacts/ego-authenticated-20261019/request-observation.json",
+      "sha256": "5fa8563cd647f1bde6b4c0a92275e00948a30ed0f1cfdd2463c88458579a9a95"
+    },
+    {
+      "path": ".artifacts/ego-authenticated-20261019/f3-observation.json",
+      "sha256": "cd4f6c6eb9db2a49ce2cbba42ddaf4e1da0d9b85b4ba41d39d4613adbdf00911"
+    },
+    {
+      "path": ".artifacts/ego-authenticated-20261019/rea-result.json",
+      "sha256": "032b460bf19effbc552f61293be3ff3468ee9fe04b1714ef72912c67bd61ddbc"
+    },
+    {
+      "path": ".artifacts/ego-authenticated-20261019/rea-summary.json",
+      "sha256": "c0a64ea83d6290767e248c3c0e123c3ff83e3dc1de0bfc0e0c8e4578b3152238"
+    }
+  ]
+}

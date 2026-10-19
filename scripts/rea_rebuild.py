@@ -47,10 +47,12 @@ def baseline():
  (ROOT/'evidence/rea-rebuild-baseline.json').write_text(json.dumps({'commit':sha,'files':records},indent=2),encoding='utf-8')
 
 def analyze(label,directory):
- exe=shutil.which('npx.cmd' if sys.platform=='win32' else 'npx')
+ exe=shutil.which('node')
+ cli=ROOT/'node_modules/rea-agents/scripts/rea.mjs'
+ if not exe or not cli.is_file():raise RuntimeError('Run npm ci to install pinned REA 6.4.0')
  dest=ROOT/'.artifacts'/('rea-'+label+'.json');dest.parent.mkdir(exist_ok=True)
  with dest.open('wb') as out,(ROOT/'.artifacts'/('rea-'+label+'.stderr.log')).open('wb') as err:
-  result=subprocess.run([exe,'--yes','rea-agents@6.4.0','analyze-javascript-application',str(directory),'--artifact-format','directory','--max-heap-mb','4096','--analysis-timeout-ms','45000','--format','json'],cwd=ROOT,stdout=out,stderr=err,timeout=900)
+  result=subprocess.run([exe,str(cli),'analyze-javascript-application',str(directory),'--artifact-format','directory','--max-heap-mb','4096','--analysis-timeout-ms','45000','--format','json'],cwd=ROOT,stdout=out,stderr=err,timeout=900)
  print('REA',label,'exit',result.returncode,'bytes',dest.stat().st_size,flush=True)
  return result.returncode
 

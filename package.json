@@ -1,23 +1,43 @@
 {
   "name": "ecount-rea-local-menu",
-  "version": "0.42.0",
+  "version": "0.43.0",
   "private": true,
   "scripts": {
-    "start": "python -X utf8 serve.py",
-    "prepare": "python -X utf8 scripts/prepare_menu.py",
-    "test": "node tests/menu-core.cjs && node --test tests/work-tabs.cjs && node tests/inventory-core.cjs && node --test tests/entry-core.cjs && node --test tests/entry-ui.cjs && node --test tests/entry-tools.cjs && node --test tests/entry-save.cjs tests/plan-order-retain.cjs tests/entry-save-new.cjs && node --test tests/entry-extra.cjs && node --test tests/purchase-plan.cjs && node --test tests/purchase-plan-ui.cjs && node --test tests/item-registration.cjs && node --test tests/item-integration.cjs && node --test tests/inventory-modal.cjs && node --test tests/item-list.cjs && node tests/inventory-dom.cjs && node tests/form-core.cjs && node tests/form-dom.cjs && node --test tests/api-gateway.cjs && node tests/api-dom.cjs && node scripts/build-worker.cjs && node --test tests/api-manual.cjs && node --test tests/auth.cjs && node --test tests/self-auth.cjs && node tests/self-dom.cjs && node --test tests/purchase-operations.cjs && node tests/purchase-room-core.cjs && node tests/purchase-process-data.cjs && node tests/purchase-manual-simulation.cjs && node --test tests/purchase-room-ui.cjs && node --test tests/purchase-return-ui.cjs && node --test tests/transfer-safety.cjs && node --test tests/document-status.cjs && node --test tests/document-status-ui.cjs && node --test tests/request-list.cjs tests/document-history.cjs tests/document-history-ui.cjs && node --test tests/purchasing-model.cjs tests/purchasing-plan-list-ui.cjs tests/purchasing-report.cjs tests/purchasing-input.cjs && node --test tests/purchasing-integration.cjs tests/purchasing-report-sort.cjs tests/purchasing-date-axis.cjs tests/purchasing-item-group.cjs tests/purchasing-voucher-line.cjs tests/purchasing-classification-group.cjs tests/purchasing-graph.cjs tests/purchasing-graph-filter.cjs tests/purchasing-graph-colors.cjs tests/purchasing-graph-hsv.cjs tests/purchasing-subtotals.cjs tests/purchasing-drilldown.cjs tests/plan-aggregate.cjs tests/order-aggregate.cjs tests/request-aggregate.cjs tests/purchasing-rewrite.cjs tests/aggregate-targets.cjs tests/order-targets.cjs && node --test tests/self-settings.cjs tests/self-policy.cjs tests/self-settings-ui.cjs tests/entry-settings.cjs tests/self-settings-integration.cjs && node --test tests/stock-report-core.cjs tests/stock-report-ui.cjs tests/stock-report-integration.cjs",
+    "start": "python3 -X utf8 serve.py",
+    "test": "node tests/menu-core.cjs && node --test tests/work-tabs.cjs && node tests/inventory-core.cjs && node --test tests/entry-core.cjs tests/purchasing-review.cjs && node --test tests/entry-ui.cjs && node --test tests/entry-tools.cjs && node --test tests/entry-save.cjs tests/plan-order-retain.cjs tests/entry-save-new.cjs && node --test tests/entry-extra.cjs && node --test tests/purchase-plan.cjs && node --test tests/purchase-plan-ui.cjs && node --test tests/item-registration.cjs && node --test tests/item-integration.cjs && node --test tests/inventory-modal.cjs && node --test tests/item-list.cjs && node tests/inventory-dom.cjs && node tests/form-core.cjs && node tests/form-dom.cjs && node --test tests/api-gateway.cjs && node tests/api-dom.cjs && node scripts/build-worker.cjs && node --test tests/runtime.cjs tests/storage-migration.cjs && node --test tests/api-manual.cjs && node --test tests/auth.cjs && node --test tests/self-auth.cjs && node tests/self-dom.cjs && node --test tests/purchase-operations.cjs && node tests/purchase-room-core.cjs && node tests/purchase-process-data.cjs && node tests/purchase-manual-simulation.cjs && node --test tests/purchase-room-ui.cjs && node --test tests/purchase-return-ui.cjs && node --test tests/transfer-safety.cjs && node --test tests/document-status.cjs && node --test tests/document-status-ui.cjs && node --test tests/request-list.cjs tests/document-history.cjs tests/document-history-ui.cjs && node --test tests/purchasing-model.cjs tests/purchasing-plan-list-ui.cjs tests/purchasing-report.cjs tests/purchasing-input.cjs && node --test tests/purchasing-integration.cjs tests/purchasing-report-sort.cjs tests/purchasing-date-axis.cjs tests/purchasing-item-group.cjs tests/purchasing-voucher-line.cjs tests/purchasing-classification-group.cjs tests/purchasing-graph.cjs tests/purchasing-graph-filter.cjs tests/purchasing-graph-colors.cjs tests/purchasing-graph-hsv.cjs tests/purchasing-subtotals.cjs tests/purchasing-drilldown.cjs tests/plan-aggregate.cjs tests/order-aggregate.cjs tests/request-aggregate.cjs tests/purchasing-rewrite.cjs tests/aggregate-targets.cjs tests/order-targets.cjs && node --test tests/self-settings.cjs tests/self-policy.cjs tests/self-settings-ui.cjs tests/entry-settings.cjs tests/self-settings-integration.cjs && node --test tests/stock-report-core.cjs tests/stock-report-ui.cjs tests/stock-report-integration.cjs",
     "db:generate": "drizzle-kit generate",
     "build": "node scripts/build-worker.cjs",
     "dev:api": "node scripts/preview-api.cjs",
-    "dev": "node scripts/request-preview.cjs"
+    "dev": "node scripts/request-preview.cjs",
+    "menu:prepare": "python3 -X utf8 scripts/prepare_menu.py",
+    "env:check": "node scripts/check-environment.cjs",
+    "rea:analyze": "node scripts/rea-analyze.mjs",
+    "test:tools": "node --test tests/dev-tools.cjs tests/browser-handoff.cjs",
+    "test:browser": "playwright test",
+    "browser:install": "node scripts/install-browser.cjs",
+    "verify:local": "npm run env:check && npm run test:tools && npm test && node scripts/check-release.cjs && npm run build && npm run test:browser",
+    "rea:sources": "node scripts/rea-sources.cjs",
+    "rea:handoff": "node scripts/browser-handoff.mjs",
+    "serve:local": "node scripts/standalone-server.cjs",
+    "configure:supabase": "node scripts/configure-supabase.cjs",
+    "connection:check": "node scripts/check-connection.cjs",
+    "test:runtime": "node scripts/build-worker.cjs && node --test tests/runtime.cjs",
+    "cloudflare:check": "node scripts/check-cloudflare.cjs",
+    "migrate:supabase": "node scripts/migrate-supabase.cjs"
   },
   "devDependencies": {
     "drizzle-kit": "0.31.11",
     "drizzle-orm": "0.45.4",
-    "jsdom": "27.0.1"
+    "jsdom": "27.0.1",
+    "rea-agents": "6.4.0",
+    "@playwright/test": "1.64.1"
   },
   "dependencies": {
     "bcryptjs": "3.0.3",
     "jsbarcode": "3.12.1"
+  },
+  "engines": {
+    "node": ">=24.22.0 <25",
+    "npm": ">=11.19.1 <12"
   }
 }

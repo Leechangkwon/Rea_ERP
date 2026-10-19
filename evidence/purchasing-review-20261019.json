@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-19T02:05:51.331740+00:00",
+  "scope": [
+    "발주요청",
+    "발주서",
+    "구매",
+    "관련 계획→발주서→구매 연결"
+  ],
+  "baseline": {
+    "version": "0.42.0",
+    "commit": "008c735313aeeddad3815ab16c7b7a71a652982e",
+    "existingDirtyChangesPreserved": true,
+    "versionChanged": false,
+    "deployed": false
+  },
+  "review": {
+    "existingCodeAudit": "docs/plan-purchasing-existing-audit-20261019.md",
+    "currentComparisonAndChanges": "docs/plan-purchasing-review-20261019.md",
+    "areas": [
+      "목록",
+      "검색",
+      "입력",
+      "저장 모드",
+      "품목 보조",
+      "상태/전표 연결",
+      "이력",
+      "출력",
+      "현황/집계",
+      "권한/보관"
+    ],
+    "originalVisibleMetadataObserved": [
+      "three lists",
+      "three input screens",
+      "three report search screens",
+      "request/order/purchase Option menus",
+      "request/order/purchase F3"
+    ],
+    "allButtonsEquivalent": false
+  },
+  "observedLayoutVariants": {
+    "request": 11,
+    "purchaseorder": 12,
+    "purchase": 10,
+    "priorReleaseRecorded": {
+      "purchaseorder": 10,
+      "purchase": 12
+    },
+    "decision": "Preserve stable field IDs and user forms; do not overwrite all defaults from one active company layout."
+  },
+  "changes": [
+    {
+      "id": "IMPORT-ROW-STATE",
+      "files": [
+        "dist/entry-core.js"
+      ],
+      "behavior": "Remove plan-only line progress when importing into a non-plan document; keep source identity and residual accounting."
+    },
+    {
+      "id": "IMPORT-ROW-PARTNER",
+      "files": [
+        "dist/entry-core.js"
+      ],
+      "behavior": "Match request/plan row supplier codes/names and return only matching supplier rows; preserve linked header partner/warehouse restrictions."
+    },
+    {
+      "id": "PLAN-ORDER-REVALIDATE",
+      "files": [
+        "dist/entry-core.js",
+        "dist/inventory-core.js"
+      ],
+      "behavior": "Shared validation checks all merged draft rows and final order save against current plan suppliers and completion. Existing saved allocation may keep price edits but cannot increase after completion."
+    },
+    {
+      "id": "LIST-SEARCH",
+      "files": [
+        "dist/inventory-ui.js"
+      ],
+      "behavior": "Add project and item criteria plus Search F8 and F3 keyboard handling to all three purchasing lists; preserve saved search forms."
+    },
+    {
+      "id": "STABLE-SELECTION",
+      "files": [
+        "dist/inventory-ui.js"
+      ],
+      "behavior": "Use projected c0 field identity for select-all after rename/reorder, honor hidden c0, and refresh checked/indeterminate state on page change."
+    }
+  ],
+  "checks": {
+    "completedAt": "2026-10-19T02:05:12.250203+00:00",
+    "results": [
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:tools"
+        ],
+        "exitCode": 0,
+        "log": ".artifacts/purchasing-review-20261019/check-0.log",
+        "sha256": "93cc745e48bd26fdf389bb2d50d448e2a4d0a2b0cc6884593de7c96e63368f5f",
+        "tail": [
+          "✔ REA cache invalidates when source, input set or analysis settings change (6.106967ms)",
+          "✔ REA inputs reject traversal, deployment bundles and external paths (0.681071ms)",
+          "ℹ tests 7",
+          "ℹ suites 0",
+          "ℹ pass 7",
+          "ℹ fail 0",
+          "ℹ cancelled 0",
+          "ℹ skipped 0",
+          "ℹ todo 0",
+          "ℹ duration_ms 67.391971"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "test"
+        ],
+        "exitCode": 0,
+        "log": ".artifacts/purchasing-review-20261019/check-1.log",
+        "sha256": "4628d358f8d230883ee29cf0c4cbdba99b0c6e98addccee9703385e042c03e78",
+        "tail": [
+          "✔ five thousand items are searched and selected across pages with at most fifty rendered rows (48.422416ms)",
+          "✔ lookup inactive filtering and current-page select-all retain off-page staged selections (16.144439ms)",
+          "ℹ tests 32",
+          "ℹ suites 0",
+          "ℹ pass 32",
+          "ℹ fail 0",
+          "ℹ cancelled 0",
+          "ℹ skipped 0",
+          "ℹ todo 0",
+          "ℹ duration_ms 1473.289741"
+        ]
+      },
+      {
+        "command": [
+          "node",
+          "scripts/check-release.cjs"
+        ],
+        "exitCode": 0,
+        "log": ".artifacts/purchasing-review-20261019/check-2.log",
+        "sha256": "b6a1d825d5b3dbf0b7690298926d4b03f29324a845a256d6e288d1b464fbe6f9",
+        "tail": [
+          "{\"status\":\"passed\",\"version\":\"0.42.0\",\"static_files\":51,\"checks\":4}"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "exitCode": 0,
+        "log": ".artifacts/purchasing-review-20261019/check-3.log",
+        "sha256": "7485aeacb2449fd96ade59bff02668aa74400f00a3ee88de1a19db544d5df585",
+        "tail": [
+          "",
+          "> ecount-rea-local-menu@0.42.0 build",
+          "> node scripts/build-worker.cjs",
+          "",
+          "{\"worker_bytes\":1799896,\"embedded_assets\":51}"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:browser"
+        ],
+        "exitCode": 0,
+        "log": ".artifacts/purchasing-review-20261019/check-4.log",
+        "sha256": "cf7efb7cf40f40f6a8cf70587017652a2b7044ded82337761245e62ddb1501c2",
+        "tail": [
+          "Running 6 tests using 1 worker",
+          "",
+          "  ✓  1 tests/browser/request.spec.cjs:9:1 › search expands, filters on Enter and page selection matches visible rows (363ms)",
+          "  ✓  2 tests/browser/request.spec.cjs:21:1 › conversion requires selection and closing preview does not save (486ms)",
+          "  ✓  3 tests/browser/request.spec.cjs:38:1 › F3 toggles list search without losing query, selection or saved data (306ms)",
+          "  ✓  4 tests/browser/request.spec.cjs:57:1 › request, order and purchase lists filter project and item with F3 and F8 (489ms)",
+          "  ✓  5 tests/browser/request.spec.cjs:86:1 › saved synthetic request survives reload and unsupported sending stays disabled (393ms)",
+          "  ✓  6 tests/browser/request.spec.cjs:103:1 › empty request cannot create a voucher (277ms)",
+          "",
+          "  6 passed (2.8s)"
+        ]
+      }
+    ],
+    "sourceHashes": {
+      "dist/inventory-core.js": "30a2b415de4cc5770cc3e66a124f1ed6dff3eb1e97dc41b652f676e391e722f3",
+      "dist/entry-core.js": "d2f57ee53b738a79c4dbfcd2a450fc60f31a36b6d5954c075ddaf74b1bc8691b",
+      "dist/inventory-ui.js": "95e20aa6998f77278704aea230d41febb42f42a2a8873d43acf25e7d6304da87",
+      "tests/purchasing-review.cjs": "d55b6ed7756d39fb4c7db8b020b2f4ea16543e32fbf8671ffeb434368585750c",
+      "tests/purchasing-integration.cjs": "662988119998c57ecdfd1dddade5c83931ec409b39bbeb92eee2eeccbe2cb27f",
+      "tests/browser/request.spec.cjs": "085136d3565edf7c0e963712c45f4e94296498d2f4c01f4f28b2664d2dbdb035",
+      "package.json": "ccdb78d275e3149ffa85d6b40b363cb089ad0d0525ec2f298e3bcc8c4a438952"
+    },
+    "sourcesUnchangedDuringChecks": true,
+    "passed": true
+  },
+  "newRegressionCases": {
+    "purchasingReview": 12,
+    "purchasingIntegration": 4,
+    "syntheticBrowserTotal": 6
+  },
+  "rea": {
+    "version": "6.4.0",
+    "sources": 3,
+    "bytes": 1101854,
+    "parseFailures": 0,
+    "semanticCoverage": [
+      {
+        "status": "partial",
+        "truncated": true,
+        "limits": [
+          {
+            "name": "semantic_graph_node_ceiling",
+            "value": 100000,
+            "unit": "items"
+          }
+        ]
+      },
+      {
+        "status": "partial",
+        "truncated": true,
+        "limits": [
+          {
+            "name": "semantic_graph_node_ceiling",
+            "value": 100000,
+            "unit": "items"
+          }
+        ]
+      },
+      {
+        "status": "unknown",
+        "truncated": false,
+        "limits": []
+      }
+    ],
+    "originalSourcesExecuted": false,
+    "historicalCorpusTotalsChanged": false,
+    "summary": ".artifacts/purchasing-review-20261019/rea-summary.json"
+  },
+  "independentReview": {
+    "originalFinding": "Merged preexisting draft rows bypassed incoming-only supplier/completion checks.",
+    "resolution": "Reproduced and fixed using shared validator at merged draft and final save boundaries. Independent read-only review confirmed the prior routes were blocked. A six-decimal boundary concern was then corrected by direct normalized comparison and a dedicated regression case.",
+    "reviewThread": "01a14fbe-d700-75a3-bce0-1751a54a0cf1",
+    "runtimeVerificationByReviewer": false
+  },
+  "boundaries": {
+    "mainInputRowActions": 0,
+    "sourceSaveActions": 0,
+    "sourceDeleteActions": 0,
+    "sourceSendActions": 0,
+    "sourceSettingsSaveActions": 0,
+    "privateApiCallsMadeDirectly": 0,
+    "inputValuesCollected": false,
+    "businessRowsCollected": false,
+    "credentialsCollected": false,
+    "sessionUrlsStored": false,
+    "backupSchemaChanged": false,
+    "productionDataChanged": false
+  },
+  "unverified": [
+    "remaining search pickers and multiple-selection rules",
+    "unsupported source search fields and query application timing",
+    "Option settings and persisted source configuration behavior",
+    "source VAT/currency/unit conversion rules",
+    "source send/print/approval/server authorization and save results",
+    "hosted authenticated business QA and full original equivalence"
+  ],
+  "observations": [
+    {
+      "path": ".artifacts/purchasing-review-20261019/input-request.json",
+      "sha256": "ee10fe657919f9d37f345663ab6155a0edcb0f8502125769000e7bc870e514fd"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/input-purchaseorder.json",
+      "sha256": "5e0f66cebbf1ab3ca7fd08acdcd9cc0d6b5f59584f3bd714967cdd7d53c6de42"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/input-purchase.json",
+      "sha256": "0894051b7bd430d69cb4971f40fbb2ef7304713d44562e8b386b504c7bf53bd6"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/observe-order-report.json",
+      "sha256": "9dd6913d7a596f0ad6afd74dde40d267dee18568410b4082f89f11a48c14046a"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/observe-purchase-report.json",
+      "sha256": "63c243f43725830c5b5484496008022484aa648b30de82f6236199144bd1e3e3"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/observe-request-report.json",
+      "sha256": "1c32955bcf86759fe431805f2f1176c51260fc095c3beca98c4bba992e8f905e"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/legacy-search-purchaseorder-search.json",
+      "sha256": "19772c9ef26be374d9ac27e85d02b625afa15c7d221e8c9165ce13ab78c98fcf"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/legacy-option-purchaseorder-option.json",
+      "sha256": "f802dc091f545079f3509cf047399b6bb9e0c3b0bcd13b94bb55d6d8d65603cb"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/observe-purchase-list-ready.json",
+      "sha256": "96217cd16b7dce5b71eb187ba419a06e72f9c0b22d5acd737aa453bc720504ad"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/v56-search-purchase-search.json",
+      "sha256": "b8ec87d56d86d16431e8c6574bc64bf69c612002b37a045757e9951f8705bef2"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/option-purchase-option.json",
+      "sha256": "355bc5b1dbd17554ab2e65733e8d1b26e9865bda7ada24eff41cf4cdc62c5de0"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/option-request-option.json",
+      "sha256": "9e8bcb5d6e600a2284a37e2e19620459b484b750794952462107bb4a1b7a44ca"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/keys-purchaseorder.json",
+      "sha256": "04ec5d8968fec2f4553be536653b957ef215c125ddebd2ce21e199cc2d510a84"
+    },
+    {
+      "path": ".artifacts/purchasing-review-20261019/keys-purchase.json",
+      "sha256": "cb7c89181dc1039e77b2b5432619133389f4d596ffc687d7b76aac954669134b"
+    }
+  ]
+}

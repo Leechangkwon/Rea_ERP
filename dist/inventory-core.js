@@ -243,6 +243,20 @@
     applyForm(db,'master:'+key,'input',x);
     if(index<0)db.masters[key].push(x);else db.masters[key][index]=x;log(db,masterNames[key]+' 등록/수정: '+x.code);return x;
   }
+  function validatePlanOrderRows(db,doc,source){
+    if(source?.type!=='plan'||doc.type!=='purchaseorder')return;
+    const previous=db.documents.find(row=>row.id===doc.id&&row.sourceId===source.id);
+    const allocationKey=line=>line.sourceLineId?'line:'+line.sourceLineId:'item:'+line.item;
+    const quantities=lines=>{const result=new Map();for(const line of lines){const qty=Number(line.qty);if(!Number.isFinite(qty)||qty<0)throw Error('연결 수량을 확인하세요.');const key=allocationKey(line);result.set(key,quantity((result.get(key)||0)+qty));}return result;};
+    const oldQuantities=quantities(previous?.lines||[]),newQuantities=quantities(doc.lines);
+    for(const line of doc.lines){
+      const originals=source.lines.filter(row=>row.item===line.item&&(!line.sourceLineId||row.lineId===line.sourceLineId));
+      if(!originals.length)throw Error('원본 발주계획 품목행을 확인하세요.');
+      const suppliers=new Set(originals.map(row=>row.supplier).filter(Boolean));
+      if(suppliers.size&&(suppliers.size!==1||!suppliers.has(doc.partner)))throw Error('발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.');
+      if(originals.some(row=>purchasingLineState(source,row).progress==='완료')&&(newQuantities.get(allocationKey(line))||0)>(oldQuantities.get(allocationKey(line))||0))throw Error('완료된 발주계획 품목행의 발주 수량을 늘릴 수 없습니다.');
+    }
+  }
   function saveDoc(db,input){
     const d=clone(input);if(!types[d.type])throw Error('전표 종류가 올바르지 않습니다.');
     if(!/^\d{4}-\d{2}-\d{2}$/.test(d.date||'')||!Number.isFinite(Date.parse(d.date))||new Date(d.date).toISOString().slice(0,10)!==d.date)throw Error('일자를 확인하세요.');
@@ -265,7 +279,13 @@
     if(index>=0&&db.documents[index].type!==d.type)throw Error('전표 종류는 변경할 수 없습니다.');
     if(index>=0&&db.documents[index].accounted)throw Error('회계반영을 취소한 후 수정하세요.');
     if(index>=0){const old=db.documents[index];if(old.generatedFrom==='purchase-plan'&&d.generatedFrom!==old.generatedFrom)throw Error('발주계획 생성 연결은 제거할 수 없습니다.');if(old.sourceId&&(db.documents.find(x=>x.id===old.sourceId)?.generatedFrom==='purchase-plan'||['purchasereturn','exchangereceipt'].includes(old.type)||old.type==='transfer'||old.type==='sale'&&db.documents.find(x=>x.id===old.sourceId)?.type==='transfer')&&d.sourceId!==old.sourceId)throw Error('처리한 원본 전표 연결은 제거하거나 바꿀 수 없습니다.');}
-    if(d.sourceId){const source=db.documents.find(x=>x.id===d.sourceId);if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');if(['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'].includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');}
+    if(d.sourceId){
+      const source=db.documents.find(x=>x.id===d.sourceId);
+      if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');
+      if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');
+      if(['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'].includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');
+      validatePlanOrderRows(db,d,source);
+    }
     d.status=statusValue(d.status);validatePurchasingState(d);if(!documentStatuses.includes(d.status))throw Error('처리 상태를 확인하세요.');
     d.id=d.id||`${d.type.toUpperCase()}-${d.date.replaceAll('-','')}-${String(++db.sequence).padStart(5,'0')}`;d.accounted=Boolean(d.accounted);
     if(d.accounted&&!active(d))throw Error('미확인·취소 전표는 회계반영할 수 없습니다.');
@@ -568,6 +588,6 @@
     for(const [type,partner,qty,item,price] of [['quote','C001',10,'P001',20000],['order','C001',8,'P001',20000],['sale','C001',3,'P001',20000],['purchaseorder','V001',40,'M001',2000],['purchase','V001',20,'M001',2000],['workorder','',5,'P001',12000],['shoporder','C001',2,'P002',30000]])db=command(db,'document',{...common,type,partner,lines:[{item,qty,price}],memo:'샘플 전표'}).db;
     return db;
   }
-  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions};
+  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.InventoryCore=api;
 })(typeof globalThis==='object'?globalThis:this);

@@ -1,0 +1,116 @@
+{
+  "recordedAt": "2026-10-19T03:56:20.043813+00:00",
+  "status": "server-key-rotated-live-read-verified",
+  "version": "0.42.0",
+  "repository": "/home/lck/projects/Rea_ERP",
+  "supabase": {
+    "linkName": "rea",
+    "projectRef": "bzyvdergqijwswnjvozs",
+    "projectStatusObserved": "ACTIVE_HEALTHY",
+    "metadataReadOnly": true,
+    "tables": [
+      {
+        "name": "rea_app_state",
+        "id": "main",
+        "maxBodyBytes": 2500000
+      },
+      {
+        "name": "rea_gateway_state",
+        "id": "sandbox",
+        "maxBodyBytes": 1500000
+      }
+    ],
+    "rlsEnabled": true,
+    "browserRoleGrants": [],
+    "serverRoleGrants": [
+      "SELECT",
+      "INSERT",
+      "UPDATE"
+    ],
+    "existingMigrations": [
+      "20261018144058_rea_server_state",
+      "20261018144208_restrict_rls_trigger_execution"
+    ],
+    "schemaModified": false,
+    "businessBodiesCollected": false,
+    "restCredentialsAvailable": true,
+    "liveRestReadWriteVerified": false,
+    "securityAdvisor": {
+      "errorCount": 0,
+      "warningCount": 0,
+      "info": "RLS enabled without policies on the two server-only tables; browser grants remain revoked.",
+      "remediationReference": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+    },
+    "liveRestReadOnlyVerified": true,
+    "keyReplacementRequired": false,
+    "oldDefaultSecretRevoked": true,
+    "postRevocationReadOnlyProbePassed": true
+  },
+  "implementation": [
+    "restricted Supabase REST adapter preserving state and revision CAS",
+    "existing app login, sessions, CSRF and permissions retained",
+    "manual standalone loopback server; direct-local bootstrap only",
+    "private hidden-input server-key configuration and read-only probe",
+    "existing dev:api and Windows launcher compatibility",
+    "Cloudflare Tunnel and Worker examples without active routes/accounts"
+  ],
+  "verification": {
+    "command": "npm run verify:local",
+    "exitCode": 0,
+    "runtimeSyntheticTests": 16,
+    "toolsTests": 7,
+    "browserSyntheticTests": 6,
+    "releaseChecks": 4,
+    "workerBytes": 1806400,
+    "embeddedAssets": 51,
+    "manualEntry": {
+      "entry": "npm run dev:api",
+      "backend": "isolated SQLite",
+      "httpStatus": 200,
+      "bootstrapAllowedOnDirectLoopback": true,
+      "initialized": false,
+      "ownedProcessStopped": true,
+      "existingLocalDatabaseUnchanged": true
+    },
+    "syntax": "passed",
+    "whitespace": "passed",
+    "sourceHashes": {
+      "worker/supabase-db.cjs": "68524a1e0b8bc6542bf397011ac93a0a0f1e241f5d0831cad28e2d043ae4b1ca",
+      "worker/app-service.cjs": "93252af5b75369b8db937adb221b0af4c58aa95af76774654506de4e9d729ea3",
+      "worker/index.js": "e18223a173802d710a540b5b38c30b44a482bfd1881e6adc620ea3021ab0d46f",
+      "scripts/runtime-config.cjs": "845ddfa673ea114617bd42b7917d6742783b668cfcc847631bf58d1b3adca791",
+      "scripts/standalone-server.cjs": "192746e0281c98686fff4ed44f55535a64131d25abb48ce923ab3aaa10a679f2",
+      "scripts/preview-api.cjs": "894febfb3e56bf542e0bf022de7e64193f86ab72e7e1470d9dbb31a9df8cf31e",
+      "scripts/configure-supabase.cjs": "0fe8dc1abc99b33a01d26a618d9a240ad8fa52d0af974bdf88ca7da3d1402cba",
+      "scripts/check-connection.cjs": "932537dc83223b3125018d21c991ca798f5f8177c2b1c74c04de91122ecc487e",
+      "scripts/build-worker.cjs": "14b35962ecafc1d793bb7000d6335e1103193552eb4bdcff7f12a7dd641a34cb",
+      "scripts/check-release.cjs": "52113fc2e2e6461dde3286078f290ad35b695747e201e735e49d3b254e76b4d4",
+      "scripts/check-environment.cjs": "5590c485861245b43eacf1f75d2a9fc8b999ea81a5081cc2b14c3f78a4b5021e",
+      "tests/runtime.cjs": "f34c1d3eb8bbdc0c945ba7da818893ec4fa8e5a7945cde1ed04fe1cdf59c6d60",
+      "package.json": "e933b0dee21e1d1ea0fb7bb04a0a37958880fc1da3543a4cdcb8cafeec442732"
+    },
+    "log": ".artifacts/runtime-connection-20261019/verify-local-final.log",
+    "logSha256": "ccbe4f9588d9d22a384b083c24a788066fd68bf4305bfb27e4807b85f2a4deeb"
+  },
+  "boundaries": {
+    "remoteDataOrSchemaWritten": false,
+    "externalDeploymentPerformed": false,
+    "productionTunnelDnsModified": false,
+    "sitesUsedForDeployment": false,
+    "browserToServerAutoMigration": false,
+    "existingLocalDataPreserved": true,
+    "defaultBackend": "sqlite"
+  },
+  "remaining": [
+    "explicit local account/settings migration or initial Supabase administrator setup",
+    "confirmed DNS transition and external login/business verification"
+  ],
+  "references": [
+    "https://supabase.com/docs/guides/getting-started/api-keys",
+    "https://docs.postgrest.org/en/stable/references/api/tables_views.html",
+    "https://docs.postgrest.org/en/stable/references/api/preferences.html",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/configuration-file/",
+    "https://developers.cloudflare.com/workers/configuration/secrets/"
+  ],
+  "keyRotationEvidence": "evidence/supabase-readonly-20261019.json"
+}

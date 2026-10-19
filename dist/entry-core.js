@@ -41,13 +41,13 @@
     if(from)date(from,'기간 시작');if(to)date(to,'기간 종료');if(from&&to&&from>to)throw Error('조회 기간을 확인하세요.');
     if(warehouse)enabled(db,'warehouses',warehouse);if(partner)enabled(db,'partners',partner);
     const view=stockDb(db,{excludeId});
-    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner)&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
+    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>l.supplier===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
       (mode==='copy'||C.nextTypes[d.type]?.includes(targetType)&&!(d.type==='purchasereturn'&&targetType==='exchangereceipt'&&d.settlementMode!=='exchange'))).map(d=>{
-      const lines=(mode==='linked'?C.remaining(view,d,targetType):d.lines).filter(l=>l.qty>0&&C.master(db,'items',l.item)&&!C.master(db,'items',l.item).disabled).map(l=>({
+      const lines=(mode==='linked'?C.remaining(view,d,targetType):d.lines).filter(l=>l.qty>0&&C.master(db,'items',l.item)&&!C.master(db,'items',l.item).disabled&&(!partner||!['request','plan'].includes(d.type)||(l.supplier||d.partner)===partner)&&(mode!=='linked'||d.type!=='plan'||targetType!=='purchaseorder'||C.purchasingLineState(d,l).progress!=='완료')).map(l=>({
         ...copy(l),key:d.id+'|'+(l.lineId||l.item),name:C.master(db,'items',l.item).name,originalQty:d.lines.find(x=>l.lineId?x.lineId===l.lineId:x.item===l.item).qty
       }));
-      const processingWarehouse=mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse;return {id:d.id,type:d.type,date:d.date,partner:d.partner||'',partnerName:C.master(db,'partners',d.partner)?.name||'',warehouse:processingWarehouse,warehouseName:C.master(db,'warehouses',processingWarehouse)?.name||'',memo:d.memo||'',lines};
-    }).filter(d=>d.lines.length&&textMatch([d.id,d.memo,d.partner,d.partnerName,...d.lines.flatMap(l=>[l.item,l.name])],query)).sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
+      const processingWarehouse=mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse,partnerCodes=[...new Set(['request','plan'].includes(d.type)?lines.map(l=>l.supplier||d.partner).filter(Boolean):[d.partner].filter(Boolean))],partnerNames=partnerCodes.map(code=>C.master(db,'partners',code)?.name||code);return {id:d.id,type:d.type,date:d.date,partner:d.partner||'',partnerName:partnerNames.join(', '),warehouse:processingWarehouse,warehouseName:C.master(db,'warehouses',processingWarehouse)?.name||'',memo:d.memo||'',lines};
+    }).filter(d=>d.lines.length&&textMatch([d.id,d.memo,d.partner,d.partnerName,...d.lines.flatMap(l=>[l.item,l.name,l.supplier||''])],query)).sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
   }
   function stockCandidates(db,options={}){
     const {warehouse,excludeId}=options,asOf=date(options.asOf||C.today());
@@ -135,10 +135,15 @@
     const view=stockDb(db,{excludeId:result.id}),incoming=selections.map(selection=>{
       const d=sources.get(selection.documentId),matches=d.lines.filter(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));if(matches.length>1)throw Error('동일 품목의 원본 라인을 선택하세요.');const line=matches[0];enabled(db,'items',selection.item);
       if(!line)throw Error('원본 전표에 없는 품목입니다.');
+      if(mode==='linked'&&d.type==='plan'&&result.type==='purchaseorder'){
+        if(C.purchasingLineState(d,line).progress==='완료')throw Error('완료된 발주계획 품목행은 발주서로 연결할 수 없습니다.');
+        if(line.supplier&&line.supplier!==result.partner)throw Error('발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.');
+      }
       const limit=mode==='linked'?C.remaining(view,d,result.type).find(l=>line.lineId?l.lineId===line.lineId:l.item===selection.item).qty:line.qty;
       const qty=amount(selection.qty===undefined?limit:selection.qty);
       if(mode==='linked'&&qty>limit+0.000001)throw Error('원본 전표의 잔량을 초과했습니다.');
       const row=copy(line);delete row.supply;delete row.tax;delete row.total;
+      if(result.type!=='plan')delete row.progress;
       if(mode==='linked'&&line.lineId)row.sourceLineId=line.lineId;else if(mode==='copy'){delete row.lineId;delete row.sourceLineId;delete row.planAllocations;}
       return {...row,qty,importedFrom:[{documentId:d.id,type:d.type,date:d.date,item:line.item,...(line.lineId?{sourceLineId:line.lineId}:{}),qty,mode}]};
     });
@@ -147,6 +152,7 @@
       const limits=new Map(C.remaining(view,source,result.type).map(l=>[l.lineId||l.item,l.qty]));
       for(const line of result.lines){const key=line.sourceLineId||line.item;if(!limits.has(key)||Number(line.qty)>limits.get(key)+0.000001)throw Error('원본 전표의 잔량을 초과하거나 원본에 없는 품목이 있습니다.');}
       result.sourceId=source.id;
+      C.validatePlanOrderRows(db,result,source);
     }
     return result;
   }
