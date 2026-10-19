@@ -1,6 +1,6 @@
 {
   "version": "0.46.3",
-  "status": "worker-receive-fix-ready-awaiting-deployment-and-original-smtp-retry",
+  "status": "outbound-delivered-receiver-fix-deployed-awaiting-original-smtp-retry",
   "baselineCommit": "6e367a0",
   "plan": "docs/plan-domain-webmail-20261019.md",
   "documentation": "docs/domain-webmail-0.46.0.md",
@@ -92,6 +92,12 @@
       "originalFailureReproduced": true,
       "fixedSuccessVerified": true,
       "redirectAndTemporaryFailureNotAcknowledged": true
+    },
+    "workerdActualCloudConnection": {
+      "passed": true,
+      "artifact": ".artifacts/domain-mail-20261019/workerd-cloud-connection.json",
+      "storesNoMessage": true,
+      "sendsSmtpEmail": false
     }
   },
   "originalComparison": {
@@ -120,7 +126,7 @@
     "paidPlanActivated": true,
     "termsAndWranglerActionConfirmationPending": false,
     "receiverWorkerName": "rea-mail-ingress",
-    "receiverWorkerVersion": "489f5d09-cf1c-45bc-91ba-8dd22999e2fa",
+    "receiverWorkerVersion": "c1f54ff0-bdfe-48f1-90bc-7259fba13385",
     "dedicatedIngressTokenRegistered": true,
     "domainSmtpAuthenticated": true,
     "wranglerOAuthConfigured": true,
@@ -181,14 +187,24 @@
       "messages": 1,
       "files": 1,
       "credentialsIncluded": false
+    },
+    "postActualSendBackup": {
+      "verified": true,
+      "boxes": 3,
+      "messages": 3,
+      "files": 1,
+      "restorePreviewConflicts": 0,
+      "restoreApplied": false,
+      "credentialsIncluded": false,
+      "artifact": ".artifacts/domain-mail-20261019/post-test-mail-backup.json"
     }
   },
   "preservation": {
     "privatePredeploymentBackupPrepared": true,
     "credentialsCopiedOnlyToPrivateBackup": true,
     "existingGmailKept": true,
-    "existingErpAppStateExactlyPreserved": true,
-    "appStateRevision": 9,
+    "existingErpAppStateExactlyPreserved": false,
+    "appStateRevision": 11,
     "existingGatewayStateExactlyPreserved": true,
     "gatewayStateRevision": 0,
     "runtimeConfigurationExactlyPreserved": false,
@@ -199,19 +215,37 @@
       "REA_MAIL_DOMAIN",
       "REA_CF_MAIL_TOKEN"
     ],
-    "allPreexistingAppAndGatewayStateExactlyPreservedAfterActivation": true
+    "allPreexistingAppAndGatewayStateExactlyPreservedAfterActivation": true,
+    "finalProtectedDataComparison": {
+      "existingUsersExceptLastLoginUnchanged": true,
+      "passwordHashesCompanySettingsRolesUnchanged": true,
+      "businessGatewayExactlyUnchanged": true,
+      "authOnlySectionsChanged": [
+        "users.lastLoginAt",
+        "sessions",
+        "attempts",
+        "audit",
+        "loginLogs"
+      ],
+      "appRevisionAfterRelogin": 11,
+      "gatewayRevision": 0
+    },
+    "finalPreservationArtifact": ".artifacts/domain-mail-20261019/final-preservation-check.json",
+    "appStateRevisionAtActivation": 9,
+    "authOnlyChangesAfterRelogin": true,
+    "existingAccountPasswordCompanySettingsRolesPreserved": true
   },
   "deployment": {
     "status": "deployed",
     "publicOrigin": "https://rea.qaredi.com",
     "backend": "supabase",
-    "sourceCommit": "2148428",
-    "publicVersionVerified": "0.46.2",
+    "sourceCommit": "5780f5f",
+    "publicVersionVerified": "0.46.3",
     "manualServerRestarted": true,
     "existingTunnelPreserved": true,
     "anonymousMailboxStatus": 401,
     "authenticatedMailUiVerified": true,
-    "existingLoginSessionMaintained": false,
+    "existingLoginSessionMaintained": true,
     "mailboxComposeVerified": true,
     "purchaseorderOwnMailboxBridgeVerified": true,
     "syntheticDraftSaved": true,
@@ -229,14 +263,15 @@
   },
   "actualExternalEmailSent": true,
   "actualExternalEmailReceived": false,
-  "sourceCommit": "2148428",
+  "sourceCommit": "5780f5f",
   "hostedScreenshots": [
     "Windows browser-handoff/domain-mail-live-0.46.0.png",
     "Windows browser-handoff/domain-mail-review-live-0.46.0.png",
     "Windows browser-handoff/domain-mail-live-0.46.1.png",
     "Windows browser-handoff/domain-mail-paid-confirmed.png",
     "Windows browser-handoff/domain-mail-sending-active.png",
-    "Windows browser-handoff/domain-mail-routing-active.png"
+    "Windows browser-handoff/domain-mail-routing-active.png",
+    "Windows browser-handoff/domain-mail-real-sent-0.46.3.png"
   ],
   "syntheticProductionData": {
     "externalMimeIngress": 1,
@@ -248,7 +283,7 @@
   },
   "managementPage": {
     "id": "page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 67,
+    "sequence": 68,
     "readbackVerified": true,
     "priorHistoryPreserved": true
   },
@@ -261,7 +296,10 @@
       "reaAccepted": true,
       "gmailInboxDelivered": true,
       "gmailTimestamp": "2026-10-19T09:58:32Z",
-      "evidence": ".artifacts/domain-mail-20261019/real-rea-to-gmail-test.json"
+      "evidence": ".artifacts/domain-mail-20261019/real-rea-to-gmail-test.json",
+      "dkimPass": true,
+      "spfPass": true,
+      "dmarcPass": true
     },
     "gmailToRea": {
       "sender": "pkdkak1@gmail.com",
@@ -272,7 +310,13 @@
       "rootCause": "Workers Request does not implement redirect:error",
       "fix": "manual, no redirect following, non-2xx not acknowledged",
       "awaitingOriginalProviderRetry": true,
-      "evidence": ".artifacts/domain-mail-20261019/real-gmail-to-rea-test.json"
+      "evidence": ".artifacts/domain-mail-20261019/real-gmail-to-rea-test.json",
+      "lastObservedFailedAttemptsUtc": [
+        "2026-10-19T09:54:29Z",
+        "2026-10-19T09:59:47Z"
+      ],
+      "workerFixedAtUtc": "2026-10-19T10:07:40Z",
+      "additionalTrialApprovalRequested": true
     }
   }
 }

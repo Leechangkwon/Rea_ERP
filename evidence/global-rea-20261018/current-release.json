@@ -1,6 +1,6 @@
 {
   "version": "0.46.3",
-  "status": "worker-receive-fix-ready-awaiting-deployment-and-original-smtp-retry",
+  "status": "outbound-delivered-receiver-fix-deployed-awaiting-original-smtp-retry",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -99,10 +99,10 @@
     "reference": "../domain-webmail-20261019.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "2148428",
-    "publicVersionVerified": "0.46.2",
+    "deployedSourceCommit": "5780f5f",
+    "publicVersionVerified": "0.46.3",
     "actualExistingAccountLoginVerified": true,
-    "lastExistingAccountLoginVerifiedVersion": "0.46.2",
+    "lastExistingAccountLoginVerifiedVersion": "0.46.3",
     "currentAuthenticatedUiBlock": null,
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
@@ -121,6 +121,8 @@
     "actualDomainMailSent": true,
     "actualDomainMailReceived": false,
     "actualDomainSmtpAuthenticationVerified": true,
-    "cloudflareWorkersPlan": "Paid"
+    "cloudflareWorkersPlan": "Paid",
+    "gmailInboxDeliveryVerified": true,
+    "gmailDkimSpfDmarcPass": true
   }
 }
