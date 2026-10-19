@@ -1,6 +1,6 @@
 {
   "version": "0.47.2",
-  "status": "compiled-routing-save-regression-passed-awaiting-deployment",
+  "status": "mailbox-renamed-auto-routing-verified-spam-investigation-pending",
   "plan": "docs/plan-mail-routing-20261019.md",
   "documentation": "docs/mail-routing-0.47.0.md",
   "contract": "global-rea-20261018/mail-routing/mail-contract.json",
@@ -67,7 +67,9 @@
     ],
     "nativeCloudflareRuntimeModuleTestedOutsideReaAllowlist": true,
     "narrowViewportRoutingStateVerified": true,
-    "actualCompiledWorkerRoutingSavePassed": true
+    "actualCompiledWorkerRoutingSavePassed": true,
+    "allConfiguredSecretsIncludingWranglerTokenExcluded": true,
+    "releaseSecretCheckArtifact": ".artifacts/mail-routing-20261019/release-private-value-check.json"
   },
   "preservation": {
     "privatePrechangeBackupVerified": true,
@@ -75,7 +77,22 @@
     "backupMessages": 6,
     "backupFiles": 1,
     "sameMailboxIdPlanned": true,
-    "actualComparisonPending": true
+    "actualComparisonPending": false,
+    "sameMailboxIdVerified": true,
+    "oldMessagesExactlyPreserved": 6,
+    "membersUnchanged": true,
+    "otherMailboxesUnchanged": true,
+    "preexistingRuntimeValuesPreserved": true,
+    "erpProtectedStatePreserved": true,
+    "gatewayExactlyPreserved": true,
+    "postchangeBackup": {
+      "verified": true,
+      "boxes": 3,
+      "messages": 6,
+      "files": 1,
+      "restorePreviewConflicts": 0,
+      "restoreApplied": false
+    }
   },
   "cloudflare": {
     "automaticScopedRoutingImplemented": true,
@@ -84,7 +101,12 @@
     "changesDns": false,
     "changesCatchAll": false,
     "deletesRules": false,
-    "productionSaveVerified": false
+    "productionSaveVerified": true,
+    "currentAddress": "pkdkak1@qaredi.com",
+    "sameRuleIdPreserved": true,
+    "ruleCount": 2,
+    "unrelatedAndCatchAllExactlyPreserved": true,
+    "hostedExplicitRetryVerified": true
   },
   "spamInvestigation": {
     "connectedGmail": "pkdkak1@gmail.com",
@@ -102,7 +124,9 @@
     "sources": [
       "https://support.google.com/mail/answer/81126",
       "https://developers.cloudflare.com/changelog/post/2025-12-18-wrangler-auth-token/"
-    ]
+    ],
+    "additionalNewAddressTestPermissionRequested": true,
+    "resolved": false
   },
   "originalComparison": {
     "original86BodyCorpusUnchanged": true,
@@ -115,5 +139,29 @@
     "securityErrors": 0,
     "serverOnlyRlsNoPolicyInfo": 5,
     "performanceFindings": 0
-  }
+  },
+  "sourceCommit": "305cde5",
+  "deployment": {
+    "status": "deployed",
+    "publicOrigin": "https://rea.qaredi.com",
+    "publicVersionVerified": "0.47.2",
+    "sourceCommit": "305cde5",
+    "existingLoginMaintained": true,
+    "hostedCurrentSettingsAndRoutingStateVerified": true,
+    "newAddressRealMailTestPending": true,
+    "publicLoginStatus": 200,
+    "anonymousMailApiStatus": 401,
+    "publicPrivateHealthStatus": 404,
+    "manualServer": true,
+    "autoStartAdded": false
+  },
+  "managementPage": {
+    "id": "page_61170ef3893c81919dd7d59c77385674",
+    "sequence": 70,
+    "readbackVerified": true,
+    "priorHistoryPreserved": true
+  },
+  "screenshots": [
+    "Windows browser-handoff/mail-routing-live-0.47.2.png"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "version": "0.47.2",
-  "status": "mail-routing-compiled-regression-passed-awaiting-deployment",
+  "status": "mailbox-renamed-auto-routing-verified-spam-investigation-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -102,10 +102,10 @@
     "reference": "../mail-routing-20261019.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "5780f5f",
-    "publicVersionVerified": "0.46.3",
+    "deployedSourceCommit": "305cde5",
+    "publicVersionVerified": "0.47.2",
     "actualExistingAccountLoginVerified": true,
-    "lastExistingAccountLoginVerifiedVersion": "0.46.3",
+    "lastExistingAccountLoginVerifiedVersion": "0.47.2",
     "currentAuthenticatedUiBlock": null,
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
@@ -130,6 +130,13 @@
     "actualBidirectionalMailVerified": true,
     "hostedActualInboxBodyAndReadVerified": true,
     "originalGmailProviderRetrySucceeded": true,
-    "additionalGmailTrialApprovedAndReceived": true
+    "additionalGmailTrialApprovedAndReceived": true,
+    "configuredMailboxAddress": "pkdkak1@qaredi.com",
+    "cloudflareAutomaticRoutingVerified": true,
+    "mailboxHistoricalMessagesPreserved": 6,
+    "previousActualBidirectionalMailVerifiedVersion": "0.46.3",
+    "previousActualBidirectionalAddress": "purchase@qaredi.com",
+    "currentAddressBidirectionalMailVerified": false,
+    "spamClassificationResolved": false
   }
 }
