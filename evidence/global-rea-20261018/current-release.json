@@ -1,6 +1,6 @@
 {
   "version": "0.49.0",
-  "status": "purchasing-multiselect-sort-local-verified-pending-deployment",
+  "status": "purchasing-multiselect-sort-deployed-awaiting-relogin",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -105,14 +105,14 @@
   "future_research": "Observed four list reference search structures; multi picker implemented with original public apply limits. Request/purchase modified sorting uses explicit own recent-first policy; original server direction/ties/OR semantics, transaction/management fields, print/tax/status/approval/server and full equivalence remain unverified.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
-    "reference": "../purchasing-search-state-20261019.json",
+    "reference": "../purchasing-multiselect-sort-20261020.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "46b9766",
-    "publicVersionVerified": "0.48.0",
+    "deployedSourceCommit": "1893acd",
+    "publicVersionVerified": "0.49.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.48.0",
-    "currentAuthenticatedUiBlock": null,
+    "currentAuthenticatedUiBlock": "Existing session expired on refreshed 0.49.0; awaiting user relogin",
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
     "actualGmailEmailSent": true,
@@ -154,9 +154,12 @@
     "currentAddressTrialReplyToMatchesSender": true,
     "currentAddressTrialWasReply": true,
     "existingAccountReloginVerifiedAfterFinalTrial": true,
-    "currentPurchasingListSearchLocalVerifiedVersion": "0.48.0",
+    "currentPurchasingListSearchLocalVerifiedVersion": "0.49.0",
     "currentPurchasingListSearchHostedVerified": true,
     "currentPurchasingListSearchHostedVerifiedVersion": "0.48.0",
-    "currentPurchasingListSearchHostWritesPerformed": false
+    "currentPurchasingListSearchHostWritesPerformed": false,
+    "purchasingMultiPickerHostedVerified": false,
+    "purchasingModifiedSortHostedVerified": false,
+    "browserInventoryExactPostComparisonPending": true
   }
 }
