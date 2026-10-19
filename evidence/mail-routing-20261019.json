@@ -1,6 +1,6 @@
 {
   "version": "0.47.2",
-  "status": "mailbox-renamed-auto-routing-verified-spam-investigation-pending",
+  "status": "mailbox-renamed-auto-routing-and-new-address-incoming-verified-outbound-login-pending",
   "plan": "docs/plan-mail-routing-20261019.md",
   "documentation": "docs/mail-routing-0.47.0.md",
   "contract": "global-rea-20261018/mail-routing/mail-contract.json",
@@ -92,6 +92,14 @@
       "files": 1,
       "restorePreviewConflicts": 0,
       "restoreApplied": false
+    },
+    "latestIncomingBackup": {
+      "verified": true,
+      "boxes": 3,
+      "messages": 7,
+      "files": 1,
+      "restorePreviewConflicts": 0,
+      "restoreApplied": false
     }
   },
   "cloudflare": {
@@ -119,14 +127,32 @@
     "ptrAndForwardDnsMatch": true,
     "replyToMatchesSenderImplemented": true,
     "spamCauseEstablished": false,
-    "requestedReportedSpamMessageContext": true,
+    "requestedReportedSpamMessageContext": false,
     "inboxDeliveryGuarantee": false,
     "sources": [
       "https://support.google.com/mail/answer/81126",
       "https://developers.cloudflare.com/changelog/post/2025-12-18-wrangler-auth-token/"
     ],
-    "additionalNewAddressTestPermissionRequested": true,
-    "resolved": false
+    "additionalNewAddressTestPermissionRequested": false,
+    "resolved": false,
+    "reportedMessage": {
+      "subject": "test",
+      "recipient": "pkdkak1@gmail.com",
+      "gmailMessageId": "1a153c742358b89f",
+      "initialClassification": "SPAM per user report",
+      "userMovedToNotSpam": true,
+      "currentLabels": [
+        "CATEGORY_PERSONAL",
+        "INBOX"
+      ],
+      "initialInboxDeliveryVerified": false,
+      "spfPass": true,
+      "dkimPass": true,
+      "dmarcPass": true
+    },
+    "newAddressTestsApprovedEachDirection": 1,
+    "noGmailFilterOrMessageMovementPerformed": true,
+    "currentLabelsDoNotProveInitialClassification": true
   },
   "originalComparison": {
     "original86BodyCorpusUnchanged": true,
@@ -153,15 +179,35 @@
     "anonymousMailApiStatus": 401,
     "publicPrivateHealthStatus": 404,
     "manualServer": true,
-    "autoStartAdded": false
+    "autoStartAdded": false,
+    "currentAuthenticatedUiBlock": "Session expired during final send check; existing account login requested"
   },
   "managementPage": {
     "id": "page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 70,
+    "sequence": 71,
     "readbackVerified": true,
     "priorHistoryPreserved": true
   },
   "screenshots": [
     "Windows browser-handoff/mail-routing-live-0.47.2.png"
-  ]
+  ],
+  "actualNewAddressMail": {
+    "subject": "REA 회사 메일 주소 변경 확인",
+    "attachmentCount": 0,
+    "gmailToRea": {
+      "accepted": true,
+      "gmailSentVerified": true,
+      "gmailMessageId": "1a1541263a288d43",
+      "reaMessageId": "7a562e51-912a-40d6-ab4b-f4a61c6384cb",
+      "recipient": "pkdkak1@qaredi.com",
+      "storedFolder": "inbox",
+      "artifact": ".artifacts/mail-routing-20261019/actual-gmail-to-rea.json",
+      "storedAt": "2026-10-19T12:10:57.989Z",
+      "hostedAuthenticatedUiVerified": false
+    },
+    "reaToGmail": {
+      "sent": false,
+      "pending": "existing account UI session expired; login tab opened"
+    }
+  }
 }

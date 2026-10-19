@@ -6,7 +6,7 @@
 
 기능67c50fd, 좁은 화면 보완840d2b3, 실행 번들 의존성 보완305cde5를 업로드 후 기존 수동 서버에0.47.2를 반영했다. 최종 전체 verify:local·관련 Node66·브라우저20(390px 포함)·릴리스4·REA 자체3파일 검증을 통과했다. 실제 컴파일 Worker의 메일함 저장 회귀도 포함한다. Supabase route_sync 열과 서버 전용 인증을 적용했고 RLS·계정/비밀번호/회사/설정/업무자료/기존 설정값은 보존했다. 최종 비공개 백업3함/6메시지/1파일의 무결성·복원 미리보기0충돌을 확인했으며 복원은 실행하지 않았다.
 
-새 주소의 외부 시험 각1통은 추가 발송 확인을 요청했다. Gmail 스팸 원인은 확정하지 못했다. 현재 연결 계정에서 qaredi.com SPAM0건, 확인2통INBOX이며 SPF/DKIM/DMARC·PTR/정방향DNS는 정상이다. 발신 이름/Reply-To 일치를 보완했고 신고 메일의 제목/수신주소/이동 여부를 기다린다. 실제 새 주소 수신함 분류나 스팸 해제를 완료로 기록하지 않는다. 상세는 docs/mail-routing-0.47.0.md·docs/plan-mail-routing-20261019.md·evidence/mail-routing-20261019.json을 따른다.
+새 주소 시험 각1통을 사용자가 승인했다. Gmail→pkdkak1@qaredi.com1통은21:10:57 KST REA 받은편지함에 저장됐고 Gmail SENT·첨부0을 확인했다. 새 수신 포함 비공개 백업3함/7메시지/1파일·복원 미리보기0충돌, 기존메일6건 동일성을 재확인했다. 회사→Gmail1통은 최종 확인 중 ERP 세션이 만료되어 재로그인 대기이며 아직 발송하지 않았다. 사용자는 신고한 test 메일이 처음 스팸함에 있었고 직접 스팸 아님으로 옮겼다고 확인했다. 현재 INBOX는 최초 분류의 증거가 아니다. SPF/DKIM/DMARC·PTR/정방향DNS는 정상이나 원인/해제는 미확정이다. 상세는 docs/mail-routing-0.47.0.md·docs/plan-mail-routing-20261019.md·evidence/mail-routing-20261019.json을 따른다.
 
 ## 현재 운영 · 0.46.3 (2026-10-19)
 

@@ -16,10 +16,10 @@ Self-Customizing → 기타관리시스템 → Webmail설정 → REA 메일함 �
 
 ## Gmail 스팸 분류
 
-현재 연결 계정의 qaredi.com 메일2통은 INBOX이며 SPAM 검색0건이다. 최근 test 메일의 SPF/DKIM/DMARC와 발신 IP의 정방향/역방향 DNS가 정상이다. 새 주소의 표시 이름과 Reply-To를 발신 주소에 맞춘다. 인증 통과만으로 Gmail 받은편지함 분류를 보장하지 않으며 Google은 발신 IP/도메인 평판 등도 고려한다. 사용자가 본 스팸 메일의 제목/수신 주소/이동 여부를 별도 확인 중이고 원인을 단정하지 않는다. Gmail 필터/허용목록을 자동 추가하거나 기존 편지를 이동하지 않았다.
+사용자가 신고한 메일은 pkdkak1@gmail.com으로 받은 test이며, 처음 SPAM에 있다가 직접 스팸 아님으로 옮겼다고 확인했다. 현재 INBOX 표시는 최초 분류의 근거가 아니다. 해당 메일의 SPF/DKIM/DMARC와 발신 IP의 정방향/역방향 DNS는 정상이다. 새 주소의 표시 이름과 Reply-To를 발신 주소에 맞췄다. 인증 통과만으로 Gmail 받은편지함 분류를 보장하지 않으며 Google은 발신 IP/도메인 평판 등도 고려한다. 이 메일의 분류 원인은 미확정이다. Gmail 필터/허용목록을 자동 추가하거나 기존 편지를 이동하지 않았다.
 
 공식 근거: https://support.google.com/mail/answer/81126 · https://developers.cloudflare.com/api/resources/email_routing/subresources/rules/ · https://developers.cloudflare.com/changelog/post/2025-12-18-wrangler-auth-token/
 
 ## 운영 확인
 
-최종0.47.2/305cde5에서 pkdkak1@qaredi.com 변경 저장·자동 수신 규칙 갱신과 수신 연결 다시 시도를 확인했다. CF 규칙ID와 기존 메일함ID를 유지했으며 기존메일6건·첨부·구성원과 다른메일함/규칙·전체수신 설정은 그대로다. 같은 세션의 새로고침 뒤에도 주소/연결됨을 확인했고 비공개 백업3함/6메시지/1파일과 복원 미리보기0충돌을 검증했다. 새 주소의 외부 시험 각1통은 추가 발송 확인 대기이며 스팸 신고 메일의 원인은 미확정이다.
+최종0.47.2/305cde5에서 pkdkak1@qaredi.com 변경 저장·자동 수신 규칙 갱신과 수신 연결 다시 시도를 확인했다. CF 규칙ID와 기존 메일함ID를 유지했으며 기존메일6건·첨부·구성원과 다른메일함/규칙·전체수신 설정은 그대로다. 같은 세션의 새로고침 뒤에도 주소/연결됨을 확인했고 비공개 백업3함/6메시지/1파일과 복원 미리보기0충돌을 검증했다. 사용자가 새 주소 시험 각1통을 승인했다. Gmail→새 주소1통은21:10:57 KST REA inbox에 도착했고 Gmail SENT·첨부0을 확인했다. 기존메일6건을 다시 비교했고 새 수신 포함 백업3함/7메시지/1파일·복원미리보기0충돌을 확인했다. 회사→Gmail1통은 ERP 세션 만료로 재로그인 대기이며 아직 보내지 않았다. 새 주소의 Gmail 도착 분류도 미검증이다.
