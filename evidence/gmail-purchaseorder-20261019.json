@@ -1,7 +1,7 @@
 {
   "version": "0.45.0",
-  "recordedAt": "2026-10-19T07:25:07.190301+00:00",
-  "status": "local-validated-gmail-authentication-pending",
+  "recordedAt": "2026-10-19T07:33:47.749556+00:00",
+  "status": "deployed-authentication-and-user-login-pending",
   "baselineCommit": "f7e722f",
   "plan": "docs/plan-gmail-purchaseorder-20261019.md",
   "contract": "global-rea-20261018/gmail-purchaseorder/mail-contract.json",
@@ -144,10 +144,48 @@
     "realGmailSmtpAuthenticationVerified": false,
     "localHiddenInputWindowPrepared": true,
     "googleCredentialCreationUserHandoff": true,
-    "actualEmailSent": false
+    "actualEmailSent": false,
+    "senderAccountConfirmedByUser": true
   },
   "deployment": {
-    "status": "pending",
-    "previousRuntimeVersion": "0.44.1"
+    "status": "active",
+    "version": "0.45.0",
+    "sourceCommit": "a2b8256",
+    "publicOrigin": "https://rea.qaredi.com",
+    "backend": "supabase",
+    "tunnel": "rea-erp-local",
+    "publicChecks": {
+      "loginStatus": 200,
+      "version0450": true,
+      "anonymousMailStatus": 401,
+      "backend": "supabase",
+      "gmailConfigured": false
+    },
+    "hostedGmailComposerUiVerified": false,
+    "authenticatedUiBlock": "existing ERP session expired; dedicated login tab handed to user",
+    "actualEmailSent": false
+  },
+  "preservation": {
+    "app_state": {
+      "revisionUnchanged": true,
+      "bodyUnchanged": true
+    },
+    "gateway_state": {
+      "revisionUnchanged": true,
+      "bodyUnchanged": true
+    },
+    "protected": {
+      "accountIdentityAndPasswordHashes": true,
+      "company": true,
+      "settings": true,
+      "roles": true
+    },
+    "newMailRecords": 0
+  },
+  "managementPage": {
+    "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
+    "sequence": 62,
+    "readbackVerified": true,
+    "historyPreserved": true
   }
 }
