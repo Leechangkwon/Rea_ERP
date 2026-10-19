@@ -1,7 +1,7 @@
 {
   "version": "0.45.0",
-  "recordedAt": "2026-10-19T07:33:47.749556+00:00",
-  "status": "deployed-authentication-and-user-login-pending",
+  "recordedAt": "2026-10-19T16:53:45.414559+09:00",
+  "status": "deployed-hosted-composer-verified-gmail-credentials-pending",
   "baselineCommit": "f7e722f",
   "plan": "docs/plan-gmail-purchaseorder-20261019.md",
   "contract": "global-rea-20261018/gmail-purchaseorder/mail-contract.json",
@@ -51,6 +51,22 @@
       "exitCode": 0,
       "log": ".artifacts/gmail-purchaseorder-20261019/pdf-flow-regression.log",
       "sha256": "b0f71d4a079be99f774b495a6ace834e892871fa25ebaeee4455e99a9d67a12f"
+    },
+    "hostedBrowser": {
+      "reference": ".artifacts/gmail-purchaseorder-20261019/hosted-ui-check.json",
+      "existingAuthenticatedAccountVisible": true,
+      "hostedComposerOpened": true,
+      "attachmentListed": true,
+      "pdfDownload": {
+        "downloaded": true,
+        "bytes": 37818,
+        "sha256": "22cd3ee5821137c02f01aeeeecd291fc3a15e70267ef810021a68df74fc4cb07",
+        "pdfSignature": true
+      },
+      "sendReviewDisabledBeforeSetup": true,
+      "actualEmailSent": false,
+      "documentSavedOrChanged": false,
+      "composerClosedAndSelectionCleared": true
     }
   },
   "REA": {
@@ -145,7 +161,8 @@
     "localHiddenInputWindowPrepared": true,
     "googleCredentialCreationUserHandoff": true,
     "actualEmailSent": false,
-    "senderAccountConfirmedByUser": true
+    "senderAccountConfirmedByUser": true,
+    "googleIdentityVerificationCompleted": true
   },
   "deployment": {
     "status": "active",
@@ -161,8 +178,8 @@
       "backend": "supabase",
       "gmailConfigured": false
     },
-    "hostedGmailComposerUiVerified": false,
-    "authenticatedUiBlock": "existing ERP session expired; dedicated login tab handed to user",
+    "hostedGmailComposerUiVerified": true,
+    "authenticatedUiBlock": null,
     "actualEmailSent": false
   },
   "preservation": {
@@ -184,7 +201,7 @@
   },
   "managementPage": {
     "url": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
-    "sequence": 62,
+    "sequence": 63,
     "readbackVerified": true,
     "historyPreserved": true
   }
