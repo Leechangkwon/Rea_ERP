@@ -1030,10 +1030,13 @@
         "1단계는 직전 소모 BOM",
         "거래처·단가 조정 후 저장"
       ],
-      "status": "requirements-confirmed",
+      "status": "local-passed",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "implementationEvidence": [
+        "evidence/manual-bom-20261021.json"
+      ]
     },
     {
       "id": "REQ-PUR-REQ-003",

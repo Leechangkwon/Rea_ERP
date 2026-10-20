@@ -420,8 +420,9 @@
     const record=master(db,'items',item);
     return db.settings.priceOrder[0]==='특별단가'&&special?special.price:I&&record?I.netPrice(record,buy,vatRate):Number(record?.[buy?'buyPrice':'sellPrice']||0);
   }
-  function requirements(db,product,qty,warehouse){
-    const result=new Map();const walk=(code,amount,path)=>{if(path.includes(code))throw Error('BOM 순환 참조');const bs=db.bom.filter(b=>b.product===code);if(!bs.length){result.set(code,(result.get(code)||0)+amount);return;}for(const b of bs)walk(b.material,amount*b.qty*(1+b.loss/100),[...path,code]);};walk(product,num(qty,'생산수량',.000001),[]);
+  function requirements(db,product,qty,warehouse,{bomDepth='all'}={}){
+    if(!['all','first'].includes(bomDepth))throw Error('BOM구분을 확인하세요.');
+    const result=new Map();const walk=(code,amount,path)=>{if(path.includes(code))throw Error('BOM 순환 참조');const bs=db.bom.filter(b=>b.product===code);if(!bs.length||bomDepth==='first'&&path.length===1){result.set(code,(result.get(code)||0)+amount);return;}for(const b of bs)walk(b.material,amount*b.qty*(1+b.loss/100),[...path,code]);};walk(product,num(qty,'생산수량',.000001),[]);
     return [...result].map(([item,required])=>({item,required:quantity(required),stock:stock(db,item,warehouse),shortage:quantity(Math.max(0,required-stock(db,item,warehouse)))}));
   }
   function report(db,config,filter={}){

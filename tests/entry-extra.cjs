@@ -155,3 +155,29 @@ test('profit UI shows cost and applies a chosen margin only after a reviewed pre
 test('permission revocation and Escape guard all draft-changing helper dialogs',()=>{
   for(const method of ['openMyItems','openVoucherBarcode','openAmount','openRequirements','openProfit']){const f=environment();try{const before=f.getDraft();f.open(method);f.revoke();f.dialog().dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'F8',bubbles:true,cancelable:true}));assert.equal(f.applied.length,0);f.dialog().dispatchEvent(new f.w.KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));assert.equal(f.dialog(),null);assert.equal(f.d.getElementById('parent').open,true);assert.deepEqual(f.getDraft(),before);}finally{f.dom.window.close();}}
 });
+
+function depthFixture(){const d=C.seed();d.documents=[];d.opening=[];d.bom=[{product:'P001',material:'P002',qty:2,loss:0},{product:'P001',material:'M001',qty:3,loss:0},{product:'P002',material:'S001',qty:4,loss:0}];return d;}
+test('BOM depth distinguishes direct semi-finished inputs from terminal materials and preserves default calculation',()=>{
+ const db=depthFixture(),before=JSON.stringify(db),draft={...baseDraft(),type:'request'},products=[{item:'P001',qty:5}];
+ assert.deepEqual(X.requirementRows(db,draft,products).map(r=>[r.item,r.required]),[['S001',40],['M001',15]]);
+ assert.deepEqual(X.requirementRows(db,draft,products,{bomDepth:'first'}).map(r=>[r.item,r.required]),[['P002',10],['M001',15]]);
+ assert.deepEqual(C.requirements(db,'P001',5,'W001'),C.requirements(db,'P001',5,'W001',{bomDepth:'all'}));assert.equal(JSON.stringify(db),before);
+});
+test('one-level needs combine shared materials before stock, include direct losses and validate mode and active components',()=>{
+ const db=depthFixture(),draft={...baseDraft(),type:'request'};db.bom.push({product:'P002',material:'M001',qty:2,loss:10});db.opening=[{item:'M001',warehouse:'W001',qty:4}];const products=[{item:'P001',qty:2},{item:'P002',qty:3}],rows=X.requirementRows(db,draft,products,{bomDepth:'first'});const m=rows.find(r=>r.item==='M001');assert.equal(m.required,12.6);assert.equal(m.shortage,8.6);
+ assert.throws(()=>X.requirementRows(db,draft,products,{bomDepth:'unknown'}),/BOM구분/);assert.throws(()=>C.requirements(db,'P001',2,'W001',{bomDepth:'unknown'}),/BOM구분/);db.masters.items.find(r=>r.code==='P002').disabled=true;assert.throws(()=>X.requirementRows(db,draft,[products[0]],{bomDepth:'first'}),/사용 중/);db.masters.items.find(r=>r.code==='P002').disabled=false;db.bom=[{product:'P001',material:'P001',qty:1,loss:0}];assert.throws(()=>X.requirementRows(db,draft,[products[0]],{bomDepth:'first'}),/순환/);
+});
+test('staged first-level request records its depth and persists without changing original data, forms or stock',()=>{
+ const db=depthFixture(),before=JSON.stringify(db),draft={...baseDraft(),type:'request',lines:[]},staged=X.stageRequirements(db,draft,[{item:'P001',qty:5}],{replace:true,bomDepth:'first'});assert.deepEqual(staged.lines.map(l=>[l.item,l.qty]),[['P002',10],['M001',15]]);assert.equal(staged.lines[0].importedFrom[0].bomDepth,'first');const saved=C.command(db,'document',staged).db,roundtrip=C.validateBackup(JSON.parse(JSON.stringify(saved)));assert.deepEqual(roundtrip.documents.at(-1).lines.map(l=>[l.item,l.qty]),[['P002',10],['M001',15]]);assert.deepEqual(roundtrip.settings,db.settings);assert.deepEqual(C.movements(roundtrip),C.movements(db));assert.equal(JSON.stringify(db),before);
+});
+test('request BOM depth change invalidates preview, cancellation preserves draft and first-level apply follows revalidation',()=>{
+ const f=environment({database:depthFixture(),draft:{...baseDraft(),type:'request'}});try{const original=f.getDraft(),database=JSON.stringify(f.options.db);f.open('openRequirements');assert.equal(f.control('BOM구분').value,'all');f.change('생산 제품','P001');f.change('생산할 수량',5);f.click('제품 추가');f.click('계산(F8)');assert.match(f.dialog().textContent,/S001/);f.change('BOM구분','first');f.click('소요량 적용');assert.equal(f.applied.length,0);assert.match(f.dialog().querySelector('[role=alert]').textContent,/계산/);f.click('계산(F8)');assert.match(f.dialog().textContent,/P002/);f.w.confirm=()=>false;f.click('소요량 적용');assert.deepEqual(f.getDraft(),original);f.w.confirm=()=>true;f.click('소요량 적용');assert.deepEqual(f.getDraft().lines.map(l=>[l.item,l.qty]),[['P002',10],['M001',15]]);assert.equal(JSON.stringify(f.options.db),database);}finally{f.w.close();}
+});
+test('BOM first-level preview rejects changed database and non-request helper retains its existing controls',()=>{
+ const f=environment({database:depthFixture(),draft:{...baseDraft(),type:'request'}});try{f.open('openRequirements');f.change('생산 제품','P001');f.click('제품 추가');f.change('BOM구분','first');f.click('계산(F8)');f.options.db.bom[0].qty=3;f.click('소요량 적용');assert.equal(f.applied.length,0);assert.match(f.dialog().querySelector('[role=alert]').textContent,/바뀌었습니다/);}finally{f.w.close();}
+ const g=environment();try{g.open('openRequirements');assert.equal(g.dialog().querySelector('[aria-label="BOM구분"]'),null);}finally{g.w.close();}
+});
+
+test('appending BOM needs keeps prior line metadata and records the added depth provenance',()=>{
+ const db=depthFixture(),draft={...baseDraft(),type:'request'},before=JSON.stringify(draft),out=X.stageRequirements(db,draft,[{item:'P001',qty:5}],{bomDepth:'first'}),line=out.lines.find(l=>l.item==='M001');assert.equal(line.qty,17);assert.equal(line.memo,'행 메모');assert.deepEqual(line.planAllocations,draft.lines[0].planAllocations);assert.equal(line.importedFrom[0].bomDepth,'first');assert.equal(line.importedFrom[0].qty,15);assert.equal(JSON.stringify(draft),before);
+});
