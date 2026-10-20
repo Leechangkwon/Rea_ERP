@@ -83,3 +83,13 @@
 
 /* Purchasing search references keep the existing single selector and add staged multi selection. */
 .reference-picker-actions{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:4px}.reference-picker-actions button{font-size:12px;padding:3px 7px}.reference-picker-chips{display:flex;flex-wrap:wrap;gap:4px;max-width:100%}.reference-picker-chips button{max-width:100%;overflow-wrap:anywhere;background:#eef5ff;color:#174773}.reference-picker-dialog{width:min(760px,calc(100vw - 24px));max-height:90vh}.reference-picker-dialog .inv-modal-body{max-height:82vh;overflow:auto}.reference-picker-results{overflow:auto;max-height:50vh}.reference-picker-results th{position:sticky;top:0;background:#edf2f7}.reference-picker-results td{overflow-wrap:anywhere}.reference-picker-results input[type=checkbox]{width:18px;height:18px}.reference-picker-dialog input[type=search]{max-width:100%}
+
+.vat-adjusted-row > td { background:#fff2c6; }
+.vat-review-dialog { width:min(560px,calc(100vw - 40px)); max-height:calc(100vh - 40px); overflow:auto; box-sizing:border-box; border:1px solid #c8d3e3; border-radius:10px; padding:20px; color:#20304b; }
+.vat-review-dialog::backdrop { background:#12243c66; }
+.vat-review-dialog h2 { margin-top:0; font-size:19px; }
+.vat-review-dialog table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.vat-review-dialog th,.vat-review-dialog td { padding:8px 5px; border-bottom:1px solid #dce3ed; text-align:right; }
+.vat-review-dialog th:first-child,.vat-review-dialog td:first-child { text-align:left; }
+.vat-review-dialog button { padding:8px 18px; border:1px solid #bcc9da; border-radius:5px; background:#f5f7fb; cursor:pointer; }
+.vat-review-dialog button.primary { background:#174a91; color:white; }

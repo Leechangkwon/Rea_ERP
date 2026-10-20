@@ -117,6 +117,14 @@
     }
     delete value.vatConfirmation;return value;
   }
+  // Review is read-only. Its candidate is for display; only an explicit UI confirmation may be submitted.
+  function review(doc,previous){
+    const value=JSON.parse(JSON.stringify(doc)),prior=previous&&mode(previous)==='transaction';
+    if(value.vatCalculation===undefined&&prior)value.vatCalculation='transaction';
+    const target=mode(value),expected=confirmation(value,target),candidate=forSave({...value,vatConfirmation:expected},previous);
+    const unchanged=prior&&target==='transaction'&&canonical(candidate.vatAdjustment)===canonical(previous.vatAdjustment);
+    return {confirmation:expected,candidate,required:target==='transaction'?expected.preview.hasDifference&&!unchanged:Boolean(prior),adjusted:target==='transaction'&&expected.preview.hasDifference,lastIndex:expected.preview.lastIndex};
+  }
   function documentLines(doc){
     if(Object.hasOwn(doc,'vatConfirmation'))throw Error('임시 부가세 확인 자료는 저장 자료에 포함할 수 없습니다.');
     if(mode(doc)!=='transaction'){
@@ -131,5 +139,5 @@
     if(canonical(withoutCodes(before))!==canonical(withoutCodes(after)))throw Error('품목코드 변경 중 부가세 금액 기준이 바뀌었습니다.');
     return evidence(next);
   }
-  const api={preview,verify,mode,confirmation,stored,forSave,documentLines,renamedItems};if(typeof module==='object'&&module.exports)module.exports=api;else root.TransactionVatCore=api;
+  const api={preview,verify,mode,confirmation,stored,forSave,review,documentLines,renamedItems};if(typeof module==='object'&&module.exports)module.exports=api;else root.TransactionVatCore=api;
 })(typeof window!=='undefined'?window:globalThis);
