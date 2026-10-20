@@ -1167,14 +1167,15 @@
         "저장 전 차액 확인 후 세율별 마지막 행 반영 및 음영",
         "기본설정은 라인별"
       ],
-      "status": "storage-output-contract-local-only",
+      "status": "editor-confirmation-local-only",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "calculationImplemented": true,
       "storageIntegrated": true,
-      "uiIntegrated": false,
-      "evidence": "evidence/manual-transaction-vat-storage-20261021.json"
+      "uiIntegrated": true,
+      "evidence": "evidence/manual-transaction-vat-ui-20261021.json",
+      "settingsIntegrated": false
     }
   ]
 }
