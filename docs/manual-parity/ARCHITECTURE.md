@@ -149,3 +149,9 @@ InventoryCore의 유효금액을 사용자 수식·합계·반품·구매실·�
 TransactionVatCore.review는 표시 후보와 확인 필요 여부를 순수하게 만든다. 표시 후보를 승인된 저장 요청으로 사용하지 않는다. TransactionVatUI는 확인 직전에 권한·편집 화면·저장본과 전체 입력을 다시 대조한 후에만 vatConfirmation을 붙인다. 취소/Escape/이동은 저장하지 않는다. 기존 조정의 금액 기준이 유지되면 즉시 유효금액과 마지막행 음영을 표시하고, 입력이 달라지면 확정된 표시를 제거해 저장 전 검토를 요구한다. 빈 행을 제외한 금액행과 화면행을 매핑한다.
 
 브라우저 저장은 dbSourceRaw를 읽은 DB와 함께 관리하고 commit/발주계획 생성에서 외부 변경을 감지한다. ‘최신 전표 다시 읽기’는 저장 JSON을 다시 검증해 해당 전표뿐 아니라 다른 자료의 외부 변경을 보존한다. 이는 localStorage 저장 직전 검증이며 동시 쓰기 전체의 원자성/서버 CAS를 보장하지 않는다. 설정 기본값 및 모드 선택은 후속 단계이고 기존 전표 자동 이관은 없다. 근거: evidence/manual-transaction-vat-ui-20261021.json. 이 추가 본문의 모아 게시·재조회는 대기다.
+
+### 선택적 계산모드 설정 계약 · 94a569e (운영 미반영)
+
+회사 설정의 documentVat 규칙은 네 구매 유형별 default/line/transaction을 저장한다. 원본 bizz 속성 vat_calculate_setup의 line/transaction·기본line이라는 정적 근거를 자체 스키마에 대응했으며 동적 예외조건은 포함하지 않는다. 기존 config.write/CSRF/revision CAS 경로로 저장하고 publicContext와 SelfUI 재조회에서 AuthUI에 전달한다. 옛 상태를 읽을 때 새 키를 영속화하지 않는다.
+
+새 빈 입력을 최초 생성할 때만 모드를 스냅샷으로 적용한다. 기존 전표·보관 초안·현재 편집·임시 변환은 자동 재적용하지 않는다. 설정 선택 UI 및 계획생성/변환 적용 계약은 남았다. 원본 정적 SetVatReCalcSvc에 맞춰 실제 변경된 공급/세액 셀만 #f6d7d7·굵게 표시한다. 설정 통합24검사/VAT61/브라우저33 및 원본7·자체7 REA 근거는 evidence/manual-transaction-vat-settings-20261021.json이다. 모아 갱신·재조회와 운영 반영은 대기다.

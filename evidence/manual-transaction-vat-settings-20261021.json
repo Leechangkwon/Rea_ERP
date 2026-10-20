@@ -1,0 +1,193 @@
+{
+  "requirement": "REQ-COM-TAX-001",
+  "date": "2026-10-21",
+  "status": "settings-contract-local-only",
+  "sourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
+  "pushedToOriginMain": true,
+  "previousEvidence": "evidence/manual-transaction-vat-ui-20261021.json",
+  "operatingVersion": "0.53.0",
+  "manual": {
+    "id": "EC-HELP-REQUEST-001",
+    "bodySha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0",
+    "bodyReviewed": true,
+    "settingUiObserved": false
+  },
+  "originalStatic": {
+    "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.75a19601.js",
+    "sourceSha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+    "sourceExecuted": false,
+    "basicFieldMappingVerified": true,
+    "field": "vat_calculate_setup",
+    "attributeOwner": "bizz",
+    "resolvedValues": [
+      "line",
+      "transaction"
+    ],
+    "fallback": "line",
+    "resolver": "BrowserAttributeFlowAdapter.executeScriptAsync",
+    "findings": [
+      "transaction setting executes difference check before update; cancellation stops continuation",
+      "rows without product ignored; groups split by resolved VAT rate",
+      "last row identified using stable record ID",
+      "nonzero changed amount cells receive #f6d7d7 fill and bold font",
+      "explicit CalculateVatBySlip action can request transaction calculation independently of attribute"
+    ],
+    "limits": [
+      "conditional attribute evaluation and settings editor unobserved",
+      "original service runtime dispatch and save server not verified",
+      "mixed-rate and foreign-currency behavior not implemented by own header-only KRW contract"
+    ]
+  },
+  "implementation": {
+    "files": [
+      {
+        "file": "dist/self-core.js",
+        "sha256": "e02f0ec755ff49ef93b9f7e810016a4a4981737b1273fa2f0ac1f32f6db7d86a"
+      },
+      {
+        "file": "dist/self-ui.js",
+        "sha256": "ee18774f7992fe3b44996c7336b3056e0372f0959e4f3a6788fd71d4f85d1bd6"
+      },
+      {
+        "file": "worker/app-service.cjs",
+        "sha256": "4325c12557d5ebb572201636daddd53dc63ebd3e23ab1c3786adf5c5863a957e"
+      },
+      {
+        "file": "dist/inventory-ui.js",
+        "sha256": "9a044967d69b00547b241fec46126b70cbc03adc4f3c71e5e7dbc22d15121f3a"
+      },
+      {
+        "file": "dist/inventory.css",
+        "sha256": "f17daa93255517ea35b1a07db4bad18e6de603c6c83650debed4f3fe04d10215"
+      }
+    ],
+    "settingsStorageIntegrated": true,
+    "settingsSelectionUiIntegrated": false,
+    "newDocumentDefaultIntegrated": true,
+    "settingKey": "documentVat",
+    "settingSchema": {
+      "rules": [
+        {
+          "type": "request|plan|purchaseorder|purchase",
+          "mode": "default|line|transaction"
+        }
+      ]
+    },
+    "scope": "own company setting per supported document type; not original database schema",
+    "defaultAndMissing": "line behavior without adding a field to old documents",
+    "existingDocumentsAffected": false,
+    "openAndRestoredDraftsAffected": false,
+    "generatedOrConvertedDocumentsAutomaticallyAffected": false,
+    "defaultRoundingChanged": false,
+    "legacyStateReadPersistsNewKey": false,
+    "authorization": "existing config.write, CSRF/session and expected revision CAS",
+    "display": "only changed supply/tax cells are shaded #f6d7d7 and bold"
+  },
+  "checks": {
+    "newNodeTests": 6,
+    "settingsNodeTests": 24,
+    "priorVatTests": 61,
+    "allLocalhostBrowserTests": 33,
+    "newBrowserTests": 1,
+    "verifyLocal": "passed",
+    "verifyLogSha256": "ff70fb42a1056418715cbda9246545083ccfacdfc69466104c85130effdec432",
+    "endToEnd": "synthetic Worker config.save -> auth settings refresh -> fresh request -> cancel unchanged -> confirm adjustment -> stored legacy documents/forms preserved; old/open/restored drafts do not acquire later settings; save/new uses current settings",
+    "permissionAndRevision": "stale revision409, invalid config400, viewer403, other company isolated",
+    "visual": "changed supply4546 and VAT454 cells pink and bold; unchanged cells unshaded; totals visible",
+    "screenshotSha256": "92a8f9793866faad5a1dfa10e77349315d9404b88972a549b0ca3a7888431246"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "originalScopes": 7,
+    "ownScopes": 7,
+    "parsedFiles": 14,
+    "parseFailures": 0,
+    "anyTruncated": false,
+    "coverage": [
+      "unknown"
+    ],
+    "outsideBindingsUnresolved": true,
+    "sourceAndInputHashesVerified": true,
+    "summarySha256": "fee4a3327cc2e467b9a5d590f9ff6e5dbf86e67522e0e1421797eec4289397f7",
+    "runtimeEquivalence": false
+  },
+  "operatingCheck": {
+    "checkedAt": "2026-10-20T23:29:17.286Z",
+    "operatingVersion": "0.53.0",
+    "operatingSourceCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+    "checks": [
+      {
+        "file": "inventory-ui.js",
+        "status": 200,
+        "sha256": "94f1c75b7fccf7fff3acb502db39a7c298a83f57ea22cf53fe7ef479667c01f1",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "inventory.css",
+        "status": 200,
+        "sha256": "af018bb30a80ffcf20d8661fae70b48c9120c6426d4537bfe707c62687282142",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "self-core.js",
+        "status": 200,
+        "sha256": "9d67e787612b561e52171c36f3691cae998d8b3879409a9d1b00c0452f993211",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "self-ui.js",
+        "status": 200,
+        "sha256": "e75a27f015471107c34153653c251d0ff10582b7fb2c33c17e3ad0577b047c61",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "path": "/login",
+        "status": 200,
+        "version053": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ],
+    "serverRestarted": false,
+    "deploymentPerformed": false,
+    "realDocumentWrites": false,
+    "emailsSent": false
+  },
+  "preservation": {
+    "syntheticLegacyVouchersDraftsForms": "passed",
+    "realBusinessWrites": false,
+    "originalErpWrites": false,
+    "productionSettingsChanged": false,
+    "serverRestarted": false,
+    "emailsSent": false,
+    "hostedBrowserDataComparison": "pending"
+  },
+  "browser": {
+    "originalOptionClick": "no state change; stopped retrying",
+    "moa": "login form with empty ID/password; authentication not attempted",
+    "handoffTabs": [
+      "1",
+      "21",
+      "22",
+      "23"
+    ]
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextPlan": "docs/plan-manual-transaction-vat-20261021.md",
+  "done": false
+}

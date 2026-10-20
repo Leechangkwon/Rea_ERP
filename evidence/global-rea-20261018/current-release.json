@@ -196,14 +196,17 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
-      "status": "editor-confirmation-local-only",
+      "status": "settings-contract-local-only",
       "plan": "docs/plan-manual-transaction-vat-20261021.md",
-      "evidence": "evidence/manual-transaction-vat-ui-20261021.json",
+      "evidence": "evidence/manual-transaction-vat-settings-20261021.json",
       "storageIntegrated": true,
       "uiIntegrated": true,
       "deploymentPending": true,
-      "sourceCommit": "7c5a46ca98b8b34c92b6f39773f567cbfc08bb90",
-      "settingsIntegrated": false
+      "sourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
+      "settingsIntegrated": false,
+      "settingsStorageIntegrated": true,
+      "settingsSelectionUiIntegrated": false,
+      "basicOriginalFieldMappingVerified": true
     }
   }
 }
