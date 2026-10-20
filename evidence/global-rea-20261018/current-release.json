@@ -1,6 +1,6 @@
 {
-  "version": "0.51.0",
-  "status": "manual-document-dates-deployed-authenticated-readonly-ui-preservation-verified",
+  "version": "0.52.0",
+  "status": "manual-bom-first-level-deployed-authenticated-preview-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -87,7 +87,7 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 28,
+    "browserSynthetic": 29,
     "verifyLocalPassed": true,
     "reference": "../purchasing-search-state-20261019.json",
     "cacheAuthRuntimeRegression": 56,
@@ -106,16 +106,19 @@
     "purchasingTransactionManagementNewBrowser": 2,
     "documentDatesRelatedNode": 43,
     "documentDatesNewNode": 7,
-    "documentDatesNewBrowser": 1
+    "documentDatesNewBrowser": 1,
+    "bomEntryExtraNode": 51,
+    "bomNewNode": 6,
+    "bomNewBrowser": 1
   },
-  "future_research": "Manual inventory and requirements are open. Next: purchase five-stage gap mapping, request BOM/order imports, transaction tax adjustment. Full original equivalence is not complete.",
+  "future_research": "Next: request order import item aggregation and mixed-price/supplier/date provenance; transaction VAT difference adjustment; global manual discovery remains open.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-document-dates-20261021.json",
+    "reference": "../manual-bom-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "bdb71de",
-    "publicVersionVerified": "0.51.0",
+    "deployedSourceCommit": "92f927e",
+    "publicVersionVerified": "0.52.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.50.0",
     "currentAuthenticatedUiBlock": null,
@@ -174,9 +177,11 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.51.0",
+    "existingSessionRetainedVersion": "0.52.0",
     "documentDateFilterHostedReadOnlyVerified": true,
-    "documentDateDataBearingSaveAcceptance": false
+    "documentDateDataBearingSaveAcceptance": false,
+    "bomDepthHostedPreviewVerified": true,
+    "bomDepthHostedSavePerformed": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
