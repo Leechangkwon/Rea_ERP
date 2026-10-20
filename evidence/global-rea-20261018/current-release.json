@@ -196,11 +196,13 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
-      "status": "calculation-kernel-local-only",
+      "status": "storage-output-contract-local-only",
       "plan": "docs/plan-manual-transaction-vat-20261021.md",
-      "evidence": "evidence/manual-transaction-vat-20261021.json",
-      "storageUiDeploymentPending": true,
-      "sourceCommit": "2db4f24c3f34516ac81db7226de1f7170e7f937a"
+      "evidence": "evidence/manual-transaction-vat-storage-20261021.json",
+      "storageIntegrated": true,
+      "uiIntegrated": false,
+      "deploymentPending": true,
+      "sourceCommit": "a593c2eaef01c4b270e002f55754fafbe5f708ac"
     }
   }
 }

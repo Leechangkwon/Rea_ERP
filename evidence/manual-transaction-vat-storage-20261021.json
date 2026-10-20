@@ -1,0 +1,208 @@
+{
+  "requirement": "REQ-COM-TAX-001",
+  "date": "2026-10-21",
+  "status": "storage-output-contract-local-only",
+  "previousEvidence": "evidence/manual-transaction-vat-20261021.json",
+  "sourceCommit": "a593c2eaef01c4b270e002f55754fafbe5f708ac",
+  "pushedToOriginMain": true,
+  "operatingVersion": "0.53.0",
+  "manual": {
+    "id": "EC-HELP-REQUEST-001",
+    "bodySha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0",
+    "settingUiObserved": false,
+    "publicFieldMappingVerified": false
+  },
+  "implementation": {
+    "files": [
+      {
+        "file": "dist/transaction-vat-core.js",
+        "sourceSha256": "7c98f4eab3de9df5ba9e0531db0fe53398d0c2484b754e39a5f0ea90093b70a3",
+        "inputSha256": "7c98f4eab3de9df5ba9e0531db0fe53398d0c2484b754e39a5f0ea90093b70a3",
+        "wholeFile": true
+      },
+      {
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "4e75842bcbc8297aa1647b139d5ecbad7f29aca715c9f9fbfb89a49ddb674ee6",
+        "inputSha256": "4e75842bcbc8297aa1647b139d5ecbad7f29aca715c9f9fbfb89a49ddb674ee6",
+        "wholeFile": true
+      },
+      {
+        "file": "dist/purchase-mail-core.js",
+        "sourceSha256": "f9f0a70fb0be641a9b3fb0c513359a419a44d0aca8da7bbaf1f5c8be1dad8f0d",
+        "inputSha256": "f9f0a70fb0be641a9b3fb0c513359a419a44d0aca8da7bbaf1f5c8be1dad8f0d",
+        "wholeFile": true
+      },
+      {
+        "file": "dist/purchase-room-core.js",
+        "sourceSha256": "660b38f0a2fcb944ce72342f93475fd81f709a956ed6482d7e621c1b76364c12",
+        "inputSha256": "660b38f0a2fcb944ce72342f93475fd81f709a956ed6482d7e621c1b76364c12",
+        "wholeFile": true
+      }
+    ],
+    "persistedAdjustmentVersion": 1,
+    "storageIntegrated": true,
+    "backupIntegrated": true,
+    "effectiveAmountsIntegrated": true,
+    "returnsAndExchangeIntegrated": true,
+    "mailNormalizationIntegrated": true,
+    "settingsIntegrated": false,
+    "htmlIntegrated": false,
+    "saveConfirmationUiIntegrated": false,
+    "rowShadingIntegrated": false,
+    "defaultRoundingChanged": false,
+    "legacyDocumentsMigrated": false,
+    "basis": [
+      "type",
+      "sourceId",
+      "currency",
+      "vatRate",
+      "taxRounding",
+      "supplyRounding",
+      "ordered item/lineId/sourceLineId/qty/price/discount"
+    ],
+    "ephemeralConfirmationStored": false,
+    "policy": "same database monetary basis preserves adjustment; new/changed differences and explicit disable require fresh full-input confirmation",
+    "limitations": [
+      "single header VAT rate and KRW only",
+      "new return/exchange VAT mode unsupported; existing source allocation preserved",
+      "changed adjusted vouchers cannot use bulkprice",
+      "currency rename of an adjusted KRW voucher blocked atomically"
+    ]
+  },
+  "checks": {
+    "newStorageNodeTests": 21,
+    "combinedVatNodeTests": 42,
+    "verifyLocal": "passed",
+    "verifyLogSha256": "060f0cba3c2673103ad2f4da917967c7051cdfa327ab7e4bf9289d4cbf568a97",
+    "testSha256": "029e21f297d5587f216e647c8a2f08446885ff268d9110158e0ad02516dde97c",
+    "existingLocalhostBrowserTests": 30,
+    "newFeatureBrowserTested": false,
+    "reviewFoundAndFixed": [
+      "linked duplicates without own lineId need sourceLineId lookup and persistent identity",
+      "mail normalization must preserve opaque identifiers without trimming"
+    ],
+    "syntheticPdf": {
+      "pages": 1,
+      "expectedValues": [
+        "13,636",
+        "1,364",
+        "15,000",
+        "4,546",
+        "454"
+      ],
+      "textCheckPassed": true,
+      "visualCheck": "passed: one page; all rows, adjusted last amounts and totals legible; no clipping or overlap",
+      "realSend": false,
+      "pdfSha256": "a2ba5df0c090a24d2305993affa44519535887a1d91e48984756645f97aed09e",
+      "renderSha256": "66fb997a796b8a6f62d60cd90267c427bc42c95abde0af6471a84127ee1d6b27",
+      "lastAmounts": {
+        "supply": 4546,
+        "tax": 454,
+        "total": 5000
+      },
+      "totals": {
+        "supply": 13636,
+        "tax": 1364,
+        "total": 15000
+      }
+    }
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "sourceHashesVerified": true,
+    "manualHashVerified": true,
+    "resultSha256": "b3f071854e3bc938243804f91dd6dd62953a2f6946418e4fe4772f4ccf6c2acd",
+    "statistics": {
+      "relevant_files": 4,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 154876,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 4,
+      "visited_ast_nodes": 33456,
+      "findings": 19,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "semanticCoverage": "unknown",
+    "truncated": false,
+    "originalExecuted": false,
+    "originalSettingMappingVerified": false,
+    "runtimeEquivalence": false
+  },
+  "operatingCheck": {
+    "checkedAt": "2026-10-20T22:35:26.619Z",
+    "operatingVersion": "0.53.0",
+    "operatingSourceCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+    "checks": [
+      {
+        "file": "inventory-core.js",
+        "status": 200,
+        "sha256": "696953b70a3ca954c1db4b76bc9f86fc8ade91108b46e50dffb9e42628389f38",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "purchase-mail-core.js",
+        "status": 200,
+        "sha256": "dfe3ac8ca0c5f22fe257cf75dfcfc88f4c31dcf330355bf4e6efe416f76c1554",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "purchase-room-core.js",
+        "status": 200,
+        "sha256": "3575e7bea21d819ad334f8e11d6a984baa476fa2f74ffe448e33c65072955102",
+        "matchesOperatingSource": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "path": "/login",
+        "status": 200,
+        "version053": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ],
+    "localHealthStatus": 200,
+    "backend": "supabase",
+    "serverRestarted": false,
+    "deploymentPerformed": false,
+    "realDocumentWrites": false,
+    "emailsSent": false
+  },
+  "preservation": {
+    "existingRecordsAndFormsSyntheticRegression": "passed",
+    "configurationEdited": false,
+    "originalErpWrites": false,
+    "realBusinessWrites": false,
+    "emailsSent": false,
+    "serverRestarted": false,
+    "databaseMigration": false,
+    "currentHostedBrowserSnapshotComparison": false,
+    "previous053BrowserComparison": "pending"
+  },
+  "browser": {
+    "originalOptionClick": "no state change; setting mapping remains unverified",
+    "reaTab21": "getJsDialog none; screenshot timeout; no further interaction",
+    "handoffTabs": [
+      "1",
+      "21",
+      "22",
+      "23"
+    ]
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextPlan": "docs/plan-manual-transaction-vat-20261021.md",
+  "done": false
+}
