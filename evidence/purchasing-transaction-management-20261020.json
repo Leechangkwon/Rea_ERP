@@ -1,0 +1,54 @@
+{
+  "version": "0.50.0",
+  "date": "2026-10-20",
+  "status": "verified-locally-ready-for-deploy",
+  "contract": "global-rea-20261018/purchasing-transaction-management/reference-contract.json",
+  "analysis": "global-rea-20261018/purchasing-transaction-management/analysis-summary.json",
+  "verification": {
+    "newNode": 12,
+    "newBrowser": 2,
+    "browserTotal": 27,
+    "verifyLocalPassed": true,
+    "release": 4,
+    "hostedUiVerified": false
+  },
+  "preservationBeforeDeployment": {
+    "privateBackupTaken": true,
+    "browserDocuments": 8,
+    "counts": {
+      "request": 1,
+      "plan": 0,
+      "purchaseorder": 1,
+      "purchase": 1
+    },
+    "formsBackedUp": true,
+    "remoteRevisions": {
+      "rea_app_state": 21,
+      "rea_gateway_state": 0
+    },
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "verified": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    }
+  },
+  "production": {
+    "deployed": false,
+    "authenticatedUiVerified": false,
+    "businessWritesPerformed": false,
+    "emailsSent": 0
+  },
+  "limitations": [
+    "original company transaction VAT metadata, item/warehouse/default priority and override behavior",
+    "original item-specific management enable/disable and automatic clearing",
+    "original server filter OR/AND, print, approval and full workflow equivalence"
+  ]
+}

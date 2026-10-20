@@ -1,0 +1,75 @@
+{
+  "version": "0.50.0",
+  "date": "2026-10-20",
+  "observed": {
+    "purchaseTransactionPopup": {
+      "codes": [
+        [
+          "21",
+          "부가세율 적용"
+        ],
+        [
+          "22",
+          "부가세율 미적용"
+        ]
+      ],
+      "multi": true,
+      "search": true,
+      "includeInactive": true,
+      "applyClose": true,
+      "newButton": false
+    },
+    "requestManagementPopup": {
+      "columns": [
+        "관리항목코드",
+        "관리항목명"
+      ],
+      "multi": true,
+      "search": true,
+      "includeInactive": true,
+      "newButton": true,
+      "companyRecordsRetained": false
+    },
+    "originalWritesPerformed": false
+  },
+  "ownPolicy": {
+    "queryScope": {
+      "purchase": "transactionType",
+      "request": "line.managementItem"
+    },
+    "query": "OR inside a field; AND between fields; management and item must match the same line; one voucher once; F8 stages/applies separately",
+    "transactionInput": "stable transactionType ID, standard 21/22 plus old string values and defaults; saved readonly/hidden layouts preserved",
+    "vat": "own local policy: new or explicit change to 22 uses zero; 21 retains local applicable rate; unknown/blank old values not inferred; historical unchanged 22 rates and backup totals preserved",
+    "management": "optional line managementItem references existing masters.controls; hidden by default, enabled via Option BODY layout; active for new assignments, historical stopped code retained; rename updates refs",
+    "preservation": [
+      "browser v2 and saved form state",
+      "no classification migration or old amount rewrite",
+      "applied versus pending filters and CSV",
+      "existing source guards and line identities",
+      "existing accounts, server configuration, mail"
+    ]
+  },
+  "originalStaticBoundary": {
+    "scopes": 4,
+    "popupWrappers": 2,
+    "reaVersion": "6.4.0",
+    "parsingAndEvidenceValidated": true,
+    "rawOriginalExecuted": false,
+    "fullRuntimeBindingsVerified": false,
+    "corpusHistoricalBaselineUnchanged": true
+  },
+  "checks": {
+    "newNode": 12,
+    "newBrowser": 2,
+    "browserTotal": 27,
+    "verifyLocalPassed": true,
+    "release": 4,
+    "hostedUiVerified": false
+  },
+  "unverified": [
+    "original company transaction VAT metadata, item/warehouse/default priority and override behavior",
+    "original item-specific management enable/disable and automatic clearing",
+    "original server filter OR/AND, print, approval and full workflow equivalence"
+  ],
+  "fullOriginalEquivalence": false
+}

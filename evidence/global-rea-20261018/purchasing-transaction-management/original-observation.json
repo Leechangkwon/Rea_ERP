@@ -1,0 +1,52 @@
+{
+  "versionBaseline": "0.49.0",
+  "authenticatedSourceObserved": true,
+  "businessRowsRead": false,
+  "originalWrites": false,
+  "purchaseTransactionPopup": {
+    "field": "inv_s$trx_type_purchasesXlist_search_field",
+    "headers": [
+      "選択",
+      "거래유형코드",
+      "거래유형명"
+    ],
+    "choices": [
+      [
+        "21",
+        "부가세율 적용"
+      ],
+      [
+        "22",
+        "부가세율 미적용"
+      ]
+    ],
+    "checkboxes": 2,
+    "actions": [
+      "사용중단포함",
+      "Search(F3)",
+      "적용(F8)",
+      "닫기"
+    ]
+  },
+  "requestManagementPopup": {
+    "field": "inv_m$manage_item_purchase_requestXlist_search_field",
+    "headers": [
+      "選択",
+      "관리항목코드",
+      "관리항목명"
+    ],
+    "actions": [
+      "사용중단포함",
+      "Search(F3)",
+      "적용(F8)",
+      "신규(F2)",
+      "닫기"
+    ],
+    "companyRecordsRetained": false
+  },
+  "popupSources": [
+    "https://resource.ecount.com/ec5/static/freq/ecountv5/presentation/app.basiccode/app.basiccode.trxtype_purchase_popup/app.basiccode.trxtype_purchase_popup.b4eab35e.20.js",
+    "https://resource.ecount.com/ec5/static/freq/ecountv5/presentation/app.basiccode/app.basiccode.manage_item_popup/app.basiccode.manage_item_popup.8f977e17.20.js"
+  ],
+  "taxBoundary": "21/22 display observed; full source per-item/warehouse tax configuration and company mappings remain unverified. Own implementation retains prior rates until explicit type changes."
+}
