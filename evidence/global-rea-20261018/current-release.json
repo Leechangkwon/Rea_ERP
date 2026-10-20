@@ -1,6 +1,6 @@
 {
-  "version": "0.49.0",
-  "status": "purchasing-multiselect-sort-deployed-authenticated-ui-preservation-verified",
+  "version": "0.50.0",
+  "status": "purchasing-transaction-management-deployed-public-server-preservation-verified-authenticated-ui-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -27,6 +27,7 @@
     "verified_button_count": false
   },
   "current_feature_contracts": [
+    "purchasing-transaction-management/reference-contract.json",
     "purchasing-multiselect-sort/picker-sort-contract.json",
     "purchasing-search-state/search-state-contract.json",
     "purchase-list-columns/ui-own-policy.json",
@@ -86,7 +87,7 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 25,
+    "browserSynthetic": 27,
     "verifyLocalPassed": true,
     "reference": "../purchasing-search-state-20261019.json",
     "cacheAuthRuntimeRegression": 56,
@@ -100,19 +101,21 @@
     "purchasingSearchStateRelatedNode": 92,
     "purchasingSearchStateNewNode": 9,
     "purchasingMultiSelectSortNewNode": 13,
-    "purchasingMultiSelectSortNewBrowser": 3
+    "purchasingMultiSelectSortNewBrowser": 3,
+    "purchasingTransactionManagementNewNode": 12,
+    "purchasingTransactionManagementNewBrowser": 2
   },
-  "future_research": "Observed four list reference search structures; multi picker implemented with original public apply limits. Request/purchase modified sorting uses explicit own recent-first policy; original server direction/ties/OR semantics, transaction/management fields, print/tax/status/approval/server and full equivalence remain unverified.",
+  "future_research": "Observed purchase transaction and request management multi-select popups implemented; original company VAT metadata and item/warehouse/default priority, management eligibility/clearing, original server filter/sort/print/approval and full equivalence remain unverified.",
   "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
   "runtimeRelease": {
-    "reference": "../purchasing-multiselect-sort-20261020.json",
+    "reference": "../purchasing-transaction-management-20261020.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "1893acd",
-    "publicVersionVerified": "0.49.0",
+    "deployedSourceCommit": "b7726ee",
+    "publicVersionVerified": "0.50.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.49.0",
-    "currentAuthenticatedUiBlock": null,
+    "currentAuthenticatedUiBlock": "existing account relogin requested after deployment",
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
     "actualGmailEmailSent": true,
@@ -160,9 +163,10 @@
     "currentPurchasingListSearchHostWritesPerformed": false,
     "purchasingMultiPickerHostedVerified": true,
     "purchasingModifiedSortHostedVerified": true,
-    "browserInventoryExactPostComparisonPending": false,
+    "browserInventoryExactPostComparisonPending": true,
     "purchasingModifiedSortHostedScope": "Observed request/purchase option apply and result preservation; comparator/order after real edits tested with synthetic data only",
-    "browserInventoryExactPostComparison": true,
-    "postReloginProtectedAccountsAndConfigurationPreserved": true
+    "browserInventoryExactPostComparison": false,
+    "postReloginProtectedAccountsAndConfigurationPreserved": true,
+    "currentPurchasingReferenceHostedVerified": false
   }
 }

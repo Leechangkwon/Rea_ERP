@@ -1,7 +1,7 @@
 {
   "version": "0.50.0",
   "date": "2026-10-20",
-  "status": "verified-locally-ready-for-deploy",
+  "status": "deployed-public-and-server-preservation-verified-authenticated-ui-pending",
   "contract": "global-rea-20261018/purchasing-transaction-management/reference-contract.json",
   "analysis": "global-rea-20261018/purchasing-transaction-management/analysis-summary.json",
   "verification": {
@@ -41,14 +41,84 @@
     }
   },
   "production": {
-    "deployed": false,
+    "deployed": true,
     "authenticatedUiVerified": false,
     "businessWritesPerformed": false,
-    "emailsSent": 0
+    "emailsSent": 0,
+    "serverPid": 670106,
+    "currentBlock": "existing account relogin requested after deployment"
   },
   "limitations": [
     "original company transaction VAT metadata, item/warehouse/default priority and override behavior",
     "original item-specific management enable/disable and automatic clearing",
     "original server filter OR/AND, print, approval and full workflow equivalence"
-  ]
+  ],
+  "sourceCommit": "b7726ee",
+  "publicChecks": {
+    "version": "0.50.0",
+    "publicLogin": {
+      "status": 200,
+      "versionPresent": true
+    },
+    "inventory-core.js": {
+      "status": 200,
+      "contentMatches": true
+    },
+    "inventory-ui.js": {
+      "status": 200,
+      "contentMatches": true
+    },
+    "reference-picker-ui.js": {
+      "status": 200,
+      "contentMatches": true
+    },
+    "anonymousMail": {
+      "status": 401
+    },
+    "privateHealth": {
+      "status": 404
+    },
+    "localHealth": {
+      "status": 200,
+      "backend": "supabase"
+    }
+  },
+  "preservationAfterDeployment": {
+    "version": "0.50.0",
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 21,
+        "afterRevision": 21,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false
+  },
+  "managementPage": {
+    "pageId": "page_61170ef3893c81919dd7d59c77385674",
+    "sequence": 76,
+    "threeBlocksExactReadback": true,
+    "priorHistoryExactPrefixPreserved": true
+  }
 }

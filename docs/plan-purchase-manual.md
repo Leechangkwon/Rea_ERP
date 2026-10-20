@@ -2,7 +2,7 @@
 
 ## 현재 인계: Windows 관찰 / Linux 분석·구현 (2026-10-19)
 
-현재 사용자의 후속 요청은 거래유형·관리항목이다. [현재 조사·개발 계획](plan-purchasing-transaction-management-20261020.md)을 먼저 읽는다. 원본 세션 만료로 재로그인을 요청했으며 운영0.49.0은 유지한다. 아래 다중 선택 내용은 직전 완료 기준이다.
+현재 거래유형·관리항목0.50.0을 운영 반영했다(b7726ee). [현재 계획](plan-purchasing-transaction-management-20261020.md)과 [기능 기록](purchasing-transaction-management-0.50.0.md)을 먼저 읽는다. 전체 검사/공개 경로/서버·메일 보존은 확인했고 배포 후 사용자 재로그인·인증UI/브라우저 최종 비교는 대기 중이다. 아래 다중 선택 내용은 직전 완료 기준이다.
 
 현재 후속은0.49.0 다중 선택·수정일자순이다. [이번 계획](plan-purchasing-multiselect-sort-20261020.md)과 [기능 기록](purchasing-multiselect-sort-0.49.0.md)을 먼저 읽는다. 아래0.48 및 이전 내용은 해당 시점 기록이다.
 
