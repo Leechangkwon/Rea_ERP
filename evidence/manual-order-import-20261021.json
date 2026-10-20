@@ -1,7 +1,7 @@
 {
   "version": "0.53.0",
   "date": "2026-10-21",
-  "status": "local-passed-deployment-pending",
+  "status": "deployed-authenticated-staging-remote-preserved-browser-final-check-pending",
   "requirementId": "REQ-PUR-REQ-003",
   "plan": "../docs/plan-manual-order-import-20261021.md",
   "originalObservation": {
@@ -172,5 +172,86 @@
     "status": "session-expired-pending",
     "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
     "readbackVerified": false
+  },
+  "deployment": {
+    "version": "0.53.0",
+    "sourceCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/entry-core.js",
+        "status": 200,
+        "sha256": "5ec933bc040ce0a82eb56faa768abc30789c37fb683385f645fdf3ecf7248cd3",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-ui.js",
+        "status": 200,
+        "sha256": "67bae0c1c76c01660ecafaaa9fcf6e0710bf092dbe4a5339336793cb3c4db586",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ],
+    "performed": true,
+    "managedPid": 1701854,
+    "existingSessionRetained": true,
+    "authenticatedUi": {
+      "lineModeDefault": true,
+      "sameOrderCopiedTwice": true,
+      "lineQuantities": [
+        1,
+        1
+      ],
+      "sameItemSeparateRowsVerified": true,
+      "documentSavePerformed": false,
+      "itemModeHostedComparison": false,
+      "postCloseBrowserBackupCompared": false,
+      "screenshot": "manual-order-lines-0.53.0.png",
+      "block": "After staged editor close, tab21 CDP focus/input timed out; no active JS dialog exposed. Replacement tab23 can render existing list but click actions did not open backup. No business save was invoked."
+    }
+  },
+  "preservation": {
+    "version": "0.53.0",
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 25,
+        "afterRevision": 25,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false,
+    "browserPostComparisonPending": true
   }
 }

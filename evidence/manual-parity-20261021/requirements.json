@@ -1049,14 +1049,17 @@
         "품목별은 동일 품목 수량 합산",
         "적용 후 거래처·단가 저장"
       ],
-      "status": "local-partial",
+      "status": "local-partial-hosted-staging-partial",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "implementationEvidence": [
         "evidence/manual-order-import-20261021.json"
       ],
-      "remaining": "Original item aggregation with differing prices/terms and hosted save acceptance not yet verified"
+      "remaining": "Original item aggregation with differing prices/terms and hosted save acceptance not yet verified",
+      "hostedUnsavedStagingVerified": true,
+      "remotePreservationVerified": true,
+      "browserPostComparisonPending": true
     },
     {
       "id": "REQ-PUR-REQ-004",
