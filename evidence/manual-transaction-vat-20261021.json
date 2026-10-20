@@ -1,0 +1,151 @@
+{
+  "requirement": "REQ-COM-TAX-001",
+  "date": "2026-10-21",
+  "status": "calculation-kernel-verified-not-integrated",
+  "operatingVersion": "0.53.0",
+  "manual": {
+    "id": "EC-HELP-REQUEST-001",
+    "bodySha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0",
+    "index": "evidence/manual-parity-20261021/online-manual-index.json",
+    "originalSettingUiVerified": false,
+    "publicSettingFieldMappingVerified": false
+  },
+  "implementation": {
+    "module": "dist/transaction-vat-core.js",
+    "exports": [
+      "preview",
+      "verify"
+    ],
+    "sourceSha256": "abe7fa0e87063d76498df8a05a6ccd459e0f4a4d2411715e750ba18fe5a6cc74",
+    "integratedIntoHtml": false,
+    "integratedIntoSave": false,
+    "existingLineTotalsChanged": false,
+    "defaultSupplyDigitsChanged": false,
+    "persistedAdjustmentSchemaDefined": false,
+    "scope": "single-header-rate KRW preview; no input mutation",
+    "limits": {
+      "rows": 500,
+      "aggregate": 1000000000000,
+      "rateDecimalDigits": 6,
+      "originalLimitsVerified": false
+    },
+    "unsupported": [
+      "foreign currency conversion",
+      "mixed line rates",
+      "returns/exchanges",
+      "existing adjustment/allocation records"
+    ],
+    "negativeLastRowPolicy": "reject; do not silently redistribute"
+  },
+  "checks": {
+    "newNodeTests": 21,
+    "generatedScenarios": 1500,
+    "verifyLocal": "passed",
+    "browserRegressionTests": 30,
+    "newHostedWorkflowTested": false,
+    "testSha256": "637eec65f5a2561614ad935d4792767ecadf3670994884a84084229d3de0d991",
+    "verifyLogSha256": "010ff0771ad1fbb991f7b266be599d5c05886624e69588e020d440ee9108f26e",
+    "review": "sparse array omission found and fixed; boundary tests added",
+    "manualExample": {
+      "before": {
+        "supply": 13635,
+        "tax": 1365,
+        "total": 15000
+      },
+      "after": {
+        "supply": 13636,
+        "tax": 1364,
+        "total": 15000
+      },
+      "lastRow": {
+        "supply": 4546,
+        "tax": 454,
+        "total": 5000
+      }
+    }
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "sourceHashesVerified": true,
+    "manualHashVerified": true,
+    "resultSha256": "90da202954be641dca8c6dc16ecf82b5fb0714522f54b6fd52604b7ff66123f9",
+    "statistics": {
+      "relevant_files": 1,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 6870,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 1,
+      "visited_ast_nodes": 1209,
+      "findings": 2,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "semanticCoverage": "unknown",
+    "truncated": false,
+    "originalExecuted": false,
+    "originalSettingMappingVerified": false,
+    "runtimeEquivalence": false
+  },
+  "operatingCheck": {
+    "checkedAt": "2026-10-20T22:03:28.553Z",
+    "operatingVersion": "0.53.0",
+    "serverRestarted": false,
+    "deploymentPerformed": false,
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/entry-core.js",
+        "status": 200,
+        "sha256": "5ec933bc040ce0a82eb56faa768abc30789c37fb683385f645fdf3ecf7248cd3",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-ui.js",
+        "status": 200,
+        "sha256": "67bae0c1c76c01660ecafaaa9fcf6e0710bf092dbe4a5339336793cb3c4db586",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ],
+    "localHealthStatus": 200,
+    "backend": "supabase"
+  },
+  "preservation": {
+    "existingCalculationSaveAndHtmlFilesEdited": false,
+    "runtimeConfigEdited": false,
+    "serverRestarted": false,
+    "databaseMigration": false,
+    "originalErpWrites": false,
+    "businessDocumentsSaved": false,
+    "emailsSent": false,
+    "hostedBrowserJsonComparison": "0.53.0 pending; tab23 backup click still unchanged",
+    "currentSnapshotPreservationClaim": false
+  },
+  "integrationRisks": [
+    "purchase-mail-core.normalizeDocument recalculates line amounts",
+    "saveDoc and validateBackup need one validated adjustment contract",
+    "returnAmounts must use adjusted source amounts and preserve final remainder",
+    "convert/stageDocuments/plan generation must not inherit stale confirmations",
+    "rename must preserve monetary validity across code changes",
+    "bulkprice must require recalculation"
+  ],
+  "community": {
+    "status": "login-required-local-record-ready",
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextPlan": "docs/plan-manual-transaction-vat-20261021.md",
+  "done": false
+}
