@@ -1,30 +1,59 @@
 {
-  "status": "blocked",
-  "destination": "existing Moa work project; URL pending",
-  "mcp": "401 invalid/expired token",
-  "browser": "qaredi.com/community Cloudflare1033",
+  "status": "published-verified",
+  "destination": "https://changkwon.mso.so/community/p/b28ab4c5-eb66-4c33-98d5-784303e06838",
+  "mcp": "Legacy credential still 401; remote URL/invalid bearer env field repaired; no new OAuth grant",
+  "browser": "Authenticated existing private project; three documents saved and independently reread",
   "documents": [
     {
       "file": "docs/manual-parity/PRD.md",
       "title": "REA ERP - 매뉴얼 동등성 PRD v0.1",
-      "status": "prepared-local",
-      "url": null,
-      "sha256": "14617eae895482a54c138bc7b1719c31bab8584409adb527029564043428dd16"
+      "status": "saved-readback-verified",
+      "url": "https://changkwon.mso.so/community/p/3859365a-5219-4de5-857a-d1ccda55735c",
+      "sha256": "91574f63c64731cf37028b5a9b8184595fd3910754740ee97ede1fb3839cd4ab",
+      "documentId": "3859365a-5219-4de5-857a-d1ccda55735c",
+      "readbackSha256": "f6cd9c90ca58acbb04b0cf91c0ab6c4ff5b4f78764a3333275de6536a1aaa171"
     },
     {
       "file": "docs/manual-parity/ARCHITECTURE.md",
       "title": "REA ERP - 아키텍처 v0.1",
-      "status": "prepared-local",
-      "url": null,
-      "sha256": "e4b8ec2910cb16be5b39608e10c34889f29a47f03694b5e37273c51761287107"
+      "status": "saved-readback-verified",
+      "url": "https://changkwon.mso.so/community/p/990be2f4-bec3-4331-860c-7ee1cf622652",
+      "sha256": "e4b8ec2910cb16be5b39608e10c34889f29a47f03694b5e37273c51761287107",
+      "documentId": "990be2f4-bec3-4331-860c-7ee1cf622652",
+      "readbackSha256": "d035a7e2d41e2739a106246df52fb46f953cb3b641db7344a8380a495109c36b"
     },
     {
       "file": "docs/manual-parity/manual-inventory.md",
       "title": "REA ERP - 매뉴얼 조사대장 및 실행 로드맵",
-      "status": "prepared-local",
-      "url": null,
-      "sha256": "536add8d288b50f7bad23523e6202923ee75ddb26ee8b6497b69296b5e67cbed"
+      "status": "saved-readback-verified",
+      "url": "https://changkwon.mso.so/community/p/47b44d4b-3815-48ec-9213-2b5ed4d19d6c",
+      "sha256": "536add8d288b50f7bad23523e6202923ee75ddb26ee8b6497b69296b5e67cbed",
+      "documentId": "47b44d4b-3815-48ec-9213-2b5ed4d19d6c",
+      "readbackSha256": "099181addf758998934161704f38cb023257aab936ca18c1612335f42d2a33bf",
+      "additionalFile": "docs/manual-parity/ROADMAP.md"
     }
   ],
-  "readbackVerified": false
+  "readbackVerified": true,
+  "projectId": "b28ab4c5-eb66-4c33-98d5-784303e06838",
+  "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+  "correction": "qaredi.com/community 1033 was the wrong destination, not a Moa outage",
+  "originalParentPreserved": true,
+  "existingChildrenPreserved": true,
+  "textVerification": [
+    {
+      "document": "prd",
+      "fullTextPreserved": true,
+      "normalization": "whitespace and renderer code-language badge only"
+    },
+    {
+      "document": "architecture",
+      "fullTextPreserved": true,
+      "normalization": "whitespace and renderer code-language badge only"
+    },
+    {
+      "document": "roadmap",
+      "fullTextPreserved": true,
+      "normalization": "whitespace and renderer code-language badge only"
+    }
+  ]
 }
