@@ -1,6 +1,6 @@
 {
-  "version": "0.50.0",
-  "status": "purchasing-transaction-management-deployed-authenticated-ui-preservation-verified",
+  "version": "0.51.0",
+  "status": "manual-document-dates-deployed-authenticated-readonly-ui-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -87,7 +87,7 @@
     "hosted_authenticated_business_qa": false,
     "totalIsHistoricalFeatureBaseline": true,
     "purchasingSearchRelated": 75,
-    "browserSynthetic": 27,
+    "browserSynthetic": 28,
     "verifyLocalPassed": true,
     "reference": "../purchasing-search-state-20261019.json",
     "cacheAuthRuntimeRegression": 56,
@@ -103,16 +103,19 @@
     "purchasingMultiSelectSortNewNode": 13,
     "purchasingMultiSelectSortNewBrowser": 3,
     "purchasingTransactionManagementNewNode": 12,
-    "purchasingTransactionManagementNewBrowser": 2
+    "purchasingTransactionManagementNewBrowser": 2,
+    "documentDatesRelatedNode": 43,
+    "documentDatesNewNode": 7,
+    "documentDatesNewBrowser": 1
   },
-  "future_research": "Observed purchase transaction and request management multi-select popups implemented; original company VAT metadata and item/warehouse/default priority, management eligibility/clearing, original server filter/sort/print/approval and full equivalence remain unverified.",
-  "deployment_tracking": "https://chatgpt.com/space/page_61170ef3893c81919dd7d59c77385674",
+  "future_research": "Manual inventory and requirements are open. Next: purchase five-stage gap mapping, request BOM/order imports, transaction tax adjustment. Full original equivalence is not complete.",
+  "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../purchasing-transaction-management-20261020.json",
+    "reference": "../manual-document-dates-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "b7726ee",
-    "publicVersionVerified": "0.50.0",
+    "deployedSourceCommit": "bdb71de",
+    "publicVersionVerified": "0.51.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.50.0",
     "currentAuthenticatedUiBlock": null,
@@ -170,6 +173,15 @@
     "currentPurchasingReferenceHostedVerified": true,
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
-    "purchasingReferenceHostedBusinessWritesPerformed": false
+    "purchasingReferenceHostedBusinessWritesPerformed": false,
+    "existingSessionRetainedVersion": "0.51.0",
+    "documentDateFilterHostedReadOnlyVerified": true,
+    "documentDateDataBearingSaveAcceptance": false
+  },
+  "manualParity": {
+    "requirementsReference": "../manual-parity-20261021/requirements.json",
+    "officialRequirements": 13,
+    "sourceBodiesReviewed": 4,
+    "done": 0
   }
 }

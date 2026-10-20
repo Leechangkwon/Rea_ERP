@@ -1,7 +1,7 @@
 {
   "version": "0.51.0",
   "date": "2026-10-21",
-  "status": "verified-locally-predeploy-backup-complete",
+  "status": "deployed-authenticated-readonly-ui-preservation-verified",
   "contract": "../docs/plan-manual-document-dates-20261021.md",
   "manualIndex": "manual-parity-20261021/online-manual-index.json",
   "manualScope": {
@@ -131,12 +131,100 @@
     }
   },
   "deployment": {
-    "performed": false
+    "performed": true,
+    "version": "0.51.0",
+    "sourceCommit": "bdb71de53cba9b761565b3f50c055cf6ae2a2557",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "df83b483b9fc639da6efd0917594d99f17cc8ba3bfc21dc55ed5e595dc59b4c6",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "94f1c75b7fccf7fff3acb502db39a7c298a83f57ea22cf53fe7ef479667c01f1",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api-manual-data.js",
+        "status": 200,
+        "sha256": "d4de49003d9d5e890f7b8b3b6bd4da0b3279b7f116d3f575ff654520f467f40b",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ],
+    "managedPid": 842602,
+    "backend": "supabase",
+    "tunnelChanged": false,
+    "authenticatedUi": {
+      "sessionRetainedAfterReload": true,
+      "version": "0.51.0",
+      "initialRows": 1,
+      "pendingConditionKeepsRows": true,
+      "createdRangeAppliedRows": 0,
+      "invalidRangeKeepsResultAndDisplaysError": true,
+      "modifiedRangeAppliedRows": 0,
+      "clearedConditionRows": 1,
+      "businessWrites": false,
+      "fullValueBearingDateSearchAcceptance": false,
+      "screenshot": "manual-date-search-0.51.0.png"
+    }
   },
   "limitations": [
     "Only request list date filters enabled; other screens require direct comparison.",
     "Asia/Seoul day boundary is the documented local policy; original internal timezone is not verified.",
     "No dates are fabricated for legacy documents.",
     "Full manual or original runtime equivalence is not complete."
-  ]
+  ],
+  "preservation": {
+    "version": "0.51.0",
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 25,
+        "afterRevision": 25,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false,
+    "browser": {
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "exactPrePostEqual": true,
+      "totalDocuments": 8
+    }
+  }
 }
