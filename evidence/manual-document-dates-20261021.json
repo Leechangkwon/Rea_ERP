@@ -1,0 +1,142 @@
+{
+  "version": "0.51.0",
+  "date": "2026-10-21",
+  "status": "verified-locally-predeploy-backup-complete",
+  "contract": "../docs/plan-manual-document-dates-20261021.md",
+  "manualIndex": "manual-parity-20261021/online-manual-index.json",
+  "manualScope": {
+    "requestContextEntries": 36,
+    "bodiesRead": 4,
+    "officialRequirements": 13,
+    "complete": 0
+  },
+  "sourceObservation": {
+    "originalWrites": false,
+    "manualTitle": "전표 작성일자/수정일자 기준으로 검색하는 방법",
+    "uiFieldLabels": [
+      "최초작성일자",
+      "최종수정일시"
+    ],
+    "mappingOnly": [
+      "WDATE -> inv_s$write_dtm",
+      "UPDATE_DATE -> inv_s$update_dtm"
+    ],
+    "serverFilterSemanticsVerified": false
+  },
+  "rea": {
+    "original": {
+      "reaVersion": "6.4.0",
+      "sourceHashVerified": true,
+      "resultSha256": "c4fa0602ecdb9b61f55587c0f9ee7d6d0357a87810ea48786be3260d60951e3d",
+      "statistics": {
+        "relevant_files": 1,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 13502,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 1,
+        "visited_ast_nodes": 1494,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverageStatus": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false
+    },
+    "ownScoped": {
+      "reaVersion": "6.4.0",
+      "sourceHashVerified": true,
+      "resultSha256": "fb8ff44466bf45a9b77c639271d84e40be1abca82dd6100ed829bdd5eacc6f5b",
+      "statistics": {
+        "relevant_files": 2,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 18567,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 2,
+        "visited_ast_nodes": 3898,
+        "findings": 1,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverageStatus": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false
+    },
+    "ownCore": {
+      "cacheKey": "f16a8a72c347fe2cd339868a63bf4493f92a9c1d76d0e3c21cb8f0a87a61446e",
+      "parsedFiles": 1,
+      "astNodes": 19612,
+      "truncated": false,
+      "semanticCoverage": "unknown"
+    },
+    "ownUi": {
+      "cacheKey": "5d9c825b1814b6229a997ae2d8580f4136a8c0d31431b80b645e5dd2ffe1053d",
+      "parsedFiles": 1,
+      "astNodes": 27055,
+      "semanticNodes": 20000,
+      "truncated": true,
+      "semanticCoverage": "partial",
+      "supplement": "ownScoped"
+    },
+    "originalExecuted": false
+  },
+  "sourceHashes": {
+    "dist/inventory-core.js": "df83b483b9fc639da6efd0917594d99f17cc8ba3bfc21dc55ed5e595dc59b4c6",
+    "dist/inventory-ui.js": "94f1c75b7fccf7fff3acb502db39a7c298a83f57ea22cf53fe7ef479667c01f1"
+  },
+  "tests": {
+    "verifyLocalPassed": true,
+    "relatedNodePassed": 43,
+    "newNodePassed": 7,
+    "browserPassed": 28,
+    "newBrowserPassed": 1,
+    "verifyLogSha256": "88789d998d80b68adccc9b33500388317c4a0e104012a3b34a045e9c15a1c0ae"
+  },
+  "predeploy": {
+    "version": "0.51.0",
+    "remoteRevisions": {
+      "rea_app_state": 25,
+      "rea_gateway_state": 0
+    },
+    "stateHashes": {
+      "rea_app_state": "333d4b1836b3f923ebd15510755a9fdbd0333229dc88346f2587e2f3f32fa5a2",
+      "rea_gateway_state": "80019c43b7e6a1b3a67706f8289e939dd842a7a6f1d2dfd9c3265ccbec6080b1"
+    },
+    "runtimeHash": "46acca031d4b8934538dc87b7ed27f08fd32869ac40c4fd71e83a8459c731aff",
+    "browser": {
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "version": 2,
+      "documents": 8,
+      "counts": {
+        "request": 1,
+        "plan": 0,
+        "purchaseorder": 1,
+        "purchase": 1
+      },
+      "validated": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9"
+    },
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "verified": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    }
+  },
+  "deployment": {
+    "performed": false
+  },
+  "limitations": [
+    "Only request list date filters enabled; other screens require direct comparison.",
+    "Asia/Seoul day boundary is the documented local policy; original internal timezone is not verified.",
+    "No dates are fabricated for legacy documents.",
+    "Full manual or original runtime equivalence is not complete."
+  ]
+}

@@ -48,6 +48,7 @@
       if(before&&!changes.length)changes.push('기타 전표 항목');
       const changedKeys=before?[...new Set([...Object.keys(before),...Object.keys(d)])].filter(k=>JSON.stringify(before[k])!==JSON.stringify(d[k])):[];
       const stripProgress=lines=>lines.map(({progress,...line})=>line),stateOnly=before&&changedKeys.length&&changedKeys.every(k=>['status','confirmation','progress','accounted'].includes(k)||k==='lines'&&JSON.stringify(stripProgress(before.lines))===JSON.stringify(stripProgress(d.lines)));
+      if(!before)d.createdAt=at;
       d.modifiedAt=at;
       history.records.unshift({id:'H'+sequence,sequence,at,workDate:today(),type:d.type,documentId:code(d.id),date:d.date,action:!before?'신규':['transition','planLineProgress'].includes(op)||stateOnly?'상태변경':'수정',partnerCode,partnerCodes,partnerName,itemCodes,itemName:(name('items',d.lines[0]?.item)||code(d.lines[0]?.item)).slice(0,200),itemCount:d.lines.length,employeeCode:code(d.employee),employeeName:name('employees',d.employee),warehouseCode:code(d.warehouse),projectCode:code(d.project),status:statusValue(d.status),changes});
     }
@@ -60,6 +61,28 @@
     const times=new Map();for(const r of db.documentHistory?.records||[]){const key=r.type+'|'+r.documentId,at=Date.parse(r.at);if(Number.isFinite(at))times.set(key,Math.max(times.get(key)||0,at));}
     const time=d=>Math.max(Number.isFinite(Date.parse(d.modifiedAt))?Date.parse(d.modifiedAt):0,times.get(d.type+'|'+d.id)||0);
     return documents.map((doc,index)=>({doc,index,at:time(doc)})).sort((a,b)=>b.at-a.at||a.index-b.index).map(x=>x.doc);
+  }
+  function filterDocumentDates(db,documents,filter={}){
+    const ranges=[['createdFrom','createdTo','최초작성일자'],['modifiedFrom','modifiedTo','최종수정일시']];
+    for(const [from,to,label]of ranges){
+      for(const key of [from,to])if(filter[key]&&!historyDate(filter[key]))throw Error(label+' 검색 일자를 확인하세요.');
+      if(filter[from]&&filter[to]&&filter[from]>filter[to])throw Error(label+' 시작일은 종료일보다 늦을 수 없습니다.');
+    }
+    if(ranges.every(([from,to])=>!filter[from]&&!filter[to]))return documents.slice();
+    const timestamp=value=>typeof value==='string'&&Number.isFinite(Date.parse(value))&&new Date(value).toISOString()===value?Date.parse(value):null;
+    const history=new Map();
+    for(const r of db.documentHistory?.records||[]){
+      const at=timestamp(r.at);if(at===null)continue;
+      const key=r.type+'|'+r.documentId,entry=history.get(key)||{created:null,modified:null};
+      if(r.action==='신규')entry.created=entry.created===null?at:Math.min(entry.created,at);
+      entry.modified=entry.modified===null?at:Math.max(entry.modified,at);history.set(key,entry);
+    }
+    const day=value=>value===null?'':new Date(value).toLocaleDateString('sv-SE',{timeZone:'Asia/Seoul'});
+    const matches=(value,from,to)=>!from&&!to||Boolean(value&&(!from||value>=from)&&(!to||value<=to));
+    return documents.filter(doc=>{
+      const retained=history.get(doc.type+'|'+doc.id),created=timestamp(doc.createdAt)??retained?.created??null,recorded=timestamp(doc.modifiedAt),modified=recorded===null?retained?.modified??null:Math.max(recorded,retained?.modified??recorded);
+      return matches(day(created),filter.createdFrom,filter.createdTo)&&matches(day(modified),filter.modifiedFrom,filter.modifiedTo);
+    });
   }
   function documentHistory(db,type,filter={}){
     if(!purchasingTypes.includes(type)||!filter||typeof filter!=='object'||Array.isArray(filter))throw Error('이력 조회 조건을 확인하세요.');
@@ -291,8 +314,8 @@
     if(d.id&&index<0)throw Error('수정할 전표가 없습니다.');
     if(index>=0&&db.documents[index].type!==d.type)throw Error('전표 종류는 변경할 수 없습니다.');
     if(index>=0&&db.documents[index].accounted)throw Error('회계반영을 취소한 후 수정하세요.');
-    // Modification time belongs to successful commands, never to an incoming form payload.
-    if(purchasingTypes.includes(d.type)){if(index>=0&&db.documents[index].modifiedAt!==undefined)d.modifiedAt=db.documents[index].modifiedAt;else delete d.modifiedAt;}
+    // Modification time belongs to successful commands, never to an incoming form payload. Creation time is immutable.
+    if(purchasingTypes.includes(d.type)){for(const key of ['createdAt','modifiedAt']){if(index>=0&&db.documents[index][key]!==undefined)d[key]=db.documents[index][key];else delete d[key];}}
     if(index>=0){const old=db.documents[index];if(old.generatedFrom==='purchase-plan'&&d.generatedFrom!==old.generatedFrom)throw Error('발주계획 생성 연결은 제거할 수 없습니다.');if(old.sourceId&&(db.documents.find(x=>x.id===old.sourceId)?.generatedFrom==='purchase-plan'||['purchasereturn','exchangereceipt'].includes(old.type)||old.type==='transfer'||old.type==='sale'&&db.documents.find(x=>x.id===old.sourceId)?.type==='transfer')&&d.sourceId!==old.sourceId)throw Error('처리한 원본 전표 연결은 제거하거나 바꿀 수 없습니다.');}
     if(d.sourceId){
       const source=db.documents.find(x=>x.id===d.sourceId);
@@ -604,6 +627,6 @@
     for(const [type,partner,qty,item,price] of [['quote','C001',10,'P001',20000],['order','C001',8,'P001',20000],['sale','C001',3,'P001',20000],['purchaseorder','V001',40,'M001',2000],['purchase','V001',20,'M001',2000],['workorder','',5,'P001',12000],['shoporder','C001',2,'P002',30000]])db=command(db,'document',{...common,type,partner,lines:[{item,qty,price}],memo:'샘플 전표'}).db;
     return db;
   }
-  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,purchaseTransactionTypes,referenceCodes,matchesReference,sortModified};
+  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,purchaseTransactionTypes,referenceCodes,matchesReference,sortModified,filterDocumentDates};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.InventoryCore=api;
 })(typeof globalThis==='object'?globalThis:this);
