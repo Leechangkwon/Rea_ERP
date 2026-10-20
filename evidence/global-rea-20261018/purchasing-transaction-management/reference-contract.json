@@ -64,12 +64,19 @@
     "browserTotal": 27,
     "verifyLocalPassed": true,
     "release": 4,
-    "hostedUiVerified": false
+    "hostedUiVerified": true,
+    "browserDataAndFormsExactPostComparison": true,
+    "hostedBusinessWritesPerformed": false
   },
   "unverified": [
     "original company transaction VAT metadata, item/warehouse/default priority and override behavior",
     "original item-specific management enable/disable and automatic clearing",
     "original server filter OR/AND, print, approval and full workflow equivalence"
   ],
-  "fullOriginalEquivalence": false
+  "fullOriginalEquivalence": false,
+  "hostedManagementCatalog": {
+    "active": 0,
+    "includingStopped": 0,
+    "nonemptySelectionOnlySynthetic": true
+  }
 }
