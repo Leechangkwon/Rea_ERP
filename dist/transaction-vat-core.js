@@ -72,5 +72,64 @@
     if(canonical(expected)!==canonical(current))throw Error('거래별 계산 근거가 다릅니다. 미리보기를 다시 계산하세요.');
     return current;
   }
-  const api={preview,verify};if(typeof module==='object'&&module.exports)module.exports=api;else root.TransactionVatCore=api;
+  function mode(doc){
+    const value=doc.vatCalculation===undefined?'line':doc.vatCalculation;if(!['line','transaction'].includes(value))throw Error('부가세계산방법을 확인하세요.');return value;
+  }
+  function draft(doc,target=mode(doc)){
+    const value=JSON.parse(JSON.stringify(doc));delete value.vatAdjustment;delete value.vatConfirmation;value.vatCalculation=target;return value;
+  }
+  function confirmation(doc,target=mode(doc)){return {mode:target,preview:preview(draft(doc,target))};}
+  function evidence(doc,p=preview(draft(doc,'transaction'))){
+    const n=normalizedInput(draft(doc,'transaction'));
+    const basis={type:n.type,sourceId:n.sourceId||'',currency:n.currency,vatRate:n.vatRate,taxRounding:n.taxRounding,supplyRounding:n.supplyRounding,lines:n.lines.map(l=>({item:l.item,lineId:l.lineId||'',sourceLineId:l.sourceLineId||'',qty:l.qty,price:l.price,discount:l.discount}))};
+    return {version:1,basis,lastIndex:p.lastIndex,delta:p.delta,before:p.before,after:p.after};
+  }
+  function stored(doc){
+    if(mode(doc)!=='transaction'||!doc.vatAdjustment||Object.hasOwn(doc,'vatConfirmation'))throw Error('저장된 부가세 조정 근거를 확인하세요.');
+    const p=preview(draft(doc,'transaction'));
+    if(canonical(doc.vatAdjustment)!==canonical(evidence(doc,p)))throw Error('저장된 부가세 조정 근거가 현재 금액과 다릅니다. 다시 확인하세요.');
+    return p;
+  }
+  function verifyConfirmation(doc,expected,target){
+    if(!expected||expected.mode!==target||Object.keys(expected).some(k=>!['mode','preview'].includes(k)))throw Error('부가세 차액과 계산방법 변경을 확인한 뒤 저장하세요.');
+    return verify(draft(doc,target),expected.preview);
+  }
+  function forSave(doc,previous){
+    const value=JSON.parse(JSON.stringify(doc)),prior=previous&&mode(previous)==='transaction';
+    if(prior)stored(previous);
+    if(value.vatCalculation===undefined&&prior)value.vatCalculation='transaction';
+    const target=mode(value),expected=value.vatConfirmation;
+    if(value.vatAdjustment!==undefined){
+      const supplied=value.vatAdjustment;
+      if(!supplied||supplied.version!==1||(!prior||canonical(supplied)!==canonical(previous.vatAdjustment))&&canonical(supplied)!==canonical(evidence(value)))throw Error('알 수 없거나 변경된 부가세 조정 근거입니다.');
+    }
+    if(target==='transaction'){
+      const p=preview(draft(value,target)),next=evidence(value,p);
+      const unchanged=prior&&canonical(next)===canonical(previous.vatAdjustment);
+      if(expected)verifyConfirmation(value,expected,target);
+      else if(!unchanged&&p.hasDifference)throw Error('부가세 차액을 다시 확인한 뒤 저장하세요.');
+      value.vatCalculation=target;value.vatAdjustment=next;
+      value.lines=value.lines.map((line,index)=>({...line,...p.rows[index].after}));
+    }else{
+      if(prior||expected)verifyConfirmation(value,expected,target);
+      else if(value.vatAdjustment!==undefined)throw Error('라인별 계산에 부가세 조정 근거를 사용할 수 없습니다.');
+      delete value.vatAdjustment;value.lines=value.lines.map(line=>C.lineTotals(line,value.vatRate,value.taxRounding,value.supplyRounding));
+    }
+    delete value.vatConfirmation;return value;
+  }
+  function documentLines(doc){
+    if(Object.hasOwn(doc,'vatConfirmation'))throw Error('임시 부가세 확인 자료는 저장 자료에 포함할 수 없습니다.');
+    if(mode(doc)!=='transaction'){
+      if(Object.hasOwn(doc,'vatAdjustment'))throw Error('라인별 계산에 부가세 조정 근거를 사용할 수 없습니다.');
+      return doc.lines.map(line=>C.lineTotals(line,doc.vatRate,doc.taxRounding,doc.supplyRounding));
+    }
+    const p=stored(doc);return doc.lines.map((line,index)=>({...C.lineTotals(line,doc.vatRate,doc.taxRounding,doc.supplyRounding),...p.rows[index].after}));
+  }
+  function renamedItems(previous,next){
+    stored(previous);const before=evidence(previous).basis,after=evidence(next).basis;
+    const withoutCodes=b=>({...b,lines:b.lines.map(({item,...line})=>line)});
+    if(canonical(withoutCodes(before))!==canonical(withoutCodes(after)))throw Error('품목코드 변경 중 부가세 금액 기준이 바뀌었습니다.');
+    return evidence(next);
+  }
+  const api={preview,verify,mode,confirmation,stored,forSave,documentLines,renamedItems};if(typeof module==='object'&&module.exports)module.exports=api;else root.TransactionVatCore=api;
 })(typeof window!=='undefined'?window:globalThis);
