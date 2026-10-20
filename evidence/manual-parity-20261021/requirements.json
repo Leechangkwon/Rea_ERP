@@ -1,0 +1,972 @@
+{
+  "schema": 1,
+  "baselineVersion": "0.1",
+  "status": "discovery-open",
+  "officialRequirementsDecomposed": 0,
+  "legacyCandidates": [
+    {
+      "id": "LOCAL-MAN-PUR-01",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "구매요청 접수 및 검토",
+      "sourceLocator": {
+        "actualSlides": [
+          8,
+          9,
+          65,
+          67
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "재고 I > 구매관리 > 발주요청 > 발주요청조회",
+        "일자-No로 요청 전표 열기",
+        "품목·수량 확인 및 수정",
+        "저장"
+      ],
+      "expected": [
+        "요청 목록에서 전표를 열어 기존 품목·수량을 확인·수정·저장할 수 있다.",
+        "저장 후 목록과 상세의 품목·수량이 일치한다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-PUR-02",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "발주요청에서 발주계획 생성",
+      "sourceLocator": {
+        "actualSlides": [
+          10,
+          11,
+          12
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "발주계획입력",
+        "발주요청 불러오기",
+        "필요한 일자-No 체크",
+        "전체적용",
+        "저장"
+      ],
+      "expected": [
+        "발주계획입력에서 발주요청 목록을 열고 복수 전표를 선택·전체적용할 수 있다.",
+        "적용한 요청 품목·수량과 저장된 계획이 일치하며 원본 전표를 식별할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-PUR-03",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "거래처·납기별 발주서 분개",
+      "sourceLocator": {
+        "actualSlides": [
+          13,
+          14,
+          65
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "발주계획조회",
+        "필요한 일자-No 체크",
+        "다른전표생성 > 발주서",
+        "거래처별납기일자별품목별 선택",
+        "기본입력 또는 직접입력 필드 확인",
+        "저장"
+      ],
+      "expected": [
+        "다른 거래처의 품목을 포함한 계획을 선택하면 거래처별 발주서로 나뉜다.",
+        "같은 거래처라도 다른 납기일은 선택한 분개 기준에 맞게 나뉜다.",
+        "품목별 모드와 라인별 모드의 결과를 저장 전에 확인할 수 있다.",
+        "직접입력한 헤더 값이 생성 발주서에 반영된다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-PUR-04",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "발주서 송부 준비 및 발송",
+      "sourceLocator": {
+        "actualSlides": [
+          15,
+          16
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "발주서조회에서 전표 체크",
+        "E-mail",
+        "보내는양식 지점 선택",
+        "메일 제목 날짜·지점 입력",
+        "수신자 메일주소 확인",
+        "보내기"
+      ],
+      "expected": [
+        "복수 거래처 발주서를 선택해 각 거래처에 맞는 수신자와 전표만 준비할 수 있다.",
+        "지점 양식·제목·발신/수신 정보를 검토할 수 있다.",
+        "초안 준비와 실제 발송 결과를 구분해 표시한다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-REC-01",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "실물 입고 검수",
+      "sourceLocator": {
+        "actualSlides": [
+          18,
+          19,
+          65,
+          67
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "공급실 입고",
+        "제품 오염·파손 확인",
+        "발주 품목·수량 대조",
+        "문제가 있는 물품의 반품·교환 요구 접수"
+      ],
+      "expected": [
+        "발주량·도착량·검수 결과를 같은 품목 기준으로 비교할 수 있다.",
+        "이상 물품의 반품·교환 요구를 기록하고 정상 입고와 구분할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-REC-02",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "발주서 불러오기와 구매입고",
+      "sourceLocator": {
+        "actualSlides": [
+          20,
+          21,
+          22,
+          23,
+          24
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "재고 I > 구매관리 > 구매 > 구매입력",
+        "전표불러오기 > 구매관리 > 발주서",
+        "발주서 순번 선택 > 전체적용",
+        "정보 확인",
+        "발주서 진행상태변경 확인",
+        "저장"
+      ],
+      "expected": [
+        "구매입력에서 발주서를 선택·전체적용하고 품목·단위·수량·가격·세액을 확인할 수 있다.",
+        "저장 후 구매입고 수량만 해당 창고에 반영된다.",
+        "원본 발주서와 구매입고 전표를 서로 추적할 수 있다.",
+        "발주서 진행상태 변경 여부를 저장 전에 확인할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-REC-03",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "부분입고·미입고·납기 관리",
+      "sourceLocator": {
+        "actualSlides": [
+          23,
+          24,
+          65,
+          67,
+          68
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "주간 입고·미입고 확인",
+        "업체별 미입고품목 입고일정 요청",
+        "미입고품목 및 일정 공유"
+      ],
+      "expected": [
+        "가상 발주 10개 중 4개를 입고하면 입고 4개·미입고 6개를 조회할 수 있다.",
+        "나머지 6개 입고 후 잔량이 0이 되고 이전 입고 전표가 유지된다.",
+        "같은 발주서의 입고가 중복 집계되지 않으며 거래처별 입고 예정일을 공유할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-STK-01",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "RACK 적재와 선입선출",
+      "sourceLocator": {
+        "actualSlides": [
+          25
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "품목 확인",
+        "적재 위치 확인",
+        "최근 입고 물품을 가장 뒤편에 적재"
+      ],
+      "expected": [
+        "품목별 RACK 위치와 입고 이력을 확인할 수 있다.",
+        "출고 담당자가 먼저 입고한 물품을 구분할 근거를 조회할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-STK-02",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "인가량 대비 공급실 보충",
+      "sourceLocator": {
+        "actualSlides": [
+          26,
+          27,
+          28,
+          63
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "영업 전 층별 재고 파악",
+        "인가량 대비 부족 수량 계산",
+        "각 공급실 약품 불출"
+      ],
+      "expected": [
+        "사용처별 품목 인가량과 현재 재고를 비교할 수 있다.",
+        "인가량 10개·현재 4개인 가상 품목의 부족 수량이 6개로 계산된다.",
+        "부족 수량만큼의 창고이동을 준비할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-ISS-01",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "창고이동 입력",
+      "sourceLocator": {
+        "actualSlides": [
+          29,
+          30,
+          31,
+          32
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "재고 I > 기타이동 > 창고이동 > 창고이동입력",
+        "헤더 입력",
+        "품목코드 더블클릭 검색",
+        "품목코드·품목명·규격 검색",
+        "품목 선택",
+        "박스 단위 수량 입력",
+        "저장"
+      ],
+      "expected": [
+        "품목코드·이름·규격으로 품목을 찾아 적용할 수 있다.",
+        "박스 수량과 기본 단위 환산이 일관된다.",
+        "이동 후 출고창고는 이동량만큼 줄고 입고창고는 같은 수량만큼 늘어 총 보유량이 유지된다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-ISS-02",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "창고이동에서 판매/사용 전표 생성",
+      "sourceLocator": {
+        "actualSlides": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          40,
+          41,
+          42
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "재고 I > 영업관리 > 판매 > 판매입력",
+        "전표불러오기 > 창고이동",
+        "판매 처리할 불출 건 선택 > 전체적용",
+        "불러온 내용 확인",
+        "거래처 입력",
+        "저장"
+      ],
+      "expected": [
+        "판매입력의 전표불러오기에서 창고이동을 선택할 수 있다.",
+        "선택한 이동 품목·수량을 적용하고 거래처를 지정해 저장할 수 있다.",
+        "사용량 보고에서 이동과 판매를 같은 소비로 중복 계산하지 않는다.",
+        "이동을 사용으로 간주하는 시점과 판매 창고를 명확히 표시해 같은 창고에서 이중 차감되지 않는다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-ISS-03",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "진료실 요청에서 창고이동 생성",
+      "sourceLocator": {
+        "actualSlides": [
+          26,
+          38,
+          39
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "진료실 요청 품목 입고 시 수량 확인",
+        "창고이동입력",
+        "전표불러오기 > 진료실 발주요청 목록",
+        "요청 전표 선택 > 전체적용",
+        "저장"
+      ],
+      "expected": [
+        "창고이동입력에서 발주요청 전표를 불러올 수 있다.",
+        "요청 원본과 이동 전표의 품목·수량·대상 창고를 추적할 수 있다.",
+        "필요하면 생성 이동 전표를 판매입력의 전표불러오기로 다시 적용할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-ISS-04",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "판매 조회·집계·정정",
+      "sourceLocator": {
+        "actualSlides": [
+          43,
+          44,
+          45
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "판매조회에서 전표별/일자별 조회",
+        "판매현황에서 내역 또는 집계·조건 지정",
+        "정정할 전표 선택",
+        "삭제 또는 수량·단가 수정",
+        "저장"
+      ],
+      "expected": [
+        "같은 기간 판매조회 합계와 판매현황 내역·집계 합계가 일치한다.",
+        "판매 수량·단가 정정 후 재고 및 금액 합계가 다시 계산된다.",
+        "삭제/취소 후 보고 수량과 금액에서 제외 여부가 명확하다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-STK-03",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "주·월 재고 실사",
+      "sourceLocator": {
+        "actualSlides": [
+          62,
+          63,
+          66
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "주/월별 실사",
+        "실사 기말재고 입력",
+        "기초·구매·이동 내역과 비교",
+        "수불대장 작성"
+      ],
+      "expected": [
+        "창고·품목·기준일별 실사 수량을 기록할 수 있다.",
+        "전산 수량과 실사 수량 차이를 별도로 확인할 수 있다.",
+        "실사 수량을 입력한 수불대장과 전산 계속기록 수불대장을 구분한다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-01",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "거래처 원장·실물 명세서 대사",
+      "sourceLocator": {
+        "actualSlides": [
+          48,
+          49,
+          65,
+          66,
+          68,
+          69
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "거래처별 원장 요청",
+        "실제 거래명세서와 거래처 원장 비교",
+        "오류가 있으면 양사 협의·조정"
+      ],
+      "expected": [
+        "거래처·기간별 원장과 명세서 자료를 구분해 등록·조회할 수 있다.",
+        "일치·불일치 행을 구분하고 차이의 사유 및 조정 결과를 남길 수 있다.",
+        "해소되지 않은 차이를 구매 확정 과정에서 인지할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-02",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "ERP 구매와 원장 대조",
+      "sourceLocator": {
+        "actualSlides": [
+          50,
+          68
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "명세서·원장 검토 후 ERP 구매 현황 비교",
+        "전산 정확성 확인",
+        "주간 구매품목 ERP 입력"
+      ],
+      "expected": [
+        "원장·명세서·ERP 구매의 3개 자료별 차이를 구분해 볼 수 있다.",
+        "누락 구매를 입력하거나 잘못된 전표를 정정한 뒤 재대사할 수 있다.",
+        "대사된 합계를 보고서와 구매 확정에 사용할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-03",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "구매 확정과 세금계산서 발행 요청",
+      "sourceLocator": {
+        "actualSlides": [
+          47,
+          48,
+          51
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "거래처와 거래내역 이상 없음 확인",
+        "구매 확정",
+        "정확한 금액으로 세금계산서 발행 요청",
+        "재무 담당자에게 지급 정보 인계"
+      ],
+      "expected": [
+        "구매 확정과 단순 전표 저장을 구분한다.",
+        "거래처·기간·확정금액·지급 예정일을 확인할 수 있다.",
+        "세금계산서 요청 기록과 구매 확정 근거를 연결할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-04",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "세금계산서 발행 확인",
+      "sourceLocator": {
+        "actualSlides": [
+          51,
+          52,
+          66,
+          69
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "구매 확정 이후 발행 요청",
+        "재무 담당자에게 실제 발행 여부 확인",
+        "정확한 날짜·금액 확인"
+      ],
+      "expected": [
+        "요청됨과 발행 확인됨을 서로 구분할 수 있다.",
+        "발행일과 발행금액을 확정 구매금액과 대조할 수 있다.",
+        "확인자와 확인 결과를 기록할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-05",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "구매품의와 지출결의",
+      "sourceLocator": {
+        "actualSlides": [
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          66,
+          69
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "그룹웨어 > 전자결재 > 품의 양식",
+        "합의·부서 결재·재무·전결 역할 지정",
+        "구매비·사용 출처 및 분석 작성",
+        "자금 출금용 지출결의 작성"
+      ],
+      "expected": [
+        "병원/조직별 품의와 지출결의를 별도로 관리할 수 있다.",
+        "역할별 결재선을 설정하고 보고 자료를 연결할 수 있다.",
+        "초안·상신·진행·완료 상태를 구분할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-06",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "구매비 분석 및 보고 자료",
+      "sourceLocator": {
+        "actualSlides": [
+          53,
+          58,
+          59,
+          60,
+          69
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "구매 정보를 거래처·규격별 정리",
+        "전월·당월 비용 비교",
+        "증감 원인 분석·기재",
+        "당월 상세와 매출 대비 구매비 산출",
+        "품의서에 포함"
+      ],
+      "expected": [
+        "전월·당월을 같은 거래처·규격·품목 기준으로 비교할 수 있다.",
+        "상세 합계가 구매 원장 합계와 일치한다.",
+        "차이 금액과 설명을 기록할 수 있으며 매출 대비 구매비의 기간·기준이 표시된다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-07",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "실사 기법 수불대장",
+      "sourceLocator": {
+        "actualSlides": [
+          61,
+          62
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "기간과 창고·품목별 입출고 수집",
+        "실사 기말재고 입력",
+        "수량 및 금액 수불대장 작성"
+      ],
+      "expected": [
+        "가상 수량 기초 10 + 구매 5 - 이동출고 3 + 이동입고 2 - 기말 4의 사용량은 10이다.",
+        "각 창고의 입출고와 기말재고를 같은 기간으로 계산한다.",
+        "내부 창고이동의 전체 출고 합계와 입고 합계가 일치하는지 확인할 수 있다.",
+        "금액 평가 기준을 표시하고 행 합계와 총계가 일치한다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-08",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "계속기록 기법 수불대장",
+      "sourceLocator": {
+        "actualSlides": [
+          63,
+          68
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "사용처별 적정재고 설정",
+        "실제 사용량 입력",
+        "사용 정보에 따라 불출",
+        "불출·이동 현황으로 사용량 집계"
+      ],
+      "expected": [
+        "보고서에 계속기록 방식임을 표시하고 실사 방식과 합산하지 않는다.",
+        "입력한 실제 사용과 보충/불출을 창고·품목별로 연결할 수 있다.",
+        "사용 입력 누락을 확인할 수 있고 실사 방식 계산과 비교할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-CLS-09",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "수불·사용량 보고 및 공유",
+      "sourceLocator": {
+        "actualSlides": [
+          47,
+          61,
+          64,
+          66,
+          69
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "수불대장 분석",
+        "경영자 요청 정보 정리",
+        "특이사항 작성",
+        "메일로 보고",
+        "재무실에 사용량 공유"
+      ],
+      "expected": [
+        "창고·층·품목별 보고에서 상세 근거로 이동할 수 있다.",
+        "보고 합계와 수불대장·구매 분석의 기간·금액 기준이 일치한다.",
+        "검토용 보고 초안과 실제 메일 발송을 구분한다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-AST-01",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "자산 시리얼/로트 등록 및 구매 연결",
+      "sourceLocator": {
+        "actualSlides": [
+          71,
+          72,
+          73,
+          74
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "구매수정의 시리얼/로트 칸 열기",
+        "신규 시리얼/로트 생성",
+        "제조번호·품목 입력",
+        "저장",
+        "입력수량 지정 후 적용"
+      ],
+      "expected": [
+        "구매 품목에서 개별 시리얼을 등록하고 적용 수량을 지정할 수 있다.",
+        "적용 후 시리얼·품목·구매 전표를 서로 조회할 수 있다.",
+        "시리얼별 수량과 품목 전체 수량의 관계를 확인할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-AST-02",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "자산 바코드 라벨 인쇄 및 부착",
+      "sourceLocator": {
+        "actualSlides": [
+          75
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "재고 II > 시리얼/로트NO. > 시리얼/로트NO. 등록",
+        "인쇄 품목 선택",
+        "하단 바코드(시리얼/로트NO.)",
+        "바코드 인쇄",
+        "인쇄 양식 선택",
+        "인쇄 후 실물 부착"
+      ],
+      "expected": [
+        "시리얼별 대상을 선택하고 인쇄 양식으로 라벨을 준비할 수 있다.",
+        "라벨의 표시 번호와 등록 시리얼이 일치한다.",
+        "가상 라벨 스캔 시 해당 자산을 찾을 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    },
+    {
+      "id": "LOCAL-MAN-AST-03",
+      "sourceId": "LOCAL-PURCHASE-20240612",
+      "title": "시리얼/로트 재고수불부 조회",
+      "sourceLocator": {
+        "actualSlides": [
+          76
+        ]
+      },
+      "sourceStatus": "historical-extraction-original-file-unavailable",
+      "procedure": [
+        "재고 II > 시리얼/로트NO. > 시리얼/로트NO. 재고수불부",
+        "조건 설정 후 조회"
+      ],
+      "expected": [
+        "기간 및 조건별로 개별 시리얼의 입고·출고·재고를 조회할 수 있다.",
+        "연결전표에서 구매 또는 재고조정 근거를 확인할 수 있다.",
+        "품목별 시리얼 재고 합계와 품목 재고가 일치하는지 확인할 수 있다."
+      ],
+      "status": "legacy-needs-rebaseline",
+      "referenceVerified": false,
+      "implementationEvidence": [
+        "dist/purchase-process-data.js",
+        "evidence/purchase-manual-validation.json"
+      ],
+      "automatedEvidence": [
+        "evidence/purchase-manual-simulation.json"
+      ],
+      "hostedAcceptance": false,
+      "preservationVerifiedForThisScenario": false,
+      "done": false
+    }
+  ],
+  "allDone": false
+}

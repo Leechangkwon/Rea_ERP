@@ -1,5 +1,9 @@
 # 구매실 매뉴얼 기반 재현
 
+## 현재 우선 지시 · 전역 매뉴얼 기반 재현 (2026-10-21)
+
+사용자가 전체 기능의 완료 기준을 이카운트 매뉴얼의 실제 절차·결과 일치로 지정했다. 먼저 매뉴얼 목록, PRD와 아키텍처를 작성하고 모아 커뮤니티에 게시한 뒤 순차 개발한다. 현재 계획은 [docs/manual-parity/README.md](manual-parity/README.md), [PRD](manual-parity/PRD.md), [아키텍처](manual-parity/ARCHITECTURE.md), [진행 순서](manual-parity/ROADMAP.md)를 따른다. 공개 교육목차551항목/고유영상545개를 조사했으나 로그인 도움말/API 전체 목록과 영상 본문은 미완료다. 기존 구매실26절차는 재확인 후보이며 공식 동등성 완료가 아니다. 모아 도구 인증401/웹1033으로 최초 게시 대기, 원본 로그인·정확한 프로젝트 주소 요청 상태다. 실제 게시/로그인 상태와 다음 작업은 manual-parity/PROGRESS.md 및 evidence/manual-parity-20261021/publication.json을 확인한다. 아래0.50.0은 현재 운영 기준이며 자료·계정·양식·메일을 그대로 보존한다.
+
 ## 현재 인계: Windows 관찰 / Linux 분석·구현 (2026-10-19)
 
 현재 거래유형·관리항목0.50.0을 운영 반영했다(b7726ee). [현재 계획](plan-purchasing-transaction-management-20261020.md)과 [기능 기록](purchasing-transaction-management-0.50.0.md)을 먼저 읽는다. 전체 검사·배포와 기존 계정 운영UI 확인/브라우저 사후 비교까지 완료했다. 전표8건/양식은 JSON 파일까지 동일, 계정·설정·메일 보존을 확인했다. 관리항목 등록0건은 합성 유자료 검사와 구분하며 운영 전표/양식 저장·발송은 하지 않았다. 아래 다중 선택 내용은 직전 완료 기준이다.

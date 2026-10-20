@@ -1,0 +1,107 @@
+{
+  "tool": "rea-agents",
+  "version": "6.4.0",
+  "ownApi": {
+    "files": [
+      {
+        "file": "worker/app-service.cjs",
+        "bytes": 31175,
+        "sha256": "0a4f777d09ef64c28f5a416b7daa80930e15de39dc90828a9958162a4236e56a"
+      },
+      {
+        "file": "worker/gateway.cjs",
+        "bytes": 19858,
+        "sha256": "19c72baf151a429b7e15c3ddca5e5538429894fa4350687b07a51c4a19b88df3"
+      },
+      {
+        "file": "worker/index.js",
+        "bytes": 3552,
+        "sha256": "6cb325a5b7b658a871a5ecd3872de3a846aa195b3a5ad9bda40d5e66c8d8ce01"
+      }
+    ],
+    "parsed": 3,
+    "parseFailures": 0,
+    "semanticNodes": 7873,
+    "semanticCoverage": {
+      "status": "unknown",
+      "truncated": false,
+      "omitted_nodes": 0,
+      "omitted_relations": 0,
+      "limits": []
+    },
+    "families": [
+      {
+        "family": "boundary",
+        "status": "partial",
+        "unknownCount": 1
+      },
+      {
+        "family": "call-flow",
+        "status": "partial",
+        "unknownCount": 508
+      },
+      {
+        "family": "child-process",
+        "status": "partial",
+        "unknownCount": 0
+      },
+      {
+        "family": "closure",
+        "status": "partial",
+        "unknownCount": 0
+      },
+      {
+        "family": "configuration",
+        "status": "partial",
+        "unknownCount": 0
+      },
+      {
+        "family": "data-flow",
+        "status": "partial",
+        "unknownCount": 513
+      },
+      {
+        "family": "event",
+        "status": "partial",
+        "unknownCount": 0
+      },
+      {
+        "family": "object-flow",
+        "status": "partial",
+        "unknownCount": 1318
+      },
+      {
+        "family": "promise-ownership",
+        "status": "partial",
+        "unknownCount": 62
+      },
+      {
+        "family": "request",
+        "status": "partial",
+        "unknownCount": 0
+      },
+      {
+        "family": "resource-lifecycle",
+        "status": "partial",
+        "unknownCount": 0
+      },
+      {
+        "family": "timer",
+        "status": "partial",
+        "unknownCount": 0
+      }
+    ],
+    "resultSha256": "451000c700975c5142bc499a3aa0c8feb33cbadddd98cb1311b2c514bdf4d6bb",
+    "equivalenceEstablished": false
+  },
+  "priorOriginalSourceRecheck": [
+    {
+      "path": ".artifacts/purchasing-multiselect-sort-20261020/original-3/input/inventory.75a19601.js",
+      "expectedSha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+      "actualSha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+      "match": true
+    }
+  ],
+  "priorScopeReference": "../global-rea-20261018/purchasing-transaction-management/analysis-summary.json",
+  "fullOriginalAnalysisClaimed": false
+}
