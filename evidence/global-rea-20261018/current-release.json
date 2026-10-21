@@ -1,5 +1,5 @@
 {
-  "version": "0.53.4",
+  "version": "0.53.5",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,21 +114,25 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 41,
+    "currentReleaseBrowserSynthetic": 42,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
     "priceInputCloseNewBrowser": 1,
-    "priceInputCloseIndependentConflictChecks": 3
+    "priceInputCloseIndependentConflictChecks": 3,
+    "priceDirectReplyRelatedNode": 83,
+    "priceDirectReplyNewNode": 11,
+    "priceDirectReplyNewBrowser": 1,
+    "priceDirectReplyIndependentConflictChecks": 5
   },
-  "future_research": "Operating 0.53.4 adds guarded vendor input close/reopen to existing ready comparison records. Supplier start and direct reply UI need original field/save/cancel evidence. Existing VAT conflicts remain isolated; hosted write/manual acceptance and Moa append/readback are pending.",
+  "future_research": "Operating 0.53.5 adds guarded direct received-price entry with atomic batch save for ready comparison records. Supplier registration/start and per-vendor voucher lifecycle need evidence and implementation. Existing VAT conflicts remain isolated; hosted save/manual acceptance and Moa append/readback pending.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-price-request-input-close-20261021.json",
+    "reference": "../manual-price-request-direct-reply-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
-    "publicVersionVerified": "0.53.4",
+    "deployedSourceCommit": "ce2e569cfe752bbd0103f82a5f806a44b4d8e445",
+    "publicVersionVerified": "0.53.5",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -187,23 +191,25 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.53.4",
+    "existingSessionRetainedVersion": "0.53.5",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.53.4",
+    "lastExactBrowserBackupComparisonVersion": "0.53.5",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.53.4",
+    "currentServerStateAndMailPreservedVersion": "0.53.5",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.53.4",
+    "currentAuthenticatedSessionVerificationVersion": "0.53.5",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
-    "priceRequestComparisonOperatingCount": 0
+    "priceRequestComparisonOperatingCount": 0,
+    "priceRequestDirectReplyDeployed": true,
+    "priceRequestDirectReplyHostedSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -443,7 +449,7 @@
     "nextIndependentWork": {
       "requirement": "REQ-PUR-PRICE-001",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
-      "description": "Observe supplier token registration and full direct-reply edit dialog fields/save/cancel semantics and default/header/partial radio rules. Connect verified picker/start/reply UI through guarded explicit commits, preserving original vouchers/forms/replies. Per-vendor close/reopen is deployed in 0.53.4 for ready records; original server and external supplier exception policy remain unverified. Operating login and preservation verified; hosted business saves and Moa append/readback pending. Existing VAT nextWork unchanged."
+      "description": "Observe supplier registration/token picker and per-vendor voucher creation lifecycle, then connect verified supplier start UI without changing existing vouchers/forms/replies. Direct received-price entry is deployed in 0.53.5 for ready records; header/quantity/VAT edit effects and closed-vendor staff exceptions remain unverified. Follow with original default/header/partial selection, purchaseorder application and external replies. Operating login and preservation verified; hosted business saves and Moa append/readback pending. Existing VAT nextWork unchanged."
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -504,13 +510,29 @@
       "productionDeployed": true,
       "hostedWriteAcceptancePending": true,
       "done": false
+    },
+    "priceRequestDirectReply": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "status": "deployed-preservation-verified-local-direct-reply-accepted-hosted-write-and-manual-parity-pending",
+      "sourceCommit": "3939439febb4fb336e733bbf3472e5314ccfa003",
+      "evidence": "evidence/manual-price-request-direct-reply-20261021.json",
+      "deployedVersion": "0.53.5",
+      "deployedCommit": "ce2e569cfe752bbd0103f82a5f806a44b4d8e445",
+      "relatedNodeTests": 83,
+      "newNodeTests": 11,
+      "browserTests": 42,
+      "newBrowserTests": 1,
+      "ownReaScopes": 9,
+      "productionDeployed": true,
+      "hostedWriteAcceptancePending": true,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.53.4",
-    "commit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
-    "manifest": ".artifacts/manual-price-close-20261021/candidate-manifest.json",
-    "bundleSha256": "afa84209f75223aef31d95956aa0690e318f54dcc2afda5b151c6215ba8c00ba",
+    "version": "0.53.5",
+    "commit": "ce2e569cfe752bbd0103f82a5f806a44b4d8e445",
+    "manifest": ".artifacts/manual-price-reply-20261021/candidate-manifest.json",
+    "bundleSha256": "49ead4bad3261696a7da21ffba682da226dffa0cbc7afc213884bd86fa6cc09b",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -521,9 +543,10 @@
       "price-request-read-only-comparison-view",
       "price-request-explicit-confirmed-selection",
       "bounded-staff-session-retention",
-      "price-request-vendor-input-close-reopen"
+      "price-request-vendor-input-close-reopen",
+      "price-request-direct-received-price-batch-save"
     ],
-    "supersedesCandidateCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
+    "supersedesCandidateCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,

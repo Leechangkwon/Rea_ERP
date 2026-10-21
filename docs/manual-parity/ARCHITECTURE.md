@@ -305,3 +305,9 @@ Adapter는 실제 사용자별 storageKey, inventory.read/write, raw 기준을 �
 0.53.4의 PriceRequestUI는 ready 비교상태·쓰기권한이 있을 때만 거래처 열에 입력마감/취소 버튼을 표시한다. 동일한 inventory-ui onSave 어댑터는 selectMany 또는 close만 허용하며 사용자/권한·원문 baseline을 검증하고 기존 PriceRequestCore close 명령으로 단일 commit한다. 확정선택 초안 중에는 마감 버튼을 숨기고 이미 제거된 버튼 이벤트를 차단한다. 오류 시 기존 표/선택/자료를 보존한다.
 
 서버 API·비교스키마·공용장부/외부 공급사 인증을 추가하지 않았다. 합성 저장/재조회와 운영 설치/로그인/보존을 구분한다. 운영 비교자료0건이므로 실제 마감 저장 합격은 대기다. 다음 연결은 원본 근거를 확보한 공급사 시작/직접회신 UI이며 기존 저장·권한 경계를 재사용한다. 근거 evidence/manual-price-request-input-close-20261021.json.
+
+## 2026-10-21 구현 추가 · 수취단가 직접입력
+
+0.53.5의 PriceRequestUI는 거래처별 가격 편집 초안을 비교표와 분리하고 replyMany 명령으로 변경행만 단일 commit한다. core는 모든 행과 마감/확정선택/수정번호를 검증한 뒤 사본에 반영하고 검증 실패 시 예외를 발생시키고 원본은 변경하지 않는다. 기존 UI 어댑터의 사용자·권한·raw baseline 검사와 공유 core를 재사용한다. 데이터 버전·Worker 인증/메일 코드는 그대로이며 bundle에 변경 PriceRequestCore가 포함된다.
+
+수량/헤더/세금 편집, 공급사 등록/비교 시작 UI, 외부 공급사 인증/회신 및 발주 적용은 이번 범위 밖이다. 자체 마감·확정선택 보호를 원본 직원 예외 정책으로 간주하지 않는다. 합성42브라우저 및 운영 보존을 구분하고 실제 업무 저장/전역 매뉴얼 합격은 미완료다. 근거 evidence/manual-price-request-direct-reply-20261021.json.
