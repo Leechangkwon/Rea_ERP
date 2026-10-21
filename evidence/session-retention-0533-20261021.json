@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-21",
+  "version": "0.53.3",
+  "status": "deployed-session-retention-and-preservation-verified",
+  "sourceCommit": "1b79f8a9df0287561f638c7504ed1d87543ecb5a",
+  "deploymentCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
+  "bundleSha256": "712914484c93c8a0e2af86822d97526045444ec8d1038c89f7b11ec07bb44db9",
+  "candidateBase": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+  "manifest": ".artifacts/session-retention-20261021/candidate-manifest.json",
+  "checks": {
+    "verifyLocalPassed": true,
+    "browserSynthetic": 40,
+    "focusedAuthAndMail": 45,
+    "independentSessionAndMail": 24,
+    "initialVersionMetadataFailureFixed": true,
+    "fullLog": ".artifacts/session-retention-20261021/verify-local.log"
+  },
+  "runtime": "existing WSL Ubuntu / Supabase / Cloudflare rea.qaredi.com",
+  "policy": {
+    "env": "REA_STAFF_SESSION_MINUTES",
+    "value": 43200,
+    "scope": "staff only",
+    "absoluteDaysFromLogin": 30,
+    "passwordStoredInEnvironment": false,
+    "dbExpiredOrRevokedRevival": false,
+    "policyDecrease": "current policy denial; not permanent revocation",
+    "thirdPartyLoginsAffected": false
+  },
+  "existingSession": {
+    "version": "0.53.3",
+    "appRevisionBefore": 27,
+    "appRevisionAfter": 28,
+    "appChangedFields": [
+      "sessions",
+      "audit"
+    ],
+    "sessionChangedFields": [
+      "expiresAt"
+    ],
+    "sameTokenAndCsrf": true,
+    "newLoginOccurred": false,
+    "createdAt": "2026-10-21T10:13:51.488Z",
+    "expiresAt": "2026-11-20T10:13:51.488Z",
+    "expiryKst": "2026-11-20T19:13:51.488000+09:00",
+    "durationDays": 30,
+    "oldRuntimeBytesPreserved": true,
+    "onlyAddedEnv": "REA_STAFF_SESSION_MINUTES=43200",
+    "accountsConfigBusinessUnchanged": true,
+    "browserBackupExact": true,
+    "browserBackupSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+    "authenticatedReloads": 2,
+    "screenshot": "rea-session-retention-0.53.3.png",
+    "noBusinessWritesOrMailSent": true
+  },
+  "preservation": {
+    "version": "0.53.3",
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 27,
+        "afterRevision": 28,
+        "exactBodyAndRevisionEqual": false
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": false,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false
+  },
+  "public": {
+    "version": "0.53.3",
+    "sourceCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "911eb31aa0542a85a89b291d84c3c4ef575511a8acafc7306410daadd18013ba",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-core.js",
+        "status": 200,
+        "sha256": "b02d6ab752983fa29797b5b1f74aa99f75d040eae28c2f393c0e8a4c6d2dbc65",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-ui.js",
+        "status": 200,
+        "sha256": "67bae0c1c76c01660ecafaaa9fcf6e0710bf092dbe4a5339336793cb3c4db586",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ]
+  },
+  "includedPurchasingCandidate": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+  "unfinishedVatIncluded": false,
+  "newPurchasingHostedWriteAcceptance": false,
+  "allManualParityComplete": false,
+  "mailSent": false,
+  "moa": {
+    "status": "authentication-required-local-record-prepared",
+    "mcp401": true,
+    "saveAttempted": false,
+    "readbackVerified": false
+  }
+}
