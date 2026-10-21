@@ -199,3 +199,12 @@ v1 고정 백업 검증은6f1a017에 포함됐다. 합성5전표·메일 고정 
 독립 후보 구현/진단 연결을 push했다. 고정정적기대값7일치, 기존수식 대비5충돌 유지; 신규13/집중25/VAT86/전체npm test/도구/릴리스 검사가 통과했다. 독립 Fraction270사례 일치. REA7범위 파싱실패0, coverage unknown. 금액baseline은 명시 입력이며 음수 마지막행 반례를 그대로 표시한다. 앱/설정/UI/저장v2는 변경하지 않았다.
 
 다음은 후보를 운영에 붙이는 작업이 아니다. (1) 원본 로그인 복구 시 현재 배포 번들/실제 설정과 적용단가·VAT포함단가의 선행 바인딩을 조회해 공식 본문과5충돌을 해소한다. 주 입력/자동초안/설정저장은 하지 않는다. (2) 독립 정적 분석에서는 PRICE/apply_price_amt와 vat_apply_price_amt의 생성·수정 경로를 좁혀 근거를 보완하고 실제 Decimal 구현/정밀도 미확인을 분리한다. (3) 확인된 계약에 한해서만 저장v2/설정 선택UI를 설계·연결한다. 기존v1 fixture를 새 계산기로 갱신하지 않는다. (4) 구매0.53.1후보cef5a2c의 자료보존/백업/미저장화면 게이트와 모아 읽기·누락추가·재조회는 그대로 이어간다. 상세 evidence/manual-vat-static-candidate-20261021.json.
+
+
+## 적용단가 생성·정밀도 조사와 후보 확장 계약 · 2026-10-21
+
+기존 axis-directions 출처 manifest의 common.dd26f1e8.js exact URL을 무쿠키로 다시 받아 본문 SHA8fb54ef…가 과거와 같음을 확인했다. 이는 기존 corpus의 로컬 원문 복구이며 새 고유본문/현재 운영버전 증명이 아니다. NumberFormatterFeature.decimalConverionValue는 값 포맷이 없는 apply_price_amt에 R/10자리 fallback을 쓴다. 포맷이 있으면 필드/회사 설정을 쓰며 origin_supply_amt는 숨긴 열의 기본 포맷 적용에서 제외된다. 모든 단가 기본값이10자리라고 일반화하지 않는다.
+
+현재 정적 후보는 price6자리 자체제약 때문에 이 경로의 입력을 받을 수 없다. 연구 algorithm을 raw-supply-static-candidate-v1로 구별해 가격만10자리로 확대하고 수량6자리/공통금액0~2자리/0·10%/미지원 입력 거부는 유지한다. 계산은 BigInt10자리 고정소수로 수행하고 price를6자리로 선반올림하지 않는다. rawSupply 유리수 필드는 기존1e12분모로 표현 가능한 경우 같은 값으로 유지하고 나머지만 확장한다. 저장 vatAdjustment.version1과는 무관한 연구식 식별자이며 앱·설정·양식은 변경하지 않는다.
+
+검사: price0.0499999999×qty0.1,공통2자리round은 공급0.00이고 price를0.05로 바꾸면0.01이다. 10자리 경계·11자리 거부·수량7자리 거부·기존7사례/고정v1 보존·현재금액 무변경을 확인한다. 원본Decimal의 실제 실행 정밀도/동적 값resolver/현재배포버전은 미확인이므로5충돌/동등성false/canApply=false를 유지한다.

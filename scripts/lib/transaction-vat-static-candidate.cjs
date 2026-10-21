@@ -1,20 +1,20 @@
 'use strict';
 // Research-only exact-decimal interpretation. Never import this module from app code.
 // This is not a saved v2 contract or an execution of the original ECOUNT library.
-const algorithm='raw-supply-static-candidate-v0';
-const scale=1000000n,productScale=scale*scale,maxAmount=1000000000000n;
+const algorithm='raw-supply-static-candidate-v1';
+const scale=10000000000n,productScale=scale*scale,maxAmount=1000000000000n;
 const methods=['round','floor','ceil'];
 function exactKeys(value,keys,label){
   if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==keys.length||keys.some(k=>!Object.hasOwn(value,k)))throw Error(label+' has unsupported or missing fields');
 }
-function decimal(value,label){
-  if(typeof value!=='string'||value.length>20||!/^(0|[1-9]\d*)(\.\d{1,6})?$/.test(value))throw Error(label+' requires a nonnegative decimal string with at most six decimal places');
-  const [whole,fraction='']=value.split('.'),units=BigInt(whole)*scale+BigInt(fraction.padEnd(6,'0'));
+function decimal(value,label,maxPlaces=6){
+  if(typeof value!=='string'||value.length>24||!/^(0|[1-9]\d*)(\.\d{1,10})?$/.test(value)||value.split('.')[1]?.length>maxPlaces)throw Error(label+' requires a nonnegative decimal string with at most '+maxPlaces+' decimal places');
+  const [whole,fraction='']=value.split('.'),units=BigInt(whole)*scale+BigInt(fraction.padEnd(10,'0'));
   if(units>maxAmount*scale)throw Error(label+' exceeds the research bound');
   return units;
 }
 function currentMinor(value,digits,label){
-  const n=decimal(value,label),unit=10n**BigInt(6-digits);
+  const n=decimal(value,label),unit=10n**BigInt(10-digits);
   if(n%unit!==0n)throw Error(label+' must match the explicit shared precision');
   return n/unit;
 }
@@ -40,7 +40,7 @@ function previewStaticCandidate(input){
     exactKeys(line,['id','item','qty','price','supply','tax'],'Candidate row');
     if(typeof line.id!=='string'||!line.id.trim()||line.id.length>200||ids.has(line.id)||typeof line.item!=='string'||!line.item.trim()||line.item.length>200)throw Error('Candidate requires explicit unique row IDs and nonempty items');
     ids.add(line.id);
-    const qty=decimal(line.qty,'Quantity'),price=decimal(line.price,'Applied price');
+    const qty=decimal(line.qty,'Quantity'),price=decimal(line.price,'Applied price',10);
     if(qty===0n||price===0n)throw Error('Direct amounts and nonpositive quantities/prices are outside the candidate scope');
     const supply=currentMinor(line.supply,input.digits,'Current supply'),tax=currentMinor(line.tax,input.digits,'Current tax');
     raw+=qty*price;beforeSupply+=supply;beforeTax+=tax;
@@ -59,7 +59,7 @@ function previewStaticCandidate(input){
   });
   return {algorithm,persistenceVersion:null,canApply:false,originalRuntimeObserved:false,originalParityPassed:false,
     scope:'positive-domestic-price-single-rate-0-or-10-exact-decimal',digits:input.digits,
-    rawSupply:{numerator:raw.toString(),denominator:productScale.toString()},
+    rawSupply:raw%100000000n===0n?{numerator:(raw/100000000n).toString(),denominator:'1000000000000'}:{numerator:raw.toString(),denominator:productScale.toString()},
     before:amounts(beforeSupply,beforeTax,input.digits),after:amounts(targetSupply,targetTax,input.digits),
     delta:amounts(supplyDelta,taxDelta,input.digits),grossChanged:supplyDelta+taxDelta!==0n,
     lastIndex,lastRowId:rows[lastIndex].id,negativeLastRow,rows:outputRows};

@@ -12,7 +12,7 @@ test('manual example calculates independently while remaining research-only and 
  assert.deepEqual(result.before,{supply:'13635',tax:'1365',total:'15000'});
  assert.deepEqual(result.after,{supply:'13636',tax:'1364',total:'15000'});
  assert.deepEqual(result.rows[2].after,{supply:'4546',tax:'454',total:'5000'});
- assert.equal(result.algorithm,'raw-supply-static-candidate-v0');assert.equal(result.persistenceVersion,null);
+ assert.equal(result.algorithm,'raw-supply-static-candidate-v1');assert.equal(result.persistenceVersion,null);
  assert.equal(result.canApply,false);assert.equal(result.originalRuntimeObserved,false);assert.equal(result.originalParityPassed,false);
 });
 test('all seven fixed static expectations are computed, including five differences from saved v1',()=>{
@@ -56,7 +56,7 @@ test('unmodeled fields and policies cannot silently enter the candidate',()=>{
  for(const lines of [[],new Array(3),[row('a'),undefined],[row('a'),null],Array.from({length:501},(_,i)=>row(String(i)))])assert.throws(()=>preview(input(lines)));
 });
 test('numbers, exponent strings and imprecise baseline amounts are rejected explicitly',()=>{
- for(const field of ['qty','price','supply','tax'])for(const value of [1,NaN,Infinity,null,true,'',' 1','1e-7','1.0000001','-1','01','+1','1.']){const d=input();d.lines[0][field]=value;assert.throws(()=>preview(d));}
+ for(const field of ['qty','price','supply','tax'])for(const value of [1,NaN,Infinity,null,true,'',' 1','1e-7','1.00000000001','-1','01','+1','1.']){const d=input();d.lines[0][field]=value;assert.throws(()=>preview(d));}
  for(const digits of [0,1]){const d=input(undefined,{digits});d.lines[0].supply='1.01';assert.throws(()=>preview(d),/shared precision/);}
 });
 test('explicit research bounds cover row count, raw input, baseline and target separately',()=>{
@@ -74,4 +74,19 @@ test('generated exact-cent cases conserve target totals, keep earlier rows and i
   for(const field of ['supply','tax','total'])assert.equal(a.rows.reduce((sum,r)=>sum+minor(r.after[field]),0n),minor(a.after[field]));
   assert.equal(minor(a.after.supply)+minor(a.after.tax),minor(a.after.total));for(const r of a.rows.slice(0,-1))assert.deepEqual(r.after,r.before);
  }
+});
+
+test('ten-place applied prices are not rounded to the old six-place research limit',()=>{
+ const d=input([row('a','0.0499999999','0.1','0.00','0.00')],{digits:2});
+ const exact=preview(d);assert.equal(exact.after.supply,'0.00');assert.deepEqual(exact.rawSupply,{numerator:'4999999990',denominator:'1000000000000'});
+ d.lines[0].price='0.05';assert.equal(preview(d).after.supply,'0.01');
+});
+test('exact ten-place ties distinguish round, floor and ceil without price normalization',()=>{
+ for(const [price,expected] of [['0.0049999999','0.00'],['0.0050000000','0.01'],['0.0050000001','0.01']])assert.equal(preview(input([row('a',price,'1','0.00','0.00')],{digits:2})).after.supply,expected);
+ assert.equal(preview(input([row('a','0.0050000000','1','0.00','0.00')],{digits:2,supplyMethod:'floor'})).after.supply,'0.00');
+ assert.equal(preview(input([row('a','0.0000000001','1','0.00','0.00')],{digits:2,supplyMethod:'ceil'})).after.supply,'0.01');
+});
+test('price expansion leaves quantity and current-amount contracts strict',()=>{
+ for(const [field,value] of [['price','0.00000000001'],['qty','0.0000001'],['supply','0.0000001'],['tax','0.0000001']]){const d=input();d.lines[0][field]=value;assert.throws(()=>preview(d));}
+ const d=input([row('a','0.0000000001','0.000001','0.00','0.00')],{digits:2,supplyMethod:'ceil',taxMethod:'ceil'});const r=preview(d);assert.equal(r.rawSupply.numerator,'10000');assert.equal(r.rawSupply.denominator,'100000000000000000000');assert.deepEqual(r.after,{supply:'0.01',tax:'0.01',total:'0.02'});
 });
