@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.73.0 생성 전표 참조 일괄지정
+
+PurchasePlanCore.preview는 선택적 request.referenceOverride를 공백 아닌 텍스트로 검증하고 기존 그룹 계산 후 생성 doc.reference만 지정한다. 문자열 자체를 변환하지 않으며 기본 생략은 기존 생성 결과를 보존한다. 원본 참조 상속·빈값 삭제는 미확인으로 지원하지 않는다. UI input 이벤트는 prepared를 즉시 무효화하고 전표별 context에 textContent로 표시한다. commit의 재미리보기/snapshot 및 기존 권한/storage guard를 보존한다. 새 스키마·그룹·금액·배분·원본 자료 변경은 없다. 입고창고는 현재 배분/백업 guard와 충돌하므로 원본 예외 계약 확보 전 변경하지 않는다. 근거 evidence/manual-plan-generation-reference-20261022.json.
+
 ## 0.72.0 생성 후 머리 담당자 일괄지정
 
 PurchasePlanCore.preview는 기존 그룹·행·배분을 먼저 구성하고, 선택된 경우에만 생성 전표의 employee를 덮어쓴다. request.employeeOverride는 활성 등록코드여야 하며 기본 생략은 계획별 값을 보존한다. prepared request/snapshot과 commit 재검증으로 선택·원본·기초자료·권한 변경을 검사한다. UI 선택 변경은 prepared를 무효화하고 미리보기를 다시 요구한다. 원본 계획·계산·그룹·스키마·자료 변환은 없다. 담당자 지정으로 상이 머리값을 강제 병합하지 않는다. 다른 일괄필드의 계산/배분 계약은 별도 미완료다. 근거 evidence/manual-plan-generation-employee-20261022.json.

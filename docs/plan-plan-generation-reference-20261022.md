@@ -21,3 +21,19 @@ EC-HELP-PLAN-GENERATION-MODES 공식 영상 ivdIVimbCDU 전체 자막의2:01~2:1
 ## 분리후보 검사 결과
 
 신규 Node6/관련62, 실제 app shell390/864/1280의 신규 브라우저3 및 전체 verify:local·브라우저90 통과. REA6.4 자체2범위 parse0/coverage unknown/truncated false. 이전 공개브리지3범위는 입력·결과·manifest 해시와 evidence schema가 같음을 검증해 재사용했다. 전체원본 동등성/창고 예외 계약 완료가 아니다.
+
+## 운영 반영 결과
+
+공식 발주계획→발주서 생성 영상의2:08 화면/전체자막 근거를 해시로 재검증하고 참조 일괄지정을 구현했다. 참조가 입력된 경우 그룹 계산 후 새 발주서의 reference만 바꾼다. 원본 계획의 참조·전표 분리·수량·단가·금액·원본 배분·기존 양식은 보존한다. 입력 즉시 미리보기를 폐기하고, 참조를 전표별 조건에 텍스트로 표시한다. 빈값 삭제나 원본 참조 기본상속은 원본 규칙 미확인으로 구현하지 않는다.
+
+입고창고는 현재 planAllocations의 source.warehouse===generated.warehouse 검증과 충돌함을 합성 재현했다. 구매 입고창고 예외(발주서→구매)와 달라 원본 계약 없이 guard를 제거하지 않았다. 창고와 납기 머리/행 적용 범위를 미완료로 남기고 검증 가능한 참조만 이번에 반영했다. 원본은 조회·도움말 상태만 확인했고 업무/설정/주입력행 조작·발송은 없다. 동일 매뉴얼 재사용으로 본문16/요구사항26/전체합격0은 유지한다.
+
+신규 Node6/관련62, 실제 app shell390/864/1280의 신규 브라우저3 및 운영0.72 기반 분리후보 전체 verify:local·브라우저90 통과. 5방식과 담당자 지정을 함께 적용해 참조 외 결과·합계·원본 보존을 확인했다. 공백/잘못된 타입·미리보기 조작·원본 참조 변경·권한회수·저장실패·취소와 HTML 문자 비실행을 검사했다. REA6.4 자체2범위 parse0/coverage unknown/truncated false. 이전 공개브리지3범위는 입력/결과/manifest 해시·evidence schema를 검증해 재사용했으며 전체본문/실행 동등성 완료로 세지 않는다.
+
+source 5170fbd / release 5c3ef40을 push 후 기존 WSL·Supabase·Cloudflare rea.qaredi.com에0.73.0으로 반영했다. 운영 버전·변경2자산 해시·익명메일401·공개health404·로컬Supabase200, 기존 로그인 유지·빈계획 생성 차단을 확인했다. 운영계획0건으로 유자료 생성·저장·재조회는 합성 검증이며 운영 업무/설정저장·발송·복원은 없다.
+
+브라우저8전표·전체JSON·양식 byte동일, fresh 서버app30/gateway0 본문/수정번호·비공개설정, 메일3함8통1첨부가 전후동일하다. 복원미리보기0충돌/applied false. 근거 evidence/manual-plan-generation-reference-20261022.json, manifest .artifacts/manual-plan-generation-reference-20261022/candidate-manifest.json, worktree .artifacts/releases/0.73.0-plan-generation-reference. bundleSHA e947a8d49c4b3816eab5bced3781f07224511c20541b64b6a5e9d29bbfd7cd0d. 런타임60080 KEEP ALIVE/PID2368982, 롤백0.72 보존. main VAT5 연구 제외·root 전체빌드 금지.
+
+모아 마지막 저장·재조회0.51.0·53갱신 로컬대기이며 인증 변화 없는 재시도나 업로드 성공 주장은 없다. 추가 집계축·다른 일괄필드·원본 기본입력·상이단가·실운영 저장 및 전체 매뉴얼 합격은 미완료다.
+
+다음 개발은 발주요청 웹자료올리기(REQ-COM-UPLOAD-001)의 회사별 Flow/setup/dataModel·전표 묶음·필수항목·부분실패/재시도 계약이다. 기존 업로드 관찰과 현재 구현 차이표를 먼저 읽고 안전한 도움말·조회 팝업·관찰된 공개 자산으로 확인하며 실제 원본 업로드/설정저장/업무저장은 하지 않는다. 입고창고 일괄변경은 planAllocations/연결/백업의 동일창고 guard와 원본 예외 계약을 확인할 때까지 보류한다. 납기 일괄변경의 머리/행 적용, 통화/거래유형 계산, 직접설정 추가 집계축·미선택 머리값·참조 기본상속/빈값삭제·상이단가·전표별 대표값은 미완료다. 완료한 UI/날짜/담당자/참조 검사를 새 개발량으로 반복하지 않는다.
