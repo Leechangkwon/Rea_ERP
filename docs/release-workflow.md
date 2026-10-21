@@ -1,6 +1,14 @@
 # 개발과 검증 배포
 
-## 현재 인계 · 0.67.0 운영
+## 현재 인계 · 0.68.0 운영
+
+운영 release/0.68.0-request-report-state / ccfff13, 소스6dca5d3. 요청현황 상세 헤더의 진행상태→명시 적용 모달→transition→적용조회 refresh/미적용F3 보존을 연결했다. 완료/재개·취소·linked미확인 거부·오래된/닫힌창/권한/raw·quota 원자성은 합성검사. 신규Node9/관련109·독립22경계·전체 verify:local/브라우저69(신규1), REA자체7/원본wrapper1 parse0/coverage unknown/truncated false. 원본 즉시 layer와 자체 apply 차이, 업로드 묶음/필수/부분성공·재시도는 미확인이다.
+
+근거 evidence/manual-request-report-state-20261022.json, 계획 docs/plan-request-upload-close-20261022.md, manifest .artifacts/manual-request-upload-close-20261022/candidate-manifest.json, worktree .artifacts/releases/0.68.0-request-report-state. 런타임 세션64313 KEEP ALIVE, bundle SHA 5a5dc100fbe92739dcf70526d10c2258f2584fb575c13dc115e34cccf91bbf7b, 롤백0.67.0 보존. 기존 로그인·요청현황/상태3선택지 열기/닫기, 브라우저8전표/양식 byte/JSON·서버fresh app30/gateway0·설정·메일3함8통1첨부 전후 동일. 운영 상태적용/업무/설정 저장·인쇄·발송·복원 없음. main VAT5 연구 빌드 금지.
+
+다음은 REQ-PUR-REQ-005의 웹자료올리기 전표묶음기준설정·저장시값변경·필수/상하단 매핑을 원본 분리창/도움말과 외부 setup/dataModel 계약에서 읽기 전용으로 확인한다. 동일순번만 또는 날짜+순번만으로 묶는 구현은 하지 않는다. 저장 없이 계약을 더 확보할 수 없으면 업로드 미완료를 유지하고 발주요청 미확인 자료의 계획 합산 제외 계약을 이어서 대조한다. 이미 보완한 현황 상태 연결 검사를 새 개발량으로 반복하지 않는다. 전체적용/상이단가·부서/직위/직책·직접음수/혼합부호·환불·회계/이력·일괄인쇄·원본 작업탭 동등성은 미완료다. 본문14/요구사항24·전체합격0, 모아 마지막 게시0.51.0·47갱신 로컬 대기. 인증변화 없는 반복 로그인/401검사 금지. 아래는 과거 이력이다.
+
+## 이전 인계 · 0.67.0 운영
 
 운영 release/0.67.0-purchasing-history-targets / 153b36e, 소스077774f. 단가요청/발주서 입력에도 구매3종 history·라인별 copy·현재상단/독립행 보존을 연결했다. 일반 확정단가 연결과 분리해 기록가격·실제 header 거래처로 조회하고, 새행 priceRequestBasis는 snapshot으로 보존하며 활성 연결을 만들지 않는다. 기존 basis/원본잔량/다중수신처/비교/후속입고 보존. 신규Node9/관련112·전체 verify:local/브라우저68(신규2), REA자체9/검증 원본캐시3, 독립P2 수정·재현 정상이다.
 

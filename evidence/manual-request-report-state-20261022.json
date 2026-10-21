@@ -1,0 +1,210 @@
+{
+  "version": "0.68.0",
+  "requirement": "REQ-PUR-REQ-005",
+  "status": "deployed-synthetic-close-reopen-passed-hosted-open-close-preservation-verified-upload-and-full-manual-pending",
+  "sourceCommit": "6dca5d34bcdd2f7e813249dd748965b5f245c877",
+  "releaseCommit": "ccfff1322ce6ec6e7dc7e835cf932c25817edb26",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "candidateManifest": ".artifacts/manual-request-upload-close-20261022/candidate-manifest.json",
+  "originalObservation": {
+    "source": "ECOUNT logged-in read-only UI and existing EC-HELP-REQUEST-035 manual",
+    "observedAt": "2026-10-22",
+    "manualSha256": "11bbc9c53d50153f0db6c561c7ffc759cd9455c32346e1e513ae060252f7386e",
+    "requestReportStatus": {
+      "trigger": "existing document header 진행상태 link",
+      "layerReferenceAttribute": "data-own-layer-box-id",
+      "choices": {
+        "미확인": [
+          "미확인"
+        ],
+        "확인": [
+          "진행중",
+          "완료"
+        ]
+      },
+      "actionChosen": false
+    },
+    "requestUpload": {
+      "separatePage": "발주요청웹자료올리기",
+      "columns": [
+        "No.",
+        "일자",
+        "순번",
+        "담당자",
+        "창고",
+        "거래유형",
+        "통화",
+        "환율",
+        "납기일자",
+        "참조",
+        "프로젝트",
+        "품목코드",
+        "품목명",
+        "거래처코드",
+        "거래처명",
+        "규격",
+        "수량",
+        "단가",
+        "외화공급가액",
+        "공급가액",
+        "부가세",
+        "적요",
+        "낱개수량"
+      ],
+      "dateHelp": "YYYYMMDD; blank uses 저장시값변경 설정",
+      "sequenceHelp": "maximum 4 characters; same sequence plus 전표묶음기준 설정 defines a voucher",
+      "groupSetupLinkObserved": true,
+      "groupSetupRulesVerified": false,
+      "requiredHeaderDetailMappingVerified": false,
+      "batchFailureRetryVerified": false,
+      "templateDownloaded": false,
+      "implemented": false
+    },
+    "originalWrites": {
+      "business": false,
+      "settings": false,
+      "mainEntryRow": false,
+      "send": false
+    },
+    "limitations": [
+      "Observed menus do not prove original server save or validation",
+      "Own existing explicit apply dialog differs from original inline layer",
+      "Existing linked-parent unconfirmation restrictions preserved, not newly attributed to original"
+    ]
+  },
+  "checks": {
+    "newNode": 9,
+    "relatedNode": 109,
+    "independentBoundaryCases": 22,
+    "remainingP1": 0,
+    "remainingP2": 0,
+    "verifyLocalPassed": true,
+    "browserSynthetic": 69,
+    "newBrowser": 1,
+    "widths": [
+      1280,
+      390
+    ],
+    "firstAttempt": "isolated candidate API manual version mismatch corrected before full rerun",
+    "testLogSha256": "4398f68d129bdc6a6686f8387ba55a8e938c5f498cb8c7b6da7d6984ffe9c209"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 7,
+    "originalScopes": 1,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalRawExecuted": false,
+    "serverEquivalence": false,
+    "summary": ".artifacts/manual-request-upload-close-20261022/rea/rea-summary.json",
+    "summarySha256": "8b33d27c906e2b1cdee689259c8de44edc4e204edfeb1e5615fbe07e2aa7cf82"
+  },
+  "deployment": {
+    "version": "0.68.0",
+    "sourceCommit": "6dca5d34bcdd2f7e813249dd748965b5f245c877",
+    "baseCommit": "153b36e7c5e085696c776a4a37b88b531dc96205",
+    "directory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.68.0-request-report-state",
+    "branch": "release/0.68.0-request-report-state",
+    "rootVatResearchIncluded": false,
+    "newNode": 9,
+    "relatedNode": 109,
+    "newBrowser": 1,
+    "commit": "ccfff1322ce6ec6e7dc7e835cf932c25817edb26",
+    "bundleSha256": "5a5dc100fbe92739dcf70526d10c2258f2584fb575c13dc115e34cccf91bbf7b",
+    "verifyLocalPassed": true,
+    "browserTests": 69,
+    "reaOwnScopes": 7,
+    "reaOriginalScopes": 1,
+    "originalRawExecuted": false,
+    "rollbackVersion": "0.67.0",
+    "independentRemainingP1": 0,
+    "independentRemainingP2": 0,
+    "pushed": true,
+    "installedBundleSha256": "5a5dc100fbe92739dcf70526d10c2258f2584fb575c13dc115e34cccf91bbf7b",
+    "rollbackSha256": "240b8d0874844ec65c4ab34cad367667da1803a0fbac3b58f90e14c879d250a3",
+    "runtimeSession": 64313
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.68.0",
+      "beforeDownload": "ecount-inventory-2026-10-22 (19).json",
+      "afterDownload": "ecount-inventory-2026-10-22 (20).json",
+      "bytesExact": true,
+      "jsonExact": true,
+      "documents": 8,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "documentsExact": true,
+      "settingsExact": true,
+      "existingLoginRetained": true,
+      "hostedRequestReportQueryVerified": true,
+      "hostedStatusDialogChoicesVerified": [
+        "미확인",
+        "진행중",
+        "완료"
+      ],
+      "hostedOpenCloseWithoutApplyVerified": true,
+      "businessWrites": false,
+      "settingsWrites": false,
+      "send": false,
+      "restore": false
+    },
+    "remoteAndMail": {
+      "version": "0.68.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "afterUiRemoteRecheck": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/request-report-state-0.68.0-1792613519667"
+  },
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastSavedAndReadbackVersion": "0.51.0",
+    "authenticationChanged": false,
+    "pendingUpdates": 47,
+    "uploadedThisUnit": false,
+    "readbackThisUnit": false,
+    "pendingArtifact": ".artifacts/manual-request-upload-close-20261022/moa-pending-request-report-state.html"
+  },
+  "nextWork": "다음은 REQ-PUR-REQ-005의 웹자료올리기 전표묶음기준설정·저장시값변경·필수/상하단 매핑을 원본 분리창/도움말과 외부 setup/dataModel 계약에서 읽기 전용으로 확인한다. 동일순번만 또는 날짜+순번만으로 묶는 구현은 하지 않는다. 저장 없이 계약을 더 확보할 수 없으면 업로드 미완료를 유지하고 발주요청 미확인 자료의 계획 합산 제외 계약을 이어서 대조한다. 이미 보완한 현황 상태 연결 검사를 새 개발량으로 반복하지 않는다. 전체적용/상이단가·부서/직위/직책·직접음수/혼합부호·환불·회계/이력·일괄인쇄·원본 작업탭 동등성은 미완료다.",
+  "manualBodies": 14,
+  "requirements": 24,
+  "globalDone": 0,
+  "done": false
+}

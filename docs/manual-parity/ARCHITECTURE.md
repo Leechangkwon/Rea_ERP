@@ -416,3 +416,9 @@ InventoryUI는 docEditor 생성 때 identity/role/host를 고정하고 assertRet
 historySourceTypes는 pricerequest/purchaseorder/purchase target 모두 같은3종을 허용한다. InventoryUI 세 버튼이 historyOptions를 사용하고 EntryUI 제목만 대상에 맞춘다. 일반 linked 확정단가 경로는 유지하되 history 후보/적용에서 priceRequestOrderLines/Partner 및 vendor basis 필터/표시를 실행하지 않는다. 기록된 header 거래처·원시 행 가격을 사용한다. 기존 행의 활성 basis는 유지하며 새 복사 행의 basis는 importedFrom.priceRequestBasisSnapshot으로만 보존하고 source 소비 연결을 만들지 않는다.
 
 새 단가요청의 _priceRequestVendorCodes는 기존 priceRequestCreate로 수신처/비교 snapshot을 저장한다. schema/DB/인증/메일 변경이나 기존 자료 자동변환은 없다. 동일한 열기 전 identity/부모 guard와 적용 시 원문/초안 guard를 세 target에 적용한다. 근거 evidence/manual-purchasing-history-targets-20261022.json. 원본 서버의 확정단가 재계산/전체수량 연결을 이 자체 copy 정책으로 입증하지 않는다. main VAT5 제외·전체합격0.
+
+## 2026-10-22 · 0.68.0 요청현황 쓰기 경계
+
+PurchasingReportUI의 request grouped/detail 상태 셀만 InventoryUI.openRequestReportState callback을 사용한다. 순수 결과 데이터/CSV/인쇄·집계/타전표는 그대로다. 부모 result identity·host lifecycle와 사용자/회사/role/read/write·raw CAS·전표 snapshot을 열기와 적용에 재검사한다. modal이 유효할 때만 기존 transition을 명시 실행하고, 성공하면 applied filter로 requery하면서 pending/F3/scroll을 복구한다. query/clear/destroy는 상태창을 닫아 retained callback을 차단한다. quota/linked validation 실패는 원문·메모리 원자성과 초안을 보존한다.
+
+원본은 inline layer, 자체는 기존 명시 적용 모달로 UX 차이를 남긴다. 업로드는 외부 setup/dataModel/묶음설정에 의존하므로 품목 붙여넣기와 통합하지 않는다. 공개 wrapper의120px 표시열 코드만으로 그룹·필수·금액·배치실패 계약을 추정하지 않는다. 원본 서버 실행/실업무 저장 동등성은 미완료다.
