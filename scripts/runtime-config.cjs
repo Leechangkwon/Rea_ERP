@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), os = require('node:os'), net = require('node:net'), {parseEnv} = require('node:util');
 const defaultFile = () => path.join(os.homedir(), '.config', 'rea-erp', 'runtime.env');
-const keys = ['REA_STORAGE','SUPABASE_URL','SUPABASE_SECRET_KEY','REA_PUBLIC_ORIGIN','REA_PORT','REA_SQLITE_FILE','OUTBOUND_ALLOWED_HOSTS','REA_GMAIL_USER','REA_GMAIL_APP_PASSWORD','REA_MAIL_DOMAIN','REA_CF_MAIL_TOKEN','REA_MAIL_INGRESS_TOKEN','REA_CF_ROUTING_ZONE_ID','REA_CF_ROUTING_WORKER','REA_CF_ROUTING_AUTH','REA_CF_ROUTING_TOKEN'];
+const keys = ['REA_STAFF_SESSION_MINUTES','REA_STORAGE','SUPABASE_URL','SUPABASE_SECRET_KEY','REA_PUBLIC_ORIGIN','REA_PORT','REA_SQLITE_FILE','OUTBOUND_ALLOWED_HOSTS','REA_GMAIL_USER','REA_GMAIL_APP_PASSWORD','REA_MAIL_DOMAIN','REA_CF_MAIL_TOKEN','REA_MAIL_INGRESS_TOKEN','REA_CF_ROUTING_ZONE_ID','REA_CF_ROUTING_WORKER','REA_CF_ROUTING_AUTH','REA_CF_ROUTING_TOKEN'];
 
 function readEnvironment(input = process.env) {
   const file = input.REA_ENV_FILE || defaultFile();
@@ -18,6 +18,7 @@ function readEnvironment(input = process.env) {
 function configuration(input) {
   const backend = input.REA_STORAGE || 'sqlite', port = Number(input.REA_PORT || 8781);
   if (!['sqlite','supabase'].includes(backend) || !Number.isInteger(port) || port < 1 || port > 65535) throw Error('REA 저장소 종류와 포트를 확인하세요.');
+  if(input.REA_STAFF_SESSION_MINUTES!==undefined&&(!/^[0-9]+$/.test(String(input.REA_STAFF_SESSION_MINUTES))||Number(input.REA_STAFF_SESSION_MINUTES)<15||Number(input.REA_STAFF_SESSION_MINUTES)>43200))throw Error('REA_STAFF_SESSION_MINUTES는 15~43200분 정수여야 합니다.');
   let publicOrigin = '';
   if (input.REA_PUBLIC_ORIGIN) {
     let u; try { u = new URL(input.REA_PUBLIC_ORIGIN); } catch { throw Error('REA 공개 주소를 확인하세요.'); }
