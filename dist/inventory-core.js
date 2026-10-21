@@ -581,6 +581,7 @@
     const db=clone(input);if(!policy)return db;
     if(policy.features){db.settings.allowNegative=policy.features.allowNegative===true;db.settings.priceOrder=policy.features.pricePriority==='item'?['품목단가','특별단가']:['특별단가','품목단가'];}return db;
   }
+  function priceRequestModule(){const Q=typeof module==='object'&&module.exports?require('./price-request-core.js'):root.PriceRequestCore;if(!Q)throw Error('단가 비교 모듈을 다시 불러오세요.');return Q;}
   function purchaseRoomModule(){return typeof module==='object'&&module.exports?require('./purchase-room-core.js'):root.PurchaseRoomCore;}
   function guardClosedPeriods(before,after){
     const closings=before.settings.purchaseRoom?.closings?.filter(c=>c.status==='closed')||[];
@@ -607,10 +608,12 @@
     const sourceStates=new Map();for(const target of targets.values()){const old=sourceStates.get(target.source.id);if(old&&old!==target.progress)throw Error('동일 원본에 서로 다른 진행 변경 규칙이 적용됐습니다.');sourceStates.set(target.source.id,target.progress);if(target.source.type==='plan')planLineProgress(db,{selections:[...target.selections.values()],progress:target.progress});else transition(db,{ids:[target.source.id],...(purchasingTypes.includes(target.source.type)?{progress:target.progress}:{status:target.progress})});}
     validateLinks(db);validateStock(db);
   }
-  const commandNames=['master','itemBatch','itemConfig','document','purchasePlanGenerate','planLineProgress','purchaseRoom','convert','transition','payment','removePayment','bom','rename','bor','price','mapping','settings','formSave','formActivate','formDelete','formRules','bulkprice','rebuild'];
+  const commandNames=['master','itemBatch','itemConfig','document','purchasePlanGenerate','planLineProgress','purchaseRoom','priceRequest','convert','transition','payment','removePayment','bom','rename','bor','price','mapping','settings','formSave','formActivate','formDelete','formRules','bulkprice','rebuild'];
   function command(input,op,payload={},policy){
     if(!commandNames.includes(op)||!payload||typeof payload!=='object'||Array.isArray(payload))throw Error('지원하지 않는 작업 또는 요청 자료입니다.');
-    const db=applyPolicy(input,policy);payload=clone(payload);let result;
+    if(input?.settings&&Object.hasOwn(input.settings,'priceRequests'))priceRequestModule().validateStore(input.settings.priceRequests);
+    if(op==='settings'&&Object.hasOwn(payload,'priceRequests'))throw Error('단가 비교 자료는 전용 업무 명령으로 변경하세요.');
+    const db=applyPolicy(input,policy);payload=op==='priceRequest'?payload:clone(payload);let result;
     if(op==='master')result=saveMaster(db,payload);
     else if(op==='itemBatch'){
       if(!Array.isArray(payload.records)||!payload.records.length||payload.records.length>10000)throw Error('일괄 품목은 1~10,000행을 입력하세요.');
@@ -620,6 +623,7 @@
     else if(op==='itemConfig'){if(!I)throw Error('품목 모듈을 다시 불러오세요.');db.settings.itemRegistration=I.validateConfig(payload.config);result=db.settings.itemRegistration;log(db,'품목 입력화면·기능설정 변경');}
     else if(op==='document')result=saveDoc(db,payload);
     else if(op==='purchasePlanGenerate'){if(!Array.isArray(payload.documents)||!payload.documents.length||payload.documents.length>200||payload.documents.some(d=>d.id||d.type!=='purchaseorder'||d.generatedFrom!=='purchase-plan'))throw Error('발주계획 발주서 일괄 생성 자료를 확인하세요.');result=payload.documents.map(d=>saveDoc(db,d));}
+    else if(op==='priceRequest'){const out=priceRequestModule().storeCommand(db,payload,api);db.settings.priceRequests=out.store;result=out.result;log(db,'단가 비교 처리: '+payload.action);}
     else if(op==='purchaseRoom'){const PR=purchaseRoomModule();if(!PR)throw Error('구매실 업무 모듈을 다시 불러오세요.');const out=PR.command(db,payload,api);db.settings.purchaseRoom=PR.validateStore(out.store,db,api);result=out.result;log(db,'구매실 업무 처리: '+payload.action);}
     else if(op==='convert')result=convert(db,payload);
     else if(op==='transition')result=transition(db,payload);
@@ -641,6 +645,7 @@
     else throw Error('지원하지 않는 작업입니다.');
     if(['document','convert','purchasePlanGenerate'].includes(op))applyLinkedProgressRules(db,result,policy);
     guardClosedPeriods(input,db);
+    if(Object.hasOwn(db.settings,'priceRequests'))db.settings.priceRequests=priceRequestModule().validateStore(db.settings.priceRequests);
     if(db.settings.purchaseRoom)db.settings.purchaseRoom=purchaseRoomModule().validateStore(db.settings.purchaseRoom,db,api);
     for(const p of db.masters.partners)for(const side of ['receivable','payable'])if(outstanding(db,side,p.code)<-.001)throw Error('수금/지급 잔액을 초과하게 됩니다. 수금/지급 기록을 먼저 취소하세요.');
     recordDocumentHistory(input,db,op);
@@ -648,12 +653,14 @@
   }
   function validateBackup(value){
     if(!value||value.version!==2||!value.masters||!Array.isArray(value.documents)||value.documents.length>10000)throw Error('재고 I v2 백업 파일을 선택하세요.');
+    if(value.settings&&Object.hasOwn(value.settings,'priceRequests'))priceRequestModule().validateStore(value.settings.priceRequests);
     const db=clone(value);for(const key of Object.keys(masterNames))if(!Array.isArray(db.masters[key])||db.masters[key].some(x=>!x.code||!x.name)||new Set(db.masters[key].map(x=>x.code)).size!==db.masters[key].length)throw Error('등록 자료가 올바르지 않습니다.');
     for(const key of ['partners','projects'])for(const record of db.masters[key])validateMasterGroups(key,record);
     for(const key of ['payments','bom','bor','prices','mappings','opening','logs'])if(!Array.isArray(db[key]))throw Error('백업 구조가 올바르지 않습니다.');
     if(db.documentHistory!==undefined)db.documentHistory=validateDocumentHistory(db.documentHistory);
     if(!Number.isSafeInteger(db.sequence)||db.sequence<0||!db.settings||!Array.isArray(db.settings.priceOrder)||typeof db.settings.allowNegative!=='boolean'||db.settings.priceOrder.length!==2||!db.settings.priceOrder.includes('특별단가')||!db.settings.priceOrder.includes('품목단가'))throw Error('백업 설정이 올바르지 않습니다.');
     db.settings.customization=F.validateStore(db.settings.customization);
+    if(Object.hasOwn(db.settings,'priceRequests'))db.settings.priceRequests=priceRequestModule().validateStore(db.settings.priceRequests);
     if(I&&db.settings.itemRegistration)db.settings.itemRegistration=I.validateConfig(db.settings.itemRegistration);
     const dateOK=date=>/^\d{4}-\d{2}-\d{2}$/.test(date||'')&&Number.isFinite(Date.parse(date))&&new Date(date).toISOString().slice(0,10)===date;
     for(const i of db.masters.items){if(I){const validated=I.validate(i,db);for(const key of Object.keys(i))if(Object.hasOwn(validated,key))i[key]=validated[key];for(const key of ['buyPrice','sellPrice','safety'])i[key]=validated[key];}else {i.buyPrice=num(i.buyPrice||0,'입고단가');i.sellPrice=num(i.sellPrice||0,'출고단가');i.safety=num(i.safety||0,'안전재고');}if(i.relatedItems!==undefined&&(!Array.isArray(i.relatedItems)||i.relatedItems.length>200||i.relatedItems.some(code=>code===i.code||!master(db,'items',code))))throw Error('백업 관계 품목을 확인하세요.');}

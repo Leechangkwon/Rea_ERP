@@ -74,7 +74,7 @@ test('persisted JSON roundtrip preserves version, no-response, closed state and 
 });
 test('corrupted persisted state is rejected rather than silently normalized or reset',()=>{
  const doc=request();const valid=select(reply(Q.create(doc,['V1']),doc,'V1','3'),doc,'V1');
- const edits=[s=>s.version=2,s=>s.revision=-1,s=>s.extra=true,s=>s.source.lines[0].qty='999',s=>s.source.fingerprint='fake',s=>s.vendors.push(clone(s.vendors[0])),s=>s.vendors[0].inputClosed=1,s=>s.vendors[0].received=[],s=>s.vendors[0].received[0].price=3,s=>s.vendors[0].received[0].price='3.00',s=>s.vendors[0].received[0].lineKey='other',s=>s.selections[0].price='1',s=>s.selections.push(clone(s.selections[0])),s=>s.selections[0].vendorCode='other'];
+ const edits=[s=>s.version=99,s=>s.revision=-1,s=>s.extra=true,s=>s.source.lines[0].qty='999',s=>s.source.fingerprint='fake',s=>s.vendors.push(clone(s.vendors[0])),s=>s.vendors[0].inputClosed=1,s=>s.vendors[0].received=[],s=>s.vendors[0].received[0].price=3,s=>s.vendors[0].received[0].price='3.00',s=>s.vendors[0].received[0].lineKey='other',s=>s.selections[0].price='1',s=>s.selections.push(clone(s.selections[0])),s=>s.selections[0].vendorCode='other'];
  for(const edit of edits){const s=clone(valid);edit(s);const before=JSON.stringify(s);assert.throws(()=>Q.validate(s,doc));assert.equal(JSON.stringify(s),before);}
 });
 test('frozen inputs are never modified and returned comparison rows do not alias stored state',()=>{

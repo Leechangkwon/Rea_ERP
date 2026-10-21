@@ -38,3 +38,24 @@ test('new purchasing and conversion routes preserve closure and idempotency conf
 test('conversion API keeps pending outbox and original stock unchanged when delivery storage is full',async()=>{const f=fixture();try{await f.call('/api/admin/seed',{});const row=f.DB.raw.prepare('SELECT body FROM gateway_state').get(),state=JSON.parse(row.body),source=state.db.documents.find(d=>d.type==='quote');state.outbox=Array.from({length:200},(_,i)=>({id:'pending-'+i,status:'pending'}));f.DB.raw.prepare('UPDATE gateway_state SET body=?').run(JSON.stringify(state));const before=JSON.stringify(state.db),response=await f.call('/api/v1/documents/convert',{id:source.id,type:'order',quantities:{P001:1}},{idem:'full-convert'});assert.equal(response.status,409);assert.equal(response.value.error.code,'outbox_limit');const after=JSON.parse(f.DB.raw.prepare('SELECT body FROM gateway_state').get().body);assert.equal(JSON.stringify(after.db),before);assert.equal(after.outbox.length,200);assert.equal(after.receipts.length,0);}finally{f.DB.close();}});
 
 test('partner create API preserves validated optional classification groups and refuses malformed strings without partial saves',async()=>{const f=fixture();try{const record={code:'GROUP-P',name:'가상 그룹 거래처',group1:'A',group2:''};const r=await f.call('/api/v1/partners',record,{idem:'groups'});assert.equal(r.status,200);assert.equal(r.value.data.group1,'A');assert.equal(r.value.data.group2,'');assert.equal((await f.call('/api/v1/partners',record,{idem:'groups'})).value.replayed,true);for(const [i,value]of [null,{},1,'x'.repeat(201)].entries())assert.equal((await f.call('/api/v1/partners',{...record,code:'BAD-'+i,group2:value},{idem:'bad-group-'+i})).status,400);const rows=(await f.call('/api/v1/partners')).value.data;assert.equal(rows.length,1);assert.equal(rows[0].group1,'A');}finally{f.DB.close();}});
+
+test('admin backup bridge retains historical quote comparisons and rejects corrupt or stale replacement',async()=>{
+ const f=fixture(),Q=require('../dist/price-request-core.js');
+ try{
+  let out=C.command(C.seed(),'document',{type:'pricerequest',date:C.today(),warehouse:'W001',partner:'V001',status:'진행',lines:[{item:'M001',qty:1,price:50000}]});
+  let backup=out.db;const id=out.result.id;
+  backup=C.command(backup,'priceRequest',{action:'start',documentId:id,vendorCodes:['V001']}).db;
+  backup=C.command(backup,'priceRequest',{action:'reply',documentId:id,expectedRevision:0,vendorCode:'V001',lineKey:'row:0',price:'25000.0123456789'}).db;
+  backup=C.command(backup,'transition',{ids:[id],status:'취소'}).db;
+  const preview=await f.call('/api/admin/bridge/preview',{backup});assert.equal(preview.status,200);
+  assert.equal((await f.call('/api/admin/bridge/import',{backup,revision:preview.value.revision},{owner:false})).status,403);
+  assert.equal((await f.call('/api/admin/bridge/import',{backup,revision:preview.value.revision})).status,200);
+  const saved=await f.call('/api/admin/snapshot');assert.deepEqual(saved.value.backup.settings.priceRequests,backup.settings.priceRequests);assert.equal(Q.view(saved.value.backup,id,C).status,'inactive-source');
+  assert.equal((await f.call('/api/admin/bridge/import',{backup,revision:preview.value.revision})).status,409);
+  const corrupt=JSON.parse(JSON.stringify(backup));corrupt.settings.priceRequests.records[0].comparison.version=99;
+  assert.equal((await f.call('/api/admin/bridge/preview',{backup:corrupt})).status,400);
+  assert.equal((await f.call('/api/admin/bridge/import',{backup:corrupt,revision:saved.value.revision})).status,400);
+  assert.deepEqual((await f.call('/api/admin/snapshot')).value,saved.value);
+  assert.deepEqual((await f.call('/api/admin/overview')).value.outbox,[]);
+ }finally{f.DB.close();}
+});

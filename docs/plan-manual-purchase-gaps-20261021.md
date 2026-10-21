@@ -208,3 +208,23 @@ main와 기존 분리후보0.53.2에 같은 소스를 적용한 뒤 관련검사
 ## 비교 모델 1단계 검증 인계 · 8002335
 
 위 독립 모델 구현과24개 모델/82개 관련/도구7 검사가 통과했다. 리뷰의 빈 슬롯 배열 및 공백 포함 행ID 결함2건을 실패 재현→수정→독립 재검토24+경계4로 해결했다. REA 자체9범위 파싱실패0/coverage unknown/잘림없음, 원본 경로조각의 캐시 해시만 재확인했다. 소스 push 완료. 코드/근거는 evidence/manual-price-request-comparison-model-20261021.json. Node 전용 모델로 앱 저장·backup·UI·발주서·메일 미통합이며 운영/후보 번들은 유지한다. 다음은 ROADMAP 마지막 통합 순서와 ARCHITECTURE의 부속상태 보존 계약을 따른다.
+
+
+## 다음 구현 · 비교 저장/백업 연결 (2026-10-21 08:50Z)
+
+독립 모델을 브라우저와 Node가 같은 코드로 실행하는 dist/price-request-core.js로 옮긴다. Node 전용 SHA256 대신 정렬된 원본 JSON 문자열을 정확 비교하며 지문 표현이 바뀌므로 모델version2를 사용한다. v1은 앱에 저장된 적 없는 연구 모델이고 Git/기존 근거에 보존한다. v1 자료를 묵시적으로 v2로 해석하지 않는다. 지문은 인증/서명이 아니다.
+
+새 db.settings.priceRequests는 선택적 version1/records 부속 저장소다. 각 record에는 documentId, 최초 snapshot, comparison을 담는다. 과거 DB에 없으면 읽기/백업 과정에서 생성하지 않는다. 최초 등록은 기존 활성 단가요청과 사용 중인 등록 거래처1~5개만 받는다. 기존 record 재시작/초기화/삭제는 거절한다. 수정 명령은 현재 원본과 comparison.revision을 재검사한다. snapshot은 원본 수정/취소/등록코드 변경에도 그대로 보존하며, view는 원본 없음/비활성/변경을 구분해 역사적 회신을 읽되 수정은 거절한다. 백업은 snapshot과 비교 상태의 정합성만 검증하고 과거 snapshot의 코드를 현재 등록자료로 강제 치환하지 않는다.
+
+InventoryCore의 전용 priceRequest 명령과 선택적 백업 검사에 연결하고 일반 settings로 부속 저장소를 교체하지 못하게 한다. 각 명령은 기존 clone 기반 원자성을 유지하며 전표, 특별단가, 양식, 재고/채무를 바꾸지 않는다. 별도 명시 초기화/재기준화는 구현하지 않는다. 외부 회신/메일/발주서 자동 적용, 서버 API 및 역할/회사 권한 검증, 실제 비교 UI는 후속 단계이며 이번 코어 수정번호 검사를 서버 CAS 합격으로 표시하지 않는다.
+
+합성 검사는 옛 DB 미생성, 시작/회신/마감/선택, 중복시작/오래된 편집 원자적 거절, 원본 수정/취소/코드변경/삭제 후 회신 보존과 백업 왕복, 손상 상태/알 수 없는 버전/일반 settings 우회 거절, 브라우저/Node 동일 결과를 포함한다. 전체 build/verify는 별도 검증 worktree에서만 실행한다. root main의 실제 설치 dist/server/index.js와 operating0.53.1, prepared0.53.2 72b523d는 변경하지 않는다.
+
+
+### 저장/백업 통합 검증 결과
+
+공유 PriceRequestCore v2, 선택적 settings.priceRequests v1, InventoryCore 전용 명령/백업 검사를 구현했다. 코어 검토에서 비교대상 거래처만 rename/비활성화한 경우와 JSON clone 전 NaN/Infinity/undefined 손상 검사를 보완했다. vendor-unavailable은 과거 회신 조회만 허용한다. 원본 자료·store를 clone 전에 검증하여 손상 자료를 미회신null로 바꾸지 않는다. 정상 단가 비교 명령은 로그/sequence와 부속store만 갱신한다.
+
+집중42(모델24+저장18), 기존 gateway36(신규1), 독립 재검토, 별도 validation worktree의 최종 verify:local 종료0·합성브라우저41(신규1) 통과. 새 브라우저 검사는 실제 비교 UI가 아니라 공유코어→합성 localStorage 저장→재로드→백업검사→원본수정 후 회신보존/편집거절 경로다. 기존 관리자 backup bridge의 익명거절/수정번호/손상거절 및 회신 보존도 합성자료로 검사했다. 새로운 비교 전용 서버API/역할/CAS 합격으로 확장하지 않는다.
+
+REA6.4.0 자체9범위 파싱실패0/coverage unknown/잘림없음, 기존 원본 _convertUrl 조각·전체입력·결과 해시 일치만 확인했다. 신규 원본 저장/회신 계약 근거는 없다. 검증 worktree는 .artifacts/validation/price-request-store-20261021이며 미완료VAT가 포함된 main 검증용이므로 운영 후보로 설치하지 않는다. 운영 f5234fb7…4120와 prepared72b523d의0755582c…80f7 해시는 유지했다. 모아 whoami HTTP401로 이번 기록의 실제저장/재조회는 미완료다. 다음은 기존 권한·저장 adapter 경계 확인 후 관찰된 비교표/거래처선택 UI를 연결하고, 원본 미확인 직접입력/외부회신/발주 적용은 근거 확보 후 분리한다.
