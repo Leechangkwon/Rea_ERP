@@ -20,6 +20,38 @@ function env({data=fixture(),read=true,write=false,user='owner',deferredClose=fa
  return {dom,w,d,key,data,stored,db,button,open,render,toasts,flushCloses:()=>{while(pendingCloses.length)pendingCloses.shift()();},setRead:value=>{readable=value;},setWrite:value=>{writable=value;},dialog:()=>d.getElementById('price-request-dialog')};
 }
 function close(e){e.dom.window.close();}
+const openReply=(e,code='V001')=>{e.render('list');e.button('단가요청비교현황').click();e.dialog().querySelector('[data-vendor-reply="'+code+'"]').click();return e.dialog();};
+const fillReply=(e,index,value)=>{const input=e.dialog().querySelectorAll('tbody input')[index];assert.ok(input);input.value=value;input.dispatchEvent(new e.w.Event('input',{bubbles:true}));};
+test('received price UI saves changed rows once with zero and decimal preservation',()=>{
+ const e=env({write:true}),before=e.db(),dialog=openReply(e);fillReply(e,0,'0');fillReply(e,1,'12.1234567890');
+ assert.equal(e.stored(),JSON.stringify(before));dialog.dispatchEvent(new e.w.KeyboardEvent('keydown',{key:'F8',bubbles:true,cancelable:true}));
+ const after=e.db(),old=before.settings.priceRequests.records[0].comparison,now=after.settings.priceRequests.records[0].comparison;
+ assert.equal(now.revision,old.revision+1);assert.equal(after.sequence,before.sequence+1);assert.equal(after.logs.length,before.logs.length+1);
+ assert.deepEqual([...now.vendors[0].received].map(r=>r.price),['0','12.123456789']);assert.equal(JSON.stringify(now.vendors.slice(1)),JSON.stringify(old.vendors.slice(1)));assert.equal(JSON.stringify(now.selections),JSON.stringify(old.selections));
+ for(const key of ['documents','prices','masters'])assert.equal(JSON.stringify(after[key]),JSON.stringify(before[key]));assert.equal(JSON.stringify(after.settings.customization),JSON.stringify(before.settings.customization));assert.equal(dialog.querySelector('h2').textContent,'단가요청비교현황');assert.equal(e.d.activeElement.dataset.vendorReply,'V001');close(e);
+});
+test('direct price close or Escape returns to comparison and does not persist the draft',()=>{
+ for(const mode of ['close','escape','navigate']){const e=env({write:true}),before=e.stored(),dialog=openReply(e);fillReply(e,1,'88');if(mode==='close')e.button('닫기',dialog).click();else if(mode==='escape')dialog.dispatchEvent(new e.w.Event('cancel',{cancelable:true}));else e.w.InventoryUI.beforeNavigate();assert.equal(e.stored(),before);if(mode!=='navigate'){assert.equal(e.dialog(),dialog);assert.equal(dialog.querySelector('h2').textContent,'단가요청비교현황');assert.equal(dialog.querySelectorAll('input').length,0);}else assert.equal(e.dialog(),null);close(e);}
+});
+test('direct price validation retains all drafts and blocks partial save or implicit deletion',()=>{
+ for(const invalid of ['-1','1e3','1.00000000001','x']){const e=env({write:true}),before=e.stored(),dialog=openReply(e);fillReply(e,0,'5');fillReply(e,1,invalid);e.button('저장(F8)',dialog).click();assert.equal(e.stored(),before);assert.equal(dialog.querySelectorAll('input')[0].value,'5');assert.equal(dialog.querySelectorAll('input')[1].value,invalid);assert.ok(dialog.querySelector('[role=alert]').textContent);close(e);}
+ const e=env({write:true}),before=e.stored(),dialog=openReply(e);fillReply(e,0,'');e.button('저장(F8)',dialog).click();assert.match(dialog.querySelector('[role=alert]').textContent,/빈칸/);assert.equal(e.stored(),before);close(e);
+});
+test('direct price controls respect read-only, closed, historical and selected-price guards',()=>{
+ for(const data of [fixture({stale:true}),fixture({archive:false})]){const e=env({write:true,data});e.render('list');e.button('단가요청비교현황').click();assert.equal(e.dialog().querySelectorAll('[data-vendor-reply]').length,0);close(e);}
+ const readOnly=env();readOnly.render('list');readOnly.button('단가요청비교현황').click();assert.equal(readOnly.dialog().querySelectorAll('[data-vendor-reply]').length,0);close(readOnly);
+ const e=env({write:true});e.render('list');e.button('단가요청비교현황').click();assert.equal(e.dialog().querySelector('[data-vendor-reply="V002"]').disabled,true);e.dialog().querySelector('[data-vendor-close="V002"]').click();e.dialog().querySelector('[data-vendor-reply="V002"]').click();assert.equal(e.dialog().querySelectorAll('input')[0].disabled,true);assert.equal(e.dialog().querySelectorAll('input')[1].disabled,false);close(e);
+});
+test('direct price save rechecks permissions, account and changed storage before committing',()=>{
+ for(const mode of ['read','write','user','storage']){const e=env({write:true}),dialog=openReply(e);fillReply(e,1,'42');if(mode==='read')e.setRead(false);if(mode==='write')e.setWrite(false);if(mode==='user')e.w.AuthUI.state=()=>({user:{id:'other'}});if(mode==='storage'){const newer=e.db();newer.settings.allowNegative=!newer.settings.allowNegative;e.w.localStorage.setItem(e.key,JSON.stringify(newer));}const before=e.stored();e.button('저장(F8)',dialog).click();assert.equal(e.stored(),before);assert.ok(dialog.querySelector('[role=alert]').textContent);if(['read','user'].includes(mode))assert.equal(dialog.querySelector('table'),null);else assert.equal(dialog.querySelectorAll('input')[1].value,'42');close(e);}
+});
+test('direct price focus retains draft, blocks stale revision and restores a recovered write permission',()=>{
+ const e=env({write:true}),dialog=openReply(e);fillReply(e,1,'42');e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(dialog.querySelectorAll('input')[1].value,'42');e.setWrite(false);e.w.dispatchEvent(new e.w.Event('focus'));assert.ok(e.button('저장(F8)',dialog).disabled);e.setWrite(true);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.button('저장(F8)',dialog).disabled,false);e.button('저장(F8)',dialog).click();assert.match(dialog.textContent,/42/);close(e);
+ const stale=env({write:true}),d=openReply(stale);fillReply(stale,1,'42');const latest=stale.db();latest.settings.priceRequests.records[0].comparison.revision++;stale.w.localStorage.setItem(stale.key,JSON.stringify(latest));stale.w.dispatchEvent(new stale.w.StorageEvent('storage',{key:stale.key}));assert.ok(stale.button('저장(F8)',d).disabled);assert.equal(d.querySelectorAll('input')[1].value,'42');close(stale);
+});
+test('failed direct price commit preserves draft and retries exactly once; detached actions cannot save',()=>{
+ const e=env({write:true}),before=e.db(),dialog=openReply(e),setter=e.w.Storage.prototype.setItem;fillReply(e,1,'42');e.w.Storage.prototype.setItem=function(){throw Error('quota');};const save=e.button('저장(F8)',dialog);save.click();assert.equal(e.stored(),JSON.stringify(before));assert.equal(dialog.querySelectorAll('input')[1].value,'42');e.w.Storage.prototype.setItem=setter;save.click();assert.equal(e.db().sequence,before.sequence+1);save.onclick();assert.equal(e.db().sequence,before.sequence+1);e.dialog().querySelector('[data-vendor-reply="V001"]').click();fillReply(e,1,'43');const late=e.button('저장(F8)',dialog);dialog.close();late.onclick();assert.equal(e.db().sequence,before.sequence+1);close(e);
+});
 test('comparison separates requested, received zero/missing, selected decimal price and five vendors without writes',()=>{
  const e=env(),before=e.stored(),dialog=e.open(),rows=[...dialog.querySelectorAll('tbody tr')];
  assert.equal(dialog.querySelectorAll('th').length,12);assert.equal(rows.length,2);

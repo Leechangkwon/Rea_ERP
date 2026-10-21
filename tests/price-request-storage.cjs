@@ -2,6 +2,31 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const C=require('../dist/inventory-core.js'),Q=require('../dist/price-request-core.js');
 const copy=x=>JSON.parse(JSON.stringify(x));
+test('batch received prices persist once with exact zero/decimal values and unrelated data preserved',()=>{
+ let {db,id}=fixture();db=C.command(db,'document',{...db.documents.find(d=>d.id===id),lines:[{lineId:'a',item:'M001',qty:1,price:10},{lineId:'b',item:'M001',qty:2,price:20},{lineId:'c',item:'M001',qty:3,price:30}]}).db;db=start(db,id).db;
+ const before=copy(db),out=edit(db,id,'replyMany',{vendorCode:'V001',replies:[{lineKey:'id:a',price:'0'},{lineKey:'id:b',price:'1.9999999999'}]}),after=out.db;
+ assert.deepEqual(preserved(after),preserved(before));assert.equal(after.sequence,before.sequence+1);assert.equal(after.logs.length,before.logs.length+1);assert.equal(Q.view(after,id,C).revision,1);
+ assert.deepEqual(after.settings.priceRequests.records[0].comparison.vendors[0].received.map(r=>r.price),['0','1.9999999999',null]);assert.deepEqual(after.settings.priceRequests.records[0].comparison.vendors[1],before.settings.priceRequests.records[0].comparison.vendors[1]);
+ assert.deepEqual(Q.view(C.validateBackup(copy(after)),id,C),Q.view(after,id,C));assert.deepEqual(db,before);
+});
+test('batch reply rejects malformed or late invalid rows atomically',()=>{
+ let {db,id}=fixture();db=start(db,id).db;const lineKey='id: A ',valid={lineKey,price:'12'};
+ const batches=[[],[valid,valid],[valid,{lineKey:'missing',price:1}],[{lineKey,price:'1.00000000001'}],[{lineKey,price:'-1'}],[{lineKey,price:'1e3'}],[{lineKey,price:Infinity}],[{lineKey,price:'2',extra:1}],new Array(1),Array.from({length:501},()=>valid)];
+ for(const replies of batches)rejectUnchanged(db,()=>edit(db,id,'replyMany',{vendorCode:'V001',replies}));
+ for(const extra of [{vendorCode:'missing',replies:[valid]},{vendorCode:'V001',replies:[valid],expectedRevision:99},{vendorCode:'V001',replies:[valid],extra:1}])rejectUnchanged(db,()=>edit(db,id,'replyMany',extra));
+});
+test('batch reply preserves selected price and refuses closed, stale source or unavailable vendor',()=>{
+ const data=populated(),valid={vendorCode:'V002',replies:[{lineKey:'id: A ',price:'25001'}]};
+ rejectUnchanged(data.db,()=>edit(data.db,data.id,'replyMany',valid),/확정단가/);
+ const same=edit(data.db,data.id,'replyMany',{...valid,replies:[{lineKey:'id: A ',price:'25000.0'}]}).db;assert.deepEqual(same.settings.priceRequests.records[0].comparison.selections,data.db.settings.priceRequests.records[0].comparison.selections);
+ for(const mode of ['closed','source','vendor']){let db=copy(data.db);if(mode==='closed')db=edit(db,data.id,'close',{vendorCode:'V001',closed:true}).db;if(mode==='source')db.documents.find(d=>d.id===data.id).memo='newer';if(mode==='vendor')db.masters.partners.find(v=>v.code==='V001').disabled=true;rejectUnchanged(db,()=>edit(db,data.id,'replyMany',{vendorCode:'V001',replies:[{lineKey:'id: A ',price:'3'}]}));}
+});
+test('500-row received-price batch saves once and late failure changes nothing',()=>{
+ let {db,id}=fixture();db=C.command(db,'document',{...db.documents.find(d=>d.id===id),lines:Array.from({length:500},(_,i)=>({lineId:'line'+i,item:'M001',qty:1,price:1}))}).db;db=start(db,id).db;
+ const replies=Array.from({length:500},(_,i)=>({lineKey:'id:line'+i,price:String(i)})),before=copy(db);const out=edit(db,id,'replyMany',{vendorCode:'V001',replies}).db;
+ assert.equal(Q.view(out,id,C).revision,1);assert.equal(out.sequence,db.sequence+1);assert.equal(Q.view(out,id,C).rows[499].received[0].price,'499');
+ replies[499].price='invalid';rejectUnchanged(db,()=>edit(db,id,'replyMany',{vendorCode:'V001',replies}));assert.deepEqual(db,before);
+});
 function fixture(){
  let db=C.seed();db=C.command(db,'master',{key:'partners',record:{code:'V002',name:'Second supplier',kind:'매입'}}).db;
  const out=C.command(db,'document',{type:'pricerequest',date:'2026-10-21',partner:'V001',warehouse:'W001',status:'진행',vatRate:10,lines:[{item:'M001',qty:100,price:50000,lineId:' A '}]});
