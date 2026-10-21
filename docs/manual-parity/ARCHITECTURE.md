@@ -346,3 +346,7 @@ view snapshot/restore는 조건을 보존하지만 InventoryUI 작업 탭 재생
 purchase-return-core는 원구매/관련 반품 snapshot을 검증하고 기존 purchasereturn/credit 양수 저장 한 건을 만든다. presentation만 qty/금액을 음수로 바꾼다. preview는 복제 명령 결과이며 실제 저장/원구매 변환은 없다. 기존 frozen sourceAmounts/returnAmounts 배분, 잔량·재고·채무·회계반영 제한과 백업을 유지한다. 신규 전표에 원구매 감사 메타데이터를 복사하지 않는다. 추가 형식 마이그레이션/직접 음수 purchase는 없다.
 
 purchase-return-ui의 입력과 저장 객체를 분리하며 마지막 onCommit에서 InventoryUI가 저장소 CAS·회사/사용자/키·조회/쓰기권한을 확인한다. 초기 storageKey와 현재 계정 불일치 P1을 독립 재현 후 차단했다. 실제 회사 식별 경로는 AuthUI.state().user.company.code다. 구매조회/현황은 저장 전표를 음수로 재열고 목록 금액만 signed projection을 쓴다. 회계반영된 전표 native 조회, confirmation 액션과 추가항목/단독 인쇄는 후속 호환 검토 대상이다. 원본 내부 저장 구조 동등성을 주장하지 않는다. 근거 evidence/manual-purchase-negative-return-20261022.json.
+
+## 2026-10-22 저장 반품 출력 투영
+
+0.60.0은 canonical purchasereturn/credit 및 고정 returnAmounts를 변환하지 않고 printModel에서만 음수로 투영한다. 전용 반품 namespace에 저장된 설정이 있으면 유지하며 없으면 기존 doc:purchase 양식을 공유한다. 자동 이관/자동 활성화는 없다. 계정·회사·inventory.read·storageKey/CAS와 닫힌 창을 재검사하고 기존 inventory.write가 양식변경을 통제한다. 명시 인쇄 전에는 print 콜백을 실행하지 않는다. 양식3조건 AND/ID/PC-Mobile와 일괄 첫 전표 조건은 별도 미완료 요구사항으로 등록했다. 관련 계획 docs/plan-purchase-return-print-20261022.md 및 evidence/manual-purchase-return-print-20261022.json.

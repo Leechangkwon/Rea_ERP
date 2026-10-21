@@ -1,6 +1,14 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.59.1 운영
+## 현재 인계 · 0.60.0 운영
+
+운영 `release/0.60.0-purchase-return-print` / `2fb85fe`, 소스 `fc42683`. 구매조회 차감반품 선택 → 기존 전용 반품/공동 구매 양식 → 고정금액 음수 미리보기 → 닫기/재조회 보존. 신규Node7/관련35, 전체 verify:local·브라우저51 통과. 기존 로그인·운영 일반 구매 미리보기/닫기,8전표/양식·서버app28/gateway0·메일3함8통1첨부 전후 동일. 운영 반품0건으로 음수 출력은 합성 검증, 실제 프린터/업무 저장 없음.
+
+근거 `evidence/manual-purchase-return-print-20261022.json`, 계획 `docs/plan-purchase-return-print-20261022.md`, manifest `.artifacts/manual-return-print-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.60.0-purchase-return-print`. 실행 `rea-erp-dev run` 세션21603 유지. bundle SHA `f50e3b6a1887d8f435bfe4bfb31916b3c7db42ebc8cf6513d9f83a5ef3f1161d`, 롤백0.59.1 보존. main VAT5충돌 빌드 설치 금지.
+
+본문13/요구사항24·전체완료0. 다음은 원본 구매별 조건항목 확인 후 REQ-COM-FORMS-001 ID/3AND/PC-Mobile 조건양식 저장→재조회→적용(기존 단일조건/양식 보존). 일괄인쇄 첫 전표 조건·반품 confirmation/회계반영 조회/직접 음수 구매 예외는 미완료. 모아 마지막 게시0.51.0·인증401,39갱신 로컬 대기. 새 인증 없이 변화 없는 인증검사 반복 금지. 아래는 과거 이력이다.
+
+## 이전 인계 · 0.59.1 운영
 
 운영 `release/0.59.1-purchase-negative-return` / `fc52ded`, 소스 `dfba9ee`/표시수정 `bb16902`. 원구매 → 반품처리 → 음수 수량 편집 → 단일 canonical purchasereturn/credit 저장 → 구매조회/현황 음수 재열기. 기존 양식/자료 변환 없음. 신규Node18·관련62, 0.59.0 전체 verify:local/브라우저50 및 0.59.1 표시수정 Node18·브라우저1·release/build 통과. 계정 전환 전 열기 P1 독립 재현·수정·재검증 완료. 운영 미리보기/취소와 기존 로그인·자료·양식·메일 보존 확인, 실제 업무 저장 미검증.
 

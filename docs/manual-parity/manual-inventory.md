@@ -66,3 +66,7 @@
 ## 공식 재고교육 PDF 추가 확보 · 2026-10-21
 
 [중급 재고 교재](https://download.ecounterp.com/doc_Ecount_Inventory.pdf)36쪽과 [초급 재고 교재](https://download.ecounterp.com/doc_Ecount_beginner_Inventory.pdf)42쪽을 확보했다. 이번 검토는 발주계획 수량조정 부분인 물리18쪽/21쪽(인쇄16쪽/19쪽)에 한정한다. 전체 PDF 검토 완료가 아니며 로그인 도움말36항목/4본문과 별도다. 수량조정의 조건 선택·적용·저장 절차를 기존 REQ-PUR-PLAN-001에 보강했다. 최소구매단위의 숫자 계산식은 이 부분에 없다. 출처·수집시각·해시·검토페이지는 source-manifest.json과 evidence/manual-plan-quantity-contract-20261021.json을 따른다.
+
+## 2026-10-22 인쇄 범위 조사
+
+온라인 도움말 2본문을 읽어 현재 13본문/24요구사항으로 등록했다. `EAM012M_326237497798`의 전표/건별인쇄는 회계 3개 지정 메뉴 전용이므로 구매에 일반화하지 않는다. `EAM012M_120422034974`는 사용자 ID 조건 예, 최대3조건 AND, PC/Mobile, 일괄인쇄 첫 전표 조건을 명시한다. 현재 REA의 단일 조건 양식과 차이가 있으며 새 대장의 미완료 요구사항으로 남긴다. 원본 설정 저장/업무 입력/인쇄 실행은 없다. 근거 `.artifacts/manual-return-print-20261022/` 및 `docs/plan-purchase-return-print-20261022.md`. 전체 목차/본문 조사 완료가 아니다.
