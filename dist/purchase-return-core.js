@@ -67,6 +67,10 @@
   return {id:document.id,date:document.date,sourceId:document.sourceId,partner:document.partner,warehouse:document.warehouse,currency:document.currency||'KRW',lines,totals};
  }
  function preview(db,draft,policy){return presentation(save(db,draft,policy).result);}
- const api={create,edit,operation,save,preview,presentation};
+ function printModel(document,store){
+  const view=presentation(document),saved=store?.screens?.['doc:purchasereturn'],dedicated=Boolean(saved&&(saved.forms.length||Object.keys(saved.active).length||saved.rules.length));
+  return {document:{...clone(document),lines:view.lines},lines:view.lines,total:view.totals.total,formKey:dedicated?'doc:purchasereturn':'doc:purchase',sharedPurchaseForm:!dedicated};
+ }
+ const api={create,edit,operation,save,preview,presentation,printModel};
  if(typeof module==='object'&&module.exports)module.exports=api;else root.PurchaseReturnCore=api;
 })(typeof globalThis==='object'?globalThis:this);
