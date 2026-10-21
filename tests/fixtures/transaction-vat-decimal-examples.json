@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "Independent interpretation of public Decimal initialization and VAT operation order; no original execution",
+  "sources": {
+    "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+    "decimalSha256": "4815a2edcac6d06ffa3fae0ed63764ef2827c19726d71fe23bf20dd7f53dc689",
+    "inventorySha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35"
+  },
+  "cases": [
+    {
+      "rate": "3",
+      "divisor": "33.333333333333333333333333333",
+      "before": "30",
+      "floor": "30"
+    },
+    {
+      "rate": "6",
+      "divisor": "16.666666666666666666666666667",
+      "before": "59.999999999999999999999999999",
+      "floor": "59"
+    },
+    {
+      "rate": "7",
+      "divisor": "14.285714285714285714285714286",
+      "before": "69.999999999999999999999999999",
+      "floor": "69"
+    },
+    {
+      "rate": "9",
+      "divisor": "11.111111111111111111111111111",
+      "before": "90.000000000000000000000000001",
+      "floor": "90"
+    },
+    {
+      "rate": "10",
+      "divisor": "10",
+      "before": "100",
+      "floor": "100"
+    }
+  ]
+}

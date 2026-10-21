@@ -34,13 +34,34 @@
         "BrowserFlowExecutor.importRequest",
         "BrowserFlowUtil.resolveImportGroup"
       ]
+    },
+    "currentDecimal": {
+      "path": ".artifacts/manual-vat-decimal-20261021/decimal.js",
+      "sha256": "4815a2edcac6d06ffa3fae0ed63764ef2827c19726d71fe23bf20dd7f53dc689",
+      "provenanceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "observedInRequestListDom": true,
+      "originalExecuted": false
+    },
+    "currentInventory": {
+      "path": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+      "sha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+      "provenanceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "observedInRequestListDom": true,
+      "originalExecuted": false
+    },
+    "currentCommon": {
+      "path": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "provenanceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "observedInRequestListDom": true,
+      "originalExecuted": false
     }
   },
   "scope": "Synthetic positive KRW, one header VAT rate 0 or 10, no discount, no direct supply, no FX. Static values are an independent exact-decimal interpretation, not execution or verified outputs of ECOUNT. Each fixture explicitly uses the same supply/VAT precision, matching the shared source amt.decimal_part_size.",
   "unverified": [
     "Original runtime results and applicable deployed source version",
     "Upstream effective-price and manual-supply binding for every price mode",
-    "Decimal precision and the documented 7 percent floor 69 behavior",
+    "Actual runtime Decimal configuration and prototype overrides; public bundle initializes precision 29 and the 7 percent floor 69 mechanism is independently modelled",
     "Transaction/item/warehouse/default VAT priority and mixed-rate groups",
     "Foreign currency supply, exchange rate and existing VAT totals",
     "Exception-condition attribute evaluation and manual settings UI",
