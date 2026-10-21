@@ -219,3 +219,10 @@ stock-only-integer-v0는 앱 계산/저장 계약과 분리된 scripts/lib 순�
 ## 0.53.1 운영 경계 확인 · 2026-10-21
 
 분리후보90958ac를 기존 WSL 수동 서버/Supabase/Cloudflare에 설치했다. 스키마·인증방식·기존 자료구조는 그대로다. 원본 헤더/행공급사·직접 행참조·완료계획 배분 보호를 포함하고 미완료 VAT는 main에 남긴다. 기존120분 세션이 이미 만료되어 배포 후 인증UI 합격은 재로그인 뒤 별도로 확인한다. 공개 응답·서버 자료/메일 보존과 매뉴얼 동등성은 구분한다. 상세 evidence/deployment-purchase-links-0531-20261021.json.
+
+
+### Decimal 초기 정밀도와 운영 계산의 분리 · 18393fe
+
+decimal29-divisor-order-v0는 순수 연구 함수이며 공급합/세율/단수처리만 명시 입력받는다. BigInt 유리수로100÷세율→공급합÷그값을 각29유효자리 HALF_UP하고 최종 자릿수를 처리한다. 계산 가능한 범위를 좁혀 두고 항상canApply=false/persistenceVersion=null을 반환한다. 기존 저장v1·단가 연구후보와 앱의 import/저장 연결은 변경하지 않는다. 새로운 원본 Decimal 초기 설정과 실제 실행 중 override·입력식·누적/차액배분은 별도 증거다.
+
+현재 확인한 common 본문의 valid-key trigger는 빈행 skip 예외를 포함한다. 이전 resolver 본문과 현재 본문 해시·함수 차이를 같이 보관하고 버전 간 동등성을 추정하지 않는다. REA21범위 파싱과 독립13,302사례 일치는 실제 매뉴얼/테넌트 전표 결과의 합격이 아니다. 운영0.53.1 설치번들 보존, 상세 evidence/manual-vat-decimal-20261021.json.
