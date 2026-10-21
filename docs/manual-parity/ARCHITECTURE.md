@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.71.0 생성 미리보기의 조건·금액 표시
+
+PurchasePlanCore의 prepared.documents를 변경하지 않고 별도 fragment에 요약표·전표별 context를 준비한 뒤 성공 때만 미리보기 DOM을 교체한다. 담당자/프로젝트/창고/통화/세율/반올림/추가항목/원본계획을 textContent로 표시한다. 수량은일반숫자,금액·단가는formatNumber money:true를 사용한다. 표시실패 시 prepared를 폐기해 이전 화면으로 생성하지 못한다. 기존preview snapshot·commit/권한/storage guard는 그대로다. CSS는purchase-plan-dialog 한정36/44px와context grid이며 input/report 전역selector확대없음. 직접집계추가축·일괄변경 및 미선택 머리값 매핑은미구현, 새schema/자료변환없음. 근거 evidence/manual-plan-generation-review-20261022.json.
+
 ## 0.70.0 발주계획 날짜조회·원자적 렌더 보완
 
 계획목록5개날짜단축키는 PurchasingReportCore.preset을 명시적일요일주(weekStart0)로재사용한다. applySearch는날짜외pending조건을보존하고 refresh가 rows/tabs/table/pager/count/권한을모두offscreen준비한후DOM과조건을같이반영한다. 실패시applied/page를복구하고기존DOM/미저장행/선택/pending날짜를유지한다. 조회구분의 서버대표수량/합계·선택단위는별도미완료이며 새스키마/권한확대없음. 근거 evidence/manual-plan-search-modes-20261022.json.

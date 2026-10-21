@@ -1,6 +1,6 @@
 {
   "version": "0.71.0",
-  "status": "isolated-candidate-full-regression-passed",
+  "status": "deployed-preview-context-and-preservation-verified-full-custom-parity-pending",
   "plan": "docs/plan-plan-generation-review-20261022.md",
   "manual": {
     "sourceId": "EC-HELP-PLAN-GENERATION-MODES",
@@ -155,7 +155,114 @@
     "worktree": ".artifacts/releases/0.71.0-plan-generation-review",
     "candidateManifest": ".artifacts/manual-plan-generation-review-20261022/candidate-manifest.json",
     "bundleSha256": "7073e4905c649f8534d57c2b72b5c49f2f918626cc86a789455b13662581fa84",
-    "installed": false,
-    "sitesUsed": false
-  }
+    "installed": true,
+    "sitesUsed": false,
+    "sourceCommit": "b55d95a94e7256edf02d1490a0fbfb8aa5da31d3",
+    "releaseCommit": "c0c0a57197c0029f1b615919a396715d820bef3d",
+    "runtimeSessionId": 24618,
+    "linuxPid": 2356986,
+    "public": {
+      "version": "0.71.0",
+      "sourceCommit": "c0c0a57197c0029f1b615919a396715d820bef3d",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/inventory.css",
+          "status": 200,
+          "sha256": "f59364aa7f1459830ee8be1b4a6e0db5b55f18a553a54a2d1c88b14aa43b7fa9",
+          "equalsLocal": true
+        },
+        {
+          "path": "/purchase-plan-ui.js",
+          "status": 200,
+          "sha256": "3e7daf693ca45f3d8e0addb93749f483f844b24af1af78fe5a3e3c3740ca7124",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "rollback": ".artifacts/manual-plan-generation-review-20261022/rollback-0.70.0-index.js"
+  },
+  "sourceCommit": "b55d95a94e7256edf02d1490a0fbfb8aa5da31d3",
+  "releaseCommit": "c0c0a57197c0029f1b615919a396715d820bef3d",
+  "hosted": {
+    "version": "0.71.0",
+    "existingSessionRetained": true,
+    "operatingPlanCount": 0,
+    "emptyGenerationBlockedWith": "발주계획 품목행을 선택하세요.",
+    "assetHashesVerified": true,
+    "dataBearingPreviewVerified": false,
+    "businessWrites": false,
+    "settingsWrites": false,
+    "screenshot": ".artifacts/manual-plan-generation-review-20261022/hosted-0.71.0.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.71.0",
+      "exactBytes": true,
+      "exactJson": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "plans": 0,
+      "formsExact": true,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "restored": false
+    },
+    "serverMail": {
+      "version": "0.71.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "afterUi": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/plan-generation-review-0.71.0-1792620280024"
+  },
+  "nextWork": "다음은 EC-HELP-PLAN-GENERATION-MODES의 직접설정 집계기준·일괄변경을 TC102P/TC104P 공개 popup DTO/mapper와 대조해 차이표를 보완한다. 선택하지 않은 담당자·창고·추가 머리값이 다른 경우와 상이단가 합산은 추정하지 않고 보존한다. 안전한 조회/도움말로 계약을 확보하지 못하면 별도 미완료로 남기고 다음 매뉴얼 항목을 진행한다. 전표별 조회 대표품목/수량·필터 합계, 업로드 회사별 묶음/필수/부분실패, VAT5·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본 작업탭 동등성은 미완료다. 이미 반영한 날짜바로조회·UI 버튼·미리보기 검사를 새 개발량으로 반복하지 않는다."
 }
