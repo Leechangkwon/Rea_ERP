@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 업로드 입력 해석 분리후보 · 운영 미연결
+
+원본 UI/빈서식22열의 표시명과 field ID를 고정한 RequestUploadCandidate.stageRaw를 독립시켰다. raw 셀과 String.trim 결과·원본행번호를 반환하며, 명시한 제목행/자원행수 정책으로 누락/초과열을 검사한다. inv_m$add_qty와inv_m$qty를 별도로 보존하고 금액/코드/일자를 해석하지 않는다. 원본 _.vTrim의 모든 Unicode 동등성은 미확인이다. 현재 회사의 관찰 schema snapshot이며 전체회사 설정으로 간주하지 않는다. UI/DB/권한/저장 스키마에 연결하지 않았다. 이후 회사별 metadata→단위환산/금액보존→묶음/기본/필수 검증→미리보기→동시성/권한/저장 계층을 각각 합격시킨다. 일반 입력의 자동계산을 업로드 수동금액에 바로 연결하지 않는다. 근거 evidence/manual-request-upload-candidate-20261022.json.
+
 ## 0.73.0 생성 전표 참조 일괄지정
 
 PurchasePlanCore.preview는 선택적 request.referenceOverride를 공백 아닌 텍스트로 검증하고 기존 그룹 계산 후 생성 doc.reference만 지정한다. 문자열 자체를 변환하지 않으며 기본 생략은 기존 생성 결과를 보존한다. 원본 참조 상속·빈값 삭제는 미확인으로 지원하지 않는다. UI input 이벤트는 prepared를 즉시 무효화하고 전표별 context에 textContent로 표시한다. commit의 재미리보기/snapshot 및 기존 권한/storage guard를 보존한다. 새 스키마·그룹·금액·배분·원본 자료 변경은 없다. 입고창고는 현재 배분/백업 guard와 충돌하므로 원본 예외 계약 확보 전 변경하지 않는다. 근거 evidence/manual-plan-generation-reference-20261022.json.

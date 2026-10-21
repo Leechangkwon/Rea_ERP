@@ -1,7 +1,7 @@
 {
   "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
-  "count": 46,
-  "bodyReviewed": 16,
+  "count": 48,
+  "bodyReviewed": 18,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -428,6 +428,39 @@
         "02:08": "Other-slip input: employee direct-input radio alongside date/partner/warehouse/transaction/currency/due/reference"
       },
       "fullVideoVisualReviewed": false
+    },
+    {
+      "id": "EC-HELP-UPLOAD-COMPARE-001",
+      "title": "[기초] 자료올리기 기능 비교",
+      "kind": "official FAQ video transcript",
+      "status": "body-reviewed",
+      "sourcePath": "Original help > 통합검색 자료올리기 > [기초] 자료올리기 기능 비교",
+      "observedDate": "2026-10-22",
+      "videoUrl": "https://www.youtube.com/watch?v=eCDzvdbraFM",
+      "localArtifact": ".artifacts/manual-request-upload-research-20261022/official-upload-comparison-transcript.txt",
+      "bodySha256": "0f277c94f4ee91f895a5fd6277addb30e74bf2e919be12cffceb258584236c16",
+      "bodyKind": "full auto-generated transcript; FAQ body was embedded video",
+      "wholeVideoVisualReviewed": false,
+      "historicalRowLimit300Mentioned": true,
+      "currentRequestLimit300Verified": false,
+      "legacyExcelVersionClaimsNotAppliedToCurrentProduct": true,
+      "originalBusinessWrites": false
+    },
+    {
+      "id": "EC-HELP-UPLOAD-DUPLICATE-001",
+      "title": "판매입력 자료올리기를 했는데 이중으로 업로드 되었어요. 어떻게 해야 하나요?",
+      "kind": "official FAQ text plus video",
+      "status": "body-reviewed",
+      "sourcePath": "Original help > 통합검색 자료올리기 > duplicate sales upload FAQ",
+      "observedDate": "2026-10-22",
+      "videoUrl": "https://www.youtube.com/watch?v=YzviPrdejFk",
+      "localArtifact": ".artifacts/manual-request-upload-research-20261022/official-duplicate-upload-faq.txt",
+      "bodySha256": "3d9bfa7a38342300182b146eda5d811509c1f4fb8bf1b02641ea45b8a18596db",
+      "textBodyReviewed": true,
+      "videoReviewed": false,
+      "appliesDirectlyTo": "sales only",
+      "requestUploadIdempotencyProven": false,
+      "originalBusinessWrites": false
     }
   ]
 }

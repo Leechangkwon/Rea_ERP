@@ -192,9 +192,10 @@
     "planGenerationEmployeeNewBrowser": 3,
     "planGenerationReferenceNewNode": 6,
     "planGenerationReferenceRelatedNode": 62,
-    "planGenerationReferenceNewBrowser": 3
+    "planGenerationReferenceNewBrowser": 3,
+    "requestUploadRawCandidateNode": 10
   },
-  "future_research": "다음 개발은 발주요청 웹자료올리기(REQ-COM-UPLOAD-001)의 회사별 Flow/setup/dataModel·전표 묶음·필수항목·부분실패/재시도 계약이다. 기존 업로드 관찰과 현재 구현 차이표를 먼저 읽고 안전한 도움말·조회 팝업·관찰된 공개 자산으로 확인하며 실제 원본 업로드/설정저장/업무저장은 하지 않는다. 입고창고 일괄변경은 planAllocations/연결/백업의 동일창고 guard와 원본 예외 계약을 확인할 때까지 보류한다. 납기 일괄변경의 머리/행 적용, 통화/거래유형 계산, 직접설정 추가 집계축·미선택 머리값·참조 기본상속/빈값삭제·상이단가·전표별 대표값은 미완료다. 완료한 UI/날짜/담당자/참조 검사를 새 개발량으로 반복하지 않는다.",
+  "future_research": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 계약을 채운다. 우선 실제 inv_m$add_qty(표시 수량)와 inv_m$qty(표시 낱개수량)의 품목 단위/환산 규칙을 공식 도움말·품목등록 조회·공개 REA 근거로 대조하고, 현재 입력/재고/발주 잔량 모델과 차이표를 만든다. 이어 수동 공급가액/부가세/외화금액의 공란0·고정금액 보존 저장을 일반 입력 자동계산과 구분해 설계한다. 회사별 묶음/저장시값변경/필수·부분실패/재시도는 실제 설정 계약을 확인한 범위만 연결한다. 분리후보를 전체 웹자료올리기 완성으로 부르거나 캡션의300행·날짜+순번만을 현재 기본 정책으로 적용하지 않는다. 기존0.73.0 운영과 자료/양식/메일을 유지하고 root VAT5 전체빌드/배포는 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../manual-plan-generation-reference-20261022.json",
@@ -344,7 +345,7 @@
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 26,
-    "sourceBodiesReviewed": 16,
+    "sourceBodiesReviewed": 18,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
@@ -903,6 +904,17 @@
       "regrouping": false,
       "hostedDataBearingSaveVerified": false,
       "done": false
+    },
+    "requestUploadRawCandidate": {
+      "sourceCommit": "5b761c5cd22f10945f27c59368cea8694baa6101",
+      "evidence": "evidence/manual-request-upload-candidate-20261022.json",
+      "status": "local-raw-column-candidate-only-business-save-unintegrated",
+      "newNode": 10,
+      "operatingVersionUnchanged": "0.73.0",
+      "appIntegrated": false,
+      "saveImplemented": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -955,5 +967,15 @@
       "includedInHistoricalReaCorpusBaseline": false,
       "semanticScopeComplete": false
     }
+  },
+  "additional_REA_scope_evidence": {
+    "reference": "../manual-request-upload-candidate-20261022.json",
+    "downloadedPublicBodies": 3,
+    "publicBytes": 5598721,
+    "boundedOwnScopes": 1,
+    "boundedPublicScopes": 4,
+    "fullBodiesAnalyzed": false,
+    "originalExecuted": false,
+    "currentReaCorpusBaselineNotRecounted": true
   }
 }

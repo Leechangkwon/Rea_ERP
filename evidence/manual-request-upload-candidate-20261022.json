@@ -1,0 +1,312 @@
+{
+  "baselineVersion": "0.73.0",
+  "requirement": "REQ-PUR-REQ-005",
+  "status": "local-raw-column-candidate-only-business-save-unintegrated",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "originalObservation": {
+    "source": "Original request list and upload/setup UI; read-only DOM metadata and blank template",
+    "requestQueryOpenedByVisibleMenu": true,
+    "footerOverflowExpanded": true,
+    "templateDownload": true,
+    "templateBusinessRows": 0,
+    "currentSelectedGroupingLabels": [
+      "일자",
+      "거래유형",
+      "순번",
+      "창고"
+    ],
+    "groupingEqualityOrDefaultHandlingVerified": false,
+    "settingMenuForSelectedWidgetItemDisabled": true,
+    "fieldContextPropertiesChanged": false,
+    "columns": [
+      {
+        "label": "일자",
+        "fieldId": "inv_s$data_dt_no"
+      },
+      {
+        "label": "순번",
+        "fieldId": "inv_s$upload_bundle_seq"
+      },
+      {
+        "label": "담당자",
+        "fieldId": "inv_s$pic"
+      },
+      {
+        "label": "창고",
+        "fieldId": "inv_s$wh"
+      },
+      {
+        "label": "거래유형",
+        "fieldId": "inv_s$trx_type"
+      },
+      {
+        "label": "통화",
+        "fieldId": "inv_s$foreign_currency"
+      },
+      {
+        "label": "환율",
+        "fieldId": "inv_s$exchange_rate"
+      },
+      {
+        "label": "납기일자",
+        "fieldId": "inv_s$due_dt"
+      },
+      {
+        "label": "참조",
+        "fieldId": "inv_s$txt_007"
+      },
+      {
+        "label": "프로젝트",
+        "fieldId": "inv_s$pjt"
+      },
+      {
+        "label": "품목코드",
+        "fieldId": "inv_m$prod"
+      },
+      {
+        "label": "품목명",
+        "fieldId": "inv_m$prod_nm"
+      },
+      {
+        "label": "거래처코드",
+        "fieldId": "inv_m$cust"
+      },
+      {
+        "label": "거래처명",
+        "fieldId": "inv_m$cust_nm"
+      },
+      {
+        "label": "규격",
+        "fieldId": "inv_m$spec_nm"
+      },
+      {
+        "label": "수량",
+        "fieldId": "inv_m$add_qty"
+      },
+      {
+        "label": "단가",
+        "fieldId": "inv_m$apply_price_amt"
+      },
+      {
+        "label": "외화공급가액",
+        "fieldId": "inv_m$foreign_currency_supply_amt"
+      },
+      {
+        "label": "공급가액",
+        "fieldId": "inv_m$supply_amt"
+      },
+      {
+        "label": "부가세",
+        "fieldId": "inv_m$vat_amt"
+      },
+      {
+        "label": "적요",
+        "fieldId": "inv_m$remark"
+      },
+      {
+        "label": "낱개수량",
+        "fieldId": "inv_m$qty"
+      }
+    ],
+    "columnMapSha256": "55f332b0239f0d0a74fb465bd3f43fdf153466e1e0f02b251802ad0329768170",
+    "schemaMappingIsObservedSnapshotOnly": true,
+    "template": {
+      "sha256": "08f0c4172ceb825c127f7537757096f50c00e2cc73d0034382ab88d4e785c7ef",
+      "bytes": 39968,
+      "source": "Observed original request upload Excel template download; no cells entered",
+      "sourcePathWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Downloads/Template (1).xlsx",
+      "readOnly": true,
+      "sheets": [
+        {
+          "part": "xl/worksheets/sheet1.xml",
+          "dimension": {
+            "ref": "A1:V1"
+          },
+          "headers": [
+            {
+              "cell": "A1",
+              "label": "일자"
+            },
+            {
+              "cell": "B1",
+              "label": "순번"
+            },
+            {
+              "cell": "C1",
+              "label": "담당자"
+            },
+            {
+              "cell": "D1",
+              "label": "창고"
+            },
+            {
+              "cell": "E1",
+              "label": "거래유형"
+            },
+            {
+              "cell": "F1",
+              "label": "통화"
+            },
+            {
+              "cell": "G1",
+              "label": "환율"
+            },
+            {
+              "cell": "H1",
+              "label": "납기일자"
+            },
+            {
+              "cell": "I1",
+              "label": "참조"
+            },
+            {
+              "cell": "J1",
+              "label": "프로젝트"
+            },
+            {
+              "cell": "K1",
+              "label": "품목코드"
+            },
+            {
+              "cell": "L1",
+              "label": "품목명"
+            },
+            {
+              "cell": "M1",
+              "label": "거래처코드"
+            },
+            {
+              "cell": "N1",
+              "label": "거래처명"
+            },
+            {
+              "cell": "O1",
+              "label": "규격"
+            },
+            {
+              "cell": "P1",
+              "label": "수량"
+            },
+            {
+              "cell": "Q1",
+              "label": "단가"
+            },
+            {
+              "cell": "R1",
+              "label": "외화공급가액"
+            },
+            {
+              "cell": "S1",
+              "label": "공급가액"
+            },
+            {
+              "cell": "T1",
+              "label": "부가세"
+            },
+            {
+              "cell": "U1",
+              "label": "적요"
+            },
+            {
+              "cell": "V1",
+              "label": "낱개수량"
+            }
+          ],
+          "otherPopulatedCells": 0,
+          "firstInputRowFormats": [],
+          "dataValidationCount": 0
+        }
+      ],
+      "commentParts": [
+        "xl/comments1.xml"
+      ],
+      "rawWorkbookCopiedToRepository": false
+    },
+    "sourceOnlyScreenshotNotSaved": true,
+    "businessRowsStored": false,
+    "businessWrites": false,
+    "settingsAppliedOrSaved": false,
+    "mainEntryRowsEdited": false,
+    "uploaderCellsFilledOrPasted": false,
+    "mailSent": false,
+    "temporaryBasicEntryLoginTabClosed": true,
+    "existingOriginalSessionNavigationWorked": true,
+    "separateEntryLoginDoesNotProveExistingSessionExpired": true,
+    "allSettingAndUploadWindowsClosed": true,
+    "viewportReset": true,
+    "temporaryVideoClosed": true
+  },
+  "manualBodiesReviewed": 18,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "newSupportingSourceIds": [
+    "EC-HELP-UPLOAD-COMPARE-001",
+    "EC-HELP-UPLOAD-DUPLICATE-001"
+  ],
+  "templateHelpEvidence": ".artifacts/manual-request-upload-research-20261022/template-field-help.json",
+  "templateHelpSha256": "b5361475684764adc9321993ac998f25fb784a64b8cca02be6577f4d5eade89d",
+  "sourceManifest": ".artifacts/manual-request-upload-research-20261022/v5-source-manifest.json",
+  "publicSourceBodiesDownloaded": 3,
+  "publicSourceBytes": 5598721,
+  "fullPublicBodiesAnalyzed": false,
+  "originalExecuted": false,
+  "sourceProgramInvocationForThisRouteVerified": false,
+  "implementation": {
+    "file": "dist/request-upload-candidate.js",
+    "sha256": "0ed33417ed188e2ff87999ec46b6adb0b86d4ea52c39f400649376a058c1d2dd",
+    "rawAndTrimPreserved": true,
+    "columnsMapped": 22,
+    "qtyUses": "inv_m$qty",
+    "displayQuantityUses": "inv_m$add_qty",
+    "amountsCalculatedOrDefaulted": false,
+    "datesOrCodesCoerced": false,
+    "blankRowsDeleted": false,
+    "documentGrouping": false,
+    "masterValidation": false,
+    "requiredDefaultValidation": false,
+    "uiIntegrated": false,
+    "appIntegrated": false,
+    "saveImplemented": false,
+    "schemaMigrated": false,
+    "rowCap": "caller explicit1..10000 own resource policy; not original limit",
+    "exactVTrimUnicodeParityVerified": false,
+    "columnWidthPolicy": "all rows checked; original scoped CheckUploadColumnLengthSvc checks the first input line only"
+  },
+  "checks": {
+    "newNode": 10,
+    "pass": 10,
+    "fail": 0,
+    "testLogSha256": "b257c2bdfedc3211ef66322a1f5df7c274110cb01613d9b51efd7221d9059bd5",
+    "reaVersion": "6.4.0",
+    "reaOwnScopes": 1,
+    "reaPublicScopes": 4,
+    "reaParseFailures": 0,
+    "reaCoverage": "unknown",
+    "reaTruncated": false,
+    "reaSummarySha256": "f5c5e7b67b9fec851d90c0e66f230a64f721f17f5c3727d3eef8829a70576288",
+    "fullRegressionRun": false,
+    "browserTestsRun": false,
+    "reason": "Disconnected candidate only; production app and existing behavior unchanged"
+  },
+  "deployment": {
+    "performed": false,
+    "publicVersionStill": "0.73.0",
+    "sourceReleaseCommitStill": "5c3ef405b06fe61113eae3399487561521cd4eba",
+    "runtimeBundleSha256Unchanged": "e947a8d49c4b3816eab5bced3781f07224511c20541b64b6a5e9d29bbfd7cd0d",
+    "runtimeSessionStill": 60080,
+    "runtimeRunning": true,
+    "sitesUsed": false,
+    "operatingDataWritten": false,
+    "settingsWritten": false,
+    "mailSent": false
+  },
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 54,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "unchangedAuthenticationNotRetried": true
+  },
+  "done": false,
+  "sourceCommit": "5b761c5cd22f10945f27c59368cea8694baa6101"
+}

@@ -1082,16 +1082,35 @@
         "자료올리기 일괄 업로드",
         "조회/현황에서 완료 요청 종결"
       ],
-      "status": "local-closure-passed-hosted-open-close-preserved-upload-contract-pending",
+      "status": "closure-partial-deployed-upload-raw-candidate-local-only",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "implementationEvidence": [
-        "evidence/manual-request-report-state-20261022.json"
+        "evidence/manual-request-report-state-20261022.json",
+        "evidence/manual-request-upload-candidate-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Uploader grouping/setup/required mapping/batch failure/retry and original server save plus hosted business write acceptance remain unverified"
+      "remaining": "Two quantity units and conversion, explicit/manual amount preservation and blank defaults, company grouping/setup/required mapping, batch failure/retry, original server contracts and hosted business write acceptance remain unverified",
+      "supportingSourceIds": [
+        "EC-HELP-UPLOAD-COMPARE-001",
+        "EC-HELP-UPLOAD-DUPLICATE-001"
+      ],
+      "supportingSourceScope": {
+        "duplicateFaq": "sales only; does not establish request retry/idempotency",
+        "comparisonVideo": "full auto transcript only; current row limit and legacy Excel claims unverified"
+      },
+      "uploadRawCandidate": {
+        "sourceCommit": "5b761c5cd22f10945f27c59368cea8694baa6101",
+        "evidence": "evidence/manual-request-upload-candidate-20261022.json",
+        "fieldsMapped": 22,
+        "newNode": 10,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      }
     },
     {
       "id": "REQ-PUR-FLOW-001",
