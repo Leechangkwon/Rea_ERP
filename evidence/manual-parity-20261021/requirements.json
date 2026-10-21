@@ -1389,13 +1389,16 @@
       "implementationEvidence": [
         "docs/plan-purchase-line-import-20261021.md",
         "evidence/manual-purchase-line-import-20261021.json",
-        "evidence/manual-purchase-history-import-20261022.json"
+        "evidence/manual-purchase-history-import-20261022.json",
+        "evidence/manual-purchasing-history-targets-20261022.json"
       ],
       "automatedEvidence": [
         "tests/purchase-line-import.cjs",
         "tests/browser/purchase-line-import.spec.cjs",
         "tests/purchase-history-import.cjs",
-        "tests/browser/purchase-history-import.spec.cjs"
+        "tests/browser/purchase-history-import.spec.cjs",
+        "tests/purchasing-history-targets.cjs",
+        "tests/browser/purchasing-history-targets.spec.cjs"
       ],
       "hostedAcceptance": false,
       "done": false,
@@ -1422,6 +1425,25 @@
         "hostedBusinessSave": false,
         "otherHistoryTargetsBounded": false,
         "originalImmediateApplyUiEquivalent": false
+      },
+      "historyCopyTargetExtension": {
+        "deploymentVersion": "0.67.0",
+        "targets": [
+          "pricerequest",
+          "purchaseorder",
+          "purchase"
+        ],
+        "sources": [
+          "pricerequest",
+          "purchaseorder",
+          "purchase"
+        ],
+        "syntheticSaveReload": true,
+        "hostedOpenFilterCancel": true,
+        "hostedBusinessSave": false,
+        "sourceQuoteBasisActivated": false,
+        "sourceQuoteBasisSnapshotPreserved": true,
+        "done": false
       }
     },
     {

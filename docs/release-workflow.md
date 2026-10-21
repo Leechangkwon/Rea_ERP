@@ -1,6 +1,14 @@
 # 개발과 검증 배포
 
-## 현재 인계 · 0.66.1 운영
+## 현재 인계 · 0.67.0 운영
+
+운영 release/0.67.0-purchasing-history-targets / 153b36e, 소스077774f. 단가요청/발주서 입력에도 구매3종 history·라인별 copy·현재상단/독립행 보존을 연결했다. 일반 확정단가 연결과 분리해 기록가격·실제 header 거래처로 조회하고, 새행 priceRequestBasis는 snapshot으로 보존하며 활성 연결을 만들지 않는다. 기존 basis/원본잔량/다중수신처/비교/후속입고 보존. 신규Node9/관련112·전체 verify:local/브라우저68(신규2), REA자체9/검증 원본캐시3, 독립P2 수정·재현 정상이다.
+
+근거 evidence/manual-purchasing-history-targets-20261022.json, manifest .artifacts/manual-history-targets-20261022/candidate-manifest.json, worktree .artifacts/releases/0.67.0-purchasing-history-targets. 런타임 세션72396, bundle SHA 240b8d0874844ec65c4ab34cad367667da1803a0fbac3b58f90e14c879d250a3, 롤백0.66.1 보존. 기존 로그인·두 거래내역 범위/필터/취소/닫기, 브라우저8전표/양식 byte/JSON·서버fresh app30/gateway0·runtime.env·메일3함8통1첨부 전후 동일. 운영 선택/적용/업무/설정 저장·인쇄·발송·복원 없음. main VAT5 연구 빌드 설치 금지.
+
+다음은 REQ-PUR-REQ-005 발주요청 자료올리기·종결의 기존 구현과 EC-HELP-REQUEST-035 본문/원본 조회 메뉴를 대조해 차이표를 만든 뒤 확인된 차이부터 구현한다. 단가요청·발주서·구매 거래내역3종 범위/행 복사는 이번 배포로 보완했으므로 같은 검사를 반복하지 않는다. 전체적용 저장 연결·상이단가 합산은 서버 계약 미확인으로 보류하고, 부서/직위/직책 참조·직접 음수/혼합부호·환불·회계/이력·일괄인쇄·원본 작업탭 동등성은 미완료로 유지한다. 본문14/요구사항24·전체합격0, 모아 마지막 게시0.51.0·46갱신 대기. 아래는 과거 이력이다.
+
+## 이전 인계 · 0.66.1 운영
 
 운영 release/0.66.1-purchase-history-import / 6c57049, 소스5d68783/표시수정11dbcd3. 구매 입력 거래내역을 단가요청·발주서·구매3종과 라인별 내용복사로 한정했다. 동일품목/상이단가 독립 행·상단/원본/잔량/양식 보존, 명칭 매핑과 raw customSnapshot 저장, 열기 전 계정/부모와 적용 시 freshness 보호. CSS의 hidden 컨트롤 재노출도 제거했고0.66.1 자산URL로 캐시를 갱신했다. 신규Node11/관련77·업무코드0.66.0 전체 verify:local/브라우저66(신규1), 버전전용0.66.1 release/build·브라우저1, REA자체8/원본3범위·독립2문제 수정·재현 완료.
 

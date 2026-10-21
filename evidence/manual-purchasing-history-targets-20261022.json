@@ -1,0 +1,285 @@
+{
+  "version": "0.67.0",
+  "date": "2026-10-22",
+  "status": "deployed-synthetic-save-reload-and-hosted-read-only-preservation-verified",
+  "requirement": "REQ-PUR-IMPORT-001 related transaction-history target subset; full application/item aggregation pending",
+  "sourceCommit": "077774f8c2901fe246f969e97912fb7531835760",
+  "deploymentCommit": "153b36e7c5e085696c776a4a37b88b531dc96205",
+  "baseCommit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
+  "plan": "docs/plan-purchase-line-import-20261021.md",
+  "rootCause": [
+    "Only purchase input enabled history-purpose controls; price request and purchase order still used unbounded generic picker and saved item/remainder preferences.",
+    "Normal quote-confirmed-price transformation and vendor basis rules leaked into history candidates/copies, changing recorded prices/header or supplier filters."
+  ],
+  "behavior": [
+    "Price-request/purchase-order/purchase history targets all allow only price-request/purchase-order/purchase sources, fixed line/copy and unchanged header.",
+    "Copied source rows remain independent with prices/memo/custom and stable new IDs; source consumption links are removed.",
+    "New history rows retain historical priceRequestBasis only in importedFrom.priceRequestBasisSnapshot; existing rows and ordinary confirmed-price loading keep active basis/locks.",
+    "History supplier filter/labels use saved header instead of historical quote basis vendor.",
+    "Existing parent/session/read/write/raw/draft/source lifecycle guards now cover all three targets; different unrelated input helpers unchanged."
+  ],
+  "originalObservation": {
+    "observedDate": "2026-10-22",
+    "manualReference": {
+      "id": "EC-HELP-MULTI-VOUCHER-HISTORY",
+      "title": "여러 장의 재고 전표를 한 장으로 합산하여 입력하는 방법",
+      "sourceLocator": "EAM012M_306149550506",
+      "artifact": ".artifacts/manual-import-contracts-20261022/original-multi-voucher-history-manual.ax.txt",
+      "sha256": "eb34f8b3d942bc2f0e829ff1d4577bb20fc3406a02304ff9600db3a01bc6f5e7",
+      "scope": "Purchasing transaction history may load price-request/purchase-order/purchase; multiple history menus can be loaded sequentially; selected item lines copied into current entry. Same-item differing-price aggregate formula not specified."
+    },
+    "newManualBodies": 0,
+    "priceRequestInput": {
+      "defaultHistory": "단가요청",
+      "alternatives": [
+        "발주",
+        "구매"
+      ],
+      "observedPopup": "발주서현황",
+      "popupClosedWithoutSelection": true
+    },
+    "purchaseOrderInput": {
+      "defaultHistory": "발주",
+      "alternatives": [
+        "단가요청",
+        "구매"
+      ],
+      "observedPopup": "단가요청현황",
+      "sourcePopupEmpty": true,
+      "popupClosedWithoutSelection": true
+    },
+    "mainRowEdited": false,
+    "sourceLineSelected": false,
+    "businessOrSettingsSaved": false,
+    "originalSent": false,
+    "returnedToList": true,
+    "limits": [
+      "Original source rows never applied, so transform/save/remainder equivalence remains unverified.",
+      "Original immediate row application differs from explicit staged apply.",
+      "Raw recorded price versus own confirmed comparison is an independent copy policy, not proof of original purchasing server pricing."
+    ]
+  },
+  "checks": {
+    "newNode": 9,
+    "relatedNode": 112,
+    "verifyLocalPassed": true,
+    "candidateBrowserTests": 68,
+    "newBrowser": 2,
+    "syntheticSaveReload": true,
+    "syntheticNewPriceRequestRecipients": [
+      "V001",
+      "V002"
+    ],
+    "syntheticCopiedLinePrices": [
+      300,
+      90,
+      80,
+      200
+    ],
+    "syntheticExistingSourceRequestRemaining": 1,
+    "syntheticExistingSourceOrderRemaining": 1,
+    "syntheticOrderFollowup": {
+      "selectedCopiedLinePrice": 100,
+      "newReceiptQuantity": 1,
+      "newReceiptStock": 1,
+      "newPayable": 110,
+      "newOrderRemaining": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "originalSourcesUnchanged": true
+    },
+    "independentReview": {
+      "foundP2": 1,
+      "fixedAndReproduced": 1,
+      "remainingP1P2": 0,
+      "scope": "supplier basis/recorded header, active basis and snapshot preservation, source remainder; full code audit not claimed"
+    },
+    "screenshots": [
+      ".artifacts/manual-history-targets-20261022/pricerequest-1280.png",
+      ".artifacts/manual-history-targets-20261022/pricerequest-390.png",
+      ".artifacts/manual-history-targets-20261022/purchaseorder-1280.png",
+      ".artifacts/manual-history-targets-20261022/purchaseorder-390.png"
+    ],
+    "logsSha256": {
+      "verifyLocal": "eb0f7caeefcd834281d1099b8824a93bcd9e80085461c3b557c269d6d20b2f5a",
+      "focused": "6d8d7fce6bf73c3bafad3cfd8c5da7562b9b466114d0d0803476472c9c4a910a"
+    }
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 9,
+    "reusedOriginalScopes": 3,
+    "reuseSourceInputManifestResultAndSettingsVerified": true,
+    "summary": ".artifacts/manual-history-targets-20261022/rea/rea-summary.json",
+    "summarySha256": "3973c5945c0179d7f335699edfca932b894a55e3fef870d7bff431ca9bf4cb22",
+    "allParseFailuresZero": true,
+    "coverage": "unknown",
+    "allTruncatedFalse": true,
+    "scopeBindingsOutsideUnresolved": true,
+    "originalExecuted": false,
+    "serverPriceAggregationVerified": false
+  },
+  "deployment": {
+    "url": "https://rea.qaredi.com",
+    "manifest": ".artifacts/manual-history-targets-20261022/candidate-manifest.json",
+    "candidate": {
+      "version": "0.67.0",
+      "sourceCommit": "077774f8c2901fe246f969e97912fb7531835760",
+      "baseCommit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
+      "directory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.67.0-purchasing-history-targets",
+      "branch": "release/0.67.0-purchasing-history-targets",
+      "commit": "153b36e7c5e085696c776a4a37b88b531dc96205",
+      "bundleSha256": "240b8d0874844ec65c4ab34cad367667da1803a0fbac3b58f90e14c879d250a3",
+      "verifyLocalPassed": true,
+      "browserTests": 68,
+      "newNode": 9,
+      "relatedNode": 112,
+      "newBrowser": 2,
+      "reaOwnScopes": 9,
+      "reaOriginalScopesReused": 3,
+      "reaOriginalCacheValidated": true,
+      "rootVatResearchIncluded": false,
+      "rollbackVersion": "0.66.1",
+      "portNotes": "Feature-only patch from main, excluding all existing VAT research; current plan copied separately because production retains older plan history.",
+      "pushed": true,
+      "installedBundleSha256": "240b8d0874844ec65c4ab34cad367667da1803a0fbac3b58f90e14c879d250a3",
+      "rollbackSha256": "f42e79f3ee8a1c651b70f9bd08378bf36e1b2f26f434a323d670a0dd42b76ff8",
+      "runtimeSession": 72396
+    },
+    "runtimeSession": 72396,
+    "publicChecks": {
+      "version": "0.67.0",
+      "sourceCommit": "153b36e7c5e085696c776a4a37b88b531dc96205",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/entry-core.js",
+          "status": 200,
+          "sha256": "d054536aad7c000ed7463f0c5c7495501afb565e3cf308a2a86be6a4028c716a",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-ui.js",
+          "status": 200,
+          "sha256": "6c34addb73be6ad094cc2489ae8fc5ffd28e1ab5dd884b4236f5a8ec20b95a05",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-ui.js",
+          "status": 200,
+          "sha256": "c3071c3b2310fa592eb59cd6a64455f750fefc4ac9d72ad215b78ced338e7691",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "hostedUi": {
+      "version": "0.67.0",
+      "existingSessionRetained": true,
+      "priceRequestHistoryOpenFilterCancelClosed": true,
+      "purchaseOrderHistoryOpenFilterCancelClosed": true,
+      "sourceTypes": [
+        "pricerequest",
+        "purchaseorder",
+        "purchase"
+      ],
+      "lineCopyFixed": true,
+      "allTypeSourceRows": 2,
+      "inapplicableFieldsOmitted": true,
+      "selectionApplied": false,
+      "businessSave": false,
+      "settingsSave": false,
+      "printed": false,
+      "sent": false
+    }
+  },
+  "preservation": {
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/history-targets-0.67.0-1792611136497",
+    "browser": {
+      "byteExact": true,
+      "jsonExact": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9"
+    },
+    "serverAndMail": {
+      "version": "0.67.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "finalServerAfterUi": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "restoreApplied": false
+  },
+  "manualProgress": {
+    "bodiesReviewed": 14,
+    "requirements": 24,
+    "fullyAccepted": 0,
+    "denominatorKnown": false,
+    "done": false
+  },
+  "publication": {
+    "lastReadbackVersion": "0.51.0",
+    "pendingUpdates": 46,
+    "authenticationChanged": false,
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "limitations": [
+    "Original immediate row application differs from own explicit staged apply.",
+    "Recorded source price versus own confirmed quote comparison is a copy policy; original purchase server repricing/save semantics remain unverified.",
+    "Hosted business save/reload, role withdrawal and source changes tested synthetically only.",
+    "Full quantity source-link effects and differing-price aggregate formula remain pending.",
+    "Root VAT5 research excluded; full manual acceptance0."
+  ],
+  "next": "다음은 REQ-PUR-REQ-005 발주요청 자료올리기·종결의 기존 구현과 EC-HELP-REQUEST-035 본문/원본 조회 메뉴를 대조해 차이표를 만든 뒤 확인된 차이부터 구현한다. 단가요청·발주서·구매 거래내역3종 범위/행 복사는 이번 배포로 보완했으므로 같은 검사를 반복하지 않는다. 전체적용 저장 연결·상이단가 합산은 서버 계약 미확인으로 보류하고, 부서/직위/직책 참조·직접 음수/혼합부호·환불·회계/이력·일괄인쇄·원본 작업탭 동등성은 미완료로 유지한다."
+}

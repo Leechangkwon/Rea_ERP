@@ -410,3 +410,9 @@ EntryCore.historySourceTypes(purchase)는 구매3종만 허용하고 history=tru
 InventoryUI는 docEditor 생성 때 identity/role/host를 고정하고 assertReturnSession/원문 freshness를 열기 전에 확인한다. EntryUI는 database/getDraft 읽기 전에 assertCurrent, 이후 focus/storage/visibility와 적용에서 계정/read·원본/초안/부모 수명을 검사한다. history에 부적합한 품목범위/머리항목은 DOM에서 제외해 CSS가 hidden을 덮어도 노출되지 않는다. 자산버전0.66.1로 갱신했다. 다른 입력 대상 거래내역은 다음 단위로 남기며 전체적용/상이단가 서버 계산을 이 복사 계약으로 대체하지 않는다.
 
 근거 evidence/manual-purchase-history-import-20261022.json. 운영0.65 기반 격리후보 6c57049만 검증/배포, main VAT5 연구 제외. 본문14/요구사항24·전체합격0.
+
+## 2026-10-22 · 0.67.0 구매3화면 거래내역 목적 분리
+
+historySourceTypes는 pricerequest/purchaseorder/purchase target 모두 같은3종을 허용한다. InventoryUI 세 버튼이 historyOptions를 사용하고 EntryUI 제목만 대상에 맞춘다. 일반 linked 확정단가 경로는 유지하되 history 후보/적용에서 priceRequestOrderLines/Partner 및 vendor basis 필터/표시를 실행하지 않는다. 기록된 header 거래처·원시 행 가격을 사용한다. 기존 행의 활성 basis는 유지하며 새 복사 행의 basis는 importedFrom.priceRequestBasisSnapshot으로만 보존하고 source 소비 연결을 만들지 않는다.
+
+새 단가요청의 _priceRequestVendorCodes는 기존 priceRequestCreate로 수신처/비교 snapshot을 저장한다. schema/DB/인증/메일 변경이나 기존 자료 자동변환은 없다. 동일한 열기 전 identity/부모 guard와 적용 시 원문/초안 guard를 세 target에 적용한다. 근거 evidence/manual-purchasing-history-targets-20261022.json. 원본 서버의 확정단가 재계산/전체수량 연결을 이 자체 copy 정책으로 입증하지 않는다. main VAT5 제외·전체합격0.

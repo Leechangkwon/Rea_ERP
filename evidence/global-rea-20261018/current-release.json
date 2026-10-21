@@ -1,5 +1,5 @@
 {
-  "version": "0.66.1",
+  "version": "0.67.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 66,
+    "currentReleaseBrowserSynthetic": 68,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -142,7 +142,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.66.0",
+    "currentReleaseFullRegressionVersion": "0.67.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -165,19 +165,22 @@
     "purchaseReportTabsNewNode": 18,
     "purchaseReportTabsRelatedNode": 78,
     "purchaseReportTabsNewBrowser": 2,
-    "currentReleaseVersionOnlyTargetedBrowser": 1,
+    "currentReleaseVersionOnlyTargetedBrowser": 0,
     "purchaseHistoryNewNode": 11,
     "purchaseHistoryRelatedNode": 77,
-    "purchaseHistoryNewBrowser": 1
+    "purchaseHistoryNewBrowser": 1,
+    "purchasingHistoryTargetsNewNode": 9,
+    "purchasingHistoryTargetsRelatedNode": 112,
+    "purchasingHistoryTargetsNewBrowser": 2
   },
-  "future_research": "다음 단위는 단가요청·발주서 입력의 거래내역보기 원본 메뉴 범위와 복사 후 행·상단 보존을 매뉴얼/조회 팝업/공개 코드로 확인하고, 구매에만 적용한 범위 계약을 검증된 대상에 확장한다. 전체적용의 저장 후 원본 연결·상이단가 합산 계산은 서버 계약 미확인으로 보류하며 같은 조회 검사를 반복하지 않는다. 부서·직위/직급·직책은 사용자등록 참조 계약 선행, 직접 음수/혼합부호·환불·반품 회계/이력·일괄인쇄·원본 작업 탭 동등성도 미완료다.",
+  "future_research": "다음은 REQ-PUR-REQ-005 발주요청 자료올리기·종결의 기존 구현과 EC-HELP-REQUEST-035 본문/원본 조회 메뉴를 대조해 차이표를 만든 뒤 확인된 차이부터 구현한다. 단가요청·발주서·구매 거래내역3종 범위/행 복사는 이번 배포로 보완했으므로 같은 검사를 반복하지 않는다. 전체적용 저장 연결·상이단가 합산은 서버 계약 미확인으로 보류하고, 부서/직위/직책 참조·직접 음수/혼합부호·환불·회계/이력·일괄인쇄·원본 작업탭 동등성은 미완료로 유지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-purchase-history-import-20261022.json",
+    "reference": "../manual-purchasing-history-targets-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
-    "publicVersionVerified": "0.66.1",
+    "deployedSourceCommit": "153b36e7c5e085696c776a4a37b88b531dc96205",
+    "publicVersionVerified": "0.67.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -236,20 +239,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.66.1",
+    "existingSessionRetainedVersion": "0.67.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.66.1",
+    "lastExactBrowserBackupComparisonVersion": "0.67.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.66.1",
+    "currentServerStateAndMailPreservedVersion": "0.67.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.66.1",
+    "currentAuthenticatedSessionVerificationVersion": "0.67.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -293,7 +296,10 @@
     "purchaseReportOriginalWorkTabEquivalenceVerified": false,
     "purchaseHistoryPurchaseSourcesBounded": true,
     "purchaseHistoryHostedOpenFilterCancelVerified": true,
-    "purchaseHistoryHostedBusinessSaveVerified": false
+    "purchaseHistoryHostedBusinessSaveVerified": false,
+    "purchasingHistoryThreeTargetsBounded": true,
+    "purchasingHistoryThreeTargetsHostedOpenFilterCancelVerified": true,
+    "purchasingHistoryThreeTargetsHostedBusinessSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -530,7 +536,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음 단위는 단가요청·발주서 입력의 거래내역보기 원본 메뉴 범위와 복사 후 행·상단 보존을 매뉴얼/조회 팝업/공개 코드로 확인하고, 구매에만 적용한 범위 계약을 검증된 대상에 확장한다. 전체적용의 저장 후 원본 연결·상이단가 합산 계산은 서버 계약 미확인으로 보류하며 같은 조회 검사를 반복하지 않는다. 부서·직위/직급·직책은 사용자등록 참조 계약 선행, 직접 음수/혼합부호·환불·반품 회계/이력·일괄인쇄·원본 작업 탭 동등성도 미완료다.",
+    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 발주요청 자료올리기·종결의 기존 구현과 EC-HELP-REQUEST-035 본문/원본 조회 메뉴를 대조해 차이표를 만든 뒤 확인된 차이부터 구현한다. 단가요청·발주서·구매 거래내역3종 범위/행 복사는 이번 배포로 보완했으므로 같은 검사를 반복하지 않는다. 전체적용 저장 연결·상이단가 합산은 서버 계약 미확인으로 보류하고, 부서/직위/직책 참조·직접 음수/혼합부호·환불·회계/이력·일괄인쇄·원본 작업탭 동등성은 미완료로 유지한다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -775,13 +781,21 @@
       "fullQuantityAndDifferingPriceFormulaVerified": false,
       "hostedBusinessSaveVerified": false,
       "done": false
+    },
+    "purchasingHistoryTargetExtension": {
+      "version": "0.67.0",
+      "status": "deployed-synthetic-save-reload-and-hosted-read-only-preservation-verified",
+      "evidence": "../manual-purchasing-history-targets-20261022.json",
+      "allThreePurchasingTargetsBounded": true,
+      "hostedBusinessSaveVerified": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.66.1",
-    "commit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
-    "manifest": ".artifacts/manual-import-contracts-20261022/candidate-manifest.json",
-    "bundleSha256": "f42e79f3ee8a1c651b70f9bd08378bf36e1b2f26f434a323d670a0dd42b76ff8",
+    "version": "0.67.0",
+    "commit": "153b36e7c5e085696c776a4a37b88b531dc96205",
+    "manifest": ".artifacts/manual-history-targets-20261022/candidate-manifest.json",
+    "bundleSha256": "240b8d0874844ec65c4ab34cad367667da1803a0fbac3b58f90e14c879d250a3",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -808,9 +822,10 @@
       "registered-authenticated-role-equality-conditional-forms-preserved-AND-and-async-guards",
       "credit-return-confirmation-and-signed-accounted-read-only-preserving-frozen-amounts",
       "actual-purchasing-report-work-tab-applied-pending-state-and-scoped-lifecycle-guards",
-      "purchase-history-three-purchasing-sources-independent-line-copy-custom-provenance-and-early-session-guards"
+      "purchase-history-three-purchasing-sources-independent-line-copy-custom-provenance-and-early-session-guards",
+      "price-request-and-purchase-order-history-three-source-scope-recorded-prices-vendor-filters-and-basis-snapshots"
     ],
-    "supersedesCandidateCommit": "5d3df3464d05134a29effeda866805f92fbaa1f3",
+    "supersedesCandidateCommit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
