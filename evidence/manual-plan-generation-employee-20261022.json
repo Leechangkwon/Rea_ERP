@@ -1,0 +1,161 @@
+{
+  "version": "0.72.0",
+  "status": "isolated-candidate-passed-awaiting-deployment",
+  "plan": "docs/plan-plan-generation-employee-20261022.md",
+  "requirement": "REQ-PUR-PLAN-003",
+  "manual": {
+    "sourceId": "EC-HELP-PLAN-GENERATION-MODES",
+    "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
+    "transcriptPath": ".artifacts/manual-plan-custom-contract-20261022/manual-plan-generation-transcript-20261022.txt",
+    "transcriptSha256": "a4f86cec31d5551e81ee2ecbbb0690fad631440fa79e9867e94e51d81c4eb4ac",
+    "fullTranscriptReviewed": true,
+    "wholeVideoVisualReviewed": false,
+    "directInputFrame": "02:08",
+    "framePath": ".artifacts/manual-plan-custom-contract-20261022/manual-generation-batch-header-20261022.png",
+    "frameSha256": "fb17c746ec0316338d7f53d5712abd53427acce06fa9c136b348487092734ee7",
+    "observedFields": [
+      "일자",
+      "거래처",
+      "담당자",
+      "입고창고",
+      "거래유형",
+      "통화",
+      "납기일자",
+      "참조"
+    ],
+    "countsUnchanged": {
+      "bodyReviewed": 16,
+      "requirements": 26,
+      "done": 0
+    },
+    "originalBasicInputDefaultSemanticsVerified": false
+  },
+  "originalObservation": {
+    "lookupWidths": [
+      715,
+      1280
+    ],
+    "quantityAndGenerationFooterObserved": false,
+    "absenceReasonVerified": false,
+    "viewportReset": true,
+    "temporaryProfileDialogClosedWithoutSaving": true,
+    "authFieldValuesStored": false,
+    "businessWrites": false,
+    "mainEntryRowsOperated": false
+  },
+  "originalStatic": {
+    "publicSources": [
+      {
+        "name": "v56app_shared.b7aeed78.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app_shared/v56app_shared.b7aeed78.js",
+        "path": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "bytes": 4622878,
+        "contentType": "application/javascript",
+        "sha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "observedInActualPage": true,
+        "publicNoCookies": true,
+        "executed": false,
+        "wirePath": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.wire.gz",
+        "wireSha256": "8e50cd35d8f92d6281590fabe62d36ab8174d7985ba6a84d807e87114b95e003",
+        "wireBytes": 319002,
+        "wireFormatDetected": "gzip"
+      },
+      {
+        "name": "v56app.37986c84.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app/v56app.37986c84.js",
+        "path": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.js",
+        "bytes": 1577340,
+        "contentType": "application/javascript",
+        "sha256": "af20cfebe62d4b4318a6338c9976a4a95e0ccbc411f1559a4bf018a13006ebf2",
+        "observedInActualPage": true,
+        "publicNoCookies": true,
+        "executed": false,
+        "wirePath": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.wire.gz",
+        "wireSha256": "a9906f12019ef18815d82ca9c92281e240fefe1eb47f15fe4499afab6b069e4b",
+        "wireBytes": 294706,
+        "wireFormatDetected": "gzip"
+      }
+    ],
+    "scope": "Observed v56 generic bridge, not proof the current plan route invoked it; no popup implementation obtained",
+    "legacyPlanBridgeSameRuntimeVerified": false,
+    "manualConverter": {
+      "popup": "/ECERP/SVC/Popup/TC102P",
+      "keys": [
+        "IO_DATE",
+        "IO_NO"
+      ],
+      "balanceType": "Y when matching target appears in v3_balance_info"
+    },
+    "slipConverter": {
+      "popup": "/ECERP/SVC/Popup/TC104P",
+      "SlipBundleType": "S",
+      "BundleItems": [
+        "MAPPER_IO_DATE"
+      ],
+      "planSpecificMapperVerified": false
+    },
+    "rawExecuted": false
+  },
+  "implementation": {
+    "requestField": "employeeOverride",
+    "default": "omitted -> existing per-plan employee retained",
+    "validation": "active registered employee code on preview and commit",
+    "phase": "after original groups are formed; change generated doc.employee only",
+    "regrouping": false,
+    "sourceMutated": false,
+    "schemaMigrated": false,
+    "unknownOrDisabledOverrideRejected": true,
+    "invalidatedWhenChoiceChanges": true,
+    "otherBatchHeaderFieldsImplemented": false
+  },
+  "checks": {
+    "newNode": 9,
+    "relatedNode": 67,
+    "newBrowser": 3,
+    "targetedBrowser": 6,
+    "widths": [
+      390,
+      864,
+      1280
+    ],
+    "independentP1P2": 0,
+    "independentReview": ".artifacts/manual-plan-generation-employee-20261022/independent-review.md",
+    "independentCases": [
+      "all5modes-with-external-currency-vat-discount-custom",
+      "same-output-but-changed-source-employee-is-stale"
+    ],
+    "reaOwnScopes": 2,
+    "reaPublicBridgeScopes": 3,
+    "reaParseFailures": 0,
+    "reaTruncated": false,
+    "reaCoverage": "unknown",
+    "reaSummarySha256": "0e2f9adc63cd3dfb8f4e729591ed64192fa12f199f779add1198a8fd57a1b998",
+    "publicBodiesFullyAnalyzed": false,
+    "fullVerifyLocalPassed": true,
+    "fullBrowserPassed": 87,
+    "fullVerifyLog": ".artifacts/manual-plan-generation-employee-20261022/full-verify.log",
+    "fullVerifyLogSha256": "ea08d9a0c6dd405a5fc201505b1c443f3498838b86422e85d78140312815996a",
+    "testedBundleSha256": "8466276a430c1dc2d302cbbbc8960af7eb6459b99e755dea47e90c796bec6b9d"
+  },
+  "acceptanceLimits": {
+    "operatingPlans": 0,
+    "dataBearingGenerateSave": "synthetic only",
+    "originalBusinessWrites": false,
+    "hostedBusinessWrites": false,
+    "hostedSettingsWrites": false,
+    "mailSent": false,
+    "wholeManualPassed": false
+  },
+  "packaging": {
+    "localDependencySymlinkExcludedFromGit": true,
+    "rootVatResearchIncluded": false
+  },
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 52,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authStateUnchangedNoRepeatedProbe": true
+  },
+  "sourceCommit": "d49ea9e01c268f09e1f2d569fb87f96e064f754e"
+}

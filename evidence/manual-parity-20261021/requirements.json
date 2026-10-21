@@ -1712,7 +1712,7 @@
         "직접설정 기준 예로 거래처·담당자를 사용할 수 있다",
         "생성 전에 전표별 담당자와 금액을 구분할 수 있다"
       ],
-      "status": "preview-context-subset-candidate-full-custom-mapping-pending",
+      "status": "preview-context-subset-deployed-full-custom-mapping-pending",
       "sourceLocator": {
         "artifact": ".artifacts/manual-plan-generation-review-20261022/manual-plan-generation-faq.txt",
         "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
@@ -1732,13 +1732,26 @@
         "tests/browser/plan-generation-preview.spec.cjs"
       ],
       "remaining": [
-        "직접설정 추가집계기준과 일괄변경 미구현",
+        "담당자 외 일괄변경·직접설정 추가집계기준 미구현",
         "선택하지 않은 머리값이 다른 경우 최종 매핑 미확인",
         "상이단가 품목합산 서버규칙 미확인",
-        "운영 유자료 저장 및 전체매뉴얼 합격 미완료"
+        "원본 기본입력 값 선택·빈값 처리와 운영 유자료 저장/전체매뉴얼 합격 미완료"
       ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "deploymentVersion": "0.71.0",
+      "deploymentEvidence": "evidence/manual-plan-generation-review-20261022.json",
+      "hostedVersionAssetAndEmptyLookupVerified": true,
+      "employeeBatchSubset": {
+        "status": "candidate-synthetic-passed",
+        "plan": "docs/plan-plan-generation-employee-20261022.md",
+        "evidence": "evidence/manual-plan-generation-employee-20261022.json",
+        "defaultBehavior": "preserve existing source-plan employee, original basic-input default not verified",
+        "regrouping": false,
+        "newNode": 9,
+        "newBrowser": 3,
+        "done": false
+      }
     }
   ]
 }

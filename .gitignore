@@ -12,3 +12,6 @@ dist/.openai/
 .env
 .env.*
 !.env.example
+
+# Also exclude local dependency symlinks used by isolated release checks.
+/node_modules
