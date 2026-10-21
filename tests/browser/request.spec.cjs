@@ -197,7 +197,7 @@ test('order imports keep line rows or sum item rows through save and reload whil
  const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));expect(after.settings).toEqual(before.settings);expect(after.documents.filter(d=>before.documents.some(old=>old.id===d.id))).toEqual(before.documents);
 });
 
-test('linked purchase blocks parent header mismatch without changing saved data and allows memo edits',async({page})=>{
+test('linked purchase blocks parent supplier mismatch without changing saved data and allows memo edits',async({page})=>{
   const ids=await page.evaluate(()=>{
     let db=InventoryUI.snapshot();
     db.masters.partners.push({code:'LINK-V2',name:'가상 연결 검증 공급사'});
@@ -217,12 +217,6 @@ test('linked purchase blocks parent header mismatch without changing saved data 
   await expect(page.getByRole('status')).toContainText('후속 전표와 거래처');
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')))).toEqual(before);
   await dialog.getByLabel('거래처',{exact:true}).selectOption('V001');
-  await dialog.getByLabel('출하/입고창고',{exact:true}).selectOption('W002');
-  await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();
-  await expect(page.getByRole('status')).toContainText('후속 전표와 창고');
-  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')))).toEqual(before);
-  await page.screenshot({path:'.artifacts/manual-purchase-link-20261021/synthetic-header-rejection.png',fullPage:true});
-  await dialog.getByLabel('출하/입고창고',{exact:true}).selectOption('W001');
   await dialog.locator('.purchasing-local-state summary').click();
   await dialog.getByLabel('전표 적요',{exact:true}).fill('연결 보존 후 적요 저장');
   await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();
@@ -354,4 +348,19 @@ test('plan generation rejects 101 selected rows, retains selection and generates
  await dialog.getByRole('button',{name:'발주서 일괄 생성',exact:true}).click();await expect(dialog.getByRole('status')).toContainText('1건의 발주서를 생성');const after=await documents(page);expect(after.length).toBe(before.length+1);expect(after.filter(d=>before.some(old=>old.id===d.id))).toEqual(before);
  const remaining=await page.evaluate(id=>{const db=InventoryUI.snapshot();InventoryCore.validateBackup(db);return InventoryCore.remaining(db,db.documents.find(d=>d.id===id),'purchaseorder').reduce((sum,l)=>sum+l.qty,0);},id);expect(remaining).toBe(1);
  await page.screenshot({path:'.artifacts/plan-generation-limit-20261021/synthetic-100-row-generation.png',fullPage:true});
+});
+
+
+test('purchase imports an order into a different receiving warehouse and preserves source, stock and remaining quantity on reload',async({page})=>{
+ const order=await page.evaluate(()=>{const C=InventoryCore;let db=C.empty();db.masters=C.clone(C.seed().masters);const out=C.command(db,'document',{type:'purchaseorder',date:C.today(),warehouse:'W001',partner:'V001',lines:[{lineId:'RECEIVE-ROW',item:'M001',qty:10,price:100}]});InventoryUI.replace(out.db);return out.result;});
+ const before=await page.evaluate(()=>InventoryUI.snapshot());
+ await page.locator('#routes').getByRole('button',{name:'구매조회',exact:true}).click();await page.getByRole('button',{name:'신규(F2)',exact:true}).click();
+ const editor=page.locator('#inventory-dialog');await editor.getByLabel('거래처',{exact:true}).selectOption('V001');await editor.getByLabel('출하/입고창고',{exact:true}).selectOption('W002');
+ await editor.getByRole('button',{name:'발주',exact:true}).click();const picker=page.locator('#entry-helper-dialog'),key=order.id+'|RECEIVE-ROW';
+ await picker.getByLabel('원본 창고',{exact:true}).selectOption('W001');await picker.getByLabel('행 선택 '+key,{exact:true}).check();await picker.getByLabel('불러올 수량 '+key,{exact:true}).fill('4');await picker.getByRole('button',{name:'선택 적용',exact:true}).click();await expect(picker).toHaveCount(0);
+ await expect(editor.getByLabel('출하/입고창고',{exact:true})).toHaveValue('W002');expect(await documents(page)).toEqual(before.documents);
+ await editor.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(editor).toHaveCount(0);await page.reload();
+ const after=await page.evaluate(()=>InventoryUI.snapshot()),purchase=after.documents.find(d=>d.type==='purchase');expect(purchase.warehouse).toBe('W002');expect(purchase.sourceId).toBe(order.id);expect(purchase.lines[0].sourceLineId).toBe('RECEIVE-ROW');expect(after.documents.find(d=>d.id===order.id)).toEqual(order);expect(after.settings).toEqual(before.settings);
+ const amounts=await page.evaluate(id=>{const db=InventoryUI.snapshot(),C=InventoryCore;C.validateBackup(C.clone(db));return {sourceStock:C.stock(db,'M001','W001'),receivedStock:C.stock(db,'M001','W002'),remaining:C.remaining(db,db.documents.find(d=>d.id===id),'purchase')[0].qty,payable:C.outstanding(db,'payable','V001')};},order.id);expect(amounts).toEqual({sourceStock:0,receivedStock:4,remaining:6,payable:440});
+ await page.locator('#routes').getByRole('button',{name:'구매조회',exact:true}).click();await page.getByLabel('구매 빠른검색').fill(purchase.id);await page.getByLabel('구매 빠른검색').press('Enter');await page.locator('tbody .inv-link').click();const saved=page.getByRole('dialog',{name:'구매 상세 / 수정',exact:true});await expect(saved.getByLabel('출하/입고창고',{exact:true})).toHaveValue('W002');await page.screenshot({path:'.artifacts/purchase-receiving-warehouse-20261021/synthetic-other-warehouse-receipt.png',fullPage:true});
 });

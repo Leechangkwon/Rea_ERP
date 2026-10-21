@@ -17,9 +17,9 @@ function chain(type='purchaseorder',target='purchase',partner='V1'){
 }
 const row=(db,id)=>db.documents.find(d=>d.id===id);
 for(const [type,target] of [['request','plan'],['request','purchaseorder'],['plan','purchaseorder'],['pricerequest','purchaseorder'],['purchaseorder','purchase']]){
-  test(`${type}→${target}: 원본 거래처·창고 수정 실패는 전체 자료와 잔량을 보존한다`,()=>{
+  test(`${type}→${target}: 원본 거래처와 필수 연결 창고 수정 실패는 전체 자료와 잔량을 보존한다`,()=>{
     const {db,sourceId,childId}=chain(type,target),before=C.clone(db),source=row(db,sourceId);
-    for(const change of [{partner:'V2'},{warehouse:'W2'}]){
+    for(const change of [{partner:'V2'},...(type==='purchaseorder'&&target==='purchase'?[]:[{warehouse:'W2'}])]){
       assert.throws(()=>C.command(db,'document',{...source,...change}),/후속.*(거래처|창고)/);
       assert.deepEqual(db,before);
       assert.equal(C.remaining(db,source,target)[0].qty,6);
@@ -81,7 +81,7 @@ test('이동→판매는 도착창고만 연결하며 판매 거래처 독립성
 });
 
 for(const state of ['취소','보류','미확인'])test(`${state} 후 복원 시 현재 원본 헤더를 확인하고 실패하면 전체 자료를 보존한다`,()=>{
-  for(const change of [{partner:'V2'},{warehouse:'W2'}]){
+  for(const change of [{partner:'V2'}]){
     let {db,sourceId,childId}=chain();
     db=C.command(db,'transition',{ids:[childId],status:state}).db;
     db=C.command(db,'document',{...row(db,sourceId),...change}).db;

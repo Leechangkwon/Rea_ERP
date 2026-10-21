@@ -165,6 +165,7 @@
   function ownLineIds(d){return d.lines.every(l=>typeof l.lineId==='string'&&l.lineId.length>0&&l.lineId.length<=200)&&new Set(d.lines.map(l=>l.lineId)).size===d.lines.length;}
   function structuredLines(db,d){return d.type==='purchaseorder'&&d.generatedFrom==='purchase-plan'||ownLineIds(d)||!!(d.sourceId&&db.documents.find(x=>x.id===d.sourceId)?.lines.some(l=>l.lineId));}
   function linkedWarehouse(source,type){return source.type==='transfer'&&type==='sale'?source.targetWarehouse:source.warehouse;}
+  function linkedWarehouseMatches(source,type,warehouse){return source.type==='purchaseorder'&&type==='purchase'||linkedWarehouse(source,type)===warehouse;}
   function linkedPartner(source,type,partner){return source.type==='transfer'&&type==='sale'||!source.partner||source.partner===partner;}
   const linkedWarehouseTypes=['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'];
   function planLineSupplierMatches(source,line,partner){
@@ -175,7 +176,7 @@
     const source=db.documents.find(x=>x.id===d.sourceId);
     if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');
     if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');
-    if(linkedWarehouseTypes.includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');
+    if(linkedWarehouseTypes.includes(d.type)&&!linkedWarehouseMatches(source,d.type,d.warehouse))throw Error('원본 전표와 창고가 다릅니다.');
     if(source.type==='plan'&&d.type==='purchaseorder'&&d.lines.some(line=>!planLineSupplierMatches(source,line,d.partner)))throw Error('발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.');
     return source;
   }
@@ -185,7 +186,7 @@
     for(const child of db.documents.filter(d=>d.sourceId===previous.id&&active(d))){
       if(previous.type==='plan'&&child.type==='purchaseorder')for(const line of child.lines)if(planLineSupplierMatches(previous,line,child.partner)&&!planLineSupplierMatches(next,line,child.partner))throw Error('연결된 후속 발주서와 품목행 거래처가 달라지는 수정은 할 수 없습니다.');
       if(linkedPartner(previous,child.type,child.partner)&&!linkedPartner(next,child.type,child.partner))throw Error('연결된 후속 전표와 거래처가 달라지는 수정은 할 수 없습니다.');
-      if(linkedWarehouseTypes.includes(child.type)&&linkedWarehouse(previous,child.type)===child.warehouse&&linkedWarehouse(next,child.type)!==child.warehouse)throw Error('연결된 후속 전표와 창고가 달라지는 수정은 할 수 없습니다.');
+      if(linkedWarehouseTypes.includes(child.type)&&linkedWarehouseMatches(previous,child.type,child.warehouse)&&!linkedWarehouseMatches(next,child.type,child.warehouse))throw Error('연결된 후속 전표와 창고가 달라지는 수정은 할 수 없습니다.');
     }
   }
   function payableImpact(d){return ['purchase','production'].includes(d.type)?1:d.type==='purchasereturn'&&d.settlementMode==='credit'?-1:0;}
@@ -398,7 +399,7 @@
     const header={...src};delete header.generatedFrom;delete header.planGeneration;delete header.confirmation;delete header.progress;delete header.vatCalculation;delete header.vatAdjustment;delete header.vatConfirmation;
     if(src.type==='transfer'&&type==='sale'){header.warehouse=src.targetWarehouse;header.partner=partner||'';delete header.targetWarehouse;}
     if(type==='transfer')header.targetWarehouse=targetWarehouse||src.targetWarehouse||'';
-    if(warehouse!==undefined&&warehouse!==linkedWarehouse(src,type))throw Error('원본 전표의 처리 창고와 다릅니다.');
+    if(warehouse!==undefined){if(!linkedWarehouseMatches(src,type,warehouse))throw Error('원본 전표의 처리 창고와 다릅니다.');header.warehouse=warehouse;}
     if(partner!==undefined)header.partner=partner;
     if(type==='purchasereturn')header.settlementMode=settlementMode;
     else if(type==='exchangereceipt')header.settlementMode='exchange';
@@ -686,6 +687,6 @@
     for(const [type,partner,qty,item,price] of [['quote','C001',10,'P001',20000],['order','C001',8,'P001',20000],['sale','C001',3,'P001',20000],['purchaseorder','V001',40,'M001',2000],['purchase','V001',20,'M001',2000],['workorder','',5,'P001',12000],['shoporder','C001',2,'P002',30000]])db=command(db,'document',{...common,type,partner,lines:[{item,qty,price}],memo:'샘플 전표'}).db;
     return db;
   }
-  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,effectiveDocumentLines,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,purchaseTransactionTypes,referenceCodes,matchesReference,sortModified,filterDocumentDates};
+  const api={today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,effectiveDocumentLines,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedWarehouseMatches,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,purchaseTransactionTypes,referenceCodes,matchesReference,sortModified,filterDocumentDates};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.InventoryCore=api;
 })(typeof globalThis==='object'?globalThis:this);
