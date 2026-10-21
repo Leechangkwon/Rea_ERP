@@ -426,6 +426,25 @@
       "roadmapUpdatePending": true,
       "connectorCheck": "HTTP401; work-document update tools unavailable",
       "nextAction": "Read existing progress, architecture and roadmap bodies; append only missing storage and validation records; reread saved body. No UI/API/production completion claimed."
+    },
+    {
+      "date": "2026-10-21",
+      "milestone": "price-request-read-only-comparison-view",
+      "status": "authentication-required-local-record-ready",
+      "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
+      "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+      "saveAttempted": false,
+      "readbackVerified": false,
+      "localRecord": "docs/manual-parity/PROGRESS.md",
+      "evidence": "evidence/manual-price-request-view-20261021.json",
+      "pendingBodyArtifact": ".artifacts/manual-price-view-20261021/moa-pending-comparison-view.html",
+      "architectureUpdatePending": true,
+      "roadmapUpdatePending": true,
+      "connectorCheck": "HTTP401; browser tab22 still login page",
+      "nextAction": "Read existing progress/architecture/roadmap; append only missing verified read-only UI and validation records; reread saved body. Do not claim write UI or operating completion.",
+      "preparedCandidateCommit": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
+      "preparedCandidateBrowserTests": 39,
+      "candidateInstalled": false
     }
   ]
 }

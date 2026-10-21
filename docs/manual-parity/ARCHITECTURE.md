@@ -278,3 +278,15 @@ PriceRequestCore는 dist의 UMD 공유모듈이다. v2의 source.fingerprint는 
 InventoryCore.command/validateBackup는 optional store를 JSON clone 전에 먼저 검증한다. NaN/Infinity/undefined가 null이나 필드누락으로 바뀌기 전에 거절하며 priceRequest payload도 원형 검증을 거친다. 정상명령은 clone DB에서 수정번호 검사와 store 갱신/로그만 수행한다. 일반 settings로 store를 주입·초기화하지 못한다. 기존 legacy DB에는 store를 자동 추가하지 않는다. 기록의 원본코드는 현재 master에 맞춰 고쳐 쓰지 않으며 quoted vendor가 없어지거나 비활성화되면 읽기만 허용한다.
 
 브라우저 HTML·합성 preview와 worker bundler는 같은 모듈을 로드한다. 저장계층의 공유코어와 백업 bridge 합성 검증을 마쳤지만 comparison UI 및 전용 server mutation API는 아직 없다. 코어 expectedRevision은 앱 전체 서버 CAS/역할권한을 대신하지 않는다. 브라우저 저장소와 서버 업무 영역은 계속 별개이며 자동 동기화하지 않는다. main 전체 검증번들은 미완료 VAT를 포함하므로 운영 설치물이 아니다. 근거 evidence/manual-price-request-storage-20261021.json.
+
+
+### 읽기 전용 단가 비교와 권한/수명 경계 · b7101ad
+
+PriceRequestUI.open은 canRead/getDb/documentId만 받아 저장 callback을 갖지 않는다. InventoryUI는 현재 사용자별 storageKey와 inventory.read, storageError, dbSourceRaw를 검증한 뒤 현재 브라우저 DB를 제공한다. 저장 자료가 없으면 기존 pricerequest의 요청가만 계산하며 Q.create/storeCommand를 호출하지 않는다. 보관 자료는 Q.view의 snapshot/행/상태를 사용한다. 숫자 표시도 십진문자열로 처리하고 거래처/품목명은 textContent로 넣는다. 현재 master의 표시명과 과거코드는 구별하며 이름의 역사적 스냅샷을 새로 추정하지 않는다.
+
+새로고침·window focus/storage에서 권한과 저장소를 다시 검사한다. 검사 실패 시 이전 표를 제거한다. dialog.close는 native close와 별개로 동기식 idempotent finish를 수행하므로 지연된 close 이벤트가 새 창을 지우거나 포커스를 빼앗지 않는다. beforeNavigate와 편집창 정리에 포함한다. 이는 기존 브라우저 자료 영역의 읽기 보호이며 서버 역할/CAS나 외부 공급사 인증을 대체하지 않는다.
+
+행 작업 영역 진입과 새로고침/닫기/스크롤 안내는 현재 앱 통합 방식이며 원본의 정확한 메뉴/버튼 배치 동등성으로 주장하지 않는다. supplier picker·직접회신·마감/확정 저장·외부메일·발주서 적용은 별도 검증을 남긴다. evidence/manual-price-request-view-20261021.json.
+
+
+읽기 UI의 운영 분리 후보는0.53.2 08b4b9d이다. 기존72b523d에서 priceRequest 저장/백업과 비교UI만 추가했고 VAT는 제외했다. 후보에는 기존 raw 기준 감지 함수가 없어 load와 각 기존 저장·교체 경로의 기준값 추적을 별도로 추가했다. 비교 조회에서만 원문 일치를 검사하며 일반 저장의 기존 동작은 바꾸지 않았다. 후보전체verify/브라우저39 및 독립3경로 확인 완료, 설치false. 정확한 입력/번들은 .artifacts/manual-price-view-20261021/candidate-manifest.json을 따른다.

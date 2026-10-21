@@ -413,22 +413,42 @@
     "nextIndependentWork": {
       "requirement": "REQ-PUR-PRICE-001",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
-      "description": "Existing role/save-adapter inspection, observed price comparison UI and explicit supplier selection; preserve archived replies. Server mutation CAS/roles, PO application and external reply remain separate. Operating authenticated preservation and Moa saved-body readback pending."
+      "description": "Observe supplier picker and direct-reply/close/confirmed-selection normal/edit/cancel procedure, then connect only verified controls through existing explicit role-aware commit adapter. Preserve replies, legacy vouchers and forms. Server mutation CAS/roles, PO application and external reply remain separate. Operating authenticated preservation and Moa saved-body readback pending."
+    },
+    "priceRequestComparisonView": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
+      "evidence": "evidence/manual-price-request-view-20261021.json",
+      "status": "read-only-comparison-ui-validated-write-ui-original-and-production-pending",
+      "readOnlyUiIntegrated": true,
+      "focusedTests": 54,
+      "newUiTests": 12,
+      "isolatedMainBrowserTests": 42,
+      "finalTargetedBrowserTests": 2,
+      "ownReaScopes": 5,
+      "writeUiIntegrated": false,
+      "productionDeployed": false,
+      "done": false,
+      "preparedCandidate": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
+      "candidateBrowserTests": 39
     }
   },
   "preparedCandidate": {
     "version": "0.53.2",
-    "commit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
-    "manifest": ".artifacts/manual-price-request-20261021/candidate-manifest.json",
-    "bundleSha256": "0755582c565d6bc2a3f6246cc127e5de0ff0a217ebfa57c96bdd17c5b53680f7",
+    "commit": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
+    "manifest": ".artifacts/manual-price-view-20261021/candidate-manifest.json",
+    "bundleSha256": "325202c34bf03f6c7b442bf73b97f77eae40197db1eb69ad1350d6fe01049dcc",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
       "inspection-rack-preservation",
       "price-request-order-plan-copy-shortcuts",
-      "price-request-mobile-auxiliary-preservation"
+      "price-request-mobile-auxiliary-preservation",
+      "price-request-optional-comparison-storage-backup",
+      "price-request-read-only-comparison-view"
     ],
-    "supersedesCandidateCommit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
+    "supersedesCandidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+    "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": false,
     "authenticatedAcceptancePending": true
   }

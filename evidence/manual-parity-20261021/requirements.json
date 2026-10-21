@@ -1161,10 +1161,11 @@
         "Primary order/plan copy-import shortcuts",
         "Auxiliary web upload and mobile access preservation",
         "Shared browser/Node comparison storage with immutable source snapshot",
-        "Optional backup preservation and source/vendor-change edit guards"
+        "Optional backup preservation and source/vendor-change edit guards",
+        "Read-only requested/received/confirmed comparison view with permission, account, stale-data and dialog-lifecycle protection"
       ],
       "remainingScope": [
-        "Comparison/supplier-selection UI and role-aware explicit save integration",
+        "Supplier selection, direct reply, input close/reopen and confirmed-selection UI with explicit role-aware save",
         "Dedicated server quote mutation CAS/permissions when connected",
         "Confirmed-price purchase-order application",
         "External reply/email authorization and expiry",
@@ -1185,6 +1186,14 @@
         "coreIntegrated": true,
         "comparisonUi": false,
         "serverQuoteApi": false,
+        "hostedAcceptance": false
+      },
+      "comparisonView": {
+        "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
+        "status": "read-only-comparison-ui-validated-write-ui-original-and-production-pending",
+        "evidence": "evidence/manual-price-request-view-20261021.json",
+        "readOnlyUi": true,
+        "writeUi": false,
         "hostedAcceptance": false
       }
     },
