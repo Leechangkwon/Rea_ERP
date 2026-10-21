@@ -153,3 +153,24 @@ test('batch selection preserves unmentioned choices and accepts request prices w
  const {db,id}=populated(),before=preserved(db);const out=edit(db,id,'selectMany',{selections:[{lineKey:'id: A ',source:'request',vendorCode:null}]});assert.equal(out.result.rows[0].confirmed.price,'50000');assert.deepEqual(preserved(out.db),before);
  const changed=copy(db);changed.documents.find(d=>d.id===id).memo='later';rejectUnchanged(changed,()=>edit(changed,id,'selectMany',{selections:[{lineKey:'id: A ',source:'request',vendorCode:null}]}),/원본/);
 });
+
+
+const newPriceRequest=()=>({type:'pricerequest',date:C.today(),warehouse:'W001',partner:'',status:'진행',vatRate:10,lines:[{item:'M001',qty:100,price:50000}]});
+test('new multi-vendor request saves one voucher and one comparison atomically without altering existing data',()=>{
+ const {db}=populated(),before=copy(db),out=C.command(db,'priceRequestCreate',{document:newPriceRequest(),vendorCodes:['V001','V002']});
+ assert.equal(out.db.documents.length,before.documents.length+1);assert.equal(out.db.sequence,C.command(before,'document',newPriceRequest()).db.sequence);assert.equal(out.db.logs.length,before.logs.length+1);
+ assert.deepEqual(out.db.documents.slice(0,-1),before.documents);assert.deepEqual(out.db.masters,before.masters);assert.deepEqual(out.db.prices,before.prices);assert.deepEqual(out.db.settings.customization,before.settings.customization);
+ assert.deepEqual(out.db.settings.priceRequests.records.slice(0,-1),before.settings.priceRequests.records);const view=Q.view(out.db,out.result.id,C);assert.equal(view.status,'ready');assert.equal(view.revision,0);assert.deepEqual(view.rows[0].received.map(v=>[v.vendorCode,v.price]),[['V001',null],['V002',null]]);assert.equal(view.rows[0].requestedPrice,'50000');assert.equal(view.rows[0].confirmed,null);
+ assert.deepEqual(C.validateBackup(copy(out.db)).settings.priceRequests,out.db.settings.priceRequests);assert.deepEqual(db,before);
+});
+test('new request rolls back voucher, number and comparison on any invalid supplier or request',()=>{
+ const {db,id}=populated();const doc=newPriceRequest();
+ for(const vendorCodes of [[],['V001','missing'],['V001','V001'],Array(6).fill('V001'),new Array(1),null])rejectUnchanged(db,()=>C.command(db,'priceRequestCreate',{document:doc,vendorCodes}));
+ for(const document of [{...doc,id},{...doc,type:'purchaseorder'},{...doc,partner:'V001'},{...doc,status:'취소'},{...doc,lines:[{item:'missing',qty:1,price:2}]}])rejectUnchanged(db,()=>C.command(db,'priceRequestCreate',{document,vendorCodes:['V001']}));
+ const disabled=copy(db);disabled.masters.partners.find(p=>p.code==='V002').disabled=true;rejectUnchanged(disabled,()=>C.command(disabled,'priceRequestCreate',{document:doc,vendorCodes:['V001','V002']}));
+ rejectUnchanged(db,()=>C.command(db,'priceRequestCreate',{document:doc,vendorCodes:['V001'],unexpected:true}));
+});
+test('single and five suppliers retain independent empty replies and source snapshot',()=>{
+ let db=C.seed();for(let i=2;i<=5;i++)db=C.command(db,'master',{key:'partners',record:{code:'V00'+i,name:'Supplier '+i,kind:'매입'}}).db;
+ for(const vendorCodes of [['V001'],['V001','V002','V003','V004','V005']]){const out=C.command(db,'priceRequestCreate',{document:newPriceRequest(),vendorCodes});const row=out.db.settings.priceRequests.records[0];assert.deepEqual(row.snapshot,out.result);assert.deepEqual(row.comparison.vendors.map(v=>v.code),vendorCodes);assert.ok(row.comparison.vendors.every(v=>!v.inputClosed&&v.received.every(x=>x.price===null)));}
+});

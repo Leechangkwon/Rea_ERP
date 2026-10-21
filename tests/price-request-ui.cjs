@@ -13,7 +13,7 @@ function env({data=fixture(),read=true,write=false,user='owner',deferredClose=fa
  const pendingCloses=[];w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){if(!this.open)return;this.open=false;const fire=()=>this.dispatchEvent(new w.Event('close'));if(deferredClose)pendingCloses.push(fire);else fire();};
  let readable=read,writable=write;w.AuthUI={state:()=>({user:{id:user}}),can:p=>p==='inventory.read'?readable:writable,settings:()=>({conveniences:{pageSize:20}})};
  const key='ecount-inventory-v2'+(user==='owner'?'':':'+user);w.localStorage.setItem(key,JSON.stringify(data.db));
- for(const file of ['form-core.js','item-core.js','price-request-core.js','inventory-core.js','form-options.js','price-request-ui.js','inventory-ui.js'])w.eval(fs.readFileSync('dist/'+file,'utf8'));
+ for(const file of ['form-core.js','item-core.js','price-request-core.js','inventory-core.js','form-options.js','reference-picker-ui.js','price-request-ui.js','inventory-ui.js'])w.eval(fs.readFileSync('dist/'+file,'utf8'));
  const stored=()=>w.localStorage.getItem(key),db=()=>w.JSON.parse(stored()),button=(text,scope=d)=>{const n=[...scope.querySelectorAll('button')].find(n=>n.textContent===text);assert.ok(n,'missing '+text);return n;};
  const open=()=>w.PriceRequestUI.open({documentId:data.id,canRead:()=>readable,getDb:db});
  const render=kind=>{w.InventoryUI.beforeNavigate();const target=d.getElementById('target');target.replaceChildren();const route=routes.find(r=>r.top===2&&C.resolve(r).docType==='pricerequest'&&C.resolve(r).kind===kind);assert.ok(route);w.InventoryUI.render(target,route,{rows:routes,open:()=>{},toast:m=>toasts.push(m)});};
@@ -168,4 +168,33 @@ test('detached or dismissed close controls cannot commit duplicate or late state
 });
 test('close permission disappears on focus and restores only when still authorized',()=>{
  const e=closable(),before=e.stored();e.setWrite(false);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.dialog().querySelectorAll('[data-vendor-close]').length,0);e.setWrite(true);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.dialog().querySelectorAll('[data-vendor-close]').length,5);assert.equal(e.stored(),before);close(e);
+});
+
+
+function beginRequest(e){e.render('form');const item=e.d.querySelector('[aria-label="품목 1"]');item.value='M001';item.dispatchEvent(new e.w.Event('change',{bubbles:true}));e.d.querySelector('[aria-label="수량 1"]').value='2';return e.d.querySelector('[aria-label="거래처"]');}
+function chooseSuppliers(e,codes){e.d.querySelector('[aria-label="거래처 다중 선택"]').click();const dialog=e.d.querySelector('.reference-picker-dialog');for(const code of codes)dialog.querySelector('[aria-label="거래처 '+code+' 선택"]').click();e.button('적용(F8)',dialog).click();return dialog;}
+test('new entry stages multiple suppliers and saves one request with ready comparison preserving all old replies',()=>{
+ const e=env({write:true}),before=e.db();beginRequest(e);chooseSuppliers(e,['V001','V002']);assert.equal(e.stored(),JSON.stringify(before));e.button('저장(F8)').click();const after=e.db();assert.equal(after.documents.length,before.documents.length+1);assert.deepEqual(after.settings.priceRequests.records.slice(0,-1),before.settings.priceRequests.records);assert.equal(after.settings.priceRequests.records.at(-1).comparison.vendors.length,2);assert.equal(after.documents.at(-1)._priceRequestVendorCodes,undefined);assert.equal(after.documents.at(-1).partner,'');assert.deepEqual(after.settings.customization,before.settings.customization);assert.equal(after.sequence,before.sequence+2);close(e);
+});
+test('supplier picker enforces five, preserves draft on cancel and does not write until explicit voucher save',()=>{
+ const e=env({write:true}),before=e.stored(),control=beginRequest(e);chooseSuppliers(e,['V001','V002','V003','V004','V005','C001']);assert.match(e.d.querySelector('.reference-picker-dialog [role=alert]').textContent,/5개/);assert.equal(control.getReferenceValues(),'');e.button('닫기',e.d.querySelector('.reference-picker-dialog')).click();assert.equal(control.getReferenceValues(),'');chooseSuppliers(e,['V001','V002']);e.render('list');e.render('form');assert.deepEqual(Array.from(e.d.querySelector('[aria-label="거래처"]').getReferenceValues()),['V001','V002']);assert.equal(e.stored(),before);close(e);
+});
+test('new request rejects permission, account, stale storage and missing supplier without partial save',()=>{
+ for(const mode of ['read','write','user','storage','empty']){const e=env({write:true});beginRequest(e);if(mode!=='empty')chooseSuppliers(e,['V001']);if(mode==='read')e.setRead(false);if(mode==='write')e.setWrite(false);if(mode==='user')e.w.AuthUI.state=()=>({user:{id:'other'}});if(mode==='storage'){const newer=e.db();newer.settings.allowNegative=!newer.settings.allowNegative;e.w.localStorage.setItem(e.key,JSON.stringify(newer));}const before=e.stored();e.button('저장(F8)').click();assert.equal(e.stored(),before);assert.ok(e.toasts.length);close(e);}
+});
+test('failed new request storage keeps supplier and item drafts for a safe retry',()=>{
+ const e=env({write:true}),before=e.db();beginRequest(e);chooseSuppliers(e,['V001','V002']);const setter=e.w.Storage.prototype.setItem;e.w.Storage.prototype.setItem=()=>{throw Error('quota');};e.button('저장(F8)').click();assert.equal(e.stored(),JSON.stringify(before));assert.deepEqual(Array.from(e.d.querySelector('[aria-label="거래처"]').getReferenceValues()),['V001','V002']);e.w.Storage.prototype.setItem=setter;e.button('저장(F8)').click();assert.equal(e.db().documents.length,before.documents.length+1);close(e);
+});
+test('saved comparison suppliers are shown without allowing reinitialization or changing old partner',()=>{
+ const e=env({write:true}),before=e.stored();e.render('list');e.button(C.today()+' / '+e.data.id).click();const control=e.d.querySelector('[aria-label="거래처"]');assert.ok(control.disabled);assert.equal(Array.from(control.getReferenceValues()).length,5);assert.ok(e.d.querySelector('[aria-label="거래처 다중 선택"]').disabled);assert.equal(e.stored(),before);close(e);
+});
+
+
+test('account changed before opening a new editor cannot write the previous account storage',()=>{
+ const e=env({write:true});e.render('list');e.w.AuthUI.state=()=>({user:{id:'other'}});const before=e.stored();const control=beginRequest(e);control.value='V001';e.button('저장(F8)').click();assert.equal(e.stored(),before);assert.match(e.toasts.at(-1),/사용자|권한/);close(e);
+});
+
+
+test('new multi-vendor request lists both supplier names and remains searchable by either supplier',()=>{
+ const e=env({write:true});beginRequest(e);chooseSuppliers(e,['V001','V002']);e.button('저장(F8)').click();const doc=e.db().documents.at(-1);const filter=e.d.querySelector('[aria-label="거래처 필터"]');assert.match(e.d.querySelector('.inv-document-list').textContent,/샘플 구매처, 공급처 2/);for(const code of ['V001','V002']){filter.value=code;filter.dispatchEvent(new e.w.Event('change',{bubbles:true}));assert.ok([...e.d.querySelectorAll('button')].some(b=>b.textContent===C.today()+' / '+doc.id));}close(e);
 });

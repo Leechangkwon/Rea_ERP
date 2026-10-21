@@ -589,7 +589,7 @@
     const sourceStates=new Map();for(const target of targets.values()){const old=sourceStates.get(target.source.id);if(old&&old!==target.progress)throw Error('동일 원본에 서로 다른 진행 변경 규칙이 적용됐습니다.');sourceStates.set(target.source.id,target.progress);if(target.source.type==='plan')planLineProgress(db,{selections:[...target.selections.values()],progress:target.progress});else transition(db,{ids:[target.source.id],...(purchasingTypes.includes(target.source.type)?{progress:target.progress}:{status:target.progress})});}
     validateLinks(db);validateStock(db);
   }
-  const commandNames=['master','itemBatch','itemConfig','document','purchasePlanGenerate','planLineProgress','purchaseRoom','priceRequest','convert','transition','payment','removePayment','bom','rename','bor','price','mapping','settings','formSave','formActivate','formDelete','formRules','bulkprice','rebuild'];
+  const commandNames=['master','itemBatch','itemConfig','document','purchasePlanGenerate','planLineProgress','purchaseRoom','priceRequest','priceRequestCreate','convert','transition','payment','removePayment','bom','rename','bor','price','mapping','settings','formSave','formActivate','formDelete','formRules','bulkprice','rebuild'];
   function command(input,op,payload={},policy){
     if(!commandNames.includes(op)||!payload||typeof payload!=='object'||Array.isArray(payload))throw Error('지원하지 않는 작업 또는 요청 자료입니다.');
     if(input?.settings&&Object.hasOwn(input.settings,'priceRequests'))priceRequestModule().validateStore(input.settings.priceRequests);
@@ -603,6 +603,13 @@
     }
     else if(op==='itemConfig'){if(!I)throw Error('품목 모듈을 다시 불러오세요.');db.settings.itemRegistration=I.validateConfig(payload.config);result=db.settings.itemRegistration;log(db,'품목 입력화면·기능설정 변경');}
     else if(op==='document')result=saveDoc(db,payload);
+    else if(op==='priceRequestCreate'){
+      if(!payload||Object.keys(payload).length!==2||!Object.hasOwn(payload,'document')||!Object.hasOwn(payload,'vendorCodes')||!payload.document||payload.document.type!=='pricerequest'||payload.document.id)throw Error('신규 단가요청과 요청 거래처를 확인하세요.');
+      if(payload.document.partner)throw Error('신규 단가요청 거래처는 다중 선택으로 지정하세요.');
+      result=saveDoc(db,payload.document);
+      const out=priceRequestModule().storeCommand(db,{action:'start',documentId:result.id,vendorCodes:payload.vendorCodes},api);
+      db.settings.priceRequests=out.store;
+    }
     else if(op==='purchasePlanGenerate'){if(!Array.isArray(payload.documents)||!payload.documents.length||payload.documents.length>200||payload.documents.some(d=>d.id||d.type!=='purchaseorder'||d.generatedFrom!=='purchase-plan'))throw Error('발주계획 발주서 일괄 생성 자료를 확인하세요.');result=payload.documents.map(d=>saveDoc(db,d));}
     else if(op==='priceRequest'){const out=priceRequestModule().storeCommand(db,payload,api);db.settings.priceRequests=out.store;result=out.result;log(db,'단가 비교 처리: '+payload.action);}
     else if(op==='purchaseRoom'){const PR=purchaseRoomModule();if(!PR)throw Error('구매실 업무 모듈을 다시 불러오세요.');const out=PR.command(db,payload,api);db.settings.purchaseRoom=PR.validateStore(out.store,db,api);result=out.result;log(db,'구매실 업무 처리: '+payload.action);}
