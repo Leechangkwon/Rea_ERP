@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1
   },
-  "future_research": "Operating0.53.1 and prepared0.53.2 72b523d retained. Independent quote comparison model8002335 validated but not integrated. Next: browser-compatible binding, versioned sidecar command/backup preservation, then comparison UI; confirmed-price order propagation and external reply permissions require more original evidence. Authenticated deployment preservation and Moa readback pending.",
+  "future_research": "Operating 0.53.1 remains unchanged. Latest isolated candidate 0.53.2 f181c53 includes explicit atomic confirmed selection; supplier start/reply/close UI, PO propagation, external reply and server contract remain. Existing VAT nextWork and authenticated acceptance/Moa readback pending.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../deployment-purchase-links-0531-20261021.json",
@@ -413,7 +413,7 @@
     "nextIndependentWork": {
       "requirement": "REQ-PUR-PRICE-001",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
-      "description": "Observe supplier picker and direct-reply/close/confirmed-selection normal/edit/cancel procedure, then connect only verified controls through existing explicit role-aware commit adapter. Preserve replies, legacy vouchers and forms. Server mutation CAS/roles, PO application and external reply remain separate. Operating authenticated preservation and Moa saved-body readback pending."
+      "description": "Observe supplier token registration and full direct-reply edit dialog field/save/cancel semantics, close/reopen, original default/header/partial radio rules. Connect verified picker/start/reply flows via guarded explicit commits, preserving original vouchers/forms/replies. Keep server role/company/CAS, PO allocation and external replies separate. Existing VAT nextWork unchanged; authenticated operating preservation and Moa append/readback pending."
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -431,13 +431,30 @@
       "done": false,
       "preparedCandidate": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
       "candidateBrowserTests": 39
+    },
+    "priceRequestConfirmedSelection": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "sourceCommit": "ad5a1dd477f9fb34148db39ccc9f8d19327e16e4",
+      "evidence": "evidence/manual-price-request-selection-20261021.json",
+      "status": "explicit-confirmed-selection-local-validated-production-pending",
+      "focusedTests": 64,
+      "mainBrowserTests": 43,
+      "candidateBrowserTests": 40,
+      "preparedCandidate": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+      "rowSelectionUi": true,
+      "atomicExplicitSave": true,
+      "supplierStartUi": false,
+      "directReplyUi": false,
+      "serverQuoteApi": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
     "version": "0.53.2",
-    "commit": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
-    "manifest": ".artifacts/manual-price-view-20261021/candidate-manifest.json",
-    "bundleSha256": "325202c34bf03f6c7b442bf73b97f77eae40197db1eb69ad1350d6fe01049dcc",
+    "commit": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+    "manifest": ".artifacts/manual-price-selection-20261021/candidate-manifest.json",
+    "bundleSha256": "891efdbde010c497198b2397a4d850dac82678d8a7dbf4525b4831c29e48fff9",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -445,9 +462,10 @@
       "price-request-order-plan-copy-shortcuts",
       "price-request-mobile-auxiliary-preservation",
       "price-request-optional-comparison-storage-backup",
-      "price-request-read-only-comparison-view"
+      "price-request-read-only-comparison-view",
+      "price-request-explicit-confirmed-selection"
     ],
-    "supersedesCandidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+    "supersedesCandidateCommit": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": false,
     "authenticatedAcceptancePending": true

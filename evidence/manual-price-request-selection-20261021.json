@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "recordedAt": "2026-10-21T10:07:34.173608+00:00",
+  "sourceCommit": "ad5a1dd477f9fb34148db39ccc9f8d19327e16e4",
+  "requirement": "REQ-PUR-PRICE-001",
+  "status": "explicit-confirmed-selection-local-validated-production-pending",
+  "sources": {
+    "source": "EC-VID-13917",
+    "url": "https://www.ecount.com/kr/popup/edu_movie/edu_video.aspx?page=3&v=FjIB7_f4lCE&id=13917",
+    "method": "Official embedded video via Windows CUA AX 10-second controls; original ERP unchanged",
+    "observed": [
+      {
+        "frame": "video-00m53s.png",
+        "finding": "supplier token input with existing removable supplier token; no claim on saved multi-vendor persistence"
+      },
+      {
+        "frame": "video-03m23s.png",
+        "finding": "direct received-price entry opens full edit modal with quantity, price, VAT and Save(F8)"
+      },
+      {
+        "frame": "video-03m33s.png",
+        "finding": "comparison requested 50000, received 30000/25000; direct entry and close/cancel close; footer confirmed selection/edit"
+      },
+      {
+        "frame": "video-selection-mode.png",
+        "finding": "row and header radios for requested/supplier prices; confirm-price Save(F8); frame is after 03:33, exact elapsed not established"
+      }
+    ],
+    "unknown": [
+      "default radio selection semantics",
+      "header radio bulk behavior",
+      "partial unselected save policy",
+      "original server writes and authorization",
+      "direct entry header/quantity edit effects"
+    ],
+    "captures": [
+      {
+        "path": ".artifacts/manual-price-selection-20261021/video-00m53s.png",
+        "sha256": "380e88c638adf088b6d7954422d0d5935d7534a9e4d0a58759cba05b418158c7"
+      },
+      {
+        "path": ".artifacts/manual-price-selection-20261021/video-03m23s.png",
+        "sha256": "f514ea45ee80fb13cde2db6c2447ea7cbc86b8d7266fc6a3b7e660279d80f0b0"
+      },
+      {
+        "path": ".artifacts/manual-price-selection-20261021/video-03m33s.png",
+        "sha256": "135d315c4751544b3853172ea663db36dba3100e49c5ac1071ffc4f707919f30"
+      },
+      {
+        "path": ".artifacts/manual-price-selection-20261021/video-selection-mode.png",
+        "sha256": "95f7d55a5962865e8e88c988fdbcb6a51beadccfa3cdd7cc8de2af6cacdb4ce5"
+      }
+    ],
+    "originalBusinessWrites": false
+  },
+  "implementation": {
+    "scope": "Already archived ready comparisons only; row selection and explicit Save(F8)",
+    "atomicSelectMany": true,
+    "maxBatchRows": 500,
+    "derivePricesFromStoredComparison": true,
+    "autoSelectUnchosenRows": false,
+    "implicitWrites": false,
+    "readWriteIdentityAndStorageGuards": true,
+    "sourceRevisionGuard": true,
+    "preserveDraftOnStorageFailure": true,
+    "temporaryWriteRevocationRecovery": true,
+    "unchangedVouchersPricesFormsAndReplies": true,
+    "supplierStartUi": false,
+    "directReplyUi": false,
+    "closeReopenUi": false,
+    "headerBulkSelectionUi": false,
+    "serverQuoteApi": false,
+    "purchaseOrderPropagation": false
+  },
+  "validation": {
+    "mainFullVerifyExit": 0,
+    "mainBrowserTests": 43,
+    "focusedTests": 64,
+    "finalAdapterBuildAndBrowserExit": 0,
+    "finalAdapterBrowserTests": 3,
+    "newCoreStorageTests": 3,
+    "newUiTests": 7,
+    "newBrowserTests": 1,
+    "sourceHashes": {
+      "dist/price-request-core.js": "eb8cbd4d3e83a9600512fc567d20b4a5b0eaca39cbac70a9ab0db59d1e10ed0b",
+      "dist/price-request-ui.js": "31f3415305e6eef26e043194dd1ef706176d30157183d126df3c1a326b88a85a",
+      "dist/inventory-ui.js": "22696408b78960b0014fb0b49c2129337d158e4fda0da4afbcb0011457fc898e",
+      "tests/price-request-storage.cjs": "7bb80bb9516a9b7b92625a98cca4b1dfa957ffa5dfef1f91e0034085694fd74b",
+      "tests/price-request-ui.cjs": "5c988505e202eac96d0081df4676e3eb54eac9999e1b58d0c1da086d27dca2f3",
+      "tests/browser/price-request-store.spec.cjs": "23a06c7e07f84d23c6f9e1308d93b8daf061c368d23a55ed477af1618c495709"
+    },
+    "isolatedSourceMatches": true,
+    "initialFullVerifyExit": 1,
+    "initialFailure": "Chromium missing libnspr4 in isolated worktree; linked existing local browser-libs and reran full verification successfully",
+    "independentReview": {
+      "reproducedDefects": 1,
+      "fixed": "blocked state clears after valid permission recovery, while source/revision/storage conflicts remain blocked",
+      "focusedTests": 64,
+      "extraRecoveryConflictCases": 3,
+      "additionalCases": "500 rows success, last-row invalid batch atomicity, untouched selection preservation",
+      "remainingFindings": 0
+    },
+    "screenshotsVisuallyReviewed": [
+      "price-selection-before-save.png",
+      "price-selection-saved.png"
+    ],
+    "logs": [
+      ".artifacts/manual-price-selection-20261021/verify-local.log",
+      ".artifacts/manual-price-selection-20261021/verify-local-final.log",
+      ".artifacts/manual-price-selection-20261021/final-adapter.log"
+    ]
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 6,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "bindingsOutsideScopeUnresolved": true,
+    "runtimeEquivalence": false,
+    "summary": ".artifacts/manual-price-selection-20261021/rea/rea-summary.json",
+    "originalCacheCheck": ".artifacts/manual-price-selection-20261021/original-cache-check.json",
+    "originalScope": "Routing mapping only; not a quote storage or permission contract",
+    "candidateScopesExact": true,
+    "candidateScopeCheck": ".artifacts/manual-price-selection-20261021/candidate-scope-check.json"
+  },
+  "deployment": {
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "operatingBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingBundleUnchanged": true,
+    "priorCandidateCommit": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
+    "priorCandidatePreserved": true,
+    "installed": false,
+    "restarted": false,
+    "freshProductionDataReadback": false,
+    "authenticatedAcceptancePending": true,
+    "preparedCandidate": {
+      "version": "0.53.2",
+      "operatingVersion": "0.53.1",
+      "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+      "operatingBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+      "operatingManifest": ".artifacts/isolated-link-release-20261021/candidate-manifest.json",
+      "priorRollback0530Sha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+      "candidateCommit": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+      "candidateBranch": "release/0.53.2-price-selection",
+      "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.2-price-selection",
+      "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-selection-20261021/candidate-f181c53-worker.js",
+      "candidateBundleSha256": "891efdbde010c497198b2397a4d850dac82678d8a7dbf4525b4831c29e48fff9",
+      "mainSourceCommits": [
+        "ad5a1dd477f9fb34148db39ccc9f8d19327e16e4"
+      ],
+      "priorCandidateCommit": "08b4b9de966dd782ed7b486a2ff7c56db3aed1b6",
+      "priorCandidateManifest": ".artifacts/manual-price-view-20261021/candidate-manifest.json",
+      "priorCandidatePreserved": true,
+      "installedIntoOperatingRuntime": false,
+      "includes": [
+        "100 selected plan rows before order generation",
+        "purchase receipt receiving warehouse selection",
+        "inspection and rack warehouse preservation",
+        "price request primary order and plan copy imports",
+        "price request auxiliary upload and mobile preservation",
+        "shared optional comparison storage and backup validation",
+        "read-only comparison and user/stale/dialog protection",
+        "explicit row confirmed-price selection and atomic save with F8, account, role, revision and storage guards"
+      ],
+      "vatWorkExcluded": true,
+      "embeddedAssets": 59,
+      "changedEmbeddedAssetsSincePriorCandidate": [
+        "/inventory-ui.js",
+        "/price-request-core.js",
+        "/price-request-ui.js"
+      ],
+      "onlyChangedBackendModule": "PriceRequestCore",
+      "workerEntryAndAuthMailStorageModulesUnchanged": true,
+      "verification": {
+        "fullCommand": "npm run verify:local",
+        "exit": 0,
+        "syntheticBrowserTests": 40,
+        "focusedQuoteTests": 64,
+        "log": ".artifacts/manual-price-selection-20261021/candidate-verify.log",
+        "screenshots": {
+          "price-selection-before-save.png": {
+            "sha256": "54686df7e3f3476b8a8197bf2bb1df8d1552aaf7ddcd159b1fce890cfad00be7",
+            "sameAsReviewedMainScreenshot": true
+          },
+          "price-selection-saved.png": {
+            "sha256": "4cc3d931727cc7066d3c7837f2071a46a9f459192da37a0574b93e285b55e301",
+            "sameAsReviewedMainScreenshot": true
+          }
+        }
+      },
+      "deploymentGate": "Existing authenticated UI/browser backup acceptance and fresh private pre/post preservation before restart."
+    },
+    "candidateFullVerifyExit": 0,
+    "candidateBrowserTests": 40
+  },
+  "publication": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "connector": "HTTP401",
+    "browser": "tab22-login-required",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingBody": ".artifacts/manual-price-selection-20261021/moa-pending-selection.html"
+  },
+  "remaining": [
+    "Supplier creation and multi-select exact procedure",
+    "Direct reply edit fields, input close/reopen, cancellation",
+    "Original default/header radio and partial-selection rules",
+    "Server roles/company/CAS",
+    "Confirmed-price PO application and external reply/email",
+    "Authenticated original and hosted acceptance",
+    "Moa append and saved body readback"
+  ],
+  "done": false
+}

@@ -290,3 +290,12 @@ PriceRequestUI.open은 canRead/getDb/documentId만 받아 저장 callback을 갖
 
 
 읽기 UI의 운영 분리 후보는0.53.2 08b4b9d이다. 기존72b523d에서 priceRequest 저장/백업과 비교UI만 추가했고 VAT는 제외했다. 후보에는 기존 raw 기준 감지 함수가 없어 load와 각 기존 저장·교체 경로의 기준값 추적을 별도로 추가했다. 비교 조회에서만 원문 일치를 검사하며 일반 저장의 기존 동작은 바꾸지 않았다. 후보전체verify/브라우저39 및 독립3경로 확인 완료, 설치false. 정확한 입력/번들은 .artifacts/manual-price-view-20261021/candidate-manifest.json을 따른다.
+
+
+### 확정단가 편집과 원자 저장 · ad5a1dd
+
+이전 읽기 전용 UI를 선택적으로 확장한다. PriceRequestUI는 canRead/getDb 외에 canWrite/onSave를 선택적으로 받으며 없으면 기존 조회 전용이다. ready store만 편집할 수 있고 기존 selection을 draft Map으로 복사한다. 자동 기본선택·최저가 선택은 하지 않는다. 변경한 행만 {lineKey,source,vendorCode} 배열로 제출하며 가격은 클라이언트 입력값을 신뢰하지 않고 core가 현재 요청/회신에서 읽는다. selectMany는 dense1~500행/중복/미회신/수정번호를 검사하고 clone에서 모두 처리한 뒤 한 revision으로 저장한다. 저장소 version1과 model version2는 그대로다.
+
+Adapter는 실제 사용자별 storageKey, inventory.read/write, raw 기준을 저장 직전 재확인한다. focus는 draft를 유지하며 자료 지문/revision/권한을 확인한다. 권한 복구와 실제 자료 충돌을 구별하고 자료가 여전히 동일할 때만 저장을 다시 허용한다. 저장 실패는 draft를 유지하며 read 권한 상실은 내용을 지운다. 새로고침/닫기/Escape는 저장하지 않는다. 기존 문서·prices·customization·회신은 변하지 않는다. 이는 로컬 자료 영역이며 서버 quote API/회사 역할/CAS/외부회신 인증을 대체하지 않는다.
+
+최신 분리 후보 f181c53, manifest .artifacts/manual-price-selection-20261021/candidate-manifest.json. 기존 후보의 raw 추적을 유지하고 새 선택 저장에서만 명시 assertStorageCurrent를 추가했다. 부가세 미완성 코드는 포함하지 않는다. 실제 원본 라디오 기본값/헤더 일괄선택/미선택 저장 규칙은 미확인이므로 전체 재현 완료가 아니다.

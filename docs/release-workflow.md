@@ -1,5 +1,11 @@
 # 개발과 검증 배포
 
+## 최신 준비 후보 · 0.53.2 f181c53 확정단가 명시 선택
+
+release/0.53.2-price-selection은 기존08b4b9d 위에 ready 비교의 품목별 확정선택과 한 번의 저장(F8)을 추가한다. 후보 전체verify:local 종료0/합성브라우저40/집중64를 통과했다. 자산3개(core/UI/adapter)와 backend PriceRequestCore만 변경됐고 인증·메일·Supabase·미완료VAT는 변경하지 않았다.
+
+manifest .artifacts/manual-price-selection-20261021/candidate-manifest.json, SHA 891efdbde010c497198b2397a4d850dac82678d8a7dbf4525b4831c29e48fff9. push 완료/설치false. 운영0.53.1과 이전후보/롤백을 보존한다. 기존 인증UI/브라우저JSON 대조와 새 비공개 사전백업→정확한 후보설치→사후보존/인증UI 검증이 필요하다. main 빌드 설치 금지. 아래 후보는 과거 기록이다. 상세 evidence/manual-price-request-selection-20261021.json.
+
 ## 최신 준비 후보 · 0.53.2 08b4b9d 단가 비교저장·읽기 조회
 
 release/0.53.2-price-view의 08b4b9d는72b523d의 기존100선택 제한/입고창고/단가요청 불러오기 위에 선택적 비교저장/백업과 읽기 전용 비교표를 추가한다. 미완료VAT는 제외했다. 첫 후보 검사에서 없는 raw 기준 helper를 발견해 읽기 검사와 기존 저장 후 기준갱신만 분리했고, 최종 전체 verify:local 종료0/합성브라우저39·집중54·독립 baseline3경로를 통과했다.

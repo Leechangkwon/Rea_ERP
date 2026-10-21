@@ -362,3 +362,16 @@ REA6.4.0 자체5범위는 파싱실패0/coverage unknown/잘림없음이며 원�
 후보 08b4b9d push 완료, 정적자산59개 중 이전 후보와6개만 달라진다(index/core/UI/CSS 및 새 비교모듈2개). Worker 진입·인증·메일·Supabase 저장모듈은 그대로이고 backend InventoryCore만 선택적 비교저장 검증을 위해 변경했다. 데스크톱/모바일/가로이동 화면은 검토한 main 이미지와 해시가 동일하다. 새 번들 SHA 325202c34bf03f6c7b442bf73b97f77eae40197db1eb69ad1350d6fe01049dcc, manifest .artifacts/manual-price-view-20261021/candidate-manifest.json. 이전72b523d 번들·운영0.53.1·0.53.0롤백은 동일하다. 새 후보 설치·서버재시작·업무저장·메일발송은 하지 않았다.
 
 **최신 설치 후보는 08b4b9d이며 이전72b523d는 보존된 과거 후보다.** 기존 인증UI/브라우저JSON 보존 대조→새 비공개 사전백업→이 후보의 정확한 해시 설치→사후 보존/인증UI 검증 순서를 따른다. current-release의 VAT nextWork 인계와 전체완료0, 모아 게시대기는 유지한다.
+
+
+## 단가 확정 선택과 일괄 명시 저장 · ad5a1dd
+
+공식 영상 EC-VID-13917의 10초 이동 제어가 정상 작동해 00:53 거래처 token 입력, 03:23 직접입력의 전체 수정창, 03:33 비교표, 그 직후 품목별/헤더 라디오와 `단가확정/저장(F8)`를 새로 관찰했다. 캡처4개와 SHA를 .artifacts/manual-price-selection-20261021/observations.json에 보존했다. 실제 원본 ERP 저장·입력·발송은 하지 않았다. 원본 기본 선택/전체 선택/일부 미선택 정책은 아직 미확인이다.
+
+이미 보관된 ready 비교에만 `확정단가선택/수정`을 열고 요청가 또는 회신 단가를 품목별로 선택한다. `selectMany`는 변경된 선택을 한 번에 검증하고 성공 시 수정번호/로그를 한 번만 늘린다. 0원과 미회신/소수10자리 구분, 기존 전표·가격표·양식·회신·미선택 행 보존, 명시 F8/닫기/Escape 무저장, 사용자/권한/원문/revision 재검사, 저장 실패 초안 보존을 검증했다. 초기 supplier 생성/수취 직접입력/마감 UI·헤더 일괄 선택·발주 적용·API·외부회신은 남아 있다.
+
+독립 검토에서 쓰기 권한을 회복한 뒤에도 저장 버튼이 잠기는 문제1건을 수정했다. 집중64개와 독립 권한복구 후 원본/revision/외부저장 충돌3경로, 500행 성공/후반 실패 원자성/미변경 선택 보존 검사를 통과했다. main 격리 전체 verify:local 종료0/합성브라우저43, 최종 adapter 명시 guard 이후 집중64/빌드/브라우저3도 통과했다. 최초 전체 검사는 격리 worktree의 Chromium 라이브러리 경로 누락으로 실패했고 기존 browser-libs 연결 후 전부 재실행했다. 새 저장 전후 화면2장을 시각 확인했다.
+
+운영 분리 후보0.53.2 f181c53는 기존08b4b9d 위에 이 기능만 추가했다. 후보 전체 verify:local 종료0/브라우저40/집중64 통과, 변경 자산은 core/UI/adapter3개이고 backend 변경은 PriceRequestCore뿐이다. Worker 진입·인증·메일·Supabase와 InventoryCore는 이전 후보와 동일하다. 검토한 main 화면과 후보 화면2개의 해시도 같다. 소스와 후보 모두 push 완료. 미완료VAT는 후보에서 제외했다. 번들 SHA 891efdbde010c497198b2397a4d850dac82678d8a7dbf4525b4831c29e48fff9, manifest .artifacts/manual-price-selection-20261021/candidate-manifest.json. 운영0.53.1 f5234fb7…·이전 후보08b4b9d·0.53.0롤백을 보존하고 설치/재시작하지 않았다.
+
+REA6.4.0 자체6범위 파싱실패0/coverage unknown/잘림없음, 후보 동일 fragment6범위 해시 검증을 기록했다. 원본은 기존 routing1범위 입력/결과/스키마 검증만 재사용했으며 실제 저장/권한 동등성 근거는 아니다. 모아401·브라우저22 로그인 필요를 재확인해 업로드 대기 본문만 보존했다. 외부 게시·저장본문 재조회는 미완료다. 운영 인증UI/브라우저JSON 보존 대조가 남아 있어 설치 전 게이트를 유지한다. 공식13/로그인본문4/최종완료0, 자동화 계속. 상세 evidence/manual-price-request-selection-20261021.json.

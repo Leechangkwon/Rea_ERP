@@ -1162,10 +1162,11 @@
         "Auxiliary web upload and mobile access preservation",
         "Shared browser/Node comparison storage with immutable source snapshot",
         "Optional backup preservation and source/vendor-change edit guards",
-        "Read-only requested/received/confirmed comparison view with permission, account, stale-data and dialog-lifecycle protection"
+        "Read-only requested/received/confirmed comparison view with permission, account, stale-data and dialog-lifecycle protection",
+        "Explicit row confirmed-price selection, atomic guarded save/F8 and cancel for already archived ready comparisons"
       ],
       "remainingScope": [
-        "Supplier selection, direct reply, input close/reopen and confirmed-selection UI with explicit role-aware save",
+        "Supplier registration, direct reply, close/reopen UI; original default/header/partial selection semantics",
         "Dedicated server quote mutation CAS/permissions when connected",
         "Confirmed-price purchase-order application",
         "External reply/email authorization and expiry",
@@ -1194,6 +1195,13 @@
         "evidence": "evidence/manual-price-request-view-20261021.json",
         "readOnlyUi": true,
         "writeUi": false,
+        "hostedAcceptance": false
+      },
+      "comparisonSelection": {
+        "sourceCommit": "ad5a1dd477f9fb34148db39ccc9f8d19327e16e4",
+        "evidence": "evidence/manual-price-request-selection-20261021.json",
+        "status": "explicit-confirmed-selection-local-validated-production-pending",
+        "candidateCommit": "f181c53088d6db2555230e022e3f3b26840ecfb3",
         "hostedAcceptance": false
       }
     },
