@@ -45,9 +45,19 @@
    if(filter[from]&&filter[to]&&filter[from]>filter[to])throw Error(label+' 시작일은 종료일보다 늦을 수 없습니다.');
   }
  }
+ // Legacy credit returns store positive frozen amounts; only the report projection is signed.
+ function reportAmount(doc,line){
+  const amount=C.effectiveLineTotals(doc,line);
+  if(doc.type!=='purchasereturn'||doc.settlementMode!=='credit')return amount;
+  return {...amount,...Object.fromEntries(['qty','supply','tax','total'].map(key=>[key,amount[key]===0?0:-amount[key]]))};
+ }
+ const purchaseKinds={all:'전체',normal:'일반',return:'반품'};
  function search(db,type,filter={}){
   const spec=specifications[type];if(!spec)throw Error('직접 관찰되지 않은 현황 화면입니다.');
   validateDates(filter);
+  const purchaseKind=filter.purchaseKind??'all';
+  if(!Object.hasOwn(purchaseKinds,purchaseKind)||typeof purchaseKind!=='string'||type!=='purchase'&&filter.purchaseKind!==undefined)throw Error('구매구분을 확인하세요.');
+  const purchaseContext=type==='purchase'?{purchaseKind,purchaseKindLabel:'구매구분 '+purchaseKinds[purchaseKind]}:{};
   const mode=filter.mode||'detail';if(!['detail','summary'].includes(mode))throw Error('조회 메뉴를 확인하세요.');
   if(filter.graph!==undefined&&typeof filter.graph!=='boolean')throw Error('그래프 표시 조건을 확인하세요.');
   if(filter.graph&&(type!=='purchase'||mode!=='summary'))throw Error('그래프는 구매 집계에서 사용할 수 있습니다.');
@@ -72,21 +82,21 @@
   if(filter.comparison&&filter.comparison!=='사용안함')throw Error('기간 비교 결과는 아직 확인하지 않았습니다.');
   const query=String(filter.query||'').trim().toLowerCase(),groups=[];
   for(const doc of db.documents){
-   if(doc.type!==type||!C.listed(doc)||!within(doc.date,filter.from,filter.to)||filter.number&&!doc.id.includes(filter.number)||filter.warehouse&&doc.warehouse!==filter.warehouse||filter.project&&doc.project!==filter.project)continue;
+   if(!(doc.type===type||type==='purchase'&&doc.type==='purchasereturn'&&doc.settlementMode==='credit')||!C.listed(doc)||!within(doc.date,filter.from,filter.to)||filter.number&&!doc.id.includes(filter.number)||filter.warehouse&&doc.warehouse!==filter.warehouse||filter.project&&doc.project!==filter.project)continue;
    const foreign=Boolean(doc.currency&&doc.currency!=='KRW');if(filter.currency==='domestic'&&foreign||filter.currency==='foreign'&&!foreign)continue;
-   const lines=doc.lines.filter(line=>within(line.dueDate||doc.dueDate,filter.dueFrom,filter.dueTo)&&(!filter.partner||(line.supplier||doc.partner)===filter.partner)&&(!filter.item||line.item===filter.item));
+   const lines=doc.lines.filter(line=>(type!=='purchase'||purchaseKind==='all'||(purchaseKind==='normal'?reportAmount(doc,line).qty>0:reportAmount(doc,line).qty<0))&&within(line.dueDate||doc.dueDate,filter.dueFrom,filter.dueTo)&&(!filter.partner||(line.supplier||doc.partner)===filter.partner)&&(!filter.item||line.item===filter.item));
    if(!lines.length)continue;
    const lineState=line=>C.purchasingLineState?C.purchasingLineState(doc,line).progress:line.progress??(C.purchasingState?C.purchasingState(doc).progress:doc.status);
    const state=doc.lines.every(l=>lineState(l)==='완료')?'완료':'진행중';
    const headerValues={id:doc.date+' '+doc.id,partner:lookup(db,'partners',doc.partner),employee:lookup(db,'employees',doc.employee),warehouse:lookup(db,'warehouses',doc.warehouse),dueDate:doc.dueDate||'',reference:doc.reference||'',progress:state};
    const header=spec.headerKeys.map(key=>headerValues[key]??'');
-   const details=lines.map(line=>{const item=C.master(db,'items',line.item),amount=C.effectiveLineTotals(doc,line),name=(item?.name||line.item)+(item?.spec?(type==='request'?' ('+item.spec+')':' ['+item.spec+']'):'');const order=doc.sourceId?db.documents.find(d=>d.id===doc.sourceId&&d.type==='purchaseorder'):null;const fields={receipt:doc.date+' '+doc.id,order:order?order.date+' '+order.id:'',warehouse:lookup(db,'warehouses',doc.warehouse),employee:lookup(db,'employees',doc.employee),partner:lookup(db,'partners',line.supplier||doc.partner),item:line.item,spec:item?.spec||'',vatPrice:C.money(amount.price*(1+Number(doc.vatRate??10)/100)),boxUnit:item?.boxUnit??'',unit:item?.unit??'',total:amount.total,memo:line.memo??'',group1:item?.group1Name??item?.group1??'',group2:item?.group2Name??item?.group2??'',group3:item?.group3Name??item?.group3??'',name:spec.flat?(item?.name||line.item):name,qty:amount.qty,price:amount.price,supply:amount.supply,tax:amount.tax,blank:'',dueDate:line.dueDate||doc.dueDate||''};return {line,amount,values:spec.lineKeys.map(key=>fields[key]??'')};});
+   const details=lines.map(line=>{const item=C.master(db,'items',line.item),amount=reportAmount(doc,line),name=(item?.name||line.item)+(item?.spec?(type==='request'?' ('+item.spec+')':' ['+item.spec+']'):'');const order=doc.sourceId?db.documents.find(d=>d.id===doc.sourceId&&d.type==='purchaseorder'):null;const fields={receipt:doc.date+' '+doc.id,order:order?order.date+' '+order.id:'',warehouse:lookup(db,'warehouses',doc.warehouse),employee:lookup(db,'employees',doc.employee),partner:lookup(db,'partners',line.supplier||doc.partner),item:line.item,spec:item?.spec||'',vatPrice:C.money(amount.price*(1+Number(doc.vatRate??10)/100)),boxUnit:item?.boxUnit??'',unit:item?.unit??'',total:amount.total,memo:line.memo??'',group1:item?.group1Name??item?.group1??'',group2:item?.group2Name??item?.group2??'',group3:item?.group3Name??item?.group3??'',name:spec.flat?(item?.name||line.item):name,qty:amount.qty,price:amount.price,supply:amount.supply,tax:amount.tax,blank:'',dueDate:line.dueDate||doc.dueDate||''};return {line,amount,values:spec.lineKeys.map(key=>fields[key]??'')};});
    if(query&&!JSON.stringify([header,details.map(x=>x.values)]).toLowerCase().includes(query))continue;
    groups.push({document:doc,header,lines:details});
   }
   groups.sort((a,b)=>a.document.date.localeCompare(b.document.date)||a.document.id.localeCompare(b.document.id));
-  if(mode==='summary')return summaryOutput(sortResult(summarize(db,groups,axes,spec.title,axisDirections,type,measureIds),fields,order),axisSubtotals,type);
-  return sortResult({layout:spec.flat?'flat':'grouped',columns:[...spec.header],rows:spec.flat?groups.flatMap(g=>g.lines.map(l=>l.values)):undefined,rowRecords:spec.flat?groups.flatMap(g=>g.lines.map(l=>({document:g.document,line:l.line}))):undefined,title:spec.title,headerColumns:[...spec.header],lineColumns:[...spec.line],groups,summary:{documents:groups.length,lines:groups.reduce((n,g)=>n+g.lines.length,0),quantity:C.quantity(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.qty,0),0)),supply:C.money(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.supply,0),0)),tax:C.money(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.tax,0),0))}},fields,order);
+  if(mode==='summary')return {...summaryOutput(sortResult(summarize(db,groups,axes,spec.title,axisDirections,type,measureIds),fields,order),axisSubtotals,type),...purchaseContext};
+  return sortResult({...purchaseContext,layout:spec.flat?'flat':'grouped',columns:[...spec.header],rows:spec.flat?groups.flatMap(g=>g.lines.map(l=>l.values)):undefined,rowRecords:spec.flat?groups.flatMap(g=>g.lines.map(l=>({document:g.document,line:l.line}))):undefined,title:spec.title,headerColumns:[...spec.header],lineColumns:[...spec.line],groups,summary:{documents:groups.length,lines:groups.reduce((n,g)=>n+g.lines.length,0),quantity:C.quantity(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.qty,0),0)),supply:C.money(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.supply,0),0)),tax:C.money(groups.reduce((n,g)=>n+g.lines.reduce((s,l)=>s+l.amount.tax,0),0))}},fields,order);
  }
  function summaryAxisCode(db,doc,line,axis,position){
   const dimension=summaryDimensions[axis];if(dimension.groupMaster){const code=dimension.groupMaster==='partners'?(line.supplier||doc.partner):doc.project;return String(C.master(db,dimension.groupMaster,code)?.[dimension.groupField]??'');}if(dimension.identity)return dimension.identity==='document'?doc.id:JSON.stringify([doc.id,line.lineId?'id':'position',line.lineId||position]);if(dimension.itemField){const item=C.master(db,'items',line.item);return String((dimension.itemField==='group1'?(item?.group1??item?.group):item?.[dimension.itemField])??'');}if(!dimension.dateUnit)return axis==='품목별'?line.item:axis==='거래처별'?(line.supplier||doc.partner||''):(doc[dimension.id]||'');
