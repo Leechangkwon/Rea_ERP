@@ -1,0 +1,90 @@
+{
+  "version": "0.73.0",
+  "status": "isolated-candidate-passed-awaiting-deployment",
+  "plan": "docs/plan-plan-generation-reference-20261022.md",
+  "requirement": "REQ-PUR-PLAN-003",
+  "manual": {
+    "sourceId": "EC-HELP-PLAN-GENERATION-MODES",
+    "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
+    "transcriptSha256": "a4f86cec31d5551e81ee2ecbbb0690fad631440fa79e9867e94e51d81c4eb4ac",
+    "directInputFrame": "02:08",
+    "frameSha256": "fb17c746ec0316338d7f53d5712abd53427acce06fa9c136b348487092734ee7",
+    "existingEvidenceHashesValidated": true,
+    "fullTranscriptReviewedPreviously": true,
+    "wholeVideoVisualReviewed": false,
+    "newBodyCount": 0,
+    "newRequirementCount": 0,
+    "originalBasicInputDefaultSemanticsVerified": false
+  },
+  "originalObservation": {
+    "sessionValid": true,
+    "lookupAndHelpOnly": true,
+    "businessWrites": false,
+    "mainEntryRowsOperated": false,
+    "businessValuesStored": false
+  },
+  "warehouseContract": {
+    "originalWarehouseDirectInputObserved": true,
+    "originalAllocationExceptionVerified": false,
+    "currentGeneratedWarehouseOverrideRejected": true,
+    "message": "발주계획의 원본 품목과 창고를 확인하세요.",
+    "sourcesUnchanged": true,
+    "guardRemoved": false,
+    "implemented": false
+  },
+  "implementation": {
+    "requestField": "referenceOverride",
+    "default": "omitted -> prior generation behavior retained",
+    "validation": "nonblank string only, preserve literal input",
+    "phase": "after grouping; generated doc.reference only",
+    "regrouping": false,
+    "sourceReferenceInherited": false,
+    "explicitBlankClearingImplemented": false,
+    "sourceMutated": false,
+    "schemaMigrated": false,
+    "invalidatedOnInput": true,
+    "textContentOnly": true,
+    "otherBatchFieldsImplemented": false
+  },
+  "checks": {
+    "newNode": 6,
+    "relatedNode": 62,
+    "newBrowser": 3,
+    "widths": [
+      390,
+      864,
+      1280
+    ],
+    "reaOwnScopes": 2,
+    "reaParseFailures": 0,
+    "reaTruncated": false,
+    "reaCoverage": "unknown",
+    "reaSummarySha256": "484855990a4100a273d5b75c909c648b4c873233043232f1413cf6f126106258",
+    "reaOriginalCachedScopesValidated": 3,
+    "reaOriginalCacheValidationSha256": "c9632019aa27164da1686e640353c0d2d6e7866cf8fade0239db13501f4e77f3",
+    "publicBodiesFullyAnalyzed": false,
+    "rawOriginalExecuted": false,
+    "verifyLocalPassed": true,
+    "browserSynthetic": 90,
+    "fullVerifyLog": ".artifacts/manual-plan-generation-reference-20261022/full-verify.log",
+    "fullVerifyLogSha256": "817498df2c4d1a21d22fd1f887c93a4130e546265dfa0139c399e8f4b86ede4d",
+    "testedBundleSha256": "e947a8d49c4b3816eab5bced3781f07224511c20541b64b6a5e9d29bbfd7cd0d"
+  },
+  "acceptanceLimits": {
+    "operatingPlans": 0,
+    "dataBearingGenerateSave": "synthetic only",
+    "originalBusinessWrites": false,
+    "hostedBusinessWrites": false,
+    "hostedSettingsWrites": false,
+    "mailSent": false,
+    "wholeManualPassed": false
+  },
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 53,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authStateUnchangedNoRepeatedProbe": true
+  },
+  "sourceCommit": "5170fbd7df5672735883c423662720836e686710"
+}

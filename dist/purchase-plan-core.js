@@ -21,6 +21,8 @@
    const generationDate=date(request.date||C.today(),'생성일');if(request.dueDate)date(request.dueDate,'납기일');
    const overrideEmployee=Object.prototype.hasOwnProperty.call(request,'employeeOverride');
    if(overrideEmployee){const employee=typeof request.employeeOverride==='string'&&request.employeeOverride?C.master(db,'employees',request.employeeOverride):null;if(!employee||employee.disabled)throw Error('일괄 지정할 담당자는 사용 중인 등록 담당자를 선택하세요.');}
+   const overrideReference=Object.prototype.hasOwnProperty.call(request,'referenceOverride');
+   if(overrideReference&&(typeof request.referenceOverride!=='string'||!request.referenceOverride.trim()))throw Error('일괄 지정할 참조를 텍스트로 입력하세요.');
    if(!Array.isArray(request.selections)||!request.selections.length||request.selections.length>MAX_SELECTIONS)throw Error('발주계획 품목을 1~'+MAX_SELECTIONS+'행 선택하세요.');
    const resolvedSuppliers=[...new Set(request.selections.map(x=>{const source=db.documents.find(d=>d.id===x.documentId),line=source?.lines.find(l=>x.lineId?l.lineId===x.lineId:l.item===x.item);return x.supplier||C.purchaseSupplier(db,line,source);}).filter(Boolean))];
    if(!request.partner&&resolvedSuppliers.length===1)request.partner=resolvedSuppliers[0];
@@ -53,7 +55,7 @@
          existing.qty=qty(existing.qty+line.qty);existing.planAllocations.push(...line.planAllocations);existing.importedFrom.push(...line.importedFrom);if(existing.dueDate!==line.dueDate)existing.dueDate='';
        }else lines.push({...line,lineId:'PL'+(lines.length+1)});
      }
-     const dueDates=[...new Set(group.rows.map(r=>r.dueDate))],doc={...clone(group.header),...(overrideEmployee?{employee:request.employeeOverride}:{}),type:'purchaseorder',date:generationDate,partner:group.partner,dueDate:dueDates.length===1?dueDates[0]:'',status:'진행',accounted:false,generatedFrom:'purchase-plan',planGeneration:{grouping,policy:clone(policy),sourceIds:[...new Set(group.rows.map(r=>r.source.id))]},memo:request.memo||'',lines};
+     const dueDates=[...new Set(group.rows.map(r=>r.dueDate))],doc={...clone(group.header),...(overrideEmployee?{employee:request.employeeOverride}:{}),...(overrideReference?{reference:request.referenceOverride}:{}),type:'purchaseorder',date:generationDate,partner:group.partner,dueDate:dueDates.length===1?dueDates[0]:'',status:'진행',accounted:false,generatedFrom:'purchase-plan',planGeneration:{grouping,policy:clone(policy),sourceIds:[...new Set(group.rows.map(r=>r.source.id))]},memo:request.memo||'',lines};
      documents.push(doc);
    }
    if(documents.length>200)issues.push(issue('limit','한 번에 생성할 발주서는 200장까지 가능합니다. 선택 범위를 줄이세요.'));
