@@ -62,3 +62,7 @@
 발주요청조회 > 도움말 > 온라인매뉴얼에서 3페이지 36항목을 확인했다. 그중 작성일/수정일 검색, 합계금액 기준 부가세 계산, 발주요청 사용법, 구매관리 각 메뉴 소개의 4본문을 읽고 13개 요구사항으로 분해했다. 이는 발주요청 문맥의 목록이며 전체 ERP 온라인 매뉴얼 개수는 아니다. 전역 영상551항목과 중복 여부는 별도 대조가 필요하다. 목록/본문 해시와 요구사항은 evidence/manual-parity-20261021/online-manual-index.json 및 requirements.json을 따른다.
 
 본문의 최종작업일자 명칭은 현행 검색 양식의 최종수정일시(update_dtm)와 연결했다. 원본 위젯설정에서 최초작성일자(write_dtm)도 직접 확인하고 저장 없이 닫았다. 원본 입력행/전표/설정 저장은 실행하지 않았다.
+
+## 공식 재고교육 PDF 추가 확보 · 2026-10-21
+
+[중급 재고 교재](https://download.ecounterp.com/doc_Ecount_Inventory.pdf)36쪽과 [초급 재고 교재](https://download.ecounterp.com/doc_Ecount_beginner_Inventory.pdf)42쪽을 확보했다. 이번 검토는 발주계획 수량조정 부분인 물리18쪽/21쪽(인쇄16쪽/19쪽)에 한정한다. 전체 PDF 검토 완료가 아니며 로그인 도움말36항목/4본문과 별도다. 수량조정의 조건 선택·적용·저장 절차를 기존 REQ-PUR-PLAN-001에 보강했다. 최소구매단위의 숫자 계산식은 이 부분에 없다. 출처·수집시각·해시·검토페이지는 source-manifest.json과 evidence/manual-plan-quantity-contract-20261021.json을 따른다.

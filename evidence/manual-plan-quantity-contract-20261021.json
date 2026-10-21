@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "observedAt": "2026-10-21T01:31:01.092858+00:00",
+  "baselineMainCommit": "c6c6aa392e0eabd1e6f315c61d10badc49cac0a2",
+  "status": "manual-and-static-contract-refined-not-implemented",
+  "requirement": "REQ-PUR-PLAN-001",
+  "done": false,
+  "pdfs": [
+    {
+      "url": "https://download.ecounterp.com/doc_Ecount_Inventory.pdf",
+      "localPath": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_Inventory.pdf",
+      "bytes": 1435603,
+      "sha256": "2ca2197971caefe8a33af3b71c6a15baa82395b9616e53d983734e50c332d730",
+      "contentType": "application/pdf",
+      "lastModified": "Thu, 05 Mar 2026 03:57:00 GMT",
+      "retrievedAt": "2026-10-21T01:23:56.492405+00:00",
+      "id": "EC-PDF-INVENTORY-MID",
+      "title": "중급 재고(제조) 교육 교재",
+      "totalPages": 36,
+      "reviewedPhysicalPages": [
+        18
+      ],
+      "printedPageLabel": 16,
+      "scope": "Relevant purchase-plan quantity section only; not whole-document review",
+      "visualReview": true,
+      "textArtifact": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_Inventory.pdf.page-18.txt",
+      "renderArtifact": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_Inventory.pdf.page-18.png",
+      "textSha256": "bd850e08a1b4cc50641a09f052ad42dc9b17246c8c2a8976370d2cf61ac7dd7a",
+      "renderSha256": "37218160c5e1cc8cb9d600c144f4a429958a5591c90301fd0f50409c0ef11d68"
+    },
+    {
+      "url": "https://download.ecounterp.com/doc_Ecount_beginner_Inventory.pdf",
+      "localPath": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_beginner_Inventory.pdf",
+      "bytes": 2301666,
+      "sha256": "8fb9ab79cc962eda2b6b1ec80af2d00b191fb7432efeac3f982c0749e570f4f4",
+      "contentType": "application/pdf",
+      "lastModified": "Tue, 12 May 2026 04:02:58 GMT",
+      "retrievedAt": "2026-10-21T01:23:56.738689+00:00",
+      "id": "EC-PDF-INVENTORY-BEGINNER",
+      "title": "초급 재고교육 교재(제조)",
+      "totalPages": 42,
+      "reviewedPhysicalPages": [
+        21
+      ],
+      "printedPageLabel": 19,
+      "scope": "Relevant purchase-plan quantity section only; not whole-document review",
+      "visualReview": true,
+      "textArtifact": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_beginner_Inventory.pdf.page-21.txt",
+      "renderArtifact": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_beginner_Inventory.pdf.page-21.png",
+      "textSha256": "f37dee55372abf3bce8b120aabbd82fc05f0cd821fa16b5739770de0e594dc7f",
+      "renderSha256": "ec5e5266e2ee41d43397546b673d2780e7c0c0b7b03032949128a3b1e17c1d34"
+    }
+  ],
+  "originalSource": {
+    "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.inventory/esg/views/xesg002m.5046673887087087793.20.js",
+    "file": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+    "sha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+    "bytes": 33512,
+    "httpStatus": 200,
+    "contentType": "application/x-javascript",
+    "credentials": "omitted",
+    "originalSourceExecuted": false,
+    "retrievedAt": "2026-10-21T01:26:29.185085+00:00",
+    "historicalSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+    "historicalHashMatched": true,
+    "wireSha256": "f1bd6e8ef5ee4015603543a64469656184eca0e8de454d26f26cc96f3ea520c2",
+    "wireBytes": 9267,
+    "wireEncoding": "gzip"
+  },
+  "manualFindings": [
+    {
+      "id": "plan-adjust-workflow",
+      "fact": "Plan list selection opens a separate quantity adjustment workflow; calculation options are applied in the popup and the adjustment is saved separately.",
+      "source": "EC-PDF-INVENTORY-BEGINNER",
+      "physicalPage": 21
+    },
+    {
+      "id": "plan-adjust-options",
+      "fact": "The six optional inputs concern outstanding sales, safety stock, stock on hand, outstanding receipts, minimum buying unit and outstanding material issue. The pictured dialog also has stock date/warehouse, business-cycle date and use of delivery date.",
+      "source": "EC-PDF-INVENTORY-BEGINNER",
+      "physicalPage": 21
+    },
+    {
+      "id": "plan-adjust-defaults",
+      "fact": "Calculation defaults are configured through the plan list Option menu. Minimum buying unit is an item quantity setting.",
+      "source": "EC-PDF-INVENTORY-MID",
+      "physicalPage": 18
+    },
+    {
+      "id": "unknown-arithmetic",
+      "fact": "Neither reviewed section gives a numerical minimum-unit example or proves ceil-to-multiple versus minimum-clamp, negative need handling, fractional unit precision, or allocation across repeated item rows.",
+      "source": "both"
+    }
+  ],
+  "staticFindings": [
+    {
+      "symbol": "onFooterQty",
+      "fact": "Rejects empty selection; checks permitted dates, deduplicates vouchers for version checks, and opens the Qty popup only after successful preflight. Selected lines carry serial keys; the other branch sends zero serial."
+    },
+    {
+      "symbol": "checkLimitSlipDetails",
+      "fact": "For finalSearchParam.SEARCH_TYPE != 0, asks CheckLimitCountSale060DetailCal for detail count before version validation. (count || 501) > 500 blocks; missing/zero also falls back to blocked. This is not evidence of a universal 500-line rule for all list modes."
+    },
+    {
+      "symbol": "checkMultiVertion",
+      "fact": "Calls MultiCheckSlipVersion with voucher date/number/version groups and PURCHASEPLAN; actual server response behavior was not executed."
+    }
+  ],
+  "ownGaps": [
+    {
+      "file": "dist/purchasing-plan-list-ui.js",
+      "line": 32,
+      "fact": "Footer has manual row edit/save and plan-to-order generation, but no quantity-adjust calculation flow."
+    },
+    {
+      "file": "dist/entry-core.js",
+      "line": 52,
+      "fact": "stockCandidates computes stock plus pending receipts minus pending sales and safety shortage for draft import; no minPurchaseQty or material-issue contribution, no independent six-option calculation, not a saved-plan bulk adjustment."
+    },
+    {
+      "file": "dist/item-core.js",
+      "fact": "minPurchaseQty registration exists; changing safety import to apply it implicitly would be a new unconfirmed rule."
+    }
+  ],
+  "rea": {
+    "version": "6.4.0",
+    "originalScopes": 4,
+    "ownScopes": 2,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "anyTruncated": false,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "summaryArtifact": ".artifacts/manual-plan-quantity-20261021/rea-summary.json",
+    "summarySha256": "e45864a0de26fbf84eb6685bd4656ed7bb5367869e39e25af0860e39ea2fcfe9",
+    "scopes": [
+      {
+        "name": "onFooterQty",
+        "category": "original",
+        "file": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+        "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+        "start": 26086,
+        "end": 27336,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "387093224192da5ac242dd31a097a60d67c6707b3d2a65d4e202296ae76969a6",
+        "resultSha256": "018dd7e37b91f7f0bc22e6ccbac39a07e22e1544574a6da444935403258a63ca",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1265,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 342,
+          "findings": 1,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "getSelectedItemsForGenerateSlips",
+        "category": "original",
+        "file": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+        "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+        "start": 27337,
+        "end": 27597,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "33d708d9c30156f6145dff691b5015d9e484f6a05aef19649b5a831b9415338c",
+        "resultSha256": "c8d15d905a4d403f80dbf8444fbab28ffefeb2a85f8b8290837ab269deaa9ab8",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 275,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 79,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "checkMultiVertion",
+        "category": "original",
+        "file": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+        "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+        "start": 27598,
+        "end": 27780,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "da76d086fb88cf35d00e2d323c3f2ee494449a8df5f09893bd818efc8a072d01",
+        "resultSha256": "421ce33e8ef03618995f99f2c26be52ac97124c0c0a37625bc479419e8cd93b5",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 197,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 52,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "checkLimitSlipDetails",
+        "category": "original",
+        "file": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+        "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+        "start": 27781,
+        "end": 28071,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "c9176890208013f1f254eda90126420db23552fce36cb378a99f4cb01cd2ea9b",
+        "resultSha256": "da5e39e9833a47cc169fd1018ea74e57d8331a75c298f5e4b278d066def50cb2",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 305,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 75,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "stockCandidates",
+        "category": "own",
+        "file": "dist/entry-core.js",
+        "sourceSha256": "5ec933bc040ce0a82eb56faa768abc30789c37fb683385f645fdf3ecf7248cd3",
+        "start": 4344,
+        "end": 6493,
+        "lineStart": 52,
+        "lineEnd": 70,
+        "fragmentSha256": "c5d9f9c14d92aeb09c0eca6dd4769ef1f5e80765db64e92ea4a1ea785e4b0364",
+        "resultSha256": "7c0eec93dcc9288322b958bfd845993740b6aa127deaa9222e54e3bd3321b680",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2173,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 548,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "stageStock",
+        "category": "own",
+        "file": "dist/entry-core.js",
+        "sourceSha256": "5ec933bc040ce0a82eb56faa768abc30789c37fb683385f645fdf3ecf7248cd3",
+        "start": 15091,
+        "end": 17111,
+        "lineStart": 172,
+        "lineEnd": 188,
+        "fragmentSha256": "59f81a5764badc46a82b76a7914031d2f26ecf4a15e7d09845f238608a5cda7e",
+        "resultSha256": "aa28cf0a431c188189df36457638568c93de4efe0d5baed0db5a7b6326035328",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2420,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 381,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "browser": {
+    "originalPopup": "Direct read-only navigation to source-identified ESG002P_01 redirected to ECOUNT login; no settings or document input submitted",
+    "reaDraft": "Tab21 preserved; getJsDialog returned none. No close/reload/discard performed.",
+    "moa": "Previous login-required state retained; no save attempted this run"
+  },
+  "vendorComparison": {
+    "requirement": "REQ-PUR-PRICE-001",
+    "confirmedMaxVendors": 5,
+    "basis": "Existing reviewed EC-HELP-REQUEST-036",
+    "videoId": "FjIB7_f4lCE",
+    "transcriptResult": "Connector returned Unexpected response type; no transcript evidence accepted",
+    "detailContractUnresolved": true
+  },
+  "changes": {
+    "applicationCode": false,
+    "runtimeBundle": false,
+    "schemaOrData": false,
+    "originalWrites": false,
+    "mailSent": false,
+    "deployment": false,
+    "candidate0531Changed": false,
+    "communityPublished": false
+  },
+  "next": [
+    "Authenticated original quantity popup: observe six options/defaults and read public script URLs without saving",
+    "Retrieve exact calculation popup source and analyze minimum-unit arithmetic/zero-negative/precision/duplicates/date and warehouse scopes",
+    "Only after contract resolution, implement separate preview and atomic commit with version/permission/link preservation checks",
+    "Keep candidate0.53.1 deployment gates and VAT conflict unresolved; do not restart main bundle"
+  ]
+}
