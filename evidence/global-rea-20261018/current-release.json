@@ -210,7 +210,20 @@
       "implementationSourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
       "calculationEvidenceConflict": true,
       "conflictingSyntheticCases": 5,
-      "calculationParityVerified": false
+      "calculationParityVerified": false,
+      "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json"
+    },
+    "independentWork": {
+      "requirement": "REQ-PUR-FLOW-001",
+      "status": "link-preservation-locally-verified-not-deployed",
+      "sourceCommit": "6f1a01766d757406c02b545dd8f71b9158b21b7e",
+      "plan": "docs/plan-manual-purchase-gaps-20261021.md",
+      "evidence": "evidence/manual-purchase-link-preservation-20261021.json",
+      "newLinkNodeTests": 15,
+      "newFrozenVatTests": 6,
+      "localhostBrowserTests": 34,
+      "deploymentPending": true,
+      "done": false
     }
   }
 }

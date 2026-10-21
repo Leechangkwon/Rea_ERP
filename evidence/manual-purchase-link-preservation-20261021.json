@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "sourceCommit": "6f1a01766d757406c02b545dd8f71b9158b21b7e",
+  "operatingVersion": "0.53.0",
+  "status": "locally-verified-not-deployed",
+  "done": false,
+  "scope": "Purchase five-stage review, linked voucher integrity and frozen VAT v1 preservation; not original-runtime parity",
+  "manual": {
+    "id": "EC-HELP-REQUEST-036",
+    "title": "구매관리 각 메뉴별 기능 소개",
+    "bodySha256": "2cfee5d178a088001ea331684c9044fecf21f6f6ff6795f8d90f810724af36e9",
+    "localArtifact": ".artifacts/manual-parity-20261021/manual-purchase-overview.txt",
+    "previousBodyReviewReused": true,
+    "newOriginalUiObservation": false
+  },
+  "fiveStageFindings": [
+    {
+      "topic": "Selective stage imports",
+      "result": "Generic EntryCore copy picker includes all document types; lack of a nextTypes edge does not mean missing copy import. Linked residual rules remain unchanged."
+    },
+    {
+      "topic": "Stock and payables",
+      "result": "First four stages do not create stock movements; purchase increases stock and payables. Existing core reused; full manual acceptance remains pending."
+    },
+    {
+      "topic": "Vendor reply comparison",
+      "result": "Dedicated up-to-five-vendor quotation comparison/reply structure and UI not found in inspected entry, inventory, plan and purchase-room paths. Generic pricerequest exists."
+    },
+    {
+      "topic": "Minimum purchase unit",
+      "result": "ItemCore minPurchaseQty field exists; stock/safety shortage and purchase-plan generation inspected paths do not consume it. Original minimum versus multiple rounding rule unverified."
+    },
+    {
+      "topic": "Accounting",
+      "result": "Local accounted status is not evidence of real journal, tax-invoice or ledger integration."
+    }
+  ],
+  "defects": [
+    {
+      "reproduction": "Purchase order V1/W1 quantity10 -> linked purchase4 -> change parent partner or warehouse -> child memo save failed.",
+      "fix": "Reject parent edits introducing new header mismatches with active direct sourceId children; preserve empty partner and transfer destination exceptions."
+    },
+    {
+      "reproduction": "Cancel/hold/unconfirm purchase -> change parent header -> reactivate purchase -> old mismatched stock/payable became active.",
+      "fix": "Validate newly activated direct links against final batch source state; rollback the entire command on any failure. Parent/child selection order independent."
+    }
+  ],
+  "compatibility": {
+    "legacyBackupsRetroactivelyRejected": false,
+    "legacyActiveMismatchAutomaticallyRewritten": false,
+    "canceledChildrenAutomaticallyChanged": false,
+    "existingCancellationRulesChanged": false,
+    "version1CalculationChanged": false,
+    "schemaMigrationPerformed": false,
+    "settingsFormsMailAutomaticallyChanged": false
+  },
+  "frozenV1": {
+    "fixture": "tests/fixtures/transaction-vat-v1-backup.json",
+    "producerCommit": "4f1e23c08d8d3535ed68f6df65f51ab7f980a829",
+    "syntheticDocuments": 5,
+    "tests": 6,
+    "testsRegenerateFixture": false,
+    "covers": [
+      "unchanged backup amounts and versions",
+      "exact mail normalization",
+      "older client memo edit",
+      "unknown/coerced version rejection",
+      "partial and final return conservation",
+      "item-code rename"
+    ]
+  },
+  "implementationFiles": [
+    {
+      "file": "dist/inventory-core.js",
+      "sha256": "8000cb7860e7ff79fd1da9b4bf0609e7bf56207bd077e15c0c0c436034805341"
+    },
+    {
+      "file": "package.json",
+      "sha256": "ff83a3ad8a041c0e04e57af81afe49a3dead0468b2481606e898329a749e2f51"
+    },
+    {
+      "file": "tests/purchase-link-preservation.cjs",
+      "sha256": "bc644fa941b2fc1fc7a499ba057866706085e353375caf32fced7f404596d6b0"
+    },
+    {
+      "file": "tests/transaction-vat-v1-preservation.cjs",
+      "sha256": "51c6bbf7b3012d778c0eb0f6c96aa7eb4000f885ad528d304bdee9da853540bd"
+    },
+    {
+      "file": "tests/fixtures/transaction-vat-v1-backup.json",
+      "sha256": "67601aa659ebf371e1564e2684264f84d2ceee407c6d9f93624401e34b4cf0bf"
+    },
+    {
+      "file": "tests/browser/request.spec.cjs",
+      "sha256": "5e3bedcf76ae4d960fc8e5e01dcda315606d27e550a13c64093c8cdbd2789d24"
+    }
+  ],
+  "checks": {
+    "newLinkNodeTests": 15,
+    "newFrozenVatNodeTests": 6,
+    "newBrowserTests": 1,
+    "finalVerifyLocal": "passed",
+    "localhostBrowserTestsPassed": 34,
+    "finalLogSha256": "f6b6aa74623ebea8296dd713f4a2b98fd243a7c013b176379c16f48142935f07",
+    "screenshot": ".artifacts/manual-purchase-link-20261021/synthetic-header-rejection.png",
+    "screenshotSha256": "1ddc8ed1c18471f9137397d1b0b07c8fbbfa90d47692bf7043d6d9684adff110",
+    "visualReview": "Korean header, rejected warehouse change and saved quantities/amounts visible; synthetic localhost only",
+    "independentReview": "Initial review found source-edit defect; second review found reactivation bypass; final review found no further material issues, 15 link tests passed."
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 4,
+    "parseFailures": 0,
+    "coverage": [
+      "unknown"
+    ],
+    "anyTruncated": false,
+    "sourceAndInputHashesVerified": true,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "summarySha256": "2103a92dc07b58355460e86f0dfe598a362409df58b92d0248ddbfac7eacbf0f"
+  },
+  "productionReadOnly": {
+    "at": "2026-10-21T00:35:49.252358+00:00",
+    "operatingVersion": "0.53.0",
+    "operatingSource": "5fb78367028259e0ddca11be22a062b13f2e0105",
+    "checks": [
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "696953b70a3ca954c1db4b76bc9f86fc8ade91108b46e50dffb9e42628389f38",
+        "matchesOperatingCommit": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "94f1c75b7fccf7fff3acb502db39a7c298a83f57ea22cf53fe7ef479667c01f1",
+        "matchesOperatingCommit": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "path": "/self-core.js",
+        "status": 200,
+        "sha256": "9d67e787612b561e52171c36f3691cae998d8b3879409a9d1b00c0452f993211",
+        "matchesOperatingCommit": true,
+        "matchesWorkingTree": false
+      },
+      {
+        "path": "/self-ui.js",
+        "status": 200,
+        "sha256": "e75a27f015471107c34153653c251d0ff10582b7fb2c33c17e3ad0577b047c61",
+        "matchesOperatingCommit": true,
+        "matchesWorkingTree": false
+      }
+    ],
+    "serverRestarted": false,
+    "productionWrites": false
+  },
+  "preservation": {
+    "productionWrites": false,
+    "originalErpWrites": false,
+    "serverRestarted": false,
+    "deploymentPerformed": false,
+    "emailsSent": false,
+    "existingBrowserDraftDiscarded": false,
+    "hostedBrowserFullJsonComparison": "pending; retained prior stalled input tabs"
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "currentTabObserved": "login URL in existing browser inventory",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextActions": [
+    "Prepare isolated release for verified link fix excluding unfinished VAT changes; require operating browser preservation checks before deployment.",
+    "Resolve original VAT policy/exception conflicts and finish settings UI only from evidence.",
+    "Read original vendor comparison and minimum purchase unit procedures; do not infer unobserved arithmetic.",
+    "After authorized login reread existing Moa documents and append missing milestones only, then verify actual saved body."
+  ]
+}
