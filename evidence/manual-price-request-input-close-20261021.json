@@ -1,0 +1,242 @@
+{
+  "date": "2026-10-21",
+  "verifiedAtUtc": "2026-10-21T10:47:44.373003+00:00",
+  "requirement": "REQ-PUR-PRICE-001",
+  "version": "0.53.4",
+  "status": "deployed-preservation-verified-local-close-reopen-accepted-hosted-write-and-manual-parity-pending",
+  "done": false,
+  "sourceCommit": "6e140aa6d349067d14b758806e061b0125a2d488",
+  "releaseCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
+  "baseReleaseCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
+  "bundleSha256": "afa84209f75223aef31d95956aa0690e318f54dcc2afda5b151c6215ba8c00ba",
+  "manifest": ".artifacts/manual-price-close-20261021/candidate-manifest.json",
+  "reference": {
+    "source": "EC-VID-13917",
+    "url": "https://www.ecount.com/kr/popup/edu_movie/edu_video.aspx?page=3&v=FjIB7_f4lCE&id=13917",
+    "method": "Official embedded video read-only playback and 10-second controls via CUA",
+    "observed": [
+      {
+        "time": "03:28",
+        "file": "price-close-reference-3.png",
+        "finding": "Vendor columns have separate input close and cancel-close buttons; previous received prices remain visible."
+      },
+      {
+        "time": "03:30-03:36",
+        "finding": "Visible caption states input close prevents counterpart price changes; confirmed selection remains separate. Playback observed; 03:33 saved frame is a loading transition and caption only."
+      }
+    ],
+    "notVerified": [
+      "cancel-close execution in the original server",
+      "staff manual reply exception policy",
+      "external supplier authentication or server enforcement",
+      "confirmation dialog presence outside video",
+      "full manual parity"
+    ],
+    "originalBusinessWrites": false,
+    "artifacts": [
+      {
+        "file": "price-close-reference.png",
+        "sha256": "1935cdb1abd73f863e83c8774838690985b742164aa34b4267c1476085cc709a"
+      },
+      {
+        "file": "price-close-reference-ax.txt",
+        "sha256": "4de8741a2f342b7c66a2383ec26181bf327d3e133e49d8fa67e02a2a40288e94"
+      },
+      {
+        "file": "price-close-reference-3.png",
+        "sha256": "ef14130205f10f2e3daa9948e36942b63c6533c16a3b065aa2ff5a6d391811a7"
+      },
+      {
+        "file": "price-close-reference-3-ax.txt",
+        "sha256": "7acc473e651d692343b411cc84ec0c988f95a004033ab5da38a233c93a2477ef"
+      }
+    ]
+  },
+  "implementation": {
+    "files": [
+      "dist/price-request-ui.js",
+      "dist/inventory-ui.js"
+    ],
+    "readyComparisonVendorActions": [
+      "close",
+      "reopen"
+    ],
+    "singleExplicitCommit": true,
+    "draftSelectionHidesCloseButtons": true,
+    "actionTimeGuards": [
+      "read/write permission",
+      "user identity",
+      "raw storage baseline",
+      "source fingerprint",
+      "comparison revision",
+      "vendor availability",
+      "detached or dismissed event"
+    ],
+    "preserved": [
+      "requested prices",
+      "received prices and precision",
+      "confirmed selections",
+      "other vendors",
+      "source vouchers",
+      "special price list",
+      "forms"
+    ],
+    "usesExistingCoreCloseCommand": true,
+    "coreSchemaChanged": false,
+    "backendChanged": false,
+    "externalSupplierAuthImplemented": false
+  },
+  "validation": {
+    "candidateVerifyLocalPassed": true,
+    "candidateVerifyLog": ".artifacts/manual-price-close-20261021/verify-candidate.log",
+    "focusedNodePassed": 72,
+    "newNodeTests": 8,
+    "syntheticBrowserPassed": 41,
+    "newBrowserTests": 1,
+    "independentConflictChecks": 3,
+    "independentReview": "No significant correctness or regression findings. Three same-window source/revision/vendor changes reject stale close.",
+    "screenshotsReviewed": [
+      ".artifacts/releases/0.53.4-price-close/.artifacts/price-input-closed-desktop.png",
+      ".artifacts/releases/0.53.4-price-close/.artifacts/price-input-closed-mobile.png"
+    ],
+    "syntheticOnly": true
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 7,
+    "summary": ".artifacts/manual-price-close-20261021/rea/rea-summary.json",
+    "originalRoutingCacheHashVerified": true,
+    "originalCache": ".artifacts/manual-price-close-20261021/original-cache-check.json",
+    "parseFailures": 0,
+    "semanticCoverage": "unknown",
+    "truncated": false,
+    "runtimeEquivalenceProven": false,
+    "originalCodeExecuted": false
+  },
+  "deployment": {
+    "target": "existing WSL standalone + Supabase + Cloudflare Tunnel rea.qaredi.com",
+    "deployed": true,
+    "pushedBeforeDeploy": true,
+    "publicChecks": {
+      "version": "0.53.4",
+      "sourceCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/inventory-core.js",
+          "status": 200,
+          "sha256": "911eb31aa0542a85a89b291d84c3c4ef575511a8acafc7306410daadd18013ba",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-core.js",
+          "status": 200,
+          "sha256": "b02d6ab752983fa29797b5b1f74aa99f75d040eae28c2f393c0e8a4c6d2dbc65",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-ui.js",
+          "status": 200,
+          "sha256": "67bae0c1c76c01660ecafaaa9fcf6e0710bf092dbe4a5339336793cb3c4db586",
+          "equalsLocal": true
+        },
+        {
+          "path": "/price-request-ui.js",
+          "status": 200,
+          "sha256": "28976061bd92cdfb72fb0404917705d58d0b90355b26c0a2b03c0cf9131f6d22",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-ui.js",
+          "status": 200,
+          "sha256": "4ca36db8001522ba67682bd434cbcc030ffeb375e34a53f682776ef68ad4f69d",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "browser": {
+      "version": "0.53.4",
+      "existingLoginPreservedAfterReload": true,
+      "newLoginRequested": false,
+      "readOnlyPriceRequestListVerified": true,
+      "productionPriceRequestCount": 0,
+      "productionComparisonCount": 0,
+      "operatingBusinessWritePerformed": false,
+      "browserBackupBytesEqual": true,
+      "browserBackupSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "documentCount": 8
+    },
+    "serverAndMailPreservation": {
+      "version": "0.53.4",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 28,
+          "afterRevision": 28,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "backupDirectory": "/home/lck/.local/share/rea-erp/backups/price-close-0.53.4-1792579326823",
+    "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-close-20261021/rollback-0.53.3-worker.js",
+    "rollbackSha256": "712914484c93c8a0e2af86822d97526045444ec8d1038c89f7b11ec07bb44db9",
+    "runtimeEnvironmentChanged": false,
+    "originalErpWrites": false,
+    "realMailSent": false,
+    "sitesUsed": false,
+    "unfinishedVatIncluded": false
+  },
+  "remaining": [
+    "cancel-close execution in the original server",
+    "staff manual reply exception policy",
+    "external supplier authentication or server enforcement",
+    "confirmation dialog presence outside video",
+    "full manual parity",
+    "supplier registration/start UI",
+    "direct received-price entry UI",
+    "purchaseorder application and external reply flow",
+    "production close/reopen save acceptance; operating comparison records are zero"
+  ],
+  "moa": {
+    "parent": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "connectorCheck": "HTTP401",
+    "saved": false,
+    "readbackVerified": false,
+    "localRecord": "docs/manual-parity/PROGRESS.md",
+    "pendingBody": ".artifacts/manual-price-close-20261021/moa-pending-close.html"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "version": "0.53.3",
+  "version": "0.53.4",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,17 +114,21 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 40,
-    "currentReleaseVerifyLocalPassed": true
+    "currentReleaseBrowserSynthetic": 41,
+    "currentReleaseVerifyLocalPassed": true,
+    "priceInputCloseRelatedNode": 72,
+    "priceInputCloseNewNode": 8,
+    "priceInputCloseNewBrowser": 1,
+    "priceInputCloseIndependentConflictChecks": 3
   },
-  "future_research": "Operating 0.53.3 includes verified f181c53 purchasing candidate plus bounded staff session retention. Existing VAT nextWork unchanged; new purchasing hosted save/manual acceptance and Moa append/readback remain pending.",
+  "future_research": "Operating 0.53.4 adds guarded vendor input close/reopen to existing ready comparison records. Supplier start and direct reply UI need original field/save/cancel evidence. Existing VAT conflicts remain isolated; hosted write/manual acceptance and Moa append/readback are pending.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../session-retention-0533-20261021.json",
+    "reference": "../manual-price-request-input-close-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
-    "publicVersionVerified": "0.53.3",
+    "deployedSourceCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
+    "publicVersionVerified": "0.53.4",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -183,20 +187,23 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.53.3",
+    "existingSessionRetainedVersion": "0.53.4",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.53.3",
+    "lastExactBrowserBackupComparisonVersion": "0.53.4",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.53.3",
+    "currentServerStateAndMailPreservedVersion": "0.53.4",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.53.3"
+    "currentAuthenticatedSessionVerificationVersion": "0.53.4",
+    "priceRequestCloseReopenDeployed": true,
+    "priceRequestCloseReopenHostedSaveVerified": false,
+    "priceRequestComparisonOperatingCount": 0
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -436,7 +443,7 @@
     "nextIndependentWork": {
       "requirement": "REQ-PUR-PRICE-001",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
-      "description": "Observe supplier token registration and full direct-reply edit dialog field/save/cancel semantics, close/reopen, original default/header/partial radio rules. Connect verified picker/start/reply flows via guarded explicit commits, preserving original vouchers/forms/replies. Keep server role/company/CAS, PO allocation and external replies separate. Existing VAT nextWork unchanged; authenticated operating preservation and Moa append/readback pending."
+      "description": "Observe supplier token registration and full direct-reply edit dialog fields/save/cancel semantics and default/header/partial radio rules. Connect verified picker/start/reply UI through guarded explicit commits, preserving original vouchers/forms/replies. Per-vendor close/reopen is deployed in 0.53.4 for ready records; original server and external supplier exception policy remain unverified. Operating login and preservation verified; hosted business saves and Moa append/readback pending. Existing VAT nextWork unchanged."
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -481,13 +488,29 @@
       "deployedVersion": "0.53.3",
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
+    },
+    "priceRequestInputClose": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "status": "deployed-preservation-verified-local-close-reopen-accepted-hosted-write-and-manual-parity-pending",
+      "sourceCommit": "6e140aa6d349067d14b758806e061b0125a2d488",
+      "evidence": "evidence/manual-price-request-input-close-20261021.json",
+      "deployedVersion": "0.53.4",
+      "deployedCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
+      "relatedNodeTests": 72,
+      "newNodeTests": 8,
+      "browserTests": 41,
+      "newBrowserTests": 1,
+      "ownReaScopes": 7,
+      "productionDeployed": true,
+      "hostedWriteAcceptancePending": true,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.53.3",
-    "commit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
-    "manifest": ".artifacts/session-retention-20261021/candidate-manifest.json",
-    "bundleSha256": "712914484c93c8a0e2af86822d97526045444ec8d1038c89f7b11ec07bb44db9",
+    "version": "0.53.4",
+    "commit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
+    "manifest": ".artifacts/manual-price-close-20261021/candidate-manifest.json",
+    "bundleSha256": "afa84209f75223aef31d95956aa0690e318f54dcc2afda5b151c6215ba8c00ba",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -497,9 +520,10 @@
       "price-request-optional-comparison-storage-backup",
       "price-request-read-only-comparison-view",
       "price-request-explicit-confirmed-selection",
-      "bounded-staff-session-retention"
+      "bounded-staff-session-retention",
+      "price-request-vendor-input-close-reopen"
     ],
-    "supersedesCandidateCommit": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+    "supersedesCandidateCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
