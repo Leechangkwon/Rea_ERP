@@ -104,13 +104,13 @@ function create(request,vendorCodes){
 }
 function command(state,request,input){
  validate(state,request);
- const fields={reply:['vendorCode','lineKey','price'],close:['vendorCode','closed'],select:['lineKey','source','vendorCode'],'clear-selection':['lineKey']};
+ const fields={reply:['vendorCode','lineKey','price'],close:['vendorCode','closed'],select:['lineKey','source','vendorCode'],selectMany:['selections'],'clear-selection':['lineKey']};
  if(!input||!Object.hasOwn(fields,input.type))fail('지원하지 않는 단가 비교 작업입니다.');
  record(input,['type','expectedRevision',...fields[input.type]],'단가 비교 작업');
  if(input.expectedRevision!==state.revision||!Number.isSafeInteger(input.expectedRevision)||state.revision===Number.MAX_SAFE_INTEGER)fail('단가 비교 수정번호가 변경되었습니다. 다시 불러오세요.');
  const next=copy(state),vendor=next.vendors.find(row=>row.code===input.vendorCode);
  if(['reply','close'].includes(input.type)&&!vendor)fail('요청 거래처가 없습니다.');
- if(input.type!=='close'&&!next.source.lines.some(row=>row.lineKey===input.lineKey))fail('단가요청 품목행이 없습니다.');
+ if(!['close','selectMany'].includes(input.type)&&!next.source.lines.some(row=>row.lineKey===input.lineKey))fail('단가요청 품목행이 없습니다.');
  if(input.type==='reply'){
   if(vendor.inputClosed)fail('입력 마감된 거래처입니다. 먼저 마감을 취소하세요.');
   const price=input.price===null?null:decimal(input.price),received=vendor.received.find(row=>row.lineKey===input.lineKey);
@@ -118,6 +118,17 @@ function command(state,request,input){
   received.price=price;
  }else if(input.type==='close'){
   if(typeof input.closed!=='boolean')fail('입력 마감 상태를 확인하세요.');vendor.inputClosed=input.closed;
+ }else if(input.type==='selectMany'){
+  const selections=denseArray(input.selections,'확정단가 선택');
+  if(selections.length<1||selections.length>MAX_LINES)fail('확정단가 선택은 1~500행이어야 합니다.');
+  const seen=new Set();
+  for(const choice of selections){
+   record(choice,['lineKey','source','vendorCode'],'확정단가 선택');
+   if(seen.has(choice.lineKey))fail('중복된 확정단가 선택입니다.');seen.add(choice.lineKey);
+   const price=priceFor(next,choice.lineKey,choice.source,choice.vendorCode);
+   next.selections=next.selections.filter(row=>row.lineKey!==choice.lineKey).concat({...choice,price});
+  }
+  next.selections.sort((a,b)=>next.source.lines.findIndex(row=>row.lineKey===a.lineKey)-next.source.lines.findIndex(row=>row.lineKey===b.lineKey));
  }else if(input.type==='select'){
   const price=priceFor(next,input.lineKey,input.source,input.vendorCode),selection={lineKey:input.lineKey,source:input.source,vendorCode:input.vendorCode,price};
   next.selections=next.selections.filter(row=>row.lineKey!==input.lineKey).concat(selection);
@@ -160,7 +171,7 @@ function view(db,documentId,C){
  return {documentId,status:sourceStatus(row,db,C),revision:row.comparison.revision,rows:comparison(row.comparison,row.snapshot),snapshot:copy(row.snapshot)};
 }
 function storeCommand(db,input,C){
- const fields={start:['vendorCodes'],reply:['expectedRevision','vendorCode','lineKey','price'],close:['expectedRevision','vendorCode','closed'],select:['expectedRevision','lineKey','source','vendorCode'],'clear-selection':['expectedRevision','lineKey']};
+ const fields={start:['vendorCodes'],reply:['expectedRevision','vendorCode','lineKey','price'],close:['expectedRevision','vendorCode','closed'],select:['expectedRevision','lineKey','source','vendorCode'],selectMany:['expectedRevision','selections'],'clear-selection':['expectedRevision','lineKey']};
  if(!input||!Object.hasOwn(fields,input.action))fail('지원하지 않는 단가 비교 보관 작업입니다.');
  record(input,['action','documentId',...fields[input.action]],'단가 비교 보관 작업');code(input.documentId,'단가요청');
  const store=storeOf(db),existing=store.records.find(row=>row.documentId===input.documentId),source=db.documents.find(doc=>doc.id===input.documentId);

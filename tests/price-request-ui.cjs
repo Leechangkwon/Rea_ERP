@@ -11,13 +11,13 @@ function fixture({archive=true,stale=false}={}){
 function env({data=fixture(),read=true,write=false,user='owner',deferredClose=false}={}){
  const dom=new JSDOM('<!doctype html><html><body><button id="origin">open</button><main id="target"></main></body></html>',{url:'https://erp.test/',runScripts:'outside-only'}),w=dom.window,d=w.document,toasts=[];
  const pendingCloses=[];w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){if(!this.open)return;this.open=false;const fire=()=>this.dispatchEvent(new w.Event('close'));if(deferredClose)pendingCloses.push(fire);else fire();};
- let readable=read;w.AuthUI={state:()=>({user:{id:user}}),can:p=>p==='inventory.read'?readable:write,settings:()=>({conveniences:{pageSize:20}})};
+ let readable=read,writable=write;w.AuthUI={state:()=>({user:{id:user}}),can:p=>p==='inventory.read'?readable:writable,settings:()=>({conveniences:{pageSize:20}})};
  const key='ecount-inventory-v2'+(user==='owner'?'':':'+user);w.localStorage.setItem(key,JSON.stringify(data.db));
  for(const file of ['form-core.js','item-core.js','price-request-core.js','inventory-core.js','form-options.js','price-request-ui.js','inventory-ui.js'])w.eval(fs.readFileSync('dist/'+file,'utf8'));
  const stored=()=>w.localStorage.getItem(key),db=()=>w.JSON.parse(stored()),button=(text,scope=d)=>{const n=[...scope.querySelectorAll('button')].find(n=>n.textContent===text);assert.ok(n,'missing '+text);return n;};
  const open=()=>w.PriceRequestUI.open({documentId:data.id,canRead:()=>readable,getDb:db});
  const render=kind=>{w.InventoryUI.beforeNavigate();const target=d.getElementById('target');target.replaceChildren();const route=routes.find(r=>r.top===2&&C.resolve(r).docType==='pricerequest'&&C.resolve(r).kind===kind);assert.ok(route);w.InventoryUI.render(target,route,{rows:routes,open:()=>{},toast:m=>toasts.push(m)});};
- return {dom,w,d,key,data,stored,db,button,open,render,toasts,flushCloses:()=>{while(pendingCloses.length)pendingCloses.shift()();},setRead:value=>{readable=value;},dialog:()=>d.getElementById('price-request-dialog')};
+ return {dom,w,d,key,data,stored,db,button,open,render,toasts,flushCloses:()=>{while(pendingCloses.length)pendingCloses.shift()();},setRead:value=>{readable=value;},setWrite:value=>{writable=value;},dialog:()=>d.getElementById('price-request-dialog')};
 }
 function close(e){e.dom.window.close();}
 test('comparison separates requested, received zero/missing, selected decimal price and five vendors without writes',()=>{
@@ -66,4 +66,39 @@ test('switching logged-in identity cannot read the previous account comparison',
 
 test('deferred native close cannot retain replacement dialog or steal focus after menu navigation',()=>{
  const e=env({deferredClose:true}),before=e.stored(),origin=e.d.getElementById('origin');origin.focus();const old=e.open(),current=e.open();assert.equal(old.isConnected,false);assert.equal(e.d.querySelectorAll('#price-request-dialog').length,1);const currentFocus=e.d.activeElement;e.flushCloses();assert.equal(e.d.activeElement,currentFocus);assert.ok(current.open);e.open();e.w.InventoryUI.beforeNavigate();assert.equal(e.dialog(),null);e.flushCloses();assert.equal(e.dialog(),null);assert.equal(e.d.activeElement,origin);assert.equal(e.stored(),before);close(e);
+});
+
+
+const selectRadio=(e,label)=>{const radio=e.dialog().querySelector('input[aria-label="'+label+'"]');assert.ok(radio,label);radio.click();return radio;};
+const editable=()=>{const e=env({write:true});e.render('list');e.button('단가요청비교현황').click();e.button('확정단가선택/수정',e.dialog()).click();return e;};
+test('actual list adapter saves multiple explicit selections atomically and preserves source, forms and replies',()=>{
+ const e=editable(),before=e.db(),raw=e.stored();assert.equal(e.dialog().querySelectorAll('input:checked').length,1);assert.ok(e.button('단가확정/저장(F8)',e.dialog()).disabled);
+ selectRadio(e,'1행 V001 수취단가 선택');selectRadio(e,'2행 V002 수취단가 선택');assert.equal(e.stored(),raw);
+ e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.dialog().querySelectorAll('input:checked').length,2);assert.equal(e.stored(),raw);
+ e.button('단가확정/저장(F8)',e.dialog()).click();const db=e.db(),state=db.settings.priceRequests.records[0].comparison;
+ assert.equal(state.revision,6);assert.deepEqual(Array.from(state.selections,x=>x.price),['0','1.9999999999']);assert.equal(db.sequence,before.sequence+1);assert.equal(db.logs.length,before.logs.length+1);
+ for(const key of ['documents','prices','masters'])assert.equal(JSON.stringify(db[key]),JSON.stringify(before[key]));assert.equal(JSON.stringify(db.settings.customization),JSON.stringify(before.settings.customization));assert.equal(JSON.stringify(state.vendors),JSON.stringify(before.settings.priceRequests.records[0].comparison.vendors));assert.equal(e.dialog().querySelectorAll('input').length,0);assert.match(e.toasts.at(-1),/저장/);close(e);
+});
+test('missing reply cannot be selected, valid zero remains selectable and closing or Escape does not save',()=>{
+ for(const via of ['close','cancel']){const e=editable(),before=e.stored();assert.ok(e.dialog().querySelector('input[aria-label="1행 V003 수취단가 선택"]').disabled);selectRadio(e,'1행 V001 수취단가 선택');if(via==='close')e.button('닫기',e.dialog()).click();else e.dialog().dispatchEvent(new e.w.Event('cancel',{cancelable:true}));assert.equal(e.stored(),before);assert.equal(e.dialog(),null);close(e);}
+});
+test('plain F8 saves explicit request choice but modified keys and repeats do not',()=>{
+ const e=editable(),before=e.stored();selectRadio(e,'1행 요청단가 선택');
+ for(const extra of [{ctrlKey:true},{shiftKey:true},{repeat:true},{isComposing:true}])e.dialog().dispatchEvent(new e.w.KeyboardEvent('keydown',{key:'F8',bubbles:true,cancelable:true,...extra}));assert.equal(e.stored(),before);
+ e.dialog().dispatchEvent(new e.w.KeyboardEvent('keydown',{key:'F8',bubbles:true,cancelable:true}));assert.equal(e.db().settings.priceRequests.records[0].comparison.selections[0].price,'50000');assert.equal(e.db().settings.priceRequests.records[0].comparison.revision,6);close(e);
+});
+test('write revocation, identity switch and different-tab changes reject save at action time',()=>{
+ for(const mode of ['write','identity','storage']){const e=editable();selectRadio(e,'1행 요청단가 선택');if(mode==='write')e.setWrite(false);if(mode==='identity')e.w.AuthUI.state=()=>({user:{id:'another'}});if(mode==='storage'){const db=e.db();db.settings.allowNegative=!db.settings.allowNegative;e.w.localStorage.setItem(e.key,JSON.stringify(db));}const before=e.stored();e.button('단가확정/저장(F8)',e.dialog()).click();assert.equal(e.stored(),before);assert.match(e.dialog().querySelector('[role="alert"]').textContent,/권한|다른 화면/);if(mode==='identity')assert.equal(e.dialog().querySelector('table'),null);close(e);}
+});
+test('quota failure retains draft and supports one successful retry without duplicate mutations',()=>{
+ const e=editable(),before=e.stored();selectRadio(e,'1행 요청단가 선택');const set=e.w.Storage.prototype.setItem;e.w.Storage.prototype.setItem=()=>{throw Error('quota full');};e.button('단가확정/저장(F8)',e.dialog()).click();assert.equal(e.stored(),before);assert.match(e.dialog().textContent,/quota full/);assert.ok(e.dialog().querySelector('input[aria-label="1행 요청단가 선택"]').checked);e.w.Storage.prototype.setItem=set;e.button('단가확정/저장(F8)',e.dialog()).click();assert.equal(e.db().settings.priceRequests.records[0].comparison.revision,6);close(e);
+});
+test('history and unstarted requests never expose editing; read revocation clears active draft',()=>{
+ for(const data of [fixture({stale:true}),fixture({archive:false})]){const e=env({data,write:true});e.render('list');e.button('단가요청비교현황').click();assert.ok(e.button('확정단가선택/수정',e.dialog()).hidden);assert.ok(e.button('단가확정/저장(F8)',e.dialog()).hidden);close(e);}
+ const e=editable(),before=e.stored();selectRadio(e,'1행 요청단가 선택');e.setRead(false);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.dialog().querySelector('table'),null);assert.equal(e.dialog().querySelectorAll('input').length,0);assert.equal(e.stored(),before);close(e);
+});
+
+test('temporarily revoked write permission recovers preserved draft only when source remains unchanged',()=>{
+ const e=editable(),before=e.stored();selectRadio(e,'1행 요청단가 선택');e.setWrite(false);e.w.dispatchEvent(new e.w.Event('focus'));assert.ok(e.button('단가확정/저장(F8)',e.dialog()).disabled);assert.match(e.dialog().querySelector('[role="alert"]').textContent,/권한/);assert.equal(e.stored(),before);
+ e.setWrite(true);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.button('단가확정/저장(F8)',e.dialog()).disabled,false);assert.ok(e.dialog().querySelector('input[aria-label="1행 요청단가 선택"]').checked);e.button('단가확정/저장(F8)',e.dialog()).click();assert.equal(e.db().settings.priceRequests.records[0].comparison.revision,6);close(e);
 });
