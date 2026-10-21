@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.72.0 생성 후 머리 담당자 일괄지정
+
+PurchasePlanCore.preview는 기존 그룹·행·배분을 먼저 구성하고, 선택된 경우에만 생성 전표의 employee를 덮어쓴다. request.employeeOverride는 활성 등록코드여야 하며 기본 생략은 계획별 값을 보존한다. prepared request/snapshot과 commit 재검증으로 선택·원본·기초자료·권한 변경을 검사한다. UI 선택 변경은 prepared를 무효화하고 미리보기를 다시 요구한다. 원본 계획·계산·그룹·스키마·자료 변환은 없다. 담당자 지정으로 상이 머리값을 강제 병합하지 않는다. 다른 일괄필드의 계산/배분 계약은 별도 미완료다. 근거 evidence/manual-plan-generation-employee-20261022.json.
+
 ## 0.71.0 생성 미리보기의 조건·금액 표시
 
 PurchasePlanCore의 prepared.documents를 변경하지 않고 별도 fragment에 요약표·전표별 context를 준비한 뒤 성공 때만 미리보기 DOM을 교체한다. 담당자/프로젝트/창고/통화/세율/반올림/추가항목/원본계획을 textContent로 표시한다. 수량은일반숫자,금액·단가는formatNumber money:true를 사용한다. 표시실패 시 prepared를 폐기해 이전 화면으로 생성하지 못한다. 기존preview snapshot·commit/권한/storage guard는 그대로다. CSS는purchase-plan-dialog 한정36/44px와context grid이며 input/report 전역selector확대없음. 직접집계추가축·일괄변경 및 미선택 머리값 매핑은미구현, 새schema/자료변환없음. 근거 evidence/manual-plan-generation-review-20261022.json.

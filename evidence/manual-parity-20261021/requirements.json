@@ -1712,7 +1712,7 @@
         "직접설정 기준 예로 거래처·담당자를 사용할 수 있다",
         "생성 전에 전표별 담당자와 금액을 구분할 수 있다"
       ],
-      "status": "preview-context-subset-deployed-full-custom-mapping-pending",
+      "status": "preview-context-and-explicit-employee-subsets-deployed-full-custom-mapping-pending",
       "sourceLocator": {
         "artifact": ".artifacts/manual-plan-generation-review-20261022/manual-plan-generation-faq.txt",
         "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
@@ -1725,11 +1725,15 @@
       "role": "Manual does not state permission exceptions; existing inventory.write preserved",
       "implementationEvidence": [
         "dist/purchase-plan-ui.js",
-        "docs/plan-plan-generation-review-20261022.md"
+        "docs/plan-plan-generation-review-20261022.md",
+        "dist/purchase-plan-core.js",
+        "docs/plan-plan-generation-employee-20261022.md"
       ],
       "automatedEvidence": [
         "tests/plan-generation-preview.cjs",
-        "tests/browser/plan-generation-preview.spec.cjs"
+        "tests/browser/plan-generation-preview.spec.cjs",
+        "tests/plan-generation-employee.cjs",
+        "tests/browser/plan-generation-employee.spec.cjs"
       ],
       "remaining": [
         "담당자 외 일괄변경·직접설정 추가집계기준 미구현",
@@ -1739,18 +1743,24 @@
       ],
       "hostedAcceptance": false,
       "done": false,
-      "deploymentVersion": "0.71.0",
-      "deploymentEvidence": "evidence/manual-plan-generation-review-20261022.json",
+      "deploymentVersion": "0.72.0",
+      "deploymentEvidence": "evidence/manual-plan-generation-employee-20261022.json",
       "hostedVersionAssetAndEmptyLookupVerified": true,
       "employeeBatchSubset": {
-        "status": "candidate-synthetic-passed",
+        "status": "deployed-synthetic-verified-hosted-data-bearing-save-pending",
         "plan": "docs/plan-plan-generation-employee-20261022.md",
         "evidence": "evidence/manual-plan-generation-employee-20261022.json",
         "defaultBehavior": "preserve existing source-plan employee, original basic-input default not verified",
         "regrouping": false,
         "newNode": 9,
         "newBrowser": 3,
-        "done": false
+        "done": false,
+        "sourceCommit": "d49ea9e01c268f09e1f2d569fb87f96e064f754e",
+        "releaseCommit": "0ac0623714add5d5c94b642e37052161e1d4dbe0",
+        "deployedVersion": "0.72.0",
+        "fullBrowserPassed": 87,
+        "hostedExistingSessionRetained": true,
+        "hostedDataBearingSaveVerified": false
       }
     }
   ]

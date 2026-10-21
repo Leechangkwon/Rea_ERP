@@ -1,6 +1,6 @@
 {
   "version": "0.72.0",
-  "status": "isolated-candidate-passed-awaiting-deployment",
+  "status": "deployed-explicit-employee-override-and-preservation-verified-full-manual-pending",
   "plan": "docs/plan-plan-generation-employee-20261022.md",
   "requirement": "REQ-PUR-PLAN-003",
   "manual": {
@@ -135,7 +135,9 @@
     "fullBrowserPassed": 87,
     "fullVerifyLog": ".artifacts/manual-plan-generation-employee-20261022/full-verify.log",
     "fullVerifyLogSha256": "ea08d9a0c6dd405a5fc201505b1c443f3498838b86422e85d78140312815996a",
-    "testedBundleSha256": "8466276a430c1dc2d302cbbbc8960af7eb6459b99e755dea47e90c796bec6b9d"
+    "testedBundleSha256": "8466276a430c1dc2d302cbbbc8960af7eb6459b99e755dea47e90c796bec6b9d",
+    "verifyLocalPassed": true,
+    "browserSynthetic": 87
   },
   "acceptanceLimits": {
     "operatingPlans": 0,
@@ -156,5 +158,129 @@
     "saveAttempted": false,
     "readbackVerified": false,
     "authStateUnchangedNoRepeatedProbe": true
-  }
+  },
+  "sourceCommit": "d49ea9e01c268f09e1f2d569fb87f96e064f754e",
+  "releaseCommit": "0ac0623714add5d5c94b642e37052161e1d4dbe0",
+  "deployment": {
+    "version": "0.72.0",
+    "baseCommit": "c0c0a57197c0029f1b615919a396715d820bef3d",
+    "worktree": ".artifacts/releases/0.72.0-plan-generation-employee",
+    "branch": "release/0.72.0-plan-generation-employee",
+    "rootVatResearchIncluded": false,
+    "dependencySymlinkNotTracked": true,
+    "sourceCommit": "d49ea9e01c268f09e1f2d569fb87f96e064f754e",
+    "releaseCommit": "0ac0623714add5d5c94b642e37052161e1d4dbe0",
+    "bundleSha256": "8466276a430c1dc2d302cbbbc8960af7eb6459b99e755dea47e90c796bec6b9d",
+    "fullVerifyLocalPassed": true,
+    "fullBrowserPassed": 87,
+    "candidateManifest": ".artifacts/manual-plan-generation-employee-20261022/candidate-manifest.json",
+    "installed": true,
+    "pushedBeforeDeploy": true,
+    "runtimeSessionId": 8111,
+    "linuxPid": 2365026,
+    "sitesUsed": false,
+    "public": {
+      "version": "0.72.0",
+      "sourceCommit": "0ac0623714add5d5c94b642e37052161e1d4dbe0",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/purchase-plan-core.js",
+          "status": 200,
+          "sha256": "c6ac1e8ac5b375d71c70d08e3691b782bbc57ffa78582d7f7984e34b447f85a9",
+          "equalsLocal": true
+        },
+        {
+          "path": "/purchase-plan-ui.js",
+          "status": 200,
+          "sha256": "9a0f63a953dde638b12cff9d4df8ae348946c0b02ec580ea71c74e31e0ae4dca",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "rollback": ".artifacts/manual-plan-generation-employee-20261022/rollback-0.71.0-index.js"
+  },
+  "hosted": {
+    "version": "0.72.0",
+    "existingSessionRetained": true,
+    "operatingPlanCount": 0,
+    "emptyGenerationBlockedWith": "발주계획 품목행을 선택하세요.",
+    "assetHashesVerified": true,
+    "dataBearingPreviewVerified": false,
+    "businessWrites": false,
+    "settingsWrites": false,
+    "screenshot": ".artifacts/manual-plan-generation-employee-20261022/hosted-0.72.0.png",
+    "syntheticScreenshot": "plan-generation-employee-0.72.0.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.72.0",
+      "before": "ecount-inventory-2026-10-22 (29).json",
+      "after": "ecount-inventory-2026-10-22 (30).json",
+      "exactBytesEqual": true,
+      "exactJsonEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "operatingDocuments": 8,
+      "operatingPlans": 0,
+      "existingFormsExact": true,
+      "businessWrites": false,
+      "restored": false
+    },
+    "serverMail": {
+      "version": "0.72.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "afterUi": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/plan-generation-employee-0.72.0-1792622790387"
+  },
+  "nextWork": "다음은 같은 매뉴얼의 입고창고 일괄변경을 원본의 기본입력/직접입력·계획 배분의 출고/입고창고 보존 계약과 대조한다. 확인된 문서만으로 구현 가능한 나머지 필드부터 작은 단위로 진행하며, 세율·통화·창고에 따른 계산/배분을 추정해 덮어쓰지 않는다. 공개 popup/mapper 근거를 안전한 조회/도움말에서 확보하지 못하면 그 항목을 미완료로 남기고 다음 요청 업로드의 회사별 묶음/필수/부분실패 계약으로 이동한다. 직접설정 추가 집계축, 전표별 대표품목/수량·필터 합계, 상이단가 합산, VAT5·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본 작업탭 동등성은 남아 있다. 반영한 날짜조회·UI·미리보기·담당자 검사를 새 개발량으로 반복하지 않는다."
 }
