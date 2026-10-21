@@ -320,7 +320,7 @@
     const canRead=()=>typeof AuthUI==='undefined'||AuthUI.can('inventory.read')&&storageKey==='ecount-inventory-v2'+(AuthUI.state().user?.id!=='owner'?':'+(AuthUI.state().user?.id||'preview'):'');
     try{return PriceRequestUI.open({documentId,canRead,canWrite:()=>canRead()&&writeAllowed(),getDb:()=>{if(storageError)throw Error(storageError);assertStorageCurrent();return db;},onSave:payload=>{
       if(!canRead()||!writeAllowed())throw Error('단가 비교 저장 권한이 없습니다.');
-      if(payload.documentId!==documentId||payload.action!=='selectMany')throw Error('단가 확정 작업을 확인하세요.');
+      if(payload.documentId!==documentId||!['selectMany','close'].includes(payload.action))throw Error('단가 비교 작업을 확인하세요.');
       assertStorageCurrent();const result=commit('priceRequest',payload);if(!result)throw Error(lastCommitError);return result;
     }});}catch(e){ctx.toast(e.message);}
   }

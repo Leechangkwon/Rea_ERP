@@ -102,3 +102,38 @@ test('temporarily revoked write permission recovers preserved draft only when so
  const e=editable(),before=e.stored();selectRadio(e,'1행 요청단가 선택');e.setWrite(false);e.w.dispatchEvent(new e.w.Event('focus'));assert.ok(e.button('단가확정/저장(F8)',e.dialog()).disabled);assert.match(e.dialog().querySelector('[role="alert"]').textContent,/권한/);assert.equal(e.stored(),before);
  e.setWrite(true);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.button('단가확정/저장(F8)',e.dialog()).disabled,false);assert.ok(e.dialog().querySelector('input[aria-label="1행 요청단가 선택"]').checked);e.button('단가확정/저장(F8)',e.dialog()).click();assert.equal(e.db().settings.priceRequests.records[0].comparison.revision,6);close(e);
 });
+
+const closable=()=>{const e=env({write:true});e.render('list');e.button('단가요청비교현황').click();return e;};
+const closing=(e,code)=>{const el=e.dialog().querySelector('[data-vendor-close="'+code+'"]');assert.ok(el,'vendor close '+code);return el;};
+test('vendor close and reopen commit once without changing any price, selection or other vendor',()=>{
+ const e=closable(),before=e.db(),old=before.settings.priceRequests.records[0].comparison,button=closing(e,'V001');assert.equal(button.textContent,'입력마감');button.click();const after=e.db(),state=after.settings.priceRequests.records[0].comparison;
+ assert.equal(state.revision,old.revision+1);assert.equal(state.vendors[0].inputClosed,true);assert.equal(JSON.stringify(state.selections),JSON.stringify(old.selections));assert.equal(JSON.stringify(state.vendors[0].received),JSON.stringify(old.vendors[0].received));assert.equal(JSON.stringify(state.vendors.slice(1)),JSON.stringify(old.vendors.slice(1)));assert.equal(after.sequence,before.sequence+1);assert.equal(after.logs.length,before.logs.length+1);
+ for(const key of ['documents','prices','masters'])assert.equal(JSON.stringify(after[key]),JSON.stringify(before[key]));assert.equal(JSON.stringify(after.settings.customization),JSON.stringify(before.settings.customization));assert.equal(closing(e,'V001').textContent,'입력마감취소');assert.equal(e.d.activeElement,closing(e,'V001'));
+ assert.throws(()=>C.command(JSON.parse(JSON.stringify(after)),'priceRequest',{action:'reply',documentId:e.data.id,expectedRevision:6,vendorCode:'V001',lineKey:'id:b',price:7}),/마감/);
+ closing(e,'V001').click();const reopened=e.db(),last=reopened.settings.priceRequests.records[0].comparison;assert.equal(last.revision,7);assert.equal(last.vendors[0].inputClosed,false);assert.equal(JSON.stringify(last.vendors),JSON.stringify(old.vendors));assert.equal(JSON.stringify(last.selections),JSON.stringify(old.selections));assert.doesNotThrow(()=>C.command(JSON.parse(JSON.stringify(reopened)),'priceRequest',{action:'reply',documentId:e.data.id,expectedRevision:7,vendorCode:'V001',lineKey:'id:b',price:7}));close(e);
+});
+test('closing an already selected supplier retains confirmed price and empty replies remain absent',()=>{
+ const e=closable(),before=e.db().settings.priceRequests.records[0].comparison;assert.equal(closing(e,'V002').textContent,'입력마감취소');closing(e,'V002').click();closing(e,'V002').click();const next=e.db().settings.priceRequests.records[0].comparison;assert.equal(JSON.stringify(next.selections),JSON.stringify(before.selections));assert.equal(JSON.stringify(next.vendors),JSON.stringify(before.vendors));closing(e,'V003').click();assert.ok(e.db().settings.priceRequests.records[0].comparison.vendors[2].received.every(r=>r.price===null));close(e);
+});
+test('close actions are absent for read-only, unstarted and historical comparison views',()=>{
+ for(const config of [{write:false},{write:true,data:fixture({archive:false})},{write:true,data:fixture({stale:true})}]){const e=env(config),before=e.stored();e.render('list');e.button('단가요청비교현황').click();assert.equal(e.dialog().querySelectorAll('[data-vendor-close]').length,0);assert.equal(e.stored(),before);close(e);}
+});
+test('active price selection hides closing controls and preserves unsaved selections',()=>{
+ const e=closable(),obsolete=closing(e,'V001'),before=e.stored();e.button('확정단가선택/수정').click();selectRadio(e,'1행 V001 수취단가 선택');assert.equal(e.dialog().querySelectorAll('[data-vendor-close]').length,0);obsolete.click();assert.equal(e.stored(),before);assert.ok(e.dialog().querySelector('input[aria-label="1행 V001 수취단가 선택"]').checked);close(e);
+});
+test('close action rechecks permission identity storage and source state at click time',()=>{
+ for(const mode of ['permission','identity','storage','source','vendor','revision']){const e=closable(),button=closing(e,'V001');
+  if(mode==='permission')e.setWrite(false);if(mode==='identity')e.w.AuthUI.state=()=>({user:{id:'other'}});
+  if(['storage','source','vendor','revision'].includes(mode)){const db=e.db();if(mode==='storage')db.settings.allowNegative=!db.settings.allowNegative;if(mode==='source')db.documents.find(d=>d.id===e.data.id).memo='new';if(mode==='vendor')db.masters.partners.find(v=>v.code==='V001').disabled=true;if(mode==='revision')db.settings.priceRequests.records[0].comparison.revision++;e.w.localStorage.setItem(e.key,JSON.stringify(db));}
+  const before=e.stored();button.click();assert.equal(e.stored(),before,mode);assert.match(e.dialog().querySelector('[role="alert"]').textContent,/권한|다른 화면|변경/,mode);close(e);
+ }
+});
+test('quota failure keeps close state and retry changes it exactly once',()=>{
+ const e=closable(),before=e.stored(),set=e.w.Storage.prototype.setItem;e.w.Storage.prototype.setItem=()=>{throw Error('quota full');};closing(e,'V001').click();assert.equal(e.stored(),before);assert.equal(closing(e,'V001').textContent,'입력마감');assert.match(e.dialog().querySelector('[role="alert"]').textContent,/quota full/);e.w.Storage.prototype.setItem=set;closing(e,'V001').click();assert.equal(e.db().settings.priceRequests.records[0].comparison.revision,6);assert.equal(closing(e,'V001').textContent,'입력마감취소');close(e);
+});
+test('detached or dismissed close controls cannot commit duplicate or late state changes',()=>{
+ const e=closable(),old=closing(e,'V001');old.click();const saved=e.stored();old.click();assert.equal(e.stored(),saved);const current=closing(e,'V001');e.button('닫기').click();current.click();assert.equal(e.stored(),saved);close(e);
+});
+test('close permission disappears on focus and restores only when still authorized',()=>{
+ const e=closable(),before=e.stored();e.setWrite(false);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.dialog().querySelectorAll('[data-vendor-close]').length,0);e.setWrite(true);e.w.dispatchEvent(new e.w.Event('focus'));assert.equal(e.dialog().querySelectorAll('[data-vendor-close]').length,5);assert.equal(e.stored(),before);close(e);
+});
