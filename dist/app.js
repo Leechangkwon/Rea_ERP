@@ -104,6 +104,7 @@
     dismissTabManager(false);opened=remaining;
     if(closesCurrent){if(next)openMenu(next,true,true);else homePage(true,true);}
     else {renderTabs();el('tabs-manage')?.focus({preventScroll:true});}
+    for(const id of closing)InventoryUI.forgetView?.(id);
     toast(`${closing.size}개 작업 탭을 닫았습니다.`);
   }
   function renderMenuPage(){
@@ -116,7 +117,7 @@
     if(typeof SelfUI!=='undefined'&&SelfUI.has(row)){section.replaceChildren(heading);section.classList.remove('inventory-page');section.dataset.route=current;SelfUI.render(section,row,{toast,open:openMenu});return;}
     if(typeof ApiUI!=='undefined'&&ApiUI.has(row)){section.replaceChildren(heading);section.dataset.route=current;section.classList.remove('inventory-page');ApiUI.render(section,row,{toast});return;}
     const inventoryRow=row.top===2?row:row.top===0?rows.find(r=>r.top===2&&!r.branch&&r.name===row.name):null;
-    if(inventoryRow){section.replaceChildren(heading);section.dataset.route=current;section.classList.add('inventory-page');InventoryUI.render(section,inventoryRow,{rows,open:openMenu,toast});return;}
+    if(inventoryRow){section.replaceChildren(heading);section.dataset.route=current;section.classList.add('inventory-page');InventoryUI.render(section,inventoryRow,{rows,open:openMenu,toast,viewId:current});return;}
     section.classList.remove('inventory-page');
     const card=node('div',undefined,'scope-card');card.append(node('span','메뉴 연결 확인','scope-tag'),node('h2',row.name+' 메뉴를 열었습니다.'),node('p','이 화면은 메인·메뉴 탐색을 재현한 로컬 샘플입니다. 재고 I에서는 로컬 업무 자료를 등록하고 전표를 저장할 수 있습니다.'));
     if(row.branch){
