@@ -356,3 +356,15 @@ purchase-return-ui의 입력과 저장 객체를 분리하며 마지막 onCommit
 0.61.0은 기존 store version1을 유지하고 새 규칙만 conditionVersion1과1~3 conditions(AND)를 사용한다. flat rule의 source/conditions 미지 메타데이터는 종전 business 의미로 보존한다. 새 condition의 source는 business/session/client로 구분하며 ID는 AuthUI user.loginId, mode는 브라우저 모바일 신호/UA에서만 읽는다. FormCore.effective의 runtime resolver를 UI와 브라우저 업무 검증이 함께 사용하고 독립 Node 분석은 명시 environment 인자를 받을 수 있다. 없는 환경은 런타임 조건에 일치하지 않으며 runtime은 저장하지 않는다. 이 조건은 양식 메타데이터 선택이고 API/서버 권한을 확장하지 않는다. 공유자료/실제 두 사용자의 서버 합격은 미완료다.
 
 편집창과 양식 선택기는 생성 시 마운트 세대와 identity를 고정하고 연결상태/계정·회사/권한/양식 snapshot 및 기존 저장 CAS를 검사한다. 닫힘·화면교체·저장실패는 기존 자료를 보존한다. 원본 구매 v6의 flow editor와 추가 사용자 속성4개, 일괄인쇄 첫 전표 규칙은 후속 계약이다. 근거 evidence/manual-conditional-forms-20261022.json.
+
+## 2026-10-22 · 0.62.0 구매처 기본값과 구매관리 반응형 일관성
+
+사용자 신고13259/13261/13265를 우선해 원인을 수정했다. 품목 구매처 optional·선택/불러오기에서 기본값 누락, 세 조회 renderer의 DOM 차이와 상태줄 flex축소·mountOptions 재배치가 원인이었다. 신규 품목은 활성 등록 거래처 필수, 단일 선택 모달 검색/선택/신규 거래처 명시 저장 후 부모 품목 초안 복귀를 연결했다. 기존 공란 품목/백업/양식은 자동변환하지 않는다. 행 명시값→구매계열 머리 거래처→품목 기본값 순서이며 판매 주문 고객은 구매처로 상속하지 않는다. 수동 행값은 품목 변경/행 추가 재렌더에도 보존한다.
+
+신규 거래처→품목→요청 저장/재조회→계획 불러오기/저장/재조회→단일 발주서 생성/재조회에서 구매처 추가 선택 없이 성공했다. 계획조회 생성뿐 아니라 발주서 입력 copy/linked 불러오기와 직접 변환 경로도 연결했다. 다중 구매처/미지정/사용중단·stale 참조는 명시 확인/오류로 남긴다. 등록된 거래처만 참조하며 신규 거래처와 부모 품목 저장은 각각 명시 동작이다. CSV 서버/브라우저 가져오기와 예제/API 필수값도 보완했다.
+
+요청/계획/단가요청/발주/구매 조회는 상태 전체행→빠른검색·양식→상세검색→표→하단 작업 공통 slot으로 맞췄다. 44px 터치, 입력 도구 격자·My품목 분할버튼, 모바일 저장 버튼의 입력칸 가림을 수정했다. 신규Node11·브라우저8, 전체 verify:local/브라우저61, 실제 styles+shell의26개 화면/폭 조합(390/768/1024/1280) 통과. 독립 검토에서 설정 늦은 저장·머리/행 수동값·별도 plan→PO 불러오기 누락을 수정했고 계정/회사/read/write/CAS/quota/cancel/detached 재현을 확인했다. REA6.4.0 자체8범위 parse0/coverage unknown/truncated false. 원본 품목 공개 자산은 과거 해시와 달라 최신 동작 근거로 재사용하지 않았으며 과거 분석과 사용자 제보를 구분한다. 원본 서버 저장 동등성 완료는 아니다.
+
+소스 `f02093b`, 운영기반 c56d15b의 격리후보 `1dda446`를 push 후 기존 WSL·Supabase·Cloudflare rea.qaredi.com에 배포했다. 공개0.62.0/8자산 해시·접근차단·Supabase200, 기존 로그인 유지 및 품목 구매처/신규 거래처 모달 열기→취소·요청조회 배치를 확인했다. 운영 업무/설정 저장·메일발송·복원은 없다. 브라우저8전표/양식 JSON·서버app30/gateway0·runtime.env·메일3함8통1첨부 모두 전후 동일, restore preview0충돌/applied false. 현재 기존4품목 구매처 공란은 임의 지정하지 않고 유지하며 품목등록에서 한 번 지정해야 자동 상속된다.
+
+근거 `evidence/purchasing-supplier-layout-20261022.json`, 계획 `docs/plan-purchasing-supplier-layout-20261022.md`, manifest `.artifacts/purchasing-supplier-layout-20261022/candidate-manifest.json`. bundle SHA `9c52d684beac219a5ad3d77033cc945031fd30668bb043ad7c6eedda9c368fc5`. 롤백0.61.0 보존, 런타임 세션95720. main VAT5 미완료 빌드 설치 금지. 전체 매뉴얼13본문/24요구사항·합격0 유지. 다음은 원래 큐인 현대식 조건양식 사용자 속성/flow editor와 반품 confirmation/회계반영·전체수량/상이단가/작업탭 차이표로 복귀한다. 모아 마지막 저장/재조회0.51.0 이후 인증이 없어 41갱신 로컬 대기, 게시 완료로 처리하지 않는다.

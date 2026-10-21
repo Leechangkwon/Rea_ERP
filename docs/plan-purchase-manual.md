@@ -1,6 +1,14 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.61.0 운영
+## 현재 인계 · 0.62.0 운영
+
+운영 `release/0.62.0-purchasing-supplier-layout` / `1dda446`, 소스 `f02093b`. 사용자 신고 우선: 등록 구매처 필수/모달 선택·신규 등록, 품목→요청→계획→발주서 기본 거래처 연결·수동값 보존 및5조회 공통 반응형. 신규Node11/브라우저8, 전체 verify:local/브라우저61·26개 화면/폭 조합 통과. 독립 경계 재현 후 남은P1/P2없음. 기존 로그인 유지·품목/구매처/신규 모달 열기/취소·요청조회 배치 확인, 운영 업무/설정 저장·발송 없음.
+
+근거 `evidence/purchasing-supplier-layout-20261022.json`, 계획 `docs/plan-purchasing-supplier-layout-20261022.md`, manifest `.artifacts/purchasing-supplier-layout-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.62.0-purchasing-supplier-layout`. 실행 `rea-erp-dev run` 세션95720 유지. bundle SHA `9c52d684beac219a5ad3d77033cc945031fd30668bb043ad7c6eedda9c368fc5`, 롤백0.61.0 보존.8전표/양식·서버fresh app30/gateway0·메일3함8통1첨부 전후 동일. 기존4품목 구매처 공란은 보존했으며 품목등록에서 한 번 지정해야 자동 상속된다. main VAT5충돌 빌드 설치 금지.
+
+본문13/요구사항24·전체합격0. 다음은 원래 큐(조건양식 권한그룹/부서/직위·직급/직책·flow editor 계약, 반품 confirmation/회계반영 조회·전체수량/상이단가/작업탭)로 복귀한다. 원본 품목 공개 자산의 최신 해시가 과거와 달라 새 동등성 근거로 사용하지 않았다. 모아 마지막 게시0.51.0·인증401,41갱신 로컬 대기. 새 인증 없는 반복 오류 조회 금지. 아래는 과거 이력이다.
+
+## 이전 인계 · 0.61.0 운영
 
 운영 `release/0.61.0-conditional-forms` / `c56d15b`, 소스 `d65e9eb`. 기존 flat/store v1 보존·새 conditionVersion1 ID(loginId)/PC-MOBILE/최대3AND 조건 저장→재조회→입력/조회/인쇄. 신규Node17/관련56·전체 verify:local/브라우저53 통과. 독립5경계 수정·동일 재현 차단 확인. 기존 로그인·일반 구매44,000원 미리보기·빈 사용자양식 안내를 확인, 운영 설정/업무 저장 없음.
 
