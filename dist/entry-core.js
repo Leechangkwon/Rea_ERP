@@ -140,7 +140,7 @@
       if(!C.nextTypes[source.type]?.includes(result.type))throw Error('이 전표 종류는 잔량을 연결할 수 없습니다.');
       if(!(result.lines||[]).length){if(!result.partner&&!(source.type==='transfer'&&result.type==='sale'))result.partner=source.partner||'';if(!result.warehouse)result.warehouse=C.linkedWarehouse(source,result.type);}
       if(!C.linkedPartner(source,result.type,result.partner))throw Error('원본 전표와 거래처가 다릅니다.');
-      if(C.linkedWarehouse(source,result.type)!==result.warehouse)throw Error('원본 전표와 창고가 다릅니다.');
+      if(!C.linkedWarehouseMatches(source,result.type,result.warehouse))throw Error('원본 전표와 창고가 다릅니다.');
       if(result.type==='exchangereceipt'){if(source.settlementMode!=='exchange')throw Error('교환 방식의 반품 전표를 선택하세요.');result.settlementMode='exchange';}
     }
     enabled(db,'warehouses',result.warehouse);if(result.partner)enabled(db,'partners',result.partner);

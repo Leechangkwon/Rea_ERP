@@ -42,7 +42,7 @@ test('linked staging is unsaved, retains source details and prevents overconsump
 });
 test('linked staging rejects mismatched/multiple sources, conflicting header and unrelated rows',()=>{
  const db=fixture();db.documents=db.documents.filter(d=>d.id!=='FUTURE');const select={mode:'linked',selections:[{documentId:'PO',item:'A',qty:2}]};
- assert.throws(()=>E.stageDocuments(db,{...draft(),warehouse:'W2'},select),/창고/);assert.throws(()=>E.stageDocuments(db,{...draft(),partner:'C'},select),/거래처/);
+ assert.equal(E.stageDocuments(db,{...draft(),warehouse:'W2'},select).warehouse,'W2');assert.throws(()=>E.stageDocuments(db,{...draft(),partner:'C'},select),/거래처/);
  assert.throws(()=>E.stageDocuments(db,draft('sale'),select),/종류/);assert.throws(()=>E.stageDocuments(db,{...draft(),sourceId:'OTHER'},select),/다른 원본/);
  assert.throws(()=>E.stageDocuments(db,{...draft(),lines:[{item:'B',qty:1,price:1}]},select),/덮어쓰기/);
  assert.throws(()=>E.stageDocuments(db,draft(),{...select,selections:[...select.selections,{documentId:'OTHER',item:'A',qty:1}]}),/한 개/);
@@ -102,8 +102,8 @@ test('copy source catalog includes all inventory types with positive rows only',
  assert.deepEqual(new Set(E.sourceTypes),new Set(Object.keys(C.types)));const rows=E.documentCandidates(db,{mode:'copy'});assert.equal(rows.length,3);assert.deepEqual(rows.find(d=>d.id==='ADJUST').lines.map(l=>l.item),['B']);
  const staged=E.stageDocuments(db,draft(),{mode:'copy',selections:[{documentId:'MOVE',item:'A',qty:1}]});assert.equal(staged.lines[0].importedFrom[0].type,'transfer');assert.equal(staged.sourceId,undefined);
 });
-test('linked warehouse cannot be changed between staging and final save',()=>{
- const db=fixture();db.documents=db.documents.filter(d=>d.id!=='FUTURE');const before=JSON.stringify(db),staged=E.stageDocuments(db,draft(),{mode:'linked',selections:[{documentId:'PO',item:'A',qty:1}]});staged.warehouse='W2';assert.throws(()=>C.command(db,'document',staged),/원본 전표와 창고/);assert.equal(JSON.stringify(db),before);
+test('purchase receiving warehouse can be chosen after staging without altering source warehouse',()=>{
+ const db=fixture();db.documents=db.documents.filter(d=>d.id!=='FUTURE');const before=JSON.stringify(db),staged=E.stageDocuments(db,draft(),{mode:'linked',selections:[{documentId:'PO',item:'A',qty:1}]});staged.warehouse='W2';const saved=C.command(db,'document',staged);assert.equal(saved.result.warehouse,'W2');assert.equal(C.stock(saved.db,'A','W2'),C.stock(db,'A','W2')+1);assert.equal(saved.db.documents.find(d=>d.id==='PO').warehouse,'W1');assert.equal(JSON.stringify(db),before);
 });
 test('copy rows cannot be silently charged to a newly selected linked source',()=>{
  const db=fixture();db.documents=db.documents.filter(d=>d.id!=='FUTURE');db.documents.push({...structuredClone(db.documents[0]),id:'PO2'});const before=JSON.stringify(db);
