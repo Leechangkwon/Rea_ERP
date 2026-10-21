@@ -95,3 +95,12 @@
 .vat-review-dialog button.primary { background:#174a91; color:white; }
 
 .entry-secondary-actions.entry-price-request-secondary{display:block}
+
+/* Comparison keeps exact decimal strings and a keyboard-scrollable table. */
+.price-request-dialog{width:min(1180px,94vw);max-width:94vw;max-height:90vh;box-sizing:border-box;overflow:auto;padding:16px}
+.price-request-table-scroll{max-width:100%;overflow:auto;border:1px solid #d6dce6}
+.price-request-table{border-collapse:collapse;width:100%;min-width:680px;font-size:13px}
+.price-request-table th,.price-request-table td{padding:9px 10px;border:1px solid #d6dce6;text-align:left;white-space:nowrap}
+.price-request-table th{background:#eef2f7}.price-request-table .price-request-value{text-align:right;font-variant-numeric:tabular-nums}
+.price-request-dialog .inv-toolbar{position:sticky;bottom:0;background:white;padding-top:10px}
+@media(max-width:600px){.price-request-dialog{padding:12px}.price-request-dialog h2{font-size:18px}.price-request-dialog .inv-note{overflow-wrap:anywhere}}
