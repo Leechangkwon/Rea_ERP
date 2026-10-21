@@ -110,3 +110,21 @@ test('backup and every command validate original companion data before lossy JSO
  const snapshot=copy(db);snapshot.settings.priceRequests.records[0].snapshot.extra=undefined;assert.throws(()=>C.validateBackup(snapshot));assert.throws(()=>C.command(snapshot,'rebuild'));
  const absent=copy(db);absent.settings.priceRequests=undefined;assert.throws(()=>C.validateBackup(absent));assert.throws(()=>C.command(absent,'rebuild'));
 });
+
+
+test('atomic confirmed selections derive exact prices and advance only once, preserving all unrelated data',()=>{
+ let {db,id}=fixture();db=C.command(db,'document',{...db.documents.find(d=>d.id===id),lines:[{lineId:' A ',item:'M001',qty:100,price:50000},{lineId:'B',item:'M001',qty:1,price:2}]}).db;db=start(db,id).db;
+ db=edit(db,id,'reply',{vendorCode:'V001',lineKey:'id: A ',price:'0'}).db;db=edit(db,id,'reply',{vendorCode:'V002',lineKey:'id:B',price:'1.9999999999'}).db;
+ const before=preserved(db),revision=Q.view(db,id,C).revision,sequence=db.sequence,logs=db.logs.length;
+ const out=edit(db,id,'selectMany',{selections:[{lineKey:'id:B',source:'vendor',vendorCode:'V002'},{lineKey:'id: A ',source:'vendor',vendorCode:'V001'}]});
+ assert.deepEqual(preserved(out.db),before);assert.equal(out.db.sequence,sequence+1);assert.equal(out.db.logs.length,logs+1);assert.equal(out.result.revision,revision+1);assert.deepEqual(out.result.rows.map(r=>r.confirmed.price),['0','1.9999999999']);assert.deepEqual(C.validateBackup(copy(out.db)).settings.priceRequests,out.db.settings.priceRequests);
+});
+test('atomic confirmed choices reject every malformed batch without partially changing data',()=>{
+ const {db,id}=populated(),valid={lineKey:'id: A ',source:'request',vendorCode:null};
+ for(const selections of [[],null,Array(501).fill(valid),[valid,valid],[valid,{lineKey:'bad',source:'request',vendorCode:null}],[{...valid,price:'7'}],[{...valid,source:'vendor',vendorCode:'V001'}],[{...valid,vendorCode:'V002'}],[undefined],Array(1)])rejectUnchanged(db,()=>edit(db,id,'selectMany',{selections}));
+ rejectUnchanged(db,()=>run(db,id,'selectMany',{expectedRevision:0,selections:[valid]}),/수정번호/);
+});
+test('batch selection preserves unmentioned choices and accepts request prices without mutating original voucher',()=>{
+ const {db,id}=populated(),before=preserved(db);const out=edit(db,id,'selectMany',{selections:[{lineKey:'id: A ',source:'request',vendorCode:null}]});assert.equal(out.result.rows[0].confirmed.price,'50000');assert.deepEqual(preserved(out.db),before);
+ const changed=copy(db);changed.documents.find(d=>d.id===id).memo='later';rejectUnchanged(changed,()=>edit(changed,id,'selectMany',{selections:[{lineKey:'id: A ',source:'request',vendorCode:null}]}),/원본/);
+});

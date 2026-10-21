@@ -63,3 +63,37 @@ test('quote comparison list view preserves exact prices, remains read-only and f
  await expect(dialog.getByRole('alert')).toContainText('다른 화면');await expect(dialog.locator('table')).toHaveCount(0);
  await dialog.getByRole('button',{name:'닫기',exact:true}).click();await expect(dialog).toHaveCount(0);
 });
+
+
+test('confirmed price radios save only explicitly chosen rows and persist across reload',async({page})=>{
+ await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
+ await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
+ const id=await page.evaluate(()=>{
+  const C=InventoryCore;let db=JSON.parse(localStorage.getItem('ecount-inventory-v2'));
+  db=C.command(db,'master',{key:'partners',record:{code:'V002',name:'정밀단가 공급처',kind:'매입'}}).db;
+  const out=C.command(db,'document',{type:'pricerequest',date:C.today(),warehouse:'W001',partner:'V001',status:'진행',lines:[{lineId:'a',item:'M001',qty:100,price:50000},{lineId:'b',item:'M001',qty:2,price:1}]});db=out.db;const documentId=out.result.id;
+  db=C.command(db,'priceRequest',{action:'start',documentId,vendorCodes:['V001','V002']}).db;
+  db=C.command(db,'priceRequest',{action:'reply',documentId,expectedRevision:0,vendorCode:'V001',lineKey:'id:a',price:0}).db;
+  db=C.command(db,'priceRequest',{action:'reply',documentId,expectedRevision:1,vendorCode:'V002',lineKey:'id:b',price:'1.9999999999'}).db;
+  localStorage.setItem('ecount-inventory-v2',JSON.stringify(db));return documentId;
+ });
+ await page.reload();await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();await page.getByRole('button',{name:'단가요청조회',exact:true}).click();
+ const before=await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'));
+ await page.getByRole('button',{name:'단가요청비교현황',exact:true}).click();const dialog=page.getByRole('dialog',{name:'단가요청비교현황',exact:true});
+ await dialog.getByRole('button',{name:'확정단가선택/수정',exact:true}).click();await expect(dialog.locator('input:checked')).toHaveCount(0);
+ await dialog.getByRole('radio',{name:'1행 V001 수취단가 선택',exact:true}).check();await expect(dialog.getByRole('radio',{name:'1행 V002 수취단가 선택',exact:true})).toBeDisabled();
+ await page.keyboard.press('Escape');expect(await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'))).toBe(before);
+ await page.getByRole('button',{name:'단가요청비교현황',exact:true}).click();await dialog.getByRole('button',{name:'확정단가선택/수정',exact:true}).click();
+ await dialog.getByRole('radio',{name:'1행 V001 수취단가 선택',exact:true}).check();await dialog.getByRole('radio',{name:'2행 V002 수취단가 선택',exact:true}).check();
+ await page.screenshot({path:'.artifacts/price-selection-before-save.png',fullPage:true});
+ await page.keyboard.press('F8');await expect(dialog.locator('input')).toHaveCount(0);await expect(dialog.locator('tbody tr').nth(1).locator('td').nth(7)).toHaveText('1.9999999999');
+ await page.screenshot({path:'.artifacts/price-selection-saved.png',fullPage:true});
+ const saved=await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2')),old=JSON.parse(before),now=JSON.parse(saved);
+ expect(now.documents).toEqual(old.documents);expect(now.prices).toEqual(old.prices);expect(now.settings.customization).toEqual(old.settings.customization);expect(now.sequence).toBe(old.sequence+1);expect(now.settings.priceRequests.records[0].comparison.revision).toBe(3);
+ await dialog.getByRole('button',{name:'닫기',exact:true}).click();await page.reload();await page.getByRole('button',{name:'단가요청조회',exact:true}).click();await page.getByRole('button',{name:'단가요청비교현황',exact:true}).click();
+ await expect(dialog.locator('tbody tr').first().locator('td').nth(7)).toHaveText('0');await expect(dialog.locator('tbody tr').nth(1).locator('td').nth(7)).toHaveText('1.9999999999');
+ expect(await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'))).toBe(saved);
+ await dialog.getByRole('button',{name:'확정단가선택/수정',exact:true}).click();await dialog.getByRole('radio',{name:'1행 요청단가 선택',exact:true}).check();
+ const changed=await page.evaluate(id=>{const db=JSON.parse(localStorage.getItem('ecount-inventory-v2'));db.documents.find(d=>d.id===id).memo='concurrent update';const raw=JSON.stringify(db);localStorage.setItem('ecount-inventory-v2',raw);return raw;},id);
+ await dialog.getByRole('button',{name:'단가확정/저장(F8)',exact:true}).click();await expect(dialog.getByRole('alert')).toContainText('다른 화면');expect(await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'))).toBe(changed);
+});
