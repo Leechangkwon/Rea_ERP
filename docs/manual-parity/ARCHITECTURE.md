@@ -188,3 +188,8 @@ scripts/lib/transaction-vat-static-candidate.cjs는 저장v2가 아닌 연구 �
 ### 단계별 원본 행 식별자 계약 · 2026-10-21
 
 sourceLineId는 언제나 현재 전표의 sourceId가 가리키는 즉시 원본의 lineId에 대응한다. 원본 자체가 상위 전표에 연결되어 있다는 이유로 그 상위 sourceLineId를 다음 단계에 전달하지 않는다. 즉시 원본에 lineId가 없으면 기존 품목별 연결/잔량을 사용한다. 기존 백업의 부모 식별자는 보존하고, 모호한 중복 품목은 기존 저장 검증으로 거절한다. 새 ID 자동 이관·양식/출처/금액 변경은 없다. 근거 evidence/manual-purchase-source-lineage-20261021.json.
+
+
+### 묶음 발주 배분의 완료행 보호 · 59b2c4f
+
+saveDoc의 generatedFrom=purchase-plan 경로는 배분 구조/출처를 검증한 뒤 (원본전표, 품목, 원본행 ID 또는 없음)별 전체 수량을 합산한다. 완료 원본행의 새 배분 합계가 해당 전표의 이전 저장 합계보다 크면 거부한다. 이전 전표의 활성 여부와 무관하게 저장 수량을 기준으로 하므로 동량 취소·복원은 보존된다. 행 진행 상태를 헤더보다 우선하는 기존 규칙과 백업 검증 정책은 변경하지 않는다. 분할·재정렬·동량 가격 수정은 허용하고 기존 자료를 이관하거나 과거 완료 기록을 소급 거절하지 않는다. 원본 ECOUNT의 완료/복원 정책 전체가 검증됐다는 의미는 아니다. 근거 evidence/manual-plan-allocation-preservation-20261021.json.

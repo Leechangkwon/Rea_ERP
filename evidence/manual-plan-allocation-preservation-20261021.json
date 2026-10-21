@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "requirement": "REQ-PUR-FLOW-001",
+  "status": "locally-verified-isolated-candidate-not-deployed",
+  "done": false,
+  "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
+  "pushedToOriginMain": true,
+  "basis": {
+    "manualId": "EC-HELP-REQUEST-036",
+    "manualFile": ".artifacts/manual-parity-20261021/manual-purchase-overview.txt",
+    "manualSha256": "2cfee5d178a088001ea331684c9044fecf21f6f6ff6795f8d90f810724af36e9",
+    "manualScope": "Optional five-stage procurement; first four stages have no stock effect, purchase increases stock and payable",
+    "localContract": "The existing direct plan-to-order path rejects quantity increases on completed source rows; grouped allocations now enforce that same saved-quantity contract",
+    "originalCompletionAndRestorationPolicyVerified": false
+  },
+  "reproduction": {
+    "syntheticOnly": true,
+    "beforeTests": {
+      "total": 12,
+      "failed": 6,
+      "passed": 6
+    },
+    "observation": "Grouped order allocation qty2 could increase to3 after its source plan row completed, including total-preserving reallocation from another plan",
+    "log": ".artifacts/manual-plan-allocation-20261021/before.log"
+  },
+  "implementation": [
+    "Validate grouped allocation provenance before comparing quantities",
+    "Sum allocations across the complete voucher by source document, item and optional source line ID",
+    "Reject only new or increased quantity on completed source rows; any batch failure is atomic"
+  ],
+  "preserved": [
+    "Open source rows may increase and completed source rows may decrease",
+    "Same-quantity price and memo changes, allocation ordering and splitting",
+    "Same-quantity cancellation, hold, unconfirmation and restoration",
+    "Explicit line progress continues to take precedence over header progress",
+    "Historical backup records are not migrated or retrospectively rejected",
+    "Existing purchase receipts, stock, payable, custom settings and unrelated documents"
+  ],
+  "checks": {
+    "newNodeTests": 12,
+    "focusedNodeTests": 79,
+    "fullVerifyLocal": "passed",
+    "localhostBrowserTests": 37,
+    "newBrowserTests": 1,
+    "candidateFullVerifyLocal": "passed",
+    "candidateBrowserTests": 34,
+    "diffCheck": "passed",
+    "screenshot": ".artifacts/manual-plan-allocation-20261021/grouped-order-preserved.png",
+    "visualReview": "Grouped order detail shows locked item and quantity2, edited price150, supply300/tax30/total330, original plan link and retention notice; saved/reloaded data and existing receipt balances asserted in local browser",
+    "independentReview": {
+      "materialFindings": 0,
+      "relatedNodeTests": 73,
+      "sameQuantitySplitVariants": 99,
+      "additionalSyntheticScenarios": [
+        "Header completed with line explicitly in progress allows increases",
+        "Constant total reallocating to another completed source row rejected atomically",
+        "Inactive grouped orders cannot increase completed quantities but same-quantity memo changes remain valid"
+      ],
+      "newBrowserTestReview": "static only; browser execution by main agent"
+    },
+    "logs": [
+      {
+        "path": ".artifacts/manual-plan-allocation-20261021/before.log",
+        "sha256": "6d1d013821538d4d04e1eb11dd1a40c54b4fee1dbfef7b50b91c6cce41ecbb60"
+      },
+      {
+        "path": ".artifacts/manual-plan-allocation-20261021/focused.log",
+        "sha256": "a0aa4e394af9054d6a4a29c701a90c13e0cc26e943cf6dd6154c24b919808a7c"
+      },
+      {
+        "path": ".artifacts/manual-plan-allocation-20261021/browser-focused.log",
+        "sha256": "c4a2a8b0ca36fee57641fbedbf2eee7cd1a63b4addc4c04fa232627b11d5f8b5"
+      },
+      {
+        "path": ".artifacts/manual-plan-allocation-20261021/verify-main.log",
+        "sha256": "a440bd10011a202cc6315fc0bfcc8aa57fa5444b614384eca8353353527d2188"
+      },
+      {
+        "path": ".artifacts/manual-plan-allocation-20261021/verify-candidate.log",
+        "sha256": "5827c802f7baa51e49cbf49b5a8ce7d4ba02aa49253f76bf652bc63fe37051dd"
+      }
+    ]
+  },
+  "rea": {
+    "version": "6.4.0",
+    "mainOwnScopes": 3,
+    "isolatedCandidateMatchingSourceScopes": 3,
+    "candidateNewReaRuns": 0,
+    "candidateReuseEvidence": {
+      "matchingScopes": 3,
+      "reaVersion": "6.4.0",
+      "sameSourceFragments": true,
+      "fullCoreFilesSame": false,
+      "reaSummarySha256": "ba0a2e0384b04eeb01acc2fba62f978f7d6ec82d43f854e1639d6558815ba26e"
+    },
+    "originalScopesNew": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "anyTruncated": false,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "retainedOriginalSourceHashChecked": true,
+    "summarySha256": "ba0a2e0384b04eeb01acc2fba62f978f7d6ec82d43f854e1639d6558815ba26e",
+    "scopes": [
+      {
+        "name": "validateProvenance",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "74747640475c4d1e2dc52971791cb62f57d8fd029a7f14cc81e8b93fb008e85a",
+        "start": 28641,
+        "end": 30888,
+        "lineStart": 244,
+        "lineEnd": 263,
+        "fragmentSha256": "0d6f13da3c9ecf421b5f03f1918a6ae82218b24acd0b9d5323b1719f9d39929b",
+        "resultSha256": "85525e7a70ddaa76c7b0e64dd681fd216c897d0b3c46c2a5997fa04ca0a5f611",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2663,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 520,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validatePlanOrderRows",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "74747640475c4d1e2dc52971791cb62f57d8fd029a7f14cc81e8b93fb008e85a",
+        "start": 35705,
+        "end": 36903,
+        "lineStart": 316,
+        "lineEnd": 328,
+        "fragmentSha256": "46f885d92f24672741cefa4bb08ce4903c682c435717aed4b1a493078f37a1ec",
+        "resultSha256": "37e6126bf5d0b5fa05f500a3bcdc20c0dd41c473e821fee7940c0acc90e9ef20",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1344,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 248,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validateGroupedPlanProgress",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "74747640475c4d1e2dc52971791cb62f57d8fd029a7f14cc81e8b93fb008e85a",
+        "start": 36906,
+        "end": 38041,
+        "lineStart": 329,
+        "lineEnd": 343,
+        "fragmentSha256": "d61a50b17dfbf9799399bd7cec6630202759f620263e4f76c83a9740bef65c0a",
+        "resultSha256": "5711b3fbb9393599d146a57b30cda5970733040bec6315033edacf1b4ea9d637",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1185,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 232,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "dist/inventory-core.js",
+      "sha256": "74747640475c4d1e2dc52971791cb62f57d8fd029a7f14cc81e8b93fb008e85a"
+    },
+    {
+      "path": "tests/purchase-plan-allocation-preservation.cjs",
+      "sha256": "c1623359c6bfec32665e47982676bd96adaa5d0464b8a737ccc8b77654c0fad7"
+    },
+    {
+      "path": "tests/browser/request.spec.cjs",
+      "sha256": "7aa7472988efac86ae34eabb851ebce396736100186aa6f309720248adb0f7c5"
+    },
+    {
+      "path": "evidence/release-validation.json",
+      "sha256": "138d4ac8062ad7b627027c2d6376fba87b1c56410b93bf80620bdba012461a6d"
+    }
+  ],
+  "candidate": {
+    "candidateVersion": "0.53.1",
+    "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
+    "changedEmbeddedAssets": [
+      "/inventory-core.js"
+    ],
+    "embeddedAssetCount": 57,
+    "nonAssetDifference": "Only the same inventory-core source patch",
+    "workerEntrypointUnchanged": true,
+    "unfinishedVatAbsent": true,
+    "rollbackHashVerified": true,
+    "priorCandidateHashVerified": true,
+    "bundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "installedIntoOperatingRuntime": false,
+    "mainReaScopeReuse": {
+      "matchingScopes": 3,
+      "reaVersion": "6.4.0",
+      "sameSourceFragments": true,
+      "fullCoreFilesSame": false,
+      "reaSummarySha256": "ba0a2e0384b04eeb01acc2fba62f978f7d6ec82d43f854e1639d6558815ba26e"
+    },
+    "commit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "sourceCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "branch": "release/0.53.1",
+    "pushed": true,
+    "mainSourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
+    "manifest": {
+      "candidateCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+      "candidateSourceCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+      "candidateBranch": "release/0.53.1",
+      "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+      "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-plan-allocation-20261021/candidate-90958ac-worker.js",
+      "candidateBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+      "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+      "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+      "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+      "installedIntoOperatingRuntime": false,
+      "priorCandidateManifest": {
+        "candidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
+        "candidateBranch": "release/0.53.1",
+        "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+        "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-five-stage-20261021/candidate-226ef2f-worker.js",
+        "candidateBundleSha256": "f65cf0d2278022950f287be379edf608a6840336a625e7df68eb2d4dd8f2b656",
+        "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+        "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+        "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+        "installedIntoOperatingRuntime": false,
+        "priorCandidateManifest": {
+          "candidateCommit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
+          "candidateBranch": "release/0.53.1",
+          "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+          "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-plan-supplier-20261021/candidate-cef5a2c-worker.js",
+          "candidateBundleSha256": "5356365fb2f2bfb50d6ad11e92a9da562092c14a878ba4bff9614012135ae66a",
+          "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+          "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+          "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+          "installedIntoOperatingRuntime": false,
+          "priorCandidateManifest": {
+            "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+            "candidateBranch": "release/0.53.1",
+            "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+            "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/candidate-0c8e41f-worker.js",
+            "candidateBundleSha256": "4a5ba859eb3acf7eea4505cd4d48ceed2edbf3aca5e515ac6ee64162470e3fa9",
+            "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+            "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+            "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+            "installedIntoOperatingRuntime": false
+          },
+          "mainSourceCommit": "885b4b83a4312110e73fd7e13edb141b5480cb4e"
+        },
+        "mainSourceCommit": "0fb9e30626f37b6a8525cd87ffc6b0526f018ef9",
+        "candidateSourceCommit": "226ef2fa29929cfe9e8a1fd0eb98f554b07cd85a"
+      },
+      "mainSourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905"
+    },
+    "validationSha256": "71d8478ceb9b067279dc1f972b3e43fe6db3bdcfeff8acf60327adc216728faa",
+    "releaseValidationSha256": "4326cf6ff1303c406c8809a6a3bd5cbab707ae6947a1c7030bff69248e577547"
+  },
+  "preservation": {
+    "originalErpWrites": false,
+    "productionWrites": false,
+    "serverRestarted": false,
+    "schemaMigration": false,
+    "runtimeSettingsChanged": false,
+    "existingDraftDiscarded": false,
+    "mailSent": false,
+    "communitySaveAttempted": false,
+    "communityReadbackVerified": false
+  },
+  "deployment": {
+    "operatingVersion": "0.53.0",
+    "notRedeployed": true,
+    "lastPublicCheckReusedFromPriorEvidence": "2026-10-21T01:00:16Z",
+    "freshPublicCheckThisTurn": false,
+    "remainingGates": [
+      "Preserve/recover unsaved REA editor and compare browser JSON",
+      "Private account/state/mail backup and restore preview",
+      "Install isolated candidate, restart existing runtime and authenticated preservation checks",
+      "Append missing Moa progress and reread saved body"
+    ]
+  },
+  "nextWork": [
+    "Continue VAT dynamic field expressions, actual Decimal precision and current policy evidence without changing frozen v1 storage",
+    "Confirm plan quantity-adjustment and vendor-comparison contracts from official manual and read-only original screens when login is available"
+  ],
+  "officialRequirementCounts": {
+    "requirements": 13,
+    "reviewedLoginManualBodies": 4,
+    "done": 0
+  }
+}
