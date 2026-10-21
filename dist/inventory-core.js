@@ -151,6 +151,22 @@
   function structuredLines(db,d){return d.type==='purchaseorder'&&d.generatedFrom==='purchase-plan'||ownLineIds(d)||!!(d.sourceId&&db.documents.find(x=>x.id===d.sourceId)?.lines.some(l=>l.lineId));}
   function linkedWarehouse(source,type){return source.type==='transfer'&&type==='sale'?source.targetWarehouse:source.warehouse;}
   function linkedPartner(source,type,partner){return source.type==='transfer'&&type==='sale'||!source.partner||source.partner===partner;}
+  const linkedWarehouseTypes=['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'];
+  function validateLinkedSource(db,d){
+    const source=db.documents.find(x=>x.id===d.sourceId);
+    if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');
+    if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');
+    if(linkedWarehouseTypes.includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');
+    return source;
+  }
+  function validateLinkedHeaderChange(db,previous,next){
+    if(!previous||['partner','warehouse','targetWarehouse'].every(key=>previous[key]===next[key]))return;
+    // Guard newly broken links only. Never rewrite children or reinterpret historical backups.
+    for(const child of db.documents.filter(d=>d.sourceId===previous.id&&active(d))){
+      if(linkedPartner(previous,child.type,child.partner)&&!linkedPartner(next,child.type,child.partner))throw Error('연결된 후속 전표와 거래처가 달라지는 수정은 할 수 없습니다.');
+      if(linkedWarehouseTypes.includes(child.type)&&linkedWarehouse(previous,child.type)===child.warehouse&&linkedWarehouse(next,child.type)!==child.warehouse)throw Error('연결된 후속 전표와 창고가 달라지는 수정은 할 수 없습니다.');
+    }
+  }
   function payableImpact(d){return ['purchase','production'].includes(d.type)?1:d.type==='purchasereturn'&&d.settlementMode==='credit'?-1:0;}
   function setReturnAmounts(db,d){
     if(!['purchasereturn','exchangereceipt'].includes(d.type))return;
@@ -318,15 +334,13 @@
     if(purchasingTypes.includes(d.type)){for(const key of ['createdAt','modifiedAt']){if(index>=0&&db.documents[index][key]!==undefined)d[key]=db.documents[index][key];else delete d[key];}}
     if(index>=0){const old=db.documents[index];if(old.generatedFrom==='purchase-plan'&&d.generatedFrom!==old.generatedFrom)throw Error('발주계획 생성 연결은 제거할 수 없습니다.');if(old.sourceId&&(db.documents.find(x=>x.id===old.sourceId)?.generatedFrom==='purchase-plan'||['purchasereturn','exchangereceipt'].includes(old.type)||old.type==='transfer'||old.type==='sale'&&db.documents.find(x=>x.id===old.sourceId)?.type==='transfer')&&d.sourceId!==old.sourceId)throw Error('처리한 원본 전표 연결은 제거하거나 바꿀 수 없습니다.');}
     if(d.sourceId){
-      const source=db.documents.find(x=>x.id===d.sourceId);
-      if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');
-      if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');
-      if(['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'].includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');
+      const source=validateLinkedSource(db,d);
       validatePlanOrderRows(db,d,source);
     }
     d.status=statusValue(d.status);validatePurchasingState(d);if(!documentStatuses.includes(d.status))throw Error('처리 상태를 확인하세요.');
     d.id=d.id||`${d.type.toUpperCase()}-${d.date.replaceAll('-','')}-${String(++db.sequence).padStart(5,'0')}`;d.accounted=Boolean(d.accounted);
     if(d.accounted&&!active(d))throw Error('미확인·취소 전표는 회계반영할 수 없습니다.');
+    validateLinkedHeaderChange(db,previous,d);
     if(index<0)db.documents.push(d);else db.documents[index]=d;
     rebalanceReturnAmounts(db);validateLinks(db);validateStock(db);log(db,types[d.type]+' 저장: '+d.id);return d;
   }
@@ -356,6 +370,7 @@
   }
   function transition(db,{ids,status,accounted,confirmation,progress}){
     if(!Array.isArray(ids)||!ids.length||ids.length>500||new Set(ids).size!==ids.length)throw Error('변경할 전표를 중복 없이 1~500개 선택하세요.');
+    const inactiveBefore=new Set(db.documents.filter(d=>ids.includes(d.id)&&!active(d)).map(d=>d.id));
     if(status!==undefined&&status!=='')status=statusValue(status);
     if(confirmation!==undefined&&!['미확인','확인'].includes(confirmation)||progress!==undefined&&!['진행','완료'].includes(progress)||(status!==undefined||typeof accounted==='boolean')&&(confirmation!==undefined||progress!==undefined))throw Error('확인 여부와 진행상태를 확인하세요.');
     if(!documentStatuses.includes(status)&&typeof accounted!=='boolean'&&confirmation===undefined&&progress===undefined)throw Error('처리 상태를 확인하세요.');
@@ -363,6 +378,8 @@
         if(!purchasingTypes.includes(d.type)||!listed(d))throw Error('취소·보류 전표는 먼저 복원하세요.');
         const state=purchasingState(d);d.confirmation=confirmation??state.confirmation;d.progress=progress??state.progress;d.status=d.confirmation==='미확인'?'미확인':d.progress;
       }else {if(purchasingTypes.includes(d.type)&&(d.confirmation!==undefined||d.progress!==undefined)){const state=purchasingState(d);d.confirmation=['미확인'].includes(status)?'미확인':['확인','진행','완료'].includes(status)?'확인':state.confirmation;d.progress=['진행','완료'].includes(status)?status:state.progress;}d.status=status;}validatePurchasingState(d);}log(db,typeof accounted==='boolean'?'회계반영 변경: '+id:'전표 상태 변경: '+id+' / '+before+' → '+statusLabel(d)+((confirmation!==undefined||progress!==undefined)?' / 확인: '+beforeState.confirmation+' → '+purchasingState(d).confirmation+' / 진행: '+beforeState.progress+' → '+purchasingState(d).progress:''));}
+    // Validate after the whole batch so restoring parent and child is order independent.
+    for(const d of db.documents)if(inactiveBefore.has(d.id)&&active(d)&&d.sourceId)validateLinkedSource(db,d);
     rebalanceReturnAmounts(db);validateLinks(db);validateStock(db);for(const partner of db.masters.partners)for(const side of ['receivable','payable'])if(outstanding(db,side,partner.code)<-.001)throw Error('수금/지급 기록을 먼저 취소하세요.');return ids;
   }
   function planLineProgress(db,{selections,progress}){
