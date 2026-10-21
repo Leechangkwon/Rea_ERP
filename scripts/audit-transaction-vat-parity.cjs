@@ -4,6 +4,7 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),fixturePath=path.join(root,'tests/fixtures/transaction-vat-parity.json');
 const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
+const {previewStaticCandidate}=require('./lib/transaction-vat-static-candidate.cjs');
 const equalAmounts=(a,b)=>['supply','tax','total'].every(key=>a?.[key]===b?.[key]);
 function verifyEvidence(sources){
   const checked={};
@@ -32,10 +33,13 @@ function audit({fixtures=JSON.parse(fs.readFileSync(fixturePath,'utf8')),preview
       const value=item[key];if(!value||!['supply','tax','total'].every(k=>Number.isFinite(value[k])&&value[k]>=0)||Math.round(value.supply*100)+Math.round(value.tax*100)!==Math.round(value.total*100))throw Error('Invalid fixture amounts: '+item.id);
     }
     const result=preview(item.input),localMatches=equalAmounts(result.before,item.lineTotals)&&equalAmounts(result.after,item.manualGrossInterpretation),interpretationsAgree=equalAmounts(item.manualGrossInterpretation,item.staticRawSupplyInterpretation);
-    return {id:item.id,localMatchesManualInterpretation:localMatches,interpretationsAgree,current:{before:result.before,after:result.after},manualGrossInterpretation:item.manualGrossInterpretation,staticRawSupplyInterpretation:item.staticRawSupplyInterpretation,reason:item.reason,originalRuntimeObserved:false};
+    // Synthetic baseline only: these row amounts come from our v1 fixture preview, not original input data.
+    const candidate=previewStaticCandidate({basis:'domestic-price',currency:'KRW',vatRate:item.input.vatRate,digits:item.input.supplyRounding.digits,supplyMethod:item.input.supplyRounding.method,taxMethod:item.input.taxRounding.method,lines:item.input.lines.map((line,index)=>({id:'synthetic-'+index,item:line.item,qty:String(line.qty),price:String(line.price),supply:String(result.rows[index].before.supply),tax:String(result.rows[index].before.tax)}))});
+    const candidateMatchesStaticInterpretation=equalAmounts(Object.fromEntries(Object.entries(candidate.after).map(([key,value])=>[key,Number(value)])),item.staticRawSupplyInterpretation);
+    return {id:item.id,candidateMatchesStaticInterpretation,candidateBaseline:'synthetic-v1-preview-rows-not-original-observation',candidate,localMatchesManualInterpretation:localMatches,interpretationsAgree,current:{before:result.before,after:result.after},manualGrossInterpretation:item.manualGrossInterpretation,staticRawSupplyInterpretation:item.staticRawSupplyInterpretation,reason:item.reason,originalRuntimeObserved:false};
   });
-  const regressions=cases.filter(x=>!x.localMatchesManualInterpretation).length,conflicts=cases.filter(x=>!x.interpretationsAgree).length;
-  return {schemaVersion:1,status:regressions?'local-regression':'unresolved-evidence-conflict',fixtureSha256:hash(JSON.stringify(fixtures)),sources:fixtures.sources,sourceIntegrity:verifySources?verifyEvidence(fixtures.sources):{verified:false,reason:'Private source files were not requested; fixture-only audit.'},scope:fixtures.scope,caseCount:cases.length,regressionCount:regressions,agreementCount:cases.length-conflicts,conflictCount:conflicts,unverified:fixtures.unverified,cases,originalSourceExecuted:false,originalParityPassed:false,productionDataRead:false};
+  const candidateRegressions=cases.filter(x=>!x.candidateMatchesStaticInterpretation).length,regressions=cases.filter(x=>!x.localMatchesManualInterpretation||!x.candidateMatchesStaticInterpretation).length,conflicts=cases.filter(x=>!x.interpretationsAgree).length;
+  return {schemaVersion:1,status:regressions?'local-regression':'unresolved-evidence-conflict',fixtureSha256:hash(JSON.stringify(fixtures)),sources:fixtures.sources,sourceIntegrity:verifySources?verifyEvidence(fixtures.sources):{verified:false,reason:'Private source files were not requested; fixture-only audit.'},scope:fixtures.scope,caseCount:cases.length,candidateRegressionCount:candidateRegressions,regressionCount:regressions,agreementCount:cases.length-conflicts,conflictCount:conflicts,unverified:fixtures.unverified,cases,originalSourceExecuted:false,originalParityPassed:false,productionDataRead:false};
 }
 function exitCode(result,requireParity=false){return result.regressionCount?1:requireParity&&!result.originalParityPassed?2:0;}
 function cli(args){
@@ -48,7 +52,7 @@ function cli(args){
   }
   const result=audit({verifySources});
   if(output){const file=path.resolve(output);if(!file.startsWith(path.join(root,'.artifacts')+path.sep))throw Error('Audit output must be inside .artifacts');fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(result,null,2)+'\n');}
-  console.log(JSON.stringify({status:result.status,caseCount:result.caseCount,regressionCount:result.regressionCount,agreementCount:result.agreementCount,conflictCount:result.conflictCount,sourceIntegrityChecked:verifySources,originalParityPassed:result.originalParityPassed,originalSourceExecuted:false}));
+  console.log(JSON.stringify({status:result.status,caseCount:result.caseCount,candidateRegressionCount:result.candidateRegressionCount,regressionCount:result.regressionCount,agreementCount:result.agreementCount,conflictCount:result.conflictCount,sourceIntegrityChecked:verifySources,originalParityPassed:result.originalParityPassed,originalSourceExecuted:false}));
   return exitCode(result,requireParity);
 }
 module.exports={audit,exitCode,verifyEvidence};

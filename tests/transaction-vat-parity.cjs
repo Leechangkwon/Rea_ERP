@@ -4,13 +4,13 @@ const {audit,exitCode}=require('../scripts/audit-transaction-vat-parity.cjs');
 const fixtures=require('./fixtures/transaction-vat-parity.json'),clone=value=>JSON.parse(JSON.stringify(value));
 test('manual example alone is not parity: independent boundary fixtures expose five conflicts',()=>{
  const before=JSON.stringify(fixtures),result=audit();assert.equal(JSON.stringify(fixtures),before);
- assert.equal(result.caseCount,7);assert.equal(result.regressionCount,0);assert.equal(result.agreementCount,2);assert.equal(result.conflictCount,5);
+ assert.equal(result.caseCount,7);assert.equal(result.candidateRegressionCount,0);assert.ok(result.cases.every(x=>x.candidateMatchesStaticInterpretation&&x.candidate.canApply===false));assert.equal(result.regressionCount,0);assert.equal(result.agreementCount,2);assert.equal(result.conflictCount,5);
  assert.equal(result.originalParityPassed,false);assert.equal(result.originalSourceExecuted,false);assert.equal(result.productionDataRead,false);
  const sameGross=result.cases.find(x=>x.id==='same-gross-different-tax');assert.equal(sameGross.current.after.total,sameGross.staticRawSupplyInterpretation.total);assert.notEqual(sameGross.current.after.tax,sameGross.staticRawSupplyInterpretation.tax);
  assert.equal(exitCode(result),0);assert.equal(exitCode(result,true),2);
 });
 test('silently replacing the saved manual contract with the static interpretation fails the diagnostic',()=>{
- const result=audit({preview:doc=>{const expected=fixtures.cases.find(row=>JSON.stringify(row.input)===JSON.stringify(doc));return {before:expected.lineTotals,after:expected.staticRawSupplyInterpretation};}});
+ const result=audit({preview:doc=>{const expected=fixtures.cases.find(row=>JSON.stringify(row.input)===JSON.stringify(doc));return {...require('../dist/transaction-vat-core.js').preview(doc),before:expected.lineTotals,after:expected.staticRawSupplyInterpretation};}});
  assert.equal(result.regressionCount,5);assert.equal(result.status,'local-regression');assert.equal(exitCode(result),1);assert.equal(exitCode(result,true),1);
 });
 test('no-conflict and passing local amounts still cannot certify unobserved original behavior',()=>{
@@ -29,4 +29,9 @@ test('CLI strict parity check is nonzero while diagnostic mode passes without pr
 
 test('source-model assumptions cannot silently mix precision or include unmodeled price/rate cases',()=>{
  for(const change of [d=>d.cases[0].input.taxRounding.digits=2,d=>delete d.cases[0].input.supplyRounding,d=>d.cases[0].input.vatRate=7,d=>d.cases[0].input.currency='USD',d=>d.cases[0].input.lines[0].price=0,d=>d.cases[0].input.lines[0].discount=5,d=>delete d.cases[0].input.lines[0]]){const next=clone(fixtures);change(next);assert.throws(()=>audit({fixtures:next}),/Static comparison/);}
+});
+
+test('changing only the static expectation is caught by the independent candidate',()=>{
+ const altered=clone(fixtures);altered.cases[0].staticRawSupplyInterpretation.supply++;altered.cases[0].staticRawSupplyInterpretation.total++;
+ const result=audit({fixtures:altered});assert.equal(result.candidateRegressionCount,1);assert.equal(result.regressionCount,1);assert.equal(result.status,'local-regression');assert.equal(exitCode(result),1);assert.equal(exitCode(result,true),1);
 });
