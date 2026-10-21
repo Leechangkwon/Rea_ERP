@@ -27,3 +27,12 @@ test('plan quick Enter ignores composition, modified and held keys and closes su
 });
 
 test('plan multiple reference criteria require supplier and item on the same line without storing search changes',()=>{const f=fixture(true,db=>{db.masters.partners.push({code:'V2',name:'다른 공급처',side:'supplier'});db.masters.items.push({...db.masters.items.find(x=>x.code==='M001'),code:'X1',name:'다른 품목'});db.documents[0].lines[1]={...db.documents[0].lines[1],item:'X1',supplier:'V2'};return db;});try{const before=JSON.stringify(f.db());f.control('발주계획 거래처 필터').setReferenceValues(['V2']);f.control('발주계획 품목 필터').setReferenceValues(['M001']);f.click('검색(F8)');assert.match(f.host.textContent,/조건에 맞는 발주계획이 없습니다/);f.control('발주계획 거래처 필터').setReferenceValues(['V001','V2']);f.control('발주계획 품목 필터').setReferenceValues(['M001','X1']);f.click('검색(F8)');assert.equal(f.host.querySelectorAll('tbody tr').length,4);assert.equal(JSON.stringify(f.db()),before);assert.equal(f.control('수정일자순(정렬)'),null);}finally{f.w.close();}});
+
+test('101 selected plan rows remain selected after generation rejection; reducing to 100 recovers',()=>{
+ const f=fixture(true,db=>{db.documents=[{...db.documents[0],lines:Array.from({length:101},(_,i)=>({lineId:'LIMIT'+i,item:'M001',qty:1,price:100,supplier:'V001'}))}];return db;});try{
+  const before=JSON.stringify(f.db());
+  for(let page=0;page<3;page++){for(const c of f.host.querySelectorAll('input[aria-label^="계획 선택 "]'))c.click();if(page<2)f.click('다음 계획 목록');}
+  f.click('발주서 생성');assert.equal(f.generated(),undefined);assert.match(f.host.querySelector('[role=alert]').textContent,/100행/);assert.equal(f.control('계획 선택 '+f.id+'|LIMIT100').checked,true);assert.equal(JSON.stringify(f.db()),before);assert.equal(f.saved(),0);
+  f.control('계획 선택 '+f.id+'|LIMIT100').click();f.click('발주서 생성');assert.equal(f.generated().selections.length,100);assert.equal(f.generated().ids.length,1);assert.equal(JSON.stringify(f.db()),before);
+ }finally{f.dom.window.close();}
+});

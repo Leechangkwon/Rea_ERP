@@ -343,3 +343,15 @@ test('completed grouped plan orders retain quantity locks and allow price edits 
  await page.locator('#routes').getByRole('button',{name:'발주서조회',exact:true}).click();await page.locator('tbody .inv-link').click();
  await page.getByLabel('수량 1',{exact:true}).scrollIntoViewIfNeeded();await page.screenshot({path:'.artifacts/manual-plan-allocation-20261021/grouped-order-preserved.png',fullPage:true});
 });
+
+
+test('plan generation rejects 101 selected rows, retains selection and generates exactly 100 after reduction',async({page})=>{
+ const id=await page.evaluate(()=>{let db=InventoryUI.snapshot();const result=InventoryCore.command(db,'document',{type:'plan',date:InventoryCore.today(),dueDate:InventoryCore.today(),warehouse:'W001',status:'진행',lines:Array.from({length:101},(_,i)=>({lineId:'LIMIT'+i,item:'M001',supplier:'V001',qty:1,price:100}))});InventoryUI.replace(result.db);return result.result.id;});
+ const before=await documents(page);await page.locator('#routes').getByRole('button',{name:'발주계획조회',exact:true}).click();await page.getByLabel('발주계획 빠른검색').fill(id);await page.getByLabel('발주계획 빠른검색').press('Enter');
+ for(let n=0;n<3;n++){await page.getByLabel('현재 페이지 계획 전체 선택',{exact:true}).check();if(n<2)await page.getByRole('button',{name:'다음 계획 목록',exact:true}).click();}
+ await page.getByRole('button',{name:'발주서 생성',exact:true}).click();await expect(page.locator('#purchase-plan-dialog')).toHaveCount(0);await expect(page.getByRole('alert')).toContainText('100행');await expect(page.getByLabel('계획 선택 '+id+'|LIMIT100',{exact:true})).toBeChecked();expect(await documents(page)).toEqual(before);
+ await page.getByLabel('계획 선택 '+id+'|LIMIT100',{exact:true}).uncheck();await page.getByRole('button',{name:'발주서 생성',exact:true}).click();const dialog=page.locator('#purchase-plan-dialog');await expect(dialog).toBeVisible();await expect(dialog).toContainText('한 번에 100행');await dialog.getByRole('button',{name:'생성 미리보기',exact:true}).click();await expect(dialog.getByRole('button',{name:'발주서 일괄 생성',exact:true})).toBeEnabled();expect(await documents(page)).toEqual(before);
+ await dialog.getByRole('button',{name:'발주서 일괄 생성',exact:true}).click();await expect(dialog.getByRole('status')).toContainText('1건의 발주서를 생성');const after=await documents(page);expect(after.length).toBe(before.length+1);expect(after.filter(d=>before.some(old=>old.id===d.id))).toEqual(before);
+ const remaining=await page.evaluate(id=>{const db=InventoryUI.snapshot();InventoryCore.validateBackup(db);return InventoryCore.remaining(db,db.documents.find(d=>d.id===id),'purchaseorder').reduce((sum,l)=>sum+l.qty,0);},id);expect(remaining).toBe(1);
+ await page.screenshot({path:'.artifacts/plan-generation-limit-20261021/synthetic-100-row-generation.png',fullPage:true});
+});
