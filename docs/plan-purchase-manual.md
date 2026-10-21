@@ -1,5 +1,9 @@
 # 구매실 매뉴얼 기반 재현
 
+## 최신 개발 인계 · 0.53.2 후보 9e4efd1 / 운영0.53.1 유지
+
+발주계획 생성100선택 제한에 구매 입고창고 선택·검수/RACK 기록 보호를 추가한 분리후보 9e4efd1를 push했다. 전체 verify:local 종료0/브라우저36 통과다. 최신 manifest는 .artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json이며 이전 a71301a는 과거 후보다. 설치false, 운영 f5234fb7…는 그대로다. 아래 과거 개발 상태는 이력이다. 현재 계획은 docs/plan-manual-purchase-gaps-20261021.md 마지막 인계와 docs/manual-parity/ROADMAP.md를 따른다. 인증 후 운영UI/브라우저JSON 대조·새 비공개 백업·후보 설치/사후 보존·모아 누락분 저장/재조회가 남아 있다. main 미완료VAT 빌드로 재시작하지 않는다.
+
 ## 현재 운영 · 0.53.1 구매 연결 보호 (인증 후 검증 대기)
 
 2026-10-21 release/0.53.1의90958ac를 기존 WSL/Supabase/Cloudflare rea.qaredi.com에 반영했다. 공개 버전/변경 파일 해시·접근 차단과 서버 계정/설정/자료·메일 보존을 확인했다. 브라우저 정체가 해소되어0.53.0 최종 JSON 대조는 통과했다. 저장 세션은 배포 전에 이미 만료되어0.53.1 재로그인 후 UI·브라우저 백업 대조는 대기다. 모아도 로그인 복구 후 기존 본문 읽기→누락분 추가→저장 본문 재조회가 필요하다. 상세 근거는 evidence/deployment-purchase-links-0531-20261021.json 및 docs/manual-parity/PROGRESS.md다.

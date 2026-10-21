@@ -240,3 +240,12 @@ previewResolvedGroups는 각 행에 이미 결정된 numeric vatRate(검토범�
 PurchasePlanCore.MAX_SELECTIONS=100은 preview의 선택 원본행 수에 적용한다. 동일품목 합산 전 검증하며 commit이 preview를 다시 수행해 준비 결과의 선택수 변경도 거절한다. 목록 조기 검증과 미리보기 오류는 선택 상태를 유지한다. source candidateRows의 전체 목록·기존 전표/백업 검증·일반 저장 명령에100행 한도를 소급 적용하지 않는다. 수량조정의 별도500상세 제한과도 다른 계약이다. 원본 정적 handler의 checked 항목수 계약을 현재 자체 품목행 목록에 맞췄으며 원본 전표별 목록의 모든 모드/권한/저장 결과까지 입증하지는 않는다.
 
 분리후보0.53.2는 운영0.53.1 + 이 변경과 버전 표시만 포함하고 미완료VAT는 제외한다. 설치 전후 자료보존 게이트가 남아 있으며 현재 운영번들은 변경하지 않았다. evidence/manual-plan-generation-limit-20261021.json.
+
+
+### 구매의 실제 입고창고와 원본 잔량 분리 · b1f2292
+
+linkedWarehouseMatches는 purchaseorder→purchase 한 edge에서만 별도 입고창고를 허용한다. stageDocuments와 convert/save, 원본 헤더 변경·취소 복원 검사에 공유하며 기본 linkedWarehouse는 그대로여서 원본창고 검색·표시·명시 머리항목 적용은 유지된다. sourceId/sourceLineId별 잔량은 창고와 독립적으로 모든 구매에 합산하고 재고 이동은 실제 구매.warehouse에서 발생한다. 반품/교환·다른 edge는 기존 창고계약을 유지한다.
+
+validateReceiptWarehouseChange는 저장 직전에 이전/새 창고를 비교한다. 기존 purchase/exchangereceipt에 같은 documentId의 inspections/racks가 있으면 변경을 거절한다. 재고만 옮겨 기존 실물 기록과 분리되는 오류를 방지하며 백업 전체 검사에 새 제약을 추가하지 않는다. 기존 불일치 자료의 읽기·동일창고 저장과 검수 지문에 따른 재검수 동작은 유지한다. 원본 제품의 검수 제한을 확인했다는 주장은 아니며 자체 기존 실물 기록을 보존하는 가드다.
+
+분리후보0.53.2 9e4efd1는100선택 제한과 이번 변경을 포함한다. 이전 a71301a는 과거 후보이며 최신 번들/검사는 .artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json에 고정한다. main 미완료 VAT와 운영0.53.1을 분리하며 evidence/manual-purchase-receiving-warehouse-20261021.json를 따른다. 최종 매뉴얼 합격은 인증 후 절차·권한·결과·보존·운영 검증 후에만 판정한다.

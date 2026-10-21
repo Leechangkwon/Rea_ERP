@@ -1113,7 +1113,10 @@
       "sourceLineagePreservationEvidence": "evidence/manual-purchase-source-lineage-20261021.json",
       "localSourceLineageVerified": true,
       "completedPlanAllocationEvidence": "evidence/manual-plan-allocation-preservation-20261021.json",
-      "localCompletedPlanAllocationVerified": true
+      "localCompletedPlanAllocationVerified": true,
+      "purchaseReceivingWarehouseEvidence": "evidence/manual-purchase-receiving-warehouse-20261021.json",
+      "localPurchaseReceivingWarehouseVerified": true,
+      "purchaseOrderWarehouseEqualityCorrection": "Official inventory textbook physical page 18 permits selecting actual receiving warehouse after loading purchase order. Prior equality guard is corrected only for purchaseorder -> purchase. Inspection/rack warehouse changes remain guarded for preservation."
     },
     {
       "id": "REQ-PUR-PLAN-001",

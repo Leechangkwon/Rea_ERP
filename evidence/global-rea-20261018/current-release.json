@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1
   },
-  "future_research": "Operating 0.53.1 purchase-link fixes deployed; authenticated UI/post-browser backup pending login. VAT input expressions and plan quantity rules remain unresolved.",
+  "future_research": "Operating 0.53.1 retained. Prepared 0.53.2 9e4efd1 includes 100-selection limit and receiving warehouse preservation; authenticated UI/browser-backup acceptance, deployment pre/post preservation and Moa readback pending. Continue price-request comparison, quantity-rule and VAT input-expression evidence while login is unavailable.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../deployment-purchase-links-0531-20261021.json",
@@ -337,6 +337,38 @@
       "deploymentPending": true,
       "installedIntoOperatingRuntime": false,
       "done": false
+    },
+    "purchaseReceivingWarehouse": {
+      "requirement": "REQ-PUR-FLOW-001",
+      "sourceCommit": "b1f22928542dd395791589b13044e2e4054a3b37",
+      "candidateVersion": "0.53.2",
+      "candidateCommit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
+      "candidateBranch": "release/0.53.2",
+      "evidence": "evidence/manual-purchase-receiving-warehouse-20261021.json",
+      "status": "implemented-isolated-candidate-validated-production-pending",
+      "coreTests": 16,
+      "newUiTests": 2,
+      "candidateBrowserTests": 36,
+      "newBrowserTests": 1,
+      "ownMainScopes": 7,
+      "ownCandidateScopes": 7,
+      "deploymentPending": true,
+      "installedIntoOperatingRuntime": false,
+      "done": false
     }
+  },
+  "preparedCandidate": {
+    "version": "0.53.2",
+    "commit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
+    "manifest": ".artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json",
+    "bundleSha256": "5adc25a19255930821e14011ee917bc877818f48b6590f4c14775dfd37cd28bd",
+    "includes": [
+      "plan-generation-100-selection-limit",
+      "purchase-receiving-warehouse",
+      "inspection-rack-preservation"
+    ],
+    "supersedesCandidateCommit": "a71301a7f936f9785c25af1fc079991ca5d9f14f",
+    "installedIntoOperatingRuntime": false,
+    "authenticatedAcceptancePending": true
   }
 }

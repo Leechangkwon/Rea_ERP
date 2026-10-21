@@ -1,0 +1,609 @@
+{
+  "date": "2026-10-21",
+  "recordedAt": "2026-10-21T07:39:24.038096+00:00",
+  "feature": "purchase-order-receiving-warehouse-selection",
+  "requirement": "REQ-PUR-FLOW-001",
+  "status": "implemented-isolated-candidate-validated-production-pending",
+  "sourceCommit": "b1f22928542dd395791589b13044e2e4054a3b37",
+  "featureCommit": "d95be276f3a797f49493675c2accf9d85deab0ec",
+  "sourcePushed": true,
+  "candidateVersion": "0.53.2",
+  "candidateCommit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
+  "candidatePushed": true,
+  "originalEvidence": {
+    "url": "https://download.ecounterp.com/doc_Ecount_Inventory.pdf",
+    "physicalPage": 18,
+    "printedPage": 16,
+    "textAndRenderedPageReviewed": true,
+    "contract": "Purchase input loads a purchase order, then selects receiving warehouse/factory/subcontract factory according to situation before saving.",
+    "files": [
+      {
+        "path": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_Inventory.pdf",
+        "sha256": "2ca2197971caefe8a33af3b71c6a15baa82395b9616e53d983734e50c332d730"
+      },
+      {
+        "path": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_Inventory.pdf.page-18.txt",
+        "sha256": "bd850e08a1b4cc50641a09f052ad42dc9b17246c8c2a8976370d2cf61ac7dd7a"
+      },
+      {
+        "path": ".artifacts/manual-plan-quantity-20261021/doc_Ecount_Inventory.pdf.page-18.png",
+        "sha256": "37218160c5e1cc8cb9d600c144f4a429958a5591c90301fd0f50409c0ef11d68"
+      }
+    ],
+    "currentAuthenticatedUiVerified": false,
+    "originalCodeExecuted": false,
+    "originalServerReceivingPolicyVerified": false
+  },
+  "correction": {
+    "priorEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
+    "scope": "Purchase-order to purchase warehouse equality only; prior supplier protection and other edges remain.",
+    "before": "Different explicitly chosen receiving warehouse rejected by import, conversion and save.",
+    "after": "Chosen receiving warehouse retained; source order and settings unchanged; shared source remainder across receiving warehouses."
+  },
+  "implementation": {
+    "sourceFiles": [
+      "dist/inventory-core.js",
+      "dist/entry-core.js"
+    ],
+    "defaultWarehouse": "source warehouse when none chosen or explicit header adoption",
+    "independentWarehouseEdge": [
+      "purchaseorder",
+      "purchase"
+    ],
+    "sameSupplierRequired": true,
+    "sourceLineQuantityLimitsRetained": true,
+    "returnExchangeWarehouseRulesRetained": true,
+    "inspectionRackGuard": "Command-time warehouse change rejected if matching inspection or rack record exists for existing purchase/exchangereceipt. Same-warehouse memo edits and unrelated records remain valid.",
+    "schemaChanged": false,
+    "backupsRetroactivelyRestricted": false,
+    "recordAutoMigration": false
+  },
+  "verification": {
+    "fullCommand": "npm run verify:local",
+    "fullCommandExit": 0,
+    "environment": "passed",
+    "tools": 7,
+    "npmTest": "passed",
+    "releaseChecks": 4,
+    "build": "passed",
+    "syntheticBrowser": 36,
+    "newReceiptCoreTests": 16,
+    "newReceiptUiTests": 2,
+    "newBrowserTests": 1,
+    "finalFocusedNodeHarnessTests": 89,
+    "additionalPurchaseRoomCustomChecks": 40,
+    "mainVatNodeRegressionTests": 114,
+    "independentReviewCoreAndPurchaseRoomChecks": 56,
+    "independentFinalActionableDefects": 0,
+    "browserScreenshotReviewed": true,
+    "browserScenario": "Select W002, load W001 order 10 as receipt 4, save/reload, W001 stock 0 / W002 stock 4 / source remainder 6 / payable 440, exact old order and forms retained.",
+    "firstFeatureRun": "10 failures before implementation; all passed after implementation and normalized fixture correction.",
+    "physicalGuardBefore": "New preservation tests reproduced warehouse move with inspection/rack records; corrected before final candidate.",
+    "independentReview": "Found one physical-record regression; fixed and independently reran 16 receipt tests + 40 purchase-room custom checks with no actionable remaining findings.",
+    "rea": {
+      "version": "6.4.0",
+      "ownMainScopes": 7,
+      "ownCandidateScopes": 7,
+      "originalNewScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "sourceFragmentResultHashesVerified": true,
+      "fullOriginalEquivalence": false,
+      "analysis": [
+        {
+          "tree": "main",
+          "results": [
+            {
+              "name": "linkedWarehouseMatches",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "3ee337fc0f8994c9d7c416b4d947d2fabc08b6644ab9ead0f4807701fdaec0be",
+              "start": 20509,
+              "end": 20663,
+              "lineStart": 168,
+              "lineEnd": 168,
+              "fragmentSha256": "a78251e426db763adf1a0d35c39795561b225371286f53e315c3c69fd08b5d52",
+              "resultSha256": "31c77b8ca58c10aebcbc2ae39f8990d6306e6612305ec784255c0fa0184eafca",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 154,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 25,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateLinkedSource",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "3ee337fc0f8994c9d7c416b4d947d2fabc08b6644ab9ead0f4807701fdaec0be",
+              "start": 21294,
+              "end": 21899,
+              "lineStart": 175,
+              "lineEnd": 182,
+              "fragmentSha256": "1b15a8c1275a7b837aca6db129e1304abac49ba482e1092e245b3e21f6b7f3bf",
+              "resultSha256": "100c699ba8b1056be7c524547afed758dabd653eda79d31d8acb331e4092174f",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 725,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 123,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateLinkedSourceChange",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "3ee337fc0f8994c9d7c416b4d947d2fabc08b6644ab9ead0f4807701fdaec0be",
+              "start": 21902,
+              "end": 22803,
+              "lineStart": 183,
+              "lineEnd": 191,
+              "fragmentSha256": "66bf01147d0182daea12b2d8d4fef9880b8eadfb17a2c959d7137b2c46cb4c83",
+              "resultSha256": "ca2c35043a08e401cdb7efcbedb435617b08a0a2314600de55119523c9522ee1",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 1057,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 134,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "convert",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "3ee337fc0f8994c9d7c416b4d947d2fabc08b6644ab9ead0f4807701fdaec0be",
+              "start": 44081,
+              "end": 46468,
+              "lineStart": 391,
+              "lineEnd": 414,
+              "fragmentSha256": "0280f550872f29f37b25e90389e37f6f894ad74263d876f12b0c9fda0ff143c0",
+              "resultSha256": "96dfbdee572ba075bddbfb24974b2255bf033ac0018781b16daeb43c0a3493d2",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 2529,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 604,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateOperationLink",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "3ee337fc0f8994c9d7c416b4d947d2fabc08b6644ab9ead0f4807701fdaec0be",
+              "start": 26188,
+              "end": 28812,
+              "lineStart": 224,
+              "lineEnd": 244,
+              "fragmentSha256": "371d31d716e6028b75bd0bb0ff0553be299729cd3b6e349b7493323226ee5f82",
+              "resultSha256": "f1067f5b762cc8a1f06464da961e0a8263286839d1da27b1c8da8a70b15d2567",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 3147,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 514,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateReceiptWarehouseChange",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "3ee337fc0f8994c9d7c416b4d947d2fabc08b6644ab9ead0f4807701fdaec0be",
+              "start": 38218,
+              "end": 38599,
+              "lineStart": 345,
+              "lineEnd": 349,
+              "fragmentSha256": "1faba6d953bc1f0ab8f4ae9be2fd49db1883ddcc17d656e33f82a1996e728365",
+              "resultSha256": "713c58ce497cedfba33ffb2638c3f3c917f9f758dfb38a79caf90635e65d8aaf",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 435,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 69,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "stageDocuments",
+              "category": "own",
+              "file": "dist/entry-core.js",
+              "sourceSha256": "b02d6ab752983fa29797b5b1f74aa99f75d040eae28c2f393c0e8a4c6d2dbc65",
+              "start": 10253,
+              "end": 15193,
+              "lineStart": 119,
+              "lineEnd": 172,
+              "fragmentSha256": "a51b53a7051c1b732841a5657e41b0af838916a6e09b5153c3b75d2a4e8bb79a",
+              "resultSha256": "768ee1aad6bc4db8d05b01e6ae357bd157aa44a398fe41b26ab1e51aa199b104",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 5632,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 1008,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            }
+          ]
+        },
+        {
+          "tree": "candidate",
+          "results": [
+            {
+              "name": "linkedWarehouseMatches",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "52273a1432b7d935b1718d45dfbfb4f911aa304aca6313511a055b7f7f3690ee",
+              "start": 19046,
+              "end": 19200,
+              "lineStart": 153,
+              "lineEnd": 153,
+              "fragmentSha256": "a78251e426db763adf1a0d35c39795561b225371286f53e315c3c69fd08b5d52",
+              "resultSha256": "6c1942d00366d5065024177a000302092042aeaee4a011d5038f0562f13c75df",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 154,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 25,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateLinkedSource",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "52273a1432b7d935b1718d45dfbfb4f911aa304aca6313511a055b7f7f3690ee",
+              "start": 19831,
+              "end": 20436,
+              "lineStart": 160,
+              "lineEnd": 167,
+              "fragmentSha256": "1b15a8c1275a7b837aca6db129e1304abac49ba482e1092e245b3e21f6b7f3bf",
+              "resultSha256": "52c43133a740e7ae570bba485b28d7a2f04ba1d8dcc0a9e9b02a4ac552301961",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 725,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 123,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateLinkedSourceChange",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "52273a1432b7d935b1718d45dfbfb4f911aa304aca6313511a055b7f7f3690ee",
+              "start": 20439,
+              "end": 21340,
+              "lineStart": 168,
+              "lineEnd": 176,
+              "fragmentSha256": "66bf01147d0182daea12b2d8d4fef9880b8eadfb17a2c959d7137b2c46cb4c83",
+              "resultSha256": "6fd4f22f314ef5c51a9d673d04dcb5587fab02b579822574a38d7b542c8ebf49",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 1057,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 134,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "convert",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "52273a1432b7d935b1718d45dfbfb4f911aa304aca6313511a055b7f7f3690ee",
+              "start": 42389,
+              "end": 44689,
+              "lineStart": 375,
+              "lineEnd": 398,
+              "fragmentSha256": "320584b64b9ed2257a20a89c6fa6d5f69998bd7459350fe87795638efcf38aac",
+              "resultSha256": "dd3f6ab392f0beca2317e30c7d4fc4a9b2c70274f6ee1f4bd6210daf03fa07d3",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 2442,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 589,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateOperationLink",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "52273a1432b7d935b1718d45dfbfb4f911aa304aca6313511a055b7f7f3690ee",
+              "start": 24725,
+              "end": 27349,
+              "lineStart": 209,
+              "lineEnd": 229,
+              "fragmentSha256": "371d31d716e6028b75bd0bb0ff0553be299729cd3b6e349b7493323226ee5f82",
+              "resultSha256": "47ed4fa34ae7284cba912de34311545e87d7d9e4886072e5bbb19f8e55baf7d0",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 3147,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 514,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "validateReceiptWarehouseChange",
+              "category": "own",
+              "file": "dist/inventory-core.js",
+              "sourceSha256": "52273a1432b7d935b1718d45dfbfb4f911aa304aca6313511a055b7f7f3690ee",
+              "start": 36755,
+              "end": 37136,
+              "lineStart": 330,
+              "lineEnd": 334,
+              "fragmentSha256": "1faba6d953bc1f0ab8f4ae9be2fd49db1883ddcc17d656e33f82a1996e728365",
+              "resultSha256": "04079647ad010974894c3c4c5ceaf2433a6f4b8ed8728cdda95f8ea95867d76d",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 435,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 69,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            },
+            {
+              "name": "stageDocuments",
+              "category": "own",
+              "file": "dist/entry-core.js",
+              "sourceSha256": "b02d6ab752983fa29797b5b1f74aa99f75d040eae28c2f393c0e8a4c6d2dbc65",
+              "start": 10253,
+              "end": 15193,
+              "lineStart": 119,
+              "lineEnd": 172,
+              "fragmentSha256": "a51b53a7051c1b732841a5657e41b0af838916a6e09b5153c3b75d2a4e8bb79a",
+              "resultSha256": "c3a6442a4b8b249b7d993600380af548b560f8601eea6df69844ee1445b63ff5",
+              "statistics": {
+                "relevant_files": 1,
+                "nested_asar_containers": 0,
+                "text_bytes_read": 5632,
+                "invalid_utf8_files": 0,
+                "parsed_javascript_files": 1,
+                "visited_ast_nodes": 1008,
+                "findings": 0,
+                "modules": 0,
+                "parse_failures": 0
+              },
+              "coverage": "unknown",
+              "truncated": false,
+              "bindingsOutsideScopeUnresolved": true,
+              "runtimeEquivalence": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "preservation": {
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "installedBundleSha256Before": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "installedBundleSha256After": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingBundleUnchanged": true,
+    "rollback0530Hash": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "serverRestarted": false,
+    "productionDatabaseWrites": false,
+    "businessVouchersSaved": false,
+    "mailSent": false,
+    "configurationChanged": false,
+    "freshRemoteDataComparisonPerformed": false,
+    "priorProductionPreservationEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
+    "authenticatedAcceptancePending": true
+  },
+  "candidate": {
+    "version": "0.53.2",
+    "candidateCommit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
+    "mainSourceCommit": "b1f22928542dd395791589b13044e2e4054a3b37",
+    "mainFeatureCommit": "d95be276f3a797f49493675c2accf9d85deab0ec",
+    "candidateBranch": "release/0.53.2",
+    "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.2",
+    "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/purchase-receiving-warehouse-20261021/candidate-9e4efd1-worker.js",
+    "candidateBundleSha256": "5adc25a19255930821e14011ee917bc877818f48b6590f4c14775dfd37cd28bd",
+    "bundleBytes": 1955749,
+    "installedIntoOperatingRuntime": false,
+    "includes": [
+      "100 selected plan rows before order generation",
+      "purchase receipt receiving warehouse selection",
+      "inspection and rack warehouse preservation"
+    ],
+    "priorCandidateCommit": "a71301a7f936f9785c25af1fc079991ca5d9f14f",
+    "priorCandidateManifest": ".artifacts/plan-generation-limit-20261021/candidate-manifest.json",
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "operatingBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingManifest": ".artifacts/isolated-link-release-20261021/candidate-manifest.json",
+    "priorRollback0530Sha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "embeddedAssets": 57,
+    "changedEmbeddedAssetsSincePriorCandidate": [
+      "/entry-core.js",
+      "/inventory-core.js"
+    ],
+    "changedTrackedAssetsSincePriorCandidate": [
+      "dist/entry-core.js",
+      "dist/inventory-core.js"
+    ],
+    "workerEntryAndAuthMailStorageModulesUnchanged": true,
+    "backendInventoryModuleIntentionallyChanged": true,
+    "vatWorkExcluded": true,
+    "verification": {
+      "fullCommand": "npm run verify:local",
+      "fullCommandExit": 0,
+      "environment": "passed",
+      "tools": 7,
+      "npmTest": "passed",
+      "releaseChecks": 4,
+      "build": "passed",
+      "syntheticBrowser": 36,
+      "newReceiptCoreTests": 16,
+      "newReceiptUiTests": 2,
+      "newBrowserTests": 1,
+      "finalFocusedNodeHarnessTests": 89,
+      "additionalPurchaseRoomCustomChecks": 40,
+      "mainVatNodeRegressionTests": 114,
+      "independentReviewCoreAndPurchaseRoomChecks": 56,
+      "independentFinalActionableDefects": 0
+    },
+    "deploymentGate": "Existing authenticated UI/browser backup acceptance and fresh private pre/post preservation before restart."
+  },
+  "proofs": {
+    ".artifacts/purchase-receiving-warehouse-20261021/before.log": {
+      "sha256": "b9ef91d3728615bbbce22e7d58605a30b01e359bd8bafdc7ea6aca776c63c448"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/focused.log": {
+      "sha256": "053b464bcec4ca6bf5bd075bbcdebb1a198a2c9b5e8889cee8fe8c137afe89ee"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/physical-guard-before.log": {
+      "sha256": "5ab3ec62c0fd494b28917ef76b2abbc2ee357e6ea224b172123f75d51248d61b"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/physical-guard-focused.log": {
+      "sha256": "3c1ff9d4794ffa735cc27261feb6e3eae45f093c277111d08dbcdb42ffe3cdbb"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/physical-guard-vat-regression.log": {
+      "sha256": "5c932a5734179bc2f836c92fd09bfb8fd1405fd7d53989e4c394ca1868274a4e"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/candidate-verify.log": {
+      "sha256": "d7781ed49b2503ef79956145aa57752ab609260568e0c90c96fa8d1769ff2564"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/candidate-final-verify.log": {
+      "sha256": "c5e2bfe8d9bcac9a890d58193581cadee28cb61deb6606f64baa3acb63ce4cb3"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/final-rea/rea-summary.json": {
+      "sha256": "3e1ad3ba6649f8e435e173888f50b2ebb5dd8320fa78d90ab3bffeaea13eaa57"
+    },
+    ".artifacts/releases/0.53.2/.artifacts/purchase-receiving-warehouse-20261021/final-rea/rea-summary.json": {
+      "sha256": "64dc3a237170d37d28c7ce8c5cd967a2e154b3d5b0463b9bbf1d48f20d2ce1da"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json": {
+      "sha256": "c829eb8099eaff9a9662308e43a13f8e16501977b967151f5cbc8fe55b08ca9f"
+    },
+    ".artifacts/purchase-receiving-warehouse-20261021/synthetic-other-warehouse-receipt.png": {
+      "sha256": "5c9eba2b9bbd1494300d48d81b43406ce6bf1fc41de7638d654374124a5b67d3"
+    }
+  },
+  "remaining": [
+    "Authenticated original procedure and role/save/result comparison",
+    "Existing operating authenticated UI and browser-backup acceptance; fresh private pre/post backups before deploying this candidate",
+    "Moa existing body read, append missing records, saved-body readback after login",
+    "Unresolved minimum-unit/mixed quantity/repeated-item contracts and VAT five fixed conflicts"
+  ],
+  "manualParity": {
+    "officialRequirements": 13,
+    "loginBodiesReviewed": 4,
+    "done": 0,
+    "fullOriginalEquivalence": false
+  },
+  "community": {
+    "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  }
+}
