@@ -1,0 +1,374 @@
+{
+  "version": "0.70.0",
+  "status": "deployed-five-plan-date-shortcuts-atomic-search-and-preservation-verified",
+  "sourceCommit": "6860816b65288d4b61ae8ce3e8d9914ef201ee8c",
+  "releaseCommit": "db9b68e03db380717720a7f534e81801277170ee",
+  "plan": "docs/plan-plan-search-modes-20261022.md",
+  "differenceTable": {
+    "version": "0.69.1",
+    "originalReadOnlyObservation": {
+      "screen": "재고 I > 구매관리 > 발주계획 > 발주계획조회",
+      "lookupModes": [
+        "건별",
+        "전표별"
+      ],
+      "lineQuantityCondition": [
+        "전체",
+        "수량0",
+        "수량0 아님"
+      ],
+      "documentModeHidesQuantity": true,
+      "returningLineModeRetainsPendingZeroSelection": true,
+      "documentModePriceBlankAndQuantityReadonly": true,
+      "documentRowsObserved": 23,
+      "lineRowsRenderedObserved": 26,
+      "renderedLineDataIncomplete": true,
+      "businessValuesStored": false,
+      "businessWrites": false,
+      "sourcePath": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+      "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe"
+    },
+    "differenceTable": [
+      {
+        "feature": "조회구분",
+        "original": "건별0 / 전표별1, SUM_FLAG3/4",
+        "own": "건별 라인목록만",
+        "disposition": "대표품목/수량 및 필터범위/전체선택/상태 계약 추가확인 전 보류"
+      },
+      {
+        "feature": "전표별 수량조건",
+        "original": "NumberChk 숨김, ZERO_FLAG_CHK0 강제",
+        "own": "현재 건별만 수량조건 적용",
+        "disposition": "조회구분 구현 시 함께 적용, 숨은 수량을 서버로 보내는 추정 구현 금지"
+      },
+      {
+        "feature": "수량·단가 편집",
+        "original": "건별이고 수량/단가 출력열 존재 시 input, 전표별 label",
+        "own": "건별 수량·단가 명시저장",
+        "disposition": "전표별 변경 권한 확대 금지"
+      },
+      {
+        "feature": "날짜 바로조회",
+        "original": "금일 / 전일 / 금주(~오늘) / 전주 / 금월(~오늘)",
+        "own": "F3 기간 직접입력만",
+        "disposition": "확인된 기간과 일요일 주 시작으로 바로조회 연결"
+      }
+    ],
+    "unverified": [
+      "대표 품목/수량을 고르는 서버 알고리즘",
+      "품목/거래처 조건과 전표합계의 적용 순서",
+      "다중 선택의 전표 전체/부분 범위와 상태 API",
+      "서버 처리후 저장/삭제/종결/생성 동등성"
+    ],
+    "nextImplementation": "plan-list-date-shortcuts",
+    "manualAcceptanceAdded": 0,
+    "dateShortcutObservation": {
+      "screen": "발주계획조회",
+      "readOnly": true,
+      "periods": {
+        "lastweek": "2026/10/11 ~2026/10/17",
+        "thismonthtoday": "2026/10/01 ~2026/10/22",
+        "yesterday": "2026/10/21 ~2026/10/21",
+        "today": "2026/10/22 ~2026/10/22",
+        "thisweektoday": "2026/10/18 ~2026/10/22"
+      },
+      "businessValuesStored": false,
+      "businessWrites": false
+    },
+    "ownChecks": {
+      "newNode": 7,
+      "relatedNode": 77,
+      "targetedBrowser": 12,
+      "newBrowser": 3
+    }
+  },
+  "originalDates": {
+    "screen": "발주계획조회",
+    "readOnly": true,
+    "periods": {
+      "lastweek": "2026/10/11 ~2026/10/17",
+      "thismonthtoday": "2026/10/01 ~2026/10/22",
+      "yesterday": "2026/10/21 ~2026/10/21",
+      "today": "2026/10/22 ~2026/10/22",
+      "thisweektoday": "2026/10/18 ~2026/10/22"
+    },
+    "businessValuesStored": false,
+    "businessWrites": false
+  },
+  "originalStatic": {
+    "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+    "retainedSourceHashVerified": true,
+    "freshlyRetrievedInThisUnit": false,
+    "currentUiCorroborates": [
+      "SEARCH_TYPE0 건별 / 1 전표별",
+      "NumberChk hidden for document lookup, retained when returning to line",
+      "five date shortcut periods with Sunday weeks"
+    ],
+    "staticContracts": {
+      "SUM_FLAG": {
+        "0": "3",
+        "1": "4"
+      },
+      "ZERO_FLAG_CHK": "0 forced when SEARCH_TYPE1",
+      "quantityPriceEditing": "widget.input.number only SEARCH_TYPE0 and both output columns present; otherwise widget.label",
+      "finishDeleteSerial": "-1 for document mode",
+      "serverGroupingResponseComputedInClient": false
+    },
+    "originalServerRepresentativeQuantityVerified": false,
+    "originalServerFilteredTotalsVerified": false,
+    "newOwnScopes": 5,
+    "validatedReusedOriginalScopes": 5,
+    "parseFailures": 0,
+    "truncated": false,
+    "coverage": "unknown",
+    "originalExecuted": false
+  },
+  "implementation": {
+    "mode": "Existing line-list lookup only",
+    "dateShortcuts": [
+      "금일",
+      "전일",
+      "금주(~오늘)",
+      "전주",
+      "금월(~오늘)"
+    ],
+    "weekStart": 0,
+    "dateHelper": "PurchasingReportCore.preset",
+    "preserves": [
+      "pending non-date filters",
+      "staged quantities and prices",
+      "line selection",
+      "CSV visible rows",
+      "applied versus pending snapshot",
+      "prior DOM and dates on preparation error",
+      "existing permission boundaries",
+      "all saved records and layouts"
+    ],
+    "atomicSearch": "Build rows/tabs/table/pager/count offscreen, then commit; restore prior applied/page on failure; date controls and filter hiding change on success",
+    "documentModeImplemented": false
+  },
+  "checks": {
+    "newNode": 8,
+    "relatedNode": 78,
+    "newBrowser": 3,
+    "browserSynthetic": 81,
+    "verifyLocalPassed": true,
+    "browserWidths": [
+      390,
+      864,
+      1280
+    ],
+    "testLogSha256": "abdc1a73527aeb38056ce943b8277967fe121a3599105f9be5a57566c4a105d2",
+    "independentP2Fixed": 1,
+    "remainingBlockingFindings": 0,
+    "independentReview": ".artifacts/manual-plan-search-modes-20261022/independent-review.md",
+    "independentReproductions": [
+      "one-shot getDb failure",
+      "actual invalid staged price failure"
+    ],
+    "reaOwnScopes": 5,
+    "reaReusedOriginalScopes": 5,
+    "reaCacheSourceAndResultHashesValidated": true,
+    "reaParseFailures": 0,
+    "reaCoverage": "unknown",
+    "reaTruncated": false,
+    "reaSummarySha256": "6cc70db7fdc001c1d2da1ce28f457c28fd08329d4d3d1f116b3aa650a62a073b"
+  },
+  "deployment": {
+    "version": "0.70.0",
+    "sourceCommit": "6860816b65288d4b61ae8ce3e8d9914ef201ee8c",
+    "baseCommit": "01932d7cf2f2da7886a672685dc1d8ae846c046c",
+    "branch": "release/0.70.0-plan-search-shortcuts",
+    "worktree": ".artifacts/releases/0.70.0-plan-search-shortcuts",
+    "releaseCommit": "db9b68e03db380717720a7f534e81801277170ee",
+    "scopedNode": 78,
+    "newNode": 8,
+    "newBrowser": 3,
+    "fullVerify": "passed",
+    "rootVatResearchIncluded": false,
+    "independentP2Fixed": 1,
+    "browserSynthetic": 81,
+    "testLogSha256": "abdc1a73527aeb38056ce943b8277967fe121a3599105f9be5a57566c4a105d2",
+    "bundleSha256": "af9d4129565aed0dcca15d1b35d7f891d70bd92cf29d57a65496deccf0bc70ff",
+    "runtimeSessionId": 50715,
+    "rollback": ".artifacts/manual-plan-search-modes-20261022/rollback-0.69.1-index.js",
+    "sitesUsed": false,
+    "existingRuntime": "WSL + Supabase + Cloudflare Tunnel / rea.qaredi.com",
+    "public": {
+      "version": "0.70.0",
+      "sourceCommit": "db9b68e03db380717720a7f534e81801277170ee",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/inventory.css",
+          "status": 200,
+          "sha256": "20c350fbfa44f48d9b8ab46e5d93f02ad95d56acac3661f7fc20d5ab6c5ada99",
+          "equalsLocal": true
+        },
+        {
+          "path": "/purchasing-plan-list-ui.js",
+          "status": 200,
+          "sha256": "0dd5552e996e190f5f953b626e9973519cabb6071f3cdc1ad6202126e2fa286d",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    }
+  },
+  "hosted": {
+    "version": "0.70.0",
+    "existingSessionRetained": true,
+    "checks": [
+      {
+        "button": "금일",
+        "from": "2026-10-22",
+        "hidden": true,
+        "to": "2026-10-22"
+      },
+      {
+        "button": "전일",
+        "from": "2026-10-21",
+        "hidden": true,
+        "to": "2026-10-21"
+      },
+      {
+        "button": "금주(~오늘)",
+        "from": "2026-10-18",
+        "hidden": true,
+        "to": "2026-10-22"
+      },
+      {
+        "button": "전주",
+        "from": "2026-10-11",
+        "hidden": true,
+        "to": "2026-10-17"
+      },
+      {
+        "button": "금월(~오늘)",
+        "from": "2026-10-01",
+        "hidden": true,
+        "to": "2026-10-22"
+      }
+    ],
+    "bounds": {
+      "controls": [
+        {
+          "height": 44,
+          "label": "검색(F8)"
+        },
+        {
+          "height": 44,
+          "label": "금일"
+        },
+        {
+          "height": 44,
+          "label": "전일"
+        },
+        {
+          "height": 44,
+          "label": "금주(~오늘)"
+        },
+        {
+          "height": 44,
+          "label": "전주"
+        },
+        {
+          "height": 44,
+          "label": "금월(~오늘)"
+        }
+      ],
+      "pageWidth": 700,
+      "viewport": 700
+    },
+    "businessWrites": false,
+    "settingsWrites": false,
+    "operatingPlanCount": 0
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.70.0",
+      "exactBytes": true,
+      "exactJson": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "restored": false
+    },
+    "serverMail": {
+      "version": "0.70.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "afterUi": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/plan-search-shortcuts-0.70.0-1792617315226"
+  },
+  "acceptanceLimits": {
+    "operatingPlans": 0,
+    "hostedDataBearingSearchVerified": false,
+    "dataBearingFlow": "synthetic only",
+    "originalBusinessWrites": false,
+    "hostedBusinessWrites": false,
+    "hostedSettingsWrites": false,
+    "mailSent": false,
+    "documentRepresentativeQuantityVerified": false,
+    "originalServerGroupingVerified": false,
+    "wholeManualPassed": false
+  },
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 50,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authStateUnchangedNoRepeatedProbe": true
+  },
+  "nextWork": "발주계획조회 건별/전표별 차이표를 작성했다. 다음은 원본 발주계획조회 도움말의 조회구분·대표품목/수량·합계·필터 절차를 본문과 예외로 분해하고, 공개 GetListSearchPurchasePlan DTO/응답열 매핑과 대조한다. 대표수량을 전체수량합으로 추정하거나 전표 전체/부분 선택과 종결·생성 권한을 확대하지 않는다. 날짜 바로조회0.70.0과 UI회귀0.69.1은 반영·보존 검증을 마쳤으므로 같은 검사를 새 개발량으로 반복하지 않는다. 웹자료올리기 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약, VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다. 미확인 요청 전체계획 합산 제외는 원본근거가 없어 확정 요구사항이 아니다."
+}

@@ -1,5 +1,10 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.70.0 발주계획 날짜조회·원자적 렌더 보완
+
+계획목록5개날짜단축키는 PurchasingReportCore.preset을 명시적일요일주(weekStart0)로재사용한다. applySearch는날짜외pending조건을보존하고 refresh가 rows/tabs/table/pager/count/권한을모두offscreen준비한후DOM과조건을같이반영한다. 실패시applied/page를복구하고기존DOM/미저장행/선택/pending날짜를유지한다. 조회구분의 서버대표수량/합계·선택단위는별도미완료이며 새스키마/권한확대없음. 근거 evidence/manual-plan-search-modes-20261022.json.
+
+
 ## 0.69.1 UI/UX 적용 보완
 
 column entry toolbar는 nowrap로 내부 grid의 intrinsic높이 팽창을 막는다. 요청목록 fallback과 보고서 검색행을 각각 inv-request-list/inv-report-head로 한정한다. 보고서 모드·검색작업행은 독립class, radio18px/label44px 및 필터44px로 제어하며 print·hidden 규칙과 기존query/snapshot핸들러를 보존한다. 실제 index/app shell의5입력/4현황×7폭높이=63조합/브라우저78을검사했다. 운영0.69.1·자료/양식/계정/메일보존확인, 실제Android재시험은미완료. 근거 evidence/purchasing-uiux-tablet-20261022.json.
