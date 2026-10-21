@@ -100,16 +100,17 @@
     const rows=records.map(r=>{const row=[r.at,r.date+' / '+r.documentId,r.action,r.partnerCode,r.partnerName,r.itemName+(r.itemCount>1?' 외 '+(r.itemCount-1)+'건':''),r.employeeCode,r.employeeName,'미기록',r.status==='진행'?'진행중':r.status,'상세 미지원'];return type==='request'?row.filter((_,i)=>i!==3):row;});
     return {columns,rows,records,filter:clone(filter),startedAt:db.documentHistory?.startedAt||'',limit:200};
   }
+  const supportsPurchasingState=d=>purchasingTypes.includes(d.type)||d.type==='purchasereturn'&&d.settlementMode==='credit';
   function purchasingState(d){return {confirmation:d.confirmation??(d.status==='미확인'?'미확인':'확인'),progress:d.progress??(d.status==='완료'?'완료':'진행')};}
   function purchasingLineState(d,line){return {...purchasingState(d),progress:line.progress??purchasingState(d).progress};}
   function validateLineProgress(d,line){if(line.progress!==undefined&&(d.type!=='plan'||!['진행','완료'].includes(line.progress)))throw Error('품목행 진행상태를 확인하세요.');}
   function validatePurchasingState(d){
     if(d.confirmation===undefined&&d.progress===undefined)return;
-    if(!purchasingTypes.includes(d.type)||d.confirmation!==undefined&&!['미확인','확인'].includes(d.confirmation)||d.progress!==undefined&&!['진행','완료'].includes(d.progress))throw Error('확인 여부와 진행상태를 확인하세요.');
+    if(!supportsPurchasingState(d)||d.confirmation!==undefined&&!['미확인','확인'].includes(d.confirmation)||d.progress!==undefined&&!['진행','완료'].includes(d.progress))throw Error('확인 여부와 진행상태를 확인하세요.');
     const state=purchasingState(d);
     if(listed(d)&&(d.status==='미확인'&&state.confirmation!=='미확인'||d.status!=='미확인'&&state.confirmation==='미확인'||d.status==='완료'&&state.progress!=='완료'||d.status==='진행'&&state.progress!=='진행'))throw Error('확인 여부·진행상태와 기존 상태가 다릅니다.');
   }
-  const active=d=>listed(d)&&(purchasingTypes.includes(d.type)?purchasingState(d).confirmation!=='미확인':d.status!=='미확인');
+  const active=d=>listed(d)&&(supportsPurchasingState(d)?purchasingState(d).confirmation!=='미확인':d.status!=='미확인');
   function empty(){return {version:2,sequence:0,masters:Object.fromEntries(Object.keys(masterNames).map(k=>[k,[]])),documents:[],payments:[],bom:[],bor:[],prices:[],mappings:[],opening:[],logs:[],settings:{priceOrder:['특별단가','품목단가'],allowNegative:false,customization:F.empty()}};}
   function taxRounding(value){if(value===undefined)return {method:'round',digits:0};if(!value||!['round','floor','ceil'].includes(value.method)||![0,1,2].includes(value.digits))throw Error('부가세 반올림 방법과 소수 자릿수를 확인하세요.');return {method:value.method,digits:value.digits};}
   function supplyRounding(value){if(value===undefined)return {method:'round',digits:2};if(!value||!['round','floor','ceil'].includes(value.method)||![0,1,2].includes(value.digits)||Object.keys(value).some(k=>!['method','digits'].includes(k)))throw Error('공급가액 반올림 방법과 소수 자릿수를 확인하세요.');return {method:value.method,digits:value.digits};}
@@ -425,9 +426,9 @@
     if(confirmation!==undefined&&!['미확인','확인'].includes(confirmation)||progress!==undefined&&!['진행','완료'].includes(progress)||(status!==undefined||typeof accounted==='boolean')&&(confirmation!==undefined||progress!==undefined))throw Error('확인 여부와 진행상태를 확인하세요.');
     if(!documentStatuses.includes(status)&&typeof accounted!=='boolean'&&confirmation===undefined&&progress===undefined)throw Error('처리 상태를 확인하세요.');
     for(const id of ids){const d=db.documents.find(x=>x.id===id);if(!d)throw Error('전표를 찾을 수 없습니다.');const before=statusLabel(d),beforeState=purchasingState(d);if(typeof accounted==='boolean'){if(!['sale','purchase','production'].includes(d.type)||!active(d))throw Error('회계반영할 수 없는 전표입니다.');d.accounted=accounted;}else {if(d.accounted)throw Error('회계반영을 취소한 후 상태를 변경하세요.');if(confirmation!==undefined||progress!==undefined){
-        if(!purchasingTypes.includes(d.type)||!listed(d))throw Error('취소·보류 전표는 먼저 복원하세요.');
+        if(!supportsPurchasingState(d)||!listed(d))throw Error('취소·보류 전표는 먼저 복원하세요.');
         const state=purchasingState(d);d.confirmation=confirmation??state.confirmation;d.progress=progress??state.progress;d.status=d.confirmation==='미확인'?'미확인':d.progress;
-      }else {if(purchasingTypes.includes(d.type)&&(d.confirmation!==undefined||d.progress!==undefined)){const state=purchasingState(d);d.confirmation=['미확인'].includes(status)?'미확인':['확인','진행','완료'].includes(status)?'확인':state.confirmation;d.progress=['진행','완료'].includes(status)?status:state.progress;}d.status=status;}validatePurchasingState(d);}log(db,typeof accounted==='boolean'?'회계반영 변경: '+id:'전표 상태 변경: '+id+' / '+before+' → '+statusLabel(d)+((confirmation!==undefined||progress!==undefined)?' / 확인: '+beforeState.confirmation+' → '+purchasingState(d).confirmation+' / 진행: '+beforeState.progress+' → '+purchasingState(d).progress:''));}
+      }else {if(supportsPurchasingState(d)&&(d.confirmation!==undefined||d.progress!==undefined)){const state=purchasingState(d);d.confirmation=['미확인'].includes(status)?'미확인':['확인','진행','완료'].includes(status)?'확인':state.confirmation;d.progress=['진행','완료'].includes(status)?status:state.progress;}d.status=status;}validatePurchasingState(d);}log(db,typeof accounted==='boolean'?'회계반영 변경: '+id:'전표 상태 변경: '+id+' / '+before+' → '+statusLabel(d)+((confirmation!==undefined||progress!==undefined)?' / 확인: '+beforeState.confirmation+' → '+purchasingState(d).confirmation+' / 진행: '+beforeState.progress+' → '+purchasingState(d).progress:''));}
     // Validate after the whole batch so restoring parent and child is order independent.
     for(const d of db.documents)if(inactiveBefore.has(d.id)&&active(d)&&d.sourceId)validateLinkedSource(db,d);
     rebalanceReturnAmounts(db);validateLinks(db);validateStock(db);for(const partner of db.masters.partners)for(const side of ['receivable','payable'])if(outstanding(db,side,partner.code)<-.001)throw Error('수금/지급 기록을 먼저 취소하세요.');return ids;

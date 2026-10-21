@@ -51,5 +51,24 @@
   document.body.append(dialog);dialog.showModal();refresh();
   return {element:dialog,read:()=>C.clone(draft),destroy:close};
  }
- root.PurchaseReturnUI={open};
+ function inspect(options){
+  if(typeof options.getDb!=='function')throw Error('반품 자료를 다시 불러오세요.');
+  const identity=options.identity?.();if(typeof identity!=='string'||!identity)throw Error('로그인 계정을 확인하세요.');
+  const db=options.getDb(),record=db.documents.find(d=>d.id===options.documentId),view=R.presentation(record),snapshot=JSON.stringify(record),focus=document.activeElement;
+  const dialog=node('dialog',undefined,'inv-dialog'),heading=node('div',undefined,'inv-modal-head'),body=node('div',undefined,'inv-modal-body'),table=node('table',undefined,'inv-table'),head=node('tr'),tbody=node('tbody');let closed=false;
+  dialog.id='purchase-return-dialog';dialog.setAttribute('aria-label','구매반품 조회');table.setAttribute('aria-label','저장된 음수 구매반품 품목');
+  function close(restoreFocus=true){if(closed)return;closed=true;window.removeEventListener('focus',verify);window.removeEventListener('storage',verify);window.removeEventListener('pagehide',invalidate);document.removeEventListener('visibilitychange',verify);document.removeEventListener('focusin',verify);dialog.remove();dialog.replaceChildren();if(restoreFocus&&focus?.isConnected)focus.focus();options.onClose?.();}
+  function read(){if(closed||!dialog.isConnected)throw Error('닫힌 반품 화면입니다.');if(options.identity?.()!==identity)throw Error('계정이 변경됐습니다. 다시 열어주세요.');const current=options.getDb().documents.find(d=>d.id===record.id);if(JSON.stringify(current)!==snapshot)throw Error('반품이 변경됐습니다. 다시 열어주세요.');return R.presentation(current);}
+  function invalidate(){close(false);}
+  function verify(){if(closed)return false;try{read();return true;}catch{invalidate();return false;}}
+  const closeButton=node('button','닫기');closeButton.type='button';closeButton.onclick=close;heading.append(node('h2','구매반품 조회'),closeButton);
+  for(const label of ['품목','반품 수량','단가','공급가액','부가세','합계'])head.append(node('th',label));const thead=node('thead');thead.append(head);
+  for(const line of view.lines){const row=node('tr');row.append(node('td',line.item+' · '+(C.master(db,'items',line.item)?.name||line.item)));for(const key of ['qty','price','supply','tax','total']){const cell=node('td',fmt(line[key]??0));cell.dataset.amount=key;row.append(cell);}tbody.append(row);}
+  table.append(thead,tbody);const wrap=node('div',undefined,'inv-table-wrap');wrap.append(table);
+  body.append(node('p',record.date+' / '+record.id,'inv-note'),node('p','원구매 '+(record.sourceId||'')+' · '+(C.master(db,'partners',record.partner)?.name||record.partner)+' · '+(C.master(db,'warehouses',record.warehouse)?.name||record.warehouse),'inv-note'),node('p',record.accounted?'회계반영된 전표입니다. 저장된 반품 수량과 금액을 조회합니다.':'조회 전용입니다. 저장된 반품 수량과 금액을 조회합니다.','inv-note'),wrap,node('p','수량 '+fmt(view.totals.qty)+' · 공급가액 '+fmt(view.totals.supply)+' · 부가세 '+fmt(view.totals.tax)+' · 합계 '+fmt(view.totals.total),'inv-totals'));
+  dialog.append(heading,body);dialog.addEventListener('cancel',event=>{event.preventDefault();event.stopPropagation();close();});dialog.addEventListener('keydown',event=>{event.stopPropagation();if(!verify()||['F8','F7','F2','F3'].includes(event.key))event.preventDefault();});dialog.addEventListener('pointerdown',verify);
+  document.body.append(dialog);dialog.showModal();window.addEventListener('focus',verify);window.addEventListener('storage',verify);window.addEventListener('pagehide',invalidate);document.addEventListener('visibilitychange',verify);document.addEventListener('focusin',verify);
+  return {element:dialog,destroy:close,read};
+ }
+ root.PurchaseReturnUI={open,inspect};
 })(typeof globalThis==='object'?globalThis:this);
