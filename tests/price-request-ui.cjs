@@ -103,6 +103,33 @@ test('deferred native close cannot retain replacement dialog or steal focus afte
 
 const selectRadio=(e,label)=>{const radio=e.dialog().querySelector('input[aria-label="'+label+'"]');assert.ok(radio,label);radio.click();return radio;};
 const editable=()=>{const e=env({write:true});e.render('list');e.button('단가요청비교현황').click();e.button('확정단가선택/수정',e.dialog()).click();return e;};
+function firstConfirmation(){
+ const data=fixture({archive:false}),source=data.db.documents.find(d=>d.id===data.id);
+ data.db=C.command(data.db,'document',{...source,lines:source.lines.map((line,index)=>({...line,price:index?'1.123456789':'0'}))}).db;
+ data.db=C.command(data.db,'priceRequest',{action:'start',documentId:data.id,vendorCodes:['V001','V002']}).db;
+ const e=env({data,write:true});e.render('list');e.button('단가요청비교현황').click();return e;
+}
+test('first confirmation defaults requested prices in draft only and saves once without changing source or replies',()=>{
+ const e=firstConfirmation(),raw=e.stored(),before=e.db();assert.match(e.dialog().textContent,/미확정/);
+ e.button('확정단가선택/수정').click();assert.equal(e.stored(),raw);assert.equal(e.dialog().querySelectorAll('input:checked').length,2);
+ for(const row of [1,2])assert.ok(e.dialog().querySelector('input[aria-label="'+row+'행 요청단가 선택"]').checked);
+ assert.equal(e.button('단가확정/저장(F8)').disabled,false);
+ e.dialog().dispatchEvent(new e.w.KeyboardEvent('keydown',{key:'F8',bubbles:true,cancelable:true}));
+ const after=e.db(),record=after.settings.priceRequests.records[0];assert.equal(record.comparison.revision,1);assert.deepEqual(Array.from(record.comparison.selections,row=>row.price),['0','1.123456789']);
+ for(const key of ['documents','prices','masters'])assert.equal(JSON.stringify(after[key]),JSON.stringify(before[key]));assert.equal(JSON.stringify(after.settings.customization),JSON.stringify(before.settings.customization));assert.equal(JSON.stringify(record.comparison.vendors),JSON.stringify(before.settings.priceRequests.records[0].comparison.vendors));assert.equal(after.sequence,before.sequence+1);
+ e.button('확정단가선택/수정').click();assert.ok(e.button('단가확정/저장(F8)').disabled);assert.equal(e.dialog().querySelectorAll('input:checked').length,2);close(e);
+});
+test('default confirmation is discarded by close, escape, refresh and navigation',()=>{
+ for(const action of ['close','escape','refresh','navigate']){const e=firstConfirmation(),raw=e.stored();e.button('확정단가선택/수정').click();if(action==='close')e.button('닫기',e.dialog()).click();if(action==='escape')e.dialog().dispatchEvent(new e.w.Event('cancel',{cancelable:true}));if(action==='refresh')e.button('새로고침',e.dialog()).click();if(action==='navigate')e.w.InventoryUI.beforeNavigate();assert.equal(e.stored(),raw);if(action==='refresh'){assert.equal(e.dialog().querySelectorAll('input').length,0);assert.match(e.dialog().textContent,/미확정/);}close(e);}
+});
+test('default confirmation respects late permission, account, source and revision changes and quota retry',()=>{
+ for(const mode of ['write','identity','source','revision','quota']){const e=firstConfirmation();e.button('확정단가선택/수정').click();
+  if(mode==='write')e.setWrite(false);if(mode==='identity')e.w.AuthUI.state=()=>({user:{id:'another'}});
+  if(mode==='source'||mode==='revision'){const db=e.db();if(mode==='source')db.documents.find(d=>d.id===e.data.id).memo='changed';else db.settings.priceRequests.records[0].comparison.revision++;e.w.localStorage.setItem(e.key,JSON.stringify(db));}
+  const raw=e.stored(),set=e.w.Storage.prototype.setItem;if(mode==='quota')e.w.Storage.prototype.setItem=()=>{throw Error('quota');};e.button('단가확정/저장(F8)',e.dialog()).click();assert.equal(e.stored(),raw);assert.ok(e.dialog().querySelector('[role=alert]').textContent);
+  if(mode==='quota'){assert.equal(e.dialog().querySelectorAll('input:checked').length,2);e.w.Storage.prototype.setItem=set;e.button('단가확정/저장(F8)').click();assert.equal(e.db().settings.priceRequests.records[0].comparison.revision,1);}close(e);
+ }
+});
 test('actual list adapter saves multiple explicit selections atomically and preserves source, forms and replies',()=>{
  const e=editable(),before=e.db(),raw=e.stored();assert.equal(e.dialog().querySelectorAll('input:checked').length,1);assert.ok(e.button('단가확정/저장(F8)',e.dialog()).disabled);
  selectRadio(e,'1행 V001 수취단가 선택');selectRadio(e,'2행 V002 수취단가 선택');assert.equal(e.stored(),raw);

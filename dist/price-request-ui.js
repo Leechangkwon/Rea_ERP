@@ -62,7 +62,7 @@
   const draw=()=>{content.replaceChildren();error.textContent='';const context=node('p',data.source.date+' / '+data.source.id+(data.source.currency?' · '+data.source.currency:''),'inv-note');content.append(context);
    title.textContent=replyDraft?'수취단가 직접입력':'단가요청비교현황';
    if(replyDraft){const vendor=data.vendors.find(v=>v.code===replyVendor);content.append(node('p',vendor.code+' · '+vendor.name),node('p','전달받은 단가를 입력한 뒤 저장하세요. 수량과 요청단가는 유지됩니다. 미회신은 빈칸, 0원은 0으로 입력하세요. 확정선택된 회신은 먼저 선택을 변경해야 합니다.','inv-note'),replyTableFor(data,replyVendor,replyDraft,buttons));buttons();return;}
-   content.append(node('p',draft?'단가를 선택한 뒤 저장하세요. 미선택 품목은 기존 상태를 유지합니다.':'표를 좌우로 이동해 거래처별 수취단가와 확정단가를 확인하세요.','inv-note'));
+   content.append(node('p',draft?'단가를 선택한 뒤 저장하세요. 최초 확정 시 요청단가가 기본 선택됩니다. 저장 전에는 반영되지 않으며, 기존 미선택 품목은 유지됩니다.':'표를 좌우로 이동해 거래처별 수취단가와 확정단가를 확인하세요.','inv-note'));
    if(data.status==='unstarted')content.append(node('p','등록된 비교 자료가 없습니다. 요청단가만 표시합니다.','inv-note'));
    if(messages[data.status]){const warning=node('p',messages[data.status],'inv-note');warning.setAttribute('role','status');content.append(warning);}
    content.append(tableFor(data,draft?{draft,changed:buttons}:null,!draft&&data.status==='ready'&&writable()?setClosed:null,startReply));buttons();
@@ -70,7 +70,11 @@
   const failure=e=>{draft=replyDraft=null;blocked=true;content.replaceChildren();error.textContent=e.message;edit.hidden=save.hidden=replySave.hidden=true;save.disabled=replySave.disabled=true;refresh.hidden=false;};
   const reload=()=>{try{data=read(options);draft=replyDraft=null;replyVendor='';blocked=false;draw();}catch(e){failure(e);}};
   const checkDraft=()=>{const current=read(options);if(current.status!=='ready'||fingerprint(current)!==baseline){blocked=true;throw Error('단가 비교 자료가 변경됐습니다. 새로고침 후 다시 선택하세요.');}if(!writable())throw Error('단가 비교 저장 권한이 없습니다.');};
-  edit.onclick=()=>{try{data=read(options);if(data.status!=='ready'||!writable())throw Error('단가 비교 저장 권한 또는 원본 상태를 확인하세요.');baseline=fingerprint(data);blocked=false;draft=new Map(data.rows.filter(row=>row.confirmed).map(row=>[row.lineKey,{lineKey:row.lineKey,source:row.confirmed.source,vendorCode:row.confirmed.vendorCode}]));draw();content.querySelector('input:checked,input:not(:disabled)')?.focus();}catch(e){failure(e);}};
+  edit.onclick=()=>{try{data=read(options);if(data.status!=='ready'||!writable())throw Error('단가 비교 저장 권한 또는 원본 상태를 확인하세요.');baseline=fingerprint(data);blocked=false;
+    // Existing partial confirmations retain their unselected rows; defaults are only a first-confirmation draft.
+    const initialSelection=!data.rows.some(row=>row.confirmed);
+    draft=new Map(data.rows.filter(row=>initialSelection||row.confirmed).map(row=>[row.lineKey,{lineKey:row.lineKey,source:row.confirmed?.source||'request',vendorCode:row.confirmed?.vendorCode??null}]));
+    draw();content.querySelector('input:checked,input:not(:disabled)')?.focus();}catch(e){failure(e);}};
   save.onclick=()=>{if(!draft)return;try{checkDraft();const selections=changes();if(!selections.length)return;
     const result=options.onSave({action:'selectMany',documentId:options.documentId,expectedRevision:data.revision,selections});
     if(!result)throw Error('저장하지 못했습니다. 선택 내용을 확인하고 다시 시도하세요.');reload();
