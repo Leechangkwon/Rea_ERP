@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-21",
+  "version": "0.56.0",
+  "requirement": "REQ-PUR-IMPORT-002",
+  "baselineCommit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
+  "plan": "docs/plan-purchase-custom-fields-20261021.md",
+  "reference": {
+    "manualId": "EC-HELP-PURCHASE-IMPORT",
+    "title": "발주서를 불러와서 구매입력하는 방법",
+    "bodySha256": "77ba92ce055a27dcc2217591ea20a7122c168904c7edc8dd104594c0257fd93a",
+    "artifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-import-help-body.ax.txt",
+    "locator": "366 text",
+    "observedContract": "Matching additional-field names transfer the contents from purchase order to purchase.",
+    "bodyReused": true,
+    "originalBusinessWrite": false,
+    "originalServerTransformMappingVerified": false
+  },
+  "implementation": {
+    "scope": "purchaseorder to purchase input header and new line custom fields",
+    "matching": "effective form exact name in same context; different ID supported; same ID alone insufficient",
+    "preserveExistingDraftValues": true,
+    "ambiguityAndTypeMismatchRejected": true,
+    "readOnlyAndFormulaTargetsRetained": true,
+    "storedFormsOrOldDocumentsMigrated": false,
+    "runtimeBusinessStorage": "existing per-user browser data"
+  },
+  "ownPreservationPolicies": [
+    "different existing header values reject instead of implicit overwrite",
+    "missing or blank source value does not clear target",
+    "exact type agreement and target validation",
+    "reserved legacy properties kept as data without changing prototype"
+  ],
+  "validation": {
+    "newNodeTests": 11,
+    "relatedInitialNodeTests": 46,
+    "initialVerifyLocalPassed": true,
+    "initialFullBrowserTests": 47,
+    "finalNodeRegressionPassed": true,
+    "finalTargetedBrowserTests": 2,
+    "finalReleaseAndBuildPassed": true,
+    "finalReason": "Legacy reserved-key preservation and duplicate-name hardening after full verification",
+    "ownReaScopes": 4,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalReaScopesReused": 2,
+    "originalCacheSourceInputResultHashesAndSchemaValidated": true,
+    "syntheticScreenshotsInspected": true,
+    "workflow": "PO header morning delivery + line LOT-A -> conflict preserved -> cancel unchanged -> purchase4 save/reload -> remaining6 stock4 payable440; source/forms exact",
+    "hostedWriteAcceptance": false
+  },
+  "wholeManualDone": false,
+  "vatResearchConflictsPreserved": 5,
+  "productionDeployed": false
+}
