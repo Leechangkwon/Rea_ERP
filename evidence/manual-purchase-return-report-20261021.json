@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-21",
+  "version": "0.58.0",
+  "requirement": "REQ-PUR-RETURN-002",
+  "scope": "Existing legacy credit-return purchase report projection and all/normal/return filters; no storage migration",
+  "plan": "docs/plan-purchase-return-report-20261021.md",
+  "reference": {
+    "manualId": "EC-HELP-PURCHASE-RETURN",
+    "title": "구매한 품목을 반품했을 때 처리 방법",
+    "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
+    "originalBusinessWrites": false,
+    "newMappingManual": "EC-HELP-MAPPING-IMPORT",
+    "fullApplicationSaveContractVerified": false,
+    "reaVersion": "6.4.0",
+    "ownScopes": 4,
+    "validatedOriginalCacheScopes": 1,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "rawOriginalExecuted": false
+  },
+  "implementation": {
+    "purchaseKind": [
+      "all",
+      "normal",
+      "return"
+    ],
+    "lineSignClassification": true,
+    "creditReturnsUseFrozenSignedProjection": true,
+    "sourceDocumentAndLineIdentityPreserved": true,
+    "legacyExchangeExcludedFromFinancialReport": true,
+    "exchangePolicyIsCompatibilityNotOriginalEquivalence": true,
+    "directNegativePurchaseStorageEnabled": false,
+    "aggregateRawArithmeticHelperUnchanged": true,
+    "filterContextOnTableDetailAndPrint": true,
+    "csvGraphSummaryUseFilteredAmounts": true,
+    "pendingFilterAndFailedSearchPreserveAppliedResult": true,
+    "snapshotRestoreVerified": true,
+    "workTabNavigationSnapshotWiringChanged": false
+  },
+  "validation": {
+    "newNodeTests": 7,
+    "relatedNodeTests": 97,
+    "newBrowserTests": 1,
+    "fullVerifyLocalPassed": true,
+    "candidateBrowserTests": 49,
+    "syntheticScreenshotInspected": true,
+    "workflow": "Saved purchase10 and credit return3 -> reload -> all7/normal10/return-3 -> pending filter/failed query preserve CSV+print -> summary/graph/drilldown -> reload return-3; stock7 payable770; exact original backup unchanged",
+    "initialFailures": "Missing API manual version updated in candidate; new browser selectors and unsupported preview route-state assumption corrected; final verify:local passes",
+    "hostedFilters": [
+      "all",
+      "normal",
+      "return-empty-prior-result-retained"
+    ],
+    "hostedNegativeAmountsVerified": false,
+    "hostedWorkTabResetObserved": true
+  },
+  "sourceCommit": "3c4ea9b3c3fd54bf17f98a5b9ff49eacc92055c9",
+  "featureCommit": "515ce54e480da6ea1d3df3ab7502475b754bfdb9",
+  "deployment": {
+    "version": "0.58.0",
+    "commit": "77b12b6019ab34a4c7d5d3ef5cf173d743513dce",
+    "branch": "release/0.58.0-purchase-return-report",
+    "manifest": ".artifacts/manual-purchase-return-report-20261021/candidate-manifest.json",
+    "bundleSha256": "e130b8fc85d6e1bfc0c098b6b577bed13d0846e567d5bf53ce54d0897750f4cf",
+    "existingSessionRetained": true,
+    "publicChangedAssetHashesVerified": 3,
+    "browserDocuments": 8,
+    "browserBackupExact": true,
+    "formsExact": true,
+    "serverStateAndRevisionExact": true,
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "rollback": ".artifacts/manual-purchase-return-report-20261021/rollback-0.57.0-worker.js",
+    "restoreApplied": false,
+    "businessWritesPerformed": false
+  },
+  "productionDeployed": true,
+  "remainingGaps": [
+    "Negative purchase persistence/copy-return, signed VAT rounding/source allocation/accounting remain unimplemented",
+    "Original full application/over-receipt and differing-price item aggregation save contracts unresolved",
+    "Hosted real credit-return data acceptance pending: operating browser has no return document",
+    "InventoryUI route recreation resets report conditions/results; compare original work-tab behavior before extending navigation contract",
+    "Moa saved progress remains 0.51.0; later updates require authentication and real saved-body readback"
+  ],
+  "wholeManualDone": false,
+  "vatResearchConflictsPreserved": 5,
+  "moaPublicationPending": true
+}

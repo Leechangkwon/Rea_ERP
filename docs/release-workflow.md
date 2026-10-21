@@ -1,10 +1,10 @@
 # 개발과 검증 배포
 
-## 현재 인계 · 0.57.0 운영
+## 현재 인계 · 0.58.0 운영
 
-운영 `release/0.57.0-purchase-lines` / `a034134`, 소스 `2ad6ed1`. 발주→구매 내용복사/라인별에서 동일품목·다른단가 원본행과 기존 입력행을 각각 보존한다. 신규Node8·관련52·전체 verify:local/브라우저48 통과, 운영 같은 발주 2회 복사→40개씩 2행 무저장 시험 및 기존 로그인/자료/양식/메일 보존 확인. 전체적용 저장 연결·품목별 상이 단가 합산·실업무 저장 합격은 남아 있다.
+운영 `release/0.58.0-purchase-return-report` / `77b12b6`, 소스 `515ce54`/검사보완 `3c4ea9b`. 기존 차감반품을 구매현황에서 음수로 표시하고 전체/일반/반품 필터를 집계·상세·CSV·인쇄·그래프에 연결했다. 기존 저장자료/양식 변환 없음. 신규Node7·관련97·최종 verify:local/브라우저49 통과. 운영 전체/일반/반품0건 조회, 기존 로그인과 자료/양식/메일 보존 확인. 운영 음수반품자료0건·업무 저장 미검증이다.
 
-근거 `evidence/manual-purchase-line-import-20261021.json`, 계획 `docs/plan-purchase-line-import-20261021.md`, manifest `.artifacts/manual-purchase-lines-20261021/candidate-manifest.json`. 현재 상태는 `docs/manual-parity/PROGRESS.md` 맨 위를 따른다. 다음은 구체적인 전체적용/합산 저장 근거 조사, 미확보 시 독립적인 음수 구매반품 설계를 진행한다. main VAT5충돌 연구 빌드 설치 금지. 모아36갱신 대기·전체완료0. 아래는 시점별 이력이다.
+근거 `evidence/manual-purchase-return-report-20261021.json`, 계획 `docs/plan-purchase-return-report-20261021.md`, manifest `.artifacts/manual-purchase-return-report-20261021/candidate-manifest.json`. 구매현황 작업 탭 재진입의 기존 조건 초기화는 원본 대조/보완 대기다. 다음은 음수 구매 저장의 세액/원구매·기존 반품/회계 계약 확정과 저장→재조회→현황 절차다. 전체적용/상이단가 합산은 근거 미확인을 유지한다. main VAT5충돌 연구 빌드 설치 금지. 모아37갱신 대기·전체완료0. 아래는 시점별 이력이다.
 
 ## 2026-10-21 · 0.54.0 확정 단가 → 발주서 → 부분 구매 연결
 

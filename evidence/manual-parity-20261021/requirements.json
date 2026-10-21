@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 21,
+  "officialRequirementsDecomposed": 22,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -1480,7 +1480,7 @@
         "직접 음수도 반품",
         "일반 양수와 반품 음수 필터 구분"
       ],
-      "status": "confirmed-gap",
+      "status": "partial-deployed-legacy-report-synthetic-verified-negative-storage-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1488,11 +1488,19 @@
       },
       "role": "manual does not specify role exceptions; own inventory.write retained",
       "implementationEvidence": [
-        "docs/plan-purchase-receipt-closure-20261021.md"
+        "docs/plan-purchase-return-report-20261021.md",
+        "evidence/manual-purchase-return-report-20261021.json"
       ],
-      "automatedEvidence": [],
+      "automatedEvidence": [
+        "tests/purchase-return-report.cjs",
+        "tests/browser/purchase-return-report.spec.cjs"
+      ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "deploymentVersion": "0.58.0",
+      "hostedReportFiltersVerified": true,
+      "hostedNegativeReturnDataVerified": false,
+      "directNegativeSaveImplemented": false
     },
     {
       "id": "REQ-PUR-OUTPUT-001",
@@ -1517,6 +1525,33 @@
       "role": "manual does not specify role exceptions; own inventory.write retained",
       "implementationEvidence": [
         "docs/plan-purchase-receipt-closure-20261021.md"
+      ],
+      "automatedEvidence": [],
+      "hostedAcceptance": false,
+      "done": false
+    },
+    {
+      "id": "REQ-COM-MAPPING-001",
+      "sourceId": "EC-HELP-MAPPING-IMPORT",
+      "title": "매핑센터 메뉴·항목 연결과 불러오기",
+      "procedure": [
+        "매핑센터 신규에서 원본/목표 메뉴 연결·저장",
+        "매핑설정에서 목표 입력항목과 원본항목 선택·적용",
+        "목표 입력화면에서 연결된 원본 전표 선택·적용"
+      ],
+      "expected": [
+        "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
+      ],
+      "status": "needs-detailed-compatibility-review",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+        "section": "메뉴 및 항목 연결하는 방법 / 매핑 사용 방법"
+      },
+      "role": "Manual does not specify role exceptions; existing authorization must be preserved",
+      "implementationEvidence": [
+        "dist/self-settings-ui.js",
+        "dist/entry-core.js"
       ],
       "automatedEvidence": [],
       "hostedAcceptance": false,

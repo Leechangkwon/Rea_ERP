@@ -1,5 +1,5 @@
 {
-  "version": "0.57.0",
+  "version": "0.58.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 48,
+    "currentReleaseBrowserSynthetic": 49,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -138,16 +138,19 @@
     "purchaseCustomImportNewBrowser": 1,
     "purchaseCustomImportFinalTargetedBrowser": 2,
     "purchaseLineCopyNewNode": 8,
-    "purchaseLineCopyNewBrowser": 1
+    "purchaseLineCopyNewBrowser": 1,
+    "purchaseReturnReportNewNode": 7,
+    "purchaseReturnReportRelatedNode": 97,
+    "purchaseReturnReportNewBrowser": 1
   },
   "future_research": "Seek specific original full-application/aggregation save and source-link evidence, keeping unresolved over-receipt and differing-price rules pending. If unavailable, continue independent negative-purchase return design from the reviewed manual without inventing full-copy semantics or repeating unchanged checks. Retain VAT5 conflicts and done=0.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-purchase-line-import-20261021.json",
+    "reference": "../manual-purchase-return-report-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "a03413408f4a1e89389659fc2097d5e22b124747",
-    "publicVersionVerified": "0.57.0",
+    "deployedSourceCommit": "77b12b6019ab34a4c7d5d3ef5cf173d743513dce",
+    "publicVersionVerified": "0.58.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -215,11 +218,11 @@
     "orderLinesHostedSavePerformed": false,
     "lastExactBrowserBackupComparisonVersion": "0.57.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.57.0",
+    "currentServerStateAndMailPreservedVersion": "0.58.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.57.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.58.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -238,12 +241,15 @@
     "purchaseCustomNameImportHostedSaveVerified": false,
     "purchaseLineCopyDeployed": true,
     "purchaseLineCopyHostedStagingVerified": true,
-    "purchaseLineCopyHostedSaveVerified": false
+    "purchaseLineCopyHostedSaveVerified": false,
+    "purchaseReturnReportDeployed": true,
+    "purchaseReturnReportHostedFiltersVerified": true,
+    "purchaseReturnReportHostedNegativeDataVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 21,
-    "sourceBodiesReviewed": 10,
+    "officialRequirements": 22,
+    "sourceBodiesReviewed": 11,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
@@ -475,7 +481,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Seek specific original full-application/aggregation save and source-link evidence, keeping unresolved over-receipt and differing-price rules pending. If unavailable, continue independent negative-purchase return design from the reviewed manual without inventing full-copy semantics or repeating unchanged checks. Retain VAT5 conflicts and done=0.",
+    "nextIndependentWork": "Resolve negative-purchase return storage contract (signed VAT/source allocation/legacy return/accounting), compare purchase report work-tab state reset with original, and then complete saved return workflow. Full-quantity/over-receipt and differing-price aggregation remain pending concrete reference save evidence; do not repeat unchanged scans. VAT5 conflicts and overall done=0 remain.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -639,13 +645,19 @@
       "hostedStagingVerified": true,
       "hostedWriteAcceptancePending": true,
       "done": false
+    },
+    "purchaseReturnReport": {
+      "version": "0.58.0",
+      "evidence": "evidence/manual-purchase-return-report-20261021.json",
+      "done": false,
+      "negativePurchaseStorage": false
     }
   },
   "preparedCandidate": {
-    "version": "0.57.0",
-    "commit": "a03413408f4a1e89389659fc2097d5e22b124747",
-    "manifest": ".artifacts/manual-purchase-lines-20261021/candidate-manifest.json",
-    "bundleSha256": "ff2e26d2913b903049450bdfab5b86c9c6c86d783d9464620919fd514ec20c9c",
+    "version": "0.58.0",
+    "commit": "77b12b6019ab34a4c7d5d3ef5cf173d743513dce",
+    "manifest": ".artifacts/manual-purchase-return-report-20261021/candidate-manifest.json",
+    "bundleSha256": "e130b8fc85d6e1bfc0c098b6b577bed13d0846e567d5bf53ce54d0897750f4cf",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -663,9 +675,10 @@
       "confirmed-price-supplier-order-save-reload-partial-purchase",
       "purchase-partial-receipt-closure-reopen-exhausted-header-only-import",
       "purchaseorder-to-purchase-custom-field-name-transfer",
-      "purchaseorder-to-purchase-copy-line-identity-preservation"
+      "purchaseorder-to-purchase-copy-line-identity-preservation",
+      "purchase-report-signed-preserved-credit-returns-and-kind-filter"
     ],
-    "supersedesCandidateCommit": "1fc990eb1f95f8df23f1ee4b93f7cf3b3cf45e37",
+    "supersedesCandidateCommit": "a03413408f4a1e89389659fc2097d5e22b124747",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,

@@ -334,3 +334,9 @@ PO→구매 초안 불러오기는 양식의 context별 활성/조건 custom 정
 ## ADR-20261021 라인별 내용복사와 원전표 수량 연결 — 0.57.0
 
 PO→구매 copy/line은 새 로컬 lineId를 할당하며 원본 행 ID는 importedFrom provenance에 보관한다. 기존 입력행과 수량을 합치지 않는다. linked/line의 sourceId/sourceLineId 및 잔량 제한과 구분한다. 과거 ID 없는 구매에 후속 자료가 있으면 저장 전 staging에서 ID 재배정/대체를 거부한다. 안정적 ID가 있는 부모/반품의 기존 참조는 유지한다. 원본의 balance_type=N 전체적용 요청을 현재 내용복사와 동일한 저장 계약이라고 추정하지 않는다. 상세 근거는 `evidence/manual-purchase-line-import-20261021.json`이다.
+
+## 0.58.0 구매 차감반품 현황 투영
+
+purchasing-report-core의 reportAmount가 기존 purchasereturn/credit의 고정 금액·수량만 음수 투영한다. 원문서/행/저장구조는 보존하며 일반/반품 필터를 행 부호로 적용한다. summary/drilldown/graph/CSV/print는 같은 조회 결과를 사용한다. 내부 aggregate raw arithmetic helper는 변경하지 않았다. 교환반품/교환입고는 기존 payableImpact0 호환 정책으로 제외하며 원본 교환 동등성은 미확인이다. inventory-core 음수 저장 검증과 VAT 연구는 변경하지 않는다. 음수 구매 저장은 세액 대칭·할당·기존 반품·회계/백업 계약 확정 후 별도 구현한다.
+
+view snapshot/restore는 조건을 보존하지만 InventoryUI 작업 탭 재생성은 report 조건을 초기화한다. 운영에서 이 경계를 확인했으며 원본 대조 후 상태 연결을 설계한다. 신규 매핑센터 도움말 본문은 메뉴/항목 연결 계약이며 전체수량 저장 증거로 사용하지 않는다. 근거 evidence/manual-purchase-return-report-20261021.json.

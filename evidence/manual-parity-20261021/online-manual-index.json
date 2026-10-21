@@ -1,7 +1,7 @@
 {
   "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
-  "count": 40,
-  "bodyReviewed": 10,
+  "count": 41,
+  "bodyReviewed": 11,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -338,6 +338,16 @@
       "observedDate": "2026-10-21",
       "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
       "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-return-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-MAPPING-IMPORT",
+      "title": "서로 다른 메뉴를 연결하여 입력된 자료를 불러오는 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 자료불러오기 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "c26fc1e907834b49cf1b09c82183b951e628f52ebed6a30f5e8d169ca7c8192f",
+      "localArtifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+      "safety": "Only help body viewed; no source ERP configuration or business saves"
     }
   ]
 }

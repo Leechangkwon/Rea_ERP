@@ -1,6 +1,6 @@
 # 자동화 ERP · REA 재구성 검증
 
-현재 운영은 **0.57.0 / a034134** (발주→구매 라인별 내용복사 행 보존)이며 분리후보만 설치했다. 근거는 `evidence/manual-purchase-line-import-20261021.json`와 `docs/release-workflow.md`다. main 미완료 VAT 연구 빌드 설치 금지.
+현재 운영은 **0.58.0 / 77b12b6** (기존 차감반품 구매현황 구분·집계·출력 연결)이며 분리후보만 설치했다. 근거는 `evidence/manual-purchase-return-report-20261021.json`와 `docs/release-workflow.md`다. 음수 구매 저장은 미완료이며 main VAT 연구 빌드 설치 금지.
 
 과거 운영은 분리 릴리스0.53.6/a613d8c이며 신규 단가요청 다중 거래처·비교자료 동시 저장을 추가하고 기존 로그인·자료 보존을 확인했다. main에는 미완료VAT 연구가 있으므로 운영 재시작은 docs/release-workflow.md의 정확한 번들/manifest를 따른다.
 
