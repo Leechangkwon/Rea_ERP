@@ -198,6 +198,54 @@ function storeCommand(db,input,C){
  validateStore(store);
  return {store,result:view({...db,settings:{...db.settings,priceRequests:store}},input.documentId,C)};
 }
-const api={FORMAT,VERSION,MAX_VENDORS,MAX_LINES,STORE_VERSION,MAX_RECORDS,create,validate,command,comparison,validateStore,view,storeCommand};
+// Price requests remain immutable. Project an optional comparison onto a purchase order.
+function orderLines(db,source,lines,C){
+ const state=view(db,source.id,C);if(!state)return copy(lines);
+ if(state.status!=='ready')fail('단가요청 원본 또는 거래처가 변경됐습니다. 비교자료를 확인하세요.');
+ return lines.map(line=>{
+  const sourceId=line.lineId===undefined?(source.lines.some(row=>row.lineId!==undefined&&row.lineId===line.sourceLineId)?line.sourceLineId:undefined):line.lineId;
+  const matches=source.lines.map((row,index)=>({row,index})).filter(({row})=>row.item===line.item&&(!sourceId||row.lineId===sourceId));
+  if(matches.length!==1)fail('단가요청 원본 품목행을 확인하세요.');
+  const {row,index}=matches[0],lineKey=row.lineId===undefined?'row:'+index:'id:'+row.lineId;
+  const value=state.rows.find(row=>row.lineKey===lineKey),selected=value.confirmed;
+  const basis={documentId:source.id,revision:state.revision,lineKey,item:line.item,source:selected?.source||null,vendorCode:selected?.vendorCode||null,price:selected?.price||value.requestedPrice};
+  if(line.priceRequestBasis&&canonical(line.priceRequestBasis)!==canonical(basis))fail('확정 단가가 변경됐습니다. 단가요청을 다시 불러오세요.');
+  if(decimal(Number(basis.price))!==basis.price)fail('확정 단가의 정밀도를 현재 발주서에 보존할 수 없습니다. 단가를 확인하세요.');
+  return {...copy(line),price:basis.price,priceRequestBasis:basis};
+ });
+}
+function orderPartner(lines,partner){
+ const vendors=[...new Set(lines.map(line=>line.priceRequestBasis?.vendorCode).filter(Boolean))];
+ if(vendors.length>1)fail('확정 거래처가 다른 품목은 거래처별로 나누어 발주하세요.');
+ if(vendors.length&&partner&&partner!==vendors[0])fail('확정 거래처와 발주서 거래처가 다릅니다.');
+ return vendors[0]||partner||'';
+}
+function validateOrderBasis(line){
+ const basis=line.priceRequestBasis;if(basis===undefined)return;
+ record(basis,['documentId','revision','lineKey','item','source','vendorCode','price'],'발주 단가 근거');
+ code(basis.documentId,'단가요청');lineIdentity(basis.lineKey);code(basis.item,'품목');
+ if(basis.item!==line.item||!Number.isSafeInteger(basis.revision)||basis.revision<0||![null,'request','vendor'].includes(basis.source)||decimal(basis.price)!==basis.price)fail('발주 단가 근거를 확인하세요.');
+ if(basis.source==='vendor')code(basis.vendorCode,'확정 거래처');else if(basis.vendorCode!==null)fail('발주 단가 거래처를 확인하세요.');
+}
+function validateOrder(db,doc,previous,C){
+ if(doc.type!=='purchaseorder')return;
+ for(const line of doc.lines){
+  validateOrderBasis(line);
+  const prior=previous?.lines.find((row,index)=>line.lineId?row.lineId===line.lineId:line.sourceLineId?row.sourceLineId===line.sourceLineId:row.item===line.item&&index===doc.lines.indexOf(line));
+  const oldBasis=prior?.priceRequestBasis,basis=line.priceRequestBasis;
+  if(oldBasis&&(!basis||canonical(oldBasis)!==canonical(basis)))fail('저장된 발주 단가 근거는 변경할 수 없습니다. 새로 불러온 행으로 작성하세요.');
+  const unchanged=previous&&previous.sourceId===doc.sourceId&&prior&&(!oldBasis&&!basis||oldBasis&&basis&&canonical(oldBasis)===canonical(basis));
+  if(basis?.vendorCode&&basis.vendorCode!==doc.partner)fail('확정 거래처와 발주서 거래처가 다릅니다.');
+  if(unchanged)continue;
+  const source=db.documents.find(row=>row.id===(basis?.documentId||doc.sourceId));
+  if(source?.type!=='pricerequest'){if(basis)fail('발주 단가 근거의 원본을 확인하세요.');continue;}
+  if(!basis){if(view(db,source.id,C))fail('단가요청을 다시 불러와 확정 단가를 확인하세요.');continue;}
+  if(doc.sourceId&&doc.sourceId!==basis.documentId)fail('발주 단가 근거의 원본을 확인하세요.');
+  const original=source.lines.find((row,index)=>(row.lineId===undefined?'row:'+index:'id:'+row.lineId)===basis.lineKey);
+  if(!original||original.item!==line.item||doc.sourceId&&original.lineId!==line.sourceLineId)fail('발주 단가 근거의 품목행을 확인하세요.');
+  orderLines(db,source,[{...copy(original),priceRequestBasis:basis}],C);
+ }
+}
+const api={FORMAT,VERSION,MAX_VENDORS,MAX_LINES,STORE_VERSION,MAX_RECORDS,create,validate,command,comparison,validateStore,view,storeCommand,orderLines,orderPartner,validateOrderBasis,validateOrder};
 if(typeof module==='object'&&module.exports)module.exports=api;else root.PriceRequestCore=api;
 })(typeof globalThis==='object'?globalThis:this);
