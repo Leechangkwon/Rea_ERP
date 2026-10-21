@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1
   },
-  "future_research": "Operating 0.53.1 retained. Candidate 0.53.2 72b523d includes plan100 limit, receiving warehouse/inspection preservation and price request order/plan imports with mobile auxiliary access. Authenticated backup/UI acceptance, deployment preservation and Moa readback pending. Continue supplier quote comparison state and unresolved quantity/VAT evidence.",
+  "future_research": "Operating0.53.1 and prepared0.53.2 72b523d retained. Independent quote comparison model8002335 validated but not integrated. Next: browser-compatible binding, versioned sidecar command/backup preservation, then comparison UI; confirmed-price order propagation and external reply permissions require more original evidence. Authenticated deployment preservation and Moa readback pending.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../deployment-purchase-links-0531-20261021.json",
@@ -372,6 +372,22 @@
       "ownScopes": 1,
       "deploymentPending": true,
       "installedIntoOperatingRuntime": false,
+      "done": false
+    },
+    "priceRequestComparisonModel": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "sourceCommit": "80023351c41d5986f78c35d24199c294da2b0647",
+      "evidence": "evidence/manual-price-request-comparison-model-20261021.json",
+      "status": "independent-model-validated-not-integrated",
+      "modelNodeTests": 24,
+      "relatedNodeTests": 82,
+      "deterministicCases": 400,
+      "ownReaScopes": 9,
+      "appIntegrated": false,
+      "browserIntegrated": false,
+      "backupSchemaChanged": false,
+      "canApply": false,
+      "productionDeployed": false,
       "done": false
     }
   },

@@ -258,3 +258,14 @@ validateReceiptWarehouseChange는 저장 직전에 이전/새 창고를 비교�
 현재 pricerequest의 단일 partner와 db.prices 특별단가 레지스트리는 그대로다. 후속 복수 공급사 회신은 별도 계약으로 설계한다. 원본 품목행의 안정된 lineId, 요청가/수취가/확정가 구분, 1~5거래처, 유효기간·입력마감, 명시 확정 선택과 발주서 출처/감사기록, 기존 백업 호환과 권한을 검증해야 한다. db.prices를 회신 저장소로 쓰거나 pricerequest를 구매유형 배열에 일괄 추가해 세액·상태·이력 계약을 넓히지 않는다. 영상에 없는 외부 회신 인증·만료·재발급을 추정하지 않는다.
 
 0.53.2 최신 후보72b523d의 검증/번들은 .artifacts/manual-price-request-20261021/candidate-manifest.json, 운영은0.53.1이다. 전체 단가요청 비교/메일/인증 저장 결과 동등성은 미완료다. evidence/manual-price-request-import-20261021.json.
+
+
+### 단가요청 비교 부속 상태 v1의 독립 모델 · 8002335
+
+현재 scripts/lib/price-request-comparison.cjs는 Node 전용이며 기존 전표에 자동 부착하지 않는다. 상태는 format/version/revision/source/vendors/selections다. source에는 원본 전체의 정렬된 JSON 지문과 행 목록을 고정한다. 행키는 기존 lineId의 공백까지 보존한 id: 값, ID 없는 옛 행은 row:위치이며 전체 지문으로 행 이동/내용 변화를 감지한다. vendors는1~5개 고유 코드와 inputClosed/행별 received, selections는 품목행마다 요청가 또는 특정거래처 회신가의 명시적 선택이다. null은 미회신, 문자열0은 회신0원이다. 요청가/회신가/확정가는 덮어쓰지 않는다.
+
+command는 expectedRevision과 현재 원본을 검증한 뒤 새 상태를 반환한다. 마감 시 회신수정 거절, 재개방 시 기존 값 보존, 선택된 회신 변경 전 명시적 선택해제를 적용한다. 이들은 자체 보존규칙이며 원본 마감/취소의 전체 의미로 주장하지 않는다. 모든 저장 배열은 빠짐없이 소유한 인덱스를 갖도록 검사한다. 가격은 범위 내 소수10자리, 수량은 양수 소수6자리의 십진문자열로 한정하고 조용한 반올림을 하지 않는다. 지원범위 밖 옛 전표는 변경하지 않은 채 새 비교 시작만 거절한다.
+
+지문은 인증 서명이 아니다. 다음 통합에서는 브라우저 호환 동일 지문 계산, 서버의 역할/원자적 수정번호 검사, source 삭제/변경/취소 시 부속상태 보존·명시 재설정, backup의 버전/역참조 검증과 구버전 읽기, 안정된 행ID 및 회사 경계를 먼저 확정한다. 기존 db.prices나 document.partner를 회신 배열로 재해석하지 않는다. 외부 회신 URL/권한/만료와 발주서의 확정가 공급사/잔량 배분은 별도 계약이다.
+
+근거 evidence/manual-price-request-comparison-model-20261021.json. 운영과 preparedCandidate는 변경하지 않는다.

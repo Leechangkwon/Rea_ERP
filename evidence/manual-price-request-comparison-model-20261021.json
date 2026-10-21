@@ -1,0 +1,444 @@
+{
+  "date": "2026-10-21",
+  "recordedAt": "2026-10-21T08:35:00.757731+00:00",
+  "requirement": "REQ-PUR-PRICE-001",
+  "feature": "supplier-quote-comparison-independent-state-model",
+  "status": "independent-model-validated-not-integrated",
+  "sourceCommit": "80023351c41d5986f78c35d24199c294da2b0647",
+  "sourcePushed": true,
+  "plan": "docs/plan-manual-purchase-gaps-20261021.md",
+  "module": "scripts/lib/price-request-comparison.cjs",
+  "runtime": "Node-only independent contract model",
+  "reference": {
+    "existingHelpId": "EC-HELP-REQUEST-036",
+    "existingVideoId": "EC-VID-13917",
+    "priorEvidence": "evidence/manual-price-request-import-20261021.json",
+    "reviewedFacts": [
+      "Maximum five vendors; supplier replies compared and explicitly chosen",
+      "Recorded view separates requested, received and confirmed prices",
+      "Recorded view exposes input-close/reopen and price-selection controls"
+    ],
+    "newAuthenticatedObservation": false,
+    "newManualBodies": 0,
+    "newOriginalScopes": 0,
+    "additionalOfficialSearch": "No results; no new contract inferred.",
+    "reusedOriginalScope": {
+      "source": ".artifacts/manual-price-request-20261021/rea-final/rea-summary.json",
+      "cacheVerified": true,
+      "unchangedOriginalScope": {
+        "name": "_convertUrl",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 704352,
+        "end": 705685,
+        "lineStart": 14389,
+        "lineEnd": 14424,
+        "fragmentSha256": "40655d3fff0218135de55ce97b880d2c59fdfd06a2c163c66f2d2da2a78752fb",
+        "resultSha256": "f5d7b99e60ccc735a7f00425460352040ec1844af4ce34cdaefa6c5becd91613",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1391,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 62,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      "newOriginalScopes": 0,
+      "newOriginalDownloaded": false,
+      "originalRuntimeExecuted": false,
+      "note": "Routing context only; not supplier reply or confirmed-price storage proof."
+    }
+  },
+  "model": {
+    "format": "rea-price-request-comparison",
+    "version": 1,
+    "maximumVendors": 5,
+    "maximumLines": 500,
+    "unanswered": null,
+    "explicitZeroPrice": "0",
+    "sourceBinding": "SHA256 of canonical full source document; not an authorization signature",
+    "lineIdentity": "Exact existing lineId, including spaces; otherwise source-index key bound to the whole source",
+    "priceRepresentation": "Canonical exact decimal strings, 0..1e12, up to ten fractional digits",
+    "quantityRepresentation": "Positive decimal strings, up to six fractional digits",
+    "actions": [
+      "reply",
+      "close",
+      "select",
+      "clear-selection"
+    ],
+    "behavior": [
+      "No automatic cheapest-price selection",
+      "Requested price and each supplier reply remain separate",
+      "Selected reply cannot be changed or cleared before explicit selection release",
+      "Closed input rejects reply edits; reopening preserves replies and selections",
+      "Expected revision and exact source snapshot checked before immutable transition",
+      "Dense own-index arrays required; sparse and undefined values refused"
+    ],
+    "ownPreservationPoliciesNotOriginalParity": [
+      "Full-document staleness check including memo changes",
+      "Revision guards and selected-reply edit lock",
+      "Null distinct from explicit zero",
+      "Exact numeric limits and refusal without rounding"
+    ]
+  },
+  "integration": {
+    "appIntegrated": false,
+    "browserIntegrated": false,
+    "commandIntegrated": false,
+    "backupSchemaChanged": false,
+    "purchaseOrderPropagation": false,
+    "externalReplyAndMail": false,
+    "productionDeployed": false,
+    "canApplyToExistingRecords": false
+  },
+  "tests": {
+    "modelNode": 24,
+    "relatedNode": 82,
+    "toolNode": 7,
+    "environmentPassed": true,
+    "deterministicSupplierCases": 400,
+    "independentReviewModelNode": 24,
+    "independentBoundaryChecks": 4,
+    "reviewDefectsInitially": 2,
+    "reviewDefectsFixed": [
+      "Sparse source/received arrays skipped by callbacks",
+      "Opaque existing row IDs rejected by trimming code validator"
+    ],
+    "finalActionableReviewDefects": 0,
+    "fullRegressionRun": false,
+    "browserRun": false,
+    "scopeReason": "New independent Node model outside served assets; no runtime/UI adapter or storage change. Full regression and browser checks required when integrating."
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 9,
+    "newOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalRuntimeExecuted": false,
+    "runtimeEquivalence": false,
+    "results": [
+      {
+        "name": "denseArray",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 783,
+        "end": 1020,
+        "lineStart": 14,
+        "lineEnd": 18,
+        "fragmentSha256": "4a95af82004da33067afa60fa4a6bd75d7b1f4f0bf723d3662542a70b53ee579",
+        "resultSha256": "ad40d46b734333191922557257e4600da53b7fe1dc9e20f12d330983a65a2912",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 277,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 54,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "lineIdentity",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 1021,
+        "end": 1225,
+        "lineStart": 19,
+        "lineEnd": 23,
+        "fragmentSha256": "99a7c6ce77450088550eb22849be484523ddc1b237e8bf4d87643bc7915382fe",
+        "resultSha256": "2d873acac4b1dcff442affecccc5a24967f2f283718be2a035962b2ff950fec4",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 228,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 28,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "canonical",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 1226,
+        "end": 1774,
+        "lineStart": 24,
+        "lineEnd": 31,
+        "fragmentSha256": "60edcfd6475ebcea196f3f2a745823af816655d7dcde222089ae271697155562",
+        "resultSha256": "112ffdd8f2b8908689989ddedeec7993cfd7e2a9d3e5c610e9dca7713098ac9f",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 584,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 127,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "decimal",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 1775,
+        "end": 2768,
+        "lineStart": 32,
+        "lineEnd": 47,
+        "fragmentSha256": "d6954b6a2d09346fe615b1d0dab319151f2bded918ae2b447824b360c31ded43",
+        "resultSha256": "f5994e0b541d570e3d153fe04083d069890afbbed162d389a7d8b9fc07a67fcf",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1127,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 242,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "sourceOf",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 2769,
+        "end": 3626,
+        "lineStart": 48,
+        "lineEnd": 61,
+        "fragmentSha256": "977f97556ee2e917b060d7a4c106e7bc68a731249a7d5b9dff1e9e67b555e130",
+        "resultSha256": "086df737024f187115836eb2d2229f178342df881187f5046133cfad3e64cc49",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1001,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 194,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validate",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 4197,
+        "end": 5808,
+        "lineStart": 74,
+        "lineEnd": 98,
+        "fragmentSha256": "bf757c23f6238e7924ba677b3853c2a83675e6c2e97661824d0ddf22b806de9b",
+        "resultSha256": "34954d52d369d516b0fb4127998be6e235ab8747119021d51c5e181c692a8f29",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1961,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 331,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "create",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 5809,
+        "end": 6276,
+        "lineStart": 99,
+        "lineEnd": 104,
+        "fragmentSha256": "2721dc7f211cdf059523b7cb6c9e71568522c55cf598a85e224fac613b4b5de3",
+        "resultSha256": "b4b0debf9587b8fe41fe74d7c970f13d938a05c3be988a831d9062c292002753",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 505,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 102,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "command",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 6277,
+        "end": 8213,
+        "lineStart": 105,
+        "lineEnd": 127,
+        "fragmentSha256": "0263ba8a2178901d3350f7870f6ed406b272b497638929d33ca9ed52a7a18bb5",
+        "resultSha256": "a69ab96b6953990496afee87d74643d932bb18b5138082f4d20ac2b91620094a",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2180,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 430,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "comparison",
+        "category": "own",
+        "file": "scripts/lib/price-request-comparison.cjs",
+        "sourceSha256": "14d931e3d17e7c4d3b89d8307a386ef889707c78a5249b6a7543bbe6a8f05ea6",
+        "start": 8214,
+        "end": 8641,
+        "lineStart": 128,
+        "lineEnd": 131,
+        "fragmentSha256": "e71f49f917ba84b3070fd5882dee82faaa4e359b7a3c4650096b2c18689cb258",
+        "resultSha256": "839c4ad18de51c8f18d6e7e7a8b7ce020f8152216cd828eeb7397db13bffe019",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 427,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 105,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "preservation": {
+    "operatingVersion": "0.53.1",
+    "operatingBundleSha256Before": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingBundleSha256After": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "preparedCandidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+    "preparedBundleSha256Before": "0755582c565d6bc2a3f6246cc127e5de0ff0a217ebfa57c96bdd17c5b53680f7",
+    "preparedBundleSha256After": "0755582c565d6bc2a3f6246cc127e5de0ff0a217ebfa57c96bdd17c5b53680f7",
+    "serverRestarted": false,
+    "productionDatabaseWrites": false,
+    "mailSent": false,
+    "originalBusinessWrites": false,
+    "freshProductionDataComparison": false,
+    "existingSyntheticDocumentPricesFormsAndBackupUnchanged": true
+  },
+  "proofs": {
+    ".artifacts/manual-price-comparison-20261021/focused.log": {
+      "sha256": "97aec70549872c90a798f60b4e346c0ca4d8cf17e75a02c8356fe2c68f926c0f"
+    },
+    ".artifacts/manual-price-comparison-20261021/related.log": {
+      "sha256": "b992329f6f831463e7d4dc3d306579b3467fcfe447874761fb6f4651ce09de8a"
+    },
+    ".artifacts/manual-price-comparison-20261021/review-regression-before.log": {
+      "sha256": "ceaede5065c66b638e4c047f2bc0a5c53d3ebd025a495e9ebbba8e405d65a3d8"
+    },
+    ".artifacts/manual-price-comparison-20261021/final-related.log": {
+      "sha256": "c06eb221ea02143bc3ac44c983efa15ebec172f5102d8c5627290b83d36828db"
+    },
+    ".artifacts/manual-price-comparison-20261021/final-model.log": {
+      "sha256": "5b7daafcd2ad6e7ceba34f4a7aaf6872500db38d3b5d7eb000786a4be251d92e"
+    },
+    ".artifacts/manual-price-comparison-20261021/environment.log": {
+      "sha256": "38d72bf3e7a340a3df1b6a6d700ad2afe90f91cc38cde7e1eb467b530c784ffb"
+    },
+    ".artifacts/manual-price-comparison-20261021/tools.log": {
+      "sha256": "2a3b8c2aef986867114e94beceef0ffbf46627a0ee689ebd90e57fbc87933fbe"
+    },
+    ".artifacts/manual-price-comparison-20261021/original-cache-check.json": {
+      "sha256": "8f8082c141d3e40a9d6efee1c5d96a1ef79ee3663f22774a8af91a6d558c2706"
+    },
+    ".artifacts/manual-price-comparison-20261021/rea-final/analyze.mjs": {
+      "sha256": "6bd36bf718df7f5d973d0589086d5f6c7457ca1c8ab224516662271e50adcf93"
+    },
+    ".artifacts/manual-price-comparison-20261021/rea-final/rea-summary.json": {
+      "sha256": "e84b87a22e3bf0383525fae41ff4a6b05bb33a2ac37daf7adf28ddce1b0bee50"
+    }
+  },
+  "manualParity": {
+    "officialRequirements": 13,
+    "loginBodiesReviewed": 4,
+    "done": 0,
+    "originalParityPassed": false
+  },
+  "community": {
+    "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "connectorCheck": "HTTP401 invalid/expired token",
+    "workDocumentUpdateToolAvailable": false,
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "next": [
+    "Define browser-compatible source binding and shared pure-core adapter without weakening identity checks",
+    "Connect sidecar to InventoryCore commands and versioned backup validation; preserve legacy documents without sidecars",
+    "Implement supplier selection, comparison/manual replies, explicit close and price selection UI with role checks",
+    "Confirm purchase-order propagation contract and external reply/mail auth/expiry from original evidence",
+    "Run related/full/browser/preservation checks; then integrate isolated candidate and deploy only after existing authenticated acceptance",
+    "Append missing progress to existing Moa bodies and reread saved content"
+  ]
+}
