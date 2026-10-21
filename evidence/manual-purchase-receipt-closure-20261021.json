@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-21",
+  "version": "0.55.0",
+  "baselineCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+  "reference": {
+    "bodyCount": 6,
+    "sources": [
+      {
+        "id": "EC-HELP-PURCHASE",
+        "title": "구매 메뉴 사용 방법",
+        "status": "body-reviewed",
+        "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+        "observedDate": "2026-10-21",
+        "bodySha256": "dd8fb71b60f5be7ef4e8aca516938d4426a2c8fa404ed3d8e0ce092e9d7bf209",
+        "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-help-body.ax.txt"
+      },
+      {
+        "id": "EC-HELP-PURCHASE-ORDER",
+        "title": "발주서 메뉴 사용 방법",
+        "status": "body-reviewed",
+        "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+        "observedDate": "2026-10-21",
+        "bodySha256": "857ba608d8fd5ae98d2c297d12a5c2b79099164b764dd39729611f2797dbd893",
+        "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-help-body.ax.txt"
+      },
+      {
+        "id": "EC-HELP-PURCHASE-IMPORT",
+        "title": "발주서를 불러와서 구매입력하는 방법",
+        "status": "body-reviewed",
+        "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+        "observedDate": "2026-10-21",
+        "bodySha256": "77ba92ce055a27dcc2217591ea20a7122c168904c7edc8dd104594c0257fd93a",
+        "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-import-help-body.ax.txt"
+      },
+      {
+        "id": "EC-HELP-PURCHASE-RETURN",
+        "title": "구매한 품목을 반품했을 때 처리 방법",
+        "status": "body-reviewed",
+        "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+        "observedDate": "2026-10-21",
+        "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
+        "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-return-help-body.ax.txt"
+      },
+      {
+        "id": "EC-HELP-REQUEST-025",
+        "title": "전표 종결의 의미와 사용 방법",
+        "page": 2,
+        "status": "body-reviewed",
+        "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+        "observedDate": "2026-10-21",
+        "bodySha256": "cc9868621f4604bae52b7d8725f7247459bf4a610994312b3fb9b56a855361e9",
+        "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-help-body.ax.txt"
+      },
+      {
+        "id": "EC-HELP-REQUEST-027",
+        "title": "전표를 종결 처리하는 방법",
+        "page": 2,
+        "status": "body-reviewed",
+        "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+        "observedDate": "2026-10-21",
+        "bodySha256": "06a9bff12537eea982486bef60d19d7c682f9fa0e75d7b81cf2b988e26638a72",
+        "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-method-help-body.ax.txt"
+      }
+    ],
+    "originalBusinessWrite": false,
+    "fullVideoReview13918and13920": false,
+    "transcriptTool": "Unexpected response type; browser transcript panel no body",
+    "staticOriginal": "LoadSelectSlipUserAction calls transform API and separates master/detail; ProcessReturnInventoryProgram routes PROCESS_RETURN. Server transform results unresolved."
+  },
+  "scope": "partial receipt closure reopening and exhausted PO header import",
+  "requirements": [
+    "REQ-PUR-RECEIPT-001",
+    "REQ-PUR-RECEIPT-002",
+    "REQ-PUR-RECEIPT-003",
+    "REQ-PUR-IMPORT-001",
+    "REQ-PUR-IMPORT-002",
+    "REQ-PUR-RETURN-001",
+    "REQ-PUR-RETURN-002",
+    "REQ-PUR-OUTPUT-001"
+  ],
+  "validation": {
+    "newNodeAndDomTests": 9,
+    "browserWorkflow": "passed",
+    "fullRegression": "passed",
+    "productionWriteAcceptance": false,
+    "candidateBrowserTests": 46,
+    "candidateCommand": "npm run verify:local",
+    "syntheticScreenshotInspected": true,
+    "syntheticResult": {
+      "purchaseOrderQuantity": 10,
+      "firstReceipt": 4,
+      "secondReceipt": 6,
+      "remaining": 0,
+      "stock": 10,
+      "payable": 1100,
+      "headerCancelAndApplyPreserveStoredData": true
+    },
+    "reaFinalCandidate": {
+      "version": "6.4.0",
+      "originalScopes": 2,
+      "ownScopes": 3,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false
+    }
+  },
+  "review": {
+    "independentReproductions": 2,
+    "fixed": [
+      "automatic progress reopen before closure guard",
+      "unlink closed PO and increase saved receipt"
+    ],
+    "sourceMaterialNotExecuted": true
+  },
+  "wholeManualDone": false,
+  "vatResearchConflictsPreserved": 5
+}

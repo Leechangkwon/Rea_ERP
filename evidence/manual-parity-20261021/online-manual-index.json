@@ -1,7 +1,7 @@
 {
-  "scope": "request context only; not all ERP manuals",
-  "count": 36,
-  "bodyReviewed": 4,
+  "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
+  "count": 40,
+  "bodyReviewed": 10,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -203,9 +203,11 @@
       "id": "EC-HELP-REQUEST-025",
       "title": "전표 종결의 의미와 사용 방법",
       "page": 2,
-      "status": "index-only",
-      "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "cc9868621f4604bae52b7d8725f7247459bf4a610994312b3fb9b56a855361e9",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-help-body.ax.txt"
     },
     {
       "id": "EC-HELP-REQUEST-026",
@@ -219,9 +221,11 @@
       "id": "EC-HELP-REQUEST-027",
       "title": "전표를 종결 처리하는 방법",
       "page": 2,
-      "status": "index-only",
-      "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "06a9bff12537eea982486bef60d19d7c682f9fa0e75d7b81cf2b988e26638a72",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-method-help-body.ax.txt"
     },
     {
       "id": "EC-HELP-REQUEST-028",
@@ -298,6 +302,42 @@
       "observedDate": "2026-10-21",
       "bodySha256": "2cfee5d178a088001ea331684c9044fecf21f6f6ff6795f8d90f810724af36e9",
       "localArtifact": ".artifacts/manual-parity-20261021/manual-purchase-overview.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE",
+      "title": "구매 메뉴 사용 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "dd8fb71b60f5be7ef4e8aca516938d4426a2c8fa404ed3d8e0ce092e9d7bf209",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE-ORDER",
+      "title": "발주서 메뉴 사용 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "857ba608d8fd5ae98d2c297d12a5c2b79099164b764dd39729611f2797dbd893",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE-IMPORT",
+      "title": "발주서를 불러와서 구매입력하는 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "77ba92ce055a27dcc2217591ea20a7122c168904c7edc8dd104594c0257fd93a",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-import-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE-RETURN",
+      "title": "구매한 품목을 반품했을 때 처리 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-return-help-body.ax.txt"
     }
   ]
 }

@@ -588,6 +588,24 @@
   function priceRequestOrderPartner(lines,partner){return priceRequestModule().orderPartner(lines,partner);}
   function priceRequestModule(){const Q=typeof module==='object'&&module.exports?require('./price-request-core.js'):root.PriceRequestCore;if(!Q)throw Error('단가 비교 모듈을 다시 불러오세요.');return Q;}
   function purchaseRoomModule(){return typeof module==='object'&&module.exports?require('./purchase-room-core.js'):root.PurchaseRoomCore;}
+  function guardClosedPurchaseOrders(before,after){
+    const oldDocs=new Map(before.documents.map(d=>[d.id,d]));
+    const quantities=d=>{const result=new Map();for(const line of d?.lines||[]){const key=JSON.stringify([line.item,line.sourceLineId||'']);result.set(key,quantity((result.get(key)||0)+Number(line.qty)));}return result;};
+    for(const doc of after.documents){
+      const priorDoc=oldDocs.get(doc.id),priorSource=oldDocs.get(priorDoc?.sourceId),currentPriorSource=after.documents.find(d=>d.id===priorDoc?.sourceId);
+      if(priorDoc?.type==='purchase'&&priorSource?.type==='purchaseorder'&&purchasingState(priorSource).progress==='완료'&&currentPriorSource&&purchasingState(currentPriorSource).progress==='완료'&&doc.sourceId!==priorDoc.sourceId)throw Error('종결된 발주서의 구매 연결은 제거하거나 변경할 수 없습니다.');
+      if(doc.type!=='purchase'||!doc.sourceId)continue;
+      const source=after.documents.find(d=>d.id===doc.sourceId),oldSource=oldDocs.get(doc.sourceId);
+      // A normal receipt may close its source through an existing progress rule. Preserve that atomic flow.
+      if(source?.type!=='purchaseorder'||purchasingState(source).progress!=='완료'||oldSource?.type!=='purchaseorder'||purchasingState(oldSource).progress!=='완료')continue;
+      const previous=oldDocs.get(doc.id);
+      if(!previous||previous.sourceId!==doc.sourceId)throw Error('종결된 발주서는 진행중으로 변경한 뒤 구매를 입력하세요.');
+      if(JSON.stringify(previous)===JSON.stringify(doc))continue;
+      if(!active(previous)&&active(doc))throw Error('종결된 발주서는 진행중으로 변경한 뒤 구매를 다시 확인하세요.');
+      const prior=quantities(previous),next=quantities(doc);
+      for(const [key,qty] of next)if(qty>(prior.get(key)||0))throw Error('종결된 발주서의 구매 수량을 늘릴 수 없습니다. 진행중으로 변경하세요.');
+    }
+  }
   function guardClosedPeriods(before,after){
     const closings=before.settings.purchaseRoom?.closings?.filter(c=>c.status==='closed')||[];
     if(!closings.length)return;
@@ -655,6 +673,7 @@
     else if(op==='bulkprice'){for(const d of db.documents.filter(d=>payload.ids.includes(d.id))){if(d.accounted)throw Error('회계반영을 취소하세요.');if(d.vatCalculation==='transaction'&&num(payload.percent,'변경률',-100)!==0)throw Error('거래별 조정 전표는 단가 변경 후 차액을 다시 확인하세요.');saveDoc(db,{...d,lines:d.lines.map(l=>({...l,price:money(l.price*(1+num(payload.percent,'변경률',-100)/100))}))});}}
     else if(op==='rebuild'){validateLinks(db);validateStock(db);log(db,'연결 잔량·재고 재검증 완료');}
     else throw Error('지원하지 않는 작업입니다.');
+    if(['document','convert','transition','purchaseRoom','bulkprice'].includes(op))guardClosedPurchaseOrders(input,db);
     if(['document','convert','purchasePlanGenerate'].includes(op))applyLinkedProgressRules(db,result,policy);
     guardClosedPeriods(input,db);
     if(Object.hasOwn(db.settings,'priceRequests'))db.settings.priceRequests=priceRequestModule().validateStore(db.settings.priceRequests);
