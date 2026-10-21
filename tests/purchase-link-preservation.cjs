@@ -113,3 +113,70 @@ test('부모와 자식의 일괄 복원은 선택 순서와 무관하게 최종 
     assert.deepEqual(C.validateBackup(C.clone(out.db)),out.db);
   }
 });
+
+function supplierPlanChain(structured=false){
+  const lines=structured?[{lineId:'P1',item:'A',qty:10,price:100,supplier:'V1'},{lineId:'P2',item:'A',qty:6,price:100,supplier:'V2'}]:[{item:'A',qty:10,price:100,supplier:'V1'}];
+  let out=C.command(fixture(),'document',{type:'plan',date:'2026-10-01',warehouse:'W1',partner:'',status:'진행',vatRate:10,lines});
+  const sourceId=out.result.id;
+  out=C.command(out.db,'convert',{id:sourceId,type:'purchaseorder',partner:'V1',date:'2026-10-02',quantities:structured?{P1:4,P2:0}:{A:4}});
+  return {db:out.db,sourceId,childId:out.result.id};
+}
+for(const structured of [false,true])test(`계획 품목행 공급사 수정은 연결 발주서를 깨뜨릴 수 없다 (라인구분 ${structured})`,()=>{
+  const {db,sourceId,childId}=supplierPlanChain(structured),source=row(db,sourceId),before=C.clone(db);
+  const next={...source,lines:source.lines.map((l,i)=>i===0?{...l,supplier:'V2'}:l)};
+  assert.throws(()=>C.command(db,'document',next),/후속.*거래처/);
+  assert.deepEqual(db,before);assert.equal(C.remaining(db,source,'purchaseorder')[0].qty,6);
+  const saved=C.command(db,'document',{...row(db,childId),memo:'원래 공급사 유지'});
+  assert.equal(saved.result.memo,'원래 공급사 유지');assert.deepEqual(C.totals(saved.result),C.totals(row(db,childId)));
+});
+test('계획의 연결되지 않은 동일품목 다른 행 공급사는 독립적으로 바꿀 수 있다',()=>{
+  const {db,sourceId,childId}=supplierPlanChain(true),source=row(db,sourceId),child=C.clone(row(db,childId));
+  const out=C.command(db,'document',{...source,lines:source.lines.map(l=>l.lineId==='P2'?{...l,supplier:'V1'}:l)});
+  assert.equal(out.result.lines[1].supplier,'V1');assert.deepEqual(row(out.db,childId),child);
+  assert.deepEqual(C.validateBackup(C.clone(out.db)),out.db);
+});
+test('비어 있는 계획 행 공급사의 지정·해제는 기존 발주 거래처와 호환될 때 허용한다',()=>{
+  const {db,sourceId,childId}=supplierPlanChain(),source=row(db,sourceId);
+  const cleared=C.command(db,'document',{...source,lines:source.lines.map(l=>({...l,supplier:''}))}).db;
+  const blank=row(cleared,sourceId);
+  assert.equal(C.command(cleared,'document',{...blank,lines:blank.lines.map(l=>({...l,supplier:'V1'}))}).result.lines[0].supplier,'V1');
+  assert.throws(()=>C.command(cleared,'document',{...blank,lines:blank.lines.map(l=>({...l,supplier:'V2'}))}),/후속.*거래처/);
+  assert.equal(row(cleared,childId).partner,'V1');
+});
+for(const state of ['취소','보류','미확인'])test(`계획 행 공급사 변경 후 ${state} 발주서 복원은 불일치를 원자적으로 막는다`,()=>{
+  const {db:original,sourceId,childId}=supplierPlanChain();
+  let db=C.command(original,'transition',{ids:[childId],status:state}).db;
+  const source=row(db,sourceId),child=C.clone(row(db,childId));
+  db=C.command(db,'document',{...source,lines:source.lines.map(l=>({...l,supplier:'V2'}))}).db;
+  assert.deepEqual(row(db,childId),child);
+  const before=C.clone(db),payload=state==='미확인'?{ids:[childId],confirmation:'확인'}:{ids:[childId],status:'진행'};
+  assert.throws(()=>C.command(db,'transition',payload),/품목행.*거래처/);assert.deepEqual(db,before);
+  db=C.command(db,'document',{...row(db,sourceId),lines:row(db,sourceId).lines.map(l=>({...l,supplier:'V1'}))}).db;
+  const out=C.command(db,'transition',payload);assert.equal(C.active(row(out.db,childId)),true);
+  assert.equal(C.remaining(out.db,row(out.db,sourceId),'purchaseorder')[0].qty,6);
+  assert.deepEqual(C.validateBackup(C.clone(out.db)),out.db);
+});
+test('과거 계획 행 공급사 불일치 백업은 그대로 읽고 원본만 바로잡을 수 있다',()=>{
+  const {db,sourceId,childId}=supplierPlanChain();row(db,sourceId).lines[0].supplier='V2';
+  const before=C.clone(db);assert.deepEqual(C.validateBackup(C.clone(db)),before);
+  const memo=C.command(db,'document',{...row(db,sourceId),memo:'기존 상태 기록'});assert.deepEqual(row(memo.db,childId),row(before,childId));
+  const fixed=C.command(memo.db,'document',{...row(memo.db,sourceId),lines:row(memo.db,sourceId).lines.map(l=>({...l,supplier:'V1'}))});
+  assert.deepEqual(row(fixed.db,childId),row(before,childId));
+  assert.equal(C.command(fixed.db,'document',{...row(fixed.db,childId),memo:'복구 후 발주 메모'}).result.memo,'복구 후 발주 메모');
+});
+test('계획 공급사 불일치가 포함된 발주서 일괄 복원은 성공한 앞선 복원도 되돌린다',()=>{
+  let {db,sourceId,childId}=supplierPlanChain();
+  const second=C.command(db,'convert',{id:sourceId,type:'purchaseorder',partner:'V1',quantities:{A:2}}),otherId=second.result.id;
+  db=C.command(second.db,'transition',{ids:[childId,otherId],status:'취소'}).db;
+  db=C.command(db,'document',{...row(db,sourceId),lines:row(db,sourceId).lines.map(l=>({...l,supplier:'V2'}))}).db;
+  db=C.command(db,'document',{...row(db,otherId),partner:'V2'}).db;
+  const before=C.clone(db);assert.throws(()=>C.command(db,'transition',{ids:[otherId,childId],status:'진행'}),/품목행.*거래처/);assert.deepEqual(db,before);
+});
+
+test('과거 불일치 행이 있어도 다른 정상 연결 행을 새로 깨뜨릴 수 없다',()=>{
+  let out=C.command(fixture(),'document',{type:'plan',date:'2026-10-01',warehouse:'W1',partner:'',lines:[{lineId:'P1',item:'A',qty:10,price:100,supplier:'V1'},{lineId:'P2',item:'A',qty:6,price:100,supplier:'V1'}]});
+  const sourceId=out.result.id;out=C.command(out.db,'convert',{id:sourceId,type:'purchaseorder',partner:'V1',quantities:{P1:2,P2:2}});
+  const db=out.db,source=row(db,sourceId);source.lines[0].supplier='V2';const before=C.clone(db);
+  assert.throws(()=>C.command(db,'document',{...source,lines:source.lines.map(l=>({...l,supplier:'V2'}))}),/후속.*거래처/);
+  assert.deepEqual(db,before);assert.deepEqual(C.validateBackup(C.clone(db)),before);
+});

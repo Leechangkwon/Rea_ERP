@@ -167,17 +167,23 @@
   function linkedWarehouse(source,type){return source.type==='transfer'&&type==='sale'?source.targetWarehouse:source.warehouse;}
   function linkedPartner(source,type,partner){return source.type==='transfer'&&type==='sale'||!source.partner||source.partner===partner;}
   const linkedWarehouseTypes=['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt','transfer'];
+  function planLineSupplierMatches(source,line,partner){
+    const suppliers=new Set(source.lines.filter(row=>row.item===line.item&&(!line.sourceLineId||row.lineId===line.sourceLineId)).map(row=>row.supplier).filter(Boolean));
+    return !suppliers.size||suppliers.size===1&&suppliers.has(partner);
+  }
   function validateLinkedSource(db,d){
     const source=db.documents.find(x=>x.id===d.sourceId);
     if(!source||!active(source)||!nextTypes[source.type]?.includes(d.type))throw Error('유효한 연결 전표가 아닙니다.');
     if(!linkedPartner(source,d.type,d.partner))throw Error('원본 전표와 거래처가 다릅니다.');
     if(linkedWarehouseTypes.includes(d.type)&&linkedWarehouse(source,d.type)!==d.warehouse)throw Error('원본 전표와 창고가 다릅니다.');
+    if(source.type==='plan'&&d.type==='purchaseorder'&&d.lines.some(line=>!planLineSupplierMatches(source,line,d.partner)))throw Error('발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.');
     return source;
   }
-  function validateLinkedHeaderChange(db,previous,next){
-    if(!previous||['partner','warehouse','targetWarehouse'].every(key=>previous[key]===next[key]))return;
+  function validateLinkedSourceChange(db,previous,next){
+    if(!previous)return;
     // Guard newly broken links only. Never rewrite children or reinterpret historical backups.
     for(const child of db.documents.filter(d=>d.sourceId===previous.id&&active(d))){
+      if(previous.type==='plan'&&child.type==='purchaseorder')for(const line of child.lines)if(planLineSupplierMatches(previous,line,child.partner)&&!planLineSupplierMatches(next,line,child.partner))throw Error('연결된 후속 발주서와 품목행 거래처가 달라지는 수정은 할 수 없습니다.');
       if(linkedPartner(previous,child.type,child.partner)&&!linkedPartner(next,child.type,child.partner))throw Error('연결된 후속 전표와 거래처가 달라지는 수정은 할 수 없습니다.');
       if(linkedWarehouseTypes.includes(child.type)&&linkedWarehouse(previous,child.type)===child.warehouse&&linkedWarehouse(next,child.type)!==child.warehouse)throw Error('연결된 후속 전표와 창고가 달라지는 수정은 할 수 없습니다.');
     }
@@ -316,8 +322,7 @@
     for(const line of doc.lines){
       const originals=source.lines.filter(row=>row.item===line.item&&(!line.sourceLineId||row.lineId===line.sourceLineId));
       if(!originals.length)throw Error('원본 발주계획 품목행을 확인하세요.');
-      const suppliers=new Set(originals.map(row=>row.supplier).filter(Boolean));
-      if(suppliers.size&&(suppliers.size!==1||!suppliers.has(doc.partner)))throw Error('발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.');
+      if(!planLineSupplierMatches(source,line,doc.partner))throw Error('발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.');
       if(originals.some(row=>purchasingLineState(source,row).progress==='완료')&&(newQuantities.get(allocationKey(line))||0)>(oldQuantities.get(allocationKey(line))||0))throw Error('완료된 발주계획 품목행의 발주 수량을 늘릴 수 없습니다.');
     }
   }
@@ -356,7 +361,7 @@
     d.status=statusValue(d.status);validatePurchasingState(d);if(!documentStatuses.includes(d.status))throw Error('처리 상태를 확인하세요.');
     d.id=d.id||`${d.type.toUpperCase()}-${d.date.replaceAll('-','')}-${String(++db.sequence).padStart(5,'0')}`;d.accounted=Boolean(d.accounted);
     if(d.accounted&&!active(d))throw Error('미확인·취소 전표는 회계반영할 수 없습니다.');
-    validateLinkedHeaderChange(db,previous,d);
+    validateLinkedSourceChange(db,previous,d);
     if(index<0)db.documents.push(d);else db.documents[index]=d;
     rebalanceReturnAmounts(db);validateLinks(db);validateStock(db);log(db,types[d.type]+' 저장: '+d.id);return d;
   }
