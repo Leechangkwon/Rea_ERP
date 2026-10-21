@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 24,
+  "officialRequirementsDecomposed": 25,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -1678,6 +1678,23 @@
       ],
       "hostedAcceptance": false,
       "done": false
+    },
+    {
+      "id": "REQ-PUR-PLAN-002",
+      "sourceId": "EC-HELP-PLAN-ZERO-001",
+      "title": "발주계획 건별 수량0 조회",
+      "expected": [
+        "전체/수량0/수량0 아님 조건으로 명시조회",
+        "잔량과저장수량을구분하고조회만으로전표를변경하지않음"
+      ],
+      "status": "local-passed-hosted-empty-readonly-query-passed",
+      "referenceBodyReviewed": true,
+      "hostedAcceptance": false,
+      "done": false,
+      "implementationEvidence": [
+        "evidence/manual-plan-zero-quantity-20261022.json"
+      ],
+      "remaining": "Original grouped mode/server filter and data-bearing hosted acceptance remain unverified; own zero-plan storage support is distinguished from original save parity."
     }
   ]
 }

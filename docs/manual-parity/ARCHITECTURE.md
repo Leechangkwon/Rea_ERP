@@ -422,3 +422,11 @@ historySourceTypes는 pricerequest/purchaseorder/purchase target 모두 같은3�
 PurchasingReportUI의 request grouped/detail 상태 셀만 InventoryUI.openRequestReportState callback을 사용한다. 순수 결과 데이터/CSV/인쇄·집계/타전표는 그대로다. 부모 result identity·host lifecycle와 사용자/회사/role/read/write·raw CAS·전표 snapshot을 열기와 적용에 재검사한다. modal이 유효할 때만 기존 transition을 명시 실행하고, 성공하면 applied filter로 requery하면서 pending/F3/scroll을 복구한다. query/clear/destroy는 상태창을 닫아 retained callback을 차단한다. quota/linked validation 실패는 원문·메모리 원자성과 초안을 보존한다.
 
 원본은 inline layer, 자체는 기존 명시 적용 모달로 UX 차이를 남긴다. 업로드는 외부 setup/dataModel/묶음설정에 의존하므로 품목 붙여넣기와 통합하지 않는다. 공개 wrapper의120px 표시열 코드만으로 그룹·필수·금액·배치실패 계약을 추정하지 않는다. 원본 서버 실행/실업무 저장 동등성은 미완료다.
+
+## 2026-10-22 · 0.69.0 계획 수량0와 잔량 분리
+
+plan만 명시적 숫자/비공란 숫자 문자열0을 허용한다. saveDoc/validateBackup의 같은 경계에 validatePlanQuantity를 적용하고 다른 전표 양수조건은 유지한다. 기존 링크 허용오차가0 경계에서 최소quantum 소비를 놓치지 않도록 plan itemlimit0/structuredline0에는 실제양수소비를 엄밀 거부한다. 재고/채무 이동·다른전표·양식 변환은 없다. 원본0저장을 직접 실행한 동등성 근거가 아니며 조회할0행을 자체보존하는 지원 정책이다.
+
+PurchasingPlanListUI의 quantityFilter는 저장된 row.line.qty에 적용되며 remaining과독립이다. applied/draft/F3/선택·편집·CSV에 동일한 행범위를 사용한다. 기존 snapshot에 필드가 없으면 all로복구하고 잘못된선택은명시거부한다. 원본 건별검색의 All/Zero/UnZero와대조했으며 SEARCH_TYPE1의필터숨김/서버집계순서는미완료다.
+
+업로드 slip_bundle_standard와 저장시값변경/필수는 외부Flow/setup정의가필요하다. 현재4칩이나 generic batch chunk/upload_seq만으로묶음키·마스터미검증·원자성/재시도규칙을확정하지않는다.

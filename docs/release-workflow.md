@@ -1,6 +1,16 @@
 # 개발과 검증 배포
 
-## 현재 인계 · 0.68.0 운영
+## 현재 인계 · 0.69.0 운영
+
+운영 release/0.69.0-plan-zero-quantity / eb5515a, 소스f28c547. plan의 명시0수량 저장/백업·목록 수량전체/수량0/수량0아님 F8 필터를 연결했다. 수량과잔량 구분/숨은선택·CSV·pending/applied snapshot 보존. 신규Node9/관련84·독립20경계/2개P2수정·전체 verify:local/브라우저70(신규1), REA자체5/보관원본3 parse0/coverage unknown/truncated false. 원본전표별/서버필터/실제0저장은 미확인이다.
+
+근거 evidence/manual-plan-zero-quantity-20261022.json, 계획 docs/plan-plan-zero-quantity-20261022.md, manifest .artifacts/manual-plan-zero-quantity-20261022/candidate-manifest.json, worktree .artifacts/releases/0.69.0-plan-zero-quantity. 런타임 세션4885 KEEP ALIVE, bundle SHA 5fbc5e15d0c64dba1b12c5432aecf16d9126a8e9a9d81056cd54ed52aeddf3e6, 롤백0.68.0 보존. 기존로그인·3수량조건/빈계획 조회, 브라우저8전표/양식byte/JSON·서버fresh app30/gateway0·설정·메일3함8통1첨부 전후 동일. 운영계획0건, 실제0수량저장은합성. 운영업무/설정저장·발송·인쇄·복원없음. mainVAT5 빌드금지, core 이식은 기능7곳만 적용했다.
+
+업로드현재4묶음칩과 외부Flow 경로 추가확인(.artifacts/manual-request-upload-contracts-20261022), 묶음/필수/실패/재시도 미확인으로저장구현보류. 미확인 요청 전체계획 합산 제외의 원본근거는 없어 이전대기문구를확정요구사항으로쓰지않는다.
+
+다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다. 본문15/요구사항25·전체합격0, 모아마지막게시0.51.0·48갱신로컬대기. 새인증없는반복401/로그인검사금지. 아래는과거이력이다.
+
+## 이전 인계 · 0.68.0 운영
 
 운영 release/0.68.0-request-report-state / ccfff13, 소스6dca5d3. 요청현황 상세 헤더의 진행상태→명시 적용 모달→transition→적용조회 refresh/미적용F3 보존을 연결했다. 완료/재개·취소·linked미확인 거부·오래된/닫힌창/권한/raw·quota 원자성은 합성검사. 신규Node9/관련109·독립22경계·전체 verify:local/브라우저69(신규1), REA자체7/원본wrapper1 parse0/coverage unknown/truncated false. 원본 즉시 layer와 자체 apply 차이, 업로드 묶음/필수/부분성공·재시도는 미확인이다.
 

@@ -1,0 +1,239 @@
+{
+  "version": "0.69.0",
+  "requirement": "REQ-PUR-PLAN-002",
+  "status": "deployed-synthetic-zero-plan-save-and-filter-passed-hosted-empty-readonly-preservation-verified",
+  "sourceCommit": "f28c547efafd6c1f6dd84447a1eb76ccc8ce56a0",
+  "releaseCommit": "eb5515ac6f78568c04e9d49f13b63b9381798fee",
+  "plan": "docs/plan-plan-zero-quantity-20261022.md",
+  "original": {
+    "manualId": "EAM012M_882025686106",
+    "sourceId": "EC-HELP-PLAN-ZERO-001",
+    "observedMenu": "재고 I > 구매관리 > 발주계획 > 발주계획조회 > 도움말",
+    "manualBody": "제목: 발주계획조회에서 수량이 0인 항목이 같이 떠서 보기 불편합니다. 없앨 수 있나요?\n본문: 발주계획조회에서 [수량0 아님]을 체크하고 조회할 수 있습니다.\n",
+    "manualSha256": "9df461c689595de8dc9b5edcc657bb3c53eb955492dfa5889ec87be60d1f35ce",
+    "videoUrl": "https://www.youtube.com/watch?v=ai7XZWy6xRQ",
+    "search": {
+      "section": "수량",
+      "options": [
+        "전체",
+        "수량0",
+        "수량0 아님"
+      ],
+      "controlIds": [
+        "NumberChk-0",
+        "NumberChk-1",
+        "NumberChk-2"
+      ],
+      "default": "전체",
+      "applied": "수량0",
+      "result": "등록된 데이터가 없습니다."
+    },
+    "originalBusinessWrites": false,
+    "originalSettingsWrites": false,
+    "originalRowEditing": false,
+    "zeroRowInRealSourceObserved": false,
+    "originalZeroSaveVerified": false,
+    "meaningLimit": "Displayed 수량 criterion; original aggregate/grouped and save rules remain unverified"
+  },
+  "originalStatic": {
+    "artifact": ".artifacts/manual-plan-zero-quantity-20261022/original-static-review.json",
+    "sha256": "36febfa13b01b533d5551c238ec67c33ba6e6b383377bb6027dddb9051562db1",
+    "serverFilterVerified": false
+  },
+  "checks": {
+    "newNode": 9,
+    "relatedNode": 84,
+    "independentBoundaries": 20,
+    "p2Fixed": 2,
+    "remainingP1": 0,
+    "remainingP2": 0,
+    "verifyLocalPassed": true,
+    "browserSynthetic": 70,
+    "newBrowser": 1,
+    "widths": [
+      1280,
+      390
+    ],
+    "testLogSha256": "8964eb00628ee22e0e55ce4b848ea4d5639fa6b01fbbe74557a5b280670fe914",
+    "independentReviewSha256": "446499ca05334de638608d18c4bcea052fb91f2b47dbe64e50a7e662e51d9045"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 5,
+    "originalScopes": 3,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalRawExecuted": false,
+    "summary": ".artifacts/manual-plan-zero-quantity-20261022/rea/rea-summary.json",
+    "sha256": "1ee9001ebac5001b87e6d6a48d796b121b618cb63803374aa52c152f733d3999"
+  },
+  "deployment": {
+    "version": "0.69.0",
+    "sourceCommit": "f28c547efafd6c1f6dd84447a1eb76ccc8ce56a0",
+    "baseCommit": "ccfff1322ce6ec6e7dc7e835cf932c25817edb26",
+    "directory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.69.0-plan-zero-quantity",
+    "branch": "release/0.69.0-plan-zero-quantity",
+    "rootVatResearchIncluded": false,
+    "newNode": 9,
+    "relatedNode": 84,
+    "newBrowser": 1,
+    "portNotes": "Core context differed because main holds VAT research. Ported only quantity validator, two zero-plan guards and two consumed-zero guards with exact single-occurrence replacements; no root core copy.",
+    "commit": "eb5515ac6f78568c04e9d49f13b63b9381798fee",
+    "bundleSha256": "5fbc5e15d0c64dba1b12c5432aecf16d9126a8e9a9d81056cd54ed52aeddf3e6",
+    "verifyLocalPassed": true,
+    "browserTests": 70,
+    "reaOwnScopes": 5,
+    "reaOriginalScopes": 3,
+    "originalRawExecuted": false,
+    "rollbackVersion": "0.68.0",
+    "independentBoundaryCases": 20,
+    "independentP2Fixed": 2,
+    "remainingP1": 0,
+    "remainingP2": 0,
+    "pushed": true,
+    "installedBundleSha256": "5fbc5e15d0c64dba1b12c5432aecf16d9126a8e9a9d81056cd54ed52aeddf3e6",
+    "rollbackSha256": "5a5dc100fbe92739dcf70526d10c2258f2584fb575c13dc115e34cccf91bbf7b",
+    "runtimeSession": 4885
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.69.0",
+      "beforeDownload": "ecount-inventory-2026-10-22 (21).json",
+      "afterDownload": "ecount-inventory-2026-10-22 (22).json",
+      "bytesExact": true,
+      "jsonExact": true,
+      "documents": 8,
+      "plans": 0,
+      "settingsExact": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "existingSessionRetained": true,
+      "hostedQuantityChoicesVerified": [
+        "전체",
+        "수량0",
+        "수량0 아님"
+      ],
+      "hostedZeroAndNonzeroReadOnlyQueriesVerified": true,
+      "hostedDataBearingZeroRowSaveVerified": false,
+      "productionBusinessWrites": false,
+      "settingsWrites": false,
+      "send": false,
+      "restore": false
+    },
+    "serverMail": {
+      "version": "0.69.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "afterUi": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/plan-zero-quantity-0.69.0-1792615158846"
+  },
+  "uploadResearch": {
+    "summary": ".artifacts/manual-request-upload-contracts-20261022/review-upload-contract-summary.json",
+    "summarySha256": "428e8aaa94e92ac4b9de29fd2335f091af46e6ebefb1aaaeab548410695945db",
+    "uiObservation": {
+      "readOnlyUi": {
+        "selectedGroupingFields": [
+          "일자",
+          "거래유형",
+          "순번",
+          "창고"
+        ],
+        "greyChips": [
+          "일자",
+          "순번"
+        ],
+        "removalIcons": [
+          "거래유형",
+          "창고"
+        ],
+        "availableFields": [
+          "거래처코드",
+          "순번",
+          "거래처명",
+          "단가",
+          "품목코드",
+          "품목명",
+          "낱개수량",
+          "적요",
+          "규격",
+          "공급가액",
+          "외화공급가액",
+          "수량",
+          "부가세",
+          "담당자",
+          "환율",
+          "통화",
+          "거래유형",
+          "프로젝트",
+          "일자",
+          "참조",
+          "납기일자",
+          "창고"
+        ],
+        "fieldSelectionApplied": false,
+        "settingsSaved": false,
+        "greyMeansGloballyImmutable": false
+      },
+      "originalBusinessOrSettingsWrites": false,
+      "uploaderStillUnimplemented": true,
+      "originalServerGroupingAndValidationVerified": false
+    },
+    "publicGetCount": 1,
+    "implemented": false,
+    "originalRawExecuted": false
+  },
+  "queueCorrection": {
+    "priorClaim": "Unconfirmed requests excluded from total plan aggregation",
+    "status": "unsupported-as-original-requirement",
+    "evidence": ".artifacts/manual-request-upload-contracts-20261022/review-unconfirmed-plan-evidence.json",
+    "ownActivePolicyChanged": false
+  },
+  "manualBodies": 15,
+  "requirements": 25,
+  "globalDone": 0,
+  "done": false,
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 48,
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextWork": "다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다."
+}

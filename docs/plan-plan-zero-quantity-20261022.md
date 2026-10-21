@@ -18,3 +18,19 @@ REA 계획목록의 잔량0 조건은 저장된 수량0과 다르다. 현재 코
 ## 집중 검증
 
 신규Node9/관련84와 실제shell 합성 브라우저1개(1280/390px) 통과. 0/양수 저장·재조회·백업, 잔량0과 수량0 구분, 선택행/CSV/스냅샷 및 read-only 경계를 확인했다. 독립 검토의 빈/null/bool/array coercion 오염을 명시 숫자형 검증으로 차단하고, 최소수량0.000001이 발주된 계획의0축소도 linked/generated/legacy 및 backup에서 차단했다. 원본 일반 저장·집계 서버 규칙은 미검증이다.
+
+## 운영 반영 결과
+
+새 도움말 EAM012M_882025686106(EC-HELP-PLAN-ZERO-001)은 발주계획조회에서 수량0 아님 조회를 명시한다. 실제 F3에서 수량 전체/수량0/수량0 아님(기본 전체), 수량0 조회 빈 결과를 읽었다. 보관원문 SHA21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe의 setCustomParameter는 All/Zero/UnZero→ZERO_FLAG_CHK0/1/2와 SEARCH_TYPE1이면0으로 강제, onChangeControl은 수량조건 숨김을 확인했다. 현재 구현은 자체 건별 라인목록에만 적용하며 원본 전표별 집계·서버 필터 순서/실제0수량 저장은 미확인이다. 원본 저장·행편집·설정 적용·발송 없음.
+
+자체 plan 타입에 한해 명시 수량0을 저장/백업 왕복하도록 보완하고 목록의 수량0/수량0 아님을 F8 조회에 연결했다. 잔량0과 수량0을 구분하고 상태·잔량·거래처/품목 조건/CSV/선택/페이지·pending/applied snapshot과 함께 동작한다. 수량 수정은 기존 명시 확인 저장이며 저장 전 초안은 필터기준이 아니다. 0행은 발주생성에서 제외/거부하고 요청·발주·구매 등의 양수 조건과 계획 음수 거부를 유지한다. 독립 검토의2개P2(빈/null/bool/array가0으로 변환되는 오염, 최소quantum0.000001 발주 후0축소)를 수정했다. linked/generated/legacy와백업의 소량 후속소비도0축소 거부, 원문 보존을 확인했다.
+
+신규Node9/관련84·독립20경계·남은P1/P2없음, 운영0.68 기반 격리후보 전체 verify:local/브라우저70(신규1,1280/390px) 통과. main VAT 연구로 context patch가 달라 core 전체를 복사하지 않고 기능 한정7곳을 후보에 이식했다. REA6.4.0 자체5/보관원본3범위 parse0·coverage unknown/truncated false. 원본 source/input/result 해시를 확인했고 이번 추가다운로드/원본실행은 없다. 실제 원본 조회와 보관코드가 같은 선택지를 보여도 서버 동등성 증명으로 확대하지 않는다.
+
+소스f28c547, 운영eb5515a를 push 후 기존 WSL·Supabase·Cloudflare에 반영했다. 공개0.69.0/변경2자산 해시·익명메일401/공개health404·로컬Supabase200, 기존 로그인 유지·수량3조건 및0/비0/전체 읽기 전용 조회를 확인했다. 운영 계획0건이므로 실제0수량 데이터 저장은 합성 검증으로 한정한다. 브라우저8전표/양식 byte/JSON·서버fresh app30/gateway0 본문/수정번호·runtime.env·메일3함8통1첨부 전후 동일, 복원미리보기0충돌/applied false. 운영 업무/설정 저장·인쇄·발송·복원 없음.
+
+같은 작업의 업로드 조사: 현재 계정 묶음칩 일자/거래유형/순번/창고와 필드선택 목록을 읽고 적용 없이 닫았다. 공개 AttributeSettingCommonPage GET1회/31814bytes/SHA3392351ec74d131c66f0933955ea6599d1ec03fa92f10abf9505de7f0c0c54e6는 slip_bundle_standard/modifier_resolve_value/condition_not_null을 외부 Flow V3로 넘기며 실제 묶음·필수/실패 계약을 제공하지 않는다. 공통 batch는 정의된 모든 모델을 검증하므로 master 검증이 없다고 단정하지 않는다. upload_seq나 chunk_size도 화면 순번/전표묶음으로 간주하지 않는다. 업로드는 미완료다. 기존 대기문구의 '미확인 요청 전체계획 합산 제외'는 실제 매뉴얼/근거에서 확인되지 않아 확정 요구사항에서 제외했으며 자체 C.active 동작을 원본 규칙으로 새로 인정하지 않는다.
+
+근거 evidence/manual-plan-zero-quantity-20261022.json, 계획 docs/plan-plan-zero-quantity-20261022.md, manifest .artifacts/manual-plan-zero-quantity-20261022/candidate-manifest.json, worktree .artifacts/releases/0.69.0-plan-zero-quantity, bundle SHA 5fbc5e15d0c64dba1b12c5432aecf16d9126a8e9a9d81056cd54ed52aeddf3e6, 런타임 세션4885 KEEP ALIVE. 롤백0.68.0 보존. 새본문1/새요구사항1→15본문/25요구사항이며 전체합격0/done false. 모아 마지막 저장/재조회0.51.0·48갱신 로컬 대기다. 중앙 pending index에 이전0.68 누락분도 보완했으며 실제 업로드/저장본문 재조회 성공을 주장하지 않는다.
+
+다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다.
