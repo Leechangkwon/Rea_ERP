@@ -1,5 +1,5 @@
 {
-  "version": "0.69.0",
+  "version": "0.69.1",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 70,
+    "currentReleaseBrowserSynthetic": 78,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -142,7 +142,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.69.0",
+    "currentReleaseFullRegressionVersion": "0.69.1",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -177,16 +177,19 @@
     "requestReportStateNewBrowser": 1,
     "planZeroQuantityNewNode": 9,
     "planZeroQuantityRelatedNode": 84,
-    "planZeroQuantityNewBrowser": 1
+    "planZeroQuantityNewBrowser": 1,
+    "purchasingUiuxNewBrowser": 8,
+    "purchasingUiuxRelatedNode": 119,
+    "purchasingUiuxActualShellCombinations": 63
   },
-  "future_research": "다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다.",
+  "future_research": "UI/UX 신고 수정0.69.1은 배포·보존 검증을 마쳤으므로 같은 버튼 검사를 새 개발량으로 반복하지 않는다. 다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-plan-zero-quantity-20261022.json",
+    "reference": "../purchasing-uiux-tablet-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "eb5515ac6f78568c04e9d49f13b63b9381798fee",
-    "publicVersionVerified": "0.69.0",
+    "deployedSourceCommit": "01932d7cf2f2da7886a672685dc1d8ae846c046c",
+    "publicVersionVerified": "0.69.1",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -245,20 +248,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.69.0",
+    "existingSessionRetainedVersion": "0.69.1",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.69.0",
+    "lastExactBrowserBackupComparisonVersion": "0.69.1",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.69.0",
+    "currentServerStateAndMailPreservedVersion": "0.69.1",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.69.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.69.1",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -311,7 +314,10 @@
     "requestReportStatusHostedSaveVerified": false,
     "planZeroQuantityDeployed": true,
     "planZeroQuantityHostedReadonlyVerified": true,
-    "planZeroQuantityHostedSaveVerified": false
+    "planZeroQuantityHostedSaveVerified": false,
+    "purchasingTabletUiuxRepaired": true,
+    "purchasingTabletUiuxHostedReadonlyVerified": true,
+    "physicalAndroidUiuxRetested": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -548,7 +554,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다.",
+    "nextIndependentWork": "UI/UX 신고 수정0.69.1은 배포·보존 검증을 마쳤으므로 같은 버튼 검사를 새 개발량으로 반복하지 않는다. 다음은 발주계획조회 건별/전표별 전환을 원본의 실제 조회 결과와 SEARCH_TYPE/SUM_FLAG 및 NumberChk 숨김 분기로 대조해 차이표를 만든다. 자체 현재 라인목록과 전표별 표시·합계·선택 단위 차이를 확인한 뒤 검증된 범위만 구현한다. 웹자료올리기는 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약을 추가 확보할 때 재개하며 날짜+순번으로 추정하지 않는다. 미확인 요청의 전체계획 합산 제외는 원본 근거가 없는 대기문구였으므로 확정 요구사항으로 쓰지 않는다. 이미 보완한0수량 검색 검사를 새 개발량으로 반복하지 않는다. VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -816,13 +822,22 @@
       "status": "deployed-synthetic-zero-plan-save-and-filter-passed-hosted-empty-readonly-preservation-verified",
       "hostedBusinessSaveVerified": false,
       "done": false
+    },
+    "purchasingTabletUiuxRepair": {
+      "version": "0.69.1",
+      "evidence": "../purchasing-uiux-tablet-20261022.json",
+      "status": "deployed-tablet-layout-repair-authenticated-readonly-and-preservation-verified",
+      "manualRequirementCountAdded": 0,
+      "manualAcceptanceCountAdded": 0,
+      "userReportedRegressionFixed": true,
+      "physicalAndroidRetested": false
     }
   },
   "preparedCandidate": {
-    "version": "0.69.0",
-    "commit": "eb5515ac6f78568c04e9d49f13b63b9381798fee",
-    "manifest": ".artifacts/manual-plan-zero-quantity-20261022/candidate-manifest.json",
-    "bundleSha256": "5fbc5e15d0c64dba1b12c5432aecf16d9126a8e9a9d81056cd54ed52aeddf3e6",
+    "version": "0.69.1",
+    "commit": "01932d7cf2f2da7886a672685dc1d8ae846c046c",
+    "manifest": ".artifacts/uiux-tablet-repair-20261022/candidate-manifest.json",
+    "bundleSha256": "efd809772b6b6ffd1ff0ae40827b766b8bfb648dd3b136db00e7edb6aa7e6374",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -852,7 +867,8 @@
       "purchase-history-three-purchasing-sources-independent-line-copy-custom-provenance-and-early-session-guards",
       "price-request-and-purchase-order-history-three-source-scope-recorded-prices-vendor-filters-and-basis-snapshots",
       "request-report-state-explicit-transition-applied-query-pending-filter-lifecycle-and-preservation",
-      "plan-only-explicit-zero-quantity-preservation-zero-nonzero-search-and-consumed-quantum-guards"
+      "plan-only-explicit-zero-quantity-preservation-zero-nonzero-search-and-consumed-quantum-guards",
+      "bounded-column-entry-toolbar-and-report-owned-search-mode-controls"
     ],
     "supersedesCandidateCommit": "ccfff1322ce6ec6e7dc7e835cf932c25817edb26",
     "supersededCandidatePreserved": true,

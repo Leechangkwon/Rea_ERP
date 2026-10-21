@@ -1,5 +1,10 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.69.1 UI/UX 적용 보완
+
+column entry toolbar는 nowrap로 내부 grid의 intrinsic높이 팽창을 막는다. 요청목록 fallback과 보고서 검색행을 각각 inv-request-list/inv-report-head로 한정한다. 보고서 모드·검색작업행은 독립class, radio18px/label44px 및 필터44px로 제어하며 print·hidden 규칙과 기존query/snapshot핸들러를 보존한다. 실제 index/app shell의5입력/4현황×7폭높이=63조합/브라우저78을검사했다. 운영0.69.1·자료/양식/계정/메일보존확인, 실제Android재시험은미완료. 근거 evidence/purchasing-uiux-tablet-20261022.json.
+
+
 설계판 0.1 · 2026-10-21 · 작성 당시 구현 0.50.0. 아래 **현재**와 **목표**를 구분한다. 설계 작성만으로 스키마·운영 환경·자료를 변경하지 않는다.
 
 ## 1. 설계 결정
