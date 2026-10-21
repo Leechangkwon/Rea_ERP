@@ -215,7 +215,7 @@
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "link-preservation-locally-verified-not-deployed",
+      "status": "isolated-release-candidate-verified-not-deployed",
       "sourceCommit": "6f1a01766d757406c02b545dd8f71b9158b21b7e",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-purchase-link-preservation-20261021.json",
@@ -223,7 +223,12 @@
       "newFrozenVatTests": 6,
       "localhostBrowserTests": 34,
       "deploymentPending": true,
-      "done": false
+      "done": false,
+      "candidateVersion": "0.53.1",
+      "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+      "candidateBranch": "release/0.53.1",
+      "candidateEvidence": "evidence/purchase-link-isolated-release-20261021.json",
+      "candidateBrowserTests": 31
     }
   }
 }

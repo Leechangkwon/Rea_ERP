@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "candidateVersion": "0.53.1",
+  "status": "verified-release-candidate-not-deployed",
+  "baseCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+  "portSourceCommit": "6f1a01766d757406c02b545dd8f71b9158b21b7e",
+  "scope": "Linked source header edits and reactivation guards only; unfinished VAT implementation excluded",
+  "bundleIsolation": {
+    "baselineVersion": "0.53.0",
+    "candidateVersion": "0.53.1",
+    "embeddedAssetCount": 57,
+    "changedEmbeddedAssets": [
+      "/api-manual-data.js",
+      "/api-manual.html",
+      "/index.html",
+      "/inventory-core.js",
+      "/login.html",
+      "/portal.html"
+    ],
+    "versionOnlyEmbeddedAssets": [
+      "/api-manual-data.js",
+      "/api-manual.html",
+      "/index.html",
+      "/login.html",
+      "/portal.html"
+    ],
+    "cacheVersionedHtmlNormalizedForComparison": true,
+    "nonAssetWorkerDifference": "Only inventory-core source and API manual version strings",
+    "workerEntrypointUnchanged": true,
+    "vatCodeAbsent": true,
+    "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "candidateBundleSha256": "4a5ba859eb3acf7eea4505cd4d48ceed2edbf3aca5e515ac6ee64162470e3fa9"
+  },
+  "runtimeIsolation": {
+    "candidateVersion": "0.53.1",
+    "baseCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+    "productionFilesChanged": [
+      "dist/api-manual-data.js",
+      "dist/index.html",
+      "dist/inventory-core.js",
+      "dist/login.html"
+    ],
+    "versionOnlyFiles": [
+      "dist/api-manual-data.js",
+      "dist/index.html",
+      "dist/login.html"
+    ],
+    "vatRuntimeAbsent": true,
+    "dependencyVersionChanges": false,
+    "standaloneRuntimeFilesUnchanged": [
+      "scripts/preview-api.cjs",
+      "scripts/standalone-server.cjs",
+      "scripts/runtime-config.cjs",
+      "scripts/sqlite-d1.cjs",
+      "scripts/mail-rest-store.mjs",
+      "scripts/mail-sqlite-store.cjs",
+      "worker/supabase-db.cjs"
+    ],
+    "rollbackWorkerSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "deployed": false
+  },
+  "checks": {
+    "verifyLocal": "passed",
+    "newLinkNodeTests": 15,
+    "localhostBrowserPassed": 31,
+    "newBrowserTests": 1,
+    "finalVerifyLogSha256": "5185c8395e29e908b7d8521bd946c8b0d2e495a2d57525680a03c0e956c43de6",
+    "releaseValidationSha256": "f32873fc54b0bde529d3b6415911356416f7fb229866b3e2e62800e8b1fdd6d6",
+    "initialFailuresResolved": [
+      "API manual version examples updated with package version",
+      "Existing pinned browser libraries linked into isolated worktree; no system package or dependency version change"
+    ],
+    "independentReview": "No material scope omissions or excess changes found; linked core tests15 passed in candidate worktree"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 4,
+    "parseFailures": 0,
+    "coverage": [
+      "unknown"
+    ],
+    "anyTruncated": false,
+    "summarySha256": "8d1b46f55544e0aa4f8c4568788140196e638e24adb65b692edc07d84a04b710",
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "productionWrites": false,
+    "originalErpWrites": false,
+    "existingDraftDiscarded": false,
+    "runtimeSettingsChanged": false,
+    "serverRestarted": false,
+    "deploymentPerformed": false,
+    "emailsSent": false
+  },
+  "deploymentGate": {
+    "browserInventoryBackup": "pending; tab23 backup button unresponsive",
+    "stagedTab21": "preserved; focus emulation observation timed out",
+    "requiredBeforeRestart": [
+      "Recover existing browser UI without discarding drafts",
+      "Export and compare browser inventory JSON",
+      "Private account/state/mail backup and restore preview",
+      "Verify candidate commit and bundle hash; stage bundle atomically in existing runtime only"
+    ],
+    "operatingVersion": "0.53.0"
+  },
+  "done": false,
+  "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+  "candidateBranch": "release/0.53.1",
+  "candidateManifest": {
+    "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+    "candidateBranch": "release/0.53.1",
+    "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+    "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/candidate-0c8e41f-worker.js",
+    "candidateBundleSha256": "4a5ba859eb3acf7eea4505cd4d48ceed2edbf3aca5e515ac6ee64162470e3fa9",
+    "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+    "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+    "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "installedIntoOperatingRuntime": false
+  },
+  "publicOperatingReadOnly": {
+    "at": "2026-10-21T01:00:16.030294+00:00",
+    "publicOrigin": "https://rea.qaredi.com",
+    "results": [
+      {
+        "asset": "inventory-core.js",
+        "status": 200,
+        "sha256": "696953b70a3ca954c1db4b76bc9f86fc8ade91108b46e50dffb9e42628389f38",
+        "matchesOperatingSource": true
+      },
+      {
+        "asset": "index.html",
+        "status": 200,
+        "containsOperatingVersion": true,
+        "containsCandidateVersion": false
+      },
+      {
+        "asset": "login.html",
+        "status": 200,
+        "containsOperatingVersion": true,
+        "containsCandidateVersion": false
+      }
+    ],
+    "deploymentPerformed": false,
+    "productionWrites": false
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "mainSourcePreserved": true,
+  "candidateWorktreeTrackedChangesAfterCommit": false,
+  "candidateWorktreeUntrackedDependencyLink": "node_modules -> /home/lck/projects/Rea_ERP/node_modules; not staged or deployed"
+}
