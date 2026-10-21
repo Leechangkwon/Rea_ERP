@@ -1,0 +1,863 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Synthetic frozen own version1 backup. Not original ECOUNT or production data. Tests must read this fixture without regenerating it.",
+  "producerCommit": "4f1e23c08d8d3535ed68f6df65f51ab7f980a829",
+  "producerHashes": {
+    "dist/inventory-core.js": "4e75842bcbc8297aa1647b139d5ecbad7f29aca715c9f9fbfb89a49ddb674ee6",
+    "dist/transaction-vat-core.js": "02d4ee27696bc8ff3b1f99085ffa3cad6bceea40b0e8137c3d5acf94ce78fa43",
+    "dist/purchase-mail-core.js": "f9f0a70fb0be641a9b3fb0c513359a419a44d0aca8da7bbaf1f5c8be1dad8f0d"
+  },
+  "ids": {
+    "legacyRequest": "REQUEST-20261021-00001",
+    "sameGrossDifferentTax": "PURCHASEORDER-20261021-00003",
+    "differentGross": "PURCHASEORDER-20261021-00005",
+    "manualPurchase": "PURCHASE-20261021-00007",
+    "partialReturn": "PURCHASERETURN-20261022-00009"
+  },
+  "db": {
+    "version": 2,
+    "sequence": 10,
+    "masters": {
+      "items": [
+        {
+          "code": "M001",
+          "name": "샘플 원재료",
+          "spec": "1kg",
+          "unit": "KG",
+          "buyPrice": 2000,
+          "sellPrice": 3000,
+          "safety": 30
+        }
+      ],
+      "partners": [
+        {
+          "code": "V001",
+          "name": "샘플 구매처",
+          "kind": "매입",
+          "memo": "가상 자료"
+        }
+      ],
+      "warehouses": [
+        {
+          "code": "W001",
+          "name": "본사창고"
+        }
+      ],
+      "departments": [],
+      "projects": [],
+      "employees": [],
+      "controls": [],
+      "approvals": [],
+      "currencies": [
+        {
+          "code": "KRW",
+          "name": "원화",
+          "rate": 1
+        }
+      ],
+      "pricegroups": [],
+      "processes": [],
+      "resources": [],
+      "shops": []
+    },
+    "documents": [
+      {
+        "date": "2026-10-21",
+        "warehouse": "W001",
+        "partner": "V001",
+        "currency": "KRW",
+        "vatRate": 10,
+        "type": "request",
+        "memo": "Synthetic legacy record",
+        "lines": [
+          {
+            "item": "M001",
+            "qty": 2,
+            "price": 100,
+            "discount": 0,
+            "supply": 200,
+            "tax": 20,
+            "total": 220
+          }
+        ],
+        "consumption": [],
+        "status": "진행",
+        "id": "REQUEST-20261021-00001",
+        "accounted": false,
+        "createdAt": "2026-10-21T00:24:58.825Z",
+        "modifiedAt": "2026-10-21T00:24:58.825Z"
+      },
+      {
+        "date": "2026-10-21",
+        "warehouse": "W001",
+        "partner": "V001",
+        "currency": "KRW",
+        "vatRate": 10,
+        "type": "purchaseorder",
+        "memo": "Synthetic v1 floor boundary",
+        "vatCalculation": "transaction",
+        "supplyRounding": {
+          "method": "floor",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "floor",
+          "digits": 0
+        },
+        "lines": [
+          {
+            "item": "M001",
+            "qty": 1,
+            "price": 999.99,
+            "discount": 0,
+            "supply": 998,
+            "tax": 100,
+            "total": 1098
+          }
+        ],
+        "vatAdjustment": {
+          "version": 1,
+          "basis": {
+            "type": "purchaseorder",
+            "sourceId": "",
+            "currency": "KRW",
+            "vatRate": 10,
+            "taxRounding": {
+              "method": "floor",
+              "digits": 0
+            },
+            "supplyRounding": {
+              "method": "floor",
+              "digits": 0
+            },
+            "lines": [
+              {
+                "item": "M001",
+                "lineId": "",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 999.99,
+                "discount": 0
+              }
+            ]
+          },
+          "lastIndex": 0,
+          "delta": {
+            "supply": -1,
+            "tax": 1,
+            "total": 0
+          },
+          "before": {
+            "supply": 999,
+            "tax": 99,
+            "total": 1098
+          },
+          "after": {
+            "supply": 998,
+            "tax": 100,
+            "total": 1098
+          }
+        },
+        "consumption": [],
+        "status": "진행",
+        "id": "PURCHASEORDER-20261021-00003",
+        "accounted": false,
+        "createdAt": "2026-10-21T00:24:58.827Z",
+        "modifiedAt": "2026-10-21T00:24:58.827Z"
+      },
+      {
+        "date": "2026-10-21",
+        "warehouse": "W001",
+        "partner": "V001",
+        "currency": "KRW",
+        "vatRate": 10,
+        "type": "purchaseorder",
+        "memo": "Synthetic v1 small amount boundary",
+        "vatCalculation": "transaction",
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "lines": [
+          {
+            "lineId": "L1",
+            "item": "M001",
+            "qty": 1,
+            "price": 3.4,
+            "discount": 0,
+            "supply": 3,
+            "tax": 0,
+            "total": 3
+          },
+          {
+            "lineId": "L2",
+            "item": "M001",
+            "qty": 1,
+            "price": 3.4,
+            "discount": 0,
+            "supply": 3,
+            "tax": 0,
+            "total": 3
+          },
+          {
+            "lineId": "L3",
+            "item": "M001",
+            "qty": 1,
+            "price": 3.4,
+            "discount": 0,
+            "supply": 2,
+            "tax": 1,
+            "total": 3
+          }
+        ],
+        "vatAdjustment": {
+          "version": 1,
+          "basis": {
+            "type": "purchaseorder",
+            "sourceId": "",
+            "currency": "KRW",
+            "vatRate": 10,
+            "taxRounding": {
+              "method": "round",
+              "digits": 0
+            },
+            "supplyRounding": {
+              "method": "round",
+              "digits": 0
+            },
+            "lines": [
+              {
+                "item": "M001",
+                "lineId": "L1",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 3.4,
+                "discount": 0
+              },
+              {
+                "item": "M001",
+                "lineId": "L2",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 3.4,
+                "discount": 0
+              },
+              {
+                "item": "M001",
+                "lineId": "L3",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 3.4,
+                "discount": 0
+              }
+            ]
+          },
+          "lastIndex": 2,
+          "delta": {
+            "supply": -1,
+            "tax": 1,
+            "total": 0
+          },
+          "before": {
+            "supply": 9,
+            "tax": 0,
+            "total": 9
+          },
+          "after": {
+            "supply": 8,
+            "tax": 1,
+            "total": 9
+          }
+        },
+        "consumption": [],
+        "status": "진행",
+        "id": "PURCHASEORDER-20261021-00005",
+        "accounted": false,
+        "createdAt": "2026-10-21T00:24:58.828Z",
+        "modifiedAt": "2026-10-21T00:24:58.828Z"
+      },
+      {
+        "date": "2026-10-21",
+        "warehouse": "W001",
+        "partner": "V001",
+        "currency": "KRW",
+        "vatRate": 10,
+        "type": "purchase",
+        "memo": "Synthetic v1 manual-example purchase",
+        "vatCalculation": "transaction",
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "lines": [
+          {
+            "lineId": "L1",
+            "item": "M001",
+            "qty": 5,
+            "price": 909.09,
+            "discount": 0,
+            "supply": 4545,
+            "tax": 455,
+            "total": 5000
+          },
+          {
+            "lineId": "L2",
+            "item": "M001",
+            "qty": 5,
+            "price": 909.09,
+            "discount": 0,
+            "supply": 4545,
+            "tax": 455,
+            "total": 5000
+          },
+          {
+            "lineId": "L3",
+            "item": "M001",
+            "qty": 5,
+            "price": 909.09,
+            "discount": 0,
+            "supply": 4546,
+            "tax": 454,
+            "total": 5000
+          }
+        ],
+        "vatAdjustment": {
+          "version": 1,
+          "basis": {
+            "type": "purchase",
+            "sourceId": "",
+            "currency": "KRW",
+            "vatRate": 10,
+            "taxRounding": {
+              "method": "round",
+              "digits": 0
+            },
+            "supplyRounding": {
+              "method": "round",
+              "digits": 0
+            },
+            "lines": [
+              {
+                "item": "M001",
+                "lineId": "L1",
+                "sourceLineId": "",
+                "qty": 5,
+                "price": 909.09,
+                "discount": 0
+              },
+              {
+                "item": "M001",
+                "lineId": "L2",
+                "sourceLineId": "",
+                "qty": 5,
+                "price": 909.09,
+                "discount": 0
+              },
+              {
+                "item": "M001",
+                "lineId": "L3",
+                "sourceLineId": "",
+                "qty": 5,
+                "price": 909.09,
+                "discount": 0
+              }
+            ]
+          },
+          "lastIndex": 2,
+          "delta": {
+            "supply": 1,
+            "tax": -1,
+            "total": 0
+          },
+          "before": {
+            "supply": 13635,
+            "tax": 1365,
+            "total": 15000
+          },
+          "after": {
+            "supply": 13636,
+            "tax": 1364,
+            "total": 15000
+          }
+        },
+        "consumption": [],
+        "status": "진행",
+        "id": "PURCHASE-20261021-00007",
+        "accounted": false,
+        "createdAt": "2026-10-21T00:24:58.830Z",
+        "modifiedAt": "2026-10-21T00:24:58.830Z"
+      },
+      {
+        "date": "2026-10-22",
+        "warehouse": "W001",
+        "partner": "V001",
+        "currency": "KRW",
+        "vatRate": 10,
+        "type": "purchasereturn",
+        "memo": "Synthetic v1 manual-example purchase",
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "lines": [
+          {
+            "lineId": "L3",
+            "item": "M001",
+            "qty": 2,
+            "price": 909.09,
+            "discount": 0,
+            "supply": 1818.4,
+            "tax": 181.6,
+            "total": 2000,
+            "sourceLineId": "L3",
+            "sourceAmounts": {
+              "qty": 5,
+              "supply": 4546,
+              "tax": 454,
+              "total": 5000
+            },
+            "returnAmounts": {
+              "supply": 1818.4,
+              "tax": 181.6,
+              "total": 2000
+            }
+          }
+        ],
+        "consumption": [],
+        "status": "진행",
+        "accounted": false,
+        "createdAt": "2026-10-21T00:24:58.830Z",
+        "modifiedAt": "2026-10-21T00:24:58.830Z",
+        "settlementMode": "credit",
+        "sourceId": "PURCHASE-20261021-00007",
+        "autoConsume": false,
+        "id": "PURCHASERETURN-20261022-00009"
+      }
+    ],
+    "payments": [],
+    "bom": [],
+    "bor": [],
+    "prices": [],
+    "mappings": [],
+    "opening": [],
+    "logs": [
+      {
+        "id": "L10",
+        "date": "2026-10-21",
+        "text": "구매반품 저장: PURCHASERETURN-20261022-00009"
+      },
+      {
+        "id": "L8",
+        "date": "2026-10-21",
+        "text": "구매 저장: PURCHASE-20261021-00007"
+      },
+      {
+        "id": "L6",
+        "date": "2026-10-21",
+        "text": "발주서 저장: PURCHASEORDER-20261021-00005"
+      },
+      {
+        "id": "L4",
+        "date": "2026-10-21",
+        "text": "발주서 저장: PURCHASEORDER-20261021-00003"
+      },
+      {
+        "id": "L2",
+        "date": "2026-10-21",
+        "text": "발주요청 저장: REQUEST-20261021-00001"
+      }
+    ],
+    "settings": {
+      "priceOrder": [
+        "특별단가",
+        "품목단가"
+      ],
+      "allowNegative": false,
+      "customization": {
+        "version": 1,
+        "screens": {}
+      }
+    },
+    "documentHistory": {
+      "version": 1,
+      "sequence": 4,
+      "startedAt": "2026-10-21T00:24:58.825Z",
+      "records": [
+        {
+          "id": "H4",
+          "sequence": 4,
+          "at": "2026-10-21T00:24:58.830Z",
+          "workDate": "2026-10-21",
+          "type": "purchase",
+          "documentId": "PURCHASE-20261021-00007",
+          "date": "2026-10-21",
+          "action": "신규",
+          "partnerCode": "V001",
+          "partnerCodes": [
+            "V001"
+          ],
+          "partnerName": "샘플 구매처",
+          "itemCodes": [
+            "M001"
+          ],
+          "itemName": "샘플 원재료",
+          "itemCount": 3,
+          "employeeCode": "",
+          "employeeName": "",
+          "warehouseCode": "W001",
+          "projectCode": "",
+          "status": "진행",
+          "changes": [
+            "신규 전표"
+          ]
+        },
+        {
+          "id": "H3",
+          "sequence": 3,
+          "at": "2026-10-21T00:24:58.828Z",
+          "workDate": "2026-10-21",
+          "type": "purchaseorder",
+          "documentId": "PURCHASEORDER-20261021-00005",
+          "date": "2026-10-21",
+          "action": "신규",
+          "partnerCode": "V001",
+          "partnerCodes": [
+            "V001"
+          ],
+          "partnerName": "샘플 구매처",
+          "itemCodes": [
+            "M001"
+          ],
+          "itemName": "샘플 원재료",
+          "itemCount": 3,
+          "employeeCode": "",
+          "employeeName": "",
+          "warehouseCode": "W001",
+          "projectCode": "",
+          "status": "진행",
+          "changes": [
+            "신규 전표"
+          ]
+        },
+        {
+          "id": "H2",
+          "sequence": 2,
+          "at": "2026-10-21T00:24:58.827Z",
+          "workDate": "2026-10-21",
+          "type": "purchaseorder",
+          "documentId": "PURCHASEORDER-20261021-00003",
+          "date": "2026-10-21",
+          "action": "신규",
+          "partnerCode": "V001",
+          "partnerCodes": [
+            "V001"
+          ],
+          "partnerName": "샘플 구매처",
+          "itemCodes": [
+            "M001"
+          ],
+          "itemName": "샘플 원재료",
+          "itemCount": 1,
+          "employeeCode": "",
+          "employeeName": "",
+          "warehouseCode": "W001",
+          "projectCode": "",
+          "status": "진행",
+          "changes": [
+            "신규 전표"
+          ]
+        },
+        {
+          "id": "H1",
+          "sequence": 1,
+          "at": "2026-10-21T00:24:58.825Z",
+          "workDate": "2026-10-21",
+          "type": "request",
+          "documentId": "REQUEST-20261021-00001",
+          "date": "2026-10-21",
+          "action": "신규",
+          "partnerCode": "V001",
+          "partnerCodes": [
+            "V001"
+          ],
+          "partnerName": "샘플 구매처",
+          "itemCodes": [
+            "M001"
+          ],
+          "itemName": "샘플 원재료",
+          "itemCount": 1,
+          "employeeCode": "",
+          "employeeName": "",
+          "warehouseCode": "W001",
+          "projectCode": "",
+          "status": "진행",
+          "changes": [
+            "신규 전표"
+          ]
+        }
+      ]
+    }
+  },
+  "mailPacket": {
+    "recipient": "",
+    "subject": "발주서 PURCHASEORDER-20261021-00003 외 1건",
+    "body": "안녕하세요.\n첨부한 발주서를 확인 부탁드립니다.\n감사합니다.",
+    "documents": [
+      {
+        "id": "PURCHASEORDER-20261021-00003",
+        "type": "purchaseorder",
+        "date": "2026-10-21",
+        "partner": "V001",
+        "partnerName": "샘플 구매처",
+        "partnerAddress": "",
+        "partnerPhone": "",
+        "currency": "KRW",
+        "dueDate": "",
+        "reference": "",
+        "memo": "Synthetic v1 floor boundary",
+        "vatRate": 10,
+        "taxRounding": {
+          "method": "floor",
+          "digits": 0
+        },
+        "supplyRounding": {
+          "method": "floor",
+          "digits": 0
+        },
+        "lines": [
+          {
+            "item": "M001",
+            "name": "샘플 원재료",
+            "spec": "1kg",
+            "unit": "KG",
+            "memo": "",
+            "qty": 1,
+            "price": 999.99,
+            "discount": 0,
+            "supply": 998,
+            "tax": 100,
+            "total": 1098
+          }
+        ],
+        "vatCalculation": "transaction",
+        "vatAdjustment": {
+          "version": 1,
+          "basis": {
+            "type": "purchaseorder",
+            "sourceId": "",
+            "currency": "KRW",
+            "vatRate": 10,
+            "taxRounding": {
+              "method": "floor",
+              "digits": 0
+            },
+            "supplyRounding": {
+              "method": "floor",
+              "digits": 0
+            },
+            "lines": [
+              {
+                "item": "M001",
+                "lineId": "",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 999.99,
+                "discount": 0
+              }
+            ]
+          },
+          "lastIndex": 0,
+          "delta": {
+            "supply": -1,
+            "tax": 1,
+            "total": 0
+          },
+          "before": {
+            "supply": 999,
+            "tax": 99,
+            "total": 1098
+          },
+          "after": {
+            "supply": 998,
+            "tax": 100,
+            "total": 1098
+          }
+        }
+      },
+      {
+        "id": "PURCHASEORDER-20261021-00005",
+        "type": "purchaseorder",
+        "date": "2026-10-21",
+        "partner": "V001",
+        "partnerName": "샘플 구매처",
+        "partnerAddress": "",
+        "partnerPhone": "",
+        "currency": "KRW",
+        "dueDate": "",
+        "reference": "",
+        "memo": "Synthetic v1 small amount boundary",
+        "vatRate": 10,
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "lines": [
+          {
+            "item": "M001",
+            "name": "샘플 원재료",
+            "spec": "1kg",
+            "unit": "KG",
+            "memo": "",
+            "qty": 1,
+            "price": 3.4,
+            "discount": 0,
+            "lineId": "L1",
+            "supply": 3,
+            "tax": 0,
+            "total": 3
+          },
+          {
+            "item": "M001",
+            "name": "샘플 원재료",
+            "spec": "1kg",
+            "unit": "KG",
+            "memo": "",
+            "qty": 1,
+            "price": 3.4,
+            "discount": 0,
+            "lineId": "L2",
+            "supply": 3,
+            "tax": 0,
+            "total": 3
+          },
+          {
+            "item": "M001",
+            "name": "샘플 원재료",
+            "spec": "1kg",
+            "unit": "KG",
+            "memo": "",
+            "qty": 1,
+            "price": 3.4,
+            "discount": 0,
+            "lineId": "L3",
+            "supply": 2,
+            "tax": 1,
+            "total": 3
+          }
+        ],
+        "vatCalculation": "transaction",
+        "vatAdjustment": {
+          "version": 1,
+          "basis": {
+            "type": "purchaseorder",
+            "sourceId": "",
+            "currency": "KRW",
+            "vatRate": 10,
+            "taxRounding": {
+              "method": "round",
+              "digits": 0
+            },
+            "supplyRounding": {
+              "method": "round",
+              "digits": 0
+            },
+            "lines": [
+              {
+                "item": "M001",
+                "lineId": "L1",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 3.4,
+                "discount": 0
+              },
+              {
+                "item": "M001",
+                "lineId": "L2",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 3.4,
+                "discount": 0
+              },
+              {
+                "item": "M001",
+                "lineId": "L3",
+                "sourceLineId": "",
+                "qty": 1,
+                "price": 3.4,
+                "discount": 0
+              }
+            ]
+          },
+          "lastIndex": 2,
+          "delta": {
+            "supply": -1,
+            "tax": 1,
+            "total": 0
+          },
+          "before": {
+            "supply": 9,
+            "tax": 0,
+            "total": 9
+          },
+          "after": {
+            "supply": 8,
+            "tax": 1,
+            "total": 9
+          }
+        }
+      }
+    ]
+  },
+  "expectedTotals": {
+    "legacyRequest": {
+      "qty": 2,
+      "supply": 200,
+      "tax": 20,
+      "total": 220
+    },
+    "sameGrossDifferentTax": {
+      "qty": 1,
+      "supply": 998,
+      "tax": 100,
+      "total": 1098
+    },
+    "differentGross": {
+      "qty": 3,
+      "supply": 8,
+      "tax": 1,
+      "total": 9
+    },
+    "manualPurchase": {
+      "qty": 15,
+      "supply": 13636,
+      "tax": 1364,
+      "total": 15000
+    },
+    "partialReturn": {
+      "qty": 2,
+      "supply": 1818.4,
+      "tax": 181.6,
+      "total": 2000
+    }
+  },
+  "expectedAfterPartial": {
+    "stock": 13,
+    "payable": 13000
+  }
+}

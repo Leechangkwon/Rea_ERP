@@ -196,3 +196,48 @@ test('order imports keep line rows or sum item rows through save and reload whil
  for(const grouping of ['line','item']){await page.getByRole('button',{name:'신규(F2)',exact:true}).click();const editor=page.locator('#inventory-dialog');await editor.getByRole('button',{name:'주문',exact:true}).click();const helper=page.locator('#entry-helper-dialog');await helper.getByLabel('집계조건',{exact:true}).selectOption(grouping);await helper.getByLabel('현재 페이지 전체 선택',{exact:true}).check();expect(await documents(page)).toHaveLength(before.documents.length+added.length);await helper.getByRole('button',{name:'선택 적용',exact:true}).click();await expect(helper).toHaveCount(0);await editor.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(editor).toHaveCount(0);const saved=(await documents(page)).filter(d=>!before.documents.some(old=>old.id===d.id)&&!added.some(old=>old.id===d.id))[0];expect(saved.lines.map(l=>l.qty).sort()).toEqual(grouping==='line'?[2,3]:[5]);expect(saved.lines.flatMap(l=>l.importedFrom).map(x=>x.qty).sort()).toEqual([2,3]);added.push(saved);await page.reload();expect((await documents(page)).find(d=>d.id===saved.id)).toEqual(saved);}
  const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));expect(after.settings).toEqual(before.settings);expect(after.documents.filter(d=>before.documents.some(old=>old.id===d.id))).toEqual(before.documents);
 });
+
+test('linked purchase blocks parent header mismatch without changing saved data and allows memo edits',async({page})=>{
+  const ids=await page.evaluate(()=>{
+    let db=InventoryUI.snapshot();
+    db.masters.partners.push({code:'LINK-V2',name:'가상 연결 검증 공급사'});
+    let out=InventoryCore.command(db,'document',{type:'purchaseorder',date:InventoryCore.today(),warehouse:'W001',partner:'V001',status:'진행',lines:[{item:'M001',qty:10,price:100}]});
+    const sourceId=out.result.id;
+    out=InventoryCore.command(out.db,'convert',{id:sourceId,type:'purchase',quantities:{M001:4}});
+    InventoryUI.replace(out.db);return {sourceId,childId:out.result.id};
+  });
+  await page.locator('#routes').getByRole('button',{name:'발주서조회',exact:true}).click();
+  const quick=page.getByLabel('발주서 빠른검색');await quick.fill(ids.sourceId);await quick.press('Enter');
+  await page.locator('tbody .inv-link').click();
+  const dialog=page.getByRole('dialog',{name:'발주서 상세 / 수정',exact:true});
+  await expect(dialog).toBeVisible();
+  const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));
+  await dialog.getByLabel('거래처',{exact:true}).selectOption('LINK-V2');
+  await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('후속 전표와 거래처');
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')))).toEqual(before);
+  await dialog.getByLabel('거래처',{exact:true}).selectOption('V001');
+  await dialog.getByLabel('출하/입고창고',{exact:true}).selectOption('W002');
+  await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('후속 전표와 창고');
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')))).toEqual(before);
+  await page.screenshot({path:'.artifacts/manual-purchase-link-20261021/synthetic-header-rejection.png',fullPage:true});
+  await dialog.getByLabel('출하/입고창고',{exact:true}).selectOption('W001');
+  await dialog.locator('.purchasing-local-state summary').click();
+  await dialog.getByLabel('전표 적요',{exact:true}).fill('연결 보존 후 적요 저장');
+  await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();
+  await expect(dialog).toHaveCount(0);
+  const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));
+  expect(after.documents.find(d=>d.id===ids.sourceId).memo).toBe('연결 보존 후 적요 저장');
+  expect(after.documents.find(d=>d.id===ids.childId)).toEqual(before.documents.find(d=>d.id===ids.childId));
+  expect(after.settings).toEqual(before.settings);
+  await page.locator('#routes').getByRole('button',{name:'구매조회',exact:true}).click();
+  await page.getByLabel('구매 빠른검색').fill(ids.childId);await page.getByLabel('구매 빠른검색').press('Enter');
+  await page.locator('tbody .inv-link').click();
+  const child=page.getByRole('dialog',{name:'구매 상세 / 수정',exact:true});
+  await child.locator('.purchasing-local-state summary').click();
+  await child.getByLabel('전표 적요',{exact:true}).fill('후속 구매 수정 가능');
+  await child.getByRole('button',{name:'저장(F8)',exact:true}).click();
+  await expect(child).toHaveCount(0);
+  expect((await documents(page)).find(d=>d.id===ids.childId).memo).toBe('후속 구매 수정 가능');
+});
