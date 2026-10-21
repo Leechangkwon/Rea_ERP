@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-22",
+  "version": "0.59.1",
+  "requirement": "REQ-PUR-RETURN-001",
+  "scope": "Source purchase -> negative copy-return editor -> single canonical credit return -> negative purchase-list/report reopen",
+  "plan": "docs/plan-purchase-negative-return-20261022.md",
+  "reference": {
+    "manualId": "EC-HELP-PURCHASE-RETURN",
+    "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
+    "originalReturnClassCacheValidated": true,
+    "originalBusinessWrites": false,
+    "reaVersion": "6.4.0",
+    "ownScopes": 7,
+    "originalScopesReused": 1,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "rawOriginalExecuted": false
+  },
+  "storageDecision": {
+    "displayQuantity": "negative",
+    "canonicalType": "purchasereturn",
+    "settlementMode": "credit",
+    "canonicalQuantity": "positive",
+    "secondNegativePurchaseCreated": false,
+    "directNegativePurchaseEnabled": false,
+    "existingRecordsOrFormsMigrated": false,
+    "frozenSourceAmountsAndReturnAmountsReused": true,
+    "sourceAuditMetadataNotFabricated": true,
+    "draftAllowedEdits": [
+      "date",
+      "negative quantity up to six decimals",
+      "zero/omit item"
+    ],
+    "originalDatabaseEquivalenceClaimed": false
+  },
+  "validation": {
+    "newNodeTests": 18,
+    "relatedNodeTests": 62,
+    "fullVerifyLocalVersion": "0.59.0",
+    "fullVerifyLocalPassed": true,
+    "browserSynthetic": 50,
+    "newBrowserTests": 1,
+    "patchVersion": "0.59.1",
+    "patchNodeTests": 18,
+    "patchBrowserTests": 1,
+    "patchBuildAndReleasePassed": true,
+    "workflow": "purchase3/supply15/VAT2 -> cancel -> return-1/VAT-.67 save/reload/list reopen -> second return-2/VAT-1.33 save/reload -> stock0/payable0; exact source/forms preserved",
+    "storageFailureRetry": true,
+    "uncertainAcknowledgmentDuplicateBlocked": true,
+    "staleSourceAndRelatedReturnsBlocked": true,
+    "accountSwitchBeforeOpenBlocked": true,
+    "companyAndNestedUserCompanySwitchBlocked": true,
+    "readAndWriteRevocationBlocked": true,
+    "independentReview": {
+      "initialP1Reproduced": true,
+      "fixed": true,
+      "sameP1RetestBlocked": true,
+      "otherAccountStorageUnchanged": true
+    },
+    "screenshotInspected": true
+  },
+  "sourceCommit": "bb169025e9526f3ec5e5ffe80f04d1a1f3898bd0",
+  "featureCommit": "dfba9ee83b97b47f520cc7460a13421e076bcff5",
+  "deployment": {
+    "version": "0.59.1",
+    "commit": "fc52ded9b3aa711d39f845cb909b6e1d90cc1196",
+    "branch": "release/0.59.1-purchase-negative-return",
+    "manifest": ".artifacts/manual-negative-purchase-20261022/candidate-manifest.json",
+    "bundleSha256": "9663312a3d4b051b831a9d7d94d3bc15b2580771b774bec574799e87eaa46af0",
+    "initialVersion": "0.59.0",
+    "initialCommit": "8021077810b9241131edc9f33e22b5d4ee3d6aac",
+    "publicChangedAssetsVerified": 3,
+    "existingSessionRetained": true,
+    "hostedPreview": {
+      "quantity": -20,
+      "supply": -40000,
+      "tax": -4000,
+      "total": -44000
+    },
+    "hostedPreviewCancelVerified": true,
+    "hostedBusinessSave": false,
+    "browserDocuments": 8,
+    "browserAndFormsExact": true,
+    "serverBodyAndRevisionExact": true,
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restoreApplied": false,
+    "rollback": ".artifacts/manual-negative-purchase-20261022/rollback-0.59.0-worker.js"
+  },
+  "productionDeployed": true,
+  "remainingGaps": [
+    "Direct unlinked negative purchase/mixed-sign storage and refund/over-return rules remain pending",
+    "Original exception rules, price/custom field editing and original purchase-form print are unverified",
+    "Accounted return keeps existing native view; purchase-list confirmation action still rejects purchasereturn in core",
+    "Hosted actual business save not performed; no original ERP business writes",
+    "Purchase report work-tab state reset and full-quantity/differing-price import contracts remain unresolved",
+    "VAT5 conflicts remain excluded from production; whole manual done=0",
+    "Moa HTTP401; progress after0.51.0 locally pending"
+  ],
+  "wholeManualDone": false,
+  "vatConflictsUnchanged": 5,
+  "moaPublicationPending": true
+}

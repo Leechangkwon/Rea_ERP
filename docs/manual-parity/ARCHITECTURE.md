@@ -340,3 +340,9 @@ PO→구매 copy/line은 새 로컬 lineId를 할당하며 원본 행 ID는 impo
 purchasing-report-core의 reportAmount가 기존 purchasereturn/credit의 고정 금액·수량만 음수 투영한다. 원문서/행/저장구조는 보존하며 일반/반품 필터를 행 부호로 적용한다. summary/drilldown/graph/CSV/print는 같은 조회 결과를 사용한다. 내부 aggregate raw arithmetic helper는 변경하지 않았다. 교환반품/교환입고는 기존 payableImpact0 호환 정책으로 제외하며 원본 교환 동등성은 미확인이다. inventory-core 음수 저장 검증과 VAT 연구는 변경하지 않는다. 음수 구매 저장은 세액 대칭·할당·기존 반품·회계/백업 계약 확정 후 별도 구현한다.
 
 view snapshot/restore는 조건을 보존하지만 InventoryUI 작업 탭 재생성은 report 조건을 초기화한다. 운영에서 이 경계를 확인했으며 원본 대조 후 상태 연결을 설계한다. 신규 매핑센터 도움말 본문은 메뉴/항목 연결 계약이며 전체수량 저장 증거로 사용하지 않는다. 근거 evidence/manual-purchase-return-report-20261021.json.
+
+## 0.59.1 음수 반품 입력과 canonical 저장 경계
+
+purchase-return-core는 원구매/관련 반품 snapshot을 검증하고 기존 purchasereturn/credit 양수 저장 한 건을 만든다. presentation만 qty/금액을 음수로 바꾼다. preview는 복제 명령 결과이며 실제 저장/원구매 변환은 없다. 기존 frozen sourceAmounts/returnAmounts 배분, 잔량·재고·채무·회계반영 제한과 백업을 유지한다. 신규 전표에 원구매 감사 메타데이터를 복사하지 않는다. 추가 형식 마이그레이션/직접 음수 purchase는 없다.
+
+purchase-return-ui의 입력과 저장 객체를 분리하며 마지막 onCommit에서 InventoryUI가 저장소 CAS·회사/사용자/키·조회/쓰기권한을 확인한다. 초기 storageKey와 현재 계정 불일치 P1을 독립 재현 후 차단했다. 실제 회사 식별 경로는 AuthUI.state().user.company.code다. 구매조회/현황은 저장 전표를 음수로 재열고 목록 금액만 signed projection을 쓴다. 회계반영된 전표 native 조회, confirmation 액션과 추가항목/단독 인쇄는 후속 호환 검토 대상이다. 원본 내부 저장 구조 동등성을 주장하지 않는다. 근거 evidence/manual-purchase-negative-return-20261022.json.

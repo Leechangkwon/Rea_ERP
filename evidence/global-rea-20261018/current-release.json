@@ -1,5 +1,5 @@
 {
-  "version": "0.58.0",
+  "version": "0.59.1",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 49,
+    "currentReleaseBrowserSynthetic": 50,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -141,16 +141,22 @@
     "purchaseLineCopyNewBrowser": 1,
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
-    "purchaseReturnReportNewBrowser": 1
+    "purchaseReturnReportNewBrowser": 1,
+    "currentReleaseFullRegressionVersion": "0.59.0",
+    "currentReleasePatchFocusedNode": 18,
+    "currentReleasePatchFocusedBrowser": 1,
+    "purchaseNegativeCopyReturnNewNode": 18,
+    "purchaseNegativeCopyReturnRelatedNode": 62,
+    "purchaseNegativeCopyReturnNewBrowser": 1
   },
   "future_research": "Seek specific original full-application/aggregation save and source-link evidence, keeping unresolved over-receipt and differing-price rules pending. If unavailable, continue independent negative-purchase return design from the reviewed manual without inventing full-copy semantics or repeating unchanged checks. Retain VAT5 conflicts and done=0.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-purchase-return-report-20261021.json",
+    "reference": "../manual-purchase-negative-return-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "77b12b6019ab34a4c7d5d3ef5cf173d743513dce",
-    "publicVersionVerified": "0.58.0",
+    "deployedSourceCommit": "fc52ded9b3aa711d39f845cb909b6e1d90cc1196",
+    "publicVersionVerified": "0.59.1",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -218,11 +224,11 @@
     "orderLinesHostedSavePerformed": false,
     "lastExactBrowserBackupComparisonVersion": "0.57.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.58.0",
+    "currentServerStateAndMailPreservedVersion": "0.59.1",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.58.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.59.1",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -244,7 +250,10 @@
     "purchaseLineCopyHostedSaveVerified": false,
     "purchaseReturnReportDeployed": true,
     "purchaseReturnReportHostedFiltersVerified": true,
-    "purchaseReturnReportHostedNegativeDataVerified": false
+    "purchaseReturnReportHostedNegativeDataVerified": false,
+    "purchaseNegativeCopyReturnDeployed": true,
+    "purchaseNegativeCopyReturnHostedPreviewCancelVerified": true,
+    "purchaseNegativeCopyReturnHostedSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -481,7 +490,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Resolve negative-purchase return storage contract (signed VAT/source allocation/legacy return/accounting), compare purchase report work-tab state reset with original, and then complete saved return workflow. Full-quantity/over-receipt and differing-price aggregation remain pending concrete reference save evidence; do not repeat unchanged scans. VAT5 conflicts and overall done=0 remain.",
+    "nextIndependentWork": "Continue return manual exception/price/custom-form/confirmation and print comparison; define direct negative purchase/refund accounting contract before enabling it. Compare report work-tab reset; full-application/differing-price import still requires reference save evidence. Preserve VAT5 conflicts, done=0 and existing data; do not repeat unchanged checks.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -651,13 +660,19 @@
       "evidence": "evidence/manual-purchase-return-report-20261021.json",
       "done": false,
       "negativePurchaseStorage": false
+    },
+    "purchaseNegativeCopyReturn": {
+      "version": "0.59.1",
+      "evidence": "evidence/manual-purchase-negative-return-20261022.json",
+      "done": false,
+      "directNegativePurchase": false
     }
   },
   "preparedCandidate": {
-    "version": "0.58.0",
-    "commit": "77b12b6019ab34a4c7d5d3ef5cf173d743513dce",
-    "manifest": ".artifacts/manual-purchase-return-report-20261021/candidate-manifest.json",
-    "bundleSha256": "e130b8fc85d6e1bfc0c098b6b577bed13d0846e567d5bf53ce54d0897750f4cf",
+    "version": "0.59.1",
+    "commit": "fc52ded9b3aa711d39f845cb909b6e1d90cc1196",
+    "manifest": ".artifacts/manual-negative-purchase-20261022/candidate-manifest.json",
+    "bundleSha256": "9663312a3d4b051b831a9d7d94d3bc15b2580771b774bec574799e87eaa46af0",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -676,9 +691,10 @@
       "purchase-partial-receipt-closure-reopen-exhausted-header-only-import",
       "purchaseorder-to-purchase-custom-field-name-transfer",
       "purchaseorder-to-purchase-copy-line-identity-preservation",
-      "purchase-report-signed-preserved-credit-returns-and-kind-filter"
+      "purchase-report-signed-preserved-credit-returns-and-kind-filter",
+      "negative-copy-return-editor-single-canonical-credit-store-and-reopen"
     ],
-    "supersedesCandidateCommit": "a03413408f4a1e89389659fc2097d5e22b124747",
+    "supersedesCandidateCommit": "77b12b6019ab34a4c7d5d3ef5cf173d743513dce",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,

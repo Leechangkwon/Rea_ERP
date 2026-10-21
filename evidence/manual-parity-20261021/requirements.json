@@ -1453,7 +1453,7 @@
         "입고창고 재고/금액 차감",
         "새 구매전표 음수 수량 저장"
       ],
-      "status": "confirmed-gap",
+      "status": "partial-deployed-negative-input-canonical-credit-return-synthetic-verified",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1461,11 +1461,20 @@
       },
       "role": "manual does not specify role exceptions; own inventory.write retained",
       "implementationEvidence": [
-        "docs/plan-purchase-receipt-closure-20261021.md"
+        "docs/plan-purchase-negative-return-20261022.md",
+        "evidence/manual-purchase-negative-return-20261022.json"
       ],
-      "automatedEvidence": [],
+      "automatedEvidence": [
+        "tests/purchase-negative-return.cjs",
+        "tests/purchase-negative-return-ui.cjs",
+        "tests/browser/purchase-negative-return.spec.cjs"
+      ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "hostedPreviewCancelVerified": true,
+      "deploymentVersion": "0.59.1",
+      "canonicalStorageType": "purchasereturn/credit positive; negative presentation",
+      "nativeNegativePurchaseStorage": false
     },
     {
       "id": "REQ-PUR-RETURN-002",

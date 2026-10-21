@@ -617,6 +617,21 @@
       "architectureUpdatePending": true,
       "roadmapUpdatePending": true,
       "nextAction": "Read existing documents, append missing verified records only and reread; preserve prior PRD and architecture."
+    },
+    {
+      "date": "2026-10-22",
+      "version": "0.59.1",
+      "milestone": "negative-copy-return-editor-save-reopen",
+      "sourceCommit": "bb169025e9526f3ec5e5ffe80f04d1a1f3898bd0",
+      "deploymentCommit": "fc52ded9b3aa711d39f845cb909b6e1d90cc1196",
+      "status": "authentication-required-local-record-ready",
+      "saveAttempted": false,
+      "readbackVerified": false,
+      "localRecord": "docs/manual-parity/PROGRESS.md",
+      "pendingBodyArtifact": ".artifacts/manual-negative-purchase-20261022/moa-pending-negative-return.html",
+      "evidence": "evidence/manual-purchase-negative-return-20261022.json",
+      "architectureUpdatePending": true,
+      "roadmapUpdatePending": true
     }
   ],
   "lastVerifiedProgressVersion": "0.51.0",
@@ -624,6 +639,7 @@
     "checkedAt": "2026-10-21T12:56:17.633899+00:00",
     "mcp": "HTTP401",
     "browser": "login-required",
-    "credentialBypass": false
+    "credentialBypass": false,
+    "mcpCheckedAt": "2026-10-21T15:38:20.321895+00:00"
   }
 }

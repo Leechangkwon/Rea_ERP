@@ -1,10 +1,10 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.58.0 운영
+## 현재 인계 · 0.59.1 운영
 
-운영 `release/0.58.0-purchase-return-report` / `77b12b6`, 소스 `515ce54`/검사보완 `3c4ea9b`. 기존 차감반품을 구매현황에서 음수로 표시하고 전체/일반/반품 필터를 집계·상세·CSV·인쇄·그래프에 연결했다. 기존 저장자료/양식 변환 없음. 신규Node7·관련97·최종 verify:local/브라우저49 통과. 운영 전체/일반/반품0건 조회, 기존 로그인과 자료/양식/메일 보존 확인. 운영 음수반품자료0건·업무 저장 미검증이다.
+운영 `release/0.59.1-purchase-negative-return` / `fc52ded`, 소스 `dfba9ee`/표시수정 `bb16902`. 원구매 → 반품처리 → 음수 수량 편집 → 단일 canonical purchasereturn/credit 저장 → 구매조회/현황 음수 재열기. 기존 양식/자료 변환 없음. 신규Node18·관련62, 0.59.0 전체 verify:local/브라우저50 및 0.59.1 표시수정 Node18·브라우저1·release/build 통과. 계정 전환 전 열기 P1 독립 재현·수정·재검증 완료. 운영 미리보기/취소와 기존 로그인·자료·양식·메일 보존 확인, 실제 업무 저장 미검증.
 
-근거 `evidence/manual-purchase-return-report-20261021.json`, 계획 `docs/plan-purchase-return-report-20261021.md`, manifest `.artifacts/manual-purchase-return-report-20261021/candidate-manifest.json`. 구매현황 작업 탭 재진입의 기존 조건 초기화는 원본 대조/보완 대기다. 다음은 음수 구매 저장의 세액/원구매·기존 반품/회계 계약 확정과 저장→재조회→현황 절차다. 전체적용/상이단가 합산은 근거 미확인을 유지한다. main VAT5충돌 연구 빌드 설치 금지. 모아37갱신 대기·전체완료0. 아래는 시점별 이력이다.
+근거 `evidence/manual-purchase-negative-return-20261022.json`, 계획 `docs/plan-purchase-negative-return-20261022.md`, manifest `.artifacts/manual-negative-purchase-20261022/candidate-manifest.json`. worktree 디렉터리는 `.artifacts/releases/0.59.0-purchase-negative-return`, 최종 branch/commit은 위 0.59.1이다. 다음은 직접 음수 구매/환불·반품 추가항목/가격·confirmation/출력과 원본 예외 규칙 대조. 전체적용/상이단가 합산/작업 탭 초기화는 미확인 유지. main VAT5충돌 연구 빌드 설치 금지. 모아38갱신 대기·전체완료0. 아래는 시점별 이력이다.
 
 ## 최신 개발 인계 · 0.53.2 후보 9e4efd1 / 운영0.53.1 유지
 
