@@ -313,3 +313,33 @@ test('plan with an ancestor-only row reference imports into orders and purchases
   await page.locator('tbody .inv-link').click();await expect(page.getByRole('dialog',{name:'구매 상세 / 수정',exact:true})).toBeVisible();
   await page.screenshot({path:'.artifacts/manual-five-stage-20261021/synthetic-purchase-lineage.png',fullPage:true});
 });
+
+
+test('completed grouped plan orders retain quantity locks and allow price edits without changing existing receipts',async({page})=>{
+ const ids=await page.evaluate(()=>{
+  const C=InventoryCore;let db=C.empty();db.masters=C.clone(C.seed().masters);
+  let out=C.command(db,'document',{type:'plan',date:C.today(),dueDate:C.today(),warehouse:'W001',lines:[{lineId:'PLAN-ROW',item:'M001',qty:10,price:100,supplier:'V001'}]});
+  const planId=out.result.id;
+  out=PurchasePlanCore.commit(out.db,PurchasePlanCore.preview(out.db,{date:C.today(),grouping:'supplier-date-item',selections:[{documentId:planId,item:'M001',lineId:'PLAN-ROW',qty:2}]}));
+  const orderId=out.result[0].id;
+  out=C.command(out.db,'convert',{id:orderId,type:'purchase',quantities:{PL1:1}});const purchaseId=out.result.id;
+  out=C.command(out.db,'planLineProgress',{selections:[{documentId:planId,item:'M001',lineId:'PLAN-ROW'}],progress:'완료'});
+  InventoryUI.replace(out.db);return {planId,orderId,purchaseId};
+ });
+ const before=await page.evaluate(()=>InventoryUI.snapshot());
+ await page.locator('#routes').getByRole('button',{name:'발주서조회',exact:true}).click();
+ await page.getByLabel('발주서 빠른검색').fill(ids.orderId);await page.getByLabel('발주서 빠른검색').press('Enter');
+ await page.locator('tbody .inv-link').click();const editor=page.getByRole('dialog',{name:'발주서 상세 / 수정',exact:true});
+ await expect(editor.getByLabel('수량 1',{exact:true})).toBeDisabled();await expect(editor.getByLabel('품목 1',{exact:true})).toBeDisabled();
+ await editor.getByLabel('단가 1',{exact:true}).fill('150');
+ await editor.locator('.purchasing-local-state summary').click();await editor.getByLabel('전표 적요',{exact:true}).fill('완료 계획의 배분 보존');
+ await editor.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(editor).toHaveCount(0);
+ await page.reload();const after=await page.evaluate(()=>InventoryUI.snapshot());
+ const order=after.documents.find(d=>d.id===ids.orderId),old=before.documents.find(d=>d.id===ids.orderId);
+ expect(order.lines[0].qty).toBe(2);expect(order.lines[0].price).toBe(150);expect(order.lines[0].planAllocations).toEqual(old.lines[0].planAllocations);
+ expect(order.memo).toBe('완료 계획의 배분 보존');expect(after.documents.filter(d=>d.id!==ids.orderId)).toEqual(before.documents.filter(d=>d.id!==ids.orderId));expect(after.settings).toEqual(before.settings);
+ const balances=await page.evaluate(({planId,orderId})=>{const C=InventoryCore,db=InventoryUI.snapshot();return {plan:C.remaining(db,db.documents.find(d=>d.id===planId),'purchaseorder')[0].qty,order:C.remaining(db,db.documents.find(d=>d.id===orderId),'purchase')[0].qty,stock:C.stock(db,'M001','W001'),payable:C.outstanding(db,'payable','V001')};},ids);
+ expect(balances).toEqual({plan:8,order:1,stock:1,payable:110});
+ await page.locator('#routes').getByRole('button',{name:'발주서조회',exact:true}).click();await page.locator('tbody .inv-link').click();
+ await page.getByLabel('수량 1',{exact:true}).scrollIntoViewIfNeeded();await page.screenshot({path:'.artifacts/manual-plan-allocation-20261021/grouped-order-preserved.png',fullPage:true});
+});

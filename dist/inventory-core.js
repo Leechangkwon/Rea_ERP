@@ -326,6 +326,21 @@
       if(originals.some(row=>purchasingLineState(source,row).progress==='완료')&&(newQuantities.get(allocationKey(line))||0)>(oldQuantities.get(allocationKey(line))||0))throw Error('완료된 발주계획 품목행의 발주 수량을 늘릴 수 없습니다.');
     }
   }
+  function validateGroupedPlanProgress(db,doc){
+    if(doc.type!=='purchaseorder'||doc.generatedFrom!=='purchase-plan')return;
+    validateProvenance(db,doc);
+    const previous=db.documents.find(row=>row.id===doc.id&&row.generatedFrom==='purchase-plan');
+    const quantities=record=>{const result=new Map();for(const line of record?.lines||[])for(const ref of line.planAllocations){
+      const key=JSON.stringify([ref.documentId,ref.item,ref.sourceLineId||'']),old=result.get(key);
+      result.set(key,{ref,qty:quantity((old?.qty||0)+ref.qty)});
+    }return result;};
+    const oldQuantities=quantities(previous),newQuantities=quantities(doc);
+    // Compare the complete voucher allocation, including splits across several order rows.
+    for(const [key,{ref,qty}]of newQuantities){
+      const source=db.documents.find(row=>row.id===ref.documentId),originals=source.lines.filter(row=>row.item===ref.item&&(!ref.sourceLineId||row.lineId===ref.sourceLineId));
+      if(originals.some(row=>purchasingLineState(source,row).progress==='완료')&&qty>(oldQuantities.get(key)?.qty||0))throw Error('완료된 발주계획 품목행의 발주 수량을 늘릴 수 없습니다.');
+    }
+  }
   function saveDoc(db,input){
     const d=clone(input);if(!types[d.type])throw Error('전표 종류가 올바르지 않습니다.');
     const previous=d.id?db.documents.find(x=>x.id===d.id):null;
@@ -358,6 +373,7 @@
       const source=validateLinkedSource(db,d);
       validatePlanOrderRows(db,d,source);
     }
+    validateGroupedPlanProgress(db,d);
     d.status=statusValue(d.status);validatePurchasingState(d);if(!documentStatuses.includes(d.status))throw Error('처리 상태를 확인하세요.');
     d.id=d.id||`${d.type.toUpperCase()}-${d.date.replaceAll('-','')}-${String(++db.sequence).padStart(5,'0')}`;d.accounted=Boolean(d.accounted);
     if(d.accounted&&!active(d))throw Error('미확인·취소 전표는 회계반영할 수 없습니다.');
