@@ -108,7 +108,7 @@
     if(result.length>500)throw Error('전표 품목은 500행까지 입력할 수 있습니다.');
     return result;
   }
-  function appendRequestOrderLines(existing,incoming){
+  function appendCopyLines(existing,incoming){
     const result=copy(existing||[]),ids=new Set();
     for(const row of result){
       if(row.sourceLineId||row.planAllocations)throw Error('원본 연결 행에는 주문 복사 행을 섞을 수 없습니다.');
@@ -203,8 +203,9 @@
       return {...row,qty,importedFrom:[{documentId:d.id,type:d.type,date:d.date,item:line.item,...(line.lineId?{sourceLineId:line.lineId}:{}),qty,mode}]};
     });
     if(result.type==='purchaseorder'&&incoming.some(line=>line.priceRequestBasis))result.partner=C.priceRequestOrderPartner([...(replace?[]:result.lines||[]),...incoming],options.adoptHeader===true&&incoming.some(line=>line.priceRequestBasis?.vendorCode)?'':result.partner);
-    const orderLineCopy=mode==='copy'&&result.type==='request'&&options.grouping==='line'&&[...sources.values()].every(d=>d.type==='order');
-    result.lines=orderLineCopy?appendRequestOrderLines(replace?[]:result.lines,incoming):mergeLines(replace?[]:result.lines,incoming,{type:result.type,structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
+    const purchaseOrderLineCopy=result.type==='purchase'&&[...sources.values()].every(d=>d.type==='purchaseorder'),lineCopy=mode==='copy'&&options.grouping==='line'&&(purchaseOrderLineCopy||result.type==='request'&&[...sources.values()].every(d=>d.type==='order'));
+    if(lineCopy&&purchaseOrderLineCopy&&result.id){const saved=db.documents.find(d=>d.id===result.id);if(saved&&!saved.lines.some(line=>line.lineId)&&db.documents.some(d=>d.sourceId===saved.id))throw Error('후속 전표가 있는 기존 구매는 라인별 복사로 변경할 수 없습니다. 신규 구매전표를 사용하세요.');}
+    result.lines=lineCopy?appendCopyLines(replace?[]:result.lines,incoming):mergeLines(replace?[]:result.lines,incoming,{type:result.type,structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
     if(mode==='linked'){
       const limits=new Map(C.remaining(view,source,result.type).map(l=>[l.lineId||l.item,l.qty]));
       for(const line of result.lines){const key=line.sourceLineId||line.item;if(!limits.has(key)||Number(line.qty)>limits.get(key)+0.000001)throw Error('원본 전표의 잔량을 초과하거나 원본에 없는 품목이 있습니다.');}
