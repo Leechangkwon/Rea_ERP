@@ -265,7 +265,19 @@
       "ownScopes": 2,
       "arithmeticVerified": false,
       "originalPopupLoginRequired": true,
-      "done": false
+      "done": false,
+      "stockOnlyCandidate": {
+        "sourceCommit": "efca2791442afcf9eba8ebbe0e79532f88bfcc7d",
+        "evidence": "evidence/manual-plan-quantity-stock-candidate-20261021.json",
+        "algorithm": "stock-only-integer-v0",
+        "officialIllustratedCases": 5,
+        "newNodeTests": 12,
+        "independentRows": 5000,
+        "appIntegrated": false,
+        "canApply": false,
+        "fullArithmeticVerified": false,
+        "originalParityPassed": false
+      }
     }
   }
 }

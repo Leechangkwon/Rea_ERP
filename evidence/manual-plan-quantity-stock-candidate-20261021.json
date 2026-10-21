@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "requirement": "REQ-PUR-PLAN-001",
+  "status": "bounded-stock-only-research-preview-not-app-integrated",
+  "sourceCommit": "efca2791442afcf9eba8ebbe0e79532f88bfcc7d",
+  "pushedToOriginMain": true,
+  "done": false,
+  "previousEvidence": "evidence/manual-plan-quantity-contract-20261021.json",
+  "officialPdf": {
+    "url": "https://download.ecounterp.com/doc_ecounterp_proposal_kr.pdf?ver=2026021901",
+    "file": ".artifacts/manual-plan-quantity-formula-20261021/official-proposal.pdf",
+    "sha256": "72509c3b0540624007430856587b160283991c3f80a8cfb62c056fac714cc80c",
+    "bytes": 7549498,
+    "httpStatus": 200,
+    "retrievedAt": "2026-10-21T04:51:41.039393+00:00",
+    "cookiesSent": false,
+    "reviewedPhysicalPages": [
+      21
+    ],
+    "printedPage": 19,
+    "fullDocumentReviewed": false,
+    "totalPages": 32,
+    "visualReview": true,
+    "renderArtifact": ".artifacts/manual-plan-quantity-formula-20261021/official-proposal-page-21.png",
+    "renderSha256": "1e4696794af3921ce5231aedbd2a30ae991624692b1ac444332fa02c5e6c6230",
+    "textArtifact": ".artifacts/manual-plan-quantity-formula-20261021/official-proposal-page-21.txt",
+    "textSha256": "2f2fdd86e992d5ec6933879f81c1d4fa7c07a1cf02d8dc0d412ef8722b532f0e",
+    "renderEnvironment": "Bundled Windows Python with pypdfium2; source implementation and project tests executed in native WSL",
+    "screenExampleIsHistorical": true,
+    "currentAuthenticatedScreenObserved": false
+  },
+  "newReviewedPdfSections": 1,
+  "loginManualBodyCountIncrement": 0,
+  "findings": {
+    "selectedCondition": "on-hand stock only",
+    "illustratedRows": [
+      {
+        "id": "1",
+        "inputQty": "1600",
+        "onHandQty": "84",
+        "confirmedQty": "1516"
+      },
+      {
+        "id": "2",
+        "inputQty": "2500",
+        "onHandQty": "5392",
+        "confirmedQty": "0"
+      },
+      {
+        "id": "3",
+        "inputQty": "3000",
+        "onHandQty": "100",
+        "confirmedQty": "2900"
+      },
+      {
+        "id": "4",
+        "inputQty": "2000",
+        "onHandQty": "50",
+        "confirmedQty": "1950"
+      },
+      {
+        "id": "5",
+        "inputQty": "1000",
+        "onHandQty": "510",
+        "confirmedQty": "490"
+      }
+    ],
+    "illustratedConfirmedTotal": "6856",
+    "inferredBoundedModel": "For these nonnegative integer stock-only examples, max(0,inputQty-onHandQty) reproduces every displayed result",
+    "columnSigns": {
+      "safetyStock": "+",
+      "unfulfilledSales": "+",
+      "unissuedMaterials": "+",
+      "onHandStock": "-",
+      "unreceivedPurchases": "-"
+    },
+    "columnSignsAreNotMixedFormulaVerification": true,
+    "minimumPurchaseUnitColumnHasNoExampleValues": true,
+    "unverified": [
+      "Minimum purchase unit max-vs-multiple and rounding",
+      "Mixed conditions and original decimal or negative quantity policies",
+      "Repeated item stock allocation across source rows",
+      "Stock date, warehouse query and active document semantics",
+      "Existing order allocations, commit/conflict/permission rules and hosted preservation"
+    ]
+  },
+  "implementation": {
+    "file": "scripts/lib/purchase-plan-quantity-candidate.cjs",
+    "algorithm": "stock-only-integer-v0",
+    "scope": "Explicit nonnegative integer stock-only rows with unique item/warehouse tuples",
+    "ownBounds": {
+      "rows": [
+        1,
+        500
+      ],
+      "quantityPerRow": [
+        "0",
+        "1000000000000"
+      ]
+    },
+    "boundsAreOriginalRules": false,
+    "currentStockQueried": false,
+    "repeatedStockKeysRejected": true,
+    "unsupportedConditionsRejected": true,
+    "inputMutated": false,
+    "canApply": false,
+    "appIntegrated": false,
+    "persistenceVersion": null,
+    "originalRuntimeObserved": false,
+    "originalParityPassed": false
+  },
+  "checks": {
+    "newNodeTests": 12,
+    "relatedNodeTests": 81,
+    "toolTests": 7,
+    "releaseChecks": 4,
+    "status": "passed",
+    "illustratedCasesMatched": 5,
+    "independentReview": {
+      "materialFindings": 0,
+      "newNodeTests": 12,
+      "pythonIntegerComparisonRows": 5000,
+      "batches": 10,
+      "pdfReviewByReviewer": false,
+      "scope": "Specified code, tests and plan; independent synthetic integer comparison only"
+    },
+    "fullBrowserRerun": false,
+    "runtimeImportScan": "No candidate module or previewStockOnly references in dist/worker",
+    "reasonNoFullBrowserRerun": "New research helper and test fixture only; app static assets unchanged",
+    "diffCheck": "passed",
+    "logs": [
+      {
+        "path": ".artifacts/manual-plan-quantity-formula-20261021/focused.log",
+        "sha256": "953cff439dd6b16a94339f8a87a03f673fbf2dc406783c0eac33d5e690cbfa3b"
+      },
+      {
+        "path": ".artifacts/manual-plan-quantity-formula-20261021/tools.log",
+        "sha256": "8a152731014c48cef33848207e843afd1979db172ab4cd750d684380ebc9b1a6"
+      },
+      {
+        "path": ".artifacts/manual-plan-quantity-formula-20261021/release.log",
+        "sha256": "a42ecd7dd88ae57f33f89ba0c837a5db319871f6012525361737e59aa0a94b86"
+      },
+      {
+        "path": ".artifacts/manual-plan-quantity-formula-20261021/rea.log",
+        "sha256": "79f01984bc369f5b7ed96b358469febc311594e8308f812255383a7afd8f20f1"
+      }
+    ]
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 4,
+    "originalScopesNew": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "anyTruncated": false,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "summarySha256": "e2dc6cdd4ec943adfb5452a08117b92c0c14565f2e7c89453b9793cc376038a2",
+    "scopes": [
+      {
+        "name": "exactKeys",
+        "category": "own",
+        "file": "scripts/lib/purchase-plan-quantity-candidate.cjs",
+        "sourceSha256": "6219b52a75b56c0394c88ad955608dea061a92d5356be801e49e3ae35979dfcd",
+        "start": 237,
+        "end": 472,
+        "lineStart": 5,
+        "lineEnd": 7,
+        "fragmentSha256": "27df39dbd1a384814dcad09ea85b14a7d94fde7cf171535a5e30083812f73889",
+        "resultSha256": "675637eebe45514c7adb107e5ff19cc5112001e7bb398b8467ad41d5ed9f3e46",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 235,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 54,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "quantity",
+        "category": "own",
+        "file": "scripts/lib/purchase-plan-quantity-candidate.cjs",
+        "sourceSha256": "6219b52a75b56c0394c88ad955608dea061a92d5356be801e49e3ae35979dfcd",
+        "start": 473,
+        "end": 751,
+        "lineStart": 8,
+        "lineEnd": 11,
+        "fragmentSha256": "3a938d0311ec47992b39374d51826cb02fb879254740451cd59de080eaeabc41",
+        "resultSha256": "d3ef7f753c71057565fe51b0b1e765c3627d48ba1a51d181e62931fe099d97ee",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 278,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 43,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "identifier",
+        "category": "own",
+        "file": "scripts/lib/purchase-plan-quantity-candidate.cjs",
+        "sourceSha256": "6219b52a75b56c0394c88ad955608dea061a92d5356be801e49e3ae35979dfcd",
+        "start": 752,
+        "end": 932,
+        "lineStart": 12,
+        "lineEnd": 14,
+        "fragmentSha256": "393a1d184b74161f50647c44e9399239554db8528c53f5cc6598d3a839fcab86",
+        "resultSha256": "4e50e7cd6865ea20a72492eb5c04f06785f87a5daf6d35550b569988aefead23",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 180,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 36,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "previewStockOnly",
+        "category": "own",
+        "file": "scripts/lib/purchase-plan-quantity-candidate.cjs",
+        "sourceSha256": "6219b52a75b56c0394c88ad955608dea061a92d5356be801e49e3ae35979dfcd",
+        "start": 933,
+        "end": 2507,
+        "lineStart": 15,
+        "lineEnd": 31,
+        "fragmentSha256": "d777e2dddab5863dd0d8ff5aaa0c5520298061acc49ef88674c79cca7680f5f9",
+        "resultSha256": "c9cc6010612b09d8925f052ffece820a5b220e2ee10f731860cf87419aa24f6c",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1574,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 290,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "scripts/lib/purchase-plan-quantity-candidate.cjs",
+      "sha256": "6219b52a75b56c0394c88ad955608dea061a92d5356be801e49e3ae35979dfcd"
+    },
+    {
+      "path": "tests/purchase-plan-quantity-candidate.cjs",
+      "sha256": "8eaa320194c0d3fc5dcbb1c94d2fcddc000586326edc6d42fb1fef99b93591bb"
+    },
+    {
+      "path": "tests/fixtures/purchase-plan-quantity-examples.json",
+      "sha256": "b50162fccc22bd3e92a5226643ae7ef64282b2e3294070007c31debfe0f7d75e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "0b08e731801438e921b49e4fd50cd9ab5fc8034b3d051e98db7a2626becb7657"
+    }
+  ],
+  "preservation": {
+    "appChanged": false,
+    "originalErpWrites": false,
+    "productionDataRead": false,
+    "productionWrites": false,
+    "serverRestarted": false,
+    "runtimeSettingsChanged": false,
+    "schemaMigration": false,
+    "existingDraftDiscarded": false,
+    "mailSent": false,
+    "releaseCandidateCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "candidateBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "candidateAndRollbackHashesVerifiedUnchanged": true,
+    "frozenVatV1Changed": false
+  },
+  "community": {
+    "status": "login-required-pending-existing-document-update",
+    "freshLoginCheckThisTurn": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingBodyArtifact": ".artifacts/manual-plan-quantity-formula-20261021/moa-pending-stock-quantity.html"
+  },
+  "officialRequirementCounts": {
+    "requirements": 13,
+    "reviewedLoginManualBodies": 4,
+    "done": 0
+  }
+}

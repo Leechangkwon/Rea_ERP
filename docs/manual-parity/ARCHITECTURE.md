@@ -209,3 +209,8 @@ flowchart LR
 ```
 
 현재 wrapper는 이 경로를 보여 주지만 실제 선택된 식·참조/trigger·후처리 포맷·Decimal 구현까지 입증하지 않는다. 조회/인쇄의 value_calc_expression을 입력 수식으로 대체하거나 7개 정적 기대값 일치를 전체 원본 합격으로 처리하지 않는다. 기존 저장v1·연구후보 raw-supply-static-candidate-v1은 변경하지 않는다. 근거 evidence/manual-vat-resolver-20261021.json; 모아 본문 반영·재조회 대기.
+
+
+### 발주수량 보유재고 차감 연구 모델 · efca279
+
+stock-only-integer-v0는 앱 계산/저장 계약과 분리된 scripts/lib 순수 함수다. 명시적 정수 입력·보유재고만 받아0하한 차감을 계산하며 실제 재고를 조회하지 않는다. 행 ID와 품목/창고 튜플을 각각 검증하여 같은 보유재고를 여러 계획행에서 중복 차감하는 추정 배분을 막는다. 결과는 항상 canApply=false이며 기존 전표나 양식에 저장하지 않는다. 최소구매단위·혼합조건·소수/음수·조회기준·후속발주 하한은 추가 근거 후 별도 계약으로 연결한다. 공식 사례5개의 일치는 전체 수량조정 동등성의 증거가 아니다. 근거 evidence/manual-plan-quantity-stock-candidate-20261021.json.
