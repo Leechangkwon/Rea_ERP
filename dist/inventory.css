@@ -158,8 +158,8 @@
   .inventory-app input[type=radio]{width:18px;height:18px;min-height:0;flex:0 0 18px;margin:0;accent-color:#294cbd}
   .inventory-app .inv-report-mode input[type=radio]{order:-1}
   .inventory-app.inv-purchasing-report .inv-field>input:not([type=radio]):not([type=checkbox]),.inventory-app.inv-purchasing-report .inv-field>select{height:var(--inv-control-height);min-height:var(--inv-control-height)}
-  .inventory-app .inv-report-search-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:var(--inv-control-gap);margin:0;padding:8px;min-width:0}
-  .inventory-app .inv-report-search-actions>button,.inventory-app.inv-purchasing-report> .inv-toolbar>button,.inventory-app.inv-purchasing-report> .inv-toolbar>details>summary{flex:0 0 auto;min-height:var(--inv-control-height);padding:7px 12px;line-height:1.4}
+  .inventory-app .inv-plan-search-actions,.inventory-app .inv-report-search-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:var(--inv-control-gap);margin:0;padding:8px;min-width:0}
+  .inventory-app .inv-plan-search-actions>button,.inventory-app .inv-report-search-actions>button,.inventory-app.inv-purchasing-report> .inv-toolbar>button,.inventory-app.inv-purchasing-report> .inv-toolbar>details>summary{flex:0 0 auto;min-height:var(--inv-control-height);padding:7px 12px;line-height:1.4}
   .inventory-app .entry-save-actions{gap:var(--inv-control-gap);align-items:stretch}
   .inventory-app .entry-save-actions>button.primary{background:#294cbd;color:#fff;border-color:#294cbd}
 }
