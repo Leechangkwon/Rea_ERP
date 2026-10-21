@@ -1,6 +1,14 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.64.0 운영
+## 현재 인계 · 0.65.0 운영
+
+운영 `release/0.65.0-purchase-report-tabs` / `5d3df34`, 소스 `022e6ea`/수명수정 `a81dbc3`. 실제 app.js 작업 탭에 구매현황 snapshot/restore를 연결했다. 성공 결과와 미적용 조건·오류/스크롤 보존, 메인 유지·명시 닫기 폐기·변경 raw 재조회·계정/read/닫힌 하위창 보호. 신규Node18/관련TAP78·전체 verify:local/브라우저65(신규2), REA자체15범위, 독립8재현 정상. 원본 작업 탭 간 동등성은 미확인이다.
+
+근거 `evidence/manual-purchase-report-tabs-20261022.json`, manifest `.artifacts/manual-report-tabs-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.65.0-purchase-report-tabs`. 런타임 세션8172, bundle SHA `5ba45a845810a1da5dab344de54b5d88dc3814ff14e241a78c39c762fd6cc5af`, 롤백0.64.0 보존. 기존로그인/운영 탭·메인 복귀·닫기 검증, 브라우저8전표/양식 byte/JSON·서버fresh app30/gateway0·runtime.env·메일3함8통1첨부 전후 동일. 업무/설정 저장·인쇄·발송·복원 없음. main VAT5 연구 빌드 설치 금지.
+
+다음은 REQ-PUR-IMPORT-001 전체적용/전체수량과 상이단가 합산의 기존 구현·원본 도움말/조회 팝업·공개 코드 차이표를 먼저 확인하고, 확인된 규칙만 독립 단위로 구현한다. 부서·직위/직급·직책은 사용자등록 저장/등록 참조 계약을 선행해야 하므로 보류한다. 직접 음수 구매/혼합부호·환불·반품 회계/이력·일괄인쇄와 원본 작업 탭 간 동등성은 미완료다. 이미 배포한 작업 탭 보존·반품 확인 연결을 반복 개발하지 않는다. 본문13/요구사항24·전체합격0, 모아 마지막 게시0.51.0·44갱신 대기. 아래는 과거 이력이다.
+
+## 이전 인계 · 0.64.0 운영
 
 운영 `release/0.64.0-purchase-return-state` / `a04eb5c`, 소스 `a578ba3`/fixture `422b83b`. 차감반품 확인·미확인/혼합선택과 반영 후 음수 읽기 전용 상세를 연결했다. 기존 배분금액/수불/채무/원구매/양식 보존, 교환·회계 권한 확대 없음. 신규Node12/관련44·전체 verify:local/브라우저63, 독립P2 수정·동일 재현 해소. 운영 반품0건으로 저장/상태/반영 후 상세 합격은 합성 검증이다.
 

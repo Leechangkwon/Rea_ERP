@@ -394,3 +394,11 @@ purchase-return-ui의 입력과 저장 객체를 분리하며 마지막 onCommit
 근거 evidence/manual-purchase-return-state-20261022.json, manifest .artifacts/manual-return-state-20261022/candidate-manifest.json, worktree .artifacts/releases/0.64.0-purchase-return-state, bundle SHA 24f4bc33bf21e52f959ee05069b97d769a590104e779215807ca5906f78f7e25, 런타임 세션7859. 롤백0.63.0 보존. 선행 부서 조사에서 등록코드/명 피커는 확인했으나 자체 safeUser/publicContext/user.save/등록 참조가 없어 사용자등록 계약 확장을 선행 과제로 남겼다. 원본 부서 선택/신규/함수/설정은 저장하지 않고 미저장 예외를 폐기했다. 본문13/요구사항24·전체완료0, main VAT5 미완료 빌드 설치 금지. 모아는 새 인증이 없어 기존 본문용43갱신을 로컬 보존했으며 게시·저장본문 재조회 성공으로 기록하지 않는다.
 
 부서·직위/직급·직책 조건은 사용자등록 저장/등록 참조 계약 확장이 선행되어야 하므로 보류한다. 다음은 구매현황의 실제 작업 탭 조건/결과 보존을 원본·매뉴얼·portal 연결과 대조한다. 전체수량/상이단가 불러오기, 직접 음수 구매/혼합부호·환불, 실제 반품 상태변경·회계/일괄인쇄·이력도 미완료다. 이미 반영한 차감반품 확인 연결을 반복 개발하지 않는다.
+
+## 2026-10-22 · 0.65.0 실제 작업 탭과 현황 수명
+
+app.js가 actual viewId를 InventoryUI에 전달하고 정상 navigation 직전 현황 snapshot을 메모리 Map에 보관한다. 승인된 explicit close 뒤 해당 viewId만 forget한다. view key와 문서종류, 사용자/회사/role/read·서식 정책 scope가 다른 snapshot은 재사용하지 않는다. 브라우저 reload·계정 변경을 넘는 영구 cache/서버 API/스키마는 추가하지 않았다. 대기 조건과 성공 filter/result는 독립이며 기존 raw가 같을 때만 결과 복구를 재실행한다. raw 변경·오류이면 결과 없이 대기조건을 보존하고 현재 정상 DB를 재읽어 명시 F8을 요구한다.
+
+PurchasingReportUI는 현재 host와 beforeQuery guard를 모든 자료 읽기/출력 callback에 적용하며 focus/storage/visibility의 범위 변경으로 결과와 child를 폐기한다. destroy는 리스너와 결과를 해제한다. 상세/출력/그래프/색상/집계대상/정렬/중첩 피커는 자체 연결/open/closed 검사도 한다. 외부 원문·기존 전표/양식/계정/메일은 변경하지 않는다. 원본 별도창의 적용/대기 조건 분리는 관찰했으나 원본 탭 간 보존은 미검증이다. 기존 PRD portal 상태 계약 보완을 매뉴얼 전체 동등성으로 승격하지 않는다.
+
+근거 evidence/manual-purchase-report-tabs-20261022.json. 운영0.64 기반 격리후보만 검증/배포하며 미완료 main VAT5는 제외한다.

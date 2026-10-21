@@ -1,5 +1,5 @@
 {
-  "version": "0.64.0",
+  "version": "0.65.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 63,
+    "currentReleaseBrowserSynthetic": 65,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -142,7 +142,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.64.0",
+    "currentReleaseFullRegressionVersion": "0.65.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -161,16 +161,19 @@
     "roleConditionalFormsNewBrowser": 1,
     "purchaseReturnStateNewNode": 12,
     "purchaseReturnStateRelatedNode": 44,
-    "purchaseReturnStateNewBrowser": 1
+    "purchaseReturnStateNewBrowser": 1,
+    "purchaseReportTabsNewNode": 18,
+    "purchaseReportTabsRelatedNode": 78,
+    "purchaseReportTabsNewBrowser": 2
   },
-  "future_research": "Department/position/duty conditions need verified user-registration and registered-reference storage first; do not infer metadata. Next compare purchase-report real work-tab filter/result retention with original/manual/portal integration. Credit-return confirmation and signed accounted read-only are deployed in0.64.0 and must not be repeated. Full-quantity/differing-price import, direct negative purchase/mixed signs/refund, actual accounting/history/batch print and real production acceptance remain pending. VAT5/done0 unchanged.",
+  "future_research": "Next: REQ-PUR-IMPORT-001 full-quantity/application and differing-price item aggregation gap table against existing line copy, manual bodies, safe original popups and public code; implement only verified rules. Department/position/duty awaits registered user/reference storage. Direct negative purchase/mixed signs/refunds, actual accounting/history/batch print and original work-tab equivalence remain pending. Do not repeat deployed tab retention or credit-return confirmation. VAT5/done0 unchanged.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-purchase-return-state-20261022.json",
+    "reference": "../manual-purchase-report-tabs-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "a04eb5ce0a4bb33cb264aaf22277667d4e85207d",
-    "publicVersionVerified": "0.64.0",
+    "deployedSourceCommit": "5d3df3464d05134a29effeda866805f92fbaa1f3",
+    "publicVersionVerified": "0.65.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -229,20 +232,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.64.0",
+    "existingSessionRetainedVersion": "0.65.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.64.0",
+    "lastExactBrowserBackupComparisonVersion": "0.65.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.64.0",
+    "currentServerStateAndMailPreservedVersion": "0.65.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.64.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.65.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -281,7 +284,9 @@
     "roleConditionalFormsHostedConfiguredSaveVerified": false,
     "creditReturnConfirmationDeployed": true,
     "accountedCreditReturnSignedReadonlyDeployed": true,
-    "creditReturnHostedBusinessSaveVerified": false
+    "creditReturnHostedBusinessSaveVerified": false,
+    "purchaseReportActualWorkTabsHostedReadOnlyVerified": true,
+    "purchaseReportOriginalWorkTabEquivalenceVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -518,7 +523,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Department/position/duty conditions need verified user-registration and registered-reference storage first; do not infer metadata. Next compare purchase-report real work-tab filter/result retention with original/manual/portal integration. Credit-return confirmation and signed accounted read-only are deployed in0.64.0 and must not be repeated. Full-quantity/differing-price import, direct negative purchase/mixed signs/refund, actual accounting/history/batch print and real production acceptance remain pending. VAT5/done0 unchanged.",
+    "nextIndependentWork": "Next: REQ-PUR-IMPORT-001 full-quantity/application and differing-price item aggregation gap table against existing line copy, manual bodies, safe original popups and public code; implement only verified rules. Department/position/duty awaits registered user/reference storage. Direct negative purchase/mixed signs/refunds, actual accounting/history/batch print and original work-tab equivalence remain pending. Do not repeat deployed tab retention or credit-return confirmation. VAT5/done0 unchanged.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -747,13 +752,20 @@
       "evidence": "../manual-purchase-return-state-20261022.json",
       "hostedCreditReturnSaveVerified": false,
       "hostedCreditReturnCount": 0
+    },
+    "purchaseReportWorkTabs": {
+      "version": "0.65.0",
+      "status": "deployed-synthetic-and-hosted-read-only-preservation-verified",
+      "evidence": "../manual-purchase-report-tabs-20261022.json",
+      "originalTabEquivalenceVerified": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.64.0",
-    "commit": "a04eb5ce0a4bb33cb264aaf22277667d4e85207d",
-    "manifest": ".artifacts/manual-return-state-20261022/candidate-manifest.json",
-    "bundleSha256": "24f4bc33bf21e52f959ee05069b97d769a590104e779215807ca5906f78f7e25",
+    "version": "0.65.0",
+    "commit": "5d3df3464d05134a29effeda866805f92fbaa1f3",
+    "manifest": ".artifacts/manual-report-tabs-20261022/candidate-manifest.json",
+    "bundleSha256": "5ba45a845810a1da5dab344de54b5d88dc3814ff14e241a78c39c762fd6cc5af",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -778,9 +790,10 @@
       "preserved-conditional-forms-login-ID-PC-MOBILE-three-AND-and-stale-editor-guards",
       "registered-item-supplier-inheritance-modal-new-partner-and-responsive-purchasing-actions",
       "registered-authenticated-role-equality-conditional-forms-preserved-AND-and-async-guards",
-      "credit-return-confirmation-and-signed-accounted-read-only-preserving-frozen-amounts"
+      "credit-return-confirmation-and-signed-accounted-read-only-preserving-frozen-amounts",
+      "actual-purchasing-report-work-tab-applied-pending-state-and-scoped-lifecycle-guards"
     ],
-    "supersedesCandidateCommit": "279f4ef02b02aaaf08cb03e0628825a3fb8d99ee",
+    "supersedesCandidateCommit": "a04eb5ce0a4bb33cb264aaf22277667d4e85207d",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
