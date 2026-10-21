@@ -189,3 +189,11 @@
   .inventory-app .entry-save-actions{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}
   .inventory-app .entry-primary-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Read-only generation context, scoped away from entry and report controls. */
+.purchase-plan-dialog .plan-preview-document{border-top:1px solid #dce3ee;margin-top:16px;padding-top:4px}
+.purchase-plan-dialog .plan-preview-context{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 16px;margin:10px 0 14px;padding:12px;background:#f6f8fc;border:1px solid #dce3ee}
+.purchase-plan-dialog .plan-preview-context>div{min-width:0}.purchase-plan-dialog .plan-preview-context dt{font-size:12px;color:#59677d}.purchase-plan-dialog .plan-preview-context dd{margin:3px 0 0;overflow-wrap:anywhere;white-space:pre-wrap}.purchase-plan-dialog .plan-preview-overview:focus{outline:2px solid #3559bd;outline-offset:2px}
+
+.purchase-plan-dialog button{min-height:36px}.purchase-plan-dialog select,.purchase-plan-dialog input:not([type=checkbox]):not([type=radio]){min-height:36px}
+@media(max-width:1100px){.purchase-plan-dialog button{min-height:44px}.purchase-plan-dialog select,.purchase-plan-dialog input:not([type=checkbox]):not([type=radio]){min-height:44px}.purchase-plan-dialog>.inv-modal-head>button{min-width:44px}}
