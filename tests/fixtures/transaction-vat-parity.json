@@ -1,0 +1,369 @@
+{
+  "version": 1,
+  "status": "unresolved-evidence-conflict",
+  "sources": {
+    "manual": {
+      "path": ".artifacts/manual-parity-20261021/manual-total-vat-split.txt",
+      "sha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0"
+    },
+    "original": {
+      "path": ".artifacts/purchasing-multiselect-sort-20261020/original-3/input/inventory.75a19601.js",
+      "sha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+      "sourceManifest": ".artifacts/purchasing-multiselect-sort-20261020/source-manifest.json",
+      "lineStart": 5943,
+      "lineEnd": 6041
+    }
+  },
+  "scope": "Synthetic positive KRW, one header VAT rate 0 or 10, no discount, no direct supply, no FX. Static values are an independent exact-decimal interpretation, not execution or verified outputs of ECOUNT. Each fixture explicitly uses the same supply/VAT precision, matching the shared source amt.decimal_part_size.",
+  "unverified": [
+    "Original runtime results and applicable deployed source version",
+    "Upstream effective-price and manual-supply binding for every price mode",
+    "Decimal precision and the documented 7 percent floor 69 behavior",
+    "Transaction/item/warehouse/default VAT priority and mixed-rate groups",
+    "Foreign currency supply, exchange rate and existing VAT totals",
+    "Exception-condition attribute evaluation and manual settings UI",
+    "Own independent supply/VAT precision versus original shared amt.decimal_part_size; legacy defaults must not be silently migrated"
+  ],
+  "cases": [
+    {
+      "id": "manual-example",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 10,
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 5,
+            "price": 909.09
+          },
+          {
+            "item": "SYNTHETIC-2",
+            "qty": 5,
+            "price": 909.09
+          },
+          {
+            "item": "SYNTHETIC-3",
+            "qty": 5,
+            "price": 909.09
+          }
+        ],
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        }
+      },
+      "lineTotals": {
+        "supply": 13635,
+        "tax": 1365,
+        "total": 15000
+      },
+      "manualGrossInterpretation": {
+        "supply": 13636,
+        "tax": 1364,
+        "total": 15000
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 13636,
+        "tax": 1364,
+        "total": 15000
+      },
+      "reason": "Official example agrees with both interpretations and cannot distinguish them.",
+      "originalRuntimeObserved": false
+    },
+    {
+      "id": "integer-no-difference",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 10,
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 1,
+            "price": 100
+          },
+          {
+            "item": "SYNTHETIC-2",
+            "qty": 1,
+            "price": 100
+          },
+          {
+            "item": "SYNTHETIC-3",
+            "qty": 1,
+            "price": 100
+          }
+        ],
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        }
+      },
+      "lineTotals": {
+        "supply": 300,
+        "tax": 30,
+        "total": 330
+      },
+      "manualGrossInterpretation": {
+        "supply": 300,
+        "tax": 30,
+        "total": 330
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 300,
+        "tax": 30,
+        "total": 330
+      },
+      "reason": "Exact integer control without a rounding difference.",
+      "originalRuntimeObserved": false
+    },
+    {
+      "id": "fractional-small-supply",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 10,
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 1,
+            "price": 3.4
+          },
+          {
+            "item": "SYNTHETIC-2",
+            "qty": 1,
+            "price": 3.4
+          },
+          {
+            "item": "SYNTHETIC-3",
+            "qty": 1,
+            "price": 3.4
+          }
+        ],
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        }
+      },
+      "lineTotals": {
+        "supply": 9,
+        "tax": 0,
+        "total": 9
+      },
+      "manualGrossInterpretation": {
+        "supply": 8,
+        "tax": 1,
+        "total": 9
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 10,
+        "tax": 1,
+        "total": 11
+      },
+      "reason": "Unrounded supply 10.2 gives a different supply and gross than re-splitting the rounded line gross 9.",
+      "originalRuntimeObserved": false
+    },
+    {
+      "id": "same-gross-different-tax",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 10,
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 1,
+            "price": 999.99
+          }
+        ],
+        "supplyRounding": {
+          "method": "floor",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "floor",
+          "digits": 0
+        }
+      },
+      "lineTotals": {
+        "supply": 999,
+        "tax": 99,
+        "total": 1098
+      },
+      "manualGrossInterpretation": {
+        "supply": 998,
+        "tax": 100,
+        "total": 1098
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 999,
+        "tax": 99,
+        "total": 1098
+      },
+      "reason": "Both totals are 1098; comparing only gross misses a supply/tax difference.",
+      "originalRuntimeObserved": false
+    },
+    {
+      "id": "shared-two-decimal-rounding",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 10,
+        "supplyRounding": {
+          "method": "round",
+          "digits": 2
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 2
+        },
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 1,
+            "price": 0.05
+          },
+          {
+            "item": "SYNTHETIC-2",
+            "qty": 1,
+            "price": 0.05
+          },
+          {
+            "item": "SYNTHETIC-3",
+            "qty": 1,
+            "price": 0.05
+          }
+        ]
+      },
+      "lineTotals": {
+        "supply": 0.15,
+        "tax": 0.03,
+        "total": 0.18
+      },
+      "manualGrossInterpretation": {
+        "supply": 0.16,
+        "tax": 0.02,
+        "total": 0.18
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 0.15,
+        "tax": 0.02,
+        "total": 0.17
+      },
+      "reason": "Both source supply and VAT use the same amt decimal_part_size=2. Exact raw supply 0.15 and VAT 0.015 round to 0.15/0.02, unlike re-splitting line gross 0.18.",
+      "originalRuntimeObserved": false
+    },
+    {
+      "id": "zero-rate-fractional-lines",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 0,
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 1,
+            "price": 0.49
+          },
+          {
+            "item": "SYNTHETIC-2",
+            "qty": 1,
+            "price": 0.49
+          },
+          {
+            "item": "SYNTHETIC-3",
+            "qty": 1,
+            "price": 0.49
+          }
+        ],
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        }
+      },
+      "lineTotals": {
+        "supply": 0,
+        "tax": 0,
+        "total": 0
+      },
+      "manualGrossInterpretation": {
+        "supply": 0,
+        "tax": 0,
+        "total": 0
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 1,
+        "tax": 0,
+        "total": 1
+      },
+      "reason": "Even zero VAT does not prove equivalence of line rounding and raw-supply grouping.",
+      "originalRuntimeObserved": false
+    },
+    {
+      "id": "multiple-rounded-tax-lines",
+      "input": {
+        "type": "request",
+        "currency": "KRW",
+        "vatRate": 10,
+        "lines": [
+          {
+            "item": "SYNTHETIC-1",
+            "qty": 1,
+            "price": 14.99
+          },
+          {
+            "item": "SYNTHETIC-2",
+            "qty": 1,
+            "price": 14.99
+          },
+          {
+            "item": "SYNTHETIC-3",
+            "qty": 1,
+            "price": 14.99
+          }
+        ],
+        "supplyRounding": {
+          "method": "round",
+          "digits": 0
+        },
+        "taxRounding": {
+          "method": "round",
+          "digits": 0
+        }
+      },
+      "lineTotals": {
+        "supply": 45,
+        "tax": 6,
+        "total": 51
+      },
+      "manualGrossInterpretation": {
+        "supply": 46,
+        "tax": 5,
+        "total": 51
+      },
+      "staticRawSupplyInterpretation": {
+        "supply": 45,
+        "tax": 4,
+        "total": 49
+      },
+      "reason": "Supply and tax are independently rounded in the static formula interpretation.",
+      "originalRuntimeObserved": false
+    }
+  ]
+}
