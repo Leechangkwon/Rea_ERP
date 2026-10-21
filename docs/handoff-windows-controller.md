@@ -1,5 +1,12 @@
 # Windows 주도 개발 인계 — 2026-10-19
 
+## 현재 운영 · 0.53.1 구매 연결 보호 (인증 후 검증 대기)
+
+2026-10-21 release/0.53.1의90958ac를 기존 WSL/Supabase/Cloudflare rea.qaredi.com에 반영했다. 공개 버전/변경 파일 해시·접근 차단과 서버 계정/설정/자료·메일 보존을 확인했다. 브라우저 정체가 해소되어0.53.0 최종 JSON 대조는 통과했다. 저장 세션은 배포 전에 이미 만료되어0.53.1 재로그인 후 UI·브라우저 백업 대조는 대기다. 모아도 로그인 복구 후 기존 본문 읽기→누락분 추가→저장 본문 재조회가 필요하다. 상세 근거는 evidence/deployment-purchase-links-0531-20261021.json 및 docs/manual-parity/PROGRESS.md다.
+
+운영은 분리 후보90958ac, main에는 미완료 부가세 연구/구현이 있으므로 main 빌드로 운영을 재시작하지 않는다. 재시작 전 .artifacts/isolated-link-release-20261021/candidate-manifest.json의 후보 번들 SHA와 dist/server/index.js를 대조한다. 기존 롤백0.53.0을 보존한다. 다음 개발은 VAT 입력식·최소구매단위 등 미확인 계약의 읽기 전용 조사이며 전체 매뉴얼 완료0이다.
+
+
 ## 현재 개발 · 거래별 부가세 순수 계산 (운영 미연결)
 
 0.53.0 다음 단계로 `dist/transaction-vat-core.js` preview/verify와 신규21검사를 추가했다. 기존 lineTotals/default/saveDoc/HTML은 바꾸지 않았으며 운영의 거래별 저장 기능은 아직 구현되지 않았다. 현재 계획은 [부가세 계산·저장 통합](plan-manual-transaction-vat-20261021.md), 근거는 `evidence/manual-transaction-vat-20261021.json`이다. 같은 문서에 PDF·반품·전표 복사/변환·코드변경까지 금액 계약을 통일할 순서를 기록했다. 다음 실행에서 계획과 해당 수정 파일부터 읽는다. 원본 업무설정·공개 필드 매핑은 미확인이다. 모아 계산 코어/아키텍처 추가 기록은 로그인 복구 후 기존 문서에 반영하고 재조회한다.

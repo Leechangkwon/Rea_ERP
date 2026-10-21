@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-21T05:29:19.304061+00:00",
+  "version": "0.53.1",
+  "sourceCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+  "branch": "release/0.53.1",
+  "sourcePushed": true,
+  "status": "deployed-public-verified-remote-preserved-authenticated-acceptance-pending",
+  "manualParityDone": false,
+  "includedFixes": [
+    "Preserve active child partner and warehouse links on source edits and restore",
+    "Preserve plan line supplier contract",
+    "Use immediate source line identifier for downstream conversion and pickers",
+    "Reject grouped allocations increasing completed plan quantities while preserving same-quantity restore"
+  ],
+  "excludedUnfinishedVat": true,
+  "deployment": {
+    "url": "https://rea.qaredi.com",
+    "runtime": "existing manual WSL server, Supabase and Cloudflare Tunnel",
+    "bundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "installedBundleEqualsCandidate": true,
+    "rollbackSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "rollbackPreserved": true,
+    "helper": "/home/lck/.local/bin/rea-erp-dev",
+    "schemasChanged": false,
+    "runtimeConfigurationChanged": false
+  },
+  "validation": {
+    "reusedVerifiedCandidateEvidence": "evidence/manual-plan-allocation-preservation-20261021.json",
+    "candidateFullVerifyLocal": "previously passed; same source and bundle hashes",
+    "candidateLocalhostBrowserTests": 34,
+    "newSourceChanges": false,
+    "public": {
+      "version": "0.53.1",
+      "sourceCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/inventory-core.js",
+          "status": 200,
+          "sha256": "95ef49ee0b9b920b489ad66b8c27b4ab2a197582b17351031aa1ab46c8297d7b",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-core.js",
+          "status": 200,
+          "sha256": "a9f539762f5ba03a3f4a2463fed72e9fc4e57d81fd0791f0ac165a6aa652b658",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-ui.js",
+          "status": 200,
+          "sha256": "67bae0c1c76c01660ecafaaa9fcf6e0710bf092dbe4a5339336793cb3c4db586",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "hostedBrowser": {
+      "loginVersion": "0.53.1",
+      "authenticatedFunctionVerification": false,
+      "browserReLoginRequired": true,
+      "savedSessions": 1,
+      "savedSessionsExpiredBeforeDeployment": true,
+      "sessionMinutes": 120,
+      "screenshot": ".artifacts/release-0531-deploy-20261021/hosted-0531-login.png",
+      "screenshotSha256": "4d178c048532ce6d8117a86977cc0967b63cf34a435c06d10e3a868aed074baa"
+    }
+  },
+  "preservation": {
+    "browserRecovery": {
+      "tab21ShowedListWithoutEditor": true,
+      "noReloadOrDiscardOfTab21": true,
+      "backupActionsRecoveredOnTab23": true,
+      "backupVersion": 2,
+      "documents": 8,
+      "byteExactAgainst0530PredeployBackup": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "previous0530FinalComparisonRecovered": true,
+      "after0531AuthenticatedBackupComparison": false
+    },
+    "privateBackupCreated": true,
+    "privateBackupDirectoryMode": "0o700",
+    "privateRemoteStateMode": "0o600",
+    "remoteAndMailAfterDeployment": {
+      "version": "0.53.1",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 25,
+          "afterRevision": 25,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "businessSavesPerformed": false,
+    "emailSent": false,
+    "restoreApplied": false
+  },
+  "publication": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "browserLoginRequired": true,
+    "workDocumentToolsAvailable": false,
+    "newSaveAttempted": false,
+    "newSavedBodyReadback": false
+  },
+  "nextWork": [
+    "After existing-account login, verify purchasing UI and download/compare browser JSON",
+    "After Moa login, read existing parent/architecture/roadmap, append missing progress only, reread stored body",
+    "Continue unresolved VAT selected input expressions and quantity minimum/multiple rules from permitted evidence"
+  ],
+  "officialRequirementCounts": {
+    "requirements": 13,
+    "loginManualBodiesReviewed": 4,
+    "done": 0
+  }
+}

@@ -1,6 +1,13 @@
 # 개발과 검증 배포
 
-## 준비된 분리 후보 · 0.53.1 (운영 미반영)
+## 현재 운영 · 0.53.1 구매 연결 보호 (인증 후 검증 대기)
+
+2026-10-21 release/0.53.1의90958ac를 기존 WSL/Supabase/Cloudflare rea.qaredi.com에 반영했다. 공개 버전/변경 파일 해시·접근 차단과 서버 계정/설정/자료·메일 보존을 확인했다. 브라우저 정체가 해소되어0.53.0 최종 JSON 대조는 통과했다. 저장 세션은 배포 전에 이미 만료되어0.53.1 재로그인 후 UI·브라우저 백업 대조는 대기다. 모아도 로그인 복구 후 기존 본문 읽기→누락분 추가→저장 본문 재조회가 필요하다. 상세 근거는 evidence/deployment-purchase-links-0531-20261021.json 및 docs/manual-parity/PROGRESS.md다.
+
+운영은 분리 후보90958ac, main에는 미완료 부가세 연구/구현이 있으므로 main 빌드로 운영을 재시작하지 않는다. 재시작 전 .artifacts/isolated-link-release-20261021/candidate-manifest.json의 후보 번들 SHA와 dist/server/index.js를 대조한다. 기존 롤백0.53.0을 보존한다. 다음 개발은 VAT 입력식·최소구매단위 등 미확인 계약의 읽기 전용 조사이며 전체 매뉴얼 완료0이다.
+
+
+## 배포 전 준비 기록 · 0.53.1
 
 최신 후보는 release/0.53.1의 90958ac다. 운영5fb7836 기반의 구매 연결 헤더/공급사 보호·단계별 원본 행 참조 수정에 완료 계획 배분 증가 차단을 추가했다. 최신 전체verify:local/브라우저34, 57자산 분리·롤백 해시 검증을 통과했다. 미완료 부가세가 있는 main과 후보를 혼동하지 않는다. 정확한 커밋·번들 해시는 .artifacts/isolated-link-release-20261021/candidate-manifest.json, 상세는 evidence/manual-plan-allocation-preservation-20261021.json다. 이전479b4ae/cef5a2c/0c8e41f후보와 운영0.53.0롤백은 보존한다. 기존 브라우저 백업/미저장 입력 보존 및 비공개 상태·메일 백업 확인 전에는 재시작하지 않는다.
 

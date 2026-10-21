@@ -1,6 +1,6 @@
 {
-  "version": "0.53.0",
-  "status": "manual-order-lines-deployed-hosted-staging-remote-preserved-browser-comparison-pending",
+  "version": "0.53.1",
+  "status": "deployed-public-verified-remote-preserved-authenticated-acceptance-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -114,17 +114,17 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1
   },
-  "future_research": "Next: transaction VAT difference calculation from manual. Browser final JSON comparison and Moa publication pending UI/login recovery; mixed-term item aggregation remains unverified.",
+  "future_research": "Operating 0.53.1 purchase-link fixes deployed; authenticated UI/post-browser backup pending login. VAT input expressions and plan quantity rules remain unresolved.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-order-import-20261021.json",
+    "reference": "../deployment-purchase-links-0531-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "5fb7836",
-    "publicVersionVerified": "0.53.0",
+    "deployedSourceCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "publicVersionVerified": "0.53.1",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.50.0",
-    "currentAuthenticatedUiBlock": "Browser focus/input stalled after staged editor close; final browser backup comparison pending",
+    "currentAuthenticatedUiBlock": "Saved 120-minute session had already expired before deployment; refreshed browser shows v0.53.1 login; no bypass.",
     "gmailCredentialsConfigured": true,
     "actualGmailSmtpAuthenticationVerified": true,
     "actualGmailEmailSent": true,
@@ -187,7 +187,10 @@
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.52.0"
+    "lastExactBrowserBackupComparisonVersion": "0.53.0",
+    "previous0530FinalBrowserComparisonRecovered": true,
+    "currentServerStateAndMailPreservedVersion": "0.53.1",
+    "currentAuthenticatedBusinessVerificationVersion": null
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -236,14 +239,14 @@
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "isolated-release-candidate-verified-not-deployed",
+      "status": "deployed-public-verified-authenticated-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
       "newLinkNodeTests": 25,
       "newFrozenVatTests": 6,
       "localhostBrowserTests": 37,
-      "deploymentPending": true,
+      "deploymentPending": false,
       "done": false,
       "candidateVersion": "0.53.1",
       "candidateCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
@@ -253,7 +256,9 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "VAT dynamic expressions and precision; original quantity-adjustment and vendor-comparison contracts; deployment preservation gates"
+      "nextWork": "Authenticated UI and post-browser JSON comparison after login; unresolved VAT/quantity research; Moa missing-update readback.",
+      "authenticatedAcceptancePending": true,
+      "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json"
     },
     "independentResearch": {
       "requirement": "REQ-PUR-PLAN-001",

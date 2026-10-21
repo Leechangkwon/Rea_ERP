@@ -1,8 +1,10 @@
 # 구매 매뉴얼 차이표와 다음 구현 계획 · 2026-10-21
 
-## 현재 인계
+## 현재 운영 · 0.53.1 구매 연결 보호 (인증 후 검증 대기)
 
-현재 운영은0.53.0(5fb7836)이다. BOM 전체/1단계와 주문 라인별 보존은 운영에 반영됐다. 거래별 부가세는 로컬 구현 중이며 매뉴얼과 공개 코드 해석의 계산 차이5건, 설정 선택 UI와 운영 검증이 남았다. 상세는 plan-manual-transaction-vat-20261021.md 및 current-release.json을 따른다. 모아 인증 만료와 REA 탭21 미저장 입력/닫기 정체는 보존하며 인증을 우회하지 않는다. 아래 최초 차이표는 당시 기록이다.
+2026-10-21 release/0.53.1의90958ac를 기존 WSL/Supabase/Cloudflare rea.qaredi.com에 반영했다. 공개 버전/변경 파일 해시·접근 차단과 서버 계정/설정/자료·메일 보존을 확인했다. 브라우저 정체가 해소되어0.53.0 최종 JSON 대조는 통과했다. 저장 세션은 배포 전에 이미 만료되어0.53.1 재로그인 후 UI·브라우저 백업 대조는 대기다. 모아도 로그인 복구 후 기존 본문 읽기→누락분 추가→저장 본문 재조회가 필요하다. 상세 근거는 evidence/deployment-purchase-links-0531-20261021.json 및 docs/manual-parity/PROGRESS.md다.
+
+운영은 분리 후보90958ac, main에는 미완료 부가세 연구/구현이 있으므로 main 빌드로 운영을 재시작하지 않는다. 재시작 전 .artifacts/isolated-link-release-20261021/candidate-manifest.json의 후보 번들 SHA와 dist/server/index.js를 대조한다. 기존 롤백0.53.0을 보존한다. 다음 개발은 VAT 입력식·최소구매단위 등 미확인 계약의 읽기 전용 조사이며 전체 매뉴얼 완료0이다.
 
 ## 최초 기준
 운영0.51.0, 소스 bdb71de, 운영 검증/모아 기록09b380e 이후. 원본 도움말 EC-HELP-REQUEST-035(발주요청 메뉴 사용 방법), 036(구매관리 각 메뉴별 기능 소개), 001(거래별 공급가액/부가세 계산)을 실제 읽은 본문 기준으로 사용한다. 원문은 .artifacts/manual-parity-20261021/manual-request-usage.txt, manual-purchase-overview.txt, manual-total-vat-split.txt이다. 각 해시는 online-manual-index.json을 따른다. 이 문서는 기존 구현의 정적 대조이며 새 기능 구현·전체 동등성 완료가 아니다.
