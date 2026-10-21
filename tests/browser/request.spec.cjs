@@ -241,3 +241,33 @@ test('linked purchase blocks parent header mismatch without changing saved data 
   await expect(child).toHaveCount(0);
   expect((await documents(page)).find(d=>d.id===ids.childId).memo).toBe('후속 구매 수정 가능');
 });
+
+
+test('plan line supplier conflict preserves saved vouchers and allows correction before saving',async({page})=>{
+  const ids=await page.evaluate(()=>{
+    const C=InventoryCore;let db=C.empty();db.masters=C.clone(C.seed().masters);
+    db.masters.partners.push({code:'PLAN-V2',name:'합성 계획 공급사2'});
+    let out=C.command(db,'document',{type:'plan',date:C.today(),warehouse:'W001',partner:'',status:'진행',lines:[{item:'M001',qty:10,price:100,supplier:'V001'}]});
+    const sourceId=out.result.id;out=C.command(out.db,'convert',{id:sourceId,type:'purchaseorder',partner:'V001',quantities:{M001:4}});
+    InventoryUI.replace(out.db);return {sourceId,childId:out.result.id};
+  });
+  await page.locator('#routes').getByRole('button',{name:'발주계획조회',exact:true}).click();
+  const quick=page.getByLabel('발주계획 빠른검색');await quick.fill(ids.sourceId);await quick.press('Enter');
+  await page.locator('tbody .inv-link').click();
+  const dialog=page.getByRole('dialog',{name:'발주계획 상세 / 수정',exact:true});await expect(dialog).toBeVisible();
+  const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));
+  await dialog.getByLabel('거래처 1',{exact:true}).selectOption('PLAN-V2');
+  await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('후속 발주서와 품목행 거래처');
+  await expect(dialog.getByLabel('거래처 1',{exact:true})).toHaveValue('PLAN-V2');
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')))).toEqual(before);
+  await page.screenshot({path:'.artifacts/manual-plan-supplier-20261021/supplier-rejection.png',fullPage:true});
+  await dialog.getByLabel('거래처 1',{exact:true}).selectOption('V001');
+  await dialog.getByLabel('수량 1',{exact:true}).fill('12');
+  await dialog.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(dialog).toHaveCount(0);
+  await page.reload();
+  const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));
+  expect(after.documents.find(d=>d.id===ids.sourceId).lines[0].qty).toBe(12);
+  expect(after.documents.find(d=>d.id===ids.childId)).toEqual(before.documents.find(d=>d.id===ids.childId));
+  expect(after.settings).toEqual(before.settings);
+});
