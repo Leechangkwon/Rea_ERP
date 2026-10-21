@@ -1,5 +1,12 @@
 # 개발과 검증 배포
 
+## 준비된 다음 후보 · 0.53.2 발주계획 생성 100선택 제한
+
+release/0.53.2 a71301a는 운영90958ac 기반의 분리후보다. 생성 목록·미리보기·commit의100선택 제한만 보완하며 기존 대량전표/백업과 미완료VAT 경계를 보존한다. 환경/도구7/전체단위/릴리스4/빌드가 통과했고 브라우저 라이브러리 경로 보완 후 합성브라우저35도 통과했다. 최초 verify:local 종료1과 브라우저 단계 재실행 합격을 구분한다.
+
+정확한 번들/검사 해시는 .artifacts/plan-generation-limit-20261021/candidate-manifest.json, 근거는 evidence/manual-plan-generation-limit-20261021.json이다. 후보 설치는false이며 운영은 아래0.53.1이다. 기존 인증UI/브라우저JSON 대조와 새 비공개 사전백업을 확인한 뒤 후보 해시를 설치하고 사후 보존·인증UI 검증을 수행한다. main에 미완료VAT가 있으므로 main 빌드로 재시작하지 않는다.
+
+
 ## 현재 운영 · 0.53.1 구매 연결 보호 (인증 후 검증 대기)
 
 2026-10-21 release/0.53.1의90958ac를 기존 WSL/Supabase/Cloudflare rea.qaredi.com에 반영했다. 공개 버전/변경 파일 해시·접근 차단과 서버 계정/설정/자료·메일 보존을 확인했다. 브라우저 정체가 해소되어0.53.0 최종 JSON 대조는 통과했다. 저장 세션은 배포 전에 이미 만료되어0.53.1 재로그인 후 UI·브라우저 백업 대조는 대기다. 모아도 로그인 복구 후 기존 본문 읽기→누락분 추가→저장 본문 재조회가 필요하다. 상세 근거는 evidence/deployment-purchase-links-0531-20261021.json 및 docs/manual-parity/PROGRESS.md다.

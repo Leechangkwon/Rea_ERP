@@ -1,0 +1,338 @@
+{
+  "date": "2026-10-21",
+  "recordedAt": "2026-10-21T07:05:53.762320+00:00",
+  "feature": "purchase-plan-to-order-100-selection-limit",
+  "requirement": "REQ-PUR-PLAN-001",
+  "status": "implemented-isolated-candidate-validated-production-pending",
+  "sourceCommit": "b5d2ff833c49a6d2323daadad8ecddaecf723714",
+  "sourcePushed": true,
+  "candidateVersion": "0.53.2",
+  "candidateCommit": "a71301a7f936f9785c25af1fc079991ca5d9f14f",
+  "candidateBranch": "release/0.53.2",
+  "candidatePushed": true,
+  "originalEvidence": {
+    "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.inventory/esg/views/xesg002m.5046673887087087793.20.js",
+    "path": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+    "sha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+    "handler": "onLayerPurchaseOrder",
+    "observedStaticRule": "getChecked() count must be 1..100 before generation-mode switch; keys contain SER_NO only for item-row SEARCH_TYPE 0",
+    "ownMapping": "Current own plan list selects item rows, so limit checked source rows before aggregation; do not limit output row count",
+    "distinctRule": "Quantity adjustment has a separate 500-detail preflight; not the order generation selection limit",
+    "originalCodeExecuted": false,
+    "currentAuthenticatedUiVerified": false,
+    "manualNumericLimitBodyVerified": false
+  },
+  "beforeAfter": {
+    "originalOwnBeforeSelected": 101,
+    "beforeDocuments": 1,
+    "beforeOutputLines": 1,
+    "afterRejection": "발주계획 품목을 1~100행 선택하세요."
+  },
+  "implementation": {
+    "sourceFiles": [
+      "dist/purchase-plan-core.js",
+      "dist/purchase-plan-ui.js",
+      "dist/purchasing-plan-list-ui.js"
+    ],
+    "maxSelectedSourceRows": 100,
+    "modes": 5,
+    "commitRevalidatesPreparedSelections": true,
+    "rejectionPreservesSelection": true,
+    "globalDocumentRowLimitChanged": false,
+    "legacyBackupsRestricted": false,
+    "schemaChanges": false
+  },
+  "verification": {
+    "environment": "passed",
+    "tools": 7,
+    "npmTest": "passed",
+    "releaseChecks": 4,
+    "build": "passed",
+    "syntheticBrowser": 35,
+    "initialFullCommandExit": 1,
+    "initialFailure": "isolated worktree lacked existing browser-libs path; browser launch failed before tests",
+    "repair": "symlink candidate .artifacts/browser-libs to existing root .artifacts/browser-libs; browser phase passed without source changes",
+    "allRequiredStagesPassedAfterRepair": true,
+    "relatedNodeTests": 42,
+    "newNodeTests": 5,
+    "newSyntheticBrowserTests": 1,
+    "syntheticBrowserWorkflow": "101 selected -> reject without writes, retain selection -> reduce to 100 -> preview and explicit save -> one order / original documents unchanged / one remaining source quantity / valid backup",
+    "screenshotReviewed": true,
+    "independentReview": {
+      "actionableDefects": 0,
+      "relatedTestsPassed": 42,
+      "additionalSyntheticScenario": "Existing 500-row source plus another source: 100 selections across both sources in each of five modes; old 501 rows/settings/input DB preserved, remaining 401/0, backup roundtrip succeeds",
+      "browser": "diff reviewed by reviewer; actual 35 tests executed by main agent"
+    },
+    "rea": {
+      "version": "6.4.0",
+      "originalScopes": 1,
+      "ownScopes": 4,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "externalBindingsUnresolved": true,
+      "sourceFragmentAndResultHashesVerified": true,
+      "originalEquivalence": false,
+      "results": [
+        {
+          "name": "onLayerPurchaseOrder",
+          "category": "original",
+          "file": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+          "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+          "start": 28113,
+          "end": 30951,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "69b15a39c3c3abe31091474399fff764fcb78ee7e0d7ade0c869af4a0546e9ae",
+          "resultSha256": "ae5f4ab65e00146e8679c6e04a17e8b4dee41068206dea8a856015b0cc4bb925",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 2853,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 588,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "preview",
+          "category": "own",
+          "file": "dist/purchase-plan-core.js",
+          "sourceSha256": "5eeeb7223efbd4ec6721e64d03551730aec3da704941f81c5d2182382da9305a",
+          "start": 3000,
+          "end": 8352,
+          "lineStart": 19,
+          "lineEnd": 58,
+          "fragmentSha256": "86040d488bd639a28fbdd6c4670587a087834a138ee276caee1477ec65d2ba58",
+          "resultSha256": "4204f5c2ecae4f3c4b750b1a0b1d645303926a6cb3d0ca6a861c47420b3b1d90",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 5839,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 1243,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "commit",
+          "category": "own",
+          "file": "dist/purchase-plan-core.js",
+          "sourceSha256": "5eeeb7223efbd4ec6721e64d03551730aec3da704941f81c5d2182382da9305a",
+          "start": 8354,
+          "end": 8851,
+          "lineStart": 59,
+          "lineEnd": 63,
+          "fragmentSha256": "7fc5d4a3b985b249cf4814529b7994b5e191c3e79b3d9db154ec50d178585486",
+          "resultSha256": "0b7ae83c5702567f71ce0ec2ad4a7112467b9194d12d641e59712f2fefc9a6b6",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 593,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 90,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "open",
+          "category": "own",
+          "file": "dist/purchase-plan-ui.js",
+          "sourceSha256": "e9966463378b28dfc5e715c0eb6854f036340ea13e332cbd4ad1134f21334ad9",
+          "start": 1997,
+          "end": 9946,
+          "lineStart": 14,
+          "lineEnd": 46,
+          "fragmentSha256": "b228f09ae3e00e167e25657d7063b491aabb706ec08e1055ecbc3338d3d0f8a5",
+          "resultSha256": "f6cf87785a154ecd5dab0ce22c162cecf7f8fd9a90e7e7484f9e69ba49619f32",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 9027,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 1871,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "generate",
+          "category": "own",
+          "file": "dist/purchasing-plan-list-ui.js",
+          "sourceSha256": "2216533d2ac8c3233e0d3c22c9d71d6acd60c5efc981669a590a7cc687ec27b5",
+          "start": 12255,
+          "end": 12712,
+          "lineStart": 31,
+          "lineEnd": 31,
+          "fragmentSha256": "41f81f0d6a30e5ceab46eb886d352871201b6352eb135bfea88c9cfda05e3098",
+          "resultSha256": "23bbbc42059df8ffac4a42b555783f15723cf3fb069912539db00a327451ffa1",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 673,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 96,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        }
+      ]
+    }
+  },
+  "preservation": {
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "installedBundleSha256Before": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "installedBundleSha256After": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingBundleUnchanged": true,
+    "rollback0530Hash": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "serverRestarted": false,
+    "productionDatabaseWrites": false,
+    "businessVouchersSaved": false,
+    "mailSent": false,
+    "configurationChanged": false,
+    "priorProductionPreservationEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
+    "freshRemoteDataComparisonPerformed": false,
+    "authenticatedAcceptancePending": true
+  },
+  "candidate": {
+    "version": "0.53.2",
+    "candidateCommit": "a71301a7f936f9785c25af1fc079991ca5d9f14f",
+    "mainSourceCommit": "b5d2ff833c49a6d2323daadad8ecddaecf723714",
+    "candidateBranch": "release/0.53.2",
+    "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.2",
+    "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/plan-generation-limit-20261021/candidate-a71301a-worker.js",
+    "candidateBundleSha256": "d13712451f7e4df0709bfaae996276f572786bb847feadeb45c4cba2270d380e",
+    "bundleBytes": 1954054,
+    "installedIntoOperatingRuntime": false,
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "operatingBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingManifest": ".artifacts/isolated-link-release-20261021/candidate-manifest.json",
+    "priorRollback0530Sha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "embeddedAssets": 57,
+    "changedEmbeddedAssets": [
+      "/api-manual-data.js",
+      "/api-manual.html",
+      "/index.html",
+      "/login.html",
+      "/portal.html",
+      "/purchase-plan-core.js",
+      "/purchase-plan-ui.js",
+      "/purchasing-plan-list-ui.js"
+    ],
+    "changedTrackedAssets": [
+      "dist/api-manual-data.js",
+      "dist/index.html",
+      "dist/login.html",
+      "dist/purchase-plan-core.js",
+      "dist/purchase-plan-ui.js",
+      "dist/purchasing-plan-list-ui.js"
+    ],
+    "workerEntryUnchanged": true,
+    "backendModulesUnchangedExceptApiManualVersion": true,
+    "vatWorkExcluded": true,
+    "verification": {
+      "environment": "passed",
+      "tools": 7,
+      "npmTest": "passed",
+      "releaseChecks": 4,
+      "build": "passed",
+      "syntheticBrowser": 35,
+      "initialFullCommandExit": 1,
+      "initialFailure": "isolated worktree lacked existing browser-libs path; browser launch failed before tests",
+      "repair": "symlink candidate .artifacts/browser-libs to existing root .artifacts/browser-libs; browser phase passed without source changes",
+      "allRequiredStagesPassedAfterRepair": true
+    },
+    "deploymentGate": "Preserve pending current operating authenticated UI/browser-backup acceptance and take fresh private pre/post backups before restart."
+  },
+  "proofs": {
+    "focused.log": {
+      "path": ".artifacts/plan-generation-limit-20261021/focused.log",
+      "sha256": "91497395c6095989f21d666f2f2974660a9dc839ef40e53b594edf2b984676e9"
+    },
+    "candidate-verify.log": {
+      "path": ".artifacts/plan-generation-limit-20261021/candidate-verify.log",
+      "sha256": "0ba791dfdb0d7765e163d6c509aebf4b764ab089586b5c6db88fa234b93821ab"
+    },
+    "candidate-browser.log": {
+      "path": ".artifacts/plan-generation-limit-20261021/candidate-browser.log",
+      "sha256": "36f87ef0ba9396f55226cf8817f4ee58660fdb9e7652c29e8796295dbd7d0e16"
+    },
+    "before-after.json": {
+      "path": ".artifacts/plan-generation-limit-20261021/before-after.json",
+      "sha256": "84a2cc33d7eca4d67f348c2e42c4e0c9cea03c7c63d8857a330e8699f4dbee09"
+    },
+    "rea-summary.json": {
+      "path": ".artifacts/plan-generation-limit-20261021/rea-summary.json",
+      "sha256": "b9c345ca761dd1000f197b1374a1e34c5b4dc3e1e436ec42f182123e044300b8"
+    },
+    "candidate-manifest.json": {
+      "path": ".artifacts/plan-generation-limit-20261021/candidate-manifest.json",
+      "sha256": "315398ceaed0321f852c9b699fd310191444a47902175c42c8d52dc65d26559e"
+    },
+    "synthetic-100-row-generation.png": {
+      "path": ".artifacts/plan-generation-limit-20261021/synthetic-100-row-generation.png",
+      "sha256": "0d1066c9564e78984cc4862de00a66f0471e61a5e290473a2e1db3785e3eb28c"
+    }
+  },
+  "otherResearch": {
+    "minimumPurchaseUnit": "Official public books define minimum purchasable quantity but provide no verified numeric rounding example; no formula implemented",
+    "videoId": "HRSAuHePo4E",
+    "officialVideoCatalogId": "13916",
+    "transcriptFetch": "Unexpected response type",
+    "videoBodyReviewed": false
+  },
+  "remaining": [
+    "Original authenticated comparison and numeric limit manual body",
+    "Operating 0.53.1 authenticated UI/browser backup acceptance, fresh pre/post private backups before candidate deployment",
+    "Moa existing-body read, append missing update, saved-body readback after login",
+    "Minimum-unit/mixed quantity/repeated-item allocation and VAT five fixed conflicts remain unresolved"
+  ],
+  "manualParity": {
+    "officialRequirements": 13,
+    "loginBodiesReviewed": 4,
+    "done": 0,
+    "fullOriginalEquivalence": false
+  },
+  "community": {
+    "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  }
+}

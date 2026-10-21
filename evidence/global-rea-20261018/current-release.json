@@ -319,6 +319,24 @@
         "fullArithmeticVerified": false,
         "originalParityPassed": false
       }
+    },
+    "planGenerationLimit": {
+      "requirement": "REQ-PUR-PLAN-001",
+      "sourceCommit": "b5d2ff833c49a6d2323daadad8ecddaecf723714",
+      "candidateVersion": "0.53.2",
+      "candidateCommit": "a71301a7f936f9785c25af1fc079991ca5d9f14f",
+      "candidateBranch": "release/0.53.2",
+      "evidence": "evidence/manual-plan-generation-limit-20261021.json",
+      "status": "implemented-isolated-candidate-validated-production-pending",
+      "relatedNodeTests": 42,
+      "newNodeTests": 5,
+      "candidateBrowserTests": 35,
+      "newBrowserTests": 1,
+      "originalScopes": 1,
+      "ownScopes": 4,
+      "deploymentPending": true,
+      "installedIntoOperatingRuntime": false,
+      "done": false
     }
   }
 }
