@@ -211,7 +211,17 @@
       "calculationEvidenceConflict": true,
       "conflictingSyntheticCases": 5,
       "calculationParityVerified": false,
-      "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json"
+      "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
+      "independentFormulaCandidate": {
+        "sourceCommit": "4e524693baeea816d3ea6e8f410025e590cf1ca5",
+        "evidence": "evidence/manual-vat-static-candidate-20261021.json",
+        "algorithm": "raw-supply-static-candidate-v0",
+        "matchedStaticCases": 7,
+        "unresolvedConflicts": 5,
+        "appIntegrated": false,
+        "persistenceVersion": null,
+        "originalParityPassed": false
+      }
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
