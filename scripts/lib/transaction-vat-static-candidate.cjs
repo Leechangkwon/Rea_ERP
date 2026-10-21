@@ -64,4 +64,47 @@ function previewStaticCandidate(input){
     delta:amounts(supplyDelta,taxDelta,input.digits),grossChanged:supplyDelta+taxDelta!==0n,
     lastIndex,lastRowId:rows[lastIndex].id,negativeLastRow,rows:outputRows};
 }
-module.exports={previewStaticCandidate};
+
+// Rates are already resolved by the caller. No transaction/item/warehouse lookup.
+function previewResolvedGroups(input){
+  exactKeys(input,['basis','currency','digits','supplyMethod','taxMethod','lines'],'Grouped input');
+  if(input.basis!=='domestic-price'||input.currency!=='KRW'||!Number.isInteger(input.digits)||input.digits<0||input.digits>2||!methods.includes(input.supplyMethod)||!methods.includes(input.taxMethod))throw Error('Unsupported grouped research scope');
+  if(!Array.isArray(input.lines)||input.lines.length<1||input.lines.length>500)throw Error('Grouped preview requires 1 to 500 explicit rows');
+  const groups=new Map(),ids=new Set();
+  const staged=Array.from(input.lines,(line,index)=>{
+    exactKeys(line,['id','item','qty','price','supply','tax','vatRate'],'Grouped row');
+    if(typeof line.id!=='string'||!line.id.trim()||line.id.length>200||ids.has(line.id))throw Error('Grouped preview requires globally unique row IDs');
+    if(![0,10].includes(line.vatRate))throw Error('Unreviewed resolved VAT rate');
+    ids.add(line.id);
+    const {vatRate,...row}=line;
+    if(!groups.has(vatRate))groups.set(vatRate,[]);
+    groups.get(vatRate).push({row,index});
+    return {id:line.id,index,vatRate};
+  });
+  const limit=maxAmount*10n**BigInt(input.digits),resultGroups=[];
+  let beforeSupply=0n,beforeTax=0n,afterSupply=0n,afterTax=0n,raw=0n;
+  const rows=new Array(staged.length);
+  for(const [vatRate,members] of groups){
+    const result=previewStaticCandidate({basis:input.basis,currency:input.currency,vatRate,digits:input.digits,supplyMethod:input.supplyMethod,taxMethod:input.taxMethod,lines:members.map(m=>m.row)});
+    beforeSupply+=currentMinor(result.before.supply,input.digits,'Group supply');
+    beforeTax+=currentMinor(result.before.tax,input.digits,'Group tax');
+    afterSupply+=currentMinor(result.after.supply,input.digits,'Target supply');
+    afterTax+=currentMinor(result.after.tax,input.digits,'Target tax');
+    raw+=BigInt(result.rawSupply.numerator)*(productScale/BigInt(result.rawSupply.denominator));
+    if(raw>maxAmount*productScale||beforeSupply+beforeTax>limit||afterSupply+afterTax>limit)throw Error('Grouped aggregate exceeds the research bound');
+    for(const row of result.rows){
+      const index=members[row.index].index;
+      rows[index]={...row,index,vatRate};
+    }
+    resultGroups.push({vatRate,indexes:members.map(m=>m.index),rawSupply:result.rawSupply,before:result.before,after:result.after,delta:result.delta,lastIndex:members.at(-1).index,lastRowId:result.lastRowId,negativeLastRow:result.negativeLastRow});
+  }
+  return {algorithm:'resolved-rate-groups-static-v0',persistenceVersion:null,canApply:false,
+    originalRuntimeObserved:false,originalParityPassed:false,rateResolutionVerified:false,
+    scope:'positive-domestic-price-explicit-resolved-rates-0-or-10-exact-decimal',digits:input.digits,
+    before:amounts(beforeSupply,beforeTax,input.digits),after:amounts(afterSupply,afterTax,input.digits),
+    delta:amounts(afterSupply-beforeSupply,afterTax-beforeTax,input.digits),
+    grossChanged:afterSupply+afterTax!==beforeSupply+beforeTax,
+    requiresConfirmation:resultGroups.some(g=>g.delta.supply!==textAmount(0n,input.digits)||g.delta.tax!==textAmount(0n,input.digits)),
+    negativeLastRow:resultGroups.some(g=>g.negativeLastRow),groups:resultGroups,rows};
+}
+module.exports={previewStaticCandidate,previewResolvedGroups};
