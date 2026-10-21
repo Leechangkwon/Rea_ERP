@@ -1,5 +1,5 @@
 {
-  "version": "0.54.0",
+  "version": "0.55.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 45,
+    "currentReleaseBrowserSynthetic": 46,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -131,16 +131,18 @@
     "priceDefaultNewNode": 3,
     "priceDefaultNewBrowser": 1,
     "priceRequestOrderFlowNewNode": 26,
-    "priceRequestOrderFlowNewBrowser": 1
+    "priceRequestOrderFlowNewBrowser": 1,
+    "purchaseReceiptClosureNewNode": 9,
+    "purchaseReceiptClosureNewBrowser": 1
   },
-  "future_research": "Continue official header multi-row/partial confirmation behavior and price-request picker into purchaseorders; map supplier, row/price, source lineage and validity before implementation. Keep prior confirmations/forms/replies, VAT conflicts and manual done=0. Hosted data-bearing saves and Moa append/readback remain pending.",
+  "future_research": "Complete line/full-quantity and item aggregation import contracts plus matching custom-field-name transfer; then copied/direct negative purchase return flow and print/form acceptance. Preserve existing links, VAT 5 conflicts and done=0; no unchanged regression repetition.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-price-request-order-flow-20261021.json",
+    "reference": "../manual-purchase-receipt-closure-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
-    "publicVersionVerified": "0.54.0",
+    "deployedSourceCommit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
+    "publicVersionVerified": "0.55.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -199,20 +201,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.54.0",
+    "existingSessionRetainedVersion": "0.55.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.54.0",
+    "lastExactBrowserBackupComparisonVersion": "0.55.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.54.0",
+    "currentServerStateAndMailPreservedVersion": "0.55.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.54.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.55.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -223,12 +225,15 @@
     "priceRequestFirstConfirmationDefaultsDeployed": true,
     "priceRequestFirstConfirmationDefaultsHostedSaveVerified": false,
     "priceRequestOrderFlowDeployed": true,
-    "priceRequestOrderFlowHostedSaveVerified": false
+    "priceRequestOrderFlowHostedSaveVerified": false,
+    "purchaseReceiptClosureDeployed": true,
+    "purchaseReceiptClosureHostedSaveVerified": false,
+    "purchaseOrderPickerHostedOpenCancelVerifiedVersion": "0.55.0"
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 13,
-    "sourceBodiesReviewed": 4,
+    "officialRequirements": 21,
+    "sourceBodiesReviewed": 10,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
@@ -460,7 +465,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Read and decompose official purchase order 13918 and purchase 13920 procedures, compare forms/status/partial receipt/return as complete workflows; preserve original VAT nextWork conflicts and do not repeat unchanged checks.",
+    "nextIndependentWork": "Complete line/full-quantity and item aggregation import contracts plus matching custom-field-name transfer; then copied/direct negative purchase return flow and print/form acceptance. Preserve existing links, VAT 5 conflicts and done=0; no unchanged regression repetition.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -581,13 +586,30 @@
       "productionDeployed": true,
       "hostedWriteAcceptancePending": true,
       "done": false
+    },
+    "purchaseReceiptClosure": {
+      "requirements": [
+        "REQ-PUR-RECEIPT-001",
+        "REQ-PUR-RECEIPT-002",
+        "REQ-PUR-RECEIPT-003"
+      ],
+      "status": "deployed-synthetic-workflow-passed-hosted-write-and-full-parity-pending",
+      "sourceCommit": "7e392d106efbcd3235dc366ebdef162899c08507",
+      "evidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "plan": "docs/plan-purchase-receipt-closure-20261021.md",
+      "additionalOfficialBodies": 6,
+      "newNodeTests": 9,
+      "browserWorkflowPassed": true,
+      "productionDeployed": true,
+      "hostedWriteAcceptancePending": true,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.54.0",
-    "commit": "e5b7b4a49acb884455c52156e2250d41b965569b",
-    "manifest": ".artifacts/manual-price-order-flow-20261021/candidate-manifest.json",
-    "bundleSha256": "e3d304ded765c1e947dbe43b84ef1019a024ce247ea58b8eb8416c616be49f38",
+    "version": "0.55.0",
+    "commit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
+    "manifest": ".artifacts/manual-purchase-flow-20261021/candidate-manifest.json",
+    "bundleSha256": "5c4929c127cb9414e400067046235bd86abf59ff6fb51c8ec2e13017f243c254",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -602,9 +624,10 @@
       "price-request-direct-received-price-batch-save",
       "price-request-multi-supplier-atomic-start",
       "price-request-first-confirmation-requested-price-defaults",
-      "confirmed-price-supplier-order-save-reload-partial-purchase"
+      "confirmed-price-supplier-order-save-reload-partial-purchase",
+      "purchase-partial-receipt-closure-reopen-exhausted-header-only-import"
     ],
-    "supersedesCandidateCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
+    "supersedesCandidateCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,

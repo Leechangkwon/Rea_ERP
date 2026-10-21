@@ -1278,7 +1278,7 @@
         "여러 구매가 같은 발주를 분할 처리한다",
         "기존 입고/잔량/재고/채무가 보존된다"
       ],
-      "status": "implemented-synthetic-verified",
+      "status": "deployed-synthetic-verified-hosted-write-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1293,7 +1293,10 @@
         "tests/browser/purchase-receipt-closure.spec.cjs"
       ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "deploymentVersion": "0.55.0",
+      "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "hostedReadOnlyVerified": true
     },
     {
       "id": "REQ-PUR-RECEIPT-002",
@@ -1308,7 +1311,7 @@
         "잔량 품목행/가짜 수량 연결을 만들지 않는다",
         "취소 시 저장 자료 불변"
       ],
-      "status": "implemented-synthetic-verified",
+      "status": "deployed-synthetic-verified-hosted-write-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1323,7 +1326,10 @@
         "tests/browser/purchase-receipt-closure.spec.cjs"
       ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "deploymentVersion": "0.55.0",
+      "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "hostedReadOnlyVerified": true
     },
     {
       "id": "REQ-PUR-RECEIPT-003",
@@ -1340,7 +1346,7 @@
         "기존 구매와 수불/금액을 취소하지 않는다",
         "자동종결 설정 없이 잔량0만으로 완료로 변경하지 않는다"
       ],
-      "status": "implemented-synthetic-verified",
+      "status": "deployed-synthetic-verified-hosted-write-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1355,7 +1361,10 @@
         "tests/browser/purchase-receipt-closure.spec.cjs"
       ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "deploymentVersion": "0.55.0",
+      "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "hostedReadOnlyVerified": true
     },
     {
       "id": "REQ-PUR-IMPORT-001",

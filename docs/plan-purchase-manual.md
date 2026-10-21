@@ -1,8 +1,10 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.54.0 운영
+## 현재 인계 · 0.55.0 운영
 
-운영 e5b7b4a / 기능 소스 e071a5e, 검사9b65e3f. 최신 상태표는 docs/manual-parity/PROGRESS.md 맨 위, 이번 묶음 작업은 docs/plan-price-request-order-flow-20261021.md를 따른다. 아래 0.53.2 이하의 “현재” 표시는 시점별 이력이다. main VAT 5충돌 미배포, 전체 완료0, 모아 33갱신 대기.
+운영 `release/0.55.0-receipt-closure` / `0ae0af0`, 기능 소스 `7e392d1`. 부분입고→종결→재개→잔량0 상단정보 흐름을 구현하고 합성 저장/재조회와 전체 회귀(브라우저46), 운영 로그인 유지·읽기/취소·자료보존을 확인했다. 실제 업무 저장 합격은 미완료다. 다음은 전체적용/품목합산/추가항목 승계, 이어서 음수 구매반품이다.
+
+최신 상태표는 `docs/manual-parity/PROGRESS.md`, 계획은 `docs/plan-purchase-receipt-closure-20261021.md`, 배포 근거는 `evidence/manual-purchase-receipt-closure-20261021.json`. manifest `.artifacts/manual-purchase-flow-20261021/candidate-manifest.json`의 번들SHA를 운영과 대조한다. main VAT5충돌 미배포, 전체 매뉴얼 완료0, 모아34갱신 게시 대기. 아래 내용은 시점별 이력이다.
 
 ## 최신 개발 인계 · 0.53.2 후보 9e4efd1 / 운영0.53.1 유지
 
