@@ -1,6 +1,6 @@
 {
   "version": "0.54.0",
-  "status": "candidate-validation-in-progress",
+  "status": "candidate-validated-not-yet-deployed",
   "sourcePlan": "docs/plan-price-request-order-flow-20261021.md",
   "baselineProductionCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
   "reference": {
@@ -57,7 +57,11 @@
     },
     "completeCandidateVerifyPassed": true,
     "candidateBrowserPassed": 45,
-    "finalNodeRegressionAfterRenameGuard": "running"
+    "finalNodeRegressionAfterRenameGuard": "passed",
+    "logs": {
+      "verify.log": "019f096cb94fb295668ea8fdf1d06f226a82cffdfc39c3921ca5b1bc43b874f9",
+      "final-tests.log": "46f0819aca557c4925489cf7df5d72042a08e1a34a76b1945c44dcc1e3d872ce"
+    }
   },
   "rea": {
     "reaVersion": "6.4.0",
