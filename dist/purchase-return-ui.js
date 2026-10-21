@@ -20,7 +20,7 @@
   for(const [index,row]of draft.lines.entries()){
    const original=originalRows.get(row.key),tr=node('tr'),quantity=node('input'),name=C.master(db,'items',original.item)?.name||original.item,cells={};
    quantity.type='number';quantity.step='any';quantity.max='0';quantity.value=String(row.qty);quantity.disabled=readonly();quantity.setAttribute('aria-label','반품 수량 '+(index+1));
-   for(const value of [row.key,original.item+' · '+name,fmt(original.qty)])tr.append(node('td',value));const cell=node('td');cell.append(quantity);tr.append(cell);
+   for(const value of [String(source.lines.indexOf(original)+1),original.item+' · '+name,fmt(original.qty)])tr.append(node('td',value));const cell=node('td');cell.append(quantity);tr.append(cell);
    tr.append(node('td',fmt(original.price||0)));for(const key of ['supply','tax','total']){cells[key]=node('td','—');cells[key].dataset.amount=key;tr.append(cells[key]);}
    const remove=button('제외',()=>{try{guard();row.qty=0;quantity.value='0';refresh();}catch(e){error.textContent=e.message;}});remove.setAttribute('aria-label','반품 품목 '+(index+1)+' 제외');remove.disabled=readonly();const action=node('td');action.append(remove);tr.append(action);tbody.append(tr);controls.push({row,quantity,cells});
    quantity.oninput=()=>{row.qty=quantity.value;refresh();};
