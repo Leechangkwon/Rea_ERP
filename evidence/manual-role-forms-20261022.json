@@ -1,0 +1,257 @@
+{
+  "date": "2026-10-22",
+  "version": "0.63.0",
+  "requirement": "REQ-COM-FORMS-001",
+  "status": "deployed-authenticated-read-only-ui-and-preservation-verified",
+  "plan": "docs/plan-conditional-forms-20261022.md",
+  "scope": "Single registered authenticated role equality in preserved 1-3 AND rules; input/list/print template choice",
+  "sourceCommit": "fd26896ec7be0a283a6052997f000cd04eace9bd",
+  "reference": {
+    "observation": {
+      "date": "2026-10-22",
+      "screen": "original purchase list",
+      "path": [
+        "Option",
+        "조건양식설정",
+        "예외추가",
+        "정보불러오기",
+        "사용자 / 권한그룹",
+        "함수 / 일치",
+        "비교대상 / 권한그룹 선택"
+      ],
+      "observedFields": [
+        "ID",
+        "권한그룹",
+        "부서등록",
+        "직위/직급",
+        "직책",
+        "접속기기"
+      ],
+      "rolePickerColumns": [
+        "그룹코드",
+        "그룹명",
+        "사용자"
+      ],
+      "rolePickerSelection": "checkbox selection then apply to unsaved function preview",
+      "operatorObserved": "일치",
+      "resultLabelObserved": "권한그룹(사용자) = selected registered group name",
+      "functionApplied": false,
+      "originalSettingsSaved": false,
+      "unsavedExceptionDiscarded": true,
+      "originalBusinessWrites": false,
+      "implementedSubset": "single registered role equality; original full flow engine and multi-value semantics unverified"
+    },
+    "newManualBodies": 0,
+    "sourceBodiesReviewed": 13,
+    "officialRequirements": 24,
+    "originalSettingsSaved": false,
+    "originalMatchingEngineVerified": false,
+    "modernFullFlowEditorVerified": false,
+    "multiRoleValueSemanticsVerified": false,
+    "originalGroupCodesAutomaticallyMappedToOurRoleIds": false,
+    "reaVersion": "6.4.0",
+    "ownScopes": 7,
+    "originalRouteScopes": 1,
+    "originalFlowFunctionRouteRetained": false,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "reaSummary": ".artifacts/manual-role-forms-20261022/rea/rea-summary.json"
+  },
+  "compatibility": {
+    "storeVersion": 1,
+    "conditionVersion": 1,
+    "newField": {
+      "source": "session",
+      "field": "roleId",
+      "operator": "eq"
+    },
+    "identitySource": "AuthUI.state().user.roleId from existing authenticated publicContext",
+    "catalogSource": "existing permission-protected GET /api/self/state roles id/name; company/me/permissions checked",
+    "newApiOrPermissions": false,
+    "roleEnvironmentPersistedInBusinessData": false,
+    "legacyFlatRulesAndUnknownMetadataPreserved": true,
+    "deletedHistoricalRolePreservedByMultiset": true,
+    "newUnknownRoleRejected": true,
+    "explicitSaveRechecksCatalogAndSameDraft": true,
+    "noAuthorityGrantedByTemplateChoice": true
+  },
+  "validation": {
+    "newNode": 16,
+    "relatedNodeTAP": 35,
+    "newBrowser": 1,
+    "verifyLocalPassed": true,
+    "browserSynthetic": 62,
+    "workflow": "registered role choose/cancel → explicit save → reload → print/list/input chosen for admin and fallback for viewer → exact stored record/form/active preservation",
+    "localTwoAuthenticatedAccounts": "SQLite fixture through actual app-service login/status/self endpoints; distinct admin/viewer roleIds; viewer permission checks retained",
+    "independentAsyncReproductions": 9,
+    "independentIssuesFixed": 2,
+    "independentRemainingP1P2": 0,
+    "issuesFixed": [
+      "switching role term to ID after role change could bypass role guard",
+      "removing a preceding AND term could block unchanged deleted-role preservation"
+    ],
+    "configuredHostedRoleFormAcceptance": false
+  },
+  "deployment": {
+    "version": "0.63.0",
+    "branch": "release/0.63.0-role-conditional-forms",
+    "commit": "279f4ef02b02aaaf08cb03e0628825a3fb8d99ee",
+    "sourceCommit": "fd26896ec7be0a283a6052997f000cd04eace9bd",
+    "baseCommit": "1dda44690d1cf375b961cbd3de1deaaa41d7c5b7",
+    "directory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.63.0-role-conditional-forms",
+    "bundleSha256": "05360a5dcb7da5267fb6d45dce557a7159f812c1735f9021044a4f2f2e0aa3aa",
+    "verifyLocalPassed": true,
+    "browserTests": 62,
+    "newNode": 16,
+    "newBrowser": 1,
+    "reaOwnScopes": 7,
+    "reaOriginalRouteScopes": 1,
+    "originalFlowFunctionRouteRetained": false,
+    "rootVatResearchIncluded": false,
+    "rollbackVersion": "0.62.0",
+    "pushed": true
+  },
+  "runtimeSession": 37156,
+  "predeploy": {
+    "version": "0.63.0",
+    "privateDirectory": "/home/lck/.local/share/rea-erp/backups/role-forms-0.63.0-1792603819990",
+    "remoteRevisions": {
+      "rea_app_state": 30,
+      "rea_gateway_state": 0
+    },
+    "stateHashes": {
+      "rea_app_state": "8e96322dd201bb42bb29a7073961b420f59cb206e6112070292d74a3a8891265",
+      "rea_gateway_state": "80019c43b7e6a1b3a67706f8289e939dd842a7a6f1d2dfd9c3265ccbec6080b1"
+    },
+    "runtimeHash": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+    "browser": {
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "version": 2,
+      "documents": 8,
+      "counts": {
+        "request": 1,
+        "plan": 0,
+        "purchaseorder": 1,
+        "purchase": 1
+      },
+      "validated": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9"
+    },
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "verified": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    }
+  },
+  "public": {
+    "version": "0.63.0",
+    "sourceCommit": "279f4ef02b02aaaf08cb03e0628825a3fb8d99ee",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/form-core.js",
+        "status": 200,
+        "sha256": "c82e5569232cfe0eaa0ba2909f7cfa199121eb1a3aae34d049f5ad87464a0253",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.js",
+        "status": 200,
+        "sha256": "18af9645e7b4e9caa699e22eb1cfa9213fe08f65001aa2bb605704c85173de9e",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory.css",
+        "status": 200,
+        "sha256": "d1f36c683decc8df6dac1a7c00dddbb864d2fb306aa55f7cfd4b354c6540e891",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ]
+  },
+  "browserPreservation": {
+    "version": "0.63.0",
+    "exactJsonEqual": true,
+    "byteExact": true,
+    "documentsBefore": 8,
+    "documentsAfter": 8,
+    "formsExact": true,
+    "browserSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+    "hostedBusinessWritesPerformed": false,
+    "hostedSettingsSaved": false,
+    "existingSessionRetained": true,
+    "hostedObserved": [
+      "existing purchase print preview 44000 KRW",
+      "conditional-form editor requires saved user form; current saved forms 0",
+      "all dialogs closed without actual print or settings save"
+    ],
+    "hostedConfiguredRoleFormAcceptance": false
+  },
+  "preservationAfter": {
+    "version": "0.63.0",
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 30,
+        "afterRevision": 30,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false
+  },
+  "remainingGaps": [
+    "Department/position/duty user-registration metadata and reference contracts not implemented",
+    "Modern full flow editor, multi-value role matching and batch print first-voucher rule unverified",
+    "Hosted saved user forms 0; actual configured role-condition save/application pending",
+    "Real production two-user and shared business acceptance pending",
+    "Original matching server equivalence unverified; VAT5 remains undeployed",
+    "Whole manual done0; Moa authentication unavailable,42 updates locally pending"
+  ],
+  "wholeManualDone": false,
+  "publication": {
+    "lastVerifiedVersion": "0.51.0",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingCount": 42
+  }
+}

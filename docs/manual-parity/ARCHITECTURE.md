@@ -368,3 +368,15 @@ purchase-return-ui의 입력과 저장 객체를 분리하며 마지막 onCommit
 소스 `f02093b`, 운영기반 c56d15b의 격리후보 `1dda446`를 push 후 기존 WSL·Supabase·Cloudflare rea.qaredi.com에 배포했다. 공개0.62.0/8자산 해시·접근차단·Supabase200, 기존 로그인 유지 및 품목 구매처/신규 거래처 모달 열기→취소·요청조회 배치를 확인했다. 운영 업무/설정 저장·메일발송·복원은 없다. 브라우저8전표/양식 JSON·서버app30/gateway0·runtime.env·메일3함8통1첨부 모두 전후 동일, restore preview0충돌/applied false. 현재 기존4품목 구매처 공란은 임의 지정하지 않고 유지하며 품목등록에서 한 번 지정해야 자동 상속된다.
 
 근거 `evidence/purchasing-supplier-layout-20261022.json`, 계획 `docs/plan-purchasing-supplier-layout-20261022.md`, manifest `.artifacts/purchasing-supplier-layout-20261022/candidate-manifest.json`. bundle SHA `9c52d684beac219a5ad3d77033cc945031fd30668bb043ad7c6eedda9c368fc5`. 롤백0.61.0 보존, 런타임 세션95720. main VAT5 미완료 빌드 설치 금지. 전체 매뉴얼13본문/24요구사항·합격0 유지. 다음은 원래 큐인 현대식 조건양식 사용자 속성/flow editor와 반품 confirmation/회계반영·전체수량/상이단가/작업탭 차이표로 복귀한다. 모아 마지막 저장/재조회0.51.0 이후 인증이 없어 41갱신 로컬 대기, 게시 완료로 처리하지 않는다.
+
+## 2026-10-22 · 0.63.0 등록 권한그룹 조건양식
+
+원본 구매조회 Option→조건양식설정→미저장 예외추가→정보불러오기→권한그룹→함수의 일치→그룹코드/그룹명/사용자 피커를 관찰했다. 선택한 그룹은 미저장 함수 결과에서 이름으로 표시되며 함수 적용/설정 저장 없이 모두 닫고 예외를 버렸다. 단일 그룹 같음만 이번 범위이고 다중값·다른연산·현대식 전체flow 서버 저장 동등성은 미완료다.
+
+기존 인증컨텍스트 user.roleId를 session.roleId에 연결했다. 등록 값은 기존 GET /api/self/state의 id/name만 일시 참조하며 회사코드·me(id/loginId/roleId)·서버 권한을 대조한다. 새 API/권한/계정 필드는 없다. 원본 그룹코드와 우리 역할ID를 자동 매핑하지 않는다. 저장 직전 목록과 동일 초안을 재확인하고 조회실패/권한·계정·회사·역할변경/닫힘·교체/양식 snapshot 변경을 차단한다. 비동기 응답이 입력 중인 다른 조건을 덮지 않는다. 기존 flat/v1·ID·PC/MOBILE·최대3AND·전표/양식/활성값을 유지한다. 삭제된 기존 그룹은 위치가 바뀌어도 원래 조건 multiset 범위에서 보존하며 새로운 미등록/중복 주입은 거부한다.
+
+새 역할조건 선택→취소/불변→명시저장→reload→관리자 그룹의 입력/조회/인쇄 적용→조회그룹의 fallback과 기존 자료/양식/활성값 보존을 합성 브라우저에서 확인했다. 로컬 SQLite의 실제 app-service 로그인 관리자/조회 계정2개에서 서로 다른 인증 roleId와 기존 viewer 쓰기권한 거부도 검증했다. 이는 운영 두 사용자 합격으로 확대하지 않는다. 신규Node16/관련TAP35·전체 verify:local/브라우저62(신규1), REA6.4.0 자체7/원본라우트1 parse0/coverage unknown/truncated false. 보유 common.js에 ISelectFlowFunctionV3Page 경로가 없어 원본 비교 함수의 구현은 미검증으로 남겼다. 독립9비동기 재현에서2경계(역할변경 후 ID전환 저장 우회, 삭제된 그룹 앞 AND항 삭제 후 보존 불가)를 고쳐 신규P1/P2없음을 확인했다.
+
+소스 `fd26896`, 운영0.62.0/1dda446 기반 격리후보 `279f4ef`를 push 후 WSL·Supabase·Cloudflare rea.qaredi.com에 배포했다. 공개0.63.0/3자산 해시·접근차단·Supabase200, 기존 로그인 유지·기존 구매44,000원 미리보기와 사용자양식0 안내를 확인했다. 운영 설정/업무 저장·실제 인쇄·발송·복원은 없다. 전표8건/양식 JSON·서버app30/gateway0·runtime.env·메일3함8통1첨부 모두 전후 동일, restore preview0충돌/applied false. 운영 등록양식0건으로 실제 조건 저장·적용은 아직 합성 검증만이다.
+
+근거 `evidence/manual-role-forms-20261022.json`, manifest `.artifacts/manual-role-forms-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.63.0-role-conditional-forms`, bundle SHA `05360a5dcb7da5267fb6d45dce557a7159f812c1735f9021044a4f2f2e0aa3aa`, 런타임 세션37156. 롤백0.62.0과 기존 자료를 보존했다. 다음은 부서·직위/직급·직책의 실제 사용자 저장/등록 참조와 flow 비교계약을 먼저 대조하며, 미확인이면 반품 confirmation/회계반영 조회·전체수량/상이단가/작업탭의 독립차이표로 이어간다. main VAT5 미완료 빌드 설치 금지.13본문/24요구사항·전체완료0 유지. 모아 인증 새 변화가 없어 기존본문용42갱신을 로컬 보존했으며 게시/저장본문 재조회 완료로 처리하지 않는다.

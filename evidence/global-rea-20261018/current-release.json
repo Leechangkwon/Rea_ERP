@@ -1,5 +1,5 @@
 {
-  "version": "0.62.0",
+  "version": "0.63.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 61,
+    "currentReleaseBrowserSynthetic": 62,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -142,7 +142,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.62.0",
+    "currentReleaseFullRegressionVersion": "0.63.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -155,16 +155,19 @@
     "purchasingSupplierFlowNewNode": 11,
     "purchasingSupplierFlowNewBrowser": 1,
     "purchasingResponsiveNewBrowser": 7,
-    "purchasingResponsiveScreenWidthCombinations": 26
+    "purchasingResponsiveScreenWidthCombinations": 26,
+    "roleConditionalFormsNewNode": 16,
+    "roleConditionalFormsRelatedNode": 35,
+    "roleConditionalFormsNewBrowser": 1
   },
   "future_research": "Seek specific original full-application/aggregation save and source-link evidence, keeping unresolved over-receipt and differing-price rules pending. If unavailable, continue independent negative-purchase return design from the reviewed manual without inventing full-copy semantics or repeating unchanged checks. Retain VAT5 conflicts and done=0.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../purchasing-supplier-layout-20261022.json",
+    "reference": "../manual-role-forms-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "1dda44690d1cf375b961cbd3de1deaaa41d7c5b7",
-    "publicVersionVerified": "0.62.0",
+    "deployedSourceCommit": "279f4ef02b02aaaf08cb03e0628825a3fb8d99ee",
+    "publicVersionVerified": "0.63.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -223,20 +226,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.62.0",
+    "existingSessionRetainedVersion": "0.63.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.62.0",
+    "lastExactBrowserBackupComparisonVersion": "0.63.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.62.0",
+    "currentServerStateAndMailPreservedVersion": "0.63.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.62.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.63.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -270,7 +273,9 @@
     "purchasingSupplierFlowDeployed": true,
     "purchasingSupplierFlowHostedOpenCancelVerified": true,
     "purchasingSupplierFlowHostedBusinessSaveVerified": false,
-    "purchasingResponsiveFiveListsDeployed": true
+    "purchasingResponsiveFiveListsDeployed": true,
+    "roleConditionalFormsDeployed": true,
+    "roleConditionalFormsHostedConfiguredSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -507,7 +512,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Compare modern purchase conditional-form role/group/department/position/duty sources and the actual flow editor contract; extend only verified saved/authenticated metadata and preserve current flat/v1 rules. Keep batch first-document, hosted configured rule save and real two-user acceptance pending. Then return confirmation/accounted-view and full-quantity/import/work-tab gaps. VAT5/done0 unchanged; do not repeat unchanged QA.",
+    "nextIndependentWork": "Compare modern purchase department/position/duty fields with actual user-registration storage and registered-reference contracts before extending conditions. Registered single-role equality is deployed in0.63.0; do not repeat it. Modern full-flow/multi-value matching, batch first-voucher and real production two-user/configured-save acceptance remain pending. If metadata is unavailable, continue independent return confirmation/accounted-view and full-quantity/differing-price/work-tab gaps. VAT5/done0 unchanged.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -723,13 +728,19 @@
       "evidence": "../purchasing-supplier-layout-20261022.json",
       "legacyBlankSupplierItemsPreserved": 4,
       "hostedBusinessSaveVerified": false
+    },
+    "roleConditionalForms": {
+      "version": "0.63.0",
+      "status": "deployed-synthetic-flow-and-hosted-read-only-preservation-verified",
+      "evidence": "../manual-role-forms-20261022.json",
+      "hostedConfiguredSaveVerified": false
     }
   },
   "preparedCandidate": {
-    "version": "0.62.0",
-    "commit": "1dda44690d1cf375b961cbd3de1deaaa41d7c5b7",
-    "manifest": ".artifacts/purchasing-supplier-layout-20261022/candidate-manifest.json",
-    "bundleSha256": "9c52d684beac219a5ad3d77033cc945031fd30668bb043ad7c6eedda9c368fc5",
+    "version": "0.63.0",
+    "commit": "279f4ef02b02aaaf08cb03e0628825a3fb8d99ee",
+    "manifest": ".artifacts/manual-role-forms-20261022/candidate-manifest.json",
+    "bundleSha256": "05360a5dcb7da5267fb6d45dce557a7159f812c1735f9021044a4f2f2e0aa3aa",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -752,9 +763,10 @@
       "negative-copy-return-editor-single-canonical-credit-store-and-reopen",
       "saved-credit-return-single-print-existing-forms-and-frozen-negative-money",
       "preserved-conditional-forms-login-ID-PC-MOBILE-three-AND-and-stale-editor-guards",
-      "registered-item-supplier-inheritance-modal-new-partner-and-responsive-purchasing-actions"
+      "registered-item-supplier-inheritance-modal-new-partner-and-responsive-purchasing-actions",
+      "registered-authenticated-role-equality-conditional-forms-preserved-AND-and-async-guards"
     ],
-    "supersedesCandidateCommit": "c56d15b4d55f22bd6842e49ec1865e62d25c6986",
+    "supersedesCandidateCommit": "1dda44690d1cf375b961cbd3de1deaaa41d7c5b7",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
