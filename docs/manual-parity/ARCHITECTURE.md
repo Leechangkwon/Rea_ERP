@@ -155,3 +155,10 @@ TransactionVatCore.review는 표시 후보와 확인 필요 여부를 순수하�
 회사 설정의 documentVat 규칙은 네 구매 유형별 default/line/transaction을 저장한다. 원본 bizz 속성 vat_calculate_setup의 line/transaction·기본line이라는 정적 근거를 자체 스키마에 대응했으며 동적 예외조건은 포함하지 않는다. 기존 config.write/CSRF/revision CAS 경로로 저장하고 publicContext와 SelfUI 재조회에서 AuthUI에 전달한다. 옛 상태를 읽을 때 새 키를 영속화하지 않는다.
 
 새 빈 입력을 최초 생성할 때만 모드를 스냅샷으로 적용한다. 기존 전표·보관 초안·현재 편집·임시 변환은 자동 재적용하지 않는다. 설정 선택 UI 및 계획생성/변환 적용 계약은 남았다. 원본 정적 SetVatReCalcSvc에 맞춰 실제 변경된 공급/세액 셀만 #f6d7d7·굵게 표시한다. 설정 통합24검사/VAT61/브라우저33 및 원본7·자체7 REA 근거는 evidence/manual-transaction-vat-settings-20261021.json이다. 모아 갱신·재조회와 운영 반영은 대기다.
+
+
+## 계산 근거 충돌과 버전 보존 · 2026-10-21
+
+거래별 VAT의 공식 본문은 총액을 다시 분리하고 보관 공개 번들의 계산 함수는 미반올림 공급가액 합에서 공급·세액을 각각 단수처리한다. 공통 예제는 일치하나 별도5경계값에서 충돌한다. 진단 도구와 합성 fixture는 앱 dist/worker 밖에 두며 원본 JS를 실행하지 않는다. 진단 종료0과 원본 동등성 합격은 분리되고 --require-parity는 미해결 상태에서2를 반환한다. 원본 소수 자릿수는 공급/세액 공통이므로 자체 분리된 정책과 동등하다고 추정하지 않는다.
+
+현재 vatAdjustment.version1은 기존 총액 분리식으로 읽고 검증하는 계약이다. 새 계산식을 도입하더라도 기존 금액·백업·반품 근거를 새 식으로 재해석하거나 자동 이관하지 않는다. 신규 버전별 계산/검증/출력과 명시적 전환 계약을 먼저 확정한다. 원본의 직접 공급가액·외화·혼합세율·Decimal 호환 정밀도는 별도의 입력/정책/저장 근거가 필요하다. 근거와 후속 순서는 docs/plan-manual-transaction-vat-20261021.md 및 evidence/manual-transaction-vat-conflicts-20261021.json을 따른다.

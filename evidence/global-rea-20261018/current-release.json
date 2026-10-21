@@ -196,17 +196,21 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
-      "status": "settings-contract-local-only",
+      "status": "calculation-evidence-conflict-local-audit",
       "plan": "docs/plan-manual-transaction-vat-20261021.md",
-      "evidence": "evidence/manual-transaction-vat-settings-20261021.json",
+      "evidence": "evidence/manual-transaction-vat-conflicts-20261021.json",
       "storageIntegrated": true,
       "uiIntegrated": true,
       "deploymentPending": true,
-      "sourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
+      "sourceCommit": "4f1e23c08d8d3535ed68f6df65f51ab7f980a829",
       "settingsIntegrated": false,
       "settingsStorageIntegrated": true,
       "settingsSelectionUiIntegrated": false,
-      "basicOriginalFieldMappingVerified": true
+      "basicOriginalFieldMappingVerified": true,
+      "implementationSourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
+      "calculationEvidenceConflict": true,
+      "conflictingSyntheticCases": 5,
+      "calculationParityVerified": false
     }
   }
 }

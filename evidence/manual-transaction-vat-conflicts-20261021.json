@@ -1,0 +1,349 @@
+{
+  "requirement": "REQ-COM-TAX-001",
+  "date": "2026-10-21",
+  "status": "calculation-evidence-conflict-local-audit",
+  "sourceCommit": "4f1e23c08d8d3535ed68f6df65f51ab7f980a829",
+  "pushedToOriginMain": true,
+  "previousEvidence": "evidence/manual-transaction-vat-settings-20261021.json",
+  "operatingVersionLastVerified": "0.53.0",
+  "operatingVersionLastVerifiedAt": "2026-10-20T23:29:17.286Z",
+  "scope": "Independent diagnostic and synthetic fixtures only; no dist/worker calculation or production change.",
+  "sourceIntegrity": {
+    "manual": {
+      "sha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0",
+      "verified": true
+    },
+    "original": {
+      "sha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+      "verified": true
+    }
+  },
+  "sources": {
+    "manual": {
+      "path": ".artifacts/manual-parity-20261021/manual-total-vat-split.txt",
+      "sha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0"
+    },
+    "original": {
+      "path": ".artifacts/purchasing-multiselect-sort-20261020/original-3/input/inventory.75a19601.js",
+      "sha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+      "sourceManifest": ".artifacts/purchasing-multiselect-sort-20261020/source-manifest.json",
+      "lineStart": 5943,
+      "lineEnd": 6041
+    }
+  },
+  "originalSourceExecuted": false,
+  "comparison": {
+    "caseCount": 7,
+    "agreementCount": 2,
+    "conflictCount": 5,
+    "regressionCount": 0,
+    "sourceRuntimeObserved": false,
+    "staticResultsAreIndependentInterpretation": true,
+    "sharedOriginalPrecisionRequired": true,
+    "originalParityPassed": false,
+    "cases": [
+      {
+        "id": "manual-example",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": true,
+        "current": {
+          "before": {
+            "supply": 13635,
+            "tax": 1365,
+            "total": 15000
+          },
+          "after": {
+            "supply": 13636,
+            "tax": 1364,
+            "total": 15000
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 13636,
+          "tax": 1364,
+          "total": 15000
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 13636,
+          "tax": 1364,
+          "total": 15000
+        },
+        "reason": "Official example agrees with both interpretations and cannot distinguish them.",
+        "originalRuntimeObserved": false
+      },
+      {
+        "id": "integer-no-difference",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": true,
+        "current": {
+          "before": {
+            "supply": 300,
+            "tax": 30,
+            "total": 330
+          },
+          "after": {
+            "supply": 300,
+            "tax": 30,
+            "total": 330
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 300,
+          "tax": 30,
+          "total": 330
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 300,
+          "tax": 30,
+          "total": 330
+        },
+        "reason": "Exact integer control without a rounding difference.",
+        "originalRuntimeObserved": false
+      },
+      {
+        "id": "fractional-small-supply",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": false,
+        "current": {
+          "before": {
+            "supply": 9,
+            "tax": 0,
+            "total": 9
+          },
+          "after": {
+            "supply": 8,
+            "tax": 1,
+            "total": 9
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 8,
+          "tax": 1,
+          "total": 9
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 10,
+          "tax": 1,
+          "total": 11
+        },
+        "reason": "Unrounded supply 10.2 gives a different supply and gross than re-splitting the rounded line gross 9.",
+        "originalRuntimeObserved": false
+      },
+      {
+        "id": "same-gross-different-tax",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": false,
+        "current": {
+          "before": {
+            "supply": 999,
+            "tax": 99,
+            "total": 1098
+          },
+          "after": {
+            "supply": 998,
+            "tax": 100,
+            "total": 1098
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 998,
+          "tax": 100,
+          "total": 1098
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 999,
+          "tax": 99,
+          "total": 1098
+        },
+        "reason": "Both totals are 1098; comparing only gross misses a supply/tax difference.",
+        "originalRuntimeObserved": false
+      },
+      {
+        "id": "shared-two-decimal-rounding",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": false,
+        "current": {
+          "before": {
+            "supply": 0.15,
+            "tax": 0.03,
+            "total": 0.18
+          },
+          "after": {
+            "supply": 0.16,
+            "tax": 0.02,
+            "total": 0.18
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 0.16,
+          "tax": 0.02,
+          "total": 0.18
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 0.15,
+          "tax": 0.02,
+          "total": 0.17
+        },
+        "reason": "Both source supply and VAT use the same amt decimal_part_size=2. Exact raw supply 0.15 and VAT 0.015 round to 0.15/0.02, unlike re-splitting line gross 0.18.",
+        "originalRuntimeObserved": false
+      },
+      {
+        "id": "zero-rate-fractional-lines",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": false,
+        "current": {
+          "before": {
+            "supply": 0,
+            "tax": 0,
+            "total": 0
+          },
+          "after": {
+            "supply": 0,
+            "tax": 0,
+            "total": 0
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 0,
+          "tax": 0,
+          "total": 0
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 1,
+          "tax": 0,
+          "total": 1
+        },
+        "reason": "Even zero VAT does not prove equivalence of line rounding and raw-supply grouping.",
+        "originalRuntimeObserved": false
+      },
+      {
+        "id": "multiple-rounded-tax-lines",
+        "localMatchesManualInterpretation": true,
+        "interpretationsAgree": false,
+        "current": {
+          "before": {
+            "supply": 45,
+            "tax": 6,
+            "total": 51
+          },
+          "after": {
+            "supply": 46,
+            "tax": 5,
+            "total": 51
+          }
+        },
+        "manualGrossInterpretation": {
+          "supply": 46,
+          "tax": 5,
+          "total": 51
+        },
+        "staticRawSupplyInterpretation": {
+          "supply": 45,
+          "tax": 4,
+          "total": 49
+        },
+        "reason": "Supply and tax are independently rounded in the static formula interpretation.",
+        "originalRuntimeObserved": false
+      }
+    ],
+    "unverified": [
+      "Original runtime results and applicable deployed source version",
+      "Upstream effective-price and manual-supply binding for every price mode",
+      "Decimal precision and the documented 7 percent floor 69 behavior",
+      "Transaction/item/warehouse/default VAT priority and mixed-rate groups",
+      "Foreign currency supply, exchange rate and existing VAT totals",
+      "Exception-condition attribute evaluation and manual settings UI",
+      "Own independent supply/VAT precision versus original shared amt.decimal_part_size; legacy defaults must not be silently migrated"
+    ],
+    "artifactSha256": "8489f16cfea7d23c6dc1862a6a7e615ccb971ceb9747c30a04c12f6190cc7ce8"
+  },
+  "implementation": {
+    "files": [
+      {
+        "file": "scripts/audit-transaction-vat-parity.cjs",
+        "sha256": "d72e6c9be73f0e25d52239fbe032b4b5d8021c97f09e9eced471cefc0c992ef1"
+      },
+      {
+        "file": "tests/fixtures/transaction-vat-parity.json",
+        "sha256": "64333462b95344bef41fda13f846b85b21f1704ac8d866052ffd1836b84bbe9a"
+      },
+      {
+        "file": "tests/transaction-vat-parity.cjs",
+        "sha256": "11f8555342f6fb3a3236ea0fd78c0cfbc097290b1e7f440fcedede692756998c"
+      },
+      {
+        "file": "package.json",
+        "sha256": "370f4441d71b4e8c14b16a13a3416a9f6b53a6ce38f305b24a71dbb1107ea621"
+      }
+    ],
+    "npmTestIncludesAudit": true,
+    "diagnosticExit0Meaning": "Current manual interpretation regression passed, not original parity",
+    "strictParityExit": 2,
+    "storedVersion1CalculationChanged": false,
+    "existingDocumentMigrationPerformed": false
+  },
+  "checks": {
+    "newAuditNodeTests": 6,
+    "vatNodeTests": 67,
+    "npmTest": "passed",
+    "toolsTests": "passed",
+    "releaseCheck": "passed",
+    "diffCheck": "passed",
+    "npmTestLogSha256": "222125702ad4a79ee529601a8e88d8ac5f308a240920390e3052d03f3a7673cf",
+    "vatTestLogSha256": "da64f60ac244ae0f09a35343be112e5649726ef28e4c88f289099e87dafc3488",
+    "toolsLogSha256": "af62116eecf179b3802a003b5d0d0855ef836bad54b8d1b30797a272a910f406",
+    "fullVerifyLocalThisStage": false,
+    "browserRetestedThisStage": false,
+    "reason": "App runtime/UI unchanged; six diagnostic tests and npm test/tool/release checks run. Prior 33 localhost browser checks remain historical settings-stage evidence."
+  },
+  "rea": {
+    "version": "6.4.0",
+    "originalScopes": 8,
+    "ownScopes": 5,
+    "parsedFiles": 13,
+    "parseFailures": 0,
+    "anyTruncated": false,
+    "coverage": [
+      "unknown"
+    ],
+    "sourceAndInputHashesVerified": true,
+    "outsideBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "summarySha256": "a333c345568c0549d8f2301d19e317e0b008033739c18d92cffddde6603cdb26"
+  },
+  "independentReview": {
+    "performed": true,
+    "originalFormulaConsumersAndPriceMappingConfirmedStatically": true,
+    "correctedFinding": "Removed a fixture mixing original supply2/VAT0 precision; replaced with matched common2 precision, added input-scope validation and regression test.",
+    "recheck": "Corrected common2 fixture and input guards reviewed; no additional issues; audit6 tests passed."
+  },
+  "preservation": {
+    "runtimeSourceChangedThisStage": false,
+    "productionDatabaseReadThisStage": false,
+    "productionWrites": false,
+    "originalErpWrites": false,
+    "serverRestarted": false,
+    "deploymentPerformed": false,
+    "emailsSent": false,
+    "hostedBrowserDataComparison": "pending"
+  },
+  "browser": {
+    "originalOptionDomClick": "no AX or focus change; no further attempts",
+    "stagedReaTab21Dialog": "undefined; preserved unsaved state",
+    "moaCurrentTab": "login page; no authentication or save attempted",
+    "handoffTabs": [
+      "1",
+      "21",
+      "22",
+      "23"
+    ]
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextPlan": "docs/plan-manual-transaction-vat-20261021.md",
+  "done": false
+}

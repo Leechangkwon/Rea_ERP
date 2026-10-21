@@ -1167,18 +1167,21 @@
         "저장 전 차액 확인 후 세율별 마지막 행 반영 및 음영",
         "기본설정은 라인별"
       ],
-      "status": "settings-contract-local-only",
+      "status": "calculation-evidence-conflict-local-audit",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "calculationImplemented": true,
       "storageIntegrated": true,
       "uiIntegrated": true,
-      "evidence": "evidence/manual-transaction-vat-settings-20261021.json",
+      "evidence": "evidence/manual-transaction-vat-conflicts-20261021.json",
       "settingsIntegrated": false,
       "settingsStorageIntegrated": true,
       "settingsSelectionUiIntegrated": false,
-      "basicOriginalFieldMappingVerified": true
+      "basicOriginalFieldMappingVerified": true,
+      "calculationEvidenceConflict": true,
+      "calculationParityVerified": false,
+      "remaining": "Manual gross split and retained original raw-supply formula disagree outside the example; shared precision and versioned storage contract require resolution. Settings UI, mixed/foreign cases and hosted preservation remain unverified."
     }
   ]
 }
