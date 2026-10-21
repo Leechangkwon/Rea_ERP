@@ -1,4 +1,28 @@
 const {test,expect}=require('@playwright/test');
+test('new request chooses two suppliers, saves once and opens a ready comparison after reload',async({page})=>{
+ await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
+ await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
+ await page.evaluate(()=>{let db=JSON.parse(localStorage.getItem('ecount-inventory-v2'));db=InventoryCore.command(db,'master',{key:'partners',record:{code:'V002',name:'다른 요청 거래처',kind:'매입'}}).db;localStorage.setItem('ecount-inventory-v2',JSON.stringify(db));});
+ await page.reload();await page.getByRole('button',{name:'단가요청조회',exact:true}).click();
+ const before=await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'));
+ await page.getByRole('button',{name:'신규(F2)',exact:true}).click();
+ const entry=page.getByRole('dialog',{name:'단가요청 신규',exact:true});await expect(entry).toBeVisible();
+ await entry.getByRole('button',{name:'거래처 다중 선택',exact:true}).click();
+ const picker=page.getByRole('dialog',{name:'거래처 다중 선택',exact:true});
+ await picker.getByLabel('거래처 V001 선택',{exact:true}).check();await picker.getByLabel('거래처 V002 선택',{exact:true}).check();
+ await picker.getByRole('button',{name:'적용(F8)',exact:true}).click();await expect(picker).toHaveCount(0);
+ await entry.getByLabel('품목 1',{exact:true}).selectOption('M001');await entry.getByLabel('수량 1',{exact:true}).fill('100');await entry.getByLabel('단가 1',{exact:true}).fill('50000');
+ expect(await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'))).toBe(before);
+ await page.screenshot({path:'.artifacts/price-start-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});expect(await entry.evaluate(el=>el.getBoundingClientRect().width<=innerWidth)).toBe(true);await entry.getByLabel('거래처',{exact:true}).scrollIntoViewIfNeeded();await page.screenshot({path:'.artifacts/price-start-mobile.png',fullPage:true});
+ await entry.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(entry).toHaveCount(0);
+ const saved=await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2')),old=JSON.parse(before),now=JSON.parse(saved),source=now.documents.at(-1),record=now.settings.priceRequests.records[0];
+ expect(now.documents.slice(0,-1)).toEqual(old.documents);expect(now.documents.length).toBe(old.documents.length+1);expect(now.settings.customization).toEqual(old.settings.customization);expect(now.prices).toEqual(old.prices);expect(record.snapshot).toEqual(source);expect(record.comparison.vendors.map(v=>v.code)).toEqual(['V001','V002']);expect(record.comparison.vendors.every(v=>v.received.every(r=>r.price===null))).toBe(true);
+ await page.reload();await page.getByRole('button',{name:'단가요청조회',exact:true}).click();await page.getByRole('button',{name:'단가요청비교현황',exact:true}).click();
+ const compare=page.getByRole('dialog',{name:'단가요청비교현황',exact:true});await expect(compare.getByRole('button',{name:'V001 샘플 구매처 수취단가 직접입력',exact:true})).toBeEnabled();await expect(compare.getByRole('button',{name:'V002 다른 요청 거래처 수취단가 직접입력',exact:true})).toBeEnabled();
+ await compare.getByRole('button',{name:'V001 샘플 구매처 수취단가 직접입력',exact:true}).click();const reply=page.getByRole('dialog',{name:'수취단가 직접입력',exact:true});await reply.getByLabel('1행 V001 수취단가',{exact:true}).fill('0');await reply.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(compare).toBeVisible();
+ const updated=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecount-inventory-v2')));expect(updated.documents).toEqual(now.documents);expect(updated.settings.priceRequests.records[0].comparison.vendors[0].received[0].price).toBe('0');expect(updated.settings.priceRequests.records[0].comparison.vendors[1].received[0].price).toBeNull();
+});
 test('direct received prices stage, save once and reload without changing original vouchers or forms',async({page})=>{
  await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
  await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
