@@ -1,5 +1,5 @@
 {
-  "version": "0.53.7",
+  "version": "0.54.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 44,
+    "currentReleaseBrowserSynthetic": 45,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -129,16 +129,18 @@
     "priceSupplierStartNewBrowser": 1,
     "priceDefaultRelatedNode": 102,
     "priceDefaultNewNode": 3,
-    "priceDefaultNewBrowser": 1
+    "priceDefaultNewBrowser": 1,
+    "priceRequestOrderFlowNewNode": 26,
+    "priceRequestOrderFlowNewBrowser": 1
   },
   "future_research": "Continue official header multi-row/partial confirmation behavior and price-request picker into purchaseorders; map supplier, row/price, source lineage and validity before implementation. Keep prior confirmations/forms/replies, VAT conflicts and manual done=0. Hosted data-bearing saves and Moa append/readback remain pending.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-price-request-defaults-20261021.json",
+    "reference": "../manual-price-request-order-flow-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
-    "publicVersionVerified": "0.53.7",
+    "deployedSourceCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+    "publicVersionVerified": "0.54.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -197,20 +199,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.53.7",
+    "existingSessionRetainedVersion": "0.54.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.53.7",
+    "lastExactBrowserBackupComparisonVersion": "0.54.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.53.7",
+    "currentServerStateAndMailPreservedVersion": "0.54.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.53.7",
+    "currentAuthenticatedSessionVerificationVersion": "0.54.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -219,7 +221,9 @@
     "priceRequestSupplierStartDeployed": true,
     "priceRequestSupplierStartHostedSaveVerified": false,
     "priceRequestFirstConfirmationDefaultsDeployed": true,
-    "priceRequestFirstConfirmationDefaultsHostedSaveVerified": false
+    "priceRequestFirstConfirmationDefaultsHostedSaveVerified": false,
+    "priceRequestOrderFlowDeployed": true,
+    "priceRequestOrderFlowHostedSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -304,7 +308,7 @@
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "deployed-public-verified-authenticated-acceptance-pending",
+      "status": "deployed-preservation-verified-hosted-write-and-full-manual-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
@@ -321,8 +325,8 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "Authenticated UI and post-browser JSON comparison after login; unresolved VAT/quantity research; Moa missing-update readback.",
-      "authenticatedAcceptancePending": true,
+      "nextWork": "Current workflow and roadmap front matter supersede this historical candidate entry.",
+      "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json"
     },
     "independentResearch": {
@@ -456,11 +460,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": {
-      "requirement": "REQ-PUR-PRICE-001",
-      "plan": "docs/plan-manual-purchase-gaps-20261021.md",
-      "description": "Continue official header multi-row/partial confirmation behavior and price-request picker into purchaseorders; map supplier, row/price, source lineage and validity before implementation. Keep prior confirmations/forms/replies, VAT conflicts and manual done=0. Hosted data-bearing saves and Moa append/readback remain pending."
-    },
+    "nextIndependentWork": "Read and decompose official purchase order 13918 and purchase 13920 procedures, compare forms/status/partial receipt/return as complete workflows; preserve original VAT nextWork conflicts and do not repeat unchanged checks.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -568,13 +568,26 @@
       "productionDeployed": true,
       "hostedWriteAcceptancePending": true,
       "done": false
+    },
+    "priceRequestOrderFlow": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "status": "deployed-synthetic-workflow-passed-hosted-write-and-full-parity-pending",
+      "sourceCommit": "9b65e3fddbe25a95397d019ca24ce1d4c5fb783f",
+      "evidence": "evidence/manual-price-request-order-flow-20261021.json",
+      "plan": "docs/plan-price-request-order-flow-20261021.md",
+      "additionalOfficialFaqBodies": 1,
+      "newNodeTests": 26,
+      "browserWorkflowPassed": true,
+      "productionDeployed": true,
+      "hostedWriteAcceptancePending": true,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.53.7",
-    "commit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
-    "manifest": ".artifacts/manual-price-default-20261021/candidate-manifest.json",
-    "bundleSha256": "6950ca579242fe15220e3da2f9f1b5a5f39c3c452ef8c7a9f81c239c07631d52",
+    "version": "0.54.0",
+    "commit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+    "manifest": ".artifacts/manual-price-order-flow-20261021/candidate-manifest.json",
+    "bundleSha256": "e3d304ded765c1e947dbe43b84ef1019a024ce247ea58b8eb8416c616be49f38",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -588,9 +601,10 @@
       "price-request-vendor-input-close-reopen",
       "price-request-direct-received-price-batch-save",
       "price-request-multi-supplier-atomic-start",
-      "price-request-first-confirmation-requested-price-defaults"
+      "price-request-first-confirmation-requested-price-defaults",
+      "confirmed-price-supplier-order-save-reload-partial-purchase"
     ],
-    "supersedesCandidateCommit": "a613d8c4e9842215a467cd6a19f467b427d71887",
+    "supersedesCandidateCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,

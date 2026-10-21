@@ -1,8 +1,8 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.53.7 운영
+## 현재 인계 · 0.54.0 운영
 
-운영 b2b73d2 / main 32dc1e4. 최신 상태표는 docs/manual-parity/PROGRESS.md 맨 위, 이번 묶음 작업은 docs/plan-price-request-order-flow-20261021.md를 따른다. 아래 0.53.2 이하의 “현재” 표시는 시점별 이력이다. main VAT 5충돌 미배포, 전체 완료0, 모아 32갱신 대기.
+운영 e5b7b4a / 기능 소스 e071a5e, 검사9b65e3f. 최신 상태표는 docs/manual-parity/PROGRESS.md 맨 위, 이번 묶음 작업은 docs/plan-price-request-order-flow-20261021.md를 따른다. 아래 0.53.2 이하의 “현재” 표시는 시점별 이력이다. main VAT 5충돌 미배포, 전체 완료0, 모아 33갱신 대기.
 
 ## 최신 개발 인계 · 0.53.2 후보 9e4efd1 / 운영0.53.1 유지
 

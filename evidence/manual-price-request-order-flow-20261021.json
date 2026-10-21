@@ -1,6 +1,6 @@
 {
   "version": "0.54.0",
-  "status": "candidate-validated-not-yet-deployed",
+  "status": "deployed-public-session-readonly-and-preservation-verified",
   "sourcePlan": "docs/plan-price-request-order-flow-20261021.md",
   "baselineProductionCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
   "reference": {
@@ -255,5 +255,118 @@
     "production comparison count zero; meaningful saved workflow synthetic only",
     "Moa HTTP401 and browser login required"
   ],
-  "communityPublished": false
+  "communityPublished": false,
+  "sourceCommit": "9b65e3fddbe25a95397d019ca24ce1d4c5fb783f",
+  "featureCommit": "e071a5e20bffd9e04580b728186afa666e58fc66",
+  "deployedCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+  "candidateManifest": ".artifacts/manual-price-order-flow-20261021/candidate-manifest.json",
+  "bundleSha256": "e3d304ded765c1e947dbe43b84ef1019a024ce247ea58b8eb8416c616be49f38",
+  "deployment": {
+    "version": "0.54.0",
+    "sourceCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "ffa2001d5c3cd2ce50e78d9a9e76e5d0f530dd51cda7ea05ecb6c882a73c83d4",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-core.js",
+        "status": 200,
+        "sha256": "7df5e7d4d5b2fa0e98d8698bad537ea2e64223beb7c1095f2395c7bbea41d302",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-ui.js",
+        "status": 200,
+        "sha256": "ce16ff064f88f04e7345962ac5a3a280329df285d834e95a684e2798f62aecae",
+        "equalsLocal": true
+      },
+      {
+        "path": "/price-request-ui.js",
+        "status": 200,
+        "sha256": "2fc251234a09811c8b4c24b1c993dbe743f33414eb6911cf3ddde161a341ab1b",
+        "equalsLocal": true
+      },
+      {
+        "path": "/price-request-core.js",
+        "status": 200,
+        "sha256": "7da48d168017cda8691785b07d44425bbcf7e3d03b704feab1ad90fcd223eaca",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "70d2bdcef6bb0fc3ce9fe3d774ba39e4142e0d2bb291a064ef1ecdb5bba8585d",
+        "equalsLocal": true
+      },
+      {
+        "path": "/reference-picker-ui.js",
+        "status": 200,
+        "sha256": "f8fac953651edacc081fc9171a0463e9e6cf461d5b15b761c01b42907166782a",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ]
+  },
+  "preservation": {
+    "serverAndMail": {
+      "version": "0.54.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 28,
+          "afterRevision": 28,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "browser": {
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "comparisonRecords": 0,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "operatingVersion": "0.54.0",
+      "authenticatedSessionRetained": true,
+      "readonlyFlow": "purchase order list > new > price request picker > cancel > close",
+      "businessSaved": false
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/price-order-flow-0.54.0-1792586924010"
+  },
+  "authenticatedBusinessSaveVerified": false
 }
