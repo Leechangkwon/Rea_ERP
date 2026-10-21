@@ -21,6 +21,7 @@
     const settings=N('div',undefined,'inv-filters'),custom=N('div',undefined,'inv-toolbar'),single=field('한 장의 거래처',controls.partner),description=N('p',undefined,'inv-note');
     settings.append(field('정리 방식',controls.grouping),field('생성일',controls.date),field('납기일 미지정 시',controls.dueDate),single,field('검색',controls.query));custom.append(field('거래처별',controls.splitSupplier),field('납기일별',controls.splitDueDate),field('품목별 합산',controls.mergeItems));
     body.append(N('p','① 계획·구매처 확인 → ② 생성 미리보기 → ③ 발주서 생성. 품목에 등록된 구매처를 기본으로 나눕니다.','inv-note'),settings,custom,description);
+    body.append(N('p','발주서는 한 번에 '+P.MAX_SELECTIONS+'행까지 선택해 생성할 수 있습니다.','inv-note'));
     if(!options.ids?.length)body.prepend(N('p','선택한 계획이 없어 미처리 계획을 모두 표시합니다. 생성할 행을 체크하세요.','inv-note'));
     const selected=new Set(),edits=new Map(),holder=N('div',undefined,'plan-candidates'),pager=N('div',undefined,'inv-toolbar'),status=N('span'),previewBox=N('div',undefined,'plan-preview'),result=N('p');result.setAttribute('role','status');let page=0,rows=[],preview;
     previewBox.tabIndex=-1;

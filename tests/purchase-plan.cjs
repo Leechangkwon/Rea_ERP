@@ -21,3 +21,21 @@ test('completed plans are excluded and a plan completed after preview cannot gen
 test('partial generated allocations leave exact decimal residual and subsequent batch consumes only that residual',()=>{const db=fixture(),firstRequest=request(db,{selections:[{documentId:db.documents[0].id,item:'A',qty:1.125}]}),first=P.commit(db,P.preview(db,firstRequest));assert.equal(C.remaining(first.db,db.documents[0],'purchaseorder').find(l=>l.item==='A').qty,4.375);const secondRequest={...firstRequest,selections:[{documentId:db.documents[0].id,item:'A'}]},second=P.commit(first.db,P.preview(first.db,secondRequest));assert.equal(second.result[0].lines[0].qty,4.375);assert.equal(C.remaining(second.db,db.documents[0],'purchaseorder').find(l=>l.item==='A').qty,0);});
 test('unattached sourceLineId and nonnumeric allocation quantities fail final save and backup validation',()=>{const db=fixture();assert.throws(()=>C.command(db,'document',{type:'purchase',date:'2026-10-15',warehouse:'W1',partner:'V1',lines:[{item:'A',qty:1,price:100,sourceLineId:'PL1'}]}),/원본 전표번호/);const generated=P.commit(db,P.preview(db,request(db))),broken=C.clone(generated.db);broken.documents.at(-1).lines[0].planAllocations[0].qty=String(broken.documents.at(-1).lines[0].qty);assert.throws(()=>C.validateBackup(broken),/숫자/);});
 
+
+function selectionLimitFixture(){
+ let db=fixture();db=C.command(db,'document',{type:'plan',date:'2026-10-03',dueDate:'2026-10-20',warehouse:'W1',lines:Array.from({length:101},(_,i)=>({lineId:'LIMIT'+i,item:'A',qty:1,price:100,supplier:'V1'}))}).db;
+ const id=db.documents.at(-1).id,selections=P.candidates(db,{ids:[id]}).map(r=>({documentId:r.documentId,lineId:r.lineId,item:r.item}));return {db,id,selections};
+}
+test('100 source selections generate successfully, preserving 101-row source and backup',()=>{
+ const {db,id,selections}=selectionLimitFixture(),before=JSON.stringify(db),request={date:'2026-10-15',dueDate:'2026-10-20',grouping:'supplier-date-item',selections:selections.slice(0,100)};
+ const p=P.preview(db,request);assert.equal(P.MAX_SELECTIONS,100);assert.equal(p.issues.length,0);assert.equal(p.documents.length,1);assert.equal(p.documents[0].lines.length,1);assert.equal(p.documents[0].lines[0].qty,100);
+ const next=P.commit(db,p).db;assert.equal(C.remaining(next,next.documents.find(d=>d.id===id),'purchaseorder').reduce((s,l)=>s+l.qty,0),1);assert.equal(next.documents.find(d=>d.id===id).lines.length,101);C.validateBackup(next);assert.equal(JSON.stringify(db),before);
+});
+test('101 source rows fail every grouping even when merging would create one output row',()=>{
+ const {db,selections}=selectionLimitFixture(),before=JSON.stringify(db);
+ for(const [grouping] of P.modes)assert.throws(()=>P.preview(db,{date:'2026-10-15',dueDate:'2026-10-20',grouping,partner:'V1',selections}),/1~100행/);
+ assert.equal(JSON.stringify(db),before);C.validateBackup(db);
+});
+test('commit rechecks selection count after a prepared request is changed',()=>{
+ const {db,selections}=selectionLimitFixture(),before=JSON.stringify(db);const p=P.preview(db,{date:'2026-10-15',dueDate:'2026-10-20',selections:selections.slice(0,100)});p.request.selections.push(selections[100]);assert.throws(()=>P.commit(db,p),/1~100행/);assert.equal(JSON.stringify(db),before);
+});

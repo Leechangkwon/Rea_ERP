@@ -1,7 +1,7 @@
 (function(root){
  'use strict';
  const C=typeof module==='object'&&module.exports?require('./inventory-core.js'):root.InventoryCore;
- const clone=C.clone,qty=C.quantity;
+ const clone=C.clone,qty=C.quantity,MAX_SELECTIONS=100;
  const modes=[['supplier-date-line','거래처별납기일자별라인별'],['supplier-date-item','거래처별납기일자별품목별'],['single-line','1장라인별'],['single-item','1장품목별'],['custom','직접설정']];
  const stable=value=>JSON.stringify(sortObject(value));
  function sortObject(value){if(Array.isArray(value))return value.map(sortObject);if(value&&typeof value==='object')return Object.fromEntries(Object.keys(value).sort().map(key=>[key,sortObject(value[key])]));return value;}
@@ -19,7 +19,7 @@
  function preview(db,input={}){
    const request=clone(input),grouping=request.grouping||'supplier-date-line';if(!modes.some(([key])=>key===grouping))throw Error('정리 방식을 선택하세요.');
    const generationDate=date(request.date||C.today(),'생성일');if(request.dueDate)date(request.dueDate,'납기일');
-   if(!Array.isArray(request.selections)||!request.selections.length||request.selections.length>500)throw Error('발주계획 품목을 1~500행 선택하세요.');
+   if(!Array.isArray(request.selections)||!request.selections.length||request.selections.length>MAX_SELECTIONS)throw Error('발주계획 품목을 1~'+MAX_SELECTIONS+'행 선택하세요.');
    const policy=grouping==='custom'?{splitSupplier:request.custom?.splitSupplier!==false,splitDueDate:request.custom?.splitDueDate!==false,mergeItems:request.custom?.mergeItems===true}:{splitSupplier:grouping.startsWith('supplier-'),splitDueDate:grouping.startsWith('supplier-'),mergeItems:grouping.endsWith('-item')};
    const issue=(key,message)=>({key,message}),issues=[],selected=[],seen=new Set(),current=new Map(candidateRows(db).map(row=>[row.key,row])),facts=[],sourceFacts=new Map(),itemFacts=new Map();
    for(const selection of request.selections){
@@ -61,5 +61,5 @@
    const current=preview(db,prepared.request);if(current.issues.length)throw Error(current.issues[0].message);if(current.snapshot!==prepared.snapshot||stable(current.documents)!==stable(prepared.documents))throw Error('발주계획·품목·잔량 또는 미리보기가 변경됐습니다. 미리보기를 다시 확인하세요.');
    return C.command(db,'purchasePlanGenerate',{documents:current.documents},policy);
  }
- const api={modes,candidates:candidateRows,preview,commit};if(typeof module==='object'&&module.exports)module.exports=api;else root.PurchasePlanCore=api;
+ const api={modes,MAX_SELECTIONS,candidates:candidateRows,preview,commit};if(typeof module==='object'&&module.exports)module.exports=api;else root.PurchasePlanCore=api;
 })(typeof globalThis==='object'?globalThis:this);
