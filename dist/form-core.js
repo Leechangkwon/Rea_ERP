@@ -61,10 +61,19 @@
     out.push(...byId.values());return out.map(f=>({...f,visible:f.protected?true:f.visible,readonly:f.calculated?true:f.readonly}));
   }
   function matches(rule,values){const value=String(values[rule.field]??values.custom?.[rule.field]??''),target=String(rule.value??'');if(rule.operator==='eq')return value===target;if(rule.operator==='neq')return value!==target;if(rule.operator==='contains')return value.includes(target);if(rule.operator==='gt')return value!==''&&Number(value)>Number(target);if(rule.operator==='lt')return value!==''&&Number(value)<Number(target);return false;}
-  function effective(store,key,context,base,values={}){
+  function environment(){
+    const user=root.AuthUI?.state?.()?.user,nav=root.navigator;
+    return {userId:typeof user?.loginId==='string'?user.loginId:'',mode:nav?(nav.userAgentData?.mobile===true||/Mobi|Android|iPhone|iPad|iPod/i.test(nav.userAgent||'')?'MOBILE':'PC'):''};
+  }
+  function conditionMatches(condition,values,env){
+    if(!condition.source||condition.source==='business')return matches(condition,values);
+    const value=condition.source==='session'?env.userId:env.mode;
+    return typeof value==='string'&&value!==''&&condition.operator==='eq'&&value===condition.value;
+  }
+  function effective(store,key,context,base,values={},env=environment()){
     const screenState=screen(store,key),forms=new Map(screenState.forms.filter(f=>f.context===context).map(f=>[f.id,f]));
     const ordered=screenState.rules.map((rule,index)=>({rule,index})).filter(({rule})=>rule.enabled&&rule.context===context&&forms.has(rule.formId)).sort((a,b)=>a.rule.priority-b.rule.priority||a.index-b.index);
-    const selected=ordered.find(({rule})=>matches(rule,values))?.rule;
+    const selected=ordered.find(({rule})=>rule.conditionVersion===1?rule.conditions.every(c=>conditionMatches(c,values,env)):matches(rule,values))?.rule;
     const id=selected?.formId||screenState.active[context]||'default',chosen=forms.get(id);
     return {id:chosen?.id||'default',name:chosen?.name||'기본(수정불가)',context,conditional:!!selected,fields:merge(base,chosen?.fields),page:{...pageDefaults,...chosen?.page}};
   }
@@ -74,7 +83,14 @@
   function activate(store,key,context,id){const next=copy(store||empty()),s=copy(screen(next,key));if(id!=='default'&&!s.forms.some(f=>f.id===id&&f.context===context))throw Error('선택한 양식이 없습니다.');s.active[context]=id;next.screens[key]=s;return next;}
   function remove(store,key,id){const next=copy(store||empty()),s=copy(screen(next,key));s.forms=s.forms.filter(f=>f.id!==id);for(const k of Object.keys(s.active))if(s.active[k]===id)s.active[k]='default';s.rules=s.rules.filter(r=>r.formId!==id);next.screens[key]=s;return next;}
   function rules(store,key,input){
-    if(!Array.isArray(input)||input.length>100)throw Error('조건양식은 100개 이하로 설정하세요.');const next=copy(store||empty()),s=copy(screen(next,key));s.rules=input.map((r,i)=>{if(!fieldKey(r.field)||!validKey(r.context)||!['eq','neq','contains','gt','lt'].includes(r.operator)||String(r.value??'').length>200||!s.forms.some(f=>f.id===r.formId&&f.context===r.context)||typeof r.enabled!=='boolean')throw Error('조건 항목과 적용 양식을 확인하세요.');return {...r,id:r.id||'rule_'+i,priority:Number.isFinite(Number(r.priority))?Number(r.priority):i};});next.screens[key]=s;return next;
+    if(!Array.isArray(input)||input.length>100)throw Error('조건양식은 100개 이하로 설정하세요.');const next=copy(store||empty()),s=copy(screen(next,key));
+    const business=c=>c&&fieldKey(c.field)&&['eq','neq','contains','gt','lt'].includes(c.operator)&&String(c.value??'').length<=200;
+    const condition=c=>c&&typeof c==='object'&&!Array.isArray(c)&&((!c.source||c.source==='business')?business(c):c.operator==='eq'&&typeof c.value==='string'&&c.value.length>0&&c.value.length<=200&&((c.source==='session'&&c.field==='userId')||(c.source==='client'&&c.field==='mode'&&['PC','MOBILE'].includes(c.value))));
+    s.rules=input.map((r,i)=>{
+      const valid=r&&typeof r==='object'&&!Array.isArray(r)&&validKey(r.context)&&s.forms.some(f=>f.id===r.formId&&f.context===r.context)&&typeof r.enabled==='boolean';
+      if(!valid||(Object.hasOwn(r,'conditionVersion')?r.conditionVersion!==1||!Array.isArray(r.conditions)||r.conditions.length<1||r.conditions.length>3||!r.conditions.every(condition):!business(r))||(r.conditionVersion===1&&r.name!==undefined&&(typeof r.name!=='string'||r.name.length>200)))throw Error('조건 항목과 적용 양식을 확인하세요. 세부 조건은 1~3개입니다.');
+      return {...copy(r),id:r.id||'rule_'+i,priority:Number.isFinite(Number(r.priority))?Number(r.priority):i};
+    });next.screens[key]=s;return next;
   }
   function validateStore(value){
     if(value===undefined)return empty();if(!value||value.version!==1||!value.screens||Array.isArray(value.screens)||typeof value.screens!=='object'||Object.keys(value.screens).length>500)throw Error('양식 백업 구조를 확인하세요.');
@@ -88,6 +104,6 @@
   function check(fields,values){for(const f of fields){const v=values[f.id];if(f.required&&(v===undefined||v===null||v===''||(f.type==='checkbox'&&v!==true)))throw Error(f.label+' 항목은 필수입니다.');if(v!==undefined&&v!==null&&v!==''){if(f.type==='number'&&!Number.isFinite(Number(v)))throw Error(f.label+' 숫자를 확인하세요.');if(f.type==='select'&&!f.options.includes(String(v)))throw Error(f.label+' 선택값을 확인하세요.');if(f.type==='date'&&(!/^\d{4}-\d{2}-\d{2}$/.test(v)||!Number.isFinite(Date.parse(v))||new Date(v).toISOString().slice(0,10)!==v))throw Error(f.label+' 일자를 확인하세요.');}}return values;}
   function custom(store,key,context){const result=new Map();for(const f of screen(store,key).forms.filter(f=>f.context===context))for(const x of f.fields)if(x.custom)result.set(x.id,x);return [...result.values()];}
   function defaultValue(f,date){if(f.defaultValue==='@today')return date;return f.defaultValue??'';}
-  const api={field,pageDefaults,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue};
+  const api={field,pageDefaults,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.FormCore=api;
 })(typeof globalThis==='object'?globalThis:this);
