@@ -215,3 +215,23 @@ v1 고정 백업 검증은6f1a017에 포함됐다. 합성5전표·메일 고정 
 원본8/자체7범위 REA와 단가10자리 연구 후보 검증을 완료했다(동등성 미완료). 신규3/집중28/VAT89/독립Fraction448사례 통과. 후보는 이미 결정된 단가를 받으므로 단가 검색·F4·값resolver를 자동으로 흉내 내지 않는다. source-manifest와 구체적 source ranges는 evidence/manual-vat-price-binding-20261021.json을 따른다.
 
 다음 독립 조사: value_format_in의 실제 포맷/회사 기본값과 값resolver가 소비하는 동적 계산식의 출처를 확인한다. 공개 모듈만으로 실제 입력값이나 기본값을 추정하지 않으며 소스 주석을 실행 결과로 세지 않는다. 현재 버전·매뉴얼의5충돌과 Decimal 동작이 해결되어야 저장v2·선택UI를 연결할 수 있다. 원본 로그인 복구가 필요하면 구매5단계·단가요청/수량조정의 확보된 공식본문과 기존코드 차이도 이어 조사한다. 준비된0.53.1후보/미저장 화면/자료백업 게이트와 모아 게시대기는 그대로다.
+
+
+## 기본 자동변경 Flow와 최종 금액 포맷 조사 · 2026-10-21
+
+ValueResolverFunc의 기본 attr_id는 trigger_resolve_value이며 FuncContext.attr에서 수집된다. 조회/인쇄의 value_calc_expression 경로와 구분한다. 엔진은 전달된 attr_list를 소비하고 Flow는 value/import/script/function으로 분기한다. import의 module/group/key 본문이나 실제 script/function이 없는 현재 wrapper만으로 공급·세액 식을 확정할 수 없다. 명시 attr_id·extension·custom sync·after_value_resolver가 있어 모든 입력을 이 기본 경로로 일반화하지 않는다.
+
+TriggerValueResolverExtension은 Flow 결과를 자료형 변환한 뒤 $$decimal이면 필드/회사 포맷으로 다시 처리해 저장한다. supply_amt trigger에서 origin_supply_amt는 custom_sync_handler로 분기하며, apply_price_amt는 VAT포함단가 trigger/값에 따라 재계산을 생략한다. 따라서 식과 현재 금액 사이의 입력조건·후처리도 추가 근거가 필요하다. 공개 모듈 원문은 실행하지 않는다.
+
+이번 변경 범위는 부가세 대조 fixture의 근거 해시와 미확인 목록이다. 고정7사례의 입력/기대값·5충돌·기존v1 백업·연구후보 산식은 보존한다. 원본 모듈의14개 작은 범위를 REA6.4.0으로 분석하고 독립 검토·기존 VAT검사·해시 검증 진단/엄격판정으로 확인한다. 앱·배포후보·운영에는 변경을 넣지 않는다. 이후 실제 대상 필드의 선택된 속성/참조/trigger·import본문·자료형/유효포맷·Decimal 근거부터 확보한다. 원본 입력·자동초안·설정 저장으로 검증하지 않는다.
+
+
+## 부가세 입력 자동변경·후처리 근거 보완 · 420cfd5
+
+ValueResolverFunc의 기본 자동변경 속성은 trigger_resolve_value이며 조회·인쇄의 value_calc_expression과 다르다. 실제 공급·세액 식은 선택된 Flow의 value/import/script/function과 참조·trigger에 달려 있다. Flow 결과도 자료형 변환과 필드/회사 숫자 포맷을 거쳐 저장한다. 직접 공급가액→origin_supply_amt의 custom sync, VAT포함단가 조건에 따른 적용단가 계산 생략도 확인했다. 모든 입력이 같은 기본 경로를 탄다고 일반화하지 않는다.
+
+기존 출처의 infra_common 공개 본문을 무쿠키로 복구했고 과거 SHA c8bfe06a와 일치했다. 새 고유본문이나 현재 배포본 확인으로 세지 않는다. 원본14범위 REA6.4.0 파싱실패0/잘림없음/coverage unknown, 독립 정적 검토를 마쳤다. 원본 코드는 실행하지 않았다.
+
+진단 fixture에 공통·기반 모듈 해시와 구체적인 미확인 조건을 추가하고 420cfd5를 push했다. 고정7사례의 입력/기대값은 보존했고 VAT89검사·근거해시 대조가 통과했다. 2일치/5충돌·엄격판정 종료2·동등성false를 유지한다. 앱/기존v1/연구계산식/운영은 바꾸지 않았으므로 새 브라우저 회귀·배포를 주장하지 않는다. 후보90958ac와0.53.0롤백 번들 해시는 같다.
+
+다음은 실제 선택된 입력 속성·참조·trigger, import의 정확한 module/group/key 본문, 후처리 포맷과 Decimal 근거다. 허용된 읽기 전용 출처부터 대조하며 업무 입력/설정 저장으로 검증하지 않는다. 모아 기존 본문 읽기·누락추가·저장본문 재조회는 로그인 복구 대기이며 공식13/로그인본문4/최종완료0을 유지한다. 상세 evidence/manual-vat-resolver-20261021.json.

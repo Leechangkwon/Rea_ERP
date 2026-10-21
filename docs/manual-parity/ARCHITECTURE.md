@@ -193,3 +193,19 @@ sourceLineId는 언제나 현재 전표의 sourceId가 가리키는 즉시 원�
 ### 묶음 발주 배분의 완료행 보호 · 59b2c4f
 
 saveDoc의 generatedFrom=purchase-plan 경로는 배분 구조/출처를 검증한 뒤 (원본전표, 품목, 원본행 ID 또는 없음)별 전체 수량을 합산한다. 완료 원본행의 새 배분 합계가 해당 전표의 이전 저장 합계보다 크면 거부한다. 이전 전표의 활성 여부와 무관하게 저장 수량을 기준으로 하므로 동량 취소·복원은 보존된다. 행 진행 상태를 헤더보다 우선하는 기존 규칙과 백업 검증 정책은 변경하지 않는다. 분할·재정렬·동량 가격 수정은 허용하고 기존 자료를 이관하거나 과거 완료 기록을 소급 거절하지 않는다. 원본 ECOUNT의 완료/복원 정책 전체가 검증됐다는 의미는 아니다. 근거 evidence/manual-plan-allocation-preservation-20261021.json.
+
+
+### 입력 자동변경과 숫자 후처리의 근거 경계 · 420cfd5
+
+원본의 기본 입력 경로와 조회/인쇄 경로는 속성 출처와 extension이 다르다. 입력 경로의 정적 구조는 아래와 같다. 명시적 override와 직접 공급가액 custom sync 예외는 별도다.
+
+```mermaid
+flowchart LR
+  A[FuncContext.attr의 trigger_resolve_value] --> B[선택된 Flow와 의존 순서]
+  B --> C[value / import / script / function]
+  C --> D[자료형 변환]
+  D --> E[필드·회사 숫자 포맷]
+  E --> F[DMC 저장 및 후처리]
+```
+
+현재 wrapper는 이 경로를 보여 주지만 실제 선택된 식·참조/trigger·후처리 포맷·Decimal 구현까지 입증하지 않는다. 조회/인쇄의 value_calc_expression을 입력 수식으로 대체하거나 7개 정적 기대값 일치를 전체 원본 합격으로 처리하지 않는다. 기존 저장v1·연구후보 raw-supply-static-candidate-v1은 변경하지 않는다. 근거 evidence/manual-vat-resolver-20261021.json; 모아 본문 반영·재조회 대기.
