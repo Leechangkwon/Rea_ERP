@@ -1,0 +1,240 @@
+{
+  "date": "2026-10-21",
+  "verifiedAtUtc": "2026-10-21T11:53:40.465151+00:00",
+  "requirement": "REQ-PUR-PRICE-001",
+  "version": "0.53.6",
+  "done": false,
+  "status": "deployed-synthetic-start-accepted-preservation-verified-hosted-write-and-manual-parity-pending",
+  "sourceCommit": "4a5c58f03f38da8de8e57a1c7cba6960c435091d",
+  "releaseCommit": "a613d8c4e9842215a467cd6a19f467b427d71887",
+  "baseReleaseCommit": "ce2e569cfe752bbd0103f82a5f806a44b4d8e445",
+  "bundleSha256": "05033a3548c1e68b75f1ab5d8a61d393a7945b22396f0cbca4cd504f593397b0",
+  "reference": {
+    "source": "EC-VID-13917",
+    "url": "https://www.ecount.com/kr/popup/edu_movie/edu_video.aspx?page=3&v=FjIB7_f4lCE&id=13917",
+    "observedAt": "2026-10-21T11:47:50.425018+00:00",
+    "method": "CUA official embedded video controls only; original ERP not edited",
+    "frames": [
+      {
+        "file": ".artifacts/manual-price-start-20261021/price-suppliers-header-0m54.png",
+        "time": "00:54",
+        "visible": "Two selected partner tokens in request header",
+        "sha256": "4dd35c841055cdcb15c24cf02ff9461a933bdca61e04d666fbdd23360039ae5e"
+      },
+      {
+        "file": ".artifacts/manual-price-start-20261021/price-suppliers-list-2m04.png",
+        "time": "02:04",
+        "visible": "One saved request row in query list",
+        "sha256": "73f57b5f7559013ed50a9422d011d3001ff159a80a5c6f6983ddf8897a4e1ac7"
+      },
+      {
+        "file": ".artifacts/manual-price-start-20261021/price-suppliers-recipients-2m24.png",
+        "time": "02:24",
+        "visible": "Two recipient rows refer to the same request number",
+        "sha256": "04d314aef78d86c591bc938ff75a03ff8d1056fe6c3a31e75960c21c4d671cb8"
+      }
+    ],
+    "interpretation": "One request with multiple supplier recipients; own atomic document plus companion comparison storage, not a claim about original internal database transactions.",
+    "unverified": [
+      "supplier mutation after existing replies",
+      "original DB transaction and permission rules",
+      "generated-voucher lifecycle",
+      "external supplier responses",
+      "confirmed prices applied to purchase orders",
+      "hosted business writes"
+    ]
+  },
+  "implementation": {
+    "command": "priceRequestCreate",
+    "newRequestOnly": true,
+    "suppliers": "1..5 active unique registered partners",
+    "singleVoucherAndCompanionCommit": true,
+    "automaticLegacyMigration": false,
+    "existingRepliesReset": false,
+    "savedSupplierChangesSupported": false,
+    "supplierNamesAndFilterAndCsv": true,
+    "schemaChanged": false,
+    "allOrNothing": true,
+    "failureDraftPreserved": true,
+    "sourceAndFormsPreserved": true,
+    "guards": [
+      "read/write permission",
+      "module storage account identity",
+      "editor identity",
+      "raw storage baseline",
+      "active suppliers",
+      "unique suppliers",
+      "new pricerequest only"
+    ],
+    "authenticationMailOrRuntimeConfigChanged": false
+  },
+  "validation": {
+    "focusedNodePassed": 99,
+    "newNodeTests": 10,
+    "syntheticBrowserPassed": 43,
+    "newBrowserTests": 1,
+    "verifyLocalPassed": true,
+    "verifyLog": ".artifacts/manual-price-start-20261021/verify-accepted.log",
+    "independentReview": "P1 account switch before editor and P2 vendor list/filter were reproduced and fixed, with regressions. Final review found no remaining blocker. Five preservation/late-event paths and supplier display/filter/CSV nonmutation verified.",
+    "initialCheckCorrections": [
+      "new-voucher sequence includes both number allocation and one audit log",
+      "existing import tests now select a supplier and verify the optional companion instead of asserting all settings identical",
+      "test harness now loads PriceRequestCore like the browser"
+    ],
+    "screenshotsReviewed": [
+      ".artifacts/releases/0.53.6-price-start/.artifacts/price-start-desktop.png",
+      ".artifacts/releases/0.53.6-price-start/.artifacts/price-start-mobile.png"
+    ],
+    "businessWritesSyntheticOnly": true
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 8,
+    "parseFailures": 0,
+    "semanticCoverage": "unknown",
+    "truncated": false,
+    "runtimeEquivalenceProven": false,
+    "originalRoutingCacheHashVerified": true,
+    "summary": ".artifacts/manual-price-start-20261021/rea/rea-summary.json"
+  },
+  "deployment": {
+    "target": "existing WSL + Supabase + Cloudflare rea.qaredi.com",
+    "deployed": true,
+    "pushedBeforeDeploy": true,
+    "publicChecks": {
+      "version": "0.53.6",
+      "sourceCommit": "a613d8c4e9842215a467cd6a19f467b427d71887",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/inventory-core.js",
+          "status": 200,
+          "sha256": "f65b3a859bf51b1c5fb361c1a33b654b6d3280edcc4f140273a776b1b2986c7f",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-core.js",
+          "status": 200,
+          "sha256": "b02d6ab752983fa29797b5b1f74aa99f75d040eae28c2f393c0e8a4c6d2dbc65",
+          "equalsLocal": true
+        },
+        {
+          "path": "/entry-ui.js",
+          "status": 200,
+          "sha256": "67bae0c1c76c01660ecafaaa9fcf6e0710bf092dbe4a5339336793cb3c4db586",
+          "equalsLocal": true
+        },
+        {
+          "path": "/price-request-ui.js",
+          "status": 200,
+          "sha256": "660106673aad1479684a6bc3fdaa8f0247efb95d1b0d0f69e0a3ae09dae505cf",
+          "equalsLocal": true
+        },
+        {
+          "path": "/price-request-core.js",
+          "status": 200,
+          "sha256": "47bf74ef5d3550774bcda4d3f65c71bc6da85378af4f669de3a52fa9e743a06e",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-ui.js",
+          "status": 200,
+          "sha256": "fc920fd61a0ccd3cd62734e6a892330f8bc3c752d16cf6824efbe4dae37dbad7",
+          "equalsLocal": true
+        },
+        {
+          "path": "/reference-picker-ui.js",
+          "status": 200,
+          "sha256": "f8fac953651edacc081fc9171a0463e9e6cf461d5b15b761c01b42907166782a",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "browser": {
+      "version": "0.53.6",
+      "existingSessionRetained": true,
+      "reloginRequested": false,
+      "route": "https://rea.qaredi.com/#menu=2-2-2-0",
+      "newEditorOpened": true,
+      "supplierPickerOpenedAndCancelled": true,
+      "productionBusinessWritePerformed": false,
+      "browserBackupBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "priceRequests": 0,
+      "comparisonRecords": 0,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "screenshot": ".artifacts/manual-price-start-20261021/rea-price-start-0.53.6-production.png",
+      "hostedDataBearingSaveAcceptance": false
+    },
+    "preservation": {
+      "version": "0.53.6",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 28,
+          "afterRevision": 28,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "backupDirectory": "/home/lck/.local/share/rea-erp/backups/price-start-0.53.6-1792583193785",
+    "rollbackBundle": ".artifacts/manual-price-start-20261021/rollback-0.53.5-worker.js",
+    "rollbackSha256": "49ead4bad3261696a7da21ffba682da226dffa0cbc7afc213884bd86fa6cc09b",
+    "sitesUsed": false,
+    "unfinishedVatIncluded": false,
+    "originalErpWrites": false,
+    "productionBusinessWrites": false,
+    "realMailSent": false
+  },
+  "remaining": [
+    "original existing-supplier modification and per-vendor reply lifecycle",
+    "original selection defaults, header selection and partial confirmation policy",
+    "confirmed-price purchaseorder application",
+    "external supplier authentication and replies",
+    "validity period expiration semantics",
+    "hosted data-bearing write acceptance",
+    "whole manual parity"
+  ],
+  "moa": {
+    "parent": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastObservedConnectorState": "401; no new user authentication since prior check",
+    "saveAttempted": false,
+    "saved": false,
+    "readbackVerified": false,
+    "pendingBody": ".artifacts/manual-price-start-20261021/moa-pending-start.html"
+  }
+}
