@@ -183,3 +183,8 @@ scripts/lib/transaction-vat-static-candidate.cjs는 저장v2가 아닌 연구 �
 단가검색은 원본 Price/PriceVatInclude를 각각 apply_price_amt/vat_apply_price_amt로 매핑해 포맷처리한 뒤 값resolver를 호출한다. F4는 공급단가 변환 뒤 필드 포맷을 적용한다. 동적 필드 식·라이브 설정·실제Decimal이 확인되기 전 최종 공급가액 생성 전체를 재현했다고 하지 않는다. common 모듈의 R/10은 포맷 없는 apply_price_amt에 한정된 fallback이며 origin_supply_amt는 숨김열 회사포맷 fallback에서 제외된다.
 
 연구 후보 raw-supply-static-candidate-v1은 이미 결정된 단가의10자리만 정확히 받도록 확장했다. 수량6/금액0~2/단일0·10% 범위는 유지한다. 이는 저장 vatAdjustment.version1 또는 계획된 저장v2와 관계없는 연구 알고리즘 식별자다. 앱 import·기존 금액 재계산·양식기본값 변경은 없고 canApply=false다. 근거 evidence/manual-vat-price-binding-20261021.json.
+
+
+### 단계별 원본 행 식별자 계약 · 2026-10-21
+
+sourceLineId는 언제나 현재 전표의 sourceId가 가리키는 즉시 원본의 lineId에 대응한다. 원본 자체가 상위 전표에 연결되어 있다는 이유로 그 상위 sourceLineId를 다음 단계에 전달하지 않는다. 즉시 원본에 lineId가 없으면 기존 품목별 연결/잔량을 사용한다. 기존 백업의 부모 식별자는 보존하고, 모호한 중복 품목은 기존 저장 검증으로 거절한다. 새 ID 자동 이관·양식/출처/금액 변경은 없다. 근거 evidence/manual-purchase-source-lineage-20261021.json.

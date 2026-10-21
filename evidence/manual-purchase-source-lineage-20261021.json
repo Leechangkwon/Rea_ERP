@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "requirement": "REQ-PUR-FLOW-001",
+  "status": "locally-verified-isolated-candidate-not-deployed",
+  "done": false,
+  "sourceCommit": "0fb9e30626f37b6a8525cd87ffc6b0526f018ef9",
+  "pushedToOriginMain": true,
+  "basis": {
+    "manualId": "EC-HELP-REQUEST-036",
+    "manualFile": ".artifacts/manual-parity-20261021/manual-purchase-overview.txt",
+    "manualSha256": "2cfee5d178a088001ea331684c9044fecf21f6f6ff6795f8d90f810724af36e9",
+    "manualScope": "Optional five-stage procurement; first four stages have no stock effect, purchase increases stock and payable",
+    "localContract": "Saved and backup-valid documents may refer to their parent sourceLineId without having their own lineId",
+    "originalInternalIdentifierContractVerified": false
+  },
+  "reproduction": {
+    "syntheticOnly": true,
+    "requestOwnRowId": "REQUEST-ROW",
+    "planOwnRowId": null,
+    "planAncestorRowId": "REQUEST-ROW",
+    "beforeTests": {
+      "total": 6,
+      "failed": 3,
+      "passed": 3
+    },
+    "convertError": "원본 발주계획 품목행을 확인하세요.",
+    "pickerError": "원본 전표의 잔량을 초과하거나 원본에 없는 품목이 있습니다.",
+    "log": ".artifacts/manual-five-stage-20261021/lineage-before.log"
+  },
+  "implementation": [
+    "Convert and staged linked import set sourceLineId to the immediate source lineId when present",
+    "If immediate source has no own lineId, omit inherited ancestor sourceLineId in the new child and retain existing item-based remainder contract",
+    "No source record migration, no invented identifiers or ambiguous duplicate-item merge"
+  ],
+  "preserved": [
+    "Ancestor request and plan documents unchanged",
+    "Custom line fields and existing settings unchanged",
+    "Partial receipt, cancellation and reallocation keep stock/payable/remainder totals",
+    "Forged ancestor identifiers remain invalid",
+    "Own line IDs still distinguish immediate source rows",
+    "Backup roundtrip preserves old parent references"
+  ],
+  "checks": {
+    "newNodeTests": 6,
+    "focusedNodeTests": 93,
+    "fullVerifyLocal": "passed",
+    "localhostBrowserTests": 36,
+    "newBrowserTests": 1,
+    "candidateFullVerifyLocal": "passed",
+    "candidateBrowserTests": 33,
+    "diffCheck": "passed",
+    "screenshot": ".artifacts/manual-five-stage-20261021/synthetic-purchase-lineage.png",
+    "visualReview": "Synthetic purchase saved detail header and document identifier visible; field values and balances asserted in Playwright before reload and after reload",
+    "independentReview": {
+      "materialFindings": 0,
+      "relatedNodeTests": 88,
+      "additionalSyntheticScenarios": [
+        "Ambiguous duplicate items without own IDs safely rejected without DB mutation",
+        "Purchase return stock/payable/amounts through convert and picker",
+        "Quote to order to sale lineage and backup preservation"
+      ],
+      "newBrowserTestReview": "static only; full browser execution by main agent"
+    },
+    "logs": [
+      {
+        "path": ".artifacts/manual-five-stage-20261021/lineage-before.log",
+        "sha256": "5e1d19f06bf4351deac165b8d2535b3b63fe044da1724c7a9a16bb5ee3d3736f"
+      },
+      {
+        "path": ".artifacts/manual-five-stage-20261021/lineage-focused.log",
+        "sha256": "8dfb77ea8830625019047b23422babfb7e937893e90e2b4373cd755dc01f0dd3"
+      },
+      {
+        "path": ".artifacts/manual-five-stage-20261021/browser-focused.log",
+        "sha256": "630ef7929c723eb49c5d054c61688b1455f3b368609bbb38fe89c81f0654b583"
+      },
+      {
+        "path": ".artifacts/manual-five-stage-20261021/verify-main.log",
+        "sha256": "7065d09bd84bbad8cec30b84882dd68006c56c44f50225378ada72e66801957b"
+      },
+      {
+        "path": ".artifacts/manual-five-stage-20261021/verify-candidate.log",
+        "sha256": "fd7eb1137b1296caee21745da9805a786db4042ecdc37c1152833b4249f40215"
+      }
+    ]
+  },
+  "rea": {
+    "version": "6.4.0",
+    "mainOwnScopes": 4,
+    "isolatedCandidateOwnScopes": 2,
+    "originalScopesNew": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "anyTruncated": false,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "sourceManifestHashChecked": true,
+    "mainSummarySha256": "dcc936b43ecb09af28a9a6706d8ce76afe40152bb48f670773907418f6ed5602",
+    "candidateSummarySha256": "f1bc1361b8f1d5254fea1c03f9dac8be7cf729a70c4eaa3c267b029d9e6de431",
+    "scopes": [
+      {
+        "name": "remaining",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "e9e80d6c9039bb47bdbcbb4bee2655ea53d83f1c4010cf7185a53d28a42b7461",
+        "start": 18958,
+        "end": 19753,
+        "lineStart": 158,
+        "lineEnd": 163,
+        "fragmentSha256": "1dacdef75105a0903240e17fdef3d84b8bcfbcfe489f404d7a8d93247bd2a375",
+        "resultSha256": "c614137296064e452283ab9e2d51178c393faa07d36521d535ac8a4c4e021cea",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 795,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 204,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validateProvenance",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "e9e80d6c9039bb47bdbcbb4bee2655ea53d83f1c4010cf7185a53d28a42b7461",
+        "start": 28641,
+        "end": 30888,
+        "lineStart": 244,
+        "lineEnd": 263,
+        "fragmentSha256": "0d6f13da3c9ecf421b5f03f1918a6ae82218b24acd0b9d5323b1719f9d39929b",
+        "resultSha256": "bcf71fe4f7bd2dea34f954b45bef82d4e4a6d3548e08b6e6ddb3add155f4233c",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2663,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 520,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "convert",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "e9e80d6c9039bb47bdbcbb4bee2655ea53d83f1c4010cf7185a53d28a42b7461",
+        "start": 42295,
+        "end": 44645,
+        "lineStart": 368,
+        "lineEnd": 391,
+        "fragmentSha256": "911f4e5a256b6b016241d5507dca315416b4612750e14e4bd8b511d7773fae7e",
+        "resultSha256": "9873e1d3c11ac16df2a3046168deaa3f63955eb037931b6121fb8b1266ac4c60",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2492,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 597,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "stageDocuments",
+        "category": "own",
+        "file": "dist/entry-core.js",
+        "sourceSha256": "a9f539762f5ba03a3f4a2463fed72e9fc4e57d81fd0791f0ac165a6aa652b658",
+        "start": 10253,
+        "end": 15187,
+        "lineStart": 119,
+        "lineEnd": 172,
+        "fragmentSha256": "a181dfbbf05235dc304de89b6cbcaec56107065a93fe45b4f73713af5fc6e568",
+        "resultSha256": "defca95505b53be7353e42d2d97517247d466c45ad8d31f06374d293154cb3ac",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 5626,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 1008,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "convert",
+        "category": "candidate",
+        "file": ".artifacts/releases/0.53.1/dist/inventory-core.js",
+        "sourceSha256": "de3018eacfd69af58eb5575c7f0f7ea53faf854e653cff578d096d74fab692f0",
+        "start": 40603,
+        "end": 42866,
+        "lineStart": 352,
+        "lineEnd": 375,
+        "fragmentSha256": "713f96dbd48f0364008b0eb8b936eb2468c5745e6f7d835e3e3373dcd8dbbe41",
+        "resultSha256": "7e8468f96ac34d84cac3b842980e5377d07d07986ededb8a3a940b9a5cfc8b6f",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2405,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 582,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "stageDocuments",
+        "category": "candidate",
+        "file": ".artifacts/releases/0.53.1/dist/entry-core.js",
+        "sourceSha256": "a9f539762f5ba03a3f4a2463fed72e9fc4e57d81fd0791f0ac165a6aa652b658",
+        "start": 10253,
+        "end": 15187,
+        "lineStart": 119,
+        "lineEnd": 172,
+        "fragmentSha256": "a181dfbbf05235dc304de89b6cbcaec56107065a93fe45b4f73713af5fc6e568",
+        "resultSha256": "f3529d17d1784d1f72500f17d1e0117be4a3f5220543ee8503e32149e5f3ad80",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 5626,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 1008,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "dist/inventory-core.js",
+      "sha256": "e9e80d6c9039bb47bdbcbb4bee2655ea53d83f1c4010cf7185a53d28a42b7461"
+    },
+    {
+      "path": "dist/entry-core.js",
+      "sha256": "a9f539762f5ba03a3f4a2463fed72e9fc4e57d81fd0791f0ac165a6aa652b658"
+    },
+    {
+      "path": "tests/purchase-source-lineage.cjs",
+      "sha256": "72d87c032415efdfbd5dcbfe363d2d1d51c37f733692458d8a525c9d26e44768"
+    },
+    {
+      "path": "tests/browser/request.spec.cjs",
+      "sha256": "9b74cf43236861c45c61d64d9fc341dcd87e8be80adf132b7bb0642ccbaf7879"
+    }
+  ],
+  "candidate": {
+    "candidateVersion": "0.53.1",
+    "priorCandidateCommit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
+    "changedEmbeddedAssets": [
+      "/entry-core.js",
+      "/inventory-core.js"
+    ],
+    "embeddedAssetCount": 57,
+    "nonAssetDifference": "Only the same inventory-core source patch",
+    "workerEntrypointUnchanged": true,
+    "unfinishedVatAbsent": true,
+    "rollbackHashVerified": true,
+    "priorCandidateHashVerified": true,
+    "bundleSha256": "f65cf0d2278022950f287be379edf608a6840336a625e7df68eb2d4dd8f2b656",
+    "installedIntoOperatingRuntime": false,
+    "commit": "226ef2fa29929cfe9e8a1fd0eb98f554b07cd85a",
+    "branch": "release/0.53.1",
+    "pushed": true,
+    "mainSourceCommit": "0fb9e30626f37b6a8525cd87ffc6b0526f018ef9",
+    "manifest": {
+      "candidateCommit": "226ef2fa29929cfe9e8a1fd0eb98f554b07cd85a",
+      "candidateBranch": "release/0.53.1",
+      "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+      "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-five-stage-20261021/candidate-226ef2f-worker.js",
+      "candidateBundleSha256": "f65cf0d2278022950f287be379edf608a6840336a625e7df68eb2d4dd8f2b656",
+      "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+      "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+      "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+      "installedIntoOperatingRuntime": false,
+      "priorCandidateManifest": {
+        "candidateCommit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
+        "candidateBranch": "release/0.53.1",
+        "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+        "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-plan-supplier-20261021/candidate-cef5a2c-worker.js",
+        "candidateBundleSha256": "5356365fb2f2bfb50d6ad11e92a9da562092c14a878ba4bff9614012135ae66a",
+        "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+        "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+        "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+        "installedIntoOperatingRuntime": false,
+        "priorCandidateManifest": {
+          "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+          "candidateBranch": "release/0.53.1",
+          "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+          "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/candidate-0c8e41f-worker.js",
+          "candidateBundleSha256": "4a5ba859eb3acf7eea4505cd4d48ceed2edbf3aca5e515ac6ee64162470e3fa9",
+          "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+          "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+          "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+          "installedIntoOperatingRuntime": false
+        },
+        "mainSourceCommit": "885b4b83a4312110e73fd7e13edb141b5480cb4e"
+      },
+      "mainSourceCommit": "0fb9e30626f37b6a8525cd87ffc6b0526f018ef9"
+    },
+    "validationSha256": "512fc78a71a6a3acbe9f819de25653f611bcda4bc42003ce0cffa4de4cfec7b1"
+  },
+  "preservation": {
+    "originalErpWrites": false,
+    "productionWrites": false,
+    "serverRestarted": false,
+    "schemaMigration": false,
+    "runtimeSettingsChanged": false,
+    "existingDraftDiscarded": false,
+    "mailSent": false,
+    "communitySaveAttempted": false,
+    "communityReadbackVerified": false
+  },
+  "deployment": {
+    "operatingVersion": "0.53.0",
+    "notRedeployed": true,
+    "lastPublicCheckReusedFromPriorEvidence": "2026-10-21T01:00:16Z",
+    "freshPublicCheckThisTurn": false,
+    "remainingGates": [
+      "Preserve/recover unsaved REA editor and compare browser JSON",
+      "Private account/state/mail backup and restore preview",
+      "Verify isolated bundle, restart existing runtime and authenticated preservation checks",
+      "Append missing Moa progress and reread saved body"
+    ]
+  },
+  "nextConfirmedGap": {
+    "kind": "completed-plan-grouped-allocation-increase",
+    "log": ".artifacts/manual-five-stage-20261021/grouped-completed-probe.log",
+    "observation": "Grouped order permits allocation qty2 to qty3 after source plan completion; ordinary direct link rejects this increase",
+    "nextCheck": "Compare per (source document, source line or item) summed allocations before and after, including constant-total reallocations",
+    "preserveExistingBehavior": "Same-quantity cancellation and restoration are allowed on both direct and grouped paths; do not prohibit restoration merely because the plan is completed",
+    "implemented": false
+  },
+  "officialRequirementCounts": {
+    "requirements": 13,
+    "reviewedLoginManualBodies": 4,
+    "done": 0
+  }
+}
