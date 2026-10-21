@@ -12,6 +12,28 @@
       "sourceManifest": ".artifacts/purchasing-multiselect-sort-20261020/source-manifest.json",
       "lineStart": 5943,
       "lineEnd": 6041
+    },
+    "originalCommon": {
+      "path": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+      "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+      "provenanceManifest": "evidence/global-rea-20261018/axis-directions/source-manifest.json",
+      "scopes": [
+        "ValueResolverFunc._initializeRequest",
+        "ValueResolverFunc._buildConfigureToAttributes",
+        "TriggerValueResolverExtension.onValueSetter",
+        "TriggerValueResolverExtension.onProcessPropAsync"
+      ]
+    },
+    "originalInfraCommon": {
+      "path": ".artifacts/manual-vat-resolver-20261021/original-infra-common.js",
+      "sha256": "c8bfe06ad2f6e8dd90db8518e5e39239af1b614907515175809a30ebcf3bbf89",
+      "provenanceManifest": "evidence/global-rea-20261018/axis-directions/source-manifest.json",
+      "scopes": [
+        "BrowserAttributeFlowAdapter.executeScriptAsync",
+        "BrowserFlowExecutor.executeAsync",
+        "BrowserFlowExecutor.importRequest",
+        "BrowserFlowUtil.resolveImportGroup"
+      ]
     }
   },
   "scope": "Synthetic positive KRW, one header VAT rate 0 or 10, no discount, no direct supply, no FX. Static values are an independent exact-decimal interpretation, not execution or verified outputs of ECOUNT. Each fixture explicitly uses the same supply/VAT precision, matching the shared source amt.decimal_part_size.",
@@ -22,7 +44,10 @@
     "Transaction/item/warehouse/default VAT priority and mixed-rate groups",
     "Foreign currency supply, exchange rate and existing VAT totals",
     "Exception-condition attribute evaluation and manual settings UI",
-    "Own independent supply/VAT precision versus original shared amt.decimal_part_size; legacy defaults must not be silently migrated"
+    "Own independent supply/VAT precision versus original shared amt.decimal_part_size; legacy defaults must not be silently migrated",
+    "Actual selected trigger_resolve_value attributes and references for the default input ValueResolverFunc path; list/print value_calc_expression cannot substitute",
+    "Exact imported module/group/key body or dynamic script/function, custom extension/sync handler and after_value_resolver for the affected fields",
+    "Post-flow data-type conversion and effective field/tenant decimal format; direct supply origin synchronization and VAT-inclusive price trigger skip conditions"
   ],
   "cases": [
     {
