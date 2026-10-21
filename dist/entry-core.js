@@ -35,14 +35,16 @@
     return d;
   }
   const quotedSource=(db,source,type)=>source.type==='pricerequest'&&type==='purchaseorder'&&db.settings.priceRequests?.records.some(row=>row.documentId===source.id);
+  function historySourceTypes(targetType){if(targetType!=='purchase')throw Error('구매 거래내역보기 화면을 확인하세요.');return ['pricerequest','purchaseorder','purchase'];}
   function documentCandidates(db,options={}){
     const {targetType,sourceType,warehouse,partner,from,to,query,excludeId}=options,mode=options.mode||'copy';
     if(!['copy','linked'].includes(mode))throw Error('전표 불러오기 방식을 확인하세요.');
+    const historyTypes=options.history===true?historySourceTypes(targetType):null;if(historyTypes&&mode!=='copy')throw Error('거래내역보기는 내용 복사만 사용할 수 있습니다.');if(historyTypes&&sourceType&&!historyTypes.includes(sourceType))throw Error('구매 거래내역은 단가요청·발주·구매만 불러올 수 있습니다.');
     if(mode==='linked'&&!C.types[targetType])throw Error('작성할 전표 종류를 선택하세요.');
     if(from)date(from,'기간 시작');if(to)date(to,'기간 종료');if(from&&to&&from>to)throw Error('조회 기간을 확인하세요.');
     if(warehouse)enabled(db,'warehouses',warehouse);if(partner)enabled(db,'partners',partner);
     const view=stockDb(db,{excludeId});
-    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&!(d.type==='purchaseorder'&&targetType==='purchase'&&C.purchasingState(d).progress==='완료')&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||quotedSource(db,d,targetType)||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>C.purchaseSupplier(db,l,d)===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
+    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&(!historyTypes||historyTypes.includes(d.type))&&(historyTypes||!(d.type==='purchaseorder'&&targetType==='purchase'&&C.purchasingState(d).progress==='완료'))&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||quotedSource(db,d,targetType)||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>C.purchaseSupplier(db,l,d)===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
       (mode==='copy'||C.nextTypes[d.type]?.includes(targetType)&&!(d.type==='purchasereturn'&&targetType==='exchangereceipt'&&d.settlementMode!=='exchange'))).map(d=>{
       let sourceLines=mode==='linked'?C.remaining(view,d,targetType):d.lines;
       const headerOnly=mode==='linked'&&d.type==='purchaseorder'&&targetType==='purchase'&&sourceLines.length>0&&sourceLines.every(line=>line.qty===0);
@@ -156,7 +158,8 @@
   }
   function stageDocuments(db,draft,options={}){
     if(!draft||!C.types[draft.type])throw Error('작성할 전표 종류를 선택하세요.');
-    const mode=options.mode||'copy',selections=selectedRows(options.selections),result=copy(draft),replace=options.replace===true;
+    const mode=options.mode||'copy',selections=selectedRows(options.selections),result=copy(draft),replace=options.replace===true,history=options.history===true;
+    const historyTypes=history?historySourceTypes(draft.type):null;if(history&&(mode!=='copy'||options.grouping!=='line'||options.adoptHeader===true))throw Error('거래내역보기는 상단을 유지하는 라인별 내용 복사만 사용할 수 있습니다.');
     if(!['copy','linked'].includes(mode))throw Error('전표 불러오기 방식을 확인하세요.');
     if(mode==='copy'&&result.sourceId)throw Error('연결 처리 중인 전표에는 복사 행을 섞을 수 없습니다.');
     const ids=[...new Set(selections.map(s=>s.documentId))];
@@ -164,7 +167,8 @@
     if(mode==='linked'&&result.sourceId&&result.sourceId!==ids[0])throw Error('다른 원본 전표가 이미 연결되어 있습니다.');
     if(mode==='linked'&&!result.sourceId&&(result.lines||[]).length&&!replace)throw Error('잔량 연결은 기존 행을 비우거나 덮어쓰기를 선택한 뒤 적용하세요.');
     const sources=new Map(ids.map(id=>[id,sourceRecord(db,id)]));
-    if(result.type==='purchase'&&[...sources.values()].some(d=>d.type==='purchaseorder'&&C.purchasingState(d).progress==='완료'))throw Error('종결된 발주서는 진행중으로 변경한 뒤 불러오세요.');
+    if(historyTypes&&[...sources.values()].some(d=>!historyTypes.includes(d.type)))throw Error('구매 거래내역은 단가요청·발주·구매만 불러올 수 있습니다.');
+    if(!history&&result.type==='purchase'&&[...sources.values()].some(d=>d.type==='purchaseorder'&&C.purchasingState(d).progress==='완료'))throw Error('종결된 발주서는 진행중으로 변경한 뒤 불러오세요.');
     if(ids.includes(result.id))throw Error('작성 중인 전표를 자기 자신에게 불러올 수 없습니다.');
     if(options.adoptHeader===true){
       if(ids.length!==1)throw Error('머리 항목은 원본 전표 한 개에서만 적용할 수 있습니다.');
@@ -176,7 +180,7 @@
     }
     const source=sources.get(ids[0]);
     if(result.type==='purchaseorder'&&!result.partner&&[...sources.values()].every(d=>d.type==='plan')){const suppliers=selections.map(selection=>{const d=sources.get(selection.documentId),line=d.lines.find(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));return C.purchaseSupplier(db,line,d);});if(suppliers.every(Boolean)&&new Set(suppliers).size===1)result.partner=suppliers[0];}
-    if(result.type==='purchase')for(const origin of sources.values())if(origin.type==='purchaseorder'){const custom=purchaseCustom(db,origin,draft,'input',origin.custom,result.custom);if(Object.keys(custom).length)result.custom=custom;}
+    if(!history&&result.type==='purchase')for(const origin of sources.values())if(origin.type==='purchaseorder'){const custom=purchaseCustom(db,origin,draft,'input',origin.custom,result.custom);if(Object.keys(custom).length)result.custom=custom;}
     if(mode==='linked'){
       if(!C.nextTypes[source.type]?.includes(result.type))throw Error('이 전표 종류는 잔량을 연결할 수 없습니다.');
       if(!(result.lines||[]).length){if(!result.partner&&!(source.type==='transfer'&&result.type==='sale'||quotedSource(db,source,result.type)))result.partner=source.partner||'';if(!result.warehouse)result.warehouse=C.linkedWarehouse(source,result.type);}
@@ -202,11 +206,11 @@
       if(result.type!=='plan')delete row.progress;
       // A new link refers to this source row, never to the source's own ancestor.
       if(mode==='linked'){if(line.lineId)row.sourceLineId=line.lineId;else delete row.sourceLineId;}else {delete row.lineId;delete row.sourceLineId;delete row.planAllocations;}
-      return {...row,qty,importedFrom:[{documentId:d.id,type:d.type,date:d.date,item:line.item,...(line.lineId?{sourceLineId:line.lineId}:{}),qty,mode}]};
+      return {...row,qty,importedFrom:[{documentId:d.id,type:d.type,date:d.date,item:line.item,...(line.lineId?{sourceLineId:line.lineId}:{}),...(history&&line.custom?{customSnapshot:copy(line.custom)}:{}),qty,mode}]};
     });
     if(result.type==='purchaseorder'&&incoming.some(line=>line.priceRequestBasis))result.partner=C.priceRequestOrderPartner([...(replace?[]:result.lines||[]),...incoming],options.adoptHeader===true&&incoming.some(line=>line.priceRequestBasis?.vendorCode)?'':result.partner);
-    const purchaseOrderLineCopy=result.type==='purchase'&&[...sources.values()].every(d=>d.type==='purchaseorder'),lineCopy=mode==='copy'&&options.grouping==='line'&&(purchaseOrderLineCopy||result.type==='request'&&[...sources.values()].every(d=>d.type==='order'));
-    if(lineCopy&&purchaseOrderLineCopy&&result.id){const saved=db.documents.find(d=>d.id===result.id);if(saved&&!saved.lines.some(line=>line.lineId)&&db.documents.some(d=>d.sourceId===saved.id))throw Error('후속 전표가 있는 기존 구매는 라인별 복사로 변경할 수 없습니다. 신규 구매전표를 사용하세요.');}
+    const purchaseOrderLineCopy=result.type==='purchase'&&[...sources.values()].every(d=>d.type==='purchaseorder'),lineCopy=mode==='copy'&&options.grouping==='line'&&(history||purchaseOrderLineCopy||result.type==='request'&&[...sources.values()].every(d=>d.type==='order'));
+    if(lineCopy&&(purchaseOrderLineCopy||history)&&result.id){const saved=db.documents.find(d=>d.id===result.id);if(saved&&!saved.lines.some(line=>line.lineId)&&db.documents.some(d=>d.sourceId===saved.id))throw Error('후속 전표가 있는 기존 구매는 라인별 복사로 변경할 수 없습니다. 신규 구매전표를 사용하세요.');}
     result.lines=lineCopy?appendCopyLines(replace?[]:result.lines,incoming):mergeLines(replace?[]:result.lines,incoming,{type:result.type,...(['request','plan'].includes(result.type)?{supplier:line=>C.purchaseSupplier(db,line,result)}:{}),structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
     if(mode==='linked'){
       const limits=new Map(C.remaining(view,source,result.type).map(l=>[l.lineId||l.item,l.qty]));
@@ -246,6 +250,6 @@
     }
     return warnings;
   }
-  const api={salesTypes,purchaseTypes,sourceTypes,documentCandidates,stockCandidates,stagePurchaseHeader,stageDocuments,stageStock,safetyWarnings};
+  const api={salesTypes,purchaseTypes,sourceTypes,historySourceTypes,documentCandidates,stockCandidates,stagePurchaseHeader,stageDocuments,stageStock,safetyWarnings};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.EntryCore=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
