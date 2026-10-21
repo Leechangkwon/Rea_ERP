@@ -1,4 +1,31 @@
 const {test,expect}=require('@playwright/test');
+test('direct received prices stage, save once and reload without changing original vouchers or forms',async({page})=>{
+ await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
+ await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
+ await page.evaluate(()=>{
+  const C=InventoryCore;let db=JSON.parse(localStorage.getItem('ecount-inventory-v2'));
+  db=C.command(db,'master',{key:'partners',record:{code:'V002',name:'다른 비교 거래처',kind:'매입'}}).db;
+  const out=C.command(db,'document',{type:'pricerequest',date:C.today(),warehouse:'W001',partner:'V001',status:'진행',lines:[{lineId:'a',item:'M001',qty:100,price:50000},{lineId:'b',item:'M001',qty:2,price:1},{lineId:'c',item:'M001',qty:3,price:5}]});db=out.db;
+  db=C.command(db,'priceRequest',{action:'start',documentId:out.result.id,vendorCodes:['V001','V002']}).db;
+  localStorage.setItem('ecount-inventory-v2',JSON.stringify(db));
+ });
+ await page.reload();await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();await page.getByRole('button',{name:'단가요청조회',exact:true}).click();
+ const before=await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'));
+ await page.getByRole('button',{name:'단가요청비교현황',exact:true}).click();
+ const compare=page.getByRole('dialog',{name:'단가요청비교현황',exact:true}),reply=page.getByRole('dialog',{name:'수취단가 직접입력',exact:true});
+ await compare.getByRole('button',{name:'V001 샘플 구매처 수취단가 직접입력',exact:true}).click();
+ await reply.getByLabel('1행 V001 수취단가',{exact:true}).fill('0');await reply.getByLabel('2행 V001 수취단가',{exact:true}).fill('25000.0123456789');
+ expect(await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'))).toBe(before);
+ await page.screenshot({path:'.artifacts/price-reply-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});expect(await reply.evaluate(el=>el.getBoundingClientRect().width<=window.innerWidth)).toBe(true);
+ await reply.getByLabel('2행 V001 수취단가',{exact:true}).scrollIntoViewIfNeeded();await page.screenshot({path:'.artifacts/price-reply-mobile.png',fullPage:true});
+ await page.keyboard.press('F8');await expect(compare).toBeVisible();
+ const saved=await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2')),old=JSON.parse(before),now=JSON.parse(saved),state=now.settings.priceRequests.records[0].comparison;
+ expect(state.vendors[0].received.map(r=>r.price)).toEqual(['0','25000.0123456789',null]);expect(state.vendors[1]).toEqual(old.settings.priceRequests.records[0].comparison.vendors[1]);expect(state.revision).toBe(1);expect(now.sequence).toBe(old.sequence+1);expect(now.documents).toEqual(old.documents);expect(now.prices).toEqual(old.prices);expect(now.settings.customization).toEqual(old.settings.customization);
+ await compare.getByRole('button',{name:'닫기',exact:true}).click();await page.reload();await page.getByRole('button',{name:'단가요청조회',exact:true}).click();await page.getByRole('button',{name:'단가요청비교현황',exact:true}).click();
+ await compare.getByRole('button',{name:'V001 샘플 구매처 수취단가 직접입력',exact:true}).click();await expect(reply.getByLabel('2행 V001 수취단가',{exact:true})).toHaveValue('25000.0123456789');await expect(reply.getByLabel('3행 V001 수취단가',{exact:true})).toHaveValue('');
+ await reply.getByLabel('2행 V001 수취단가',{exact:true}).fill('123');await page.keyboard.press('Escape');await expect(compare).toBeVisible();expect(await page.evaluate(()=>localStorage.getItem('ecount-inventory-v2'))).toBe(saved);
+});
 test('shared price comparison core persists a synthetic backup across reload and retains replies after source edit',async({page})=>{
  await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
  await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
