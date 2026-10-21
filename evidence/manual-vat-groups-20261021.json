@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "requirement": "REQ-COM-TAX-001",
+  "status": "explicit-resolved-groups-preview-validated-not-integrated",
+  "sourceCommit": "d8035b910dce9bc8f54f99e15db688b0874cdeda",
+  "pushedToOriginMain": true,
+  "done": false,
+  "previousEvidence": "evidence/manual-vat-decimal-20261021.json",
+  "sources": {
+    "inventory": {
+      "name": "inventory",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.d50be26e.js",
+      "path": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+      "bytes": 5074681,
+      "sha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+      "httpStatus": 200,
+      "contentType": "application/javascript",
+      "gzipDecoded": true,
+      "observedDom": "Existing original request-list tab script[src], 2026-10-21; no session URL captured",
+      "downloadedAt": "2026-10-21T05:51:52.713810+00:00",
+      "cookiesSent": false,
+      "originalExecuted": false
+    },
+    "manual": {
+      "path": ".artifacts/manual-parity-20261021/manual-total-vat-split.txt",
+      "sha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0",
+      "index": "evidence/manual-parity-20261021/online-manual-index.json"
+    }
+  },
+  "sourceBoundary": {
+    "newUniqueBodies": 0,
+    "originalSourceExecuted": false,
+    "freshAuthenticatedOriginalRuntimeVerified": false,
+    "canonicalCorpusCountChanged": false
+  },
+  "browser": {
+    "action": "Clicked visible Help on existing request-list page; no input rows, business saves or settings writes",
+    "observedResult": "Redirected to ECOUNT login",
+    "observedTitle": "이카운트 로그인 | ECOUNT",
+    "observedOriginAndPath": "https://login.ecount.com/",
+    "originalLoginRequired": true,
+    "credentialsEntered": false,
+    "businessDataCaptured": false,
+    "sourceSessionUrlCapturedInEvidence": false
+  },
+  "findings": [
+    {
+      "id": "rate-group-order",
+      "function": "_splitDetailModel",
+      "observed": "Rows with missing product are excluded; groups are created in first-appearance order and member order is retained. The source uses loose rate equality.",
+      "ownBoundary": "Research accepts only explicit numeric resolved 0/10 and rejects invalid or blank rows; it does not reproduce implicit coercion or resolve business tax priority."
+    },
+    {
+      "id": "last-row-target",
+      "function": "SetVatReCalcSvc._updateRoundingDiff",
+      "observed": "Each group uses its final member record ID to locate the last matching row in the original detail model. Supply/VAT deltas are applied separately.",
+      "ownBoundary": "Research requires globally unique explicit row IDs, maps group members back to original indexes and preserves full original order."
+    },
+    {
+      "id": "amounts-not-only-gross",
+      "function": "SetVatReCalcSvc._isDiffAmt",
+      "observed": "Supply, VAT and foreign-supply amounts are compared separately per group, not only the grand gross.",
+      "ownBoundary": "Domestic preview requires confirmation for any group supply/tax delta, including unchanged grand amounts when group changes offset."
+    },
+    {
+      "id": "write-boundary",
+      "function": "SetVatReCalcSvc._setGridValue",
+      "observed": "Only nonzero deltas write values, with subscriber prevention and cell styling; origin supply and foreign cases have additional conditions.",
+      "ownBoundary": "Research marks adjusted rows only; it never invokes original code, applies cell styling, updates origin amounts, persists or sends mail."
+    }
+  ],
+  "implementation": {
+    "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+    "sha256": "dabfa0d92f96631c73c4ea6c09c3d9cf9a9aab4dce01e64429662046504ea06b",
+    "entryPoint": "previewResolvedGroups",
+    "algorithm": "resolved-rate-groups-static-v0",
+    "usesExistingSingleRateCandidate": true,
+    "singleRateAlgorithmUnchanged": "raw-supply-static-candidate-v1",
+    "researchBounds": {
+      "resolvedRates": [
+        0,
+        10
+      ],
+      "maxRows": 500,
+      "maxRawSupplyAndBeforeGrossAndTargetGross": "1000000000000",
+      "sharedDigits": [
+        0,
+        1,
+        2
+      ],
+      "methods": [
+        "round",
+        "floor",
+        "ceil"
+      ],
+      "sourceRestrictionClaim": false
+    },
+    "globalIdUniqueness": true,
+    "sameProductDifferentRowsAllowed": true,
+    "inputUnchanged": true,
+    "invalidLateGroupReturnsNoPartialResult": true,
+    "negativeLastRowDiagnostic": true,
+    "canApply": false,
+    "appIntegrated": false,
+    "persistenceVersion": null,
+    "rateResolutionVerified": false,
+    "originalParityPassed": false,
+    "originalRuntimeObserved": false
+  },
+  "checks": {
+    "newNodeTests": 13,
+    "relatedVatTests": 151,
+    "failures": 0,
+    "toolsTests": 7,
+    "releaseChecks": 4,
+    "sourcePackageVersion": "0.53.0",
+    "independentReviewTests": 41,
+    "independentComparison": {
+      "scope": "Independent Python Fraction/integers for explicit pre-resolved 0/10 rates only; no original source execution",
+      "seed": 20261021,
+      "caseCount": 2011,
+      "acceptedCases": 2004,
+      "rejectedCases": 7,
+      "rowsCompared": 41905,
+      "negativeLastRowCases": 1888,
+      "confirmationCases": 2003,
+      "failureCount": 0,
+      "candidateSha256": "dabfa0d92f96631c73c4ea6c09c3d9cf9a9aab4dce01e64429662046504ea06b",
+      "originalSourceExecuted": false,
+      "originalRuntimeObserved": false,
+      "originalParityPassed": false,
+      "rateResolutionVerified": false,
+      "canApply": false,
+      "failures": []
+    },
+    "fixedParityCases": 7,
+    "auditAgreements": 2,
+    "auditConflicts": 5,
+    "auditRegressions": 0,
+    "strictParityExit": 2,
+    "fullRegressionRunThisIncrement": false,
+    "browserRegressionRunThisIncrement": false,
+    "reason": "Research module/test only; runtime source, installed production bundle and existing single-rate helper bytes unchanged"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "originalScopes": 5,
+    "ownScopes": 2,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "externalBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "scopes": [
+      {
+        "name": "recalculateAmtsBySlips",
+        "category": "original-inventory",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 277447,
+        "end": 278211,
+        "lineStart": 5912,
+        "lineEnd": 5928,
+        "fragmentSha256": "81130df6934af117f6e9e3731b1a3a7be3bf9b291ddf67578e6add66342b2637",
+        "resultSha256": "53eb8cde1aca94aaea6b8af1f184343be027b68cc6fbe8dbb553b2cdb1d49675",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 886,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 69,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_splitDetailModel",
+        "category": "original-inventory",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 284234,
+        "end": 284881,
+        "lineStart": 6043,
+        "lineEnd": 6060,
+        "fragmentSha256": "c282e4b07d7f6ff1029f3a5aab3370ea71525ff50c0cf530c25555464c5c8c7e",
+        "resultSha256": "dd74467fd78a7010da8d282611882d315ab559674a39b88d9d41c3cd3af51171",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 647,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 83,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_updateRoundingDiff",
+        "category": "original-inventory",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 288747,
+        "end": 290573,
+        "lineStart": 6146,
+        "lineEnd": 6171,
+        "fragmentSha256": "fbeacc92357e0b6d8bf77ef3f23040aa6f0e226e52cbcdcc898920d9d8f95f6a",
+        "resultSha256": "85f7efda1ac70eab927308cb8f72c96328d44fef29bfa587ea6eee51a7024d62",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1899,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 186,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_setGridValue",
+        "category": "original-inventory",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 290578,
+        "end": 292972,
+        "lineStart": 6172,
+        "lineEnd": 6218,
+        "fragmentSha256": "1275b2886d6dafaf75d1dd4d043a9e215060c6c2fdda6a70c340585dd8bd994a",
+        "resultSha256": "fceb172e55bc56c96cb44f290b708a2f02b0e7ff72aef783b71f1e4d433df149",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2697,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 207,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_isDiffAmt",
+        "category": "original-inventory",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 294011,
+        "end": 294537,
+        "lineStart": 6245,
+        "lineEnd": 6255,
+        "fragmentSha256": "a488aad794b2902c4dadd13e6a87638b2db5b4b19afeb45ee5d21636b789cf5b",
+        "resultSha256": "37a446d392da693ac4bd68763ae787d97cfa022044c1a03bfc1be06780abd45a",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 539,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 66,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "previewStaticCandidate",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "dabfa0d92f96631c73c4ea6c09c3d9cf9a9aab4dce01e64429662046504ea06b",
+        "start": 1847,
+        "end": 4981,
+        "lineStart": 33,
+        "lineEnd": 66,
+        "fragmentSha256": "ffcf297d245773ab0b554f7d6407b6e8f177b519e978d756c55a90b802e955fb",
+        "resultSha256": "343b12f820923d90f23d6620e52f8a64e144013dff037f1b74bb5de5747ad537",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3134,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 614,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "previewResolvedGroups",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "dabfa0d92f96631c73c4ea6c09c3d9cf9a9aab4dce01e64429662046504ea06b",
+        "start": 5066,
+        "end": 8327,
+        "lineStart": 69,
+        "lineEnd": 109,
+        "fragmentSha256": "bb3196dd0bb87faa21ab00a4a388b4de4d37516d02b2e542655535884e4a7adb",
+        "resultSha256": "134ee6d1e74abf43f461d0f8ec6cdd69ff3102ed4ac2d2a4ed02ead3df72e80b",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3261,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 648,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "preservation": {
+    "singleRateSourcePrefixSha256": "775bb1d094984387a1413b20c8457730773f7f53519ce3601f2b989d59d5bb65",
+    "singleRateCodeByteUnchanged": true,
+    "fixedSevenCasesUnchanged": true,
+    "runtimeDistSourceUnchanged": true,
+    "runtimeInstalledWorkerSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "rollbackWorkerSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "runtimeImportsNewResearchCode": false,
+    "runtimeVersion": "0.53.1",
+    "buildExecuted": false,
+    "serverRestarted": false,
+    "productionDeployed": false,
+    "businessWrites": false,
+    "mailSent": false,
+    "productionDataReaudited": false,
+    "previousDeploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
+    "authenticatedProductionUiStillPending": true
+  },
+  "minimumMissingEvidence": [
+    "Runtime input attributes/formulas, post-field numeric formatting and selected Decimal profile",
+    "Actual rate priority and bindings for transaction/item/warehouse/default",
+    "Foreign currency, direct supply and original group accumulation/last-row results",
+    "Five fixed manual-interpretation/static-formula conflicts; versioned storage migration rules before any integration",
+    "Authenticated operating UI/backups and Moa append/readback after login"
+  ],
+  "community": {
+    "status": "login-required-local-record-ready",
+    "workDocumentApiAvailable": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingBodyArtifact": ".artifacts/manual-vat-groups-20261021/moa-pending-resolved-groups.html"
+  },
+  "officialRequirementCounts": {
+    "officialRequirements": 13,
+    "loginSourceBodiesReviewed": 4,
+    "done": 0
+  },
+  "artifactHashes": {
+    ".artifacts/manual-vat-groups-20261021/rea-summary.json": "ea44ec05d22f6e47e958831e94d080604568546842b4a50f0e2107f90b079696",
+    ".artifacts/manual-vat-groups-20261021/preservation.json": "82f30f677929858f690283d188a65fb135f4a817d41432171bccf2a0aa328f60",
+    ".artifacts/manual-vat-groups-20261021/review-python-resolved-groups.py": "d4bf52358e7913536645e5e2053199f7b28d1327b9faf9e2b9d115561aece102",
+    ".artifacts/manual-vat-groups-20261021/review-python-resolved-groups-result.json": "5f459467da030f21f2714e78dfb6a00ea9dd2115487822fe9300ac033d39c0d2",
+    ".artifacts/manual-vat-groups-20261021/vat-tests.log": "c0e325222125abe7c26f34960e639362ca505a48c74865e3b4cf2cbdc3b95d3c",
+    ".artifacts/manual-vat-groups-20261021/tools.log": "489552fab062de5b1c4d868b9c56bb092a96dddafc45239542719b8d1f028659",
+    ".artifacts/manual-vat-groups-20261021/release-check.log": "a42ecd7dd88ae57f33f89ba0c837a5db319871f6012525361737e59aa0a94b86",
+    ".artifacts/manual-vat-groups-20261021/audit.json": "e76452618a14492d6b0d1b89f2b386976e158db4d27bc0df07a6c6407ceb7ce1",
+    ".artifacts/manual-vat-groups-20261021/audit.log": "c124fbf8377e7b57191a9ddc7f1ea6979d0d4d53b0da35306a28012ff2c6172f",
+    ".artifacts/manual-vat-groups-20261021/strict.log": "c124fbf8377e7b57191a9ddc7f1ea6979d0d4d53b0da35306a28012ff2c6172f"
+  }
+}

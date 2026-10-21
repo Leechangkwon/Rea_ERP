@@ -226,3 +226,10 @@ stock-only-integer-v0는 앱 계산/저장 계약과 분리된 scripts/lib 순�
 decimal29-divisor-order-v0는 순수 연구 함수이며 공급합/세율/단수처리만 명시 입력받는다. BigInt 유리수로100÷세율→공급합÷그값을 각29유효자리 HALF_UP하고 최종 자릿수를 처리한다. 계산 가능한 범위를 좁혀 두고 항상canApply=false/persistenceVersion=null을 반환한다. 기존 저장v1·단가 연구후보와 앱의 import/저장 연결은 변경하지 않는다. 새로운 원본 Decimal 초기 설정과 실제 실행 중 override·입력식·누적/차액배분은 별도 증거다.
 
 현재 확인한 common 본문의 valid-key trigger는 빈행 skip 예외를 포함한다. 이전 resolver 본문과 현재 본문 해시·함수 차이를 같이 보관하고 버전 간 동등성을 추정하지 않는다. REA21범위 파싱과 독립13,302사례 일치는 실제 매뉴얼/테넌트 전표 결과의 합격이 아니다. 운영0.53.1 설치번들 보존, 상세 evidence/manual-vat-decimal-20261021.json.
+
+
+### 명시적 확정세율의 그룹 배분 연구 · d8035b9
+
+previewResolvedGroups는 각 행에 이미 결정된 numeric vatRate(검토범위0/10)를 요구한다. 실제 거래유형/품목/창고 설정을 조회하거나 추정하지 않는다. first-seen 그룹과 원래 인덱스를 보관하고 기존 단일 연구후보 결과를 원래 순서로 재배치하며 각 그룹 마지막행만 보정 대상으로 표시한다. 전역ID 유일성·전체행수·미반올림공급/현재합계/목표합계 상한을 적용해 그룹 단위 검증 우회를 막는다. 그룹별 차액이 서로 상쇄돼도 확인 필요가 유지된다.
+
+계산/저장권한·UI 반영·부가세설정 상속은 추가하지 않았고 canApply=false/persistenceVersion=null이다. 원본의 빈행 제외/loose 세율 비교/중복ID 위치처리까지 재현했다고 주장하지 않으며 연구입력에서는 거부한다. 기존v1와 단일 후보를 보존하고 후속 증거와 저장 버전 계약 전에는 앱에 통합하지 않는다. evidence/manual-vat-groups-20261021.json.
