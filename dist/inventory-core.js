@@ -327,6 +327,11 @@
       if(originals.some(row=>purchasingLineState(source,row).progress==='완료')&&qty>(oldQuantities.get(key)?.qty||0))throw Error('완료된 발주계획 품목행의 발주 수량을 늘릴 수 없습니다.');
     }
   }
+  function validateReceiptWarehouseChange(db,previous,next){
+    if(!previous||previous.warehouse===next.warehouse||!['purchase','exchangereceipt'].includes(previous.type))return;
+    const room=db.settings.purchaseRoom;
+    if(['inspections','racks'].some(key=>(room?.[key]||[]).some(row=>row.documentId===previous.id)))throw Error('검수 또는 RACK 적재 기록이 있는 입고전표의 창고는 변경할 수 없습니다.');
+  }
   function saveDoc(db,input){
     const d=clone(input);if(!types[d.type])throw Error('전표 종류가 올바르지 않습니다.');
     const previous=d.id?db.documents.find(x=>x.id===d.id):null;
@@ -362,6 +367,7 @@
     d.status=statusValue(d.status);validatePurchasingState(d);if(!documentStatuses.includes(d.status))throw Error('처리 상태를 확인하세요.');
     d.id=d.id||`${d.type.toUpperCase()}-${d.date.replaceAll('-','')}-${String(++db.sequence).padStart(5,'0')}`;d.accounted=Boolean(d.accounted);
     if(d.accounted&&!active(d))throw Error('미확인·취소 전표는 회계반영할 수 없습니다.');
+    validateReceiptWarehouseChange(db,previous,d);
     validateLinkedSourceChange(db,previous,d);
     if(index<0)db.documents.push(d);else db.documents[index]=d;
     rebalanceReturnAmounts(db);validateLinks(db);validateStock(db);log(db,types[d.type]+' 저장: '+d.id);return d;
