@@ -367,7 +367,7 @@
   }
   function convert(db,{id,type,quantities,partner,warehouse,targetWarehouse,date,settlementMode}){
     const src=db.documents.find(x=>x.id===id);if(!src||!active(src)||!nextTypes[src.type]?.includes(type))throw Error('변환할 수 없는 전표입니다.');
-    let lines=remaining(db,src,type).filter(l=>l.qty>0).map(l=>{const x=l.lineId?{...l,sourceLineId:l.lineId}:{...l};if(type!=='plan')delete x.progress;return x;});
+    let lines=remaining(db,src,type).filter(l=>l.qty>0).map(l=>{const x={...l};if(l.lineId)x.sourceLineId=l.lineId;else delete x.sourceLineId;if(type!=='plan')delete x.progress;return x;});
     if(quantities)lines=lines.map(l=>({...l,qty:num(quantities[l.lineId||l.item]??l.qty,'처리수량')})).filter(l=>l.qty>0);
     if(type==='issue'){
       const components=new Map();for(const l of lines)for(const b of db.bom.filter(b=>b.product===l.item))components.set(b.material,(components.get(b.material)||0)+l.qty*b.qty*(1+b.loss/100));

@@ -156,7 +156,8 @@
       if(mode==='linked'&&qty>limit+0.000001)throw Error('원본 전표의 잔량을 초과했습니다.');
       const row=copy(line);delete row.supply;delete row.tax;delete row.total;
       if(result.type!=='plan')delete row.progress;
-      if(mode==='linked'&&line.lineId)row.sourceLineId=line.lineId;else if(mode==='copy'){delete row.lineId;delete row.sourceLineId;delete row.planAllocations;}
+      // A new link refers to this source row, never to the source's own ancestor.
+      if(mode==='linked'){if(line.lineId)row.sourceLineId=line.lineId;else delete row.sourceLineId;}else {delete row.lineId;delete row.sourceLineId;delete row.planAllocations;}
       return {...row,qty,importedFrom:[{documentId:d.id,type:d.type,date:d.date,item:line.item,...(line.lineId?{sourceLineId:line.lineId}:{}),qty,mode}]};
     });
     const orderLineCopy=mode==='copy'&&result.type==='request'&&options.grouping==='line'&&[...sources.values()].every(d=>d.type==='order');
