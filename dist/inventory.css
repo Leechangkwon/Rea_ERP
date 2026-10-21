@@ -85,3 +85,12 @@
 .reference-picker-actions{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:4px}.reference-picker-actions button{font-size:12px;padding:3px 7px}.reference-picker-chips{display:flex;flex-wrap:wrap;gap:4px;max-width:100%}.reference-picker-chips button{max-width:100%;overflow-wrap:anywhere;background:#eef5ff;color:#174773}.reference-picker-dialog{width:min(760px,calc(100vw - 24px));max-height:90vh}.reference-picker-dialog .inv-modal-body{max-height:82vh;overflow:auto}.reference-picker-results{overflow:auto;max-height:50vh}.reference-picker-results th{position:sticky;top:0;background:#edf2f7}.reference-picker-results td{overflow-wrap:anywhere}.reference-picker-results input[type=checkbox]{width:18px;height:18px}.reference-picker-dialog input[type=search]{max-width:100%}
 
 .entry-secondary-actions.entry-price-request-secondary{display:block}
+
+/* Comparison keeps exact decimal strings and a keyboard-scrollable table. */
+.price-request-dialog{width:min(1180px,94vw);max-width:94vw;max-height:90vh;box-sizing:border-box;overflow:auto;padding:16px}
+.price-request-table-scroll{max-width:100%;overflow:auto;border:1px solid #d6dce6}
+.price-request-table{border-collapse:collapse;width:100%;min-width:680px;font-size:13px}
+.price-request-table th,.price-request-table td{padding:9px 10px;border:1px solid #d6dce6;text-align:left;white-space:nowrap}
+.price-request-table th{background:#eef2f7}.price-request-table .price-request-value{text-align:right;font-variant-numeric:tabular-nums}
+.price-request-dialog .inv-toolbar{position:sticky;bottom:0;background:white;padding-top:10px}
+@media(max-width:600px){.price-request-dialog{padding:12px}.price-request-dialog h2{font-size:18px}.price-request-dialog .inv-note{overflow-wrap:anywhere}}
