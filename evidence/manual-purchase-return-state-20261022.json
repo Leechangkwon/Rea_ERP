@@ -1,0 +1,273 @@
+{
+  "date": "2026-10-22",
+  "version": "0.64.0",
+  "requirement": "REQ-PUR-RETURN-001",
+  "status": "deployed-synthetic-flow-and-authenticated-read-only-preservation-verified",
+  "plan": "docs/plan-purchase-negative-return-20261022.md",
+  "sourceCommit": "a578ba3bb77c4a1cb774213f385ee229d57843a8",
+  "validationCommit": "422b83b",
+  "reference": {
+    "date": "2026-10-22",
+    "originalBusinessWrites": false,
+    "originalSettingsSaved": false,
+    "departmentCondition": {
+      "path": [
+        "구매조회",
+        "Option",
+        "조건양식설정",
+        "예외추가",
+        "정보불러오기",
+        "부서등록",
+        "함수 / 일치",
+        "비교대상 선택"
+      ],
+      "pickerColumns": [
+        "부서코드",
+        "부서명"
+      ],
+      "newButtonObserved": true,
+      "selectionApplied": false,
+      "functionApplied": false,
+      "unsavedExceptionDiscarded": true,
+      "ourStoredUserMetadataAvailable": false,
+      "ourSources": [
+        "worker/app-service.cjs safeUser/publicContext/user.save",
+        "dist/self-core.js empty",
+        "dist/self-ui.js users"
+      ],
+      "departmentPositionDutyImplementationPending": true
+    },
+    "purchaseConfirmation": {
+      "tabs": [
+        "전체",
+        "미확인",
+        "확인"
+      ],
+      "menu": [
+        "진행상태변경",
+        "미확인",
+        "확인"
+      ],
+      "selectionOrStateChangePerformed": false,
+      "originalCreditReturnStateServerVerified": false
+    },
+    "manualReference": {
+      "id": "EC-HELP-PURCHASE-RETURN",
+      "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
+      "newManualBodies": 0
+    },
+    "ownGaps": {
+      "confirmationTypeExcluded": true,
+      "accountedCreditRoutedToUnsignedEditor": true,
+      "savedCreditSelectionDroppedOnFormRepaint": true
+    }
+  },
+  "compatibility": {
+    "canonicalType": "purchasereturn/credit",
+    "storedPositiveAndDisplayedNegative": true,
+    "legacyStateFieldsMigrated": false,
+    "existingAllocationStockPayableAndSourcePolicyRetained": true,
+    "exchangeOrAccountingAuthorityExpanded": false,
+    "newAccountingCommand": false,
+    "confirmationUsesExistingBatchValidation": true,
+    "formRepaintKeepsCreditSelection": true,
+    "accountedDetailRecomputesSource": false,
+    "accountedDetailSaveControls": false,
+    "closedDetailContentsClearedAndListenersRemoved": true
+  },
+  "validation": {
+    "newNode": 12,
+    "relatedNodeTAP": 44,
+    "newBrowser": 1,
+    "browserSynthetic": 63,
+    "verifyLocalPassed": true,
+    "workflow": "saved partial credit → cancel unchanged → explicit unconfirm → reload → stock/payable/remaining → confirm restore → accounted legacy fixture signed read-only → desktop/mobile/F8/close preservation",
+    "independentIssueFixed": "open read-only detail did not recheck identity/read/storage until unused read() call; now lifecycle events clear and close",
+    "independentReproductionRetested": true,
+    "independentRemainingP1P2": 0,
+    "fixtureFix": "replace previous request renderer before rerender, matching production navigation instead of clicking a stale duplicate DOM",
+    "browserDependencyFix": "link existing Linux Chromium libraries into isolated candidate artifacts",
+    "originalServerEquivalenceVerified": false,
+    "reaVersion": "6.4.0",
+    "reaOwnScopes": 7,
+    "originalReturnCacheScopesValidated": 1,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "reaSummary": ".artifacts/manual-return-state-20261022/rea/rea-summary.json"
+  },
+  "deployment": {
+    "version": "0.64.0",
+    "branch": "release/0.64.0-purchase-return-state",
+    "commit": "a04eb5ce0a4bb33cb264aaf22277667d4e85207d",
+    "sourceCommit": "a578ba3bb77c4a1cb774213f385ee229d57843a8",
+    "validationCommit": "422b83b",
+    "baseCommit": "279f4ef02b02aaaf08cb03e0628825a3fb8d99ee",
+    "directory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.64.0-purchase-return-state",
+    "bundleSha256": "24f4bc33bf21e52f959ee05069b97d769a590104e779215807ca5906f78f7e25",
+    "verifyLocalPassed": true,
+    "browserTests": 63,
+    "newNode": 12,
+    "relatedNode": 44,
+    "newBrowser": 1,
+    "reaOwnScopes": 7,
+    "reaOriginalCacheScopes": 1,
+    "rootVatResearchIncluded": false,
+    "rollbackVersion": "0.63.0",
+    "pushed": true
+  },
+  "runtimeSession": 7859,
+  "predeploy": {
+    "version": "0.64.0",
+    "privateDirectory": "/home/lck/.local/share/rea-erp/backups/return-state-0.64.0-1792605431436",
+    "remoteRevisions": {
+      "rea_app_state": 30,
+      "rea_gateway_state": 0
+    },
+    "stateHashes": {
+      "rea_app_state": "8e96322dd201bb42bb29a7073961b420f59cb206e6112070292d74a3a8891265",
+      "rea_gateway_state": "80019c43b7e6a1b3a67706f8289e939dd842a7a6f1d2dfd9c3265ccbec6080b1"
+    },
+    "runtimeHash": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+    "browser": {
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "version": 2,
+      "documents": 8,
+      "counts": {
+        "request": 1,
+        "plan": 0,
+        "purchaseorder": 1,
+        "purchase": 1
+      },
+      "validated": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9"
+    },
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "verified": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    }
+  },
+  "public": {
+    "version": "0.64.0",
+    "sourceCommit": "a04eb5ce0a4bb33cb264aaf22277667d4e85207d",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "5d90fe36f93038a92d14490440c7c9082cd0f624bcd82ca62e6b400044f21eb5",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "c448563dc113cdd11726407f9c1b2f696b3c6fc91a05210e9a793b808c821d56",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchase-return-ui.js",
+        "status": 200,
+        "sha256": "268e12a20d6e91f10275e8bcd5e8070c44fdd93b4218171fb1d39e3b2932ee17",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ]
+  },
+  "browserPreservation": {
+    "version": "0.64.0",
+    "exactJsonEqual": true,
+    "byteExact": true,
+    "documentsBefore": 8,
+    "documentsAfter": 8,
+    "formsExact": true,
+    "browserSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+    "creditReturnCount": 0,
+    "hostedBusinessWritesPerformed": false,
+    "hostedSettingsSaved": false,
+    "existingSessionRetained": true,
+    "hostedObserved": [
+      "purchase list existing session and0.64.0",
+      "purchase confirmation modal open then close without apply",
+      "selection cleared and all dialogs closed"
+    ],
+    "hostedCreditReturnSaveOrAccountedDetailVerified": false
+  },
+  "preservationAfter": {
+    "version": "0.64.0",
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 30,
+        "afterRevision": 30,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false
+  },
+  "postUiServerExact": {
+    "rea_app_state": {
+      "revision": 30,
+      "exact": true
+    },
+    "rea_gateway_state": {
+      "revision": 0,
+      "exact": true
+    }
+  },
+  "remainingGaps": [
+    "Department/position/duty require verified user-registration and registered-reference storage before implementation",
+    "Original return confirmation server save and accounting transaction equivalence unverified",
+    "Hosted credit returns 0; actual credit save/state change/accounted detail acceptance remains synthetic",
+    "Direct negative purchase/mixed signs/refund and changed-price or excess return policies pending",
+    "Full-quantity/differing-price import and real work-tab report preservation pending",
+    "Credit return detailed document history and full batch print pending",
+    "Whole manual done0; Moa authentication unavailable,43 locally pending updates"
+  ],
+  "wholeManualDone": false,
+  "publication": {
+    "lastVerifiedVersion": "0.51.0",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingCount": 43
+  }
+}

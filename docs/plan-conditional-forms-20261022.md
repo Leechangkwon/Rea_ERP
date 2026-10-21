@@ -49,3 +49,7 @@ ID는 내부owner key가 아닌 AuthUI.state().user.loginId를 읽는다. 문서
 소스 `fd26896`, 운영0.62.0/1dda446 기반 격리후보 `279f4ef`를 push 후 WSL·Supabase·Cloudflare rea.qaredi.com에 배포했다. 공개0.63.0/3자산 해시·접근차단·Supabase200, 기존 로그인 유지·기존 구매44,000원 미리보기와 사용자양식0 안내를 확인했다. 운영 설정/업무 저장·실제 인쇄·발송·복원은 없다. 전표8건/양식 JSON·서버app30/gateway0·runtime.env·메일3함8통1첨부 모두 전후 동일, restore preview0충돌/applied false. 운영 등록양식0건으로 실제 조건 저장·적용은 아직 합성 검증만이다.
 
 근거 `evidence/manual-role-forms-20261022.json`, manifest `.artifacts/manual-role-forms-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.63.0-role-conditional-forms`, bundle SHA `05360a5dcb7da5267fb6d45dce557a7159f812c1735f9021044a4f2f2e0aa3aa`, 런타임 세션37156. 롤백0.62.0과 기존 자료를 보존했다. 다음은 부서·직위/직급·직책의 실제 사용자 저장/등록 참조와 flow 비교계약을 먼저 대조하며, 미확인이면 반품 confirmation/회계반영 조회·전체수량/상이단가/작업탭의 독립차이표로 이어간다. main VAT5 미완료 빌드 설치 금지.13본문/24요구사항·전체완료0 유지. 모아 인증 새 변화가 없어 기존본문용42갱신을 로컬 보존했으며 게시/저장본문 재조회 완료로 처리하지 않는다.
+
+## 부서/직위/직책 선행계약 조사 · 0.64.0 시점
+
+원본 부서등록 조건의 일치/비교대상은 부서코드·부서명 등록 피커와 신규 버튼을 제공한다. 선택/신규/함수적용/설정저장 없이 닫고 미저장 예외를 폐기했다. 자체 safeUser/publicContext/user.save와 SelfCore.empty에는 부서·직위/직급·직책의 저장 필드 및 등록 참조가 없다. 품목의 관리항목/기본 담당자나 권한그룹을 이 사용자 속성으로 추정 매핑하지 않는다. 사용자등록 필드/등록 원장/참조 검증/기존 계정 보존/인증컨텍스트 반영을 별도 계약으로 확정해야 한다. 확인된 단일 role 조건은 다시 개발하지 않으며 현재 작업은 구매반품 확인·반영 후 조회 단위로 진행했다. 근거 evidence/manual-purchase-return-state-20261022.json.

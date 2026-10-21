@@ -1,6 +1,18 @@
 # 개발과 검증 배포
 
-## 현재 인계 · 0.63.0 운영
+## 현재 인계 · 0.64.0 운영
+
+운영 `release/0.64.0-purchase-return-state` / `a04eb5c`, 소스 `a578ba3`/fixture `422b83b`. 차감반품 확인·미확인/혼합선택과 반영 후 음수 읽기 전용 상세를 연결했다. 기존 배분금액/수불/채무/원구매/양식 보존, 교환·회계 권한 확대 없음. 신규Node12/관련44·전체 verify:local/브라우저63, 독립P2 수정·동일 재현 해소. 운영 반품0건으로 저장/상태/반영 후 상세 합격은 합성 검증이다.
+
+근거 `evidence/manual-purchase-return-state-20261022.json`, manifest `.artifacts/manual-return-state-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.64.0-purchase-return-state`. 런타임 세션7859, bundle SHA `24f4bc33bf21e52f959ee05069b97d769a590104e779215807ca5906f78f7e25`, 롤백0.63.0 보존. 기존로그인·상태 창 열기/닫기, 브라우저8전표/양식 byte/JSON·서버fresh app30/gateway0·runtime.env·메일3함8통1첨부 전후 동일. 운영 업무/설정/인쇄/발송/복원 없음. main VAT5 미완료 빌드 설치 금지.
+
+부서·직위/직급·직책 조건은 사용자등록 저장/등록 참조 계약 확장이 선행되어야 하므로 보류한다. 다음은 구매현황의 실제 작업 탭 조건/결과 보존을 원본·매뉴얼·portal 연결과 대조한다. 전체수량/상이단가 불러오기, 직접 음수 구매/혼합부호·환불, 실제 반품 상태변경·회계/일괄인쇄·이력도 미완료다. 이미 반영한 차감반품 확인 연결을 반복 개발하지 않는다. 본문13/요구사항24·전체합격0, 모아 마지막 게시0.51.0·43갱신 대기. 아래는 과거 이력이다.
+
+### 격리 후보의 브라우저 의존성
+
+새 후보는 Linux root의 기존 node_modules 링크뿐 아니라 후보 `.artifacts/browser-libs`가 root `.artifacts/browser-libs`를 가리키는지도 전체 검증 전에 확인한다. scripts/browser-runtime.cjs는 실행 후보 기준 상대 경로로 libnspr4 등 Chromium 라이브러리를 찾는다. 기존 디렉터리를 덮거나 새 시스템 라이브러리를 설치하지 않는다. 검사 준비 코드의 render는 기존 target을 비우고 새 조회를 한 개만 만들며, 이전 DOM을 다시 클릭하는 중복 fixture를 사용하지 않는다.
+
+## 이전 인계 · 0.63.0 운영
 
 운영 `release/0.63.0-role-conditional-forms` / `279f4ef`, 소스 `fd26896`. 기존 인증 roleId와 등록그룹 참조를 조건양식의 단일 같음에 연결했다. 기존 flat/v1·ID/PC-MOBILE/3AND·전표/양식/활성값 보존. 신규Node16/관련35·전체 verify:local/브라우저62, 독립9비동기 경계 재현 통과. 새API/권한/계정필드 없음. 로컬 실제인증2계정과 합성 UI 적용/저장/재조회 확인, 운영 두사용자/설정저장 합격은 미완료.
 
