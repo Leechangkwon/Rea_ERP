@@ -1,0 +1,641 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "requirement": "REQ-COM-TAX-001",
+  "status": "price-binding-static-refined-research-candidate-verified",
+  "sourceCommit": "8c07d91a485e5e9f40a82230aeef87c0ac0d8533",
+  "pushedToOriginMain": true,
+  "previousEvidence": "evidence/manual-vat-static-candidate-20261021.json",
+  "done": false,
+  "sourceRecovery": {
+    "url": "https://resource.ecount.com/ec5/static/ecountv56/modules/common/common.dd26f1e8.js",
+    "provenanceManifest": "evidence/global-rea-20261018/axis-directions/source-manifest.json",
+    "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+    "retrievedAt": "2026-10-21T02:52:48.449691+00:00",
+    "status": 200,
+    "sha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+    "bytes": 4552687,
+    "transportBytes": 820861,
+    "cookiesSent": false,
+    "originalExecuted": false,
+    "matchesHistoricalHash": true,
+    "provesLatestDeployedVersion": false
+  },
+  "newUniqueOriginalBodies": 0,
+  "knownBodyRestoredLocally": 1,
+  "sourceIntegrity": {
+    "manual": {
+      "sha256": "6f278b5a6e811dc91c30b19f9c9cf8e1264db887bb2368953e3c598dad5285a0",
+      "verified": true
+    },
+    "original": {
+      "sha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+      "verified": true
+    }
+  },
+  "bindings": [
+    {
+      "id": "price-search",
+      "source": "restored-common",
+      "lines": [
+        48386,
+        48444
+      ],
+      "observed": "Price/PriceVatInclude returned separately; each formatted; DMC stores both then value resolver excludes those two properties.",
+      "unverified": "Popup/server price choice and dynamic dependent amount expressions."
+    },
+    {
+      "id": "f4",
+      "source": "retained-inventory",
+      "lines": [
+        13217,
+        13279
+      ],
+      "observed": "Domestic tax divisor is resolved VAT+100; current price*100/divisor before field formatting; foreign tax divisor100.",
+      "unverified": "Current UI trigger/version and final dynamic resolver output."
+    },
+    {
+      "id": "format-fallback",
+      "source": "restored-common",
+      "lines": [
+        68069,
+        68100
+      ],
+      "observed": "Missing field format for apply_price_amt uses R/10, subject to call options; other hidden fields can use tenant-group format; origin_supply_amt excluded from that fallback.",
+      "qualification": "Not a global price default or maximum supported precision. Existing-format option override uses || so explicit0 cannot override a nonzero mapped scale."
+    },
+    {
+      "id": "format-mapping",
+      "source": "restored-common",
+      "lines": [
+        68174,
+        68217
+      ],
+      "observed": "value_format_in basic/default uses tenant input/out formatter by refer-group; explicit option can replace it.",
+      "unverified": "Live per-company/field numeric settings and exception evaluation."
+    },
+    {
+      "id": "decimal-operation",
+      "source": "restored-common",
+      "lines": [
+        68145,
+        68172
+      ],
+      "observed": "multiply by 10^scale, round/ceil/floor, divide; returns converted Decimal.",
+      "unverified": "Actual Decimal implementation precision and tie behavior."
+    }
+  ],
+  "candidate": {
+    "algorithm": "raw-supply-static-candidate-v1",
+    "previousAlgorithm": "raw-supply-static-candidate-v0",
+    "persistenceVersion": null,
+    "priceDecimals": 10,
+    "quantityDecimals": 6,
+    "commonAmountDigits": [
+      0,
+      1,
+      2
+    ],
+    "alreadyResolvedVatRates": [
+      0,
+      10
+    ],
+    "implicitPriceNormalization": false,
+    "rawSupplyRepresentation": "Keep denominator1e12 when exactly expressible; otherwise use1e20.",
+    "applicationIntegrated": false,
+    "canApply": false,
+    "originalParityPassed": false,
+    "negativeResidualPolicy": "Report without clamping or redistribution; source acceptance unverified."
+  },
+  "precisionCounterexample": {
+    "price": "0.0499999999",
+    "qty": "0.1",
+    "exactRawSupply": "0.00499999999",
+    "amountDigits": 2,
+    "method": "round",
+    "exactSupply": "0.00",
+    "supplyAfterPriceRoundedTo6Places": "0.01",
+    "originalRuntimeObserved": false
+  },
+  "checks": {
+    "newTests": 3,
+    "focusedTests": 28,
+    "allVatTests": 89,
+    "toolsTests": "passed",
+    "releaseCheck": "passed",
+    "diffCheck": "passed",
+    "candidateFixedStaticMatches": 7,
+    "unresolvedFormulaConflicts": 5,
+    "strictParityExit": 2,
+    "fullNpmTestRerun": false,
+    "browserRerun": false,
+    "scopeReason": "Only isolated research candidate and tests changed; relevant VAT suite/tool/release checks run. App and dependency source unchanged; earlier full npm pass remains historical.",
+    "initialFailure": "New rawSupply serialization expectation used1e20 although the specified compatibility contract retains1e12 when exact; expectation corrected, numeric outcome unchanged.",
+    "commands": [
+      {
+        "name": "vat-tests",
+        "exitCode": 0,
+        "expectedExitCode": 0
+      },
+      {
+        "name": "audit",
+        "exitCode": 0,
+        "expectedExitCode": 0
+      },
+      {
+        "name": "strict",
+        "exitCode": 2,
+        "expectedExitCode": 2
+      },
+      {
+        "name": "tools",
+        "exitCode": 0,
+        "expectedExitCode": 0
+      },
+      {
+        "name": "release",
+        "exitCode": 0,
+        "expectedExitCode": 0
+      }
+    ],
+    "logs": [
+      {
+        "path": ".artifacts/manual-vat-price-binding-20261021/vat-tests.log",
+        "sha256": "76ae6aa795d927f70433782b37956b0da144f3346806469eaecc7fc268c657ed"
+      },
+      {
+        "path": ".artifacts/manual-vat-price-binding-20261021/audit.log",
+        "sha256": "c124fbf8377e7b57191a9ddc7f1ea6979d0d4d53b0da35306a28012ff2c6172f"
+      },
+      {
+        "path": ".artifacts/manual-vat-price-binding-20261021/strict.log",
+        "sha256": "5f233fddad706a83af2f517ff11e65f47500abbf044d0dbc752bfa4b7cc0e078"
+      },
+      {
+        "path": ".artifacts/manual-vat-price-binding-20261021/tools.log",
+        "sha256": "9b5ff80c977a792983c62cf848bf292fe834d2f204a8c96cd5bc36072a9be30e"
+      },
+      {
+        "path": ".artifacts/manual-vat-price-binding-20261021/release.log",
+        "sha256": "a42ecd7dd88ae57f33f89ba0c837a5db319871f6012525361737e59aa0a94b86"
+      }
+    ]
+  },
+  "independentReview": {
+    "materialFindings": 0,
+    "fractionOracleCases": 448,
+    "boundsRejectedCasesIncluded": 6,
+    "focusedTests": 28,
+    "evidence": "Independent reviewer report; no original runtime execution."
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 7,
+    "originalScopes": 8,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "anyTruncated": false,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "summarySha256": "e82c3d3f3af8a4c78822d33a755262ceefbf7b3bcd8cc21f208ffd67e0fcf617",
+    "scopes": [
+      {
+        "name": "exactKeys",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 350,
+        "end": 585,
+        "lineStart": 7,
+        "lineEnd": 9,
+        "fragmentSha256": "27df39dbd1a384814dcad09ea85b14a7d94fde7cf171535a5e30083812f73889",
+        "resultSha256": "92a9c67928038d46f52a5df07ff07dfa1acd7a36772aaa13319d312ac91304b4",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 235,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 54,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "decimal",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 586,
+        "end": 1059,
+        "lineStart": 10,
+        "lineEnd": 15,
+        "fragmentSha256": "452e1f7f36d658b151ff471df7f907e151e235634b07242e39e5b400a0221a89",
+        "resultSha256": "4c64f548430795819ef2f9eca0cb2af655190822aa7908009e0cf15a8ca19cfa",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 473,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 92,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "currentMinor",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 1060,
+        "end": 1262,
+        "lineStart": 16,
+        "lineEnd": 20,
+        "fragmentSha256": "3bc7c934de87a63998bd8a92f8b9a7018d510a2e6ee4813d3bb3298c53d1f7d3",
+        "resultSha256": "d3bfc1d6372ea0bac78f64ca075e4ec871230d7ff3f8aa48206ab25719678c1b",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 202,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 40,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "rounded",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 1263,
+        "end": 1490,
+        "lineStart": 21,
+        "lineEnd": 25,
+        "fragmentSha256": "21910706d6e923f99f7116fabaf5b6a8a9fc394643721453ff7af602641713ba",
+        "resultSha256": "eb127a28d424d9bd79e0d04b3f6ed45d372a2a09d314e2bcd83f2fdd922aa975",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 227,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 43,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "textAmount",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 1491,
+        "end": 1699,
+        "lineStart": 26,
+        "lineEnd": 29,
+        "fragmentSha256": "62d8b01af6c9915dc8eb0a2ed883250ea0034c4aada739f63abdb7d574244560",
+        "resultSha256": "c66f29930b7834776592e93181f68a20bc88b2a00e75140a505ecaa70c1a7134",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 208,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 57,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "amounts",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 1700,
+        "end": 1846,
+        "lineStart": 30,
+        "lineEnd": 32,
+        "fragmentSha256": "028ee5ad3fe80c62740adf97046557e61c6c489e84ba68030f3432bca4f1119f",
+        "resultSha256": "44c0d7342f1f1d51eb32eee810fc243919e7eec4d2c25ce1746f3a7eb5bf0c98",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 146,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 30,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "previewStaticCandidate",
+        "category": "own",
+        "file": "scripts/lib/transaction-vat-static-candidate.cjs",
+        "sourceSha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc",
+        "start": 1847,
+        "end": 4981,
+        "lineStart": 33,
+        "lineEnd": 66,
+        "fragmentSha256": "ffcf297d245773ab0b554f7d6407b6e8f177b519e978d756c55a90b802e955fb",
+        "resultSha256": "151fe3e48d018745f632fc1b6c77c272b2700434d949d861c0ac0fde8d1c3af9",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3134,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 614,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "decimalConverionValue",
+        "category": "original-common",
+        "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+        "sourceSha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+        "start": 3227403,
+        "end": 3229060,
+        "lineStart": 68069,
+        "lineEnd": 68100,
+        "fragmentSha256": "924e992c1d5b8846a1d8c0aae65239c3bcec37c8d9c3f9a6b7b737bcb08cf10b",
+        "resultSha256": "e4307ae9b2670f3fb675eb78ad3b6e9a1507c5c29f5e7a49eb62341e7b3fa7a1",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1756,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 174,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_decimalNum",
+        "category": "original-common",
+        "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+        "sourceSha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+        "start": 3231166,
+        "end": 3232428,
+        "lineStart": 68145,
+        "lineEnd": 68173,
+        "fragmentSha256": "a8e77609a0eeb0ce07913f8930467c714982b4c9b61f57aedb0b5e76497e8404",
+        "resultSha256": "e5c8d612c4667176c51fc173e8801ce43e033df3bf7398cb1a2fc7c8dd5f5dcb",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1321,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 124,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_getDecimalFormatInMapper",
+        "category": "original-common",
+        "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+        "sourceSha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+        "start": 3232433,
+        "end": 3234031,
+        "lineStart": 68174,
+        "lineEnd": 68205,
+        "fragmentSha256": "7e84293e14e5fae86205236c623b8be2d3d5c030bd5dac4e1c182e4a2fb2793d",
+        "resultSha256": "4c9c8d759fb2adf3555d3e6eba166cfb57612a587c29f00308c4ae50059f9e30",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1699,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 175,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_getNumTenantAttr",
+        "category": "original-common",
+        "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+        "sourceSha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+        "start": 3234036,
+        "end": 3234821,
+        "lineStart": 68206,
+        "lineEnd": 68218,
+        "fragmentSha256": "64f3c9ff1f04fa5ce664081d21017bb03386e45f817ec38783e68d2d9dd3f11a",
+        "resultSha256": "a1e6a083436b3af6ca5efe83d34b16fefe163ba682cebbdbe54a42b7ca64f03c",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 798,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 100,
+          "findings": 1,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "OpenProdPriceSearchUserAction",
+        "category": "original-common",
+        "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+        "sourceSha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+        "start": 2230917,
+        "end": 2236564,
+        "lineStart": 48352,
+        "lineEnd": 48454,
+        "fragmentSha256": "b51e3736faad0b2a42512c9e2004ea1b7c9605893a6985a17704a1f711af88a2",
+        "resultSha256": "541cc0e997a34cbb3ca96e5b481b34bba5aa6a63c528a13c8e28246253cff8a7",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 5727,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 475,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_getTax",
+        "category": "original-inventory",
+        "file": ".artifacts/purchasing-multiselect-sort-20261020/original-3/input/inventory.75a19601.js",
+        "sourceSha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+        "start": 638732,
+        "end": 639308,
+        "lineStart": 13217,
+        "lineEnd": 13230,
+        "fragmentSha256": "33a5d6b6fd21a4e0377695dd9198ac89fce9a856a7a6ede6c80781fbbd85de41",
+        "resultSha256": "a911f3cfc8e49546651239f9a20ad0e1756bb2b3119648880eb14822b3047334",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 589,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 82,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_getCalcValue",
+        "category": "original-inventory",
+        "file": ".artifacts/purchasing-multiselect-sort-20261020/original-3/input/inventory.75a19601.js",
+        "sourceSha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+        "start": 639313,
+        "end": 639448,
+        "lineStart": 13231,
+        "lineEnd": 13234,
+        "fragmentSha256": "a49c38f388f05013f44933e0742f681d0c4fa413c4e2bceea30fc11f6cc7717d",
+        "resultSha256": "16af15a9fbbb0d74214a000843f79aa47eeca6c61d8f7b021b7a71aca76b84c6",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 148,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 29,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "_getCalculatedDataModel",
+        "category": "original-inventory",
+        "file": ".artifacts/purchasing-multiselect-sort-20261020/original-3/input/inventory.75a19601.js",
+        "sourceSha256": "20746b5481b5e276a829d6aecc0c75ab1fcf81179794e2acd840dc1ef9005d8d",
+        "start": 639886,
+        "end": 642170,
+        "lineStart": 13247,
+        "lineEnd": 13280,
+        "fragmentSha256": "868d3136ed6bdf6e181cf953045f0bca282a615e972106e997263f5beb58d5d9",
+        "resultSha256": "6345567731e894e23e88da54416fceeb3528019c40b4572480b11ddd8adbbe6b",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2339,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 229,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "scripts/lib/transaction-vat-static-candidate.cjs",
+      "sha256": "93f5ab357377c5112e6777ec9a59dda9acf1e8a1d33f471c15b21ba35168d9fc"
+    },
+    {
+      "path": "tests/transaction-vat-static-candidate.cjs",
+      "sha256": "31a0c2eaade1e6fbee98d48d81cebcfef5bc41b85f30a49bf9dff801cbcff1c2"
+    }
+  ],
+  "preservation": {
+    "appSourceChanged": false,
+    "dependencyVersionsChanged": false,
+    "storedVatV1Changed": false,
+    "storedVersionMigration": false,
+    "originalExecuted": false,
+    "originalErpWrites": false,
+    "productionAccessed": false,
+    "serverRestarted": false,
+    "existingDraftDiscarded": false,
+    "runtimeSettingsChanged": false,
+    "mailSent": false,
+    "candidate0531Commit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
+    "candidateAndRollbackHashesVerified": true
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "nextPlan": "docs/plan-manual-transaction-vat-20261021.md"
+}

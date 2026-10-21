@@ -176,3 +176,10 @@ VAT v1은 고정 합성 백업과 고정 메일 결과로 금액 계약을 검�
 scripts/lib/transaction-vat-static-candidate.cjs는 저장v2가 아닌 연구 알고리즘 raw-supply-static-candidate-v0다. source-like 공급합과 명시적 현재 행금액을 입력으로 받아 정적 목표/차액을 산출하고 항상 canApply=false를 반환한다. 임의의 총액 보존/음수 보정/기존 금액 재생성 없이 차이를 드러낸다. UI/Worker에서 import하지 않으며 기존 vatAdjustment.version1의 읽기·수정·백업·반품·메일 해석은 그대로다.
 
 향후 저장v2는 (1)공식 본문과 실제 적용 원본의 충돌 해소 (2)지원모드·정밀도·반올림·0/음수·직접금액 계약 확정 (3)버전별 별도 검증기·금액소비 경로 (4)명시확인과 후속반품/회계 제약 (5)옛 백업/구버전클라이언트 보존을 통과한 뒤 추가한다. candidate 결과를 version2 메타로 바꾸거나 v1식에 자동 치환하지 않는다. 현재5충돌/동등성false를 유지한다. 근거 evidence/manual-vat-static-candidate-20261021.json; 이 본문의 모아 저장/재조회 대기.
+
+
+### 단가 생성과 계산 후보의 정밀도 경계 · 8c07d91
+
+단가검색은 원본 Price/PriceVatInclude를 각각 apply_price_amt/vat_apply_price_amt로 매핑해 포맷처리한 뒤 값resolver를 호출한다. F4는 공급단가 변환 뒤 필드 포맷을 적용한다. 동적 필드 식·라이브 설정·실제Decimal이 확인되기 전 최종 공급가액 생성 전체를 재현했다고 하지 않는다. common 모듈의 R/10은 포맷 없는 apply_price_amt에 한정된 fallback이며 origin_supply_amt는 숨김열 회사포맷 fallback에서 제외된다.
+
+연구 후보 raw-supply-static-candidate-v1은 이미 결정된 단가의10자리만 정확히 받도록 확장했다. 수량6/금액0~2/단일0·10% 범위는 유지한다. 이는 저장 vatAdjustment.version1 또는 계획된 저장v2와 관계없는 연구 알고리즘 식별자다. 앱 import·기존 금액 재계산·양식기본값 변경은 없고 canApply=false다. 근거 evidence/manual-vat-price-binding-20261021.json.

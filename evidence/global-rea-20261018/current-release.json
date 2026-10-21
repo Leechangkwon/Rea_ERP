@@ -213,14 +213,17 @@
       "calculationParityVerified": false,
       "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
       "independentFormulaCandidate": {
-        "sourceCommit": "4e524693baeea816d3ea6e8f410025e590cf1ca5",
-        "evidence": "evidence/manual-vat-static-candidate-20261021.json",
-        "algorithm": "raw-supply-static-candidate-v0",
+        "sourceCommit": "8c07d91a485e5e9f40a82230aeef87c0ac0d8533",
+        "evidence": "evidence/manual-vat-price-binding-20261021.json",
+        "algorithm": "raw-supply-static-candidate-v1",
         "matchedStaticCases": 7,
         "unresolvedConflicts": 5,
         "appIntegrated": false,
         "persistenceVersion": null,
-        "originalParityPassed": false
+        "originalParityPassed": false,
+        "previousEvidence": "evidence/manual-vat-static-candidate-20261021.json",
+        "appliedPriceDecimals": 10,
+        "upstreamStaticMappingRefined": true
       }
     },
     "independentWork": {
