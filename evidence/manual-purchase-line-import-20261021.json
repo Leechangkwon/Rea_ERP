@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-21",
+  "version": "0.57.0",
+  "requirement": "REQ-PUR-IMPORT-001",
+  "scope": "purchaseorder to purchase copy/line preserves each source row",
+  "plan": "docs/plan-purchase-line-import-20261021.md",
+  "reference": {
+    "manualId": "EC-HELP-PURCHASE-IMPORT",
+    "bodySha256": "77ba92ce055a27dcc2217591ea20a7122c168904c7edc8dd104594c0257fd93a",
+    "artifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-import-help-body.ax.txt",
+    "locator": "355 text line grouping; 354 text full vs remaining quantities",
+    "originalBusinessWrite": false,
+    "staticNewScope": {
+      "class": "LoadSelectSlipUserAction",
+      "function": "_makeApiRequest",
+      "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+      "fragmentSha256": "f61efdb94507be9dbcf2537329f149127dbb888f96525de9dbc798b81346e3e8",
+      "clientFlag": "isQtyCheckFlag true -> balance_type N; otherwise Y",
+      "saveContractVerified": false
+    },
+    "rawOriginalExecuted": false
+  },
+  "implementation": {
+    "lineRowsAppendedIndividually": true,
+    "existingDraftAndStableIdsPreserved": true,
+    "copyProvenanceKept": true,
+    "copyConsumesSourceRemaining": false,
+    "legacyPurchaseWithDownstreamRenumberingRejected": true,
+    "existingStructuredReturnLinkPreserved": true,
+    "sameItemAndDifferentPriceSupported": true,
+    "otherModesUnchanged": true,
+    "copyIsNotClaimedAsOriginalFullApplication": true
+  },
+  "validation": {
+    "newNodeTests": 8,
+    "relatedNodeTests": 52,
+    "newBrowserTests": 1,
+    "fullVerifyLocalPassed": true,
+    "candidateBrowserTests": 48,
+    "syntheticScreenshotsInspected": true,
+    "ownReaScopes": 3,
+    "originalReaScopes": 1,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "workflow": "existing draft1 + PO2 -> save3/reload -> append samePO2 -> save5/reload; stock11 payable2090; old lines, PO, forms unchanged",
+    "hostedWriteAcceptance": false
+  },
+  "remainingGaps": [
+    "Original full-quantity save and over-receipt/source link semantics",
+    "item aggregation with different prices, custom values and multiple sources",
+    "real business data-bearing save acceptance"
+  ],
+  "productionDeployed": false,
+  "wholeManualDone": false,
+  "vatResearchConflictsPreserved": 5
+}
