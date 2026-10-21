@@ -42,15 +42,16 @@
     if(from)date(from,'기간 시작');if(to)date(to,'기간 종료');if(from&&to&&from>to)throw Error('조회 기간을 확인하세요.');
     if(warehouse)enabled(db,'warehouses',warehouse);if(partner)enabled(db,'partners',partner);
     const view=stockDb(db,{excludeId});
-    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||quotedSource(db,d,targetType)||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>l.supplier===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
+    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&!(d.type==='purchaseorder'&&targetType==='purchase'&&C.purchasingState(d).progress==='완료')&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||quotedSource(db,d,targetType)||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>l.supplier===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
       (mode==='copy'||C.nextTypes[d.type]?.includes(targetType)&&!(d.type==='purchasereturn'&&targetType==='exchangereceipt'&&d.settlementMode!=='exchange'))).map(d=>{
       let sourceLines=mode==='linked'?C.remaining(view,d,targetType):d.lines;
+      const headerOnly=mode==='linked'&&d.type==='purchaseorder'&&targetType==='purchase'&&sourceLines.length>0&&sourceLines.every(line=>line.qty===0);
       if(d.type==='pricerequest'&&targetType==='purchaseorder'){try{sourceLines=C.priceRequestOrderLines(db,d,sourceLines);}catch(error){return {lines:[]};}}
       const lines=sourceLines.filter(l=>l.qty>0&&(!partner||!l.priceRequestBasis||(l.priceRequestBasis.vendorCode||'')===partner)&&C.master(db,'items',l.item)&&!C.master(db,'items',l.item).disabled&&(!partner||!['request','plan'].includes(d.type)||(l.supplier||d.partner)===partner)&&(mode!=='linked'||d.type!=='plan'||targetType!=='purchaseorder'||C.purchasingLineState(d,l).progress!=='완료')).map(l=>({
         ...copy(l),...(l.priceRequestBasis?{partnerName:C.master(db,'partners',l.priceRequestBasis.vendorCode)?.name||''}:{}),key:d.id+'|'+(l.lineId||l.item),name:C.master(db,'items',l.item).name,originalQty:d.lines.find(x=>l.lineId?x.lineId===l.lineId:x.item===l.item).qty
       }));
-      const processingWarehouse=mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse,partnerCodes=[...new Set(d.type==='pricerequest'&&targetType==='purchaseorder'&&lines.some(l=>l.priceRequestBasis)?lines.map(l=>l.priceRequestBasis?.vendorCode).filter(Boolean):['request','plan'].includes(d.type)?lines.map(l=>l.supplier||d.partner).filter(Boolean):[d.partner].filter(Boolean))],partnerNames=partnerCodes.map(code=>C.master(db,'partners',code)?.name||code);return {id:d.id,type:d.type,date:d.date,partner:d.partner||'',partnerName:partnerNames.join(', '),warehouse:processingWarehouse,warehouseName:C.master(db,'warehouses',processingWarehouse)?.name||'',memo:d.memo||'',lines};
-    }).filter(d=>d.lines.length&&textMatch([d.id,d.memo,d.partner,d.partnerName,...d.lines.flatMap(l=>[l.item,l.name,l.supplier||''])],query)).sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
+      const processingWarehouse=mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse,partnerCodes=[...new Set(d.type==='pricerequest'&&targetType==='purchaseorder'&&lines.some(l=>l.priceRequestBasis)?lines.map(l=>l.priceRequestBasis?.vendorCode).filter(Boolean):['request','plan'].includes(d.type)?lines.map(l=>l.supplier||d.partner).filter(Boolean):[d.partner].filter(Boolean))],partnerNames=partnerCodes.map(code=>C.master(db,'partners',code)?.name||code);return {id:d.id,type:d.type,date:d.date,partner:d.partner||'',partnerName:partnerNames.join(', '),warehouse:processingWarehouse,warehouseName:C.master(db,'warehouses',processingWarehouse)?.name||'',memo:d.memo||'',lines,headerOnly};
+    }).filter(d=>(d.lines.length||d.headerOnly)&&textMatch([d.id,d.memo,d.partner,d.partnerName,...d.lines.flatMap(l=>[l.item,l.name,l.supplier||''])],query)).sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
   }
   function stockCandidates(db,options={}){
     const {warehouse,excludeId}=options,asOf=date(options.asOf||C.today());
@@ -119,6 +120,18 @@
     if(result.length>500)throw Error('전표 품목은 500행까지 입력할 수 있습니다.');
     return result;
   }
+  function stagePurchaseHeader(db,draft,{documentId}={}){
+    if(!draft||draft.type!=='purchase'||draft.id||draft.sourceId||(draft.lines||[]).some(line=>line.item))throw Error('상단 정보만 불러오기는 빈 신규 구매전표에서 사용하세요.');
+    const source=sourceRecord(db,documentId);
+    if(source.type!=='purchaseorder'||C.purchasingState(source).progress==='완료')throw Error('진행중인 발주서를 선택하세요.');
+    const remaining=C.remaining(db,source,'purchase');
+    if(!remaining.length||remaining.some(line=>line.qty!==0))throw Error('발주서의 잔량이 변경됐습니다. 다시 조회한 뒤 선택하세요.');
+    const result=copy(draft);
+    for(const [field,key] of [['partner','partners'],['employee','employees'],['project','projects'],['currency','currencies']])if(source[field])enabled(db,key,source[field]);
+    for(const field of ['partner','warehouse','employee','project','currency','vatRate'])if(Object.hasOwn(source,field))result[field]=copy(source[field]);
+    result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
+    return result;
+  }
   function stageDocuments(db,draft,options={}){
     if(!draft||!C.types[draft.type])throw Error('작성할 전표 종류를 선택하세요.');
     const mode=options.mode||'copy',selections=selectedRows(options.selections),result=copy(draft),replace=options.replace===true;
@@ -129,6 +142,7 @@
     if(mode==='linked'&&result.sourceId&&result.sourceId!==ids[0])throw Error('다른 원본 전표가 이미 연결되어 있습니다.');
     if(mode==='linked'&&!result.sourceId&&(result.lines||[]).length&&!replace)throw Error('잔량 연결은 기존 행을 비우거나 덮어쓰기를 선택한 뒤 적용하세요.');
     const sources=new Map(ids.map(id=>[id,sourceRecord(db,id)]));
+    if(result.type==='purchase'&&[...sources.values()].some(d=>d.type==='purchaseorder'&&C.purchasingState(d).progress==='완료'))throw Error('종결된 발주서는 진행중으로 변경한 뒤 불러오세요.');
     if(ids.includes(result.id))throw Error('작성 중인 전표를 자기 자신에게 불러올 수 없습니다.');
     if(options.adoptHeader===true){
       if(ids.length!==1)throw Error('머리 항목은 원본 전표 한 개에서만 적용할 수 있습니다.');
@@ -205,6 +219,6 @@
     }
     return warnings;
   }
-  const api={salesTypes,purchaseTypes,sourceTypes,documentCandidates,stockCandidates,stageDocuments,stageStock,safetyWarnings};
+  const api={salesTypes,purchaseTypes,sourceTypes,documentCandidates,stockCandidates,stagePurchaseHeader,stageDocuments,stageStock,safetyWarnings};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.EntryCore=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
