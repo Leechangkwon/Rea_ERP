@@ -41,7 +41,7 @@
 |---|---|---|---|
 | 13914 | 발주요청입력 | 6eQxoh6CKic | 미검토 |
 | 13916 | 발주계획입력 | HRSAuHePo4E | 미검토 |
-| 13917 | 단가요청입력 | FjIB7_f4lCE | 미검토 |
+| 13917 | 단가요청입력 | FjIB7_f4lCE | 부분검토: 00:54~04:04 일부 절차 관찰, evidence/manual-price-request-defaults-20261021.json 참조. 전체 합격 아님 |
 | 13918 | 발주서입력 | N-N9FBEQ0AE | 미검토 |
 | 13920 | 구매입력 | 6mtlrDfFOHQ | 미검토 |
 | 13921 | 구매반품처리 | nueisPIB4FU | 미검토 |

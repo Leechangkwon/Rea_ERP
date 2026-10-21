@@ -1,0 +1,255 @@
+{
+  "version": "0.54.0",
+  "status": "candidate-validation-in-progress",
+  "sourcePlan": "docs/plan-price-request-order-flow-20261021.md",
+  "baselineProductionCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
+  "reference": {
+    "observedAt": "2026-10-21",
+    "source": "ECOUNT authenticated price request list > help > FAQ",
+    "faqTitle": "단가요청을 불러와 발주서를 입력 하려는데, 거래처 값이 안보여요.",
+    "answer": "단가확정 된 단가요청내역에 대해서만 거래처가 나타납니다.",
+    "publicVideo": "https://www.youtube.com/watch?v=U83Wl1X6jKQ",
+    "observations": [
+      {
+        "time": "00:42",
+        "fact": "확정 단가 선택 표"
+      },
+      {
+        "time": "00:57",
+        "fact": "발주서 단가요청 피커에 확정 거래처와 6000 단가 표시"
+      }
+    ],
+    "originalBusinessWrites": false,
+    "screenshots": [
+      {
+        "file": "price-import-faq-37.png",
+        "sha256": "212fd27972ac0fdcdcda362c1d474d6bfbf1935f87b03eec5a00e58d5a96c9a3"
+      },
+      {
+        "file": "price-import-faq-after-confirm.png",
+        "sha256": "9e2301a9fc758753783eef7ca6c0b0fb5bf606408e9e1cbf215914df1796d93f"
+      }
+    ]
+  },
+  "changes": [
+    "confirmed price and supplier projection in picker and conversion",
+    "comparison revision and source status checked on staging and first save",
+    "saved order amount/basis preserved after subsequent comparison changes",
+    "exact source-line remainder retained",
+    "legacy supplier filter/inheritance retained",
+    "referenced item/vendor rename explicitly blocked pending alias contract"
+  ],
+  "validation": {
+    "newNodeTests": 26,
+    "newNodePassed": 26,
+    "newBrowserTests": 1,
+    "newBrowserPassed": 1,
+    "syntheticWorkflow": {
+      "requestedPrice": 50000,
+      "confirmedPrice": 25000,
+      "requestQty": 100,
+      "orderQty": 40,
+      "purchaseQty": 10,
+      "requestRemaining": 60,
+      "orderRemaining": 30,
+      "stock": 10,
+      "payable": 275000
+    },
+    "completeCandidateVerifyPassed": true,
+    "candidateBrowserPassed": 45,
+    "finalNodeRegressionAfterRenameGuard": "running"
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "referenceOriginalUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.d50be26e.js",
+    "originalPriceRequestStorageContractVerified": false,
+    "coreStorageIntegrated": true,
+    "serverApiIntegrated": false,
+    "browserUiIntegrated": true,
+    "results": [
+      {
+        "name": "price-orderLines",
+        "category": "own",
+        "file": "dist/price-request-core.js",
+        "sourceSha256": "7da48d168017cda8691785b07d44425bbcf7e3d03b704feab1ad90fcd223eaca",
+        "start": 13293,
+        "end": 14518,
+        "lineStart": 202,
+        "lineEnd": 216,
+        "fragmentSha256": "a1c9cb46cbea9217fef20b7d8f91bafb2d107628813f7d6cc6cec79c39aebe6b",
+        "resultSha256": "0a461c133876fd7da11ef5b3df09d27f68561b7c631c0bdb48a218af07a6cba9",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1419,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 277,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "price-orderPartner",
+        "category": "own",
+        "file": "dist/price-request-core.js",
+        "sourceSha256": "7da48d168017cda8691785b07d44425bbcf7e3d03b704feab1ad90fcd223eaca",
+        "start": 14519,
+        "end": 14833,
+        "lineStart": 217,
+        "lineEnd": 222,
+        "fragmentSha256": "9095414de2a6aa45dea56a389e19f35716e2fd087c91a3725a2ccd5818ae4db2",
+        "resultSha256": "2103273e175c18c4fcb8f045fc13cb59d274318ce99ac806d7f7244a739af27e",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 396,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 63,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "price-validateOrder",
+        "category": "own",
+        "file": "dist/price-request-core.js",
+        "sourceSha256": "7da48d168017cda8691785b07d44425bbcf7e3d03b704feab1ad90fcd223eaca",
+        "start": 15434,
+        "end": 16873,
+        "lineStart": 230,
+        "lineEnd": 248,
+        "fragmentSha256": "cbeeb58a4d1ce78750c149816c699b81bc1da5a4e3b2293eae77e6e79533c56e",
+        "resultSha256": "d725b0671846b95129ad42f760a96f4f2960ff2611ceffe8c0f75bdc3ceabe05",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1667,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 299,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "entry-documentCandidates",
+        "category": "own",
+        "file": "dist/entry-core.js",
+        "sourceSha256": "7df5e7d4d5b2fa0e98d8698bad537ea2e64223beb7c1095f2395c7bbea41d302",
+        "start": 1923,
+        "end": 5071,
+        "lineStart": 38,
+        "lineEnd": 54,
+        "fragmentSha256": "f82bcf8acb1ffd790c42869243d1d66ffb17575527116db0c141a1c63e3300a2",
+        "resultSha256": "6e1dd0a1a7453d869aa5906ce763d6a41b08c87afe16d73742766d07da074c6b",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3242,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 815,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "entry-stageDocuments",
+        "category": "own",
+        "file": "dist/entry-core.js",
+        "sourceSha256": "7df5e7d4d5b2fa0e98d8698bad537ea2e64223beb7c1095f2395c7bbea41d302",
+        "start": 10983,
+        "end": 16642,
+        "lineStart": 122,
+        "lineEnd": 178,
+        "fragmentSha256": "0464570a2d0a719b12d3212796229ea1080a884c0d70b6736269d6d4622b6dfc",
+        "resultSha256": "1e32043b3fc6046e2f3c5b0fe1c37519ac2f64edbc8a13ca9a6642c72c6dc8f3",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 6377,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 1156,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "originalStaticContext": {
+    "source": ".artifacts/manual-price-request-20261021/rea-final/rea-summary.json",
+    "cacheVerified": true,
+    "unchangedOriginalScope": {
+      "name": "_convertUrl",
+      "category": "original",
+      "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+      "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+      "start": 704352,
+      "end": 705685,
+      "lineStart": 14389,
+      "lineEnd": 14424,
+      "fragmentSha256": "40655d3fff0218135de55ce97b880d2c59fdfd06a2c163c66f2d2da2a78752fb",
+      "resultSha256": "f5d7b99e60ccc735a7f00425460352040ec1844af4ce34cdaefa6c5becd91613",
+      "statistics": {
+        "relevant_files": 1,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 1391,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 1,
+        "visited_ast_nodes": 62,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "bindingsOutsideScopeUnresolved": true,
+      "runtimeEquivalence": false
+    },
+    "newOriginalScopes": 0,
+    "newOriginalDownloaded": false,
+    "originalRuntimeExecuted": false,
+    "note": "Routing context only; not comparison UI placement, supplier reply, permission, or confirmed-price storage proof.",
+    "verifiedAt": "2026-10-21T12:45:40.130Z"
+  },
+  "productionBusinessWrites": false,
+  "originalBusinessWrites": false,
+  "manualDone": 0,
+  "limitations": [
+    "original unconfirmed/request-price selected save policy not verified",
+    "supplier auto split, quote expiry and discount contract not verified",
+    "numeric precision roundtrip guard instead of whole money engine rewrite",
+    "production comparison count zero; meaningful saved workflow synthetic only",
+    "Moa HTTP401 and browser login required"
+  ],
+  "communityPublished": false
+}
