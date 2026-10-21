@@ -1,0 +1,162 @@
+{
+  "version": "0.71.0",
+  "status": "isolated-candidate-full-regression-passed",
+  "plan": "docs/plan-plan-generation-review-20261022.md",
+  "manual": {
+    "sourceId": "EC-HELP-PLAN-GENERATION-MODES",
+    "requirement": "REQ-PUR-PLAN-003",
+    "bodySha256": "161782321c5738129a0c44f8b6f70f643d3502e557ade6dac801dcad2e151775",
+    "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
+    "reviewedSegments": [
+      "00:24",
+      "00:44",
+      "00:54",
+      "01:14",
+      "01:34",
+      "01:44",
+      "01:54",
+      "02:04"
+    ],
+    "wholeVideoReviewed": false,
+    "reviewedBodies": 16,
+    "officialRequirements": 26,
+    "wholeManualPassed": false
+  },
+  "originalObservation": {
+    "readOnly": true,
+    "businessValuesStored": false,
+    "saved": false,
+    "selectedQueryRowRestored": true,
+    "mainEntryRowsOperated": false,
+    "customPopupMappingVerified": false,
+    "documentRepresentativeQuantityVerified": false
+  },
+  "implementation": {
+    "groupingChanged": false,
+    "calculationChanged": false,
+    "saveOrSchemaChanged": false,
+    "previewContext": [
+      "supplier",
+      "employee",
+      "project",
+      "warehouse",
+      "currency",
+      "vatRate",
+      "taxRounding",
+      "supplyRounding",
+      "custom",
+      "sourcePlans"
+    ],
+    "overview": [
+      "document",
+      "supplier",
+      "employee",
+      "dueDate",
+      "quantity",
+      "supply",
+      "tax",
+      "total"
+    ],
+    "moneyFormatter": "SelfCore.formatNumber money:true for monetary totals; general precision for quantities",
+    "dialogButtons": "desktop36px / tablet and mobile44px",
+    "customCriteriaFullParity": false
+  },
+  "checks": {
+    "newNode": 7,
+    "relatedNode": 58,
+    "newBrowser": 3,
+    "browserWidths": [
+      390,
+      864,
+      1280
+    ],
+    "independentP2Fixed": 1,
+    "independentReview": ".artifacts/manual-plan-generation-review-20261022/independent-review.md",
+    "reaOwnScopes": 2,
+    "reaOriginalLauncherScopes": 1,
+    "reaParseFailures": 0,
+    "reaCoverage": "unknown",
+    "reaTruncated": false,
+    "rawOriginalExecuted": false,
+    "reaSummarySha256": "a9b236bcc3527443ae02f5abf4b541c7bd0b895953b88c9cb69287e6db863f66",
+    "verifyLocalPassed": true,
+    "browserSynthetic": 84,
+    "testLogSha256": "cb9c50e1c3504636c26099093f8e8c4c4a8565a3fab208a56a9f2bb7640df764",
+    "remainingBlockingFindings": 0,
+    "independentPostFixReproductions": [
+      "general0-money2",
+      "stale-source-quantity",
+      "stale-employee",
+      "permission-revoked",
+      "formatter-error",
+      "custom-html-text-only"
+    ]
+  },
+  "acceptanceLimits": {
+    "operatingPlans": 0,
+    "dataBearingSave": "synthetic only",
+    "originalBusinessWrites": false,
+    "hostedBusinessWrites": false,
+    "hostedSettingsWrites": false,
+    "mailSent": false,
+    "fullManualAccepted": false
+  },
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 51,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authStateUnchangedNoRepeatedProbe": true
+  },
+  "originalStatic": {
+    "sourcePath": ".artifacts/manual-plan-quantity-20261021/original-plan-list-current.js",
+    "sourceSha256": "21833c77aa981b176f1123bbe4f6988552d4c56fe990cd2b32857dd76302affe",
+    "scope": "onLayerPurchaseOrder launcher, not popup implementation",
+    "sourceSelectionLimit": 100,
+    "modes": {
+      "supplier-date-line": {
+        "popup": "/ECERP/SVC/Popup/TC104P",
+        "TransType": "TRAN_BUNDLE",
+        "SummaryType": "1",
+        "BundleItems": [
+          "MAPPER_CUST/A2",
+          "MAPPER_TIME_DATE/A1"
+        ]
+      },
+      "supplier-date-item": {
+        "popup": "/ECERP/SVC/Popup/TC104P",
+        "TransType": "TRAN_BUNDLE",
+        "SummaryType": "2",
+        "BundleItems": [
+          "MAPPER_CUST/A2",
+          "MAPPER_TIME_DATE/A1"
+        ]
+      },
+      "single-line": {
+        "TransType": "TRAN",
+        "SummaryType": "1",
+        "SlipBundleType": "1"
+      },
+      "single-item": {
+        "TransType": "TRAN",
+        "SummaryType": "2",
+        "SlipBundleType": "1"
+      },
+      "custom": {
+        "popup": "/ECERP/SVC/Popup/TC102P"
+      }
+    },
+    "popupCriteriaAndHeaderMergeContractVerified": false,
+    "executed": false
+  },
+  "deployment": {
+    "baseCommit": "db9b68e03db380717720a7f534e81801277170ee",
+    "branch": "release/0.71.0-plan-generation-review",
+    "worktree": ".artifacts/releases/0.71.0-plan-generation-review",
+    "candidateManifest": ".artifacts/manual-plan-generation-review-20261022/candidate-manifest.json",
+    "bundleSha256": "7073e4905c649f8534d57c2b72b5c49f2f918626cc86a789455b13662581fa84",
+    "installed": false,
+    "sitesUsed": false
+  },
+  "sourceCommit": "b55d95a94e7256edf02d1490a0fbfb8aa5da31d3"
+}

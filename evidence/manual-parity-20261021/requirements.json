@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 13,
+  "officialRequirementsDecomposed": 26,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -1049,14 +1049,17 @@
         "품목별은 동일 품목 수량 합산",
         "적용 후 거래처·단가 저장"
       ],
-      "status": "local-partial",
+      "status": "local-partial-hosted-staging-partial",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "implementationEvidence": [
         "evidence/manual-order-import-20261021.json"
       ],
-      "remaining": "Original item aggregation with differing prices/terms and hosted save acceptance not yet verified"
+      "remaining": "Original item aggregation with differing prices/terms and hosted save acceptance not yet verified",
+      "hostedUnsavedStagingVerified": true,
+      "remotePreservationVerified": true,
+      "browserPostComparisonPending": true
     },
     {
       "id": "REQ-PUR-REQ-004",
@@ -1079,10 +1082,16 @@
         "자료올리기 일괄 업로드",
         "조회/현황에서 완료 요청 종결"
       ],
-      "status": "requirements-confirmed",
+      "status": "local-closure-passed-hosted-open-close-preserved-upload-contract-pending",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "implementationEvidence": [
+        "evidence/manual-request-report-state-20261022.json"
+      ],
+      "hostedReadOnlyPartial": true,
+      "uploadImplemented": false,
+      "remaining": "Uploader grouping/setup/required mapping/batch failure/retry and original server save plus hosted business write acceptance remain unverified"
     },
     {
       "id": "REQ-PUR-FLOW-001",
@@ -1096,7 +1105,24 @@
       "status": "requirements-confirmed",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "implementationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
+      "localLinkPreservationVerified": true,
+      "remaining": [
+        "Original full five-stage procedures and selective-step result parity",
+        "Hosted browser preservation and isolated release for link correction",
+        "Vendor comparison and minimum purchase-unit contracts",
+        "Original completed-plan modification/restoration policy and authenticated production acceptance"
+      ],
+      "isolatedReleaseCandidateEvidence": "evidence/manual-plan-allocation-preservation-20261021.json",
+      "supplierLinkPreservationEvidence": "evidence/manual-plan-supplier-preservation-20261021.json",
+      "sourceLineagePreservationEvidence": "evidence/manual-purchase-source-lineage-20261021.json",
+      "localSourceLineageVerified": true,
+      "completedPlanAllocationEvidence": "evidence/manual-plan-allocation-preservation-20261021.json",
+      "localCompletedPlanAllocationVerified": true,
+      "purchaseReceivingWarehouseEvidence": "evidence/manual-purchase-receiving-warehouse-20261021.json",
+      "localPurchaseReceivingWarehouseVerified": true,
+      "purchaseOrderWarehouseEqualityCorrection": "Official inventory textbook physical page 18 permits selecting actual receiving warehouse after loading purchase order. Prior equality guard is corrected only for purchaseorder -> purchase. Inspection/rack warehouse changes remain guarded for preservation."
     },
     {
       "id": "REQ-PUR-PLAN-001",
@@ -1110,7 +1136,15 @@
       "status": "requirements-confirmed",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "supplementaryEvidence": "evidence/manual-plan-quantity-contract-20261021.json",
+      "quantityAdjustmentContract": "workflow-and-preflight-confirmed-arithmetic-unresolved",
+      "supplementarySourceIds": [
+        "EC-PDF-INVENTORY-MID",
+        "EC-PDF-INVENTORY-BEGINNER"
+      ],
+      "stockOnlyResearchCandidateEvidence": "evidence/manual-plan-quantity-stock-candidate-20261021.json",
+      "stockOnlyResearchCandidateIntegrated": false
     },
     {
       "id": "REQ-PUR-PRICE-001",
@@ -1121,10 +1155,61 @@
         "최대5거래처 단가 요청",
         "Email 회신 단가 비교 및 발주서 적용"
       ],
-      "status": "requirements-confirmed",
+      "status": "partial-implementation-local-validated-hosted-pending",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "additionalSourceIds": [
+        "EC-VID-13917"
+      ],
+      "evidence": "evidence/manual-price-request-import-20261021.json",
+      "implementedScope": [
+        "Primary order/plan copy-import shortcuts",
+        "Auxiliary web upload and mobile access preservation",
+        "Shared browser/Node comparison storage with immutable source snapshot",
+        "Optional backup preservation and source/vendor-change edit guards",
+        "Read-only requested/received/confirmed comparison view with permission, account, stale-data and dialog-lifecycle protection",
+        "Explicit row confirmed-price selection, atomic guarded save/F8 and cancel for already archived ready comparisons"
+      ],
+      "remainingScope": [
+        "Supplier registration, direct reply, close/reopen UI; original default/header/partial selection semantics",
+        "Dedicated server quote mutation CAS/permissions when connected",
+        "Confirmed-price purchase-order application",
+        "External reply/email authorization and expiry",
+        "Authenticated original and hosted acceptance"
+      ],
+      "comparisonModel": {
+        "status": "independent-model-validated-not-integrated",
+        "sourceCommit": "80023351c41d5986f78c35d24199c294da2b0647",
+        "evidence": "evidence/manual-price-request-comparison-model-20261021.json",
+        "modelTests": 24,
+        "appIntegrated": false,
+        "hostedAcceptance": false
+      },
+      "comparisonStorage": {
+        "sourceCommit": "3eff8927f9cb38439bc83ebfb51876e72d4341c3",
+        "status": "core-storage-and-backup-validated-ui-api-production-pending",
+        "evidence": "evidence/manual-price-request-storage-20261021.json",
+        "coreIntegrated": true,
+        "comparisonUi": false,
+        "serverQuoteApi": false,
+        "hostedAcceptance": false
+      },
+      "comparisonView": {
+        "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
+        "status": "read-only-comparison-ui-validated-write-ui-original-and-production-pending",
+        "evidence": "evidence/manual-price-request-view-20261021.json",
+        "readOnlyUi": true,
+        "writeUi": false,
+        "hostedAcceptance": false
+      },
+      "comparisonSelection": {
+        "sourceCommit": "ad5a1dd477f9fb34148db39ccc9f8d19327e16e4",
+        "evidence": "evidence/manual-price-request-selection-20261021.json",
+        "status": "explicit-confirmed-selection-local-validated-production-pending",
+        "candidateCommit": "f181c53088d6db2555230e022e3f3b26840ecfb3",
+        "hostedAcceptance": false
+      }
     },
     {
       "id": "REQ-PUR-ORDER-001",
@@ -1164,8 +1249,494 @@
         "저장 전 차액 확인 후 세율별 마지막 행 반영 및 음영",
         "기본설정은 라인별"
       ],
-      "status": "requirements-confirmed",
+      "status": "calculation-evidence-conflict-local-audit",
       "referenceBodyReviewed": true,
+      "hostedAcceptance": false,
+      "done": false,
+      "calculationImplemented": true,
+      "storageIntegrated": true,
+      "uiIntegrated": true,
+      "evidence": "evidence/manual-transaction-vat-conflicts-20261021.json",
+      "settingsIntegrated": false,
+      "settingsStorageIntegrated": true,
+      "settingsSelectionUiIntegrated": false,
+      "basicOriginalFieldMappingVerified": true,
+      "calculationEvidenceConflict": true,
+      "calculationParityVerified": false,
+      "remaining": "Manual gross split and retained original raw-supply formula disagree outside the example; shared precision and versioned storage contract require resolution. Settings UI, mixed/foreign cases and hosted preservation remain unverified.",
+      "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
+      "independentFormulaCandidateEvidence": "evidence/manual-vat-price-binding-20261021.json",
+      "upstreamPriceBindingEvidence": "evidence/manual-vat-price-binding-20261021.json",
+      "inputResolverEvidence": "evidence/manual-vat-resolver-20261021.json",
+      "selectedInputFormulaVerified": false
+    },
+    {
+      "id": "REQ-PUR-RECEIPT-001",
+      "sourceId": "EC-HELP-PURCHASE-IMPORT",
+      "title": "발주 부분입고·재조회",
+      "procedure": [
+        "발주서 저장",
+        "구매입력 > 발주 > 라인별 잔량적용",
+        "일부 수량으로 구매 저장",
+        "발주 진행조회/미구매현황 확인"
+      ],
+      "expected": [
+        "여러 구매가 같은 발주를 분할 처리한다",
+        "기존 입고/잔량/재고/채무가 보존된다"
+      ],
+      "status": "deployed-synthetic-verified-hosted-write-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "발주 부분입고·재조회"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-receipt-closure-20261021.md"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-receipt-closure.cjs",
+        "tests/browser/purchase-receipt-closure.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "deploymentVersion": "0.55.0",
+      "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "hostedReadOnlyVerified": true
+    },
+    {
+      "id": "REQ-PUR-RECEIPT-002",
+      "sourceId": "EC-HELP-PURCHASE-IMPORT",
+      "title": "잔량0 발주 상단정보 적용",
+      "procedure": [
+        "잔량0인 진행 발주 선택",
+        "상단 거래처/담당자/창고 불러오기",
+        "취소 또는 별도 품목 작성"
+      ],
+      "expected": [
+        "잔량 품목행/가짜 수량 연결을 만들지 않는다",
+        "취소 시 저장 자료 불변"
+      ],
+      "status": "deployed-synthetic-verified-hosted-write-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "잔량0 발주 상단정보 적용"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-receipt-closure-20261021.md"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-receipt-closure.cjs",
+        "tests/browser/purchase-receipt-closure.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "deploymentVersion": "0.55.0",
+      "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "hostedReadOnlyVerified": true
+    },
+    {
+      "id": "REQ-PUR-RECEIPT-003",
+      "sourceId": "EC-HELP-REQUEST-027",
+      "title": "종결·후속 차단·재개",
+      "procedure": [
+        "발주조회 > 진행상태변경 > 완료",
+        "완료 탭에서 재조회",
+        "구매 발주 피커 조회",
+        "진행중으로 재개 후 잔량 입고"
+      ],
+      "expected": [
+        "종결 발주는 후속 불러오기 대상에서 제외된다",
+        "기존 구매와 수불/금액을 취소하지 않는다",
+        "자동종결 설정 없이 잔량0만으로 완료로 변경하지 않는다"
+      ],
+      "status": "deployed-synthetic-verified-hosted-write-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "종결·후속 차단·재개"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-receipt-closure-20261021.md"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-receipt-closure.cjs",
+        "tests/browser/purchase-receipt-closure.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "deploymentVersion": "0.55.0",
+      "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+      "hostedReadOnlyVerified": true
+    },
+    {
+      "id": "REQ-PUR-IMPORT-001",
+      "sourceId": "EC-HELP-PURCHASE-IMPORT",
+      "title": "라인별 전체적용·품목별 합산",
+      "procedure": [
+        "라인별 또는 품목별 집계 선택",
+        "전체적용/잔량적용 구분",
+        "수량 확인 후 저장·재조회"
+      ],
+      "expected": [
+        "전체적용은 원수량",
+        "품목별은 동일 품목 합산 및 잔량 미계산"
+      ],
+      "status": "partial-copy-line-implemented-full-application-and-item-contract-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "라인별 전체적용·품목별 합산"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-line-import-20261021.md",
+        "evidence/manual-purchase-line-import-20261021.json",
+        "evidence/manual-purchase-history-import-20261022.json",
+        "evidence/manual-purchasing-history-targets-20261022.json"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-line-import.cjs",
+        "tests/browser/purchase-line-import.spec.cjs",
+        "tests/purchase-history-import.cjs",
+        "tests/browser/purchase-history-import.spec.cjs",
+        "tests/purchasing-history-targets.cjs",
+        "tests/browser/purchasing-history-targets.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "partialAcceptance": {
+        "copyLineSaveReload": true,
+        "hostedLineStaging": true,
+        "originalFullApplicationSourceLinkSave": false,
+        "itemAggregationDifferentTerms": false
+      },
+      "deploymentVersion": "0.57.0",
+      "relatedSourceIds": [
+        "EC-HELP-MULTI-VOUCHER-HISTORY"
+      ],
+      "historyCopySubset": {
+        "deploymentVersion": "0.66.1",
+        "purchaseTargetSources": [
+          "pricerequest",
+          "purchaseorder",
+          "purchase"
+        ],
+        "lineCopyIndependentTerms": true,
+        "syntheticSaveReload": true,
+        "hostedOpenFilterCancel": true,
+        "hostedBusinessSave": false,
+        "otherHistoryTargetsBounded": false,
+        "originalImmediateApplyUiEquivalent": false
+      },
+      "historyCopyTargetExtension": {
+        "deploymentVersion": "0.67.0",
+        "targets": [
+          "pricerequest",
+          "purchaseorder",
+          "purchase"
+        ],
+        "sources": [
+          "pricerequest",
+          "purchaseorder",
+          "purchase"
+        ],
+        "syntheticSaveReload": true,
+        "hostedOpenFilterCancel": true,
+        "hostedBusinessSave": false,
+        "sourceQuoteBasisActivated": false,
+        "sourceQuoteBasisSnapshotPreserved": true,
+        "done": false
+      }
+    },
+    {
+      "id": "REQ-PUR-IMPORT-002",
+      "sourceId": "EC-HELP-PURCHASE-IMPORT",
+      "title": "같은 명칭 추가항목 승계",
+      "procedure": [
+        "발주서와 구매의 추가항목 명칭 일치",
+        "발주서 불러오기",
+        "적용한 추가항목 조회"
+      ],
+      "expected": [
+        "일치하는 명칭의 항목 내용이 구매에 적용된다"
+      ],
+      "status": "deployed-synthetic-verified-hosted-custom-save-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "같은 명칭 추가항목 승계"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-custom-fields-20261021.md",
+        "evidence/manual-purchase-custom-import-20261021.json"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-custom-import.cjs",
+        "tests/browser/purchase-custom-import.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "deploymentVersion": "0.56.0",
+      "deploymentEvidence": "evidence/manual-purchase-custom-import-20261021.json",
+      "hostedPickerOpenCancelVerified": true,
+      "hostedCustomValuesWriteAcceptance": false
+    },
+    {
+      "id": "REQ-PUR-RETURN-001",
+      "sourceId": "EC-HELP-PURCHASE-RETURN",
+      "title": "복사 음수 구매반품",
+      "procedure": [
+        "구매조회 > 기존 구매번호",
+        "반품처리",
+        "음수 수량 전표에서 일부 품목/수량 조정",
+        "저장·재조회"
+      ],
+      "expected": [
+        "원구매 보존",
+        "입고창고 재고/금액 차감",
+        "새 구매전표 음수 수량 저장"
+      ],
+      "status": "partial-deployed-negative-input-canonical-credit-return-synthetic-verified",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "복사 음수 구매반품"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-negative-return-20261022.md",
+        "evidence/manual-purchase-negative-return-20261022.json"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-negative-return.cjs",
+        "tests/purchase-negative-return-ui.cjs",
+        "tests/browser/purchase-negative-return.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "hostedPreviewCancelVerified": true,
+      "deploymentVersion": "0.59.1",
+      "canonicalStorageType": "purchasereturn/credit positive; negative presentation",
+      "nativeNegativePurchaseStorage": false
+    },
+    {
+      "id": "REQ-PUR-RETURN-002",
+      "sourceId": "EC-HELP-PURCHASE-RETURN",
+      "title": "직접 음수 구매 및 반품조회",
+      "procedure": [
+        "구매입력에 음수 수량 입력",
+        "저장",
+        "구매현황 구매구분 전체/일반/반품 검색"
+      ],
+      "expected": [
+        "직접 음수도 반품",
+        "일반 양수와 반품 음수 필터 구분"
+      ],
+      "status": "partial-deployed-legacy-report-synthetic-verified-negative-storage-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "직접 음수 구매 및 반품조회"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "docs/plan-purchase-return-report-20261021.md",
+        "evidence/manual-purchase-return-report-20261021.json"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-return-report.cjs",
+        "tests/browser/purchase-return-report.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "deploymentVersion": "0.58.0",
+      "hostedReportFiltersVerified": true,
+      "hostedNegativeReturnDataVerified": false,
+      "directNegativeSaveImplemented": false
+    },
+    {
+      "id": "REQ-PUR-OUTPUT-001",
+      "sourceId": "EC-HELP-PURCHASE-ORDER",
+      "title": "구매·발주 인쇄 양식",
+      "procedure": [
+        "조회에서 전표번호 확인",
+        "인쇄 미리보기",
+        "Option > 양식설정",
+        "기존 양식 또는 추가양식 적용"
+      ],
+      "expected": [
+        "조회/출력 금액 일치",
+        "기존 사용자 양식 보존"
+      ],
+      "status": "saved-return-print-deployed-synthetic-passed-full-forms-and-hosted-negative-data-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
+        "section": "구매·발주 인쇄 양식"
+      },
+      "role": "manual does not specify role exceptions; own inventory.write retained",
+      "implementationEvidence": [
+        "dist/purchase-return-core.js",
+        "dist/inventory-ui.js",
+        "evidence/manual-purchase-return-print-20261022.json"
+      ],
+      "automatedEvidence": [
+        "tests/purchase-return-print.cjs",
+        "tests/browser/purchase-return-print.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false,
+      "hostedPositivePrintPreview": true
+    },
+    {
+      "id": "REQ-COM-MAPPING-001",
+      "sourceId": "EC-HELP-MAPPING-IMPORT",
+      "title": "매핑센터 메뉴·항목 연결과 불러오기",
+      "procedure": [
+        "매핑센터 신규에서 원본/목표 메뉴 연결·저장",
+        "매핑설정에서 목표 입력항목과 원본항목 선택·적용",
+        "목표 입력화면에서 연결된 원본 전표 선택·적용"
+      ],
+      "expected": [
+        "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
+      ],
+      "status": "needs-detailed-compatibility-review",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+        "section": "메뉴 및 항목 연결하는 방법 / 매핑 사용 방법"
+      },
+      "role": "Manual does not specify role exceptions; existing authorization must be preserved",
+      "implementationEvidence": [
+        "dist/self-settings-ui.js",
+        "dist/entry-core.js"
+      ],
+      "automatedEvidence": [],
+      "hostedAcceptance": false,
+      "done": false
+    },
+    {
+      "id": "REQ-ACC-PRINT-001",
+      "sourceId": "EC-HELP-PRINT-ACCOUNTING-SCOPE",
+      "title": "회계 지정 메뉴의 전표/건별 인쇄",
+      "procedure": [
+        "입금보고서인쇄/지출결의서인쇄/가지급정산서인쇄에서 전표 선택",
+        "행의 결의서/전표/건별 인쇄 또는 복수 선택 후 보고서인쇄"
+      ],
+      "expected": [
+        "전표인쇄는 한 전표의 모든 행을 함께 출력",
+        "건별인쇄는 각 행을 개별 페이지로 출력"
+      ],
+      "scope": "Accounting named menus only; do not apply generic title to purchase",
+      "status": "reference-scoped-accounting-implementation-pending",
+      "sourceLocator": {
+        "artifact": ".artifacts/manual-return-print-20261022/voucher-item-print-scope.ax.txt",
+        "id": "EAM012M_326237497798"
+      },
+      "referenceVerified": true,
+      "role": "Manual does not specify permission exceptions; preserve existing authorization",
+      "implementationEvidence": [],
+      "automatedEvidence": [],
+      "hostedAcceptance": false,
+      "done": false
+    },
+    {
+      "id": "REQ-COM-FORMS-001",
+      "sourceId": "EC-HELP-CONDITIONAL-FORMS",
+      "title": "조건에 따른 입력/리스트/전표 양식 선택",
+      "procedure": [
+        "판매조회 인쇄 Option > 조건양식설정 > 신규",
+        "ID 조건으로 A/B 사용자별 양식 지정 후 저장",
+        "각 사용자 로그인 후 적용 결과 확인"
+      ],
+      "expected": [
+        "최대 3조건 AND 및 PC/Mobile 조건 사용",
+        "메뉴별 조건 항목이 다를 수 있음",
+        "일괄 인쇄는 첫 전표 조건 기준"
+      ],
+      "scope": "Reference example is sale; input/list/print are stated supported, menu-specific condition availability still needs observation",
+      "status": "ID-3AND-PC-Mobile-deployed-synthetic-save-reload-passed-hosted-configured-data-and-modern-attributes-pending",
+      "sourceLocator": {
+        "artifact": ".artifacts/manual-return-print-20261022/conditional-forms.ax.txt",
+        "id": "EAM012M_120422034974"
+      },
+      "referenceVerified": true,
+      "role": "Manual does not specify permission exceptions; preserve existing authorization",
+      "implementationEvidence": [
+        "dist/form-core.js",
+        "dist/form-options.js",
+        "evidence/manual-conditional-forms-20261022.json"
+      ],
+      "automatedEvidence": [
+        "tests/conditional-forms.cjs",
+        "tests/browser/conditional-forms.spec.cjs"
+      ],
+      "hostedAcceptance": false,
+      "done": false
+    },
+    {
+      "id": "REQ-PUR-PLAN-002",
+      "sourceId": "EC-HELP-PLAN-ZERO-001",
+      "title": "발주계획 건별 수량0 조회",
+      "expected": [
+        "전체/수량0/수량0 아님 조건으로 명시조회",
+        "잔량과저장수량을구분하고조회만으로전표를변경하지않음"
+      ],
+      "status": "local-passed-hosted-empty-readonly-query-passed",
+      "referenceBodyReviewed": true,
+      "hostedAcceptance": false,
+      "done": false,
+      "implementationEvidence": [
+        "evidence/manual-plan-zero-quantity-20261022.json"
+      ],
+      "remaining": "Original grouped mode/server filter and data-bearing hosted acceptance remain unverified; own zero-plan storage support is distinguished from original save parity."
+    },
+    {
+      "id": "REQ-PUR-PLAN-003",
+      "sourceId": "EC-HELP-PLAN-GENERATION-MODES",
+      "title": "발주계획의 5가지 발주서 생성 방식·직접 집계 설정·생성 전 확인",
+      "procedure": [
+        "발주계획조회에서 계획 선택",
+        "다른전표생성에서 거래처/납기·라인/품목·1장·직접설정 방식 선택",
+        "직접설정 집계 기준 선택",
+        "생성 예정 전표의 거래처·담당자·수량·금액 확인 및 필요시 일괄변경",
+        "발주서 생성 후 저장·재조회 결과 확인"
+      ],
+      "expected": [
+        "라인별은 중복품목행 유지, 품목별은 동일 품목 합산",
+        "직접설정 기준 예로 거래처·담당자를 사용할 수 있다",
+        "생성 전에 전표별 담당자와 금액을 구분할 수 있다"
+      ],
+      "status": "preview-context-subset-candidate-full-custom-mapping-pending",
+      "sourceLocator": {
+        "artifact": ".artifacts/manual-plan-generation-review-20261022/manual-plan-generation-faq.txt",
+        "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
+        "segments": [
+          "00:54",
+          "01:14",
+          "01:34-02:04"
+        ]
+      },
+      "role": "Manual does not state permission exceptions; existing inventory.write preserved",
+      "implementationEvidence": [
+        "dist/purchase-plan-ui.js",
+        "docs/plan-plan-generation-review-20261022.md"
+      ],
+      "automatedEvidence": [
+        "tests/plan-generation-preview.cjs",
+        "tests/browser/plan-generation-preview.spec.cjs"
+      ],
+      "remaining": [
+        "직접설정 추가집계기준과 일괄변경 미구현",
+        "선택하지 않은 머리값이 다른 경우 최종 매핑 미확인",
+        "상이단가 품목합산 서버규칙 미확인",
+        "운영 유자료 저장 및 전체매뉴얼 합격 미완료"
+      ],
       "hostedAcceptance": false,
       "done": false
     }

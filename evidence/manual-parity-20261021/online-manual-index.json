@@ -1,7 +1,7 @@
 {
-  "scope": "request context only; not all ERP manuals",
-  "count": 36,
-  "bodyReviewed": 4,
+  "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
+  "count": 46,
+  "bodyReviewed": 16,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -203,9 +203,11 @@
       "id": "EC-HELP-REQUEST-025",
       "title": "전표 종결의 의미와 사용 방법",
       "page": 2,
-      "status": "index-only",
-      "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "cc9868621f4604bae52b7d8725f7247459bf4a610994312b3fb9b56a855361e9",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-help-body.ax.txt"
     },
     {
       "id": "EC-HELP-REQUEST-026",
@@ -219,9 +221,11 @@
       "id": "EC-HELP-REQUEST-027",
       "title": "전표를 종결 처리하는 방법",
       "page": 2,
-      "status": "index-only",
-      "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "06a9bff12537eea982486bef60d19d7c682f9fa0e75d7b81cf2b988e26638a72",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-method-help-body.ax.txt"
     },
     {
       "id": "EC-HELP-REQUEST-028",
@@ -298,6 +302,125 @@
       "observedDate": "2026-10-21",
       "bodySha256": "2cfee5d178a088001ea331684c9044fecf21f6f6ff6795f8d90f810724af36e9",
       "localArtifact": ".artifacts/manual-parity-20261021/manual-purchase-overview.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE",
+      "title": "구매 메뉴 사용 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "dd8fb71b60f5be7ef4e8aca516938d4426a2c8fa404ed3d8e0ce092e9d7bf209",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE-ORDER",
+      "title": "발주서 메뉴 사용 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "857ba608d8fd5ae98d2c297d12a5c2b79099164b764dd39729611f2797dbd893",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE-IMPORT",
+      "title": "발주서를 불러와서 구매입력하는 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "77ba92ce055a27dcc2217591ea20a7122c168904c7edc8dd104594c0257fd93a",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-order-import-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-PURCHASE-RETURN",
+      "title": "구매한 품목을 반품했을 때 처리 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 구매/발주/종결 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "03067f11d09fdd557a8b020f5079e9a9bf5ba83c11a4f7df037369db44093da4",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/purchase-return-help-body.ax.txt"
+    },
+    {
+      "id": "EC-HELP-MAPPING-IMPORT",
+      "title": "서로 다른 메뉴를 연결하여 입력된 자료를 불러오는 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 자료불러오기 검색",
+      "observedDate": "2026-10-21",
+      "bodySha256": "c26fc1e907834b49cf1b09c82183b951e628f52ebed6a30f5e8d169ca7c8192f",
+      "localArtifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+      "safety": "Only help body viewed; no source ERP configuration or business saves"
+    },
+    {
+      "id": "EC-HELP-PRINT-ACCOUNTING-SCOPE",
+      "title": "전표인쇄와 건별인쇄의 차이점",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 인쇄/인쇄양식 검색",
+      "sourceLocator": "EAM012M_326237497798",
+      "observedDate": "2026-10-22",
+      "bodySha256": "85037c4f924735d3a4d6f7f3994bfae4335e3ad94173f84326e4bad0851aff80",
+      "localArtifact": ".artifacts/manual-return-print-20261022/voucher-item-print-scope.ax.txt",
+      "safety": "Only help body viewed; no original settings, business inputs, saves or printer output"
+    },
+    {
+      "id": "EC-HELP-CONDITIONAL-FORMS",
+      "title": "조건에 따라서 입력화면/리스트/전표 양식이 다르게 나타나도록 설정하는 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 단가요청조회 > 도움말 > 온라인매뉴얼 > 인쇄/인쇄양식 검색",
+      "sourceLocator": "EAM012M_120422034974",
+      "observedDate": "2026-10-22",
+      "bodySha256": "4ce755b4e58ffdfd9a1c50edb3c13c99f86fda36726c5e1b21d8fb34f8035005",
+      "localArtifact": ".artifacts/manual-return-print-20261022/conditional-forms.ax.txt",
+      "safety": "Only help body viewed; no original settings, business inputs, saves or printer output"
+    },
+    {
+      "id": "EC-HELP-MULTI-VOUCHER-HISTORY",
+      "title": "여러 장의 재고 전표를 한 장으로 합산하여 입력하는 방법",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 구매입력 > 도움말 > 온라인매뉴얼 > 불러오기 단가 검색",
+      "sourceLocator": "EAM012M_306149550506",
+      "observedDate": "2026-10-22",
+      "bodySha256": "eb34f8b3d942bc2f0e829ff1d4577bb20fc3406a02304ff9600db3a01bc6f5e7",
+      "localArtifact": ".artifacts/manual-import-contracts-20261022/original-multi-voucher-history-manual.ax.txt",
+      "safety": "Help and separate lookup popups only; no original main row selection, apply or save."
+    },
+    {
+      "id": "EC-HELP-PLAN-ZERO-001",
+      "title": "발주계획조회에서 수량이 0인 항목이 같이 떠서 보기 불편합니다. 없앨 수 있나요?",
+      "kind": "FAQ",
+      "status": "body-reviewed",
+      "originalPageId": "EAM012M_882025686106",
+      "sourcePath": "재고 I > 구매관리 > 발주계획 > 발주계획조회 > 도움말",
+      "observedDate": "2026-10-22",
+      "bodySha256": "9df461c689595de8dc9b5edcc657bb3c53eb955492dfa5889ec87be60d1f35ce",
+      "localArtifact": ".artifacts/manual-plan-zero-quantity-20261022/manual-plan-zero-quantity.txt",
+      "videoUrl": "https://www.youtube.com/watch?v=ai7XZWy6xRQ"
+    },
+    {
+      "id": "EC-HELP-PLAN-GENERATION-MODES",
+      "title": "발주계획조회에서 [다른전표생성]으로 발주서를 생성할때 나타나는 각 버튼의 의미는 무엇인가요?",
+      "kind": "FAQ with official video",
+      "status": "body-reviewed",
+      "sourcePath": "재고 I > 구매관리 > 발주계획 > 발주계획조회 > 도움말 > 통합검색 발주계획",
+      "observedDate": "2026-10-22",
+      "bodySha256": "161782321c5738129a0c44f8b6f70f643d3502e557ade6dac801dcad2e151775",
+      "localArtifact": ".artifacts/manual-plan-generation-review-20261022/manual-plan-generation-faq.txt",
+      "videoUrl": "https://www.youtube.com/watch?v=ivdIVimbCDU",
+      "videoReviewedSegments": [
+        "00:24",
+        "00:44",
+        "00:54",
+        "01:14",
+        "01:34",
+        "01:44",
+        "01:54",
+        "02:04"
+      ],
+      "wholeVideoReviewed": false,
+      "sessionContainerLabels": [
+        "EAM012M_788054318620",
+        "EAM012M_333631349585"
+      ],
+      "sessionLabelsAreStableDocumentIds": false,
+      "originalBusinessWrites": false
     }
   ]
 }
