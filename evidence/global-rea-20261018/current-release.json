@@ -1,5 +1,5 @@
 {
-  "version": "0.65.0",
+  "version": "0.66.1",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 65,
+    "currentReleaseBrowserSynthetic": 66,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -142,7 +142,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.65.0",
+    "currentReleaseFullRegressionVersion": "0.66.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -164,16 +164,20 @@
     "purchaseReturnStateNewBrowser": 1,
     "purchaseReportTabsNewNode": 18,
     "purchaseReportTabsRelatedNode": 78,
-    "purchaseReportTabsNewBrowser": 2
+    "purchaseReportTabsNewBrowser": 2,
+    "currentReleaseVersionOnlyTargetedBrowser": 1,
+    "purchaseHistoryNewNode": 11,
+    "purchaseHistoryRelatedNode": 77,
+    "purchaseHistoryNewBrowser": 1
   },
-  "future_research": "Next: REQ-PUR-IMPORT-001 full-quantity/application and differing-price item aggregation gap table against existing line copy, manual bodies, safe original popups and public code; implement only verified rules. Department/position/duty awaits registered user/reference storage. Direct negative purchase/mixed signs/refunds, actual accounting/history/batch print and original work-tab equivalence remain pending. Do not repeat deployed tab retention or credit-return confirmation. VAT5/done0 unchanged.",
+  "future_research": "다음 단위는 단가요청·발주서 입력의 거래내역보기 원본 메뉴 범위와 복사 후 행·상단 보존을 매뉴얼/조회 팝업/공개 코드로 확인하고, 구매에만 적용한 범위 계약을 검증된 대상에 확장한다. 전체적용의 저장 후 원본 연결·상이단가 합산 계산은 서버 계약 미확인으로 보류하며 같은 조회 검사를 반복하지 않는다. 부서·직위/직급·직책은 사용자등록 참조 계약 선행, 직접 음수/혼합부호·환불·반품 회계/이력·일괄인쇄·원본 작업 탭 동등성도 미완료다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-purchase-report-tabs-20261022.json",
+    "reference": "../manual-purchase-history-import-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "5d3df3464d05134a29effeda866805f92fbaa1f3",
-    "publicVersionVerified": "0.65.0",
+    "deployedSourceCommit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
+    "publicVersionVerified": "0.66.1",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -232,20 +236,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.65.0",
+    "existingSessionRetainedVersion": "0.66.1",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.65.0",
+    "lastExactBrowserBackupComparisonVersion": "0.66.1",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.65.0",
+    "currentServerStateAndMailPreservedVersion": "0.66.1",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.65.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.66.1",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -286,12 +290,15 @@
     "accountedCreditReturnSignedReadonlyDeployed": true,
     "creditReturnHostedBusinessSaveVerified": false,
     "purchaseReportActualWorkTabsHostedReadOnlyVerified": true,
-    "purchaseReportOriginalWorkTabEquivalenceVerified": false
+    "purchaseReportOriginalWorkTabEquivalenceVerified": false,
+    "purchaseHistoryPurchaseSourcesBounded": true,
+    "purchaseHistoryHostedOpenFilterCancelVerified": true,
+    "purchaseHistoryHostedBusinessSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 24,
-    "sourceBodiesReviewed": 13,
+    "sourceBodiesReviewed": 14,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
@@ -523,7 +530,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Next: REQ-PUR-IMPORT-001 full-quantity/application and differing-price item aggregation gap table against existing line copy, manual bodies, safe original popups and public code; implement only verified rules. Department/position/duty awaits registered user/reference storage. Direct negative purchase/mixed signs/refunds, actual accounting/history/batch print and original work-tab equivalence remain pending. Do not repeat deployed tab retention or credit-return confirmation. VAT5/done0 unchanged.",
+    "nextIndependentWork": "다음 단위는 단가요청·발주서 입력의 거래내역보기 원본 메뉴 범위와 복사 후 행·상단 보존을 매뉴얼/조회 팝업/공개 코드로 확인하고, 구매에만 적용한 범위 계약을 검증된 대상에 확장한다. 전체적용의 저장 후 원본 연결·상이단가 합산 계산은 서버 계약 미확인으로 보류하며 같은 조회 검사를 반복하지 않는다. 부서·직위/직급·직책은 사용자등록 참조 계약 선행, 직접 음수/혼합부호·환불·반품 회계/이력·일괄인쇄·원본 작업 탭 동등성도 미완료다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -759,13 +766,22 @@
       "evidence": "../manual-purchase-report-tabs-20261022.json",
       "originalTabEquivalenceVerified": false,
       "done": false
+    },
+    "purchaseTransactionHistoryCopy": {
+      "version": "0.66.1",
+      "status": "deployed-synthetic-save-reload-hosted-read-only-preservation-verified",
+      "evidence": "../manual-purchase-history-import-20261022.json",
+      "purchaseTargetOnly": true,
+      "fullQuantityAndDifferingPriceFormulaVerified": false,
+      "hostedBusinessSaveVerified": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.65.0",
-    "commit": "5d3df3464d05134a29effeda866805f92fbaa1f3",
-    "manifest": ".artifacts/manual-report-tabs-20261022/candidate-manifest.json",
-    "bundleSha256": "5ba45a845810a1da5dab344de54b5d88dc3814ff14e241a78c39c762fd6cc5af",
+    "version": "0.66.1",
+    "commit": "6c570492b481cf0478cad96cc0196e9a04496ee0",
+    "manifest": ".artifacts/manual-import-contracts-20261022/candidate-manifest.json",
+    "bundleSha256": "f42e79f3ee8a1c651b70f9bd08378bf36e1b2f26f434a323d670a0dd42b76ff8",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -791,9 +807,10 @@
       "registered-item-supplier-inheritance-modal-new-partner-and-responsive-purchasing-actions",
       "registered-authenticated-role-equality-conditional-forms-preserved-AND-and-async-guards",
       "credit-return-confirmation-and-signed-accounted-read-only-preserving-frozen-amounts",
-      "actual-purchasing-report-work-tab-applied-pending-state-and-scoped-lifecycle-guards"
+      "actual-purchasing-report-work-tab-applied-pending-state-and-scoped-lifecycle-guards",
+      "purchase-history-three-purchasing-sources-independent-line-copy-custom-provenance-and-early-session-guards"
     ],
-    "supersedesCandidateCommit": "a04eb5ce0a4bb33cb264aaf22277667d4e85207d",
+    "supersedesCandidateCommit": "5d3df3464d05134a29effeda866805f92fbaa1f3",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,

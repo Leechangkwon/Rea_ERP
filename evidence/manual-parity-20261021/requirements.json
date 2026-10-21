@@ -1388,11 +1388,14 @@
       "role": "manual does not specify role exceptions; own inventory.write retained",
       "implementationEvidence": [
         "docs/plan-purchase-line-import-20261021.md",
-        "evidence/manual-purchase-line-import-20261021.json"
+        "evidence/manual-purchase-line-import-20261021.json",
+        "evidence/manual-purchase-history-import-20261022.json"
       ],
       "automatedEvidence": [
         "tests/purchase-line-import.cjs",
-        "tests/browser/purchase-line-import.spec.cjs"
+        "tests/browser/purchase-line-import.spec.cjs",
+        "tests/purchase-history-import.cjs",
+        "tests/browser/purchase-history-import.spec.cjs"
       ],
       "hostedAcceptance": false,
       "done": false,
@@ -1402,7 +1405,24 @@
         "originalFullApplicationSourceLinkSave": false,
         "itemAggregationDifferentTerms": false
       },
-      "deploymentVersion": "0.57.0"
+      "deploymentVersion": "0.57.0",
+      "relatedSourceIds": [
+        "EC-HELP-MULTI-VOUCHER-HISTORY"
+      ],
+      "historyCopySubset": {
+        "deploymentVersion": "0.66.1",
+        "purchaseTargetSources": [
+          "pricerequest",
+          "purchaseorder",
+          "purchase"
+        ],
+        "lineCopyIndependentTerms": true,
+        "syntheticSaveReload": true,
+        "hostedOpenFilterCancel": true,
+        "hostedBusinessSave": false,
+        "otherHistoryTargetsBounded": false,
+        "originalImmediateApplyUiEquivalent": false
+      }
     },
     {
       "id": "REQ-PUR-IMPORT-002",

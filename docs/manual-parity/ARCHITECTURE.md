@@ -402,3 +402,11 @@ app.js가 actual viewId를 InventoryUI에 전달하고 정상 navigation 직전 
 PurchasingReportUI는 현재 host와 beforeQuery guard를 모든 자료 읽기/출력 callback에 적용하며 focus/storage/visibility의 범위 변경으로 결과와 child를 폐기한다. destroy는 리스너와 결과를 해제한다. 상세/출력/그래프/색상/집계대상/정렬/중첩 피커는 자체 연결/open/closed 검사도 한다. 외부 원문·기존 전표/양식/계정/메일은 변경하지 않는다. 원본 별도창의 적용/대기 조건 분리는 관찰했으나 원본 탭 간 보존은 미검증이다. 기존 PRD portal 상태 계약 보완을 매뉴얼 전체 동등성으로 승격하지 않는다.
 
 근거 evidence/manual-purchase-report-tabs-20261022.json. 운영0.64 기반 격리후보만 검증/배포하며 미완료 main VAT5는 제외한다.
+
+## 2026-10-22 · 0.66.1 거래내역 복사 계약
+
+EntryCore.historySourceTypes(purchase)는 구매3종만 허용하고 history=true는 copy/line·상단 미적용을 강제한다. stageDocuments의 history 분기는 appendCopyLines로 독립 lineId/terms를 보존하며 source 연결/배분을 새 전표에 소비 연결하지 않는다. PO→purchase의 기존 필드명 매핑과 raw importedFrom.customSnapshot의 역할을 분리한다. 기존백업/schema/DB/계정/메일을 자동 변환하지 않는다.
+
+InventoryUI는 docEditor 생성 때 identity/role/host를 고정하고 assertReturnSession/원문 freshness를 열기 전에 확인한다. EntryUI는 database/getDraft 읽기 전에 assertCurrent, 이후 focus/storage/visibility와 적용에서 계정/read·원본/초안/부모 수명을 검사한다. history에 부적합한 품목범위/머리항목은 DOM에서 제외해 CSS가 hidden을 덮어도 노출되지 않는다. 자산버전0.66.1로 갱신했다. 다른 입력 대상 거래내역은 다음 단위로 남기며 전체적용/상이단가 서버 계산을 이 복사 계약으로 대체하지 않는다.
+
+근거 evidence/manual-purchase-history-import-20261022.json. 운영0.65 기반 격리후보 6c57049만 검증/배포, main VAT5 연구 제외. 본문14/요구사항24·전체합격0.
