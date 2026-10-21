@@ -22,4 +22,8 @@ ID는 내부owner key가 아닌 AuthUI.state().user.loginId를 읽는다. 문서
 
 ### 실제 구매조회 UI 차이
 
-구매조회는 IAttributeSettingCommonPage의 예외추가→정보불러오기→IFlowItemSetV3Page를 사용한다. 사용자 분류에 ID/권한그룹/부서등록/직위·직급/직책, 접속방법 분류에 접속기기가 보인다. 구형 단가요청의 화면모드/ID 2항목과 구분한다. 사용자 추가항목5개와 현대식 flow editor 전체 동등성은 후속 범위이며 이번 3AND·ID·모드의 합격으로 확대하지 않는다. 원본 설정은 저장하지 않는다.
+구매조회는 IAttributeSettingCommonPage의 예외추가→정보불러오기→IFlowItemSetV3Page를 사용한다. 사용자 분류에 ID/권한그룹/부서등록/직위·직급/직책, 접속방법 분류에 접속기기가 보인다. 구형 단가요청의 화면모드/ID 2항목과 구분한다. 사용자 추가항목4개와 현대식 flow editor 전체 동등성은 후속 범위이며 이번 3AND·ID·모드의 합격으로 확대하지 않는다. 원본 설정은 저장하지 않는다.
+
+## 결과 · 0.61.0 운영
+
+소스d65e9eb/운영c56d15b. 신규Node17·관련56·격리후보 verify:local/브라우저53 통과. 독립5경계 수정·재검증, 자체REA7/원본라우트1 파싱실패0. 기존 로그인·일반 구매 인쇄/빈 사용자양식 안내·8전표/양식·서버fresh app30/gateway0·메일3함8통1첨부 보존 확인. 운영 사용자양식0으로 실제 설정 저장/두 사용자 적용은 미검증. 근거 evidence/manual-conditional-forms-20261022.json. 전체합격0, 모아40갱신 대기.

@@ -350,3 +350,9 @@ purchase-return-ui의 입력과 저장 객체를 분리하며 마지막 onCommit
 ## 2026-10-22 저장 반품 출력 투영
 
 0.60.0은 canonical purchasereturn/credit 및 고정 returnAmounts를 변환하지 않고 printModel에서만 음수로 투영한다. 전용 반품 namespace에 저장된 설정이 있으면 유지하며 없으면 기존 doc:purchase 양식을 공유한다. 자동 이관/자동 활성화는 없다. 계정·회사·inventory.read·storageKey/CAS와 닫힌 창을 재검사하고 기존 inventory.write가 양식변경을 통제한다. 명시 인쇄 전에는 print 콜백을 실행하지 않는다. 양식3조건 AND/ID/PC-Mobile와 일괄 첫 전표 조건은 별도 미완료 요구사항으로 등록했다. 관련 계획 docs/plan-purchase-return-print-20261022.md 및 evidence/manual-purchase-return-print-20261022.json.
+
+## 2026-10-22 런타임 조건양식
+
+0.61.0은 기존 store version1을 유지하고 새 규칙만 conditionVersion1과1~3 conditions(AND)를 사용한다. flat rule의 source/conditions 미지 메타데이터는 종전 business 의미로 보존한다. 새 condition의 source는 business/session/client로 구분하며 ID는 AuthUI user.loginId, mode는 브라우저 모바일 신호/UA에서만 읽는다. FormCore.effective의 runtime resolver를 UI와 브라우저 업무 검증이 함께 사용하고 독립 Node 분석은 명시 environment 인자를 받을 수 있다. 없는 환경은 런타임 조건에 일치하지 않으며 runtime은 저장하지 않는다. 이 조건은 양식 메타데이터 선택이고 API/서버 권한을 확장하지 않는다. 공유자료/실제 두 사용자의 서버 합격은 미완료다.
+
+편집창과 양식 선택기는 생성 시 마운트 세대와 identity를 고정하고 연결상태/계정·회사/권한/양식 snapshot 및 기존 저장 CAS를 검사한다. 닫힘·화면교체·저장실패는 기존 자료를 보존한다. 원본 구매 v6의 flow editor와 추가 사용자 속성4개, 일괄인쇄 첫 전표 규칙은 후속 계약이다. 근거 evidence/manual-conditional-forms-20261022.json.

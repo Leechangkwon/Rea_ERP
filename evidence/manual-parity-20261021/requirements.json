@@ -1612,15 +1612,22 @@
         "일괄 인쇄는 첫 전표 조건 기준"
       ],
       "scope": "Reference example is sale; input/list/print are stated supported, menu-specific condition availability still needs observation",
-      "status": "existing-single-condition-only-ID-AND-Mobile-and-batch-pending",
+      "status": "ID-3AND-PC-Mobile-deployed-synthetic-save-reload-passed-hosted-configured-data-and-modern-attributes-pending",
       "sourceLocator": {
         "artifact": ".artifacts/manual-return-print-20261022/conditional-forms.ax.txt",
         "id": "EAM012M_120422034974"
       },
       "referenceVerified": true,
       "role": "Manual does not specify permission exceptions; preserve existing authorization",
-      "implementationEvidence": [],
-      "automatedEvidence": [],
+      "implementationEvidence": [
+        "dist/form-core.js",
+        "dist/form-options.js",
+        "evidence/manual-conditional-forms-20261022.json"
+      ],
+      "automatedEvidence": [
+        "tests/conditional-forms.cjs",
+        "tests/browser/conditional-forms.spec.cjs"
+      ],
       "hostedAcceptance": false,
       "done": false
     }

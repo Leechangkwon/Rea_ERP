@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-22",
+  "version": "0.61.0",
+  "requirement": "REQ-COM-FORMS-001",
+  "scope": "Legacy rule preservation plus explicit 1-3 AND conditions using authenticated login ID and PC/MOBILE runtime, input/list/print selection, save/cancel/reload",
+  "plan": "docs/plan-conditional-forms-20261022.md",
+  "sourceCommit": "d65e9eb294bd71856dbbc981a91238ccf552c593",
+  "reference": {
+    "manualId": "EC-HELP-CONDITIONAL-FORMS",
+    "bodyArtifact": ".artifacts/manual-return-print-20261022/conditional-forms.ax.txt",
+    "sourceBodiesReviewed": 13,
+    "officialRequirements": 24,
+    "newBodiesThisMilestone": 0,
+    "observedLegacyPriceRequestFields": [
+      "ID",
+      "화면모드"
+    ],
+    "observedLegacyModeValues": [
+      "PC",
+      "MOBILE"
+    ],
+    "observedModernPurchaseFields": [
+      "ID",
+      "권한그룹",
+      "부서등록",
+      "직위/직급",
+      "직책",
+      "접속기기"
+    ],
+    "observedModernDeviceValues": [
+      "모바일",
+      "PC"
+    ],
+    "observedNewPurchaseFlowEditorFullyReplicated": false,
+    "originalSettingsSaved": false,
+    "originalUnsavedExceptionDiscarded": true,
+    "originalBusinessWrites": false,
+    "reaVersion": "6.4.0",
+    "ownScopes": 7,
+    "originalScopes": 1,
+    "originalScope": "Conditional-settings popup route in retained public common.js",
+    "originalConditionEngineVerified": false,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false
+  },
+  "compatibility": {
+    "storeVersion": 1,
+    "newRuleOptIn": "conditionVersion1",
+    "legacyRulesAutomaticallyMigrated": false,
+    "legacySourceMetadataKeptAsBusinessSemantics": true,
+    "unknownConditionAndRuleMetadataPreserved": true,
+    "activeFormNotChangedByRuleSave": true,
+    "maxConditions": 3,
+    "operator": "AND",
+    "identityFrom": "AuthUI.state().user.loginId; never internal owner ID or voucher custom fields",
+    "deviceFrom": "Browser mobile signal/user agent; independent of viewport width",
+    "environmentPersistedInBusinessData": false,
+    "unknownRuntimeDoesNotMatchSessionOrDeviceConditions": true,
+    "firstMatchPriorityAndContextPreserved": true,
+    "newPermissions": false,
+    "closedRemountedAccountCompanyReadWriteAndChangedFormGuards": true
+  },
+  "validation": {
+    "newNodeTests": 17,
+    "relatedNodeTests": 56,
+    "verifyLocalPassed": true,
+    "browserSynthetic": 53,
+    "newBrowserTests": 2,
+    "workflow": "3-condition rule create/cancel -> explicit save -> reload -> matching login PC print -> different login fallback -> narrow PC stays PC; actual mobile UA selects mobile list/input/print without records/settings writes",
+    "independentReviewIssuesFixedAndRetested": 5,
+    "independentReviewRemainingNewP1OrWarnings": 0,
+    "issues": [
+      "Typed condition unknown metadata loss",
+      "Legacy source metadata accidentally changing rule meaning",
+      "Old rule editor after remount",
+      "Old ordinary form editor after close/remount",
+      "Old form picker after remount"
+    ],
+    "screenshotsInspected": true,
+    "initialSyntheticFixtureAndResponsiveSelectorCorrectionsRecorded": true
+  },
+  "deployment": {
+    "commit": "c56d15b4d55f22bd6842e49ec1865e62d25c6986",
+    "branch": "release/0.61.0-conditional-forms",
+    "manifest": ".artifacts/manual-conditional-forms-20261022/candidate-manifest.json",
+    "bundleSha256": "4b4a8f12308335445964b3776cf2ce3ed4be5ff7b99512719c55a05c4d8293a7",
+    "publicChangedAssetsVerified": 3,
+    "version": "0.61.0",
+    "browserExact": true,
+    "formsExact": true,
+    "documents": 8,
+    "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+    "existingSessionRetained": true,
+    "hostedPositivePurchasePrintPreview": true,
+    "hostedEmptyFormRuleGuardVerified": true,
+    "hostedSavedForms": 0,
+    "hostedRuleSaveAcceptance": false,
+    "businessSaves": false,
+    "settingsSaved": false,
+    "actualPrinterInvoked": false,
+    "remoteRevisions": {
+      "rea_app_state": 30,
+      "rea_gateway_state": 0
+    },
+    "serverBodyAndRevisionExact": true,
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restoreApplied": false,
+    "rollback": ".artifacts/manual-conditional-forms-20261022/rollback-0.60.0-worker.js"
+  },
+  "productionDeployed": true,
+  "remainingGaps": [
+    "Operating saved user forms0; actual configured rule save/application remains synthetic acceptance only",
+    "Modern purchase role/group/department/position/duty conditions and full flow editor unimplemented",
+    "Batch print first-voucher condition rule pending until batch print exists",
+    "Original matching server engine and mobile detection equivalence unverified",
+    "Shared business storage and real two-user acceptance incomplete",
+    "Purchase return confirmation/accounted view/refund exceptions, work-tab state and full-quantity/differing-price imports unresolved",
+    "VAT5 conflicts undeployed; whole manual done0",
+    "Moa auth unavailable;40 updates locally pending"
+  ],
+  "wholeManualDone": false,
+  "vatConflictsUnchanged": 5,
+  "moaPublicationPending": true
+}

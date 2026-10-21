@@ -1,6 +1,14 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.60.0 운영
+## 현재 인계 · 0.61.0 운영
+
+운영 `release/0.61.0-conditional-forms` / `c56d15b`, 소스 `d65e9eb`. 기존 flat/store v1 보존·새 conditionVersion1 ID(loginId)/PC-MOBILE/최대3AND 조건 저장→재조회→입력/조회/인쇄. 신규Node17/관련56·전체 verify:local/브라우저53 통과. 독립5경계 수정·동일 재현 차단 확인. 기존 로그인·일반 구매44,000원 미리보기·빈 사용자양식 안내를 확인, 운영 설정/업무 저장 없음.
+
+근거 `evidence/manual-conditional-forms-20261022.json`, 계획 `docs/plan-conditional-forms-20261022.md`, manifest `.artifacts/manual-conditional-forms-20261022/candidate-manifest.json`, worktree `.artifacts/releases/0.61.0-conditional-forms`. 실행 `rea-erp-dev run` 세션87597 유지. bundle SHA `4b4a8f12308335445964b3776cf2ce3ed4be5ff7b99512719c55a05c4d8293a7`, 롤백0.60.0 보존.8전표/양식·서버fresh app30/gateway0·메일3함8통1첨부 전후 동일. main VAT5충돌 빌드 설치 금지.
+
+본문13/요구사항24·전체합격0. 다음은 구매 현대식 조건의 권한그룹/부서/직위·직급/직책과 flow editor의 실제 참조/평가/저장 계약 대조, 검증된 사용자 속성만 확장. 일괄 첫 전표·실제 두 사용자·운영 설정 저장은 미완료. 반품 confirmation/회계반영 조회·전체수량/상이단가/작업탭도 남아 있다. 모아 마지막 게시0.51.0·인증401,40갱신 로컬 대기. 새 인증 없는 반복 오류 조회 금지. 아래는 과거 이력이다.
+
+## 이전 인계 · 0.60.0 운영
 
 운영 `release/0.60.0-purchase-return-print` / `2fb85fe`, 소스 `fc42683`. 구매조회 차감반품 선택 → 기존 전용 반품/공동 구매 양식 → 고정금액 음수 미리보기 → 닫기/재조회 보존. 신규Node7/관련35, 전체 verify:local·브라우저51 통과. 기존 로그인·운영 일반 구매 미리보기/닫기,8전표/양식·서버app28/gateway0·메일3함8통1첨부 전후 동일. 운영 반품0건으로 음수 출력은 합성 검증, 실제 프린터/업무 저장 없음.
 
