@@ -1379,7 +1379,7 @@
         "전체적용은 원수량",
         "품목별은 동일 품목 합산 및 잔량 미계산"
       ],
-      "status": "confirmed-gap-contract-incomplete",
+      "status": "partial-copy-line-implemented-full-application-and-item-contract-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1387,11 +1387,22 @@
       },
       "role": "manual does not specify role exceptions; own inventory.write retained",
       "implementationEvidence": [
-        "docs/plan-purchase-receipt-closure-20261021.md"
+        "docs/plan-purchase-line-import-20261021.md",
+        "evidence/manual-purchase-line-import-20261021.json"
       ],
-      "automatedEvidence": [],
+      "automatedEvidence": [
+        "tests/purchase-line-import.cjs",
+        "tests/browser/purchase-line-import.spec.cjs"
+      ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "partialAcceptance": {
+        "copyLineSaveReload": true,
+        "hostedLineStaging": true,
+        "originalFullApplicationSourceLinkSave": false,
+        "itemAggregationDifferentTerms": false
+      },
+      "deploymentVersion": "0.57.0"
     },
     {
       "id": "REQ-PUR-IMPORT-002",

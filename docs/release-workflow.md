@@ -1,10 +1,10 @@
 # 개발과 검증 배포
 
-## 현재 인계 · 0.56.0 운영
+## 현재 인계 · 0.57.0 운영
 
-운영 `release/0.56.0-purchase-custom` / `1fc990e`, 소스 `6b79a53`. REQ-PUR-IMPORT-002: 발주서→구매 상단/품목 추가항목의 같은 명칭·다른ID 승계와 취소/충돌 보존·저장/재조회를 구현했다. 전체 verify:local/브라우저47, 최종 Node전체/release/build/관련 브라우저2 통과. 운영 로그인·읽기/취소·자료/양식/메일 보존 확인. 운영 추가항목 유자료 저장과 전체 매뉴얼 합격은 남아 있다.
+운영 `release/0.57.0-purchase-lines` / `a034134`, 소스 `2ad6ed1`. 발주→구매 내용복사/라인별에서 동일품목·다른단가 원본행과 기존 입력행을 각각 보존한다. 신규Node8·관련52·전체 verify:local/브라우저48 통과, 운영 같은 발주 2회 복사→40개씩 2행 무저장 시험 및 기존 로그인/자료/양식/메일 보존 확인. 전체적용 저장 연결·품목별 상이 단가 합산·실업무 저장 합격은 남아 있다.
 
-근거 `evidence/manual-purchase-custom-import-20261021.json`, 계획 `docs/plan-purchase-custom-fields-20261021.md`, manifest `.artifacts/manual-purchase-custom-20261021/candidate-manifest.json`. 현재 상태는 `docs/manual-parity/PROGRESS.md` 맨 위를 따른다. 다음은 전체적용/품목합산의 단가·복수 연결 계약, 이후 음수 구매반품. main VAT5충돌 연구 빌드 설치 금지. 모아35갱신 대기·전체완료0. 아래는 시점별 이력이다.
+근거 `evidence/manual-purchase-line-import-20261021.json`, 계획 `docs/plan-purchase-line-import-20261021.md`, manifest `.artifacts/manual-purchase-lines-20261021/candidate-manifest.json`. 현재 상태는 `docs/manual-parity/PROGRESS.md` 맨 위를 따른다. 다음은 구체적인 전체적용/합산 저장 근거 조사, 미확보 시 독립적인 음수 구매반품 설계를 진행한다. main VAT5충돌 연구 빌드 설치 금지. 모아36갱신 대기·전체완료0. 아래는 시점별 이력이다.
 
 ## 2026-10-21 · 0.54.0 확정 단가 → 발주서 → 부분 구매 연결
 

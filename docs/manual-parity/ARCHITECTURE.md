@@ -330,3 +330,7 @@ PriceRequestUI가 ready 비교자료에서 기존 확정값이 하나도 없을 
 ## ADR-20261021 추가항목 명칭 연결 — 0.56.0
 
 PO→구매 초안 불러오기는 양식의 context별 활성/조건 custom 정의를 조회해 정확한 label로 ID를 연결한다. 미등록 legacy line 값은 보관하되 목표 ID의 다른 명칭으로 잘못 표시하지 않는다. header 값 충돌/중복명/유형 오류는 순수 staging에서 거부한다. UI는 계산 성공을 확인한 뒤 custom control과 보관 값을 같이 반영한다. 기존 schema·문서·양식을 변경하지 않는다. 관련 계약과 미확인 서버/운영 저장 한계는 `docs/plan-purchase-custom-fields-20261021.md`를 따른다.
+
+## ADR-20261021 라인별 내용복사와 원전표 수량 연결 — 0.57.0
+
+PO→구매 copy/line은 새 로컬 lineId를 할당하며 원본 행 ID는 importedFrom provenance에 보관한다. 기존 입력행과 수량을 합치지 않는다. linked/line의 sourceId/sourceLineId 및 잔량 제한과 구분한다. 과거 ID 없는 구매에 후속 자료가 있으면 저장 전 staging에서 ID 재배정/대체를 거부한다. 안정적 ID가 있는 부모/반품의 기존 참조는 유지한다. 원본의 balance_type=N 전체적용 요청을 현재 내용복사와 동일한 저장 계약이라고 추정하지 않는다. 상세 근거는 `evidence/manual-purchase-line-import-20261021.json`이다.

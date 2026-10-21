@@ -585,6 +585,22 @@
       "architectureUpdatePending": true,
       "roadmapUpdatePending": true,
       "nextAction": "Read existing project bodies, append only missing records and reread saved body; preserve existing PRD and architecture."
+    },
+    {
+      "date": "2026-10-21",
+      "version": "0.57.0",
+      "milestone": "purchase-order-copy-line-preservation",
+      "sourceCommit": "2ad6ed155751992d0e29ce84a492aa2e8f69b564",
+      "deploymentCommit": "a03413408f4a1e89389659fc2097d5e22b124747",
+      "status": "authentication-required-local-record-ready",
+      "saveAttempted": false,
+      "readbackVerified": false,
+      "localRecord": "docs/manual-parity/PROGRESS.md",
+      "pendingBodyArtifact": ".artifacts/manual-purchase-lines-20261021/moa-pending-lines.html",
+      "evidence": "evidence/manual-purchase-line-import-20261021.json",
+      "architectureUpdatePending": true,
+      "roadmapUpdatePending": true,
+      "nextAction": "Read existing project documents, append only missing verified records and reread; preserve prior designs."
     }
   ],
   "lastVerifiedProgressVersion": "0.51.0",
