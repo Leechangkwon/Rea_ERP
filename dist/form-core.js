@@ -63,11 +63,11 @@
   function matches(rule,values){const value=String(values[rule.field]??values.custom?.[rule.field]??''),target=String(rule.value??'');if(rule.operator==='eq')return value===target;if(rule.operator==='neq')return value!==target;if(rule.operator==='contains')return value.includes(target);if(rule.operator==='gt')return value!==''&&Number(value)>Number(target);if(rule.operator==='lt')return value!==''&&Number(value)<Number(target);return false;}
   function environment(){
     const user=root.AuthUI?.state?.()?.user,nav=root.navigator;
-    return {userId:typeof user?.loginId==='string'?user.loginId:'',mode:nav?(nav.userAgentData?.mobile===true||/Mobi|Android|iPhone|iPad|iPod/i.test(nav.userAgent||'')?'MOBILE':'PC'):''};
+    return {userId:typeof user?.loginId==='string'?user.loginId:'',roleId:typeof user?.roleId==='string'?user.roleId:'',mode:nav?(nav.userAgentData?.mobile===true||/Mobi|Android|iPhone|iPad|iPod/i.test(nav.userAgent||'')?'MOBILE':'PC'):''};
   }
   function conditionMatches(condition,values,env){
     if(!condition.source||condition.source==='business')return matches(condition,values);
-    const value=condition.source==='session'?env.userId:env.mode;
+    const value=condition.source==='session'?(condition.field==='userId'?env.userId:condition.field==='roleId'?env.roleId:undefined):condition.source==='client'&&condition.field==='mode'?env.mode:undefined;
     return typeof value==='string'&&value!==''&&condition.operator==='eq'&&value===condition.value;
   }
   function effective(store,key,context,base,values={},env=environment()){
@@ -85,7 +85,7 @@
   function rules(store,key,input){
     if(!Array.isArray(input)||input.length>100)throw Error('조건양식은 100개 이하로 설정하세요.');const next=copy(store||empty()),s=copy(screen(next,key));
     const business=c=>c&&fieldKey(c.field)&&['eq','neq','contains','gt','lt'].includes(c.operator)&&String(c.value??'').length<=200;
-    const condition=c=>c&&typeof c==='object'&&!Array.isArray(c)&&((!c.source||c.source==='business')?business(c):c.operator==='eq'&&typeof c.value==='string'&&c.value.length>0&&c.value.length<=200&&((c.source==='session'&&c.field==='userId')||(c.source==='client'&&c.field==='mode'&&['PC','MOBILE'].includes(c.value))));
+    const condition=c=>c&&typeof c==='object'&&!Array.isArray(c)&&((!c.source||c.source==='business')?business(c):c.operator==='eq'&&typeof c.value==='string'&&c.value.length>0&&c.value.length<=200&&((c.source==='session'&&['userId','roleId'].includes(c.field))||(c.source==='client'&&c.field==='mode'&&['PC','MOBILE'].includes(c.value))));
     s.rules=input.map((r,i)=>{
       const valid=r&&typeof r==='object'&&!Array.isArray(r)&&validKey(r.context)&&s.forms.some(f=>f.id===r.formId&&f.context===r.context)&&typeof r.enabled==='boolean';
       if(!valid||(Object.hasOwn(r,'conditionVersion')?r.conditionVersion!==1||!Array.isArray(r.conditions)||r.conditions.length<1||r.conditions.length>3||!r.conditions.every(condition):!business(r))||(r.conditionVersion===1&&r.name!==undefined&&(typeof r.name!=='string'||r.name.length>200)))throw Error('조건 항목과 적용 양식을 확인하세요. 세부 조건은 1~3개입니다.');
