@@ -1159,10 +1159,13 @@
       "evidence": "evidence/manual-price-request-import-20261021.json",
       "implementedScope": [
         "Primary order/plan copy-import shortcuts",
-        "Auxiliary web upload and mobile access preservation"
+        "Auxiliary web upload and mobile access preservation",
+        "Shared browser/Node comparison storage with immutable source snapshot",
+        "Optional backup preservation and source/vendor-change edit guards"
       ],
       "remainingScope": [
-        "Multiple supplier replies and comparison/confirmation",
+        "Comparison/supplier-selection UI and role-aware explicit save integration",
+        "Dedicated server quote mutation CAS/permissions when connected",
         "Confirmed-price purchase-order application",
         "External reply/email authorization and expiry",
         "Authenticated original and hosted acceptance"
@@ -1173,6 +1176,15 @@
         "evidence": "evidence/manual-price-request-comparison-model-20261021.json",
         "modelTests": 24,
         "appIntegrated": false,
+        "hostedAcceptance": false
+      },
+      "comparisonStorage": {
+        "sourceCommit": "3eff8927f9cb38439bc83ebfb51876e72d4341c3",
+        "status": "core-storage-and-backup-validated-ui-api-production-pending",
+        "evidence": "evidence/manual-price-request-storage-20261021.json",
+        "coreIntegrated": true,
+        "comparisonUi": false,
+        "serverQuoteApi": false,
         "hostedAcceptance": false
       }
     },

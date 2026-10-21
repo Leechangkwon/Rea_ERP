@@ -269,3 +269,12 @@ command는 expectedRevision과 현재 원본을 검증한 뒤 새 상태를 반�
 지문은 인증 서명이 아니다. 다음 통합에서는 브라우저 호환 동일 지문 계산, 서버의 역할/원자적 수정번호 검사, source 삭제/변경/취소 시 부속상태 보존·명시 재설정, backup의 버전/역참조 검증과 구버전 읽기, 안정된 행ID 및 회사 경계를 먼저 확정한다. 기존 db.prices나 document.partner를 회신 배열로 재해석하지 않는다. 외부 회신 URL/권한/만료와 발주서의 확정가 공급사/잔량 배분은 별도 계약이다.
 
 근거 evidence/manual-price-request-comparison-model-20261021.json. 운영과 preparedCandidate는 변경하지 않는다.
+
+
+### 비교 부속 저장과 역사적 원본 보존 · 3eff892
+
+PriceRequestCore는 dist의 UMD 공유모듈이다. v2의 source.fingerprint는 정렬된 원본 JSON 자체이며 이전 연구 v1 SHA256과 구별한다. 현재 store는 version1/records이고 record는 documentId/snapshot/comparison이다. 최초 snapshot과 회신을 원본 저장·취소·코드 변경으로 다시 쓰지 않는다. validateStore는 snapshot과 comparison의 정합성만 검사해 원본이 없거나 달라진 과거자료도 백업할 수 있다. view는 원본없음/비활성/변경/거래처사용불가를 구분하고 ready일 때만 수정한다. 새로운 거래처·새 원본에 과거 확정단가를 자동 재결합하지 않는다. 재기준화·초기화/삭제는 아직 제공하지 않는다.
+
+InventoryCore.command/validateBackup는 optional store를 JSON clone 전에 먼저 검증한다. NaN/Infinity/undefined가 null이나 필드누락으로 바뀌기 전에 거절하며 priceRequest payload도 원형 검증을 거친다. 정상명령은 clone DB에서 수정번호 검사와 store 갱신/로그만 수행한다. 일반 settings로 store를 주입·초기화하지 못한다. 기존 legacy DB에는 store를 자동 추가하지 않는다. 기록의 원본코드는 현재 master에 맞춰 고쳐 쓰지 않으며 quoted vendor가 없어지거나 비활성화되면 읽기만 허용한다.
+
+브라우저 HTML·합성 preview와 worker bundler는 같은 모듈을 로드한다. 저장계층의 공유코어와 백업 bridge 합성 검증을 마쳤지만 comparison UI 및 전용 server mutation API는 아직 없다. 코어 expectedRevision은 앱 전체 서버 CAS/역할권한을 대신하지 않는다. 브라우저 저장소와 서버 업무 영역은 계속 별개이며 자동 동기화하지 않는다. main 전체 검증번들은 미완료 VAT를 포함하므로 운영 설치물이 아니다. 근거 evidence/manual-price-request-storage-20261021.json.

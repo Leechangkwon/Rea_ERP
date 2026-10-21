@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "recordedAt": "2026-10-21T09:08:18.912331+00:00",
+  "sourceCommit": "3eff8927f9cb38439bc83ebfb51876e72d4341c3",
+  "requirement": "REQ-PUR-PRICE-001",
+  "status": "core-storage-and-backup-validated-ui-api-production-pending",
+  "sources": {
+    "manualBody": "EC-HELP-REQUEST-036",
+    "officialVideo": "EC-VID-13917",
+    "previousObservationEvidence": "evidence/manual-price-request-import-20261021.json",
+    "newOriginalObservations": false,
+    "fullManualProcedurePassed": false
+  },
+  "implementation": {
+    "sharedModule": "dist/price-request-core.js",
+    "modelVersion": 2,
+    "storePath": "settings.priceRequests",
+    "storeVersion": 1,
+    "fingerprint": "exact-canonical-source-JSON-not-cryptographic-signature",
+    "v1Migration": "No deployed v1 comparison data; old independent source retained in Git; unknown/old persisted model versions explicitly rejected",
+    "optionalLegacyPreservation": true,
+    "coreCommand": "priceRequest",
+    "immutableSnapshot": true,
+    "statuses": [
+      "ready",
+      "missing-source",
+      "inactive-source",
+      "source-changed",
+      "vendor-unavailable"
+    ],
+    "generalSettingsReplacementBlocked": true,
+    "validationBeforeJsonClone": true,
+    "sourceVoucherPricesFormsStockPayableUnchangedByComparisonCommands": true,
+    "logsAndSequenceAdvance": true,
+    "serverQuoteApi": false,
+    "comparisonUi": false,
+    "purchaseOrderApplication": false,
+    "externalReplyOrMail": false
+  },
+  "validation": {
+    "verifiedAt": "2026-10-21T09:05:48.242530+00:00",
+    "sourceHashes": {
+      "dist/price-request-core.js": "c2e0ec0582eb38cc8dac8ae3dc614593483d9b9b52dc71f39737ddf9f0748e54",
+      "dist/inventory-core.js": "7d66dc9e0b4f7191a5b9d09a47669db668ab0ae3cf73e5a6c4f8ffb21a17b8ac",
+      "dist/index.html": "f16bbff65020228085a2a5e7d475c53ef3f62d297e9a03e3671d16c0e3a72944",
+      "scripts/lib/price-request-comparison.cjs": "966803af2a757a9c49141b8c332b65989644c993d27439fd01db637440211387",
+      "scripts/build-worker.cjs": "2aa550176670b34abcd810c4ffb415e09abe02870d127afdf6601c2e5b26c299",
+      "scripts/request-preview.cjs": "cb63bde8d88524aa71e9eaec8844ab9f9ff94d5090058776401c8ca713f53523",
+      "tests/price-request-comparison.cjs": "22b62ca92bd43a41d0d33410037c716e45a22dabd42be6de46400e4c6910fea5",
+      "tests/price-request-storage.cjs": "e496524841931139bd0d54e166348614d06a14abd9281150d5ef7dd532d56a2c",
+      "tests/browser/price-request-store.spec.cjs": "e4645ad5d9be0577193d9c65201b30e32e66fb251b6192fd1827292710ce1893",
+      "tests/api-gateway.cjs": "df589dc6eb89d5703afbd19963212129e8ef5e9b4727a68f629bf1e3e72a8aa8",
+      "package.json": "61c6df5e970c52fdfc68dab647972d9e372ad107a49e467a63b6fd4c49c3b353"
+    },
+    "isolatedSourceMatches": true,
+    "productionBundleUnchanged": true,
+    "preparedCandidateUnchanged": true,
+    "productionBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "validationBundleSha256": "9c53784f0e94186274fe5998461bb683f66faceaadeff599dabdca456d54ab8b",
+    "validationBundleIsNotAReleaseCandidate": true,
+    "verifyExitCode": 0,
+    "browserTests": 41,
+    "focusedTests": 42,
+    "gatewayTests": 36,
+    "reaScopes": 9,
+    "originalScopesReused": 1,
+    "originalNewScopes": 0,
+    "fullVerifyLog": ".artifacts/manual-price-storage-20261021/verify-final.log",
+    "newStorageTests": 18,
+    "newGatewayTests": 1,
+    "newBrowserTests": 1,
+    "syntheticBrowserScope": "Shared core, localhost localStorage save/reload, backup validation, source modification and preserved historical reply; not the unimplemented comparison UI",
+    "gatewayScope": "Existing admin backup bridge preserving archived comparisons, anonymous denial, revision conflict and corrupt input rejection; not quote mutation API authorization/CAS",
+    "review": {
+      "reproducedDefects": 2,
+      "fixes": [
+        "Non-header vendor rename or disable makes comparison read-only",
+        "Validate original optional store before JSON cloning to prevent NaN/Infinity/undefined response loss"
+      ],
+      "finalFocusedTests": 42,
+      "furtherFindings": 0
+    },
+    "initialCorrections": [
+      "Audit sequence also advances through existing log() helper; preservation test accounts for it",
+      "Settings replacement guard moved before payload JSON clone",
+      "Master disable test supplies originalCode for existing-record edit"
+    ]
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 9,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "runtimeEquivalence": false,
+    "bindingsOutsideScopeUnresolved": true,
+    "summary": ".artifacts/manual-price-storage-20261021/rea/rea-summary.json",
+    "originalCacheCheck": ".artifacts/manual-price-storage-20261021/original-cache-check.json",
+    "newOriginalScopes": 0,
+    "originalContractScope": "Cached route mapping only, no supplier reply storage contract"
+  },
+  "deployment": {
+    "operatingVersion": "0.53.1",
+    "operatingSource": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "operatingBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingBundleUnchanged": true,
+    "preparedCandidateVersion": "0.53.2",
+    "preparedCandidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+    "preparedCandidateUnchanged": true,
+    "installed": false,
+    "restarted": false,
+    "freshProductionDataReadback": false,
+    "note": "Main validation includes unfinished VAT and must not be installed. Existing authenticated UI and browser backup preservation gate remains pending."
+  },
+  "publication": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "connectorStatus": "HTTP401",
+    "workDocumentUpdateToolAvailable": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingBody": ".artifacts/manual-price-storage-20261021/moa-pending-comparison-storage.html"
+  },
+  "remaining": [
+    "Compare UI and actual role-aware save adapter integration",
+    "Server quote endpoint and atomic concurrency validation if server persistence is connected",
+    "External supplier reply authorization/expiry and mail",
+    "Confirmed price and supplier allocation to purchase orders",
+    "Authenticated original/manual and hosted acceptance",
+    "Moa existing-document append and saved-body readback"
+  ],
+  "done": false
+}

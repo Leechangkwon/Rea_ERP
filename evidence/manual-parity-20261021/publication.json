@@ -410,6 +410,22 @@
       "roadmapUpdatePending": true,
       "nextAction": "Read existing bodies and append only missing model/validation records; reread saved body. No deployment or integration claimed.",
       "connectorCheck": "HTTP401; work-document update tools unavailable"
+    },
+    {
+      "date": "2026-10-21",
+      "milestone": "price-request-comparison-storage-backup",
+      "status": "authentication-required-local-record-ready",
+      "sourceCommit": "3eff8927f9cb38439bc83ebfb51876e72d4341c3",
+      "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+      "saveAttempted": false,
+      "readbackVerified": false,
+      "localRecord": "docs/manual-parity/PROGRESS.md",
+      "evidence": "evidence/manual-price-request-storage-20261021.json",
+      "pendingBodyArtifact": ".artifacts/manual-price-storage-20261021/moa-pending-comparison-storage.html",
+      "architectureUpdatePending": true,
+      "roadmapUpdatePending": true,
+      "connectorCheck": "HTTP401; work-document update tools unavailable",
+      "nextAction": "Read existing progress, architecture and roadmap bodies; append only missing storage and validation records; reread saved body. No UI/API/production completion claimed."
     }
   ]
 }
