@@ -120,6 +120,27 @@
     if(result.length>500)throw Error('전표 품목은 500행까지 입력할 수 있습니다.');
     return result;
   }
+  function purchaseCustom(db,source,target,context,sourceValues,existing={}){
+    if(source.type!=='purchaseorder'||target.type!=='purchase')return copy(sourceValues||{});
+    const F=typeof module==='object'&&module.exports?require('./form-core.js'):root.FormCore;
+    if(!F)throw Error('추가항목 양식을 다시 불러오세요.');
+    const fields=record=>F.effective(db.settings.customization,'doc:'+record.type,context,[],record).fields.filter(field=>field.custom),from=fields(source),to=fields(target),result=copy(existing),hasValue=value=>value!==undefined&&value!==null&&value!=='';
+    // New lines keep unregistered legacy data, but a matching ID alone is never a field-name match.
+    if(context==='lines')for(const [key,value] of Object.entries(sourceValues||{}))if(!to.some(field=>field.id===key))Object.defineProperty(result,key,{value:copy(value),enumerable:true,writable:true,configurable:true});
+    for(const field of to){
+      if(field.formula||field.readonly||field.calculated)continue;
+      const matches=from.filter(item=>item.label===field.label);
+      if(!matches.some(item=>Object.hasOwn(sourceValues||{},item.id)))continue;
+      if(matches.length!==1||to.filter(item=>item.label===field.label).length!==1)throw Error(field.label+': 추가항목 명칭이 중복됩니다. 양식을 확인하세요.');
+      const origin=matches[0],value=sourceValues[origin.id];if(!hasValue(value))continue;
+      if(origin.type!==field.type)throw Error(field.label+': 추가항목 유형이 다릅니다.');
+      if(!['string','number','boolean'].includes(typeof value)||field.type==='checkbox'&&typeof value!=='boolean'||field.type==='number'&&(typeof value==='boolean'||!Number.isFinite(Number(value))))throw Error(field.label+': 추가항목 값을 확인하세요.');
+      F.check([field],{[field.id]:value});
+      if(hasValue(result[field.id])&&!sameValue(result[field.id],value))throw Error(field.label+': 작성 중인 추가항목 값이 다릅니다. 기존 값을 확인하세요.');
+      result[field.id]=copy(value);
+    }
+    return result;
+  }
   function stagePurchaseHeader(db,draft,{documentId}={}){
     if(!draft||draft.type!=='purchase'||draft.id||draft.sourceId||(draft.lines||[]).some(line=>line.item))throw Error('상단 정보만 불러오기는 빈 신규 구매전표에서 사용하세요.');
     const source=sourceRecord(db,documentId);
@@ -127,6 +148,7 @@
     const remaining=C.remaining(db,source,'purchase');
     if(!remaining.length||remaining.some(line=>line.qty!==0))throw Error('발주서의 잔량이 변경됐습니다. 다시 조회한 뒤 선택하세요.');
     const result=copy(draft);
+    const custom=purchaseCustom(db,source,draft,'input',source.custom,draft.custom);if(Object.keys(custom).length)result.custom=custom;
     for(const [field,key] of [['partner','partners'],['employee','employees'],['project','projects'],['currency','currencies']])if(source[field])enabled(db,key,source[field]);
     for(const field of ['partner','warehouse','employee','project','currency','vatRate'])if(Object.hasOwn(source,field))result[field]=copy(source[field]);
     result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
@@ -153,6 +175,7 @@
       result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
     }
     const source=sources.get(ids[0]);
+    if(result.type==='purchase')for(const origin of sources.values())if(origin.type==='purchaseorder'){const custom=purchaseCustom(db,origin,draft,'input',origin.custom,result.custom);if(Object.keys(custom).length)result.custom=custom;}
     if(mode==='linked'){
       if(!C.nextTypes[source.type]?.includes(result.type))throw Error('이 전표 종류는 잔량을 연결할 수 없습니다.');
       if(!(result.lines||[]).length){if(!result.partner&&!(source.type==='transfer'&&result.type==='sale'||quotedSource(db,source,result.type)))result.partner=source.partner||'';if(!result.warehouse)result.warehouse=C.linkedWarehouse(source,result.type);}
@@ -172,6 +195,7 @@
       const qty=amount(selection.qty===undefined?limit:selection.qty);
       if(mode==='linked'&&qty>limit+0.000001)throw Error('원본 전표의 잔량을 초과했습니다.');
       let row=copy(line);if(d.type==='pricerequest'&&result.type==='purchaseorder'){if(selection.priceRequestBasis)row.priceRequestBasis=copy(selection.priceRequestBasis);row=C.priceRequestOrderLines(db,d,[row])[0];}
+      if(d.type==='purchaseorder'&&result.type==='purchase'){const custom=purchaseCustom(db,d,draft,'lines',line.custom);if(Object.keys(custom).length)row.custom=custom;else delete row.custom;}
       delete row.supply;delete row.tax;delete row.total;
       if(result.type!=='plan')delete row.progress;
       // A new link refers to this source row, never to the source's own ancestor.
