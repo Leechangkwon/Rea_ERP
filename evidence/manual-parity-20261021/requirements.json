@@ -1736,7 +1736,7 @@
         "tests/browser/plan-generation-employee.spec.cjs"
       ],
       "remaining": [
-        "담당자 외 일괄변경·직접설정 추가집계기준 미구현",
+        "담당자·참조 외 일괄변경과 직접설정 추가 집계기준 미구현",
         "선택하지 않은 머리값이 다른 경우 최종 매핑 미확인",
         "상이단가 품목합산 서버규칙 미확인",
         "원본 기본입력 값 선택·빈값 처리와 운영 유자료 저장/전체매뉴얼 합격 미완료"
@@ -1761,6 +1761,16 @@
         "fullBrowserPassed": 87,
         "hostedExistingSessionRetained": true,
         "hostedDataBearingSaveVerified": false
+      },
+      "referenceBatchSubset": {
+        "status": "candidate-synthetic-passed-awaiting-full-validation",
+        "plan": "docs/plan-plan-generation-reference-20261022.md",
+        "evidence": "evidence/manual-plan-generation-reference-20261022.json",
+        "defaultBehavior": "prior generator behavior retained, original source-reference inheritance and explicit blank clearing not verified",
+        "regrouping": false,
+        "newNode": 6,
+        "newBrowser": 3,
+        "done": false
       }
     }
   ]
