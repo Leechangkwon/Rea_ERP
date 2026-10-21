@@ -80,3 +80,7 @@
 수량조정 구현에 앞서 기존 직접 연결 경로에서 오류를 재현했다. plan 행supplier V1→발주서 V1 생성→부모 행supplier V2 저장이 허용되어 이후 발주서의 적요 수정이 실패했다. 발주서 취소/보류/미확인 후 부모 공급사를 바꾸고 복원하면 같은 불일치가 통과했다. 기존 validatePlanOrderRows 공급사 계약을 재사용해 부모 각 연결 행의 새 불일치와 복원 경로를 막는다. 미연결 행 수정, 빈 공급사 지정/해제, grouped planAllocations의 명시적 공급사 선택, 과거 불일치 백업 읽기/수정은 보존한다.
 
 담당 파일은 inventory-core.js와 purchase-link-preservation.cjs, localhost request.spec.cjs다. 합성 오류 재현→집중검사→전체회귀/브라우저→REA 좁은 분석→독립검토 후 커밋한다. 운영0.53.0/분리후보0.53.1은 UI/백업 게이트를 해결하기 전 재시작하지 않는다.
+
+### 공급사 보완 검증 완료와 현재 후보
+
+소스885b4b8 push, 신규10/누적연결25/집중49/전체verify:local/브라우저35 통과. 공용 검사를 staged draft 경로에도 유지했다. 현재 release/0.53.1후보는 cef5a2c이며 후보 전체검사/브라우저32, 이전후보 대비 core자산1개 변경과 VAT제외를 검증했다. 최신 manifest는 .artifacts/isolated-link-release-20261021/candidate-manifest.json, 근거는 evidence/manual-plan-supplier-preservation-20261021.json. 두 후보와0.53.0롤백은 모두 보존되며 아직 운영 미배포다.

@@ -216,19 +216,20 @@
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
       "status": "isolated-release-candidate-verified-not-deployed",
-      "sourceCommit": "6f1a01766d757406c02b545dd8f71b9158b21b7e",
+      "sourceCommit": "885b4b83a4312110e73fd7e13edb141b5480cb4e",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
-      "evidence": "evidence/manual-purchase-link-preservation-20261021.json",
-      "newLinkNodeTests": 15,
+      "evidence": "evidence/manual-plan-supplier-preservation-20261021.json",
+      "newLinkNodeTests": 25,
       "newFrozenVatTests": 6,
-      "localhostBrowserTests": 34,
+      "localhostBrowserTests": 35,
       "deploymentPending": true,
       "done": false,
       "candidateVersion": "0.53.1",
-      "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+      "candidateCommit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
       "candidateBranch": "release/0.53.1",
-      "candidateEvidence": "evidence/purchase-link-isolated-release-20261021.json",
-      "candidateBrowserTests": 31
+      "candidateEvidence": "evidence/manual-plan-supplier-preservation-20261021.json",
+      "candidateBrowserTests": 32,
+      "priorCandidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df"
     },
     "independentResearch": {
       "requirement": "REQ-PUR-PLAN-001",

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "sourceCommit": "885b4b83a4312110e73fd7e13edb141b5480cb4e",
+  "operatingVersion": "0.53.0",
+  "status": "locally-verified-isolated-candidate-not-deployed",
+  "done": false,
+  "scope": "Existing direct plan-to-order supplier contract preservation; no new manual quantity formula",
+  "basis": [
+    "Existing validatePlanOrderRows supplier rule",
+    "EC-HELP-REQUEST-036 purchase flow, not full runtime parity",
+    "Original version-check preflight contract in evidence/manual-plan-quantity-contract-20261021.json"
+  ],
+  "reproduction": {
+    "activeParentSupplierChangeAccepted": true,
+    "followingMemoSaveError": "발주계획 품목행의 거래처와 발주서 거래처가 다릅니다.",
+    "canceledChildRestoredDespiteMismatch": true,
+    "syntheticOnly": true
+  },
+  "implementation": [
+    "Shared planLineSupplierMatches used by direct source validation and staged draft checks",
+    "Per-child-line old valid to new invalid guard on parent save",
+    "Newly active direct orders checked after whole restoration batch"
+  ],
+  "preserved": [
+    "Unlinked rows can change suppliers independently",
+    "Blank supplier wildcard and clearing preserved",
+    "Grouped planAllocations explicit supplier override unchanged",
+    "Canceled children do not lock parent edits",
+    "Legacy mismatched backups read without automatic rewriting; repairs allowed",
+    "Frozen VAT v1 amounts retained"
+  ],
+  "checks": {
+    "newLinkNodeTests": 10,
+    "allLinkNodeTests": 25,
+    "focusedLinkPlanFrozenVatTests": 49,
+    "fullVerifyLocal": "passed",
+    "localhostBrowserTests": 35,
+    "newBrowserTests": 1,
+    "mainVerifyLogSha256": "a9c3a040a639afb926e2761a2796c672cd7fecac7da7177dc503d99c5c2caa2b",
+    "firstFullRunFailure": "Exported validatePlanOrderRows is called directly by EntryCore staged imports; shared supplier validation was restored there before final passing run",
+    "independentReview": "No material issue in per-line compatibility guard; reviewer-proposed mixed legacy case added. Main full suite additionally caught and verified staged-import path.",
+    "screenshot": ".artifacts/manual-plan-supplier-20261021/supplier-rejection.png",
+    "screenshotSha256": "3a3e8d3f490eed4dedc43893bea626b625a1534615605e05569836dcba2487ea",
+    "visualReview": "Synthetic local editor shows changed supplier and rejection; original persisted snapshot remains equal; correction and quantity save survive reload"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 4,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "anyTruncated": false,
+    "outsideScopeBindingsUnresolved": true,
+    "runtimeEquivalence": false,
+    "summarySha256": "4195b4ce32923de251162713b6211e5eed27864c6ba4089f671b9dfce3b31ba7",
+    "scopes": [
+      {
+        "name": "planLineSupplierMatches",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "c039601afa476f0cb5a7816d271d6bfa7b6f048065e191df036bc50792e5c7b3",
+        "start": 20834,
+        "end": 21134,
+        "lineStart": 170,
+        "lineEnd": 173,
+        "fragmentSha256": "adb3460ee9fd7964c2fe8178377813d0782411c4e857a068099e1be023e2e109",
+        "resultSha256": "e313429b12242d716a4f11a093e44625cb7ce7ab67e3fe9a8bee7c558409d6e5",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 300,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 70,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validateLinkedSource",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "c039601afa476f0cb5a7816d271d6bfa7b6f048065e191df036bc50792e5c7b3",
+        "start": 21137,
+        "end": 21736,
+        "lineStart": 174,
+        "lineEnd": 181,
+        "fragmentSha256": "09e72501f54ecac16673e70f75d21329d197f39274e151c5f70fa7514b1c92ff",
+        "resultSha256": "0f24391b41c0f9ba768548f8c4d9cee9568d13f09ff4292427dab172385bb67f",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 719,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 123,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validateLinkedSourceChange",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "c039601afa476f0cb5a7816d271d6bfa7b6f048065e191df036bc50792e5c7b3",
+        "start": 21739,
+        "end": 22629,
+        "lineStart": 182,
+        "lineEnd": 190,
+        "fragmentSha256": "24cd82d27b41cc2a38321a7a3f918473021abeb628bdccceb49c5f69949ff25c",
+        "resultSha256": "1a63cba56671ea31c3aa57c61462a733ccbc01fd079c7c1152f2d0ff013f9afa",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1046,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 135,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "validatePlanOrderRows",
+        "category": "own",
+        "file": "dist/inventory-core.js",
+        "sourceSha256": "c039601afa476f0cb5a7816d271d6bfa7b6f048065e191df036bc50792e5c7b3",
+        "start": 35705,
+        "end": 36903,
+        "lineStart": 316,
+        "lineEnd": 328,
+        "fragmentSha256": "46f885d92f24672741cefa4bb08ce4903c682c435717aed4b1a493078f37a1ec",
+        "resultSha256": "36b7a9881614886b380730b9a3841b6825d71c1eb78a8b5acdc329fefd3db368",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1344,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 248,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ],
+    "candidateFragmentsIdenticalToAnalyzedMain": true
+  },
+  "files": [
+    {
+      "path": "dist/inventory-core.js",
+      "sha256": "c039601afa476f0cb5a7816d271d6bfa7b6f048065e191df036bc50792e5c7b3"
+    },
+    {
+      "path": "tests/purchase-link-preservation.cjs",
+      "sha256": "ba15696ee5d8d068b1429c52bface029af1b3e5ab8d41e6952d2e594c3c20757"
+    },
+    {
+      "path": "tests/browser/request.spec.cjs",
+      "sha256": "eb355d1599578e84355e3b63cdbd6a8c40d4b4e14a6a14a2680933249c1c687f"
+    }
+  ],
+  "preservation": {
+    "originalErpWrites": false,
+    "productionWrites": false,
+    "serverRestarted": false,
+    "schemaMigration": false,
+    "runtimeSettingsChanged": false,
+    "existingDraftDiscarded": false,
+    "mailSent": false,
+    "communitySaveAttempted": false,
+    "communityReadbackVerified": false
+  },
+  "candidateValidationPending": false,
+  "candidate": {
+    "candidateVersion": "0.53.1",
+    "mainSourceCommit": "885b4b83a4312110e73fd7e13edb141b5480cb4e",
+    "priorCandidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+    "priorBundleSha256": "4a5ba859eb3acf7eea4505cd4d48ceed2edbf3aca5e515ac6ee64162470e3fa9",
+    "candidateBundleSha256": "5356365fb2f2bfb50d6ad11e92a9da562092c14a878ba4bff9614012135ae66a",
+    "changedEmbeddedAssetsFromPriorCandidate": [
+      "/inventory-core.js"
+    ],
+    "embeddedAssetCount": 57,
+    "nonAssetWorkerDifference": "Only inventory-core source",
+    "workerEntrypointUnchanged": true,
+    "unfinishedVatAbsent": true,
+    "runtimeSettingsChanged": false,
+    "verifyLocal": "passed",
+    "browserTests": 32,
+    "linkNodeTests": 25,
+    "verifyLogSha256": "7d6040740b849a7c8f55a9938bc47b40f02bc87b4c9a6701e7fe529088497013",
+    "releaseValidationSha256": "d03e8728f01526ece2c6311da09b00a47bbd1b52437e1dc8cd26ffa1af73f6ba",
+    "installedIntoOperatingRuntime": false,
+    "commit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
+    "branch": "release/0.53.1",
+    "manifest": {
+      "candidateCommit": "cef5a2cbdd7c574a36b6647961e257d31b5734cb",
+      "candidateBranch": "release/0.53.1",
+      "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+      "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-plan-supplier-20261021/candidate-cef5a2c-worker.js",
+      "candidateBundleSha256": "5356365fb2f2bfb50d6ad11e92a9da562092c14a878ba4bff9614012135ae66a",
+      "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+      "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+      "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+      "installedIntoOperatingRuntime": false,
+      "priorCandidateManifest": {
+        "candidateCommit": "0c8e41fac401713546bff594fd731f8ec6aa89df",
+        "candidateBranch": "release/0.53.1",
+        "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.1",
+        "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/candidate-0c8e41f-worker.js",
+        "candidateBundleSha256": "4a5ba859eb3acf7eea4505cd4d48ceed2edbf3aca5e515ac6ee64162470e3fa9",
+        "rollbackCommit": "5fb78367028259e0ddca11be22a062b13f2e0105",
+        "rollbackBundle": "/home/lck/projects/Rea_ERP/.artifacts/isolated-link-release-20261021/rollback-0.53.0-worker.js",
+        "rollbackBundleSha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+        "installedIntoOperatingRuntime": false
+      },
+      "mainSourceCommit": "885b4b83a4312110e73fd7e13edb141b5480cb4e"
+    }
+  }
+}
