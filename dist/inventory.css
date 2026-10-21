@@ -94,3 +94,74 @@
 .price-request-table th{background:#eef2f7}.price-request-table .price-request-value{text-align:right;font-variant-numeric:tabular-nums}
 .price-request-dialog .inv-toolbar{position:sticky;bottom:0;background:white;padding-top:10px}
 @media(max-width:600px){.price-request-dialog{padding:12px}.price-request-dialog h2{font-size:18px}.price-request-dialog .inv-note{overflow-wrap:anywhere}}
+
+/* Purchasing lists share status, search and action slots. The status strip must
+   never compete with fixed-width search/form controls for leftover flex space. */
+@media screen{
+  .inventory-app{container:inventory-content / inline-size;--inv-control-height:36px;--inv-control-gap:8px}
+  .inventory-page .inv-local-bar{flex-wrap:wrap;min-width:0}
+  .inventory-page .inv-local-bar>span{flex:1 1 220px;min-width:0;overflow-wrap:anywhere}
+  .inventory-app .inv-list-head{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:10px;margin:0 0 12px;min-width:0}
+  .inventory-app .inv-list-status{display:flex;flex:0 0 auto;width:100%;min-width:0;flex-direction:row;flex-wrap:wrap;align-items:center;gap:var(--inv-control-gap);margin:0}
+  .inventory-app .inv-list-status>button{flex:0 0 auto;min-height:var(--inv-control-height);padding:7px 12px;border-radius:4px;line-height:1.4;font-size:12px;white-space:nowrap}
+  .inventory-app .inv-list-status>button[aria-pressed=true]{background:#e7f0ff;border-color:#4878bb;color:#174f98}
+  .inventory-app .inv-list-search{display:flex;flex-wrap:wrap;align-items:center;align-content:flex-start;gap:var(--inv-control-gap);margin:0;min-width:0}
+  .inventory-app .inv-list-search>input{flex:1 1 160px;width:auto;min-width:0;max-width:320px}
+  .inventory-app .inv-list-search>button,.inventory-app .inv-list-search>select{flex:0 0 auto}
+  .inventory-app .inv-list-search>.form-option-bar{flex:0 1 auto;margin:0 0 0 auto;padding:0;border:0;background:transparent;min-width:0;gap:var(--inv-control-gap)}
+  .inventory-app .inv-list-search>.form-option-bar>span,.inventory-app .inv-list-search>.form-option-bar>small{display:none}
+  .inventory-app .inv-list-search>.form-option-bar>select{min-width:130px;max-width:200px}
+  .inventory-app .inv-list-head button,.inventory-app .inv-list-head input,.inventory-app .inv-list-head select,.inventory-app .inv-list-actions>button,.inventory-app .inv-list-actions>details>summary{min-height:var(--inv-control-height);height:auto;font-size:12px;line-height:1.4}
+  .inventory-app .inv-list-head input,.inventory-app .inv-list-head select{height:var(--inv-control-height)}
+  .inventory-app .inv-list-filters{margin:0 0 12px;min-width:0}
+  .inventory-app .inv-list-actions{display:flex;flex-wrap:wrap;gap:var(--inv-control-gap);align-items:center;margin:12px 0 0;padding:12px 0 0;border-top:1px solid #dce3ed;min-width:0}
+  .inventory-app .inv-list-actions>button,.inventory-app .inv-list-actions>details{flex:0 0 auto;max-width:100%}
+  .inventory-app .inv-list-actions>details>summary{display:flex;align-items:center;padding:7px 12px}
+  .inventory-app .inv-list-actions>.inv-request-summary,.inventory-app .inv-list-actions>span:last-child{margin-left:auto;min-width:0;overflow-wrap:anywhere}
+  .inventory-app .inv-list-actions>.inv-field{margin:0;max-width:100%}
+  .inventory-app .inv-request-head:not(:has(.inv-list-search)){display:grid;grid-template-columns:minmax(120px,1fr) auto auto;align-items:center;gap:8px}
+  .inventory-app .inv-request-head:not(:has(.inv-list-search))>.inv-status-tabs{grid-column:1/-1;width:100%;flex:none}
+  .inventory-app .inv-request-head:not(:has(.inv-list-search))>input{width:100%;max-width:320px}
+  .inventory-app .entry-action-bar:has(>.entry-primary-actions){display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .inventory-app .entry-primary-actions{align-items:stretch;gap:var(--inv-control-gap);min-width:0}
+  .inventory-app .entry-primary-actions>button,.inventory-app .entry-primary-actions>details>summary,.inventory-app .entry-save-actions>button,.inventory-app .entry-save-actions>details>summary{min-height:var(--inv-control-height);line-height:1.4;display:flex;align-items:center;justify-content:center;padding:7px 12px;border:1px solid #ccd4df;border-radius:3px;background:#fff;font-size:12px;cursor:pointer}
+  .inventory-app .entry-primary-actions>details{position:relative;min-width:0}
+  .inventory-app .entry-split-action{display:flex;align-items:stretch;min-width:0}
+  .inventory-app .entry-split-action>button{flex:1;min-width:0;min-height:var(--inv-control-height);border-radius:3px 0 0 3px}
+  .inventory-app .entry-split-action>details{flex:0 0 44px;position:relative}
+  .inventory-app .entry-split-action>details>summary{display:flex;align-items:center;justify-content:center;min-height:var(--inv-control-height);height:100%;padding:7px;border:1px solid #ccd4df;border-left:0;border-radius:0 3px 3px 0;background:#fff;cursor:pointer;list-style:none}
+  .inventory-app .entry-split-action>details>summary::-webkit-details-marker{display:none}
+  .inventory-app .entry-split-action>details[open]>button{position:absolute;z-index:5;right:0;top:100%;min-height:44px;min-width:120px;background:white;box-shadow:0 4px 12px #18294224}
+  .inventory-app .entry-primary-actions>details[open]>button{display:block;width:100%}
+  .inventory-app .entry-action-bar>details.entry-secondary-actions{display:block;grid-column:1/-1;border-top:1px solid #e0e6f0;padding-top:8px}
+  .inventory-app .entry-action-bar>details.entry-secondary-actions>summary{min-height:var(--inv-control-height);padding:7px 0;cursor:pointer}
+  .inventory-app .entry-action-bar>details.entry-secondary-actions:not([open])>:not(summary){display:none}
+  .inventory-app .entry-save-actions{gap:var(--inv-control-gap);align-items:stretch}
+  .inventory-app .entry-save-actions>button.primary{background:#294cbd;color:#fff;border-color:#294cbd}
+}
+@media screen and (max-width:1100px){
+  .inventory-app{--inv-control-height:44px}
+  .inventory-app .inv-list-actions>button{padding:9px 12px}
+  .inventory-app .entry-primary-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr))}
+  .inventory-app .entry-primary-actions>button{white-space:normal}
+  .inventory-app .entry-save-actions>button,.inventory-app .entry-save-actions>details>summary{min-height:44px}
+}
+@container inventory-content (max-width:760px){
+  .inventory-app .inv-list-search>.form-option-bar{flex:1 1 100%;justify-content:flex-end;margin-left:0}
+  .inventory-app .inv-list-search>.form-option-bar>select{flex:1 1 auto;max-width:260px}
+  .inventory-app .inv-list-actions>.inv-request-summary,.inventory-app .inv-list-actions>span:last-child{flex-basis:100%;margin:0;padding-top:2px}
+  .inventory-app .purchasing-entry-header{grid-template-columns:1fr;max-width:none}
+  .inventory-app .entry-primary-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr))}
+  .inventory-app .inv-request-head:not(:has(.inv-list-search)){grid-template-columns:minmax(120px,1fr) auto}
+  .inventory-app .inv-request-head:not(:has(.inv-list-search))>.form-option-bar{grid-column:1/-1;justify-content:flex-end}
+}
+@media screen and (max-width:700px){
+  .inventory-app .inv-list-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+  .inventory-app .inv-list-actions>button,.inventory-app .inv-list-actions>details,.inventory-app .inv-list-actions>.inv-field{width:100%;max-width:none;min-width:0;white-space:normal}
+  .inventory-app .inv-list-actions>details>summary{height:100%;justify-content:center;white-space:normal}
+  .inventory-app .inv-list-actions>.inv-request-summary,.inventory-app .inv-list-actions>span:last-child{grid-column:1/-1}
+  .inventory-app .inv-list-head button,.inventory-app .inv-list-head select{font-size:13px}
+  .inventory-app .inv-list-head input{font-size:16px}
+  .inventory-app .entry-save-actions{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .inventory-app .entry-primary-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

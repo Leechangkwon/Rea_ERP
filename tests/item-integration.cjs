@@ -8,7 +8,7 @@ test('item batch is atomic on invalid second row and rejects missing updates',()
 });
 test('item configuration, extra fields and creation date survive validated backup',()=>{
  let db=C.command(C.seed(),'itemConfig',{config:{features:{sortBy:'name',sortDirection:'desc'}}}).db;
- db=C.command(db,'master',{key:'items',record:{code:'NEW',name:'신규',barcode:'123',hierarchyGroups:['분류'],group2:'중',priceB:300,standardLaborCost:50,serialLotMode:'required',relatedItems:['P001']}}).db;
+ db=C.command(db,'master',{key:'items',record:{code:'NEW',name:'신규',supplier:'V001',barcode:'123',hierarchyGroups:['분류'],group2:'중',priceB:300,standardLaborCost:50,serialLotMode:'required',relatedItems:['P001']}}).db;
  const saved=C.master(db,'items','NEW');assert.ok(saved.createdAt);assert.equal(saved.standardLaborCost,50);assert.equal(saved.serialLotMode,'required');
  const restored=C.validateBackup(JSON.parse(JSON.stringify(db)));assert.equal(restored.settings.itemRegistration.features.sortDirection,'desc');assert.deepEqual(C.master(restored,'items','NEW'),saved);
  const changed=C.command(db,'master',{key:'items',originalCode:'NEW',record:{...saved,name:'수정',createdAt:'invalid'}});assert.equal(changed.result.createdAt,saved.createdAt);
@@ -29,19 +29,19 @@ test('code changes update expanded references and item defaults atomically',()=>
  const saved=C.master(db,'items','P001');assert.equal(saved.relatedPartner,'V002');assert.equal(saved.productionProcess,'OP02');assert.equal(saved.warehouseSafety[0].warehouse,'W003');assert.deepEqual(saved.relatedItems,['M002']);assert.equal(db.settings.itemRegistration.features.supplier,'V002');assert.equal(db.settings.itemRegistration.fields.find(f=>f.id==='supplier').defaultValue,'V002');assert.doesNotThrow(()=>C.validateBackup(db));
 });
 test('non-stock item sales affect money, not inventory; historical tracking cannot silently change',()=>{
- let db=C.command(C.seed(),'master',{key:'items',record:{code:'SERVICE',name:'가상 서비스',trackInventory:false,sellPrice:100}}).db;
+ let db=C.command(C.seed(),'master',{key:'items',record:{code:'SERVICE',name:'가상 서비스',supplier:'V001',trackInventory:false,sellPrice:100}}).db;
  const out=C.command(db,'document',{type:'sale',date:C.today(),warehouse:'W001',partner:'C001',vatRate:10,lines:[{item:'SERVICE',qty:10,price:100}]});assert.equal(out.result.lines[0].total,1100);assert.equal(C.stock(out.db,'SERVICE','W001'),0);assert.ok(!C.movements(out.db).some(x=>x.item==='SERVICE'));
  assert.throws(()=>C.command(db,'master',{key:'items',originalCode:'P001',record:{...C.master(db,'items','P001'),trackInventory:false}}),/재고 이력/);
 });
 test('relations reject missing/self references and compact defaults preserve storage capacity',()=>{
- const db=C.seed();assert.throws(()=>C.command(db,'master',{key:'items',record:{code:'NEW',name:'관계',relatedItems:['MISSING']}}),/관계/);
+ const db=C.seed();assert.throws(()=>C.command(db,'master',{key:'items',record:{code:'NEW',name:'관계',supplier:'V001',relatedItems:['MISSING']}}),/관계/);
  assert.throws(()=>C.command(db,'master',{key:'items',originalCode:'P001',record:{...C.master(db,'items','P001'),relatedItems:['P001']}}),/관계/);
  const compact=I.compact({code:'NEW',name:'기본'});assert.ok(JSON.stringify(compact).length<600);assert.equal(I.normalize(compact).trackInventory,true);
 });
 test('server item API accepts expanded metadata, validates it and documents the same fields',async()=>{
  const DB=sqliteD1(),handler=createGateway(),principal={user:{id:'fixture'},permissions:['*']};
  const post=body=>handler(new Request('https://erp.test/api/v1/items',{method:'POST',headers:{'content-type':'application/json','origin':'https://erp.test','Idempotency-Key':crypto.randomUUID()},body:JSON.stringify(body)}),{DB},principal);
- try{let r=await post({code:'API1',name:'가상 API 품목',barcode:'ABC123',priceB:100,priceBVatIncluded:true,standardMaterialCost:50,hierarchyGroups:['대분류'],trackInventory:false});assert.equal(r.status,200);const saved=(await r.json()).data;assert.equal(saved.priceB,100);assert.equal(saved.priceBVatIncluded,true);assert.equal(saved.trackInventory,false);
+ try{await handler(new Request('https://erp.test/api/admin/seed',{method:'POST',headers:{origin:'https://erp.test','content-type':'application/json'},body:'{}'}),{DB},principal);let r=await post({code:'API1',name:'가상 API 품목',supplier:'V001',barcode:'ABC123',priceB:100,priceBVatIncluded:true,standardMaterialCost:50,hierarchyGroups:['대분류'],trackInventory:false});assert.equal(r.status,200);const saved=(await r.json()).data;assert.equal(saved.priceB,100);assert.equal(saved.priceBVatIncluded,true);assert.equal(saved.trackInventory,false);
  r=await post({code:'API2',name:'유효성',extraQtyDenominator:0});assert.equal(r.status,400);
  const M=require('../dist/api-manual-data.js');const fields=M.endpoints.find(e=>e.path==='/api/v1/items'&&e.method==='POST').request;for(const f of I.defaultFields)assert.ok(fields.some(x=>x.name===f.id),f.id);
  }finally{DB.close();}

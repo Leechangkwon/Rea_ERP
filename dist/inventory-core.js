@@ -277,6 +277,7 @@
     if(!['partners','projects'].includes(key))return;
     for(const field of ['group1','group2'])if(Object.hasOwn(record,field)&&(typeof record[field]!=='string'||record[field].length>200))throw Error(masterNames[key]+'그룹은 200자 이하 문자열로 입력하세요.');
   }
+  function purchaseSupplier(db,line,document={}){return line?.supplier||(['request','plan','purchaseorder','purchase'].includes(document?.type)?document.partner:'')||master(db,'items',line?.item)?.supplier||'';}
   function saveMaster(db,{key,record,originalCode}){
     if(!masterNames[key])throw Error('등록 구분을 확인하세요.');
     let x={...record,code:String(record.code||'').trim(),name:String(record.name||'').trim()};if(!x.code||!x.name)throw Error('코드와 명칭은 필수입니다.');
@@ -289,6 +290,8 @@
     if(key==='items'){
       if(I)x=I.compact(x,db);else {x.buyPrice=num(x.buyPrice||0,'입고단가');x.sellPrice=num(x.sellPrice||0,'출고단가');x.safety=num(x.safety||0,'안전재고');}
       const old=db.masters.items[index];
+      if(!old&&!x.supplier||old?.supplier&&!x.supplier)throw Error('품목 구매처는 필수입니다. 등록된 거래처를 선택하세요.');
+      if(x.supplier&&x.supplier!==old?.supplier)requireCode(db,'partners',x.supplier);
       if(old&&(old.trackInventory!==false)!==(x.trackInventory!==false)&&(db.opening.some(o=>o.item===x.code)||db.documents.some(d=>d.lines.some(l=>l.item===x.code))))throw Error('재고 이력이 있는 품목은 재고수량관리 여부를 변경할 수 없습니다.');
       if(index<0&&!x.createdAt)x.createdAt=new Date().toISOString();
       if(old?.createdAt)x.createdAt=old.createdAt;
@@ -347,7 +350,7 @@
     d.vatRate=num(d.vatRate??10,'부가세율');if(d.vatRate>100)throw Error('부가세율을 확인하세요.');
     if(d.taxRounding!==undefined)d.taxRounding=taxRounding(d.taxRounding);if(d.supplyRounding!==undefined)d.supplyRounding=supplyRounding(d.supplyRounding);
     if(d.lines.some(l=>l.lineId)&&!ownLineIds(d))throw Error('전표 라인 구분을 중복 없이 입력하세요.');
-    const seen=new Set(),allowStructured=structuredLines(db,d);d.lines=d.lines.map((l,lineIndex)=>{requireCode(db,'items',l.item);if(purchasingTypes.includes(d.type)&&l.managementItem!==undefined){if(typeof l.managementItem!=='string')throw Error('관리항목 코드를 확인하세요.');if(l.managementItem){const old=previous?.lines.find((x,i)=>l.lineId?x.lineId===l.lineId:i===lineIndex);if(old?.managementItem===l.managementItem){if(!master(db,'controls',l.managementItem))throw Error('관리항목 코드를 확인하세요.');}else requireCode(db,'controls',l.managementItem);}}if(seen.has(l.item)&&!allowStructured)throw Error('같은 품목은 한 행으로 합쳐 입력하세요.');seen.add(l.item);validateLineProgress(d,l);if(['request','plan'].includes(d.type)&&l.supplier!==undefined&&typeof l.supplier!=='string')throw Error('품목행 거래처를 확인하세요.');if(['request','plan'].includes(d.type)&&l.supplier)requireCode(db,'partners',l.supplier);const x=lineTotals(l,d.vatRate,d.taxRounding,d.supplyRounding);if(d.type!=='adjust'&&(x.qty<0||(d.type!=='count'&&x.qty===0)))throw Error('수량은 0보다 커야 합니다.');return x;});
+    const seen=new Set(),allowStructured=structuredLines(db,d);d.lines=d.lines.map((l,lineIndex)=>{requireCode(db,'items',l.item);if(purchasingTypes.includes(d.type)&&l.managementItem!==undefined){if(typeof l.managementItem!=='string')throw Error('관리항목 코드를 확인하세요.');if(l.managementItem){const old=previous?.lines.find((x,i)=>l.lineId?x.lineId===l.lineId:i===lineIndex);if(old?.managementItem===l.managementItem){if(!master(db,'controls',l.managementItem))throw Error('관리항목 코드를 확인하세요.');}else requireCode(db,'controls',l.managementItem);}}if(seen.has(l.item)&&!allowStructured)throw Error('같은 품목은 한 행으로 합쳐 입력하세요.');seen.add(l.item);validateLineProgress(d,l);if(['request','plan'].includes(d.type)&&l.supplier!==undefined&&typeof l.supplier!=='string')throw Error('품목행 거래처를 확인하세요.');if(['request','plan'].includes(d.type)&&l.supplier)requireCode(db,'partners',l.supplier);const value=['request','plan'].includes(d.type)&&!previous&&!l.supplier?{...l,supplier:purchaseSupplier(db,l,d)}:l;if(['request','plan'].includes(d.type)&&value.supplier)requireCode(db,'partners',value.supplier);const x=lineTotals(value,d.vatRate,d.taxRounding,d.supplyRounding);if(d.type!=='adjust'&&(x.qty<0||(d.type!=='count'&&x.qty===0)))throw Error('수량은 0보다 커야 합니다.');return x;});
     if(d.autoConsume&&d.type==='production'){for(const l of d.lines)if(!db.bom.some(b=>b.product===l.item))throw Error('BOM이 없는 품목입니다. BOM을 등록하거나 자동소모를 해제하세요.');requireCode(db,'warehouses',d.materialWarehouse||d.warehouse);}
     d.consumption=d.type==='production'&&d.autoConsume?d.lines.flatMap(l=>db.bom.filter(b=>b.product===l.item).map(b=>({product:l.item,item:b.material,qty:quantity(l.qty*b.qty*(1+b.loss/100))}))):[];
     setReturnAmounts(db,d);
@@ -393,6 +396,7 @@
     if(type==='transfer')header.targetWarehouse=targetWarehouse||src.targetWarehouse||'';
     if(warehouse!==undefined){if(!linkedWarehouseMatches(src,type,warehouse))throw Error('원본 전표의 처리 창고와 다릅니다.');header.warehouse=warehouse;}
     if(partner!==undefined)header.partner=partner;
+    if(src.type==='plan'&&type==='purchaseorder'&&!header.partner){const suppliers=lines.map(l=>purchaseSupplier(db,l,src));if(suppliers.every(Boolean)&&new Set(suppliers).size===1)header.partner=suppliers[0];}
     if(type==='purchasereturn')header.settlementMode=settlementMode;
     else if(type==='exchangereceipt')header.settlementMode='exchange';
     else delete header.settlementMode;
@@ -712,6 +716,6 @@
     for(const [type,partner,qty,item,price] of [['quote','C001',10,'P001',20000],['order','C001',8,'P001',20000],['sale','C001',3,'P001',20000],['purchaseorder','V001',40,'M001',2000],['purchase','V001',20,'M001',2000],['workorder','',5,'P001',12000],['shoporder','C001',2,'P002',30000]])db=command(db,'document',{...common,type,partner,lines:[{item,qty,price}],memo:'샘플 전표'}).db;
     return db;
   }
-  const api={priceRequestOrderLines,priceRequestOrderPartner,today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedWarehouseMatches,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,purchaseTransactionTypes,referenceCodes,matchesReference,sortModified,filterDocumentDates};
+  const api={purchaseSupplier,priceRequestOrderLines,priceRequestOrderPartner,today,clone,money,quantity,types,nextTypes,masterNames,empty,seed,master,active,listed,purchasingState,purchasingLineState,statusValue,statusLabel,documentStatuses,taxRounding,supplyRounding,lineTotals,effectiveLineTotals,totals,movements,stock,remaining,outstanding,payableImpact,linkedWarehouse,linkedWarehouseMatches,linkedPartner,validatePlanOrderRows,requirements,priceFor,report,resolve,command,validateBackup,applyPolicy,commandNames,documentHistory,validateDocumentHistory,historyActions,purchaseTransactionTypes,referenceCodes,matchesReference,sortModified,filterDocumentDates};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.InventoryCore=api;
 })(typeof globalThis==='object'?globalThis:this);

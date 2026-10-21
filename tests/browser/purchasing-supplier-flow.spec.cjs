@@ -1,0 +1,26 @@
+const {test,expect}=require('@playwright/test');
+test('registered supplier → new item → request → plan import → PO generation survives save and reload',async({page})=>{
+ await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
+ await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
+ await page.evaluate(()=>{const db=InventoryCore.seed();db.documents=[];InventoryUI.replace(db);});
+ const baseline=await page.evaluate(()=>InventoryUI.snapshot()),routes=page.locator('#routes');
+ await routes.getByRole('button',{name:'품목등록',exact:true}).click();await page.getByRole('button',{name:'신규(F2)',exact:true}).click();
+ const item=page.locator('#inventory-dialog');await item.getByLabel('품목코드',{exact:true}).fill('SUPITEM');await item.getByLabel('품목명',{exact:true}).fill('구매처 연결 합성 품목');
+ await item.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(item).toContainText('구매처은 필수');
+ await item.getByRole('button',{name:'구매처 선택',exact:true}).click();const picker=page.getByRole('dialog',{name:'구매처 선택',exact:true});await picker.getByRole('button',{name:'구매처 신규',exact:true}).click();
+ const partner=page.getByRole('dialog',{name:'구매처 신규 등록',exact:true});await partner.getByLabel('거래처코드',{exact:true}).fill('SUPNEW');await partner.getByLabel('거래처명',{exact:true}).fill('연결 검증 구매처');
+ expect(await page.evaluate(()=>InventoryUI.snapshot())).toEqual(baseline);await partner.getByRole('button',{name:'거래처 저장',exact:true}).click();await expect(partner).toHaveCount(0);await expect(picker).toHaveCount(0);
+ await expect(item.getByLabel('구매처',{exact:true})).toHaveValue('SUPNEW');await expect(item.getByLabel('품목명',{exact:true})).toHaveValue('구매처 연결 합성 품목');
+ expect((await page.evaluate(()=>InventoryUI.snapshot())).masters.items).toEqual(baseline.masters.items);
+ await item.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(item).toHaveCount(0);await page.reload();
+ await routes.getByRole('button',{name:'발주요청조회',exact:true}).click();await page.getByRole('button',{name:'신규(F2)',exact:true}).click();const editor=page.locator('#inventory-dialog');
+ await editor.getByLabel('품목 1',{exact:true}).selectOption('SUPITEM');await expect(editor.getByLabel('거래처 1',{exact:true})).toHaveValue('SUPNEW');await editor.getByLabel('수량 1',{exact:true}).fill('5');await editor.getByLabel('단가 1',{exact:true}).fill('100');await editor.getByLabel('납기일',{exact:true}).fill('2099-10-30');
+ await editor.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(editor).toHaveCount(0);await page.reload();const request=await page.evaluate(()=>InventoryUI.snapshot().documents.find(d=>d.type==='request'));expect(request.lines[0].supplier).toBe('SUPNEW');expect(request.partner||'').toBe('');
+ await routes.getByRole('button',{name:'발주계획입력',exact:true}).click();await page.getByRole('button',{name:'발주요청',exact:true}).click();const importer=page.locator('#entry-helper-dialog');await importer.getByLabel('전표 검색',{exact:true}).fill(request.id);await importer.getByLabel('전표 선택 '+request.id,{exact:true}).check();await importer.getByRole('button',{name:'선택 적용',exact:true}).click();await expect(importer).toHaveCount(0);
+ await expect(page.getByLabel('거래처 1',{exact:true})).toHaveValue('SUPNEW');await page.getByRole('button',{name:'저장(F8)',exact:true}).click();await page.reload();const plan=await page.evaluate(()=>InventoryUI.snapshot().documents.find(d=>d.type==='plan'));expect(plan.lines[0].supplier).toBe('SUPNEW');
+ await routes.getByRole('button',{name:'발주계획조회',exact:true}).click();await page.getByLabel('계획 선택 '+plan.id+'|'+plan.lines[0].lineId,{exact:true}).check();await page.getByRole('button',{name:'발주서 생성',exact:true}).click();const generation=page.locator('#purchase-plan-dialog');await generation.getByLabel('발주서 정리 방식',{exact:true}).selectOption('single-line');
+ await generation.getByRole('button',{name:'생성 미리보기',exact:true}).click();await expect(generation.locator('.inv-error')).toHaveText('');await expect(generation.locator('.plan-preview')).toContainText('연결 검증 구매처');await generation.getByRole('button',{name:'발주서 일괄 생성',exact:true}).click();await expect(generation.getByRole('status')).toContainText('1건의 발주서');await generation.getByRole('button',{name:'닫기',exact:true}).click();await page.reload();
+ const final=await page.evaluate(()=>InventoryUI.snapshot()),order=final.documents.find(d=>d.type==='purchaseorder');expect(order.partner).toBe('SUPNEW');expect(order.lines[0].qty).toBe(5);expect(order.lines[0].total).toBe(550);expect(final.settings).toEqual(baseline.settings);expect(final.masters.items.filter(x=>x.code!=='SUPITEM')).toEqual(baseline.masters.items);
+ await routes.getByRole('button',{name:'발주서조회',exact:true}).click();await page.getByRole('button',{name:order.date+' / '+order.id,exact:true}).click();await expect(editor.getByLabel('거래처',{exact:true})).toHaveValue('SUPNEW');
+ await page.screenshot({path:'.artifacts/purchasing-supplier-layout-20261022/synthetic-order-supplier.png',fullPage:true});
+});

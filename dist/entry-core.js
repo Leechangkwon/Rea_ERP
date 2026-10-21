@@ -42,15 +42,15 @@
     if(from)date(from,'기간 시작');if(to)date(to,'기간 종료');if(from&&to&&from>to)throw Error('조회 기간을 확인하세요.');
     if(warehouse)enabled(db,'warehouses',warehouse);if(partner)enabled(db,'partners',partner);
     const view=stockDb(db,{excludeId});
-    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&!(d.type==='purchaseorder'&&targetType==='purchase'&&C.purchasingState(d).progress==='완료')&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||quotedSource(db,d,targetType)||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>l.supplier===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
+    return db.documents.filter(d=>d.id!==excludeId&&C.active(d)&&!(d.type==='purchaseorder'&&targetType==='purchase'&&C.purchasingState(d).progress==='완료')&&sourceTypes.includes(d.type)&&(!sourceType||d.type===sourceType)&&(!warehouse||(mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse)===warehouse)&&(!partner||mode==='linked'&&d.type==='transfer'&&targetType==='sale'||d.partner===partner||quotedSource(db,d,targetType)||['request','plan'].includes(d.type)&&(mode==='copy'||!d.partner)&&d.lines.some(l=>C.purchaseSupplier(db,l,d)===partner))&&(!from||d.date>=from)&&(!to||d.date<=to)&&(!C.master(db,'warehouses',d.warehouse)?.disabled)&&(!d.partner||!C.master(db,'partners',d.partner)?.disabled)&&
       (mode==='copy'||C.nextTypes[d.type]?.includes(targetType)&&!(d.type==='purchasereturn'&&targetType==='exchangereceipt'&&d.settlementMode!=='exchange'))).map(d=>{
       let sourceLines=mode==='linked'?C.remaining(view,d,targetType):d.lines;
       const headerOnly=mode==='linked'&&d.type==='purchaseorder'&&targetType==='purchase'&&sourceLines.length>0&&sourceLines.every(line=>line.qty===0);
       if(d.type==='pricerequest'&&targetType==='purchaseorder'){try{sourceLines=C.priceRequestOrderLines(db,d,sourceLines);}catch(error){return {lines:[]};}}
-      const lines=sourceLines.filter(l=>l.qty>0&&(!partner||!l.priceRequestBasis||(l.priceRequestBasis.vendorCode||'')===partner)&&C.master(db,'items',l.item)&&!C.master(db,'items',l.item).disabled&&(!partner||!['request','plan'].includes(d.type)||(l.supplier||d.partner)===partner)&&(mode!=='linked'||d.type!=='plan'||targetType!=='purchaseorder'||C.purchasingLineState(d,l).progress!=='완료')).map(l=>({
-        ...copy(l),...(l.priceRequestBasis?{partnerName:C.master(db,'partners',l.priceRequestBasis.vendorCode)?.name||''}:{}),key:d.id+'|'+(l.lineId||l.item),name:C.master(db,'items',l.item).name,originalQty:d.lines.find(x=>l.lineId?x.lineId===l.lineId:x.item===l.item).qty
+      const lines=sourceLines.filter(l=>l.qty>0&&(!partner||!l.priceRequestBasis||(l.priceRequestBasis.vendorCode||'')===partner)&&C.master(db,'items',l.item)&&!C.master(db,'items',l.item).disabled&&(!partner||!['request','plan'].includes(d.type)||C.purchaseSupplier(db,l,d)===partner)&&(mode!=='linked'||d.type!=='plan'||targetType!=='purchaseorder'||C.purchasingLineState(d,l).progress!=='완료')).map(l=>({
+        ...copy(l),...(['request','plan'].includes(d.type)?{supplier:C.purchaseSupplier(db,l,d)}:{}),...(l.priceRequestBasis?{partnerName:C.master(db,'partners',l.priceRequestBasis.vendorCode)?.name||''}:{}),key:d.id+'|'+(l.lineId||l.item),name:C.master(db,'items',l.item).name,originalQty:d.lines.find(x=>l.lineId?x.lineId===l.lineId:x.item===l.item).qty
       }));
-      const processingWarehouse=mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse,partnerCodes=[...new Set(d.type==='pricerequest'&&targetType==='purchaseorder'&&lines.some(l=>l.priceRequestBasis)?lines.map(l=>l.priceRequestBasis?.vendorCode).filter(Boolean):['request','plan'].includes(d.type)?lines.map(l=>l.supplier||d.partner).filter(Boolean):[d.partner].filter(Boolean))],partnerNames=partnerCodes.map(code=>C.master(db,'partners',code)?.name||code);return {id:d.id,type:d.type,date:d.date,partner:d.partner||'',partnerName:partnerNames.join(', '),warehouse:processingWarehouse,warehouseName:C.master(db,'warehouses',processingWarehouse)?.name||'',memo:d.memo||'',lines,headerOnly};
+      const processingWarehouse=mode==='linked'?C.linkedWarehouse(d,targetType):d.warehouse,partnerCodes=[...new Set(d.type==='pricerequest'&&targetType==='purchaseorder'&&lines.some(l=>l.priceRequestBasis)?lines.map(l=>l.priceRequestBasis?.vendorCode).filter(Boolean):['request','plan'].includes(d.type)?lines.map(l=>C.purchaseSupplier(db,l,d)).filter(Boolean):[d.partner].filter(Boolean))],partnerNames=partnerCodes.map(code=>C.master(db,'partners',code)?.name||code);return {id:d.id,type:d.type,date:d.date,partner:d.partner||'',partnerName:partnerNames.join(', '),warehouse:processingWarehouse,warehouseName:C.master(db,'warehouses',processingWarehouse)?.name||'',memo:d.memo||'',lines,headerOnly};
     }).filter(d=>(d.lines.length||d.headerOnly)&&textMatch([d.id,d.memo,d.partner,d.partnerName,...d.lines.flatMap(l=>[l.item,l.name,l.supplier||''])],query)).sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
   }
   function stockCandidates(db,options={}){
@@ -85,7 +85,7 @@
   function mergeLines(existing,incoming,options={}){
     const result=copy(existing||[]),structured=['request','plan'].includes(options.type)&&(options.structured===true||result.length>0&&result.every(l=>typeof l.lineId==='string'&&l.lineId));
     const comparable=value=>Object.fromEntries(Object.entries(value).filter(([key])=>!['qty','supply','tax','total','importedFrom','lineId','_new'].includes(key)));
-    const normalized=value=>comparable({...value,price:Number(value.price||0),discount:Number(value.discount||0),memo:value.memo||'',custom:value.custom||{},supplier:value.supplier||''});
+    const normalized=value=>comparable({...value,price:Number(value.price||0),discount:Number(value.discount||0),memo:value.memo||'',custom:value.custom||{},supplier:options.supplier?options.supplier(value):value.supplier||''});
     const add=line=>{const row=copy(line);if(structured){const ids=new Set(result.map(l=>l.lineId));let serial=1;while(ids.has('L'+serial))serial++;row.lineId='L'+serial;}else if(row.lineId&&result.some(l=>l.lineId===row.lineId)){delete row.lineId;}result.push(row);};
     for(const line of incoming){
       const peers=result.filter(x=>x.item===line.item);
@@ -175,6 +175,7 @@
       result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
     }
     const source=sources.get(ids[0]);
+    if(result.type==='purchaseorder'&&!result.partner&&[...sources.values()].every(d=>d.type==='plan')){const suppliers=selections.map(selection=>{const d=sources.get(selection.documentId),line=d.lines.find(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));return C.purchaseSupplier(db,line,d);});if(suppliers.every(Boolean)&&new Set(suppliers).size===1)result.partner=suppliers[0];}
     if(result.type==='purchase')for(const origin of sources.values())if(origin.type==='purchaseorder'){const custom=purchaseCustom(db,origin,draft,'input',origin.custom,result.custom);if(Object.keys(custom).length)result.custom=custom;}
     if(mode==='linked'){
       if(!C.nextTypes[source.type]?.includes(result.type))throw Error('이 전표 종류는 잔량을 연결할 수 없습니다.');
@@ -196,6 +197,7 @@
       if(mode==='linked'&&qty>limit+0.000001)throw Error('원본 전표의 잔량을 초과했습니다.');
       let row=copy(line);if(d.type==='pricerequest'&&result.type==='purchaseorder'){if(selection.priceRequestBasis)row.priceRequestBasis=copy(selection.priceRequestBasis);row=C.priceRequestOrderLines(db,d,[row])[0];}
       if(d.type==='purchaseorder'&&result.type==='purchase'){const custom=purchaseCustom(db,d,draft,'lines',line.custom);if(Object.keys(custom).length)row.custom=custom;else delete row.custom;}
+      if(['request','plan'].includes(result.type)&&!row.supplier)row.supplier=C.purchaseSupplier(db,row,d);
       delete row.supply;delete row.tax;delete row.total;
       if(result.type!=='plan')delete row.progress;
       // A new link refers to this source row, never to the source's own ancestor.
@@ -205,7 +207,7 @@
     if(result.type==='purchaseorder'&&incoming.some(line=>line.priceRequestBasis))result.partner=C.priceRequestOrderPartner([...(replace?[]:result.lines||[]),...incoming],options.adoptHeader===true&&incoming.some(line=>line.priceRequestBasis?.vendorCode)?'':result.partner);
     const purchaseOrderLineCopy=result.type==='purchase'&&[...sources.values()].every(d=>d.type==='purchaseorder'),lineCopy=mode==='copy'&&options.grouping==='line'&&(purchaseOrderLineCopy||result.type==='request'&&[...sources.values()].every(d=>d.type==='order'));
     if(lineCopy&&purchaseOrderLineCopy&&result.id){const saved=db.documents.find(d=>d.id===result.id);if(saved&&!saved.lines.some(line=>line.lineId)&&db.documents.some(d=>d.sourceId===saved.id))throw Error('후속 전표가 있는 기존 구매는 라인별 복사로 변경할 수 없습니다. 신규 구매전표를 사용하세요.');}
-    result.lines=lineCopy?appendCopyLines(replace?[]:result.lines,incoming):mergeLines(replace?[]:result.lines,incoming,{type:result.type,structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
+    result.lines=lineCopy?appendCopyLines(replace?[]:result.lines,incoming):mergeLines(replace?[]:result.lines,incoming,{type:result.type,...(['request','plan'].includes(result.type)?{supplier:line=>C.purchaseSupplier(db,line,result)}:{}),structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
     if(mode==='linked'){
       const limits=new Map(C.remaining(view,source,result.type).map(l=>[l.lineId||l.item,l.qty]));
       for(const line of result.lines){const key=line.sourceLineId||line.item;if(!limits.has(key)||Number(line.qty)>limits.get(key)+0.000001)throw Error('원본 전표의 잔량을 초과하거나 원본에 없는 품목이 있습니다.');}

@@ -11,7 +11,7 @@
    if(options.from)date(options.from,'기간 시작');if(options.to)date(options.to,'기간 종료');if(options.from&&options.to&&options.from>options.to)throw Error('조회 기간을 확인하세요.');
    const query=String(options.query||'').trim().toLocaleLowerCase('ko-KR');
    return db.documents.filter(d=>d.type==='plan'&&C.active(d)&&(!options.ids||options.ids.includes(d.id))&&(!options.from||d.date>=options.from)&&(!options.to||d.date<=options.to)).flatMap(d=>C.remaining(db,d,'purchaseorder').filter(l=>l.qty>0&&C.purchasingLineState(d,l).progress!=='완료').map(line=>{
-     const item=C.master(db,'items',line.item),supplier=line.supplier||item?.supplier||'',partner=C.master(db,'partners',supplier),original=d.lines.find(l=>line.lineId?l.lineId===line.lineId:l.item===line.item);
+     const item=C.master(db,'items',line.item),supplier=C.purchaseSupplier(db,line,d),partner=C.master(db,'partners',supplier),original=d.lines.find(l=>line.lineId?l.lineId===line.lineId:l.item===line.item);
      return {key:d.id+'|'+(line.lineId||line.item),...(line.lineId?{lineId:line.lineId}:{}),documentId:d.id,date:d.date,item:line.item,name:item?.name||line.item,spec:item?.spec||'',unit:item?.unit||'',dueDate:original.dueDate||d.dueDate||'',warehouse:d.warehouse,supplier,supplierName:partner?.name||'',supplierValid:!!partner&&!partner.disabled,disabled:!item||item.disabled||!C.master(db,'warehouses',d.warehouse)||C.master(db,'warehouses',d.warehouse).disabled,originalQty:original.qty,processedQty:qty(original.qty-line.qty),qty:line.qty,price:line.price||0,discount:line.discount||0,memo:line.memo||''};
    })).filter(row=>!query||[row.documentId,row.item,row.name,row.spec,row.supplierName].some(v=>String(v).toLocaleLowerCase('ko-KR').includes(query))).sort((a,b)=>a.date.localeCompare(b.date)||a.documentId.localeCompare(b.documentId)||a.item.localeCompare(b.item,'ko-KR',{numeric:true}));
  }
@@ -20,6 +20,8 @@
    const request=clone(input),grouping=request.grouping||'supplier-date-line';if(!modes.some(([key])=>key===grouping))throw Error('정리 방식을 선택하세요.');
    const generationDate=date(request.date||C.today(),'생성일');if(request.dueDate)date(request.dueDate,'납기일');
    if(!Array.isArray(request.selections)||!request.selections.length||request.selections.length>MAX_SELECTIONS)throw Error('발주계획 품목을 1~'+MAX_SELECTIONS+'행 선택하세요.');
+   const resolvedSuppliers=[...new Set(request.selections.map(x=>{const source=db.documents.find(d=>d.id===x.documentId),line=source?.lines.find(l=>x.lineId?l.lineId===x.lineId:l.item===x.item);return x.supplier||C.purchaseSupplier(db,line,source);}).filter(Boolean))];
+   if(!request.partner&&resolvedSuppliers.length===1)request.partner=resolvedSuppliers[0];
    const policy=grouping==='custom'?{splitSupplier:request.custom?.splitSupplier!==false,splitDueDate:request.custom?.splitDueDate!==false,mergeItems:request.custom?.mergeItems===true}:{splitSupplier:grouping.startsWith('supplier-'),splitDueDate:grouping.startsWith('supplier-'),mergeItems:grouping.endsWith('-item')};
    const issue=(key,message)=>({key,message}),issues=[],selected=[],seen=new Set(),current=new Map(candidateRows(db).map(row=>[row.key,row])),facts=[],sourceFacts=new Map(),itemFacts=new Map();
    for(const selection of request.selections){
@@ -28,7 +30,7 @@
      const original=source.lines.find(l=>selection.lineId?l.lineId===selection.lineId&&l.item===selection.item:l.item===selection.item),item=C.master(db,'items',selection.item);facts.push(row);sourceFacts.set(source.id,source);itemFacts.set(item?.code,item);
      try{
        if(row.disabled)throw Error('사용 중인 품목과 창고를 선택하세요.');const amount=positive(selection.qty===undefined?row.qty:selection.qty);if(amount>row.qty+.000001)throw Error('원본 발주계획의 잔량을 초과했습니다.');
-       const supplier=policy.splitSupplier?(selection.supplier===undefined?row.supplier:selection.supplier):request.partner,partner=C.master(db,'partners',supplier);if(!supplier||!partner||partner.disabled)throw Error(policy.splitSupplier?'품목 구매처를 지정하세요.':'1장으로 생성할 발주서의 거래처를 지정하세요.');
+       const supplier=policy.splitSupplier?(selection.supplier===undefined?row.supplier:selection.supplier):request.partner,partner=C.master(db,'partners',supplier);if(!supplier||!partner||partner.disabled)throw Error(policy.splitSupplier?row.item+' '+row.name+': 품목등록에서 구매처를 지정하거나 이 행의 구매처를 선택하세요.':'1장으로 생성할 발주서의 거래처를 지정하세요.');
        const dueDate=selection.dueDate||row.dueDate||request.dueDate;date(dueDate,'납기일');
        const line=clone(original);delete line.supply;delete line.tax;delete line.total;delete line.sourceLineId;delete line.lineId;delete line.planAllocations;delete line.progress;
        line.qty=amount;line.dueDate=dueDate;line.planAllocations=[{documentId:source.id,item:line.item,qty:amount,...(original.lineId?{sourceLineId:original.lineId}:{})}];line.importedFrom=[...(line.importedFrom||[]),{documentId:source.id,type:'plan',date:source.date,item:line.item,qty:amount,mode:'linked'}];
