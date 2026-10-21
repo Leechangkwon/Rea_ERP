@@ -271,3 +271,45 @@ test('plan line supplier conflict preserves saved vouchers and allows correction
   expect(after.documents.find(d=>d.id===ids.childId)).toEqual(before.documents.find(d=>d.id===ids.childId));
   expect(after.settings).toEqual(before.settings);
 });
+
+
+test('plan with an ancestor-only row reference imports into orders and purchases through saved UI flows',async({page})=>{
+  const ids=await page.evaluate(()=>{
+    const C=InventoryCore;let db=C.empty();db.masters=C.clone(C.seed().masters);
+    let out=C.command(db,'document',{type:'request',date:C.today(),warehouse:'W001',lines:[{lineId:'REQUEST-ROW',item:'M001',qty:10,price:100,supplier:'V001'}]});
+    const requestId=out.result.id;
+    out=C.command(out.db,'document',{type:'plan',date:C.today(),warehouse:'W001',sourceId:requestId,lines:[{sourceLineId:'REQUEST-ROW',item:'M001',qty:6,price:100,supplier:'V001'}]});
+    InventoryUI.replace(C.validateBackup(out.db));return {requestId,planId:out.result.id};
+  });
+  const before=await page.evaluate(()=>InventoryUI.snapshot());
+  const added=[];
+  for(const [type,label,importLabel,sourceId,sourceLineId,qty] of [
+    ['purchaseorder','발주서','계획',ids.planId,'',4],
+    ['purchase','구매','발주',null,null,2]
+  ]){
+    const source=type==='purchase'?added[0]:null,id=source?.id||sourceId,key=id+'|'+(source?.lines[0].lineId||sourceLineId||'M001');
+    await page.locator('#routes').getByRole('button',{name:label+'조회',exact:true}).click();
+    await page.getByRole('button',{name:'신규(F2)',exact:true}).click();
+    const editor=page.locator('#inventory-dialog');
+    await editor.getByLabel('거래처',{exact:true}).selectOption('V001');
+    await editor.getByRole('button',{name:importLabel,exact:true}).click();
+    const picker=page.locator('#entry-helper-dialog');
+    await expect(picker.getByLabel('불러오기 방식',{exact:true})).toHaveValue('linked');
+    await picker.getByLabel('행 선택 '+key,{exact:true}).check();
+    await picker.getByLabel('불러올 수량 '+key,{exact:true}).fill(String(qty));
+    await picker.getByRole('button',{name:'선택 적용',exact:true}).click();
+    await expect(picker).toHaveCount(0);
+    expect((await documents(page)).length).toBe(before.documents.length+added.length);
+    await editor.getByRole('button',{name:'저장(F8)',exact:true}).click();await expect(editor).toHaveCount(0);
+    const saved=(await documents(page)).find(d=>d.type===type);added.push(saved);
+    expect(saved.sourceId).toBe(id);expect(saved.lines[0].sourceLineId).not.toBe('REQUEST-ROW');expect(saved.lines[0].qty).toBe(qty);
+    await page.reload();expect((await documents(page)).find(d=>d.id===saved.id)).toEqual(saved);
+  }
+  const after=await page.evaluate(()=>InventoryUI.snapshot());
+  expect(after.documents.slice(0,2)).toEqual(before.documents);expect(after.settings).toEqual(before.settings);
+  const balances=await page.evaluate(({planId,orderId})=>{const db=InventoryUI.snapshot(),C=InventoryCore;return {plan:C.remaining(db,db.documents.find(d=>d.id===planId),'purchaseorder')[0].qty,order:C.remaining(db,db.documents.find(d=>d.id===orderId),'purchase')[0].qty,stock:C.stock(db,'M001','W001'),payable:C.outstanding(db,'payable','V001')};},{planId:ids.planId,orderId:added[0].id});
+  expect(balances).toEqual({plan:2,order:2,stock:2,payable:220});
+  await page.locator('#routes').getByRole('button',{name:'구매조회',exact:true}).click();
+  await page.locator('tbody .inv-link').click();await expect(page.getByRole('dialog',{name:'구매 상세 / 수정',exact:true})).toBeVisible();
+  await page.screenshot({path:'.artifacts/manual-five-stage-20261021/synthetic-purchase-lineage.png',fullPage:true});
+});
