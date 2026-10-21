@@ -2,7 +2,7 @@
 
 ## 준비된 분리 후보 · 0.53.1 (운영 미반영)
 
-최신 후보는 release/0.53.1의226ef2f다. 운영5fb7836 기반의 구매 연결 헤더/공급사 보호에 단계별 원본 행 참조 수정을 추가했다. 최신 전체verify:local/브라우저33,57자산 분리·롤백 해시 검증을 통과했다. 미완료 부가세가 있는 main과 후보를 혼동하지 않는다. 정확한 커밋·번들 해시는 .artifacts/isolated-link-release-20261021/candidate-manifest.json, 상세는 evidence/manual-purchase-source-lineage-20261021.json다. 이전0c8e41f/cef5a2c후보와 운영0.53.0롤백은 보존한다. 기존 브라우저 백업/미저장 입력 보존 및 비공개 상태·메일 백업 확인 전에는 재시작하지 않는다.
+최신 후보는 release/0.53.1의479b4ae다. 운영5fb7836 기반의 구매 연결 헤더/공급사 보호에 단계별 원본 행 참조 수정을 추가했다. 최신 전체verify:local/브라우저33,57자산 분리·롤백 해시 검증을 통과했다. 미완료 부가세가 있는 main과 후보를 혼동하지 않는다. 정확한 커밋·번들 해시는 .artifacts/isolated-link-release-20261021/candidate-manifest.json, 상세는 evidence/manual-purchase-source-lineage-20261021.json다. 이전0c8e41f/cef5a2c후보와 운영0.53.0롤백은 보존한다. 기존 브라우저 백업/미저장 입력 보존 및 비공개 상태·메일 백업 확인 전에는 재시작하지 않는다.
 
 ## 현재 운영 · 0.53.0 요청 주문 라인별 보존
 
