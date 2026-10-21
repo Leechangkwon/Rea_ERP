@@ -1405,7 +1405,7 @@
       "expected": [
         "일치하는 명칭의 항목 내용이 구매에 적용된다"
       ],
-      "status": "confirmed-gap",
+      "status": "deployed-synthetic-verified-hosted-custom-save-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifactDirectory": ".artifacts/manual-purchase-flow-20261021",
@@ -1413,11 +1413,19 @@
       },
       "role": "manual does not specify role exceptions; own inventory.write retained",
       "implementationEvidence": [
-        "docs/plan-purchase-receipt-closure-20261021.md"
+        "docs/plan-purchase-custom-fields-20261021.md",
+        "evidence/manual-purchase-custom-import-20261021.json"
       ],
-      "automatedEvidence": [],
+      "automatedEvidence": [
+        "tests/purchase-custom-import.cjs",
+        "tests/browser/purchase-custom-import.spec.cjs"
+      ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "deploymentVersion": "0.56.0",
+      "deploymentEvidence": "evidence/manual-purchase-custom-import-20261021.json",
+      "hostedPickerOpenCancelVerified": true,
+      "hostedCustomValuesWriteAcceptance": false
     },
     {
       "id": "REQ-PUR-RETURN-001",

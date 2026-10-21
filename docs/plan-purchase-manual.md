@@ -1,10 +1,10 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 0.55.0 운영
+## 현재 인계 · 0.56.0 운영
 
-운영 `release/0.55.0-receipt-closure` / `0ae0af0`, 기능 소스 `7e392d1`. 부분입고→종결→재개→잔량0 상단정보 흐름을 구현하고 합성 저장/재조회와 전체 회귀(브라우저46), 운영 로그인 유지·읽기/취소·자료보존을 확인했다. 실제 업무 저장 합격은 미완료다. 다음은 전체적용/품목합산/추가항목 승계, 이어서 음수 구매반품이다.
+운영 `release/0.56.0-purchase-custom` / `1fc990e`, 소스 `6b79a53`. REQ-PUR-IMPORT-002: 발주서→구매 상단/품목 추가항목의 같은 명칭·다른ID 승계와 취소/충돌 보존·저장/재조회를 구현했다. 전체 verify:local/브라우저47, 최종 Node전체/release/build/관련 브라우저2 통과. 운영 로그인·읽기/취소·자료/양식/메일 보존 확인. 운영 추가항목 유자료 저장과 전체 매뉴얼 합격은 남아 있다.
 
-최신 상태표는 `docs/manual-parity/PROGRESS.md`, 계획은 `docs/plan-purchase-receipt-closure-20261021.md`, 배포 근거는 `evidence/manual-purchase-receipt-closure-20261021.json`. manifest `.artifacts/manual-purchase-flow-20261021/candidate-manifest.json`의 번들SHA를 운영과 대조한다. main VAT5충돌 미배포, 전체 매뉴얼 완료0, 모아34갱신 게시 대기. 아래 내용은 시점별 이력이다.
+근거 `evidence/manual-purchase-custom-import-20261021.json`, 계획 `docs/plan-purchase-custom-fields-20261021.md`, manifest `.artifacts/manual-purchase-custom-20261021/candidate-manifest.json`. 현재 상태는 `docs/manual-parity/PROGRESS.md` 맨 위를 따른다. 다음은 전체적용/품목합산의 단가·복수 연결 계약, 이후 음수 구매반품. main VAT5충돌 연구 빌드 설치 금지. 모아35갱신 대기·전체완료0. 아래는 시점별 이력이다.
 
 ## 최신 개발 인계 · 0.53.2 후보 9e4efd1 / 운영0.53.1 유지
 

@@ -51,5 +51,69 @@
   },
   "wholeManualDone": false,
   "vatResearchConflictsPreserved": 5,
-  "productionDeployed": false
+  "productionDeployed": true,
+  "sourceCommit": "6b79a531fa9ab0e548d03d6c567f36b5c867f89a",
+  "deployment": {
+    "commit": "1fc990eb1f95f8df23f1ee4b93f7cf3b3cf45e37",
+    "branch": "release/0.56.0-purchase-custom",
+    "version": "0.56.0",
+    "bundleSha256": "cbd8957d6be4a9e1f8581e1c15eebeabdb2ac65767e40555ec189a65ffcab5e8",
+    "publicAssetsVerified": 2,
+    "existingLoginRetained": true,
+    "purchasePickerOpenCancelVerified": true,
+    "operatingCustomFieldCatalogAvailable": false,
+    "hostedBusinessSavePerformed": false,
+    "hostedCustomValuesWriteAcceptance": false,
+    "rollbackVersion": "0.55.0",
+    "manifest": ".artifacts/manual-purchase-custom-20261021/candidate-manifest.json"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.56.0",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsEqual": true,
+      "loggedSessionRetained": true,
+      "purchaseOrderPickerOpenedAndCancelled": true,
+      "operatingWriteAcceptance": false
+    },
+    "serverAndMail": {
+      "version": "0.56.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 28,
+          "afterRevision": 28,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    }
+  },
+  "publication": {
+    "status": "authentication-required-local-record-ready",
+    "readbackVerified": false,
+    "lastVerifiedProgressVersion": "0.51.0"
+  }
 }

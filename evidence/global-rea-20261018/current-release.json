@@ -1,5 +1,5 @@
 {
-  "version": "0.55.0",
+  "version": "0.56.0",
   "status": "deployed-public-authenticated-session-and-preservation-verified",
   "route_coverage_baseline": {
     "total": 759,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 46,
+    "currentReleaseBrowserSynthetic": 47,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -133,16 +133,19 @@
     "priceRequestOrderFlowNewNode": 26,
     "priceRequestOrderFlowNewBrowser": 1,
     "purchaseReceiptClosureNewNode": 9,
-    "purchaseReceiptClosureNewBrowser": 1
+    "purchaseReceiptClosureNewBrowser": 1,
+    "purchaseCustomImportNewNode": 11,
+    "purchaseCustomImportNewBrowser": 1,
+    "purchaseCustomImportFinalTargetedBrowser": 2
   },
-  "future_research": "Complete line/full-quantity and item aggregation import contracts plus matching custom-field-name transfer; then copied/direct negative purchase return flow and print/form acceptance. Preserve existing links, VAT 5 conflicts and done=0; no unchanged regression repetition.",
+  "future_research": "Resolve line/full-quantity and item-aggregation import quantity/price/source-link contracts; implement only supported semantics, then copied/direct negative purchase return and print/form acceptance. Matching custom-field-name transfer is deployed 0.56.0 with synthetic save/reload; hosted data-bearing custom save remains pending. Preserve VAT5 conflicts and done=0; do not repeat unchanged tests.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-purchase-receipt-closure-20261021.json",
+    "reference": "../manual-purchase-custom-import-20261021.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
-    "publicVersionVerified": "0.55.0",
+    "deployedSourceCommit": "1fc990eb1f95f8df23f1ee4b93f7cf3b3cf45e37",
+    "publicVersionVerified": "0.56.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -201,20 +204,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.55.0",
+    "existingSessionRetainedVersion": "0.56.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.55.0",
+    "lastExactBrowserBackupComparisonVersion": "0.56.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.55.0",
+    "currentServerStateAndMailPreservedVersion": "0.56.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.55.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.56.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -228,7 +231,9 @@
     "priceRequestOrderFlowHostedSaveVerified": false,
     "purchaseReceiptClosureDeployed": true,
     "purchaseReceiptClosureHostedSaveVerified": false,
-    "purchaseOrderPickerHostedOpenCancelVerifiedVersion": "0.55.0"
+    "purchaseOrderPickerHostedOpenCancelVerifiedVersion": "0.55.0",
+    "purchaseCustomNameImportDeployed": true,
+    "purchaseCustomNameImportHostedSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -465,7 +470,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "Complete line/full-quantity and item aggregation import contracts plus matching custom-field-name transfer; then copied/direct negative purchase return flow and print/form acceptance. Preserve existing links, VAT 5 conflicts and done=0; no unchanged regression repetition.",
+    "nextIndependentWork": "Resolve line/full-quantity and item-aggregation import quantity/price/source-link contracts; implement only supported semantics, then copied/direct negative purchase return and print/form acceptance. Matching custom-field-name transfer is deployed 0.56.0 with synthetic save/reload; hosted data-bearing custom save remains pending. Preserve VAT5 conflicts and done=0; do not repeat unchanged tests.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -603,13 +608,25 @@
       "productionDeployed": true,
       "hostedWriteAcceptancePending": true,
       "done": false
+    },
+    "purchaseCustomNameImport": {
+      "requirement": "REQ-PUR-IMPORT-002",
+      "status": "deployed-synthetic-verified-hosted-custom-save-and-full-parity-pending",
+      "sourceCommit": "6b79a531fa9ab0e548d03d6c567f36b5c867f89a",
+      "evidence": "evidence/manual-purchase-custom-import-20261021.json",
+      "plan": "docs/plan-purchase-custom-fields-20261021.md",
+      "newNodeTests": 11,
+      "browserWorkflowPassed": true,
+      "productionDeployed": true,
+      "hostedWriteAcceptancePending": true,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.55.0",
-    "commit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
-    "manifest": ".artifacts/manual-purchase-flow-20261021/candidate-manifest.json",
-    "bundleSha256": "5c4929c127cb9414e400067046235bd86abf59ff6fb51c8ec2e13017f243c254",
+    "version": "0.56.0",
+    "commit": "1fc990eb1f95f8df23f1ee4b93f7cf3b3cf45e37",
+    "manifest": ".artifacts/manual-purchase-custom-20261021/candidate-manifest.json",
+    "bundleSha256": "cbd8957d6be4a9e1f8581e1c15eebeabdb2ac65767e40555ec189a65ffcab5e8",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -625,9 +642,10 @@
       "price-request-multi-supplier-atomic-start",
       "price-request-first-confirmation-requested-price-defaults",
       "confirmed-price-supplier-order-save-reload-partial-purchase",
-      "purchase-partial-receipt-closure-reopen-exhausted-header-only-import"
+      "purchase-partial-receipt-closure-reopen-exhausted-header-only-import",
+      "purchaseorder-to-purchase-custom-field-name-transfer"
     ],
-    "supersedesCandidateCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+    "supersedesCandidateCommit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
