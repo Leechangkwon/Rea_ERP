@@ -1,0 +1,131 @@
+{
+  "requirement": "REQ-PUR-PRICE-001",
+  "version": "0.53.7",
+  "status": "deployed-preservation-verified-synthetic-first-confirmation-accepted",
+  "sourceCommit": "fae7a848bada89d9bbfef2be55854a25f9388610",
+  "deployedCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
+  "base": "a613d8c4e9842215a467cd6a19f467b427d71887",
+  "manifest": ".artifacts/manual-price-default-20261021/candidate-manifest.json",
+  "bundleSha256": "6950ca579242fe15220e3da2f9f1b5a5f39c3c452ef8c7a9f81c239c07631d52",
+  "observations": {
+    "source": "EC-VID-13917",
+    "url": "https://www.ecount.com/kr/popup/edu_movie/edu_video.aspx?page=3&v=FjIB7_f4lCE&id=13917",
+    "observedAt": "2026-10-21T12:11:49.063725+00:00",
+    "originalErpWrites": false,
+    "observations": [
+      {
+        "file": "price-confirmed-3m34.png",
+        "sha256": "8d4447d6795927308bd88c3714ae3a47e3df0f7f524f07800fc046d0c407be83",
+        "description": "Selection mode: requested price 50000 selected, two supplier prices unselected, header radios visible, explicit F8 save."
+      },
+      {
+        "file": "price-confirmed-3m39.png",
+        "sha256": "fec055d0adfb135e1c6c5b4b1224517b7b1b53174dfded09d6b158af4a728880",
+        "description": "Progress list confirmed supplier amount 25000."
+      },
+      {
+        "file": "price-confirmed-3m54.png",
+        "sha256": "620255f716c5936313d4e6adbeb94c017d76bb7eba4aab0f8c925bd82503a173",
+        "description": "Status report request 50000 and confirmed 25000."
+      },
+      {
+        "file": "price-confirmed-4m04.png",
+        "sha256": "f4401382c85e2c7bf5938ea46eb67986755362068979ddfdc43c77df5bec57d8",
+        "description": "Purchase order form supplier, quantity100 and price25000; narration refers to clicking price request."
+      }
+    ],
+    "unknown": [
+      "header multi-row behavior",
+      "partial prior confirmations",
+      "PO picker steps and mapping",
+      "expiry and external reply authorization"
+    ],
+    "implementationScope": "First-confirmation requested-price draft only; existing partial confirmations preserve their current state as a conservative product policy, not proven original parity."
+  },
+  "scope": {
+    "firstConfirmationRequestedPriceDraft": true,
+    "existingPartialConfirmationsPreserved": true,
+    "saveOnlyExplicitButtonOrF8": true,
+    "sourceRepliesFormsAndPricesPreserved": true,
+    "headerBulkSelectionImplemented": false,
+    "originalMultiRowOrPartialPolicyVerified": false,
+    "purchaseorderApplicationImplemented": false
+  },
+  "tests": {
+    "focusedNode": 102,
+    "newNode": 3,
+    "candidateVerifyLocalExitCode": 0,
+    "syntheticBrowser": 44,
+    "newBrowser": 1,
+    "desktopAnd390pxScreenshotsReviewed": true,
+    "earlierFailure": "One prior browser assertion assumed no initial selection; updated to verify requested-price defaults and zero writes before explicit save, then all checks passed.",
+    "log": ".artifacts/manual-price-default-20261021/verify-accepted.log"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 2,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalRoutingCacheVerified": true,
+    "originalServerEquivalence": false
+  },
+  "preservation": {
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 28,
+        "afterRevision": 28,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "browser": {
+      "version": "0.53.7",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "dataBearingHostedSavePerformed": false
+    },
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false
+  },
+  "production": {
+    "deployed": true,
+    "publicAssetsVerified": true,
+    "supabaseHealth200": true,
+    "existingSessionRetained": true,
+    "hostedComparisonCount": 0,
+    "hostedBusinessSaveVerified": false,
+    "originalErpWrites": false,
+    "mailSent": false
+  },
+  "moa": {
+    "status": "authentication-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  },
+  "done": false,
+  "manualDoneCount": 0,
+  "remainingVatConflicts": 5,
+  "nextWork": "Continue official header multi-row/partial confirmation behavior and price-request picker into purchaseorders; map supplier, row/price, source lineage and validity before implementation. Keep prior confirmations/forms/replies, VAT conflicts and manual done=0. Hosted data-bearing saves and Moa append/readback remain pending."
+}

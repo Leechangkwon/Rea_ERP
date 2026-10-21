@@ -1,5 +1,7 @@
 # 자동화 ERP · REA 재구성 검증
 
+현재 운영은 **0.53.7 / b2b73d2** (최초 확정 요청단가 기본선택)이며 분리후보만 설치했다. 운영 기준/보존검증은 `evidence/manual-price-request-defaults-20261021.json`와 `docs/release-workflow.md`를 확인한다. main에는 미완료 VAT 연구가 있으므로 main 빌드 설치 금지.
+
 현재 운영은 분리 릴리스0.53.6/a613d8c이며 신규 단가요청 다중 거래처·비교자료 동시 저장을 추가하고 기존 로그인·자료 보존을 확인했다. main에는 미완료VAT 연구가 있으므로 운영 재시작은 docs/release-workflow.md의 정확한 번들/manifest를 따른다.
 
 ## 이전 운영 · 0.53.0 요청 주문 라인별 보존

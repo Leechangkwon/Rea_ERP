@@ -315,3 +315,8 @@ Adapter는 실제 사용자별 storageKey, inventory.read/write, raw 기준을 �
 ## 2026-10-21 구현 추가 · 신규 단가요청 공급사 연결
 
 0.53.6은 신규 전표에만 ReferencePickerUI의1~5개 공급사 선택 초안을 연결한다. priceRequestCreate는 기존 saveDoc과 PriceRequestCore start를 하나의 사본에서 실행하며, 전표·공급사 검증 전체 성공 후 한 번 저장한다. 저장 스키마 변경이나 기존자료 이관은 없다. 비교가 있는 전표의 공급사는 읽기전용으로 표시하고 기존 회신을 재시작하지 않는다. 조회·필터·CSV는 companion의 공급사 목록을 참조한다. API/외부 공급사 인증/유효기간 만료/발주서 적용은 별도 합격 항목이다. 근거 evidence/manual-price-request-suppliers-20261021.json.
+
+
+### 0.53.7 최초 확정 초안 기본값
+
+PriceRequestUI가 ready 비교자료에서 기존 확정값이 하나도 없을 때만 요청단가를 초안 Map에 초기화한다. 이미 부분 확정된 자료는 기존 선택/미선택을 복원한다. 이 값은 persisted comparison과 분리되며 기존 selectMany의 단일 명령과 onSave 어댑터가 명시 저장 시 권한/계정/raw/source/revision을 검사한다. 모델·저장스키마·서버인증·메일·VAT를 변경하지 않는다. 원본 헤더 전체선택/부분규칙/발주서 적용·외부회신의 동등성은 별도 미완료다.
