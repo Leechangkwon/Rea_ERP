@@ -129,10 +129,10 @@
   .inventory-app .inv-list-actions>details>summary{display:flex;align-items:center;padding:7px 12px}
   .inventory-app .inv-list-actions>.inv-request-summary,.inventory-app .inv-list-actions>span:last-child{margin-left:auto;min-width:0;overflow-wrap:anywhere}
   .inventory-app .inv-list-actions>.inv-field{margin:0;max-width:100%}
-  .inventory-app .inv-request-head:not(:has(.inv-list-search)){display:grid;grid-template-columns:minmax(120px,1fr) auto auto;align-items:center;gap:8px}
-  .inventory-app .inv-request-head:not(:has(.inv-list-search))>.inv-status-tabs{grid-column:1/-1;width:100%;flex:none}
-  .inventory-app .inv-request-head:not(:has(.inv-list-search))>input{width:100%;max-width:320px}
-  .inventory-app .entry-action-bar:has(>.entry-primary-actions){display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .inventory-app.inv-request-list .inv-request-head:not(:has(.inv-list-search)){display:grid;grid-template-columns:minmax(120px,1fr) auto auto;align-items:center;gap:8px}
+  .inventory-app.inv-request-list .inv-request-head:not(:has(.inv-list-search))>.inv-status-tabs{grid-column:1/-1;width:100%;flex:none}
+  .inventory-app.inv-request-list .inv-request-head:not(:has(.inv-list-search))>input{width:100%;max-width:320px}
+  .inventory-app .entry-action-bar:has(>.entry-primary-actions){display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:10px}
   .inventory-app .entry-primary-actions{align-items:stretch;gap:var(--inv-control-gap);min-width:0}
   .inventory-app .entry-primary-actions>button,.inventory-app .entry-primary-actions>details>summary,.inventory-app .entry-save-actions>button,.inventory-app .entry-save-actions>details>summary{min-height:var(--inv-control-height);line-height:1.4;display:flex;align-items:center;justify-content:center;padding:7px 12px;border:1px solid #ccd4df;border-radius:3px;background:#fff;font-size:12px;cursor:pointer}
   .inventory-app .entry-primary-actions>details{position:relative;min-width:0}
@@ -146,6 +146,20 @@
   .inventory-app .entry-action-bar>details.entry-secondary-actions{display:block;grid-column:1/-1;border-top:1px solid #e0e6f0;padding-top:8px}
   .inventory-app .entry-action-bar>details.entry-secondary-actions>summary{min-height:var(--inv-control-height);padding:7px 0;cursor:pointer}
   .inventory-app .entry-action-bar>details.entry-secondary-actions:not([open])>:not(summary){display:none}
+  /* Reports own their search row; request-list fallback grids must not leak here. */
+  .inventory-app .inv-report-head{display:flex;flex-wrap:wrap;align-items:center;gap:var(--inv-control-gap);margin:0 0 12px;min-width:0}
+  .inventory-app .inv-report-head>h2{flex:1 1 100%;margin:0 0 4px}
+  .inventory-page .inv-report-head>h2{display:none}
+  .inventory-app .inv-report-head>input{flex:1 1 140px;width:auto;min-width:0;max-width:420px;height:var(--inv-control-height)}
+  .inventory-app .inv-report-head>button{flex:0 0 auto;min-height:var(--inv-control-height);padding:7px 12px;line-height:1.4}
+  .inventory-app .inv-report-mode{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:5px 7px;border:1px solid #d9dfe9;background:#f8f9fc}
+  .inventory-app .inv-report-mode>.inv-field{display:inline-flex;align-items:center;gap:7px;min-height:var(--inv-control-height);padding:0;border:0;background:transparent;cursor:pointer}
+  .inventory-app .inv-report-mode>.inv-field>span{min-width:0;flex:0 0 auto}
+  .inventory-app input[type=radio]{width:18px;height:18px;min-height:0;flex:0 0 18px;margin:0;accent-color:#294cbd}
+  .inventory-app .inv-report-mode input[type=radio]{order:-1}
+  .inventory-app.inv-purchasing-report .inv-field>input:not([type=radio]):not([type=checkbox]),.inventory-app.inv-purchasing-report .inv-field>select{height:var(--inv-control-height);min-height:var(--inv-control-height)}
+  .inventory-app .inv-report-search-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:var(--inv-control-gap);margin:0;padding:8px;min-width:0}
+  .inventory-app .inv-report-search-actions>button,.inventory-app.inv-purchasing-report> .inv-toolbar>button,.inventory-app.inv-purchasing-report> .inv-toolbar>details>summary{flex:0 0 auto;min-height:var(--inv-control-height);padding:7px 12px;line-height:1.4}
   .inventory-app .entry-save-actions{gap:var(--inv-control-gap);align-items:stretch}
   .inventory-app .entry-save-actions>button.primary{background:#294cbd;color:#fff;border-color:#294cbd}
 }
@@ -162,8 +176,8 @@
   .inventory-app .inv-list-actions>.inv-request-summary,.inventory-app .inv-list-actions>span:last-child{flex-basis:100%;margin:0;padding-top:2px}
   .inventory-app .purchasing-entry-header{grid-template-columns:1fr;max-width:none}
   .inventory-app .entry-primary-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr))}
-  .inventory-app .inv-request-head:not(:has(.inv-list-search)){grid-template-columns:minmax(120px,1fr) auto}
-  .inventory-app .inv-request-head:not(:has(.inv-list-search))>.form-option-bar{grid-column:1/-1;justify-content:flex-end}
+  .inventory-app.inv-request-list .inv-request-head:not(:has(.inv-list-search)){grid-template-columns:minmax(120px,1fr) auto}
+  .inventory-app.inv-request-list .inv-request-head:not(:has(.inv-list-search))>.form-option-bar{grid-column:1/-1;justify-content:flex-end}
 }
 @media screen and (max-width:700px){
   .inventory-app .inv-list-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}

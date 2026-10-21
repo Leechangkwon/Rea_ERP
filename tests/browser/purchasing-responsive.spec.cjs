@@ -46,14 +46,14 @@ for(const width of [390,768,1024,1280])test(`purchasing lists share a bounded re
   const m=await metrics(page);expect(m.page,title+' shell overflow').toBeLessThanOrEqual(width+1);
   expect(m.status.x,title+' status left').toBeCloseTo(m.host.x,0);
   expect(m.status.width,title+' status full row').toBeGreaterThan(m.host.width-2);
-  const rows=new Map();for(const b of m.buttons){const y=Math.round(b.y);rows.set(y,(rows.get(y)||0)+1);expect(b.height,title+' status height').toBeGreaterThanOrEqual(width<=1100?44:36);}
+  const rows=new Map();for(const b of m.buttons){const y=Math.round(b.y);rows.set(y,(rows.get(y)||0)+1);expect(b.height,title+' status height').toBeGreaterThanOrEqual(width<=1100?44:36);expect(b.height,title+' status upper height').toBeLessThanOrEqual(56);}
   expect(Math.max(...rows.values()),title+' statuses must not collapse into one vertical column').toBeGreaterThanOrEqual(Math.min(3,m.buttons.length));
   expect(m.search.y,title+' search after statuses').toBeGreaterThanOrEqual(m.status.bottom+7);
   expect(m.search.y,title+' consistent header spacing').toBeLessThanOrEqual(m.status.bottom+12);
   expect(m.actions.y,title+' common actions below data').toBeGreaterThanOrEqual(m.table.bottom);
   expect(m.actionHeights.length,title+' existing actions retained').toBeGreaterThan(1);
-  for(const h of m.actionHeights)expect(h,title+' consistent action targets').toBeGreaterThanOrEqual(width<=1100?44:36);
-  for(const c of m.controls){expect(c.right,title+' search controls within content').toBeLessThanOrEqual(m.host.right+1);expect(c.height,title+' search target height').toBeGreaterThanOrEqual(width<=1100?44:36);}
+  for(const h of m.actionHeights){expect(h,title+' consistent action targets').toBeGreaterThanOrEqual(width<=1100?44:36);expect(h,title+' action upper height (two-line mobile label)').toBeLessThanOrEqual(width<=700?64:56);}
+  for(const c of m.controls){expect(c.right,title+' search controls within content').toBeLessThanOrEqual(m.host.right+1);expect(c.height,title+' search target height').toBeGreaterThanOrEqual(width<=1100?44:36);expect(c.height,title+' search upper height').toBeLessThanOrEqual(56);}
   if(await page.locator('.form-option-bar').count())await expect(page.locator('.inv-list-search>.form-option-bar')).toHaveCount(1);
   const searchToggle=page.locator('.inv-list-search button[aria-expanded]').first();await searchToggle.click();await expect(page.locator('.inv-list-filters')).toBeVisible();await searchToggle.click();await expect(page.locator('.inv-list-filters')).toBeHidden();
   expect(await page.evaluate(()=>InventoryUI.snapshot()),title+' read-only navigation preserves data/forms').toEqual(before);
@@ -68,7 +68,7 @@ for(const width of [390,768,1024])test(`request and plan entry helpers use even 
   const m=await primary.evaluate(node=>({display:getComputedStyle(node).display,width:node.getBoundingClientRect().width,buttons:[...node.children].map(child=>{const target=child.tagName==='DETAILS'?child.querySelector('summary'):child;const r=target.getBoundingClientRect();return {width:r.width,height:r.height,right:r.right};}),page:document.documentElement.scrollWidth}));
   expect(m.display).toBe('grid');expect(m.page,title+' entry shell overflow').toBeLessThanOrEqual(width+1);
   expect(Math.max(...m.buttons.map(x=>x.width))-Math.min(...m.buttons.map(x=>x.width))).toBeLessThan(2);
-  for(const b of m.buttons)expect(b.height).toBeGreaterThanOrEqual(44);
+  for(const b of m.buttons){expect(b.height).toBeGreaterThanOrEqual(44);expect(b.height,'entry helper upper height').toBeLessThanOrEqual(56);}
   const details=page.locator('.entry-action-bar>details.entry-secondary-actions');await expect(details).not.toHaveAttribute('open','');
   const saveLayout=await page.locator('.entry-save-actions').evaluate(node=>({position:getComputedStyle(node).position,top:node.getBoundingClientRect().top,tableBottom:node.closest('form').querySelector('.inv-table-wrap').getBoundingClientRect().bottom}));
   expect(saveLayout.position,title+' save controls must not cover input fields').toBe('static');expect(saveLayout.top).toBeGreaterThanOrEqual(saveLayout.tableBottom);
