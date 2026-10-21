@@ -1149,10 +1149,24 @@
         "최대5거래처 단가 요청",
         "Email 회신 단가 비교 및 발주서 적용"
       ],
-      "status": "requirements-confirmed",
+      "status": "partial-implementation-local-validated-hosted-pending",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "additionalSourceIds": [
+        "EC-VID-13917"
+      ],
+      "evidence": "evidence/manual-price-request-import-20261021.json",
+      "implementedScope": [
+        "Primary order/plan copy-import shortcuts",
+        "Auxiliary web upload and mobile access preservation"
+      ],
+      "remainingScope": [
+        "Multiple supplier replies and comparison/confirmation",
+        "Confirmed-price purchase-order application",
+        "External reply/email authorization and expiry",
+        "Authenticated original and hosted acceptance"
+      ]
     },
     {
       "id": "REQ-PUR-ORDER-001",

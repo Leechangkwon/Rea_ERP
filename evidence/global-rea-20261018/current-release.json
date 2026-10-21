@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1
   },
-  "future_research": "Operating 0.53.1 retained. Prepared 0.53.2 9e4efd1 includes 100-selection limit and receiving warehouse preservation; authenticated UI/browser-backup acceptance, deployment pre/post preservation and Moa readback pending. Continue price-request comparison, quantity-rule and VAT input-expression evidence while login is unavailable.",
+  "future_research": "Operating 0.53.1 retained. Candidate 0.53.2 72b523d includes plan100 limit, receiving warehouse/inspection preservation and price request order/plan imports with mobile auxiliary access. Authenticated backup/UI acceptance, deployment preservation and Moa readback pending. Continue supplier quote comparison state and unresolved quantity/VAT evidence.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../deployment-purchase-links-0531-20261021.json",
@@ -355,19 +355,39 @@
       "deploymentPending": true,
       "installedIntoOperatingRuntime": false,
       "done": false
+    },
+    "priceRequestImport": {
+      "requirement": "REQ-PUR-PRICE-001",
+      "sourceCommit": "cb8baa0742c7e64e9dc3b3603eb54c1082413111",
+      "candidateVersion": "0.53.2",
+      "candidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+      "candidateBranch": "release/0.53.2",
+      "evidence": "evidence/manual-price-request-import-20261021.json",
+      "status": "implemented-isolated-candidate-validated-production-pending",
+      "relatedNodeTests": 138,
+      "newUiTests": 2,
+      "candidateBrowserTests": 37,
+      "newBrowserTests": 1,
+      "originalScopes": 1,
+      "ownScopes": 1,
+      "deploymentPending": true,
+      "installedIntoOperatingRuntime": false,
+      "done": false
     }
   },
   "preparedCandidate": {
     "version": "0.53.2",
-    "commit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
-    "manifest": ".artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json",
-    "bundleSha256": "5adc25a19255930821e14011ee917bc877818f48b6590f4c14775dfd37cd28bd",
+    "commit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+    "manifest": ".artifacts/manual-price-request-20261021/candidate-manifest.json",
+    "bundleSha256": "0755582c565d6bc2a3f6246cc127e5de0ff0a217ebfa57c96bdd17c5b53680f7",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
-      "inspection-rack-preservation"
+      "inspection-rack-preservation",
+      "price-request-order-plan-copy-shortcuts",
+      "price-request-mobile-auxiliary-preservation"
     ],
-    "supersedesCandidateCommit": "a71301a7f936f9785c25af1fc079991ca5d9f14f",
+    "supersedesCandidateCommit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
     "installedIntoOperatingRuntime": false,
     "authenticatedAcceptancePending": true
   }

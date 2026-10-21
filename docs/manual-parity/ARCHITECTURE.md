@@ -249,3 +249,12 @@ linkedWarehouseMatches는 purchaseorder→purchase 한 edge에서만 별도 입�
 validateReceiptWarehouseChange는 저장 직전에 이전/새 창고를 비교한다. 기존 purchase/exchangereceipt에 같은 documentId의 inspections/racks가 있으면 변경을 거절한다. 재고만 옮겨 기존 실물 기록과 분리되는 오류를 방지하며 백업 전체 검사에 새 제약을 추가하지 않는다. 기존 불일치 자료의 읽기·동일창고 저장과 검수 지문에 따른 재검수 동작은 유지한다. 원본 제품의 검수 제한을 확인했다는 주장은 아니며 자체 기존 실물 기록을 보존하는 가드다.
 
 분리후보0.53.2 9e4efd1는100선택 제한과 이번 변경을 포함한다. 이전 a71301a는 과거 후보이며 최신 번들/검사는 .artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json에 고정한다. main 미완료 VAT와 운영0.53.1을 분리하며 evidence/manual-purchase-receiving-warehouse-20261021.json를 따른다. 최종 매뉴얼 합격은 인증 후 절차·권한·결과·보존·운영 검증 후에만 판정한다.
+
+
+### 단가요청 불러오기와 향후 공급사 회신 저장의 분리 · cb8baa0
+
+이번 변경은 pricerequest 전용 주 도구줄에서 주문/계획의 기존 EntryUI.openDocuments 복사 모드를 호출한다. sourceId/수량 할당 연결을 새로 만들지 않으며 importedFrom은 기존 복사 출처를 보존한다. sourceType=plan은 바로가기 필터이고 apply는 편집 초안, 명시 저장만 document 명령을 실행한다. 웹자료올리기는 보조 details에 남기고 전용 entry-price-request-secondary 표시 규칙으로 모바일에서 숨지 않게 한다. 다른 구매 화면 CSS는 바꾸지 않는다.
+
+현재 pricerequest의 단일 partner와 db.prices 특별단가 레지스트리는 그대로다. 후속 복수 공급사 회신은 별도 계약으로 설계한다. 원본 품목행의 안정된 lineId, 요청가/수취가/확정가 구분, 1~5거래처, 유효기간·입력마감, 명시 확정 선택과 발주서 출처/감사기록, 기존 백업 호환과 권한을 검증해야 한다. db.prices를 회신 저장소로 쓰거나 pricerequest를 구매유형 배열에 일괄 추가해 세액·상태·이력 계약을 넓히지 않는다. 영상에 없는 외부 회신 인증·만료·재발급을 추정하지 않는다.
+
+0.53.2 최신 후보72b523d의 검증/번들은 .artifacts/manual-price-request-20261021/candidate-manifest.json, 운영은0.53.1이다. 전체 단가요청 비교/메일/인증 저장 결과 동등성은 미완료다. evidence/manual-price-request-import-20261021.json.

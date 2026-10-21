@@ -1,10 +1,10 @@
 # 개발과 검증 배포
 
-## 준비된 다음 후보 · 0.53.2 9e4efd1 입고창고 선택·100선택 제한
+## 준비된 다음 후보 · 0.53.2 72b523d 단가요청 불러오기·입고창고·100선택 제한
 
-release/0.53.2 9e4efd1는 운영90958ac 기반에 발주계획 생성100선택 제한과 구매 입고창고 선택·검수/RACK 기록 보호를 포함한다. 최종 npm run verify:local 종료0: 환경/도구7/전체단위/릴리스4/빌드/합성브라우저36 통과. 기존 a71301a 후보와 그때의 검사 기록은 .artifacts/plan-generation-limit-20261021에 보존한다. 미완료 VAT는 제외했다.
+release/0.53.2 72b523d는 운영90958ac 기반의100선택 제한·구매 입고창고/검수보호에 단가요청 주문/계획 주 도구줄과 모바일 보조기능 보존을 추가했다. 최종 npm run verify:local 종료0: 환경/도구7/전체단위/릴리스4/빌드/합성브라우저37 통과. 미완료 VAT는 제외한다. 이전9e4efd1/a71301a와 각 검사 기록은 보존한다.
 
-최신 번들/검사 해시는 .artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json, 상세 근거는 evidence/manual-purchase-receiving-warehouse-20261021.json다. 후보 번들 SHA 5adc25a19255930821e14011ee917bc877818f48b6590f4c14775dfd37cd28bd, 설치false이며 운영은 아래0.53.1이다. 기존 인증UI/브라우저JSON 대조와 새 비공개 사전백업 확인 후 정확한 후보를 설치하고 사후 보존·인증UI를 검증한다. main에 미완료VAT가 있으므로 main 빌드로 운영을 재시작하지 않는다.
+최신 .artifacts/manual-price-request-20261021/candidate-manifest.json / 번들 SHA 0755582c565d6bc2a3f6246cc127e5de0ff0a217ebfa57c96bdd17c5b53680f7 / 설치false. 상세 evidence/manual-price-request-import-20261021.json. 운영0.53.1의 설치번들 f5234fb7…는 그대로다. 기존 인증UI/브라우저JSON 대조와 새 비공개 사전백업 후 정확한 후보 설치·사후 보존/인증UI 검증을 진행한다. main 빌드로 운영을 재시작하지 않는다.
 
 ## 현재 운영 · 0.53.1 구매 연결 보호 (인증 후 검증 대기)
 

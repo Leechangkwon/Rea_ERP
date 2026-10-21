@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-21",
+  "recordedAt": "2026-10-21T08:12:22.076229+00:00",
+  "feature": "price-request-order-plan-import-entry",
+  "requirement": "REQ-PUR-PRICE-001",
+  "status": "implemented-isolated-candidate-validated-production-pending",
+  "sourceCommit": "cb8baa0742c7e64e9dc3b3603eb54c1082413111",
+  "featureCommit": "ad92552099dce3b79d9edbde3e40932ef950b8cf",
+  "sourcePushed": true,
+  "candidateVersion": "0.53.2",
+  "candidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+  "candidatePushed": true,
+  "reference": {
+    "loginHelpId": "EC-HELP-REQUEST-036",
+    "loginHelpArtifact": ".artifacts/manual-parity-20261021/manual-purchase-overview.txt",
+    "loginHelpSha256": "2cfee5d178a088001ea331684c9044fecf21f6f6ff6795f8d90f810724af36e9",
+    "contract": "Price request supports order and purchase-plan loading; up to five vendors and received-price comparison/selection are broader remaining work.",
+    "officialVideo": {
+      "observedAt": "2026-10-21T08:09:07.872122+00:00",
+      "sourceId": "EC-VID-13917",
+      "sourceUrl": "https://www.ecount.com/kr/popup/edu_movie/edu_video.aspx?page=3&v=FjIB7_f4lCE&id=13917",
+      "videoId": "FjIB7_f4lCE",
+      "title": "단가요청입력",
+      "status": "keyframes-reviewed-not-full-procedure",
+      "fullContinuousViewing": false,
+      "authenticatedOriginalObservation": false,
+      "originalBusinessWrites": false,
+      "videoActionsOnly": true,
+      "transcriptTool": "Unexpected response type; not used as evidence",
+      "keyframes": [
+        {
+          "time": "01m45s",
+          "observation": "Primary toolbar shows order and plan imports; price can remain optional.",
+          "file": ".artifacts/manual-price-request-20261021/video-01m45s.png",
+          "sha256": "398a3daed6c374c2071b298afe39cef90c461d7c9f7802aa5c5f0b6cab0565ba"
+        },
+        {
+          "time": "03m15s",
+          "observation": "Comparison separates requested and received supplier prices; direct input, close input and choose confirmed price controls.",
+          "file": ".artifacts/manual-price-request-20261021/video-03m15s.png",
+          "sha256": "510fe3e0dab4a39bd093a4d0316826d08d73f9094b390eb2529e1c5b48b42cac"
+        },
+        {
+          "time": "03m25s",
+          "observation": "Two supplier received prices are shown separately.",
+          "file": ".artifacts/manual-price-request-20261021/video-03m25s.png",
+          "sha256": "22e437966b15b15838101d44e9411cfd84287bbdf175afac6a1d3b5f53a321b3"
+        },
+        {
+          "time": "03m35s",
+          "observation": "Confirmed-price selection uses row-level radio choices and explicit confirm/save.",
+          "file": ".artifacts/manual-price-request-20261021/video-03m35s.png",
+          "sha256": "4a664c3461c42b221dc7d9d38696fe7a3e9cd98120d506851ff5761c1725d515"
+        },
+        {
+          "time": "03m45s",
+          "observation": "Comparison shows the selected confirmed supplier price.",
+          "file": ".artifacts/manual-price-request-20261021/video-03m45s.png",
+          "sha256": "02c40de430ef351b15cd2f6c5d2e635ef20a5d679c61157d25c15115883cd829"
+        },
+        {
+          "time": "03m55s",
+          "observation": "Report distinguishes requested, received and confirmed prices.",
+          "file": ".artifacts/manual-price-request-20261021/video-03m55s.png",
+          "sha256": "af1c09218ecbb21a811d8d9263e221bba26cf5ac9c3a2b8a6c3a40980363d22a"
+        },
+        {
+          "time": "04m05s",
+          "observation": "Purchase order example loads the confirmed price.",
+          "file": ".artifacts/manual-price-request-20261021/video-04m05s.png",
+          "sha256": "7424aefd355c6a046d77b40485eb330ac13276983a0138a485e07f7bc72f26cb"
+        }
+      ],
+      "limitations": [
+        "Recorded demonstration, not current authenticated ERP behavior.",
+        "Permission, save server effects, expiry/reissue and external reply authentication remain unverified.",
+        "Public demo data only; no user business records captured."
+      ],
+      "implementationScope": "Expose existing order and plan copy imports in price request primary toolbar; preserve auxiliary tools and mobile access.",
+      "remainingScope": [
+        "1-5 vendor quote request state",
+        "Reply and confirmed-price storage separate from db.prices",
+        "Explicit reply/close/confirm controls and vendor access rules",
+        "Confirmed quote price propagation into purchase order with audit/preservation"
+      ]
+    },
+    "authenticatedOriginalRecheck": false
+  },
+  "existingGap": {
+    "orderCopy": "already available inside the generic auxiliary menu",
+    "planCopy": "already supported through the generic document picker, no direct primary shortcut",
+    "quoteState": "single partner generic voucher; no vendor reply or confirmed-price state",
+    "dbPrices": "special pricing registry; must not be reused as supplier reply storage"
+  },
+  "implemented": [
+    "Primary order/plan buttons use existing copy import without source quantity allocation.",
+    "Existing primary helpers are reordered from the observed recording; plan sourceType is explicit.",
+    "Auxiliary web upload is retained and native details summary remains reachable at 390px.",
+    "Read-only buttons stay disabled; application stages a draft until explicit save."
+  ],
+  "tests": {
+    "mainRelatedNode": 138,
+    "newUi": 2,
+    "newBrowser": 1,
+    "candidateFullVerifyExit": 0,
+    "candidateBrowser": 37,
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "syntheticProcedure": "Copy order 2 of 4 and plan 3 of 5; explicit save/reload/reopen; original documents/settings exact, source remaining 4/5, stock and payable 0; valid backup.",
+    "failuresBeforeFinal": [
+      "Pre-change new UI tests failed because primary toolbar was absent.",
+      "Review reproduced missing web upload; focused preservation assertion failed before fix.",
+      "First candidate browser run failed on synthetic fixture M002 absent from seed, changed to existing S001."
+    ],
+    "review": {
+      "initialDefects": 2,
+      "fixed": [
+        "Web upload button dropped on toolbar replacement",
+        "Mobile auxiliary section hidden without the removed toggle"
+      ],
+      "finalActionableDefects": 0,
+      "independentTargetedTests": 2
+    }
+  },
+  "staticAnalysis": {
+    "version": "6.4.0",
+    "originalScopes": 1,
+    "ownScopes": 1,
+    "originalExecuted": false,
+    "newOriginalDownloaded": false,
+    "semanticCoverage": "unknown",
+    "truncated": false,
+    "runtimeEquivalence": false,
+    "purpose": "Original _convertUrl maps E040322 to legacy ESG023M_01; own toolbar scope parsed. This is not quote storage or server behavior proof.",
+    "mainCandidateToolbarEqual": true,
+    "toolbarSha256": "e504f8dd529da20ba9e4e4c0de2f3a6e544b81399380c7fc4bc9d531f3fb026b",
+    "results": [
+      {
+        "name": "_convertUrl",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 704352,
+        "end": 705685,
+        "lineStart": 14389,
+        "lineEnd": 14424,
+        "fragmentSha256": "40655d3fff0218135de55ce97b880d2c59fdfd06a2c163c66f2d2da2a78752fb",
+        "resultSha256": "f5d7b99e60ccc735a7f00425460352040ec1844af4ce34cdaefa6c5becd91613",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1391,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 62,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      },
+      {
+        "name": "priceRequestToolbar",
+        "category": "own",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b970417129ee6cc5823dabd4308d2fa737eadae6b72810851a8e6211deb0a30",
+        "start": 69049,
+        "end": 69951,
+        "lineStart": 256,
+        "lineEnd": 260,
+        "fragmentSha256": "9cf89db8825a077c071831ea9e6e8f796802b0e561750b83c038e3faa0aebd00",
+        "resultSha256": "eb605fe6fe53af8b5937fa2e0699b4f15699d13af2317c8a60b8f3577d924b82",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1125,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 178,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "runtimeEquivalence": false
+      }
+    ]
+  },
+  "candidate": {
+    "version": "0.53.2",
+    "candidateCommit": "72b523dfa75ef5ffec21c2a0525c24a37c91207f",
+    "mainSourceCommit": "cb8baa0742c7e64e9dc3b3603eb54c1082413111",
+    "mainFeatureCommit": "ad92552099dce3b79d9edbde3e40932ef950b8cf",
+    "candidateBranch": "release/0.53.2",
+    "candidateWorktree": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.53.2",
+    "candidateBundle": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-request-20261021/candidate-72b523d-worker.js",
+    "candidateBundleSha256": "0755582c565d6bc2a3f6246cc127e5de0ff0a217ebfa57c96bdd17c5b53680f7",
+    "bundleBytes": 1957301,
+    "installedIntoOperatingRuntime": false,
+    "includes": [
+      "100 selected plan rows before order generation",
+      "purchase receipt receiving warehouse selection",
+      "inspection and rack warehouse preservation",
+      "price request primary order and plan copy imports",
+      "price request auxiliary upload and mobile preservation"
+    ],
+    "priorCandidateCommit": "9e4efd181b7d13d0fd219cc87c9ff727d8b04b00",
+    "priorCandidateManifest": ".artifacts/purchase-receiving-warehouse-20261021/candidate-manifest.json",
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "operatingBundleSha256": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingManifest": ".artifacts/isolated-link-release-20261021/candidate-manifest.json",
+    "priorRollback0530Sha256": "3bc454e7f671bc01a2dcb924a945dbc2a61fc0123636d78f138402b874f5e1fc",
+    "embeddedAssets": 57,
+    "changedEmbeddedAssetsSincePriorCandidate": [
+      "/inventory-ui.js",
+      "/inventory.css"
+    ],
+    "changedTrackedAssetsSincePriorCandidate": [
+      "dist/inventory-ui.js",
+      "dist/inventory.css"
+    ],
+    "workerEntryAndAuthMailStorageModulesUnchanged": true,
+    "backendInventoryModuleIntentionallyChanged": false,
+    "vatWorkExcluded": true,
+    "verification": {
+      "fullCommand": "npm run verify:local",
+      "fullCommandExit": 0,
+      "environment": "passed",
+      "tools": 7,
+      "npmTest": "passed",
+      "releaseChecks": 4,
+      "build": "passed",
+      "syntheticBrowser": 37,
+      "newImportUiTests": 2,
+      "newBrowserTests": 1,
+      "mainRelatedNodeTests": 138,
+      "independentFinalActionableDefects": 0
+    },
+    "deploymentGate": "Existing authenticated UI/browser backup acceptance and fresh private pre/post preservation before restart."
+  },
+  "preservation": {
+    "operatingVersion": "0.53.1",
+    "operatingCommit": "90958ac553377f9f18d12652004dc877663b9f6e",
+    "installedBundleSha256Before": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "installedBundleSha256After": "f5234fb7d2b9485db435ef8ae62319bec5f7a68433c9d1d76c301be1fbfb4120",
+    "operatingBundleUnchanged": true,
+    "serverRestarted": false,
+    "productionDatabaseWrites": false,
+    "businessVouchersSaved": false,
+    "mailSent": false,
+    "configurationChanged": false,
+    "freshRemoteDataComparisonPerformed": false,
+    "priorProductionPreservationEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
+    "authenticatedAcceptancePending": true
+  },
+  "proofs": {
+    ".artifacts/manual-price-request-20261021/before-ui.log": {
+      "sha256": "bb5e07beacf12e8dd8ddc676b696904cfc7ecda2fe3b837fda280ed2bc264967"
+    },
+    ".artifacts/manual-price-request-20261021/upload-regression.log": {
+      "sha256": "919b2669c562a210a33b02d448b1f8054c04b634e364aad109cef5540ecc7964"
+    },
+    ".artifacts/manual-price-request-20261021/focused-upload-fix.log": {
+      "sha256": "f6f799202ab289f90fcf8e99716a761550a40e6de8b8ec7b4f166dad1cc53b47"
+    },
+    ".artifacts/manual-price-request-20261021/candidate-verify.log": {
+      "sha256": "297f45c34ff6d5fc4f1a5f660d63b4f7f46a5a5ac4e31349ca6c9e027a481e49"
+    },
+    ".artifacts/manual-price-request-20261021/candidate-final-verify.log": {
+      "sha256": "58fdeb8e693dc55235edc59b9fd7f1e8807478a195a3f19dcf82b35c1836502f"
+    },
+    ".artifacts/manual-price-request-20261021/candidate-manifest.json": {
+      "sha256": "55e8210f6d72fb02414e680fe61d5e2d9e4199c02bb22f9d22760e6bc8624fab"
+    },
+    ".artifacts/manual-price-request-20261021/video-observations.json": {
+      "sha256": "a810c3f169c6b0d8289895c178880f284792ca3a8722bcfaae129f724df2ad0a"
+    },
+    ".artifacts/manual-price-request-20261021/synthetic-price-request-import.png": {
+      "sha256": "a4067c86203f1034f80c1d019fbba2a1f86039094da318909e0b3adb278081ae"
+    },
+    ".artifacts/manual-price-request-20261021/synthetic-price-request-mobile-paste.png": {
+      "sha256": "9a2be7010cff59e69aa9f2e39f6cbd6baa58a1f99058426c1240ad41c5b0c18a"
+    },
+    ".artifacts/manual-price-request-20261021/rea-final/rea-summary.json": {
+      "sha256": "d087908b1c52fdf34d3409a15a38060925c42076ad57e37642c1a095b210d017"
+    },
+    ".artifacts/manual-price-request-20261021/rea-final/analyze.mjs": {
+      "sha256": "82785f5b005ec9ebbc306d1c151ccaf41f04a9fe4e151ca3f13db24beb0665b7"
+    }
+  },
+  "remaining": [
+    "Supplier request recipients 1-5, validity and quote reply state",
+    "Direct received-price input and input-close/reopen conditions",
+    "Line-level confirmed-price choice and purchase-order propagation",
+    "External reply authorization, expiry/reissue and email workflow evidence",
+    "Authenticated original and operating procedure/roles/results/backup preservation checks",
+    "Moa existing-body append and saved-body readback after login"
+  ],
+  "manualParity": {
+    "officialRequirements": 13,
+    "loginBodiesReviewed": 4,
+    "done": 0,
+    "fullOriginalEquivalence": false
+  },
+  "community": {
+    "parentDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "login-required-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false
+  }
+}
