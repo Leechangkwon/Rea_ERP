@@ -1,5 +1,6 @@
 (function(root){
  'use strict';
+ const P=typeof module==='object'&&module.exports?require('./request-upload-policy-core.js'):root.RequestUploadPolicyCore;
  const maxRows=1000,maxBytes=1048576;
  function parseTsv(text){
   if(typeof text!=='string'||!text.length)throw Error('엑셀에서 복사한 자료를 붙여넣으세요.');
@@ -18,13 +19,21 @@
   if(quoted)throw Error('닫히지 않은 따옴표가 있습니다. 복사 범위를 확인하세요.');
   if(!ended)record();return rows;
  }
- function snapshot(db){
+ function snapshot(db,settings){
   if(!db?.masters||!['items','partners','currencies'].every(k=>Array.isArray(db.masters[k])))throw Error('등록 기초자료를 다시 조회하세요.');
   const masters={};for(const key of ['items','partners','currencies'])masters[key]=db.masters[key].map(entry=>{
    if(!entry||typeof entry.code!=='string'||!entry.code||typeof entry.name!=='string'||entry.disabled!==undefined&&typeof entry.disabled!=='boolean')throw Error('등록 기초자료의 코드·명칭·사용중단 여부를 확인하세요.');
    const copy={code:entry.code,name:entry.name,disabled:entry.disabled===true};if(key==='items'){if(entry.barcode!==undefined&&typeof entry.barcode!=='string')throw Error('품목 바코드를 확인하세요.');if(entry.barcode!==undefined)copy.barcode=entry.barcode;}if(key==='currencies')copy.fractionDigits=null;return copy;
   });
-  return {maxRows,masters,requiredFieldIds:null,quantity:null,amounts:null};
+  const out={maxRows,masters,requiredFieldIds:null,quantity:null,amounts:null};
+  if(settings!==undefined){
+   if(!settings||typeof settings!=='object'||Array.isArray(settings))throw Error('회사 설정을 다시 조회하세요.');
+   const purchase=settings.purchasePrecision??{version:1,quantityUse:null,baseDigits:null,additionalDigits:null,priceDigits:null};
+   if(!purchase||purchase.version!==1||Object.keys(purchase).length!==5||!['version','quantityUse','baseDigits','additionalDigits','priceDigits'].every(k=>Object.hasOwn(purchase,k)))throw Error('구매 설정 구조를 확인하세요.');
+   const input={version:1,quantityUse:purchase.quantityUse,common:{amountDigits:settings.commonDefaults?.amountDigits??null,baseDigits:null,additionalDigits:null,priceDigits:null},purchase:{baseDigits:purchase.baseDigits,additionalDigits:purchase.additionalDigits,priceDigits:purchase.priceDigits},form:{baseDigits:{mode:'unknown'},additionalDigits:{mode:'unknown'},priceDigits:{mode:'unknown'}}};
+   const resolved=P.resolve(input);out.quantity=resolved.quantity;out.amounts=resolved.amounts;out.policySnapshot=JSON.parse(JSON.stringify(input));out.policyResolution=resolved;
+  }
+  return out;
  }
  const api=Object.freeze({maxRows,maxBytes,parseTsv,snapshot});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadInputCore=api;
 })(typeof globalThis==='object'?globalThis:this);

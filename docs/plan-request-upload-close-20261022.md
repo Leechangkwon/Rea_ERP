@@ -160,3 +160,17 @@ RequestUploadPolicyCore.resolve의 독립 metadata 해석기를 만든다. 명�
 sourcea668b4c, 신규Node12/관련74·도구7·구문/diff 통과. 양식0우선·구매0기본/공통6분리·unknown상속차단·금액/수량사용 분리·정확 수량/수동금액 helper 호환·불변/JSON·잘못된 metadata를 확인했다. REA6.4 자체4/새원본3범위 parse0·coverage unknown/truncated false. 회사/양식 adapter·앱/DB/저장 미연결로 운영0.74.0 유지·전체98브라우저/배포/서버메일 백업 반복없음. 본문21/목록51/요구사항26/전체합격0·모아60로컬대기. 근거 evidence/manual-request-upload-policy-20261022.json.
 
 다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.
+
+## 2026-10-22 구매 설정 저장과 인증 snapshot 연결 계획
+
+원본 기능설정→재고→기본수량/추가수량(구매관리)→추가수량관리여부는 수량단위(구매) 팝업의 사용/사용안함이다. 현재 회사값은 사용이지만 REA에 자동 복사하지 않는다. 공개 ESC001P_307 mode521은 inventory.IN_UQTY_FLAG를 읽고 영업/기타와 구분한다. 선택/저장 없이 닫았다. 구매 기본 자릿수0~6은 앞선 mode522 관찰을 사용한다.
+
+새 config.purchasePrecision={version:1,quantityUse:null,baseDigits:null,additionalDigits:null,priceDigits:null}를 추가한다. null은 미설정이며0과false는 명시값이다. 서버에서 엄격한 구조/타입/범위를 검증하고 기존 config.write와 revision CAS, 회사별 저장 경계를 사용한다. legacy load는 읽기시에만 미설정 구조를 제공하고 저장본문/수정번호를 바꾸지 않는다. 기존 일반입력/재고/표시 설정/금액설정/양식은 변환하지 않는다.
+
+기본값설정→구매관리 소수점과 기능설정→재고→추가수량관리여부(구매관리)에 설정 UI를 연결한다. 기존 editSection의 초안/권한/경합/실패 처리를 재사용하며 저장 범위는 purchasePrecision 단일 항목이다. 화면에 웹자료올리기 검토 참조 범위와 양식 자릿수 미확인 한계를 표시한다.
+
+Auth publicContext/SelfUI.refresh에 추가하고 기존 업로드 current guard로 snapshot을 고정한다. RequestUploadInputCore는 명시된 실제 회사 설정만 해석기로 전달한다. common.amountDigits만 기존 금액설정에서 받고 common수량/단가·form metadata는 null/unknown이다. 양식 default를 임의 지정하거나 구매값을 즉시 유효자릿수로 사용하지 않는다. 설정 출처/미설정·양식 미확인을 검토창에 표시한다. 양식 schema/UI는 실제 필드 설정 확인 전까지 추가하지 않는다. 이는 확인된 회사 설정 경로의 완성 단위이며 전표 저장 기능 완료가 아니다.
+
+검사는 strict값/legacy 읽기 무변경·서버 저장/재조회·CAS/권한/회사분리·UI초안/실패/수명·인증 snapshot·미확인양식 상속차단·기존자료/양식불변을 포함한다. 운영0.74기반 격리후보에서 전체회귀와 실제셸 모바일 검사를 통과한 뒤 커밋/push·기존운영에 반영한다. root VAT5는 포함하지 않는다.
+
+설정창은 body에 붙지만 .self-app 내부 버튼 규칙만 있었고 head/body/footer 클래스도 CSS와 불일치했다. 기존 클래스는 보존하며 실제 스타일 클래스와 연결하고 dialog범위 버튼/선택창36px·1100px이하44px을 명시했다.390/1280px 합성 실제셸 화면을 시각검토했다. 초기 jsdom 통합검사 TextEncoder 누락은 fixture에 플랫폼 TextEncoder를 주입해 보완했으며 실제 제품 fallback으로 숨기지 않았다.
