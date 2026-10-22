@@ -1,5 +1,15 @@
 # 매뉴얼 기반 재현 진행 순서
 
+## 현재 구현 후보 · 매핑센터 항목 연결 저장 기반 (운영0.82.0 유지)
+
+소스 `2d5ed1a`에서 SelfCore.menuMappings 규칙에 optional `fieldLinks(version1, entries)` 저장 검증을 연결했다. 기존 규칙에는 속성을 주입하지 않고 명시 빈목록/미존재를 구분한다. 같은 input/lines 문맥, 자체ID/100개 한도·목표중복/위험경로 차단은 자체 안전 subset이며 원본 한도가 아니다. 기존 config.save 권한·CSRF·revision CAS와 실제 state/publicContext/backup 재조회 경로에서 동작한다. 미상형식은 해당 메뉴설정 저장을 차단하고 읽기/다른설정 저장/백업에서 원문을 보존한다.
+
+운영0.82 기준 격리검증에 변경 helper/분기를 동일하게 적용해 신규7·관련74 검사 통과. 권한/CSRF/회사격리·CAS/일부실패 무변경·저장재조회/활성토글·구형/미상metadata·기존설정/전표·백업 보존을 합성 확인했다. 첫 관련 인증검사는 격리서버 번들이 없어 실패했고 격리 build-worker 후 전체74가 통과했다. root VAT5 전체빌드/설치는 하지 않았다. REA6.4 자체3/원본4 새범위 parse0·coverage unknown/truncated false, 원본 실행/전체동등성은 미확인이다.
+
+원본 generic model copier·legacy mapping-center 메뉴제한·modern derive3방식은 서로 연결이 입증되지 않은 별도 경로로 기록했다. 메뉴 pair만으로 모든 항목/메뉴 지원을 가정하지 않는다. 필드편집UI/EntryCore 적용 소비자는 아직 미연결이라 운영에 배포하지 않았다. 운영0.82/PID2454806·설치SHA `d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7` 유지, 운영자료/설정/메일 쓰기와 새 보존대조는 없다. 실제 코드/검증 근거 `evidence/manual-mapping-field-storage-20261023.json`, 격리소스 `.artifacts/validation/mapping-field-storage-20261023`.
+
+다음은 주문→발주요청의 실제 데이터/양식 schema에서 허용 source/target catalog와 읽기 전용 제안 계약을 좁혀 기존 lineage/초안/계산·공란/다중원본을 보존할 소비자를 연결한다. 저장된 ID만으로 필드 실재/타입/보호항목 적격성을 인정하지 않는다. 원본 미관찰 필드편집 UI는 켜지 않는다. 모아 마지막실제저장/재조회0.51.0·72갱신 로컬대기, 동일도구누락 재시도/게시완료 주장은 없다. 목록54/본문24/요구사항27/전체합격0, BODY/업로드 저장의 재개조건과 main VAT5 설치금지를 유지한다.
+
 ## 현재 조사 · 업로드 검증 분기 정정 / 다음 매핑센터 차이표 (운영0.82.0 유지)
 
 공개 GetAttributeSettingProgram의 서버반환 설정창 변환과 실제 upload 검증 진입을 대조했다. 이전 `_checkValidRow`/`_checkInputLineWithKeyProps`의 valid_key_list 설명은 **일반 입력 분기**였다. upload는 이 분기에 앞서 별도로 행 상태·빈 행, input_required_value와 내부 import-target metadata를 처리한다. 설정창의 attr_data_types 우선순위/기본값도 업로드 필수·숫자정밀도 계약으로 대체할 수 없다. 기존 증거에 정정 근거를 연결했으며 앱의 업로드 저장은 계속 비활성이다.

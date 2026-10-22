@@ -1,0 +1,148 @@
+{
+  "productionVersion": "0.82.0",
+  "repositoryBaselineCommit": "2144c7ff9357a836f0d8139e01f306dff7b09d3f",
+  "status": "mapping-field-storage-source-candidate-implemented-tested-not-deployed",
+  "requirements": [
+    "REQ-COM-MAPPING-001"
+  ],
+  "plan": "docs/plan-purchase-manual.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 24,
+  "newManualBodies": 0,
+  "officialRequirements": 27,
+  "wholeManualDone": false,
+  "allDone": false,
+  "originalObservation": {
+    "newBrowserObservation": false,
+    "originalLoginRequiredFromPriorTurn": true,
+    "saveOrMainRowInteractions": false,
+    "originalExecuted": false,
+    "originalServerRequestsInvoked": false,
+    "sourceManual": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+    "sourceManualSha256": "c26fc1e907834b49cf1b09c82183b951e628f52ebed6a30f5e8d169ca7c8192f"
+  },
+  "staticFindings": {
+    "genericModelCopier": "ManageMappingDataModel creates destination model arrays using declared start/end model+prop IDs and source row key. Not proven to be the current mapping-center application consumer; do not copy its overwrite/alias semantics as business contract.",
+    "mappingCenterMenuRestrictions": "RefineLoadMenuByMappingCenterProgram filters legacy PRG_IDs by source/destination and context; not all menus are automatically eligible. Source legacy IDs are not own route IDs.",
+    "mappingMenuSave": "CreateMenuMappingProgram delegates DTO to server; actual field/save contract remains outside scope.",
+    "deriveMappingIsSeparate": "Modern derive body exposes same_item_meaning/non_mapping/item_mapping, item-set/source/target model metadata. No proof it is the legacy mapping-center field editor for current request workflow.",
+    "newDownloads": 0,
+    "manifest": ".artifacts/manual-mapping-field-storage-20261023/source-manifest.json"
+  },
+  "implementation": {
+    "schema": "mapping-field-storage-candidate-v1",
+    "requirement": "REQ-COM-MAPPING-001",
+    "shape": {
+      "fieldLinks": {
+        "version": 1,
+        "entries": [
+          {
+            "source": {
+              "context": "input|lines",
+              "id": "own field ID"
+            },
+            "target": {
+              "context": "same as source",
+              "id": "own field ID"
+            }
+          }
+        ]
+      }
+    },
+    "ownSubset": [
+      "Optional metadata absent remains absent; no legacy migration/default injection",
+      "Explicit entries[] retained separately from absent metadata",
+      "Only own input/lines contexts and same-context links accepted",
+      "ASCII field IDs1..80, dangerous/dotted/path-like names rejected, maximum100 entries per rule",
+      "Duplicate targets rejected; one source may be stored for multiple distinct targets",
+      "Unknown versions/null/extra keys reject a section save; reads/unrelated section saves retain stored metadata",
+      "Existing config.write, CSRF and revision CAS govern persistence; no new permission bypass or data mutation"
+    ],
+    "originalParityLimit": "These limits and canonical format are own fail-closed storage subset, not original schema or verified menu/field/type eligibility. Original generic model copier, legacy mapping-center menu filtering and modern derive mapping three modes are separate static paths; connection between them and actual current request menu is unproved.",
+    "connectedNow": [
+      "SelfCore.validateConfig(menuMappings)",
+      "existing authenticated /api/self/action config.save",
+      "/api/self/state",
+      "/api/auth/status settings.menuMappings",
+      "/api/self/backup config"
+    ],
+    "notConnected": [
+      "Field settings editor remains disabled",
+      "Actual source/target field catalog and compatibility checks",
+      "Menu-mapping-aware EntryCore import consumer/target toolbar",
+      "Source defaults/blank/multi-source/merge precedence and original saved runtime acceptance"
+    ],
+    "productionDeployed": false,
+    "wholeRequirementDone": false
+  },
+  "checks": {
+    "newNodeTests": 7,
+    "relatedNodeTests": 74,
+    "relatedPass": 74,
+    "relatedFail": 0,
+    "isolatedEnvironment": ".artifacts/validation/mapping-field-storage-20261023",
+    "isolatedBaseCommit": "138ad506761bc0b732f4475ccc8b7594a6779270",
+    "isolatedSqliteOnly": true,
+    "relatedRunner": {
+      "args": [
+        "node",
+        "--test",
+        "tests/mapping-field-storage.cjs",
+        "tests/self-settings.cjs",
+        "tests/self-auth.cjs",
+        "tests/self-policy.cjs",
+        "tests/self-settings-ui.cjs"
+      ],
+      "exitCode": 0,
+      "isolatedSqliteOnly": true,
+      "productionTouched": false,
+      "priorRun": "Missing isolated built server bundle; isolated build-worker completed before retry."
+    },
+    "firstRunIssue": "Related self-auth tests require dist/server/index.js; initial isolated worktree lacked build output. Built isolated worker and reran all74 successfully. New7 had already passed on first run.",
+    "isolatedWorkerBuild": true,
+    "isolatedWorkerBytes": 2281267,
+    "isolatedWorkerSha256": "e6e62737827732734a20d88a3d646f91b804361991740011049dc63250c5bd2c",
+    "applicationSourceChanges": [
+      "dist/self-core.js"
+    ],
+    "uiChanged": false,
+    "fieldEditorEnabled": false,
+    "fullVerifyLocalRerun": false,
+    "browserSyntheticRerun": false,
+    "newOwnReaScopes": 3,
+    "newOriginalReaScopes": 4,
+    "reaVersion": "6.4.0",
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "reaSummary": ".artifacts/manual-mapping-field-storage-20261023/rea/rea-summary.json",
+    "testedHelperSameAsRoot": true,
+    "testedRuleBranchSameAsRoot": true,
+    "testedHelperSha256": "b1ec86340ecaa56956e03104d5f9a15f1b31206330cf3db36535bc1542574925"
+  },
+  "deployment": {
+    "performed": false,
+    "productionVersionRetained": "0.82.0",
+    "installedBundleSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "runtimeSession": 57336,
+    "runtimePid": 2454806,
+    "processExists": true,
+    "restartPerformed": false,
+    "productionDatabaseBrowserSettingsMailMutations": false,
+    "freshProductionPreservationComparisonPerformed": false,
+    "gate": "Field UI/source-target eligibility/import consumer and necessary regression/browser/preservation checks must be completed before production release; root VAT5 full build remains forbidden."
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "actualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 72,
+    "published": false,
+    "requiredWorkDocumentToolsAvailable": false,
+    "unchangedBlockNotRetried": true,
+    "localDraft": ".artifacts/manual-mapping-field-storage-20261023/moa-pending-mapping-field-storage.html"
+  },
+  "nextWork": "Continue eligible source/target field catalog and read-only import proposal contract against actual order-to-request data/form schemas; preserve lineage, current draft, source raw values and existing calculations. Current storage is structural only; do not enable unseen original UI or apply arbitrary field links before catalog/type/protected-field/multi-source/blank rules and actual-shell tests.",
+  "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
+}

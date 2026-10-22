@@ -1799,7 +1799,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "purchase-first-compatibility-review-next-field-settings-and-import-consumer-missing",
+      "status": "field-link-storage-candidate-tested-ui-and-import-consumer-pending-not-deployed",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1808,14 +1808,29 @@
       "role": "Manual does not specify role exceptions; existing authorization must be preserved",
       "implementationEvidence": [
         "dist/self-settings-ui.js",
-        "dist/entry-core.js"
+        "dist/entry-core.js",
+        "dist/self-core.js",
+        "evidence/manual-mapping-field-storage-20261023.json"
       ],
-      "automatedEvidence": [],
+      "automatedEvidence": [
+        "tests/mapping-field-storage.cjs"
+      ],
       "hostedAcceptance": false,
       "done": false,
       "researchEvidence": [
         "evidence/manual-upload-policy-supplier-20261023.json"
-      ]
+      ],
+      "storageCandidate": {
+        "optionalVersionedFieldLinks": true,
+        "newNode": 7,
+        "relatedNode": 74,
+        "structuralStorageOnly": true,
+        "catalogAndRuntimeConsumerConnected": false,
+        "fieldEditorEnabled": false,
+        "productionDeployed": false,
+        "done": false,
+        "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
+      }
     },
     {
       "id": "REQ-ACC-PRINT-001",

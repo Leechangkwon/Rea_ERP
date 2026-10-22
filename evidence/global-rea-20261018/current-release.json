@@ -505,12 +505,12 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
-      "status": "purchase-first-mapping-compatibility-review-next",
+      "status": "mapping-storage-candidate-tested-field-catalog-and-import-consumer-next",
       "plan": "docs/plan-purchase-manual.md",
-      "evidence": "evidence/manual-upload-policy-supplier-20261023.json",
+      "evidence": "evidence/manual-mapping-field-storage-20261023.json",
       "productionVersion": "0.82.0",
       "done": false,
-      "scope": "Existing menuMappings config/CAS, field mapping and order-to-request import consumer; PRD/architecture before implementation, no guessed original UI."
+      "scope": "Continue eligible source/target field catalog and read-only import proposal contract against actual order-to-request data/form schemas; preserve lineage, current draft, source raw values and existing calculations. Current storage is structural only; do not enable unseen original UI or apply arbitrary field links before catalog/type/protected-field/multi-source/blank rules and actual-shell tests."
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1295,6 +1295,20 @@
       "applicationChanged": false,
       "communityPendingLocalUpdates": 71,
       "done": false
+    },
+    "mappingFieldStorageCandidate": {
+      "evidence": "evidence/manual-mapping-field-storage-20261023.json",
+      "status": "implemented-tested-not-deployed",
+      "newNode": 7,
+      "relatedNode": 74,
+      "baseVersion": "0.82.0",
+      "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+      "productionDeployed": false,
+      "fieldEditorEnabled": false,
+      "importConsumerConnected": false,
+      "communityPendingLocalUpdates": 72,
+      "done": false,
+      "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
     }
   },
   "preparedCandidate": {
@@ -1603,6 +1617,17 @@
         ".artifacts/manual-upload-policy-supplier-20261023/rea/rea-summary.json",
         ".artifacts/manual-upload-policy-supplier-20261023/rea-branches/rea-summary.json"
       ]
+    },
+    "mappingFieldStorage": {
+      "version": "6.4.0",
+      "ownNewScopes": 3,
+      "originalNewScopes": 4,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-mapping-field-storage-20261023/rea/rea-summary.json"
     }
   }
 }
