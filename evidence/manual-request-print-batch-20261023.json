@@ -3,8 +3,8 @@
   "date": "2026-10-23",
   "requirement": "REQ-PUR-REQ-007",
   "parentRequirement": "REQ-PUR-OUTPUT-001",
-  "status": "isolated-candidate-verified-ready-for-release",
-  "productionVersion": "0.85.0",
+  "status": "batch-subset-deployed-preservation-verified-hosted-single-preview-passed-hosted-batch-pending",
+  "productionVersion": "0.86.0",
   "candidateVersion": "0.86.0",
   "sourceManifest": ".artifacts/manual-request-print-batch-20261023/source-manifest.json",
   "confirmed": [
@@ -38,7 +38,7 @@
           "0 0 594.95996 841.91998",
           "0 0 594.95996 420"
         ],
-        "sha256": "ed70761ef4b33d92ded36b9468638730762b95b7593ff460db3cba71215e6e04"
+        "sha256": "77641fb197db8476b9dc38aae7de49e5255a165539982156f27a3cbb31acb4fa"
       },
       {
         "width": 1280,
@@ -47,7 +47,7 @@
           "0 0 594.95996 841.91998",
           "0 0 594.95996 420"
         ],
-        "sha256": "ed70761ef4b33d92ded36b9468638730762b95b7593ff460db3cba71215e6e04"
+        "sha256": "78d42368f6cce14d802885580cc8773c2ec75772b8842da6597acfc105179ebd"
       }
     ],
     "visual390And1280Reviewed": true,
@@ -325,12 +325,50 @@
       }
     ]
   },
-  "deployment": null,
+  "deployment": {
+    "version": "0.86.0",
+    "sourceAndReleasePushedBeforeInstall": true,
+    "sourceCommit": "16299efe0392893390e36023a9c4915246df502d",
+    "releaseCommit": "3d768fd320f19a06da86838c1855f2402989b249",
+    "branch": "release/0.86.0-request-print-batch",
+    "immutableDirectory": ".artifacts/releases/0.86.0-request-print-batch-validated",
+    "bundleSha256": "1fd5b21602ce212cf6e5c90137e1014cbd2bc5dd82ce024240c760bf756e6f24",
+    "runtimeSession": 29585,
+    "linuxPid": 2502481,
+    "publicVersionAndAssetsVerified": true,
+    "existingLoginRetained": true,
+    "hostedSingleRequestPreviewWithoutPrintOrSave": true,
+    "hostedRequestCount": 1,
+    "hostedBatchAcceptance": false,
+    "rootFullBuild": false,
+    "unshippedVatAndMappingIncluded": false,
+    "releaseManifest": ".artifacts/manual-request-print-batch-20261023/release-manifest.json",
+    "publicEvidence": ".artifacts/manual-request-print-batch-20261023/public-deploy.json",
+    "runtimeEvidence": ".artifacts/manual-request-print-batch-20261023/runtime-after.json",
+    "hostedEvidence": ".artifacts/manual-request-print-batch-20261023/hosted-preview.json",
+    "preValidationReleaseCommitPreserved": "6201c18a71d67b5a029bb563822cf853cc5bbd9c"
+  },
   "preservation": {
     "predeployBackup": ".artifacts/manual-request-print-batch-20261023/predeploy-backup.json",
-    "postdeployVerified": false,
+    "postdeployVerified": true,
     "productionBusinessWrites": false,
-    "restored": false
+    "restored": false,
+    "browser": ".artifacts/manual-request-print-batch-20261023/browser-preservation.json",
+    "serverConfigAndMail": ".artifacts/manual-request-print-batch-20261023/postdeploy-preservation.json",
+    "browserDocuments": 8,
+    "browserRequests": 1,
+    "browserPlans": 0,
+    "allBrowserJsonExact": true,
+    "formsExact": true,
+    "serverAppRevision": 30,
+    "serverGatewayRevision": 0,
+    "serverBodyAndRevisionExact": true,
+    "runtimeConfigExact": true,
+    "mailBoxes": 3,
+    "mailMessages": 8,
+    "mailFiles": 1,
+    "mailExact": true,
+    "restorePreviewConflicts": 0
   },
   "community": {
     "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
@@ -361,5 +399,7 @@
     "preserveExistingForms": true
   },
   "done": false,
-  "hostedBusinessAcceptance": false
+  "hostedBusinessAcceptance": false,
+  "sourceCommit": "16299efe0392893390e36023a9c4915246df502d",
+  "releaseCommit": "3d768fd320f19a06da86838c1855f2402989b249"
 }

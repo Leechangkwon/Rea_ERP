@@ -1,5 +1,19 @@
 # REA 전역 매뉴얼 재현 진행 기록
 
+## 현재 운영 · 0.86.0 발주요청 선택 전표 여러 건 인쇄
+
+원본 EC-VID-13914 3:27의 요청서 인쇄창과 공개 purchase_request_print_user_action_list → common$ISlipLinkUserAction을 대조했다. 하단버튼은 선택행 전체, 행 링크는 해당1건을 전달하고 삭제(D)/전자결재(Z) 필터와 제외 확인 뒤 slips/data_sids/slip_keys를 별도창에 넘긴다. PrintV3InventorySlipUserAction은 다른 경로로 분리했다. 원본 입력/저장/실제 인쇄·PDF/메일은 실행하지 않았다. 새본문/다운로드0이며 부분영상 관찰을 전체완독으로 세지 않는다.
+
+REA의 하단 인쇄가1건만 허용하던 차이를 발주요청에 한정해 수정했다. 2건 이상은 현재 조회에서 선택한 요청서만 전표별로 미리보기한다. 기존 조건부 인쇄 양식의 제목·추가항목/계산식/소수점·표시/열너비·용지/방향/여백·꼬리말·합계를 각각 유지하며 배치창에 양식설정 쓰기를 추가하지 않았다. 단건/구매/발주서/반품 경로는 유지한다. 인쇄 직전 계정/회사/조회권한/설정·저장raw/전체DB·조회/선택·route/DOM을 재검사한다. 닫기/이동 뒤 callback은 인쇄할 수 없다.
+
+브라우저 PDF 검사가 모달 안의 named page 설정이 무시돼 Letter 두 장이 되는 문제를 잡았다. 명시인쇄 동안만 숨긴 별도 body 출력본문을 만들고 finally에서 본문/공유 style을 복원해 해결했다. 최종390/1280px 모두 실제 PDF2쪽의 MediaBox가 A4세로(594.96×841.92pt)/A5가로(594.96×420pt)로 확인됐다. 모바일 미리보기의 세로로 찌그러진 열은 표 안의 가로스크롤로 보완했고 버튼44px·모달 가로넘침0을 확인했다. 실제 Android/프린터 검사는 아니다.
+
+source `16299ef`·release `3d768fd` push 후0.85 기반 분리0.86을 기존 WSL·Supabase·Cloudflare에 반영했다. 신규Node6(root/분리)·관련 초기43·신규브라우저2·최종verify:local exit0(전체npm test/브라우저123·도구7/릴리스4/환경/분리빌드) 통과다. 새 원본4/자체5범위 REA6.4 파싱실패0·coverage unknown/truncatedfalse이며 전체모듈/서버 동등성은 미확인이다. 초기 fixture의 없는 거래처/계산식 참조/끝0 가정을 바로잡았고 분리 browser-libs 링크를 연결했다. 모바일 시각 보완을 위해 초기 전체검사는 중단 후 최종본으로 재시작했다. release 검사 생성근거의 미커밋 상태를 설치 전 guard가 잡아 해당 근거를 추가 commit/push하고 깨끗한 최종릴리스를 사용했다. 독립 에이전트 검토 없이 자체 점검을 수행했다.
+
+운영 로그인 유지·기존 요청서1건의 단건 미리보기를 실제 인쇄/저장 없이 열고 닫았다. 운영 자료가1건이므로 호스팅된 여러 요청서 인쇄 합격은 미확인이고 합성 결과와 구분한다. 새 브라우저백업10/23 (8)→(9)은8전표/요청1/계획0·전체JSON/양식 byte동일이다. fresh 서버app30/gateway0 본문/수정번호·runtime.env·메일3함8통1첨부 exact동일, 복원미리보기0충돌/appliedfalse다. bundleSHA `1fd5b21602ce212cf6e5c90137e1014cbd2bc5dd82ce024240c760bf756e6f24`·runtime29585/PID2502481다. root 전체빌드와 미배포VAT5/mapping 포함은0이다. 근거 `evidence/manual-request-print-batch-20261023.json`.
+
+이 절차를 REQ-PUR-REQ-007로 분해해 목록54/본문24/요구사항30/전체최종합격0이다. 모아 필수 업무문서 read/update 도구가 없어 마지막실제저장/재조회0.51.0·80갱신이 로컬대기이며 게시완료가 아니다. 다음은 영상 인쇄창의 상단 정보와 행 거래처 표시를 현재 공통 인쇄와 대조한다. 원본 전자결재 제외·PDF/메일·전체양식/운영 다건 합격은 남아 있다. currency/BODY/업로드/TC101P_01의 기존 근거 gate는 유지하고 mapping 후보 재통합 기준은0.86이다. 변화 없는 같은 helper/회귀 재반복은 하지 않는다. 전체매뉴얼완료false.
+
 ## 통화 소비자 조사 결과 · 운영0.85.0 유지
 
 기존 원본 inventory/common 한 쌍·shared descriptor의 해시와 출처를 검증하고 새10범위를 REA6.4로 분석했다(파싱실패0·coverage unknown/truncatedfalse). 통화 subscriber는 외화공급가액의 조건부 표시·입력/표시 소수점·detail/summary 갱신을 처리하지만, 이 파일의 환율/$exchange 동기화 함수는 주석이다. 다른 경로의 환율 쓰기까지 없다는 뜻은 아니다. 소수점은 subscriber와 공통 helper/AST resolver마다 우선순위가 달라 하나의 규칙으로 합치지 않는다. 코드0인 외화도 별도로 구분한다.

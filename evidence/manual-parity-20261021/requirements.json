@@ -1785,7 +1785,8 @@
         "hostedOpenCloseVerified": true,
         "hostedSavePerformed": false,
         "done": false
-      }
+      },
+      "requestPrintChildRequirement": "REQ-PUR-REQ-007"
     },
     {
       "id": "REQ-COM-MAPPING-001",
@@ -2254,7 +2255,7 @@
         "기존 조건부 인쇄 양식·각 전표 값과 용지/방향/여백을 보존",
         "인쇄에 따른 전표 저장·상태변경·업무발송 없음"
       ],
-      "status": "isolated-candidate-full-regression-passed-ready-for-release",
+      "status": "batch-subset-deployed-preservation-verified-hosted-single-preview-passed-hosted-batch-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=200s",
@@ -2282,7 +2283,13 @@
         "PDF/email button workflow and complete original form parity"
       ],
       "done": false,
-      "hostedAcceptance": false
+      "hostedAcceptance": false,
+      "sourceCommit": "16299efe0392893390e36023a9c4915246df502d",
+      "releaseCommit": "3d768fd320f19a06da86838c1855f2402989b249",
+      "productionVersion": "0.86.0",
+      "hostedSinglePreviewPassed": true,
+      "hostedMultiRequestAcceptance": false,
+      "preservationPassed": true
     }
   ]
 }

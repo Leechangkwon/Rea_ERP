@@ -1,6 +1,6 @@
 {
-  "version": "0.85.0",
-  "status": "partial-manual-parity-request-inline-currency-add-deployed",
+  "version": "0.86.0",
+  "status": "partial-manual-parity-request-print-batch-subset-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -89,7 +89,8 @@
     "Request input/header text5 long1 and BODY remarks3 amount2 selectable stable slots; preserve legacy free fields/counts/values and projected list/print forms; extensions/shared/reorder unresolved",
     "Request header focusOrder v1 independent of display order, explicit renumber on save, native DOM/CSS grid focus, unknown legacy order edits blocked while metadata/values preserved; BODY/bundles/sharing unresolved",
     "Request plain reference memo: editable request-only default field; existing save/search; exact custom form/old value/cancel preservation. Evidence evidence/manual-request-reference-20261023.json",
-    "Request-only currency inline registration restores old selection on cancel, selects successful new master, guards parent lifecycle and bounded own CAS advancement; separate parent save, existing KRW totals unchanged"
+    "Request-only currency inline registration restores old selection on cancel, selects successful new master, guards parent lifecycle and bounded own CAS advancement; separate parent save, existing KRW totals unchanged",
+    "Request bottom print accepts2+ selected current-query requests with saved per-document conditional forms, named paper/orientation/margins and explicit guarded native printing; single print paths retained, hosted multi-request and original approval exclusions incomplete"
   ],
   "checks": {
     "total": 998,
@@ -124,7 +125,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 121,
+    "currentReleaseBrowserSynthetic": 123,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -152,7 +153,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.85.0",
+    "currentReleaseFullRegressionVersion": "0.86.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -334,16 +335,33 @@
       "applicationChanged": false,
       "regressionRepeated": false,
       "deploymentRepeated": false
+    },
+    "requestPrintBatch": {
+      "reference": "evidence/manual-request-print-batch-20261023.json",
+      "newNode": 6,
+      "newBrowser": 2,
+      "fullBrowser": 123,
+      "relatedInitialNode": 43,
+      "verifyLocalPassed": true,
+      "verifyLocalCommandExit": 0,
+      "tools": 7,
+      "release": 4,
+      "environment": true,
+      "build": true,
+      "selfReview": true,
+      "independentAgentReview": false,
+      "pdfPagesPerWidth": 2,
+      "mobileDesktopVisualReviewed": true
     }
   },
   "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-currency-add-20261023.json",
+    "reference": "evidence/manual-request-print-batch-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
-    "publicVersionVerified": "0.85.0",
+    "deployedSourceCommit": "3d768fd320f19a06da86838c1855f2402989b249",
+    "publicVersionVerified": "0.86.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -402,20 +420,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.85.0",
+    "existingSessionRetainedVersion": "0.86.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.85.0",
+    "lastExactBrowserBackupComparisonVersion": "0.86.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.85.0",
+    "currentServerStateAndMailPreservedVersion": "0.86.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.85.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.86.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -568,11 +586,22 @@
       "preservationPassed": true,
       "runtimeSession": 28632,
       "linuxPid": 2492631
+    },
+    "requestPrintBatch": {
+      "version": "0.86.0",
+      "reference": "evidence/manual-request-print-batch-20261023.json",
+      "deployed": true,
+      "existingSessionRetained": true,
+      "hostedSinglePreviewWithoutPrintOrSave": true,
+      "hostedMultiRequestAcceptance": false,
+      "preservationPassed": true,
+      "runtimeSession": 29585,
+      "linuxPid": 2502481
     }
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 29,
+    "officialRequirements": 30,
     "sourceBodiesReviewed": 24,
     "done": 0,
     "nextWork": {
@@ -580,12 +609,12 @@
       "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.85.0",
+      "productionVersion": "0.86.0",
       "done": false,
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "EC-VID-13914 request-list print scope"
+      "nextIndependentManual": "EC-VID-13914 request print header and line fields"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1393,7 +1422,7 @@
       "done": false,
       "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb",
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.85.0"
+      "releaseRequiresRebaseOn": "0.86.0"
     },
     "mappingImportCoreCandidate": {
       "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
@@ -1411,7 +1440,7 @@
       "communityPendingLocalUpdates": 73,
       "done": false,
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.85.0"
+      "releaseRequiresRebaseOn": "0.86.0"
     },
     "mappingAuthenticatedUiCandidate": {
       "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
@@ -1432,7 +1461,7 @@
       "authenticatedUiConsumerConnected": true,
       "communityPendingLocalUpdates": 74,
       "done": false,
-      "releaseRequiresRebaseOn": "0.85.0"
+      "releaseRequiresRebaseOn": "0.86.0"
     },
     "mappingEditorResearch": {
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
@@ -1466,13 +1495,13 @@
     },
     "nextExecutableWork": {
       "sourceId": "EC-VID-13914",
-      "requirement": "REQ-PUR-OUTPUT-001",
-      "title": "발주요청조회 인쇄의 선택·출력 범위 대조",
-      "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
-      "context": "Compare request-list print controls, selected/document range and request-specific print payload/template with current own list/single-document output. Reuse prior3:20 caption observation only as a locator; obtain actual read-only/source contract before changes. Do not repeat generic currency helper/regression while its request metadata gate is unchanged.",
-      "operatingVersion": "0.85.0",
-      "currencyResumeEvidence": "evidence/manual-request-currency-consumers-20261023.json",
-      "legacyMappingEditor": "TC101P_01 remains gated; unshipped mapping requires rebase on0.85.0."
+      "requirement": "REQ-PUR-REQ-007",
+      "title": "발주요청 인쇄 상단 정보·행 거래처 표시 대조",
+      "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=207s",
+      "context": "Compare the focused original request-slip preview header and line supplier fields with current generic print representation. Confirm labels, own field mapping, blank/legacy values and stored custom-form behavior before changes. Keep current batch selection/page layout and existing data/forms. No repeated completed currency helper or batch regression without a change.",
+      "operatingVersion": "0.86.0",
+      "currencyGateEvidence": "evidence/manual-request-currency-consumers-20261023.json",
+      "legacyMappingEditor": "TC101P_01 remains gated; unshipped mapping requires rebase on0.86.0."
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1517,13 +1546,32 @@
       "deploymentRepeated": false,
       "communityPendingLocalUpdates": 79,
       "done": false
+    },
+    "requestPrintBatch": {
+      "requirement": "REQ-PUR-REQ-007",
+      "evidence": "evidence/manual-request-print-batch-20261023.json",
+      "sourceCommit": "16299efe0392893390e36023a9c4915246df502d",
+      "releaseCommit": "3d768fd320f19a06da86838c1855f2402989b249",
+      "status": "batch-subset-deployed-preservation-verified-hosted-single-preview-passed-hosted-batch-pending",
+      "productionVersion": "0.86.0",
+      "productionDeployed": true,
+      "newNode": 6,
+      "newBrowser": 2,
+      "fullBrowser": 123,
+      "verifyLocalPassed": true,
+      "hostedSinglePreviewVerified": true,
+      "hostedMultiRequestAcceptance": false,
+      "physicalPrinterOrAndroidVerified": false,
+      "preservationPassed": true,
+      "communityPendingLocalUpdates": 80,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.85.0",
-    "commit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
-    "manifest": ".artifacts/manual-request-currency-add-20261023/release-manifest.json",
-    "bundleSha256": "5865c76ff6c918534a7a0f02dfb0ee705dd0440c49aebf109cd27a15ec8cbb4a",
+    "version": "0.86.0",
+    "commit": "3d768fd320f19a06da86838c1855f2402989b249",
+    "manifest": ".artifacts/manual-request-print-batch-20261023/release-manifest.json",
+    "bundleSha256": "1fd5b21602ce212cf6e5c90137e1014cbd2bc5dd82ce024240c760bf756e6f24",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1566,14 +1614,16 @@
       "request-header-native-input-sequence-independent-display-and-preserved-unknown-order-metadata",
       "request-reference-plain-text-edit-preserve-search",
       "currency-registration-optional-rate-and-amount-precision",
-      "request-inline-currency-registration-independent-dialog-bounded-master-write-parent-draft-and-dirty-state-preservation"
+      "request-inline-currency-registration-independent-dialog-bounded-master-write-parent-draft-and-dirty-state-preservation",
+      "request-only-multiple-selected-print-preview-per-document-conditional-forms-named-pages-and-mobile-contained-tables"
     ],
-    "supersedesCandidateCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+    "supersedesCandidateCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.85.0-request-currency-add"
+    "branch": "release/0.86.0-request-print-batch",
+    "preValidationCommitPreserved": "6201c18a71d67b5a029bb563822cf853cc5bbd9c"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -1884,6 +1934,18 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-currency-consumers-20261023/rea/rea-summary.json"
+    },
+    "requestPrintBatch": {
+      "reference": "evidence/manual-request-print-batch-20261023.json",
+      "version": "6.4.0",
+      "newOriginalScopes": 4,
+      "newOwnScopes": 5,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-print-batch-20261023/rea/rea-summary.json"
     }
   }
 }
