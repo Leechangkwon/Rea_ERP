@@ -142,7 +142,7 @@
   function openRequestUpload(){
     try{assertReturnSession();assertStorageCurrent();if(storageError)throw Error(storageError);const ownerHost=host,ownerRoute=route.id,baseline=dbSourceRaw,settingsSnapshot=JSON.stringify(policy());
       const isCurrent=()=>{try{assertReturnSession();assertStorageCurrent();return host===ownerHost&&ownerHost.isConnected&&route.id===ownerRoute&&dbSourceRaw===baseline&&JSON.stringify(policy())===settingsSnapshot;}catch{return false;}};
-      requestUploadView?.destroy();requestUploadView=RequestUploadInputUI.open({isCurrent,getSnapshot:()=>{if(!isCurrent())throw Error('계정 또는 자료가 변경됐습니다.');return RequestUploadInputCore.snapshot(C.validateBackup(JSON.parse(baseline)));},onClose:()=>{requestUploadView=null;}});
+      requestUploadView?.destroy();requestUploadView=RequestUploadInputUI.open({isCurrent,getSnapshot:()=>{if(!isCurrent())throw Error('계정 또는 자료가 변경됐습니다.');return RequestUploadInputCore.snapshot(C.validateBackup(JSON.parse(baseline)),JSON.parse(settingsSnapshot));},onClose:()=>{requestUploadView=null;}});
     }catch(e){ctx.toast(e.message);}
   }
   function openPurchaseReturn(doc,refresh){
