@@ -1,6 +1,6 @@
 {
-  "version": "0.81.0",
-  "status": "partial-manual-parity-request-basic-field-catalog-deployed",
+  "version": "0.82.0",
+  "status": "partial-manual-parity-request-header-input-sequence-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -86,7 +86,8 @@
     "Read-only employee/warehouse/project snapshots and exact code-name proposals; raw/blanks unchanged, ambiguity/disabled/unknown require review; not save-time defaults or persistence",
     "Version1 nullable company upload save rules and explicit initializer/typed-none proposals in guarded read-only review; fresh server revision and Seoul-date guards; voucher upload saving incomplete",
     "Existing central BODY form validation retained; required column/aria metadata and populated-item ordinal/code errors exposed; actual commit failure retained in editor alert; no business schema/calculation change",
-    "Request input/header text5 long1 and BODY remarks3 amount2 selectable stable slots; preserve legacy free fields/counts/values and projected list/print forms; extensions/shared/reorder unresolved"
+    "Request input/header text5 long1 and BODY remarks3 amount2 selectable stable slots; preserve legacy free fields/counts/values and projected list/print forms; extensions/shared/reorder unresolved",
+    "Request header focusOrder v1 independent of display order, explicit renumber on save, native DOM/CSS grid focus, unknown legacy order edits blocked while metadata/values preserved; BODY/bundles/sharing unresolved"
   ],
   "checks": {
     "total": 998,
@@ -121,7 +122,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 113,
+    "currentReleaseBrowserSynthetic": 115,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -283,16 +284,18 @@
     "bodyRequiredGuidanceNewNode": 7,
     "bodyRequiredGuidanceNewBrowser": 2,
     "requestFieldCatalogNewNode": 6,
-    "requestFieldCatalogNewBrowser": 2
+    "requestFieldCatalogNewBrowser": 2,
+    "requestHeaderInputSequenceNewNode": 7,
+    "requestHeaderInputSequenceNewBrowser": 2
   },
-  "future_research": "REQ-COM-FORMS-002: 다음은 발주요청 입력순서재정렬과 필드 설정의 실제 포커스/Tab 순서 metadata를 원본 분리 위젯·공개 코드로 대조한다. 주입력행/행번호·설정저장 조작 없이 확인하고, 근거가 확보된 순서만 실제 입력에 연결한다. 업무설정 확장계열·회사전체 공유/다른메뉴·회계/근태 예외는 미확인이다. 기본11슬롯/통과검사를 변화 없이 반복하지 않는다. REQ-PUR-REQ-005의 묶음 equality/기본값 순서·조건부필수/저장·실패재시도는 미확인이라 업로드 저장을 켜지 않는다. 운영0.81.0/runtime69720/PID2439078 유지, mainVAT5 전체빌드·원본 입력행/행이동·설정/업무저장·발송 금지, 전체매뉴얼완료 false.",
+  "future_research": "REQ-COM-FORMS-002: 다음은 발주요청 하단 분리 위젯의 필드 입력순서와 bundle/복합항목 포커스 metadata를 읽기 전용 대조한다. ApplyWidgetUserAction의 bundle_prop_map/bundle_item_map과 실제 품목/거래처/관리항목 설정 공급원을 좁혀 확인하며, 상단의 평면 DOM/CSS 전략을 하단 표에 추정 적용하지 않는다. 원본 주입력행/행번호/설정저장 없이 확인하고 근거가 있는 흐름만 구현한다. 동일번호 tie·권한/조건별 포커스·회사공유/다른메뉴 예외와 실제 업무저장 합격은 미확인이다. 통과한 상단 helper/회귀를 변화 없이 반복하지 않는다. REQ-PUR-REQ-005 업로드 묶음 equality/조건부필수/저장·재시도 미확인으로 저장비활성 유지. 운영0.82.0/runtime57336/PID2454806 유지, mainVAT5 전체빌드·원본 업무/설정저장/주입력행·발송 금지, 전체매뉴얼완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-field-catalog-20261022.json",
+    "reference": "evidence/manual-request-input-order-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "c4dc7925a592aaf46c651dd6652efb2b0d97a2fe",
-    "publicVersionVerified": "0.81.0",
+    "deployedSourceCommit": "138ad506761bc0b732f4475ccc8b7594a6779270",
+    "publicVersionVerified": "0.82.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -485,6 +488,14 @@
       "hostedOpenCloseWithoutSave": true,
       "hostedDataBearingSaveVerified": false,
       "preservationPassed": true
+    },
+    "requestHeaderInputSequence": {
+      "version": "0.82.0",
+      "reference": "evidence/manual-request-input-order-20261022.json",
+      "deployed": true,
+      "hostedDefaultOrderReadOnlyVerified": true,
+      "hostedSettingsOrDataBearingSaveVerified": false,
+      "preservationPassed": true
     }
   },
   "manualParity": {
@@ -494,10 +505,10 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-FORMS-002",
-      "status": "request-input-sequence-and-focus-metadata-next",
+      "status": "request-body-focus-and-bundle-metadata-next",
       "plan": "docs/plan-request-upload-close-20261022.md",
-      "evidence": "evidence/manual-request-field-catalog-20261022.json",
-      "productionVersion": "0.81.0",
+      "evidence": "evidence/manual-request-input-order-20261022.json",
+      "productionVersion": "0.82.0",
       "done": false
     },
     "independentWork": {
@@ -1232,13 +1243,25 @@
       "legacyPreserved": true,
       "extensionsSharedReorderIncomplete": true,
       "done": false
+    },
+    "requestHeaderInputSequence": {
+      "version": "0.82.0",
+      "reference": "evidence/manual-request-input-order-20261022.json",
+      "requirement": "REQ-COM-FORMS-002",
+      "newNode": 7,
+      "newBrowser": 2,
+      "fullBrowser": 115,
+      "headerOnly": true,
+      "unknownLegacyPreserved": true,
+      "bodyBundlesCompanySharingIncomplete": true,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.81.0",
-    "commit": "c4dc7925a592aaf46c651dd6652efb2b0d97a2fe",
-    "manifest": ".artifacts/manual-request-field-catalog-20261022/candidate-manifest.json",
-    "bundleSha256": "0affc000e843e2448041136c770e5d2ce14a5d16a17d54455bf217ba26f2074a",
+    "version": "0.82.0",
+    "commit": "138ad506761bc0b732f4475ccc8b7594a6779270",
+    "manifest": ".artifacts/manual-request-input-order-20261022/candidate-manifest.json",
+    "bundleSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1277,7 +1300,8 @@
       "optional-numeric-field-display-preservation-and-connected-table-print-renderers-mobile-editor-controls",
       "company-upload-rule-settings-initializers-typed-none-proposals-and-fresh-server-stale-guard",
       "body-required-column-aria-and-populated-item-errors-with-actual-inline-failure",
-      "request-basic-field-catalog-stable-slots-longtext-legacy-and-projected-forms-preservation"
+      "request-basic-field-catalog-stable-slots-longtext-legacy-and-projected-forms-preservation",
+      "request-header-native-input-sequence-independent-display-and-preserved-unknown-order-metadata"
     ],
     "supersedesCandidateCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
     "supersededCandidatePreserved": true,
@@ -1342,6 +1366,13 @@
       "newPublicSources": 2,
       "bytes": 445687,
       "sourceManifest": ".artifacts/manual-request-field-catalog-20261022/source-manifest.json",
+      "originalExecuted": false,
+      "includedInHistoricalReaCorpusBaseline": false
+    },
+    "requestHeaderInputSequence": {
+      "reference": "evidence/manual-request-input-order-20261022.json",
+      "newPublicSources": 0,
+      "existingSourceManifest": ".artifacts/manual-request-input-order-20261022/source-manifest.json",
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
     }
@@ -1485,6 +1516,17 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-field-catalog-20261022/rea/rea-summary.json"
+    },
+    "requestHeaderInputSequence": {
+      "version": "6.4.0",
+      "ownNewScopes": 4,
+      "originalNewScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-input-order-20261022/rea/rea-summary.json"
     }
   }
 }

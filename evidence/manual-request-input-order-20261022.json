@@ -1,0 +1,186 @@
+{
+  "baselineVersion": "0.81.0",
+  "version": "0.82.0",
+  "sourceCommit": "d39981fb09dee15dd8e041a3968042b901395413",
+  "status": "deployed-request-header-input-sequence-body-bundles-and-whole-manual-incomplete",
+  "requirements": [
+    "REQ-COM-FORMS-002"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 24,
+  "newManualBodies": 0,
+  "officialRequirements": 27,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "path": "발주요청입력 > Option > 입력화면설정 > 기본 > 상단설정 > 일자-No. 우클릭 > 설정",
+    "fieldInputOrder": 1,
+    "footerLabel": "입력순서재정렬",
+    "footerInitiallyChecked": false,
+    "footerDomItemKey": "focus_order_footer_buttons",
+    "fieldDomItemKey": "focus_order_0_setting_panel",
+    "originalCheckboxToggled": false,
+    "originalFieldEdited": false,
+    "settingsAppliedOrSaved": false,
+    "mainRowsTouched": false,
+    "windowsClosedWithoutApply": true,
+    "runtimeTabParityVerified": false,
+    "ownSupportedSubset": "request header only, flat own field schema; duplicate numbers use visual-order tie policy; unknown legacy metadata preserved and order editing blocked; BODY bundles unresolved"
+  },
+  "staticFindings": {
+    "sourceManifest": ".artifacts/manual-request-input-order-20261022/source-manifest.json",
+    "newDownloadedPublicBodies": 0,
+    "originalExecution": false,
+    "supplier": "ApplyWidgetUserAction.executeAsync reads footer focus_order flag. Checked: iterates definitions, sortDisplayOrder merged props, handles bundle children separately, updates only existing focus_order attributes from1. Unchecked: does not renumber. getFooterButtonDefinition supplies input-only checkbox and apply action.",
+    "unverified": "Request BODY bundle metadata, original duplicate-order tie/validation and server settings sharing/persistence; no original configured runtime Tab test."
+  },
+  "implementation": {
+    "requestHeaderOnly": true,
+    "optionalMetadata": {
+      "focusOrder": {
+        "version": 1,
+        "order": "positive safe integer, own validation policy"
+      }
+    },
+    "legacyAbsentOrUnknownMetadataNotInjectedOnReadCancel": true,
+    "unknownMetadata": {
+      "preservedExactly": true,
+      "orderMoveReorderAndThatNumericEditorBlocked": true,
+      "ordinaryLabelEditAllowed": true,
+      "nullUnknownVersionAndPrimitiveCovered": true
+    },
+    "uncheckedDisplayMoveFreezesPriorOrderNumbers": true,
+    "checkedExplicitSaveRenumbersVisualOrder": true,
+    "duplicateTie": "visual order, own deterministic policy; original unresolved",
+    "newFieldAppendsAfterMaximum": true,
+    "newFieldOrderOverflowRefused": true,
+    "nativeDomForInputOrderCssGridForDisplayOrder": true,
+    "positiveTabIndexOrKeydownLoopAdded": false,
+    "compositeControlInternalNativeFocusPreserved": true,
+    "allOtherMenusAndBodyOrderKept": true,
+    "existingValuesDocumentsFormsNotMigrated": true,
+    "uploadSaveEnabled": false
+  },
+  "checks": {
+    "verifyLocalPassed": true,
+    "newNodeTests": 7,
+    "fullBrowserTests": 115,
+    "newBrowserTests": 2,
+    "extraFocusedBrowserAfterVisualBoundsAssertion": 2,
+    "viewportWidths": [
+      390,
+      1280
+    ],
+    "testedFlows": [
+      "unchecked visual move/order numbers/native Tab and ShiftTab",
+      "checked explicit save and reload/copy",
+      "actual visual bounding positions preserved",
+      "hidden and readonly controls use native behavior",
+      "legacy unknown order movement blocked and label save preserves exact metadata",
+      "positive integer invalid draft retained; existing documents preserved",
+      "multiline field appended after max and document save/backup retains values"
+    ],
+    "tools": 7,
+    "releaseChecks": 4,
+    "buildPassed": true,
+    "review": {
+      "initialP2": "Unknown legacy focusOrder was preserved but its display-index fallback could change when moved unchecked.",
+      "resolvedBy": "Block unknown-order movement/reorder and numeric editor, retain ordinary settings edits, reject held callbacks and add exact legacy UI/browser preservation tests.",
+      "independentRereviewCompleted": false,
+      "rereviewUnavailable": "Reviewer provider usage limit after reporting focused issue; no final review approval claim.",
+      "selfReviewAndRegressionCompleted": true
+    },
+    "rea": {
+      "version": "6.4.0",
+      "ownNewScopes": 4,
+      "originalNewScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-input-order-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "138ad506761bc0b732f4475ccc8b7594a6779270",
+    "branch": "release/0.82.0-request-input-order",
+    "bundleSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "inventoryCoreUnchangedFrom081": true,
+    "runtimeSession": 57336,
+    "linuxPid": 2454806,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedDefaultHeaderOrderInputsVerified": 8,
+    "hostedReorderInitiallyUnchecked": true,
+    "hostedBodyReorderHidden": true,
+    "hostedSettingsOpenedClosedWithoutEditsOrSave": true,
+    "hostedConfiguredOrderOrDataBearingSaveVerified": false,
+    "businessSaved": false,
+    "settingsSaved": false,
+    "publicAssetsMatched": true,
+    "localHealthStatus": 200,
+    "publicHealthStatus": 404,
+    "anonymousMailStatus": 401,
+    "browserPreservation": {
+      "version": "0.82.0",
+      "beforeDownload": "ecount-inventory-2026-10-23.json",
+      "afterDownload": "ecount-inventory-2026-10-23 (1).json",
+      "bytesExact": true,
+      "jsonExact": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "plans": 0,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formsExact": true,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.82.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "productionScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/request-input-order-0.82.0.png"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "actualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 69,
+    "published": false,
+    "currentRequiredWorkDocumentToolsAvailable": false,
+    "unchangedBlock": "Required work-document tools absent on current capability lookup; historical connector401, no new auth and no repeated auth request.",
+    "localDraft": ".artifacts/manual-request-input-order-20261022/moa-pending-request-input-order.html"
+  },
+  "nextWork": "REQ-COM-FORMS-002: 다음은 발주요청 하단 분리 위젯의 필드 입력순서와 bundle/복합항목 포커스 metadata를 읽기 전용 대조한다. ApplyWidgetUserAction의 bundle_prop_map/bundle_item_map과 실제 품목/거래처/관리항목 설정 공급원을 좁혀 확인하며, 상단의 평면 DOM/CSS 전략을 하단 표에 추정 적용하지 않는다. 원본 주입력행/행번호/설정저장 없이 확인하고 근거가 있는 흐름만 구현한다. 동일번호 tie·권한/조건별 포커스·회사공유/다른메뉴 예외와 실제 업무저장 합격은 미확인이다. 통과한 상단 helper/회귀를 변화 없이 반복하지 않는다. REQ-PUR-REQ-005 업로드 묶음 equality/조건부필수/저장·재시도 미확인으로 저장비활성 유지. 운영0.82.0/runtime57336/PID2454806 유지, mainVAT5 전체빌드·원본 업무/설정저장/주입력행·발송 금지, 전체매뉴얼완료 false.",
+  "allDone": false
+}
