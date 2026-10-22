@@ -1,0 +1,216 @@
+{
+  "baselineVersion": "0.77.0",
+  "version": "0.78.0",
+  "sourceCommit": "6f83c5fc62381ce5cba8631d86b33cf3ae3bcb19",
+  "status": "deployed-upload-header-code-name-proposals-whole-manual-incomplete",
+  "requirements": [
+    "REQ-PUR-REQ-005"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 51,
+  "manualBodiesReviewed": 21,
+  "newManualBodies": 0,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "path": "발주요청입력 > 웹자료올리기 > 담당자/창고/프로젝트 도움말",
+    "columns": [
+      {
+        "kind": "employee",
+        "fieldId": "inv_s$pic",
+        "domKey": "inv_s$pic_purchase_requestXupload_thead",
+        "label": "담당자",
+        "registeredCodeOrName": true,
+        "declaredCodeLength": 30,
+        "declaredNameLength": 50
+      },
+      {
+        "kind": "warehouse",
+        "fieldId": "inv_s$wh",
+        "domKey": "inv_s$wh_purchase_requestXupload_thead",
+        "label": "창고",
+        "registeredCodeOrName": true,
+        "declaredCodeLength": 5,
+        "declaredNameLength": 50
+      },
+      {
+        "kind": "project",
+        "fieldId": "inv_s$pjt",
+        "domKey": "inv_s$pjt_purchase_requestXupload_thead",
+        "label": "프로젝트",
+        "registeredCodeOrName": true,
+        "declaredCodeLength": 14,
+        "declaredNameLength": 50
+      }
+    ],
+    "originalMainOrUploadCellsEdited": false,
+    "originalSettingsAppliedOrSaved": false,
+    "separateWindowClosed": true,
+    "newPublicSources": 0,
+    "newManualBodies": 0,
+    "runtimeMatchingPriorityVerified": false,
+    "unicodeLengthSemanticsVerified": false,
+    "existingHelpCacheSourceSha256": "08f0c4172ceb825c127f7537757096f50c00e2cc73d0034382ab88d4e785c7ef",
+    "ownMasterFields": [
+      "code",
+      "name",
+      "disabled"
+    ],
+    "ownMasterCollections": [
+      "employees",
+      "warehouses",
+      "projects"
+    ]
+  },
+  "publicStaticFindings": [
+    "Existing public uploader setup supplier1scope reused after source/input/tool/config/result verification; no new original sources",
+    "Registered code-or-name input observed in original UI; matching priority, Unicode length semantics and server defaults remain unverified"
+  ],
+  "implementation": {
+    "masterCollections": [
+      "employees",
+      "warehouses",
+      "projects"
+    ],
+    "fields": [
+      "inv_s$pic",
+      "inv_s$wh",
+      "inv_s$pjt"
+    ],
+    "snapshotReadOnly": true,
+    "unknownDistinctFromKnownEmpty": true,
+    "raw22ColumnsPreserved": true,
+    "separateCodeProposals": true,
+    "blankDefaultsApplied": false,
+    "ambiguityOrDisabledAutoChosen": false,
+    "boundedCandidates": 20,
+    "safeTextRendering": true,
+    "visibleHeaderProposalSummary": true,
+    "legacyDataOrFormsConverted": false,
+    "originalMatchingPriorityOrLengthSemanticsProven": false,
+    "voucherSaving": false
+  },
+  "checks": {
+    "newNodeTests": 10,
+    "relatedNodeTests": 90,
+    "verifyLocalPassed": true,
+    "fullBrowserTests": 107,
+    "newBrowserTests": 3,
+    "focusedNewBrowserTests": 3,
+    "viewportWidths": [
+      390,
+      864,
+      1280
+    ],
+    "hostedScreenshotVisuallyReviewed": true,
+    "tools": 7,
+    "releaseChecks": 4,
+    "buildPassed": true,
+    "initialLocalSyntaxFailure": "Snapshot loop closing brace caught and corrected before candidate creation. Related90/focused3/final verify passed; no candidate full-regression failures.",
+    "rea": {
+      "version": "6.4.0",
+      "ownNewScopes": 4,
+      "originalCachedScopes": 1,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-upload-headers-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
+    "branch": "release/0.78.0-upload-header-references",
+    "bundleSha256": "0647bcc19d674135e6feae240c9fb8dc1c0351c6b9aad057286e62b61d7d0b03",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "unchangedCriticalRuntimeSourceHashes": {
+      "dist/inventory-core.js": "f62733e013084bd065988733add3ad59cf4328fbc972f17651aac018dbabcae9",
+      "dist/inventory-ui.js": "563134a602b83d0708b0974f93096edf611fb1c6b9641443328c86b883a65d46",
+      "dist/self-core.js": "ae4da541a9c01b134bd784e3cc58287a2abbf81a36115527edecf553f448dc61",
+      "worker/app-service.cjs": "490b5741d73bf92cf71da93019211097f957a77b8bf9d7383d06c75910d7f7f8"
+    },
+    "runtimeSession": 77210,
+    "linuxPid": 2412461,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedSyntheticReviewVerified": true,
+    "hostedBusinessSaved": false,
+    "settingsSaved": false,
+    "publicAssetsMatched": true,
+    "anonymousMailStatus": 401,
+    "publicHealthStatus": 404,
+    "localHealthStatus": 200,
+    "browserPreservation": {
+      "version": "0.78.0",
+      "beforeDownload": 41,
+      "afterDownload": 42,
+      "exactBytesAndJson": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formsExact": true,
+      "documents": 8,
+      "plans": 0,
+      "existingLoginRetained": true,
+      "hostedThreeHeaderNameToCodeProposalsVerified": true,
+      "hostedOriginal22ColumnDetailRetained": true,
+      "rawInputDiscarded": true,
+      "businessSaved": false,
+      "settingsSaved": false,
+      "sent": false,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.78.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "proofScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/UPLOAD-HEADERS-0.78.0.png",
+    "hostedThreeHeaderNameToCodeProposalsVerified": true,
+    "hostedOriginal22ColumnDetailRetained": true
+  },
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "localPendingUpdates": 64,
+    "auth401Unchanged": true,
+    "retriedWithoutNewAuthentication": false,
+    "published": false
+  },
+  "remaining": [
+    "Original matching priority and code/name Unicode length validation",
+    "Other header contracts, required/grouping equality/save-time defaults",
+    "Quantity/price/currency precision, two quantities, manual money persistence/consumers, retry/CAS",
+    "Actual business save and whole-manual acceptance"
+  ],
+  "nextWork": "다음은 REQ-PUR-REQ-005의 전표묶음기준·저장시값변경 온라인매뉴얼 전문을 찾아 실제 양식의 설정 공급원/공개 코드 전달경로와 대조한다. 이미 확인한 담당자·창고·프로젝트 helper나 같은 표시 팝업을 반복 검사하지 않는다. 비활성 링크는 새 상태/권한 변화 없이 재클릭하지 않는다. 확인된 묶음 equality·공란값 처리·필수/상하단 규칙만 versioned 저장 snapshot/미리보기에 연결하고, 메뉴별 수량/단가 Validator·통화정밀도·두수량 우선순위·수동금액 소비자·부분실패/재시도/CAS 계약 전에는 전표저장을 열지 않는다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.78.0·runtime77210/PID2412461 유지, 전체매뉴얼 완료 false.",
+  "done": false
+}

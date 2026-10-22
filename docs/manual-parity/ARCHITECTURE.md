@@ -499,3 +499,8 @@ RequestUploadInputCore.snapshot은 실제인증회사 구매설정과 기존공�
 ## 0.77.0 입력정밀도 snapshot 경계
 
 RequestUploadPolicyCore.resolve의 검토전용 version2는 {quantityUse,input:{baseDigits,additionalDigits,priceDigits,amountDigits}}를 받는다. 실제 adapter는 commonDefaults.amountDigits와 구매 quantityUse만 사용하며 수량/단가 자릿수는 nullable 미상이다. purchasePrecision의 자릿수와 FormCore.numericFormat은 공급원이 아니다. inspectAmounts는 필드별 null정밀도 사유와 알려진 수동금액을 독립 반환한다. inspectExchangeRate는 명시 십진문자열14/4한도·blank null을 반환하고 통화/부호/기본값 승인을 주장하지 않는다. ReviewUI까지 연결했지만 영속 schema/전표저장 API에는 미연결이다. 기존 자료/양식은 변환하지 않는다. 근거 evidence/manual-request-upload-numeric-input-20261022.json.
+
+
+## 0.78.0 등록자료 snapshot과 상단 제안
+
+Input.snapshot은 employees/warehouses/projects의 code/name/disabled만 복사한다. 누락은 null미상, 명시된 잘못된 배열/레코드는 거부한다. Preview의 inspectHeaderReferences는 inv_s$pic/wh/pjt를 exact 코드/명칭 Map으로 조회해 references와 별도 proposals/명명된 issues를 반환하며 원문을 수정하지 않는다. headerReferenceFields는 snapshotKnown을 명시하고 ReviewUI는 안전한 textContent로 결과 요약/22열 원문상세를 렌더한다. 회사/등록자료 변경 guard는 기존 전체 raw snapshot 경계를 유지한다. DB/서버 schema와 전표저장에는 미연결이다. 근거 evidence/manual-request-upload-header-references-20261022.json.

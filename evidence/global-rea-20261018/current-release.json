@@ -1,6 +1,6 @@
 {
-  "version": "0.77.0",
-  "status": "0.77.0 deployed: independent exact upload money and exchange-rate review; upload voucher saving and whole-manual acceptance incomplete; root VAT5 excluded",
+  "version": "0.78.0",
+  "status": "0.78.0 deployed: employee/warehouse/project upload code-name proposals; whole upload saving/manual acceptance incomplete; root VAT5 excluded",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -82,7 +82,8 @@
     "mail-routing/mail-contract.json",
     "Nullable version1 purchase precision config with authenticated review snapshot, no assumed form inheritance, and consistent settings-modal controls; voucher upload saving incomplete",
     "Optional numericFormat display-only metadata preserved in existing forms/backups; explicit0..6 only in connected InventoryUI table/aggregate/print renderers; raw business and CSV values unchanged; not an upload input precision policy",
-    "Version2 upload input-only snapshot excludes purchase/Renderer display inheritance; known domestic money checked independently, exchange rate14/4 declared limits checked, raw/blank preserved; saving remains unsupported"
+    "Version2 upload input-only snapshot excludes purchase/Renderer display inheritance; known domestic money checked independently, exchange rate14/4 declared limits checked, raw/blank preserved; saving remains unsupported",
+    "Read-only employee/warehouse/project snapshots and exact code-name proposals; raw/blanks unchanged, ambiguity/disabled/unknown require review; not save-time defaults or persistence"
   ],
   "checks": {
     "total": 998,
@@ -117,7 +118,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 104,
+    "currentReleaseBrowserSynthetic": 107,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -145,7 +146,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.77.0",
+    "currentReleaseFullRegressionVersion": "0.78.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -255,16 +256,26 @@
       "verifyLocalPassed": true,
       "tools": 7,
       "release": 4
+    },
+    "requestUploadHeaderReferences": {
+      "reference": "evidence/manual-request-upload-header-references-20261022.json",
+      "newNode": 10,
+      "relatedNode": 90,
+      "newBrowser": 3,
+      "fullBrowser": 107,
+      "verifyLocalPassed": true,
+      "tools": 7,
+      "release": 4
     }
   },
-  "future_research": "다음은 REQ-PUR-REQ-005 상단 참조 중 원본 서식 주석 C/D/J에서 확인한 담당자·창고·프로젝트의 등록코드/명칭 exact 검토를 실제 masters snapshot에 연결한다. 실제 구조·조회/도움말을 먼저 확인하고 선행0/원문·별도제안·동일명/사용중단/불일치 사유와 공란을 보존한다. 회사 기본값은 채우지 않는다. 단가 도움말6/일반 검증기 기본10 차이는 메뉴의 명시 Validator metadata 미확인으로 유지하고 같은 표시 팝업·해석기 검사를 반복하지 않는다. 거래유형 허용코드·필수/묶음 equality·저장시값변경·두수량 우선순위·외화자릿수·수동금액 영속소비자·부분실패/CAS는 별도 계약 후 저장 후보에서 검증한다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.77.0·runtime36221/PID2407897 유지, 전체매뉴얼 완료는 false다.",
+  "future_research": "다음은 REQ-PUR-REQ-005의 전표묶음기준·저장시값변경 온라인매뉴얼 전문을 찾아 실제 양식의 설정 공급원/공개 코드 전달경로와 대조한다. 이미 확인한 담당자·창고·프로젝트 helper나 같은 표시 팝업을 반복 검사하지 않는다. 비활성 링크는 새 상태/권한 변화 없이 재클릭하지 않는다. 확인된 묶음 equality·공란값 처리·필수/상하단 규칙만 versioned 저장 snapshot/미리보기에 연결하고, 메뉴별 수량/단가 Validator·통화정밀도·두수량 우선순위·수동금액 소비자·부분실패/재시도/CAS 계약 전에는 전표저장을 열지 않는다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.78.0·runtime77210/PID2412461 유지, 전체매뉴얼 완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
+    "reference": "evidence/manual-request-upload-header-references-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
-    "publicVersionVerified": "0.77.0",
+    "deployedSourceCommit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
+    "publicVersionVerified": "0.78.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -323,20 +334,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.77.0",
+    "existingSessionRetainedVersion": "0.78.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.77.0",
+    "lastExactBrowserBackupComparisonVersion": "0.78.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.77.0",
+    "currentServerStateAndMailPreservedVersion": "0.78.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.77.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.78.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -421,6 +432,15 @@
       "businessSaved": false,
       "runtimeSession": 36221,
       "linuxPid": 2407897
+    },
+    "uploadHeaderReferenceReview": {
+      "version": "0.78.0",
+      "reference": "evidence/manual-request-upload-header-references-20261022.json",
+      "existingSessionRetained": true,
+      "hostedThreeHeaderProposalsAndRawDetailVerified": true,
+      "businessSaved": false,
+      "runtimeSession": 77210,
+      "linuxPid": 2412461
     }
   },
   "manualParity": {
@@ -661,7 +681,7 @@
     "nextIndependentWork": {
       "requirement": "REQ-PUR-REQ-005",
       "plan": "docs/plan-request-upload-close-20261022.md",
-      "description": "다음은 REQ-PUR-REQ-005 상단 참조 중 원본 서식 주석 C/D/J에서 확인한 담당자·창고·프로젝트의 등록코드/명칭 exact 검토를 실제 masters snapshot에 연결한다. 실제 구조·조회/도움말을 먼저 확인하고 선행0/원문·별도제안·동일명/사용중단/불일치 사유와 공란을 보존한다. 회사 기본값은 채우지 않는다. 단가 도움말6/일반 검증기 기본10 차이는 메뉴의 명시 Validator metadata 미확인으로 유지하고 같은 표시 팝업·해석기 검사를 반복하지 않는다. 거래유형 허용코드·필수/묶음 equality·저장시값변경·두수량 우선순위·외화자릿수·수동금액 영속소비자·부분실패/CAS는 별도 계약 후 저장 후보에서 검증한다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.77.0·runtime36221/PID2407897 유지, 전체매뉴얼 완료는 false다."
+      "description": "다음은 REQ-PUR-REQ-005의 전표묶음기준·저장시값변경 온라인매뉴얼 전문을 찾아 실제 양식의 설정 공급원/공개 코드 전달경로와 대조한다. 이미 확인한 담당자·창고·프로젝트 helper나 같은 표시 팝업을 반복 검사하지 않는다. 비활성 링크는 새 상태/권한 변화 없이 재클릭하지 않는다. 확인된 묶음 equality·공란값 처리·필수/상하단 규칙만 versioned 저장 snapshot/미리보기에 연결하고, 메뉴별 수량/단가 Validator·통화정밀도·두수량 우선순위·수동금액 소비자·부분실패/재시도/CAS 계약 전에는 전표저장을 열지 않는다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.78.0·runtime77210/PID2412461 유지, 전체매뉴얼 완료 false."
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -1103,13 +1123,22 @@
       "productionDeployed": true,
       "saveImplemented": false,
       "done": false
+    },
+    "uploadHeaderReferences": {
+      "version": "0.78.0",
+      "evidence": "evidence/manual-request-upload-header-references-20261022.json",
+      "sourceCommit": "6f83c5fc62381ce5cba8631d86b33cf3ae3bcb19",
+      "releaseCommit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
+      "productionDeployed": true,
+      "saveImplemented": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.77.0",
-    "commit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
-    "manifest": ".artifacts/manual-upload-formatter-20261022/candidate-manifest.json",
-    "bundleSha256": "8fddf36bbe937e3651d0288b8ea19bca5d5c700342b5007a63018a5111a01cac",
+    "version": "0.78.0",
+    "commit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
+    "manifest": ".artifacts/manual-upload-headers-20261022/candidate-manifest.json",
+    "bundleSha256": "0647bcc19d674135e6feae240c9fb8dc1c0351c6b9aad057286e62b61d7d0b03",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1147,11 +1176,12 @@
       "nullable-purchase-precision-settings-authenticated-review-snapshot-and-scoped-modal-controls",
       "optional-numeric-field-display-preservation-and-connected-table-print-renderers-mobile-editor-controls"
     ],
-    "supersedesCandidateCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+    "supersedesCandidateCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
-    "hostedPurchasingWriteAcceptancePending": true
+    "hostedPurchasingWriteAcceptancePending": true,
+    "branch": "release/0.78.0-upload-header-references"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -1196,6 +1226,13 @@
       "bytes": 752683,
       "originalsExecuted": false,
       "globalCorpusCountsRecomputed": false
+    },
+    "uploadHeaderReferences": {
+      "reference": "evidence/manual-request-upload-header-references-20261022.json",
+      "newPublicSources": 0,
+      "existingSupplierScopeCacheReverified": true,
+      "newManualBodies": 0,
+      "originalsExecuted": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -1299,6 +1336,13 @@
       "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
       "ownScopes": 4,
       "originalScopes": 4,
+      "coverage": "unknown",
+      "runtimeEquivalence": false
+    },
+    "uploadHeaderReferences": {
+      "reference": "evidence/manual-request-upload-header-references-20261022.json",
+      "ownNewScopes": 4,
+      "originalCachedScopes": 1,
       "coverage": "unknown",
       "runtimeEquivalence": false
     }
