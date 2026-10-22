@@ -1,6 +1,13 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
-## 현재 업로드 계층 · 운영0.78.0 / 저장시규칙은 다음 통합 작업
+## 현재 업로드 계층 · 운영0.79.0 / 회사 저장규칙과 검토 snapshot 연결
+
+SelfCore.requestUploadRules(version1/null) → 기존 app config.write/수정번호 CAS → publicContext.settingsRevision/settings → RequestUploadInputCore.saveRulesSnapshot → RequestUploadSaveRules.inspect → Preview의 raw/proposed/typed-none/unknown → 실제 ReviewUI로 연결한다. 브라우저 표시설정/양식값과 업로드 숫자 input version2 정책은 계속 분리한다. legacy load는 null을 메모리에서만 보충하고 DB/수정번호를 쓰지 않는다. 서버·스키마·계정·자료 이관은 없다.
+
+서버 /api/auth/status를 검토 전·focus/storage에 읽어 identity/read permission/settingsRevision/settings를 비교한다. 중복 요청을 병합하고 확인 중 조작을 막으며 실패/변경은 raw/review를 폐기한다. 종료/호스트교체/권한변경 뒤 비동기 결과를 적용하지 않는다. 금일과 source timezone/asOfDate/일변경 guard는 Asia/Seoul 한 기준이다. none은 제안 metadata로 유지하고 KRW/빈 문자열 저장인코딩을 만들지 않는다. 최신전표 공급원·묶음 순서/Validator/영속 소비자는 unresolved이므로 전표저장 계층은 연결하지 않는다. 이 회사설정 화면은 검토용 subset이며 원본 공통 initializer/업무설정 엔진 전체가 아니다. 합격/제한 evidence/manual-request-upload-save-policy-20261022.json.
+
+
+## 이전 업로드 계층 · 운영0.78.0 / 저장시규칙 통합 전
 
 현재 입력정밀도는 RequestUploadPolicyCore version2이며 Renderer.value_format과 구매 표시 자릿수는 공급원에서 제외한다. 아래 version1 설명은 과거 독립 후보 이력이다. 0.78.0의 실제 snapshot/Review는 등록참조와 독립수량/금액/환율 검토만 제공하며 전표저장은 없다.
 

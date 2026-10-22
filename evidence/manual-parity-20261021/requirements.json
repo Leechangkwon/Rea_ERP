@@ -1097,11 +1097,12 @@
         "evidence/manual-request-upload-policy-20261022.json",
         "evidence/manual-purchase-precision-20261022.json",
         "evidence/manual-form-numeric-display-20261022.json",
-        "evidence/manual-request-upload-save-rules-20261022.json"
+        "evidence/manual-request-upload-save-rules-20261022.json",
+        "evidence/manual-request-upload-save-policy-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Actual save-time exceptions for date/transaction/currency are now observed; versioned rule/initial-value/none representation and review adapter remain to implement. Grouping equality/order, complete upload required/Validator metadata, menu/currency precision, quantity precedence, manual-money persistence/consumers, retries/CAS and hosted business acceptance remain incomplete.",
+      "remaining": "Versioned company save-rule settings, initial/none proposals and actual preview are now integrated. Latest-voucher initializer, none storage representation, grouping equality/order, full required/Validator metadata, menu/currency precision, quantity precedence, manual-money persistence/consumers, retries/CAS and hosted business save acceptance remain incomplete.",
       "supportingSourceIds": [
         "EC-HELP-UPLOAD-COMPARE-001",
         "EC-HELP-UPLOAD-DUPLICATE-001",
@@ -1245,6 +1246,18 @@
         "summaryCanOmitExceptions": true,
         "appIntegrated": false,
         "saveImplemented": false,
+        "done": false
+      },
+      "uploadSaveRuleSettings": {
+        "version": "0.79.0",
+        "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
+        "releaseCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+        "evidence": "evidence/manual-request-upload-save-policy-20261022.json",
+        "settingsPersistAndReviewIntegrated": true,
+        "freshServerRevisionGuard": true,
+        "hostedOpenCloseAndSyntheticReview": true,
+        "hostedConfiguredSaveVerified": false,
+        "voucherSaving": false,
         "done": false
       }
     },

@@ -1,6 +1,6 @@
 {
-  "version": "0.78.0",
-  "status": "0.78.0 deployed: employee/warehouse/project upload code-name proposals; whole upload saving/manual acceptance incomplete; root VAT5 excluded",
+  "version": "0.79.0",
+  "status": "partial-manual-parity-company-upload-save-rule-review-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -83,7 +83,8 @@
     "Nullable version1 purchase precision config with authenticated review snapshot, no assumed form inheritance, and consistent settings-modal controls; voucher upload saving incomplete",
     "Optional numericFormat display-only metadata preserved in existing forms/backups; explicit0..6 only in connected InventoryUI table/aggregate/print renderers; raw business and CSV values unchanged; not an upload input precision policy",
     "Version2 upload input-only snapshot excludes purchase/Renderer display inheritance; known domestic money checked independently, exchange rate14/4 declared limits checked, raw/blank preserved; saving remains unsupported",
-    "Read-only employee/warehouse/project snapshots and exact code-name proposals; raw/blanks unchanged, ambiguity/disabled/unknown require review; not save-time defaults or persistence"
+    "Read-only employee/warehouse/project snapshots and exact code-name proposals; raw/blanks unchanged, ambiguity/disabled/unknown require review; not save-time defaults or persistence",
+    "Version1 nullable company upload save rules and explicit initializer/typed-none proposals in guarded read-only review; fresh server revision and Seoul-date guards; voucher upload saving incomplete"
   ],
   "checks": {
     "total": 998,
@@ -118,7 +119,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 107,
+    "currentReleaseBrowserSynthetic": 109,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -273,16 +274,19 @@
       "parseFailures": 0,
       "npmTestsRepeated": false,
       "deploymentRepeated": false
-    }
+    },
+    "uploadSaveRuleRelatedNode": 91,
+    "uploadSaveRuleNewNode": 19,
+    "uploadSaveRuleNewBrowser": 2
   },
-  "future_research": "REQ-PUR-REQ-005: 기존 표시/등록자료 helper 검사와 같은 매뉴얼 검색을 반복하지 말고, 이번에 실제 확인한 업로드경로+공란 조건의 저장시값변경 3종을 회사별 versioned 규칙 snapshot으로 설계하여 현재 검토 모델/원문·제안값·stale guard에 연결한다. 일자는 초기값 참조이며 거래유형 초기값에는 최신전표내역 공급원이 있다. 통화는 초기값 참조가 아닌 직접입력(없음)이다. 원본 회사의 현재 규칙/최신값을 REA 전역 기본값으로 복사하거나 오늘/21/KRW를 일괄 대입하지 않는다. 별도 초기값·none 의미/표현을 명시하고 미확인 공급원은 unresolved로 남긴다. 명시0/공란/원문·설정revision을 보존한다. 저장 후보는 묶음 equality·기본값과 grouping 순서·필수/Validator·통화자릿수·두수량·수동금액 모든 소비자·실패재시도/CAS 계약 후에만 활성화한다. 새 상태 없이 비활성 링크 재시도/원본 주입력행·설정저장·발송과 main VAT5 전체빌드/배포는 금지한다. 운영0.78.0/runtime77210/PID2412461을 유지하며 전체완료 false.",
+  "future_research": "REQ-PUR-REQ-005: 다음은 전표묶음기준 실제 도움말·설정 공급원과 요청 메뉴의 필수/Validator metadata를 좁혀 확인한다. 기존 규칙 helper/전체회귀를 변화 없이 반복하지 않는다. 최신전표 초기값 선택범위/순서·통화 없음 저장표현·기본값과 grouping 순서·통화자릿수·두수량 우선순위·수동금액 영속 소비자·부분실패/재시도/CAS가 미확인이다. 확인한 계약만 작은 단위로 구현하고, 미확인 값을 오늘/21/KRW로 임의 대입하지 않는다. 원본 주입력행/행이동·저장·설정저장·발송과 main VAT5 전체빌드/배포는 금지한다. 운영0.79.0/runtime49821/PID2423761 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-upload-header-references-20261022.json",
+    "reference": "evidence/manual-request-upload-save-policy-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
-    "publicVersionVerified": "0.78.0",
+    "deployedSourceCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+    "publicVersionVerified": "0.79.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -341,20 +345,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.78.0",
+    "existingSessionRetainedVersion": "0.79.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.78.0",
+    "lastExactBrowserBackupComparisonVersion": "0.79.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.78.0",
+    "currentServerStateAndMailPreservedVersion": "0.79.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.78.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.79.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -448,6 +452,16 @@
       "businessSaved": false,
       "runtimeSession": 77210,
       "linuxPid": 2412461
+    },
+    "uploadSaveRuleSettings": {
+      "version": "0.79.0",
+      "reference": "evidence/manual-request-upload-save-policy-20261022.json",
+      "existingSessionRetained": true,
+      "hostedSettingsOpenCloseAndSyntheticReview": true,
+      "hostedConfiguredSaveVerified": false,
+      "businessSaved": false,
+      "runtimeSession": 49821,
+      "linuxPid": 2423761
     }
   },
   "manualParity": {
@@ -457,11 +471,10 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-PUR-REQ-005",
-      "status": "actual-save-rules-observed-versioned-snapshot-and-review-adapter-next",
+      "status": "save-rule-review-deployed-grouping-required-metadata-contract-next",
       "plan": "docs/plan-request-upload-close-20261022.md",
-      "evidence": "evidence/manual-request-upload-save-rules-20261022.json",
-      "applicationCodeChangedThisResearch": false,
-      "productionVersion": "0.78.0",
+      "evidence": "evidence/manual-request-upload-save-policy-20261022.json",
+      "productionVersion": "0.79.0",
       "done": false
     },
     "independentWork": {
@@ -1156,13 +1169,25 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 54
+    "onlineManualIndexItems": 54,
+    "uploadSaveRuleSettings": {
+      "version": "0.79.0",
+      "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
+      "releaseCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+      "evidence": "evidence/manual-request-upload-save-policy-20261022.json",
+      "settingsPersistAndReviewIntegrated": true,
+      "freshServerRevisionGuard": true,
+      "hostedOpenCloseAndSyntheticReview": true,
+      "hostedConfiguredSaveVerified": false,
+      "voucherSaving": false,
+      "done": false
+    }
   },
   "preparedCandidate": {
-    "version": "0.78.0",
-    "commit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
-    "manifest": ".artifacts/manual-upload-headers-20261022/candidate-manifest.json",
-    "bundleSha256": "0647bcc19d674135e6feae240c9fb8dc1c0351c6b9aad057286e62b61d7d0b03",
+    "version": "0.79.0",
+    "commit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+    "manifest": ".artifacts/manual-upload-save-policy-20261022/candidate-manifest.json",
+    "bundleSha256": "bf46a237fd0bbfaf5f761e171593e119f90a7076e272333907300038ce2b2b36",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1198,14 +1223,15 @@
       "0.73.0-plan-generation-reference-baseline",
       "request-upload-readonly-tsv-paste-registered-snapshot-review-client-guards",
       "nullable-purchase-precision-settings-authenticated-review-snapshot-and-scoped-modal-controls",
-      "optional-numeric-field-display-preservation-and-connected-table-print-renderers-mobile-editor-controls"
+      "optional-numeric-field-display-preservation-and-connected-table-print-renderers-mobile-editor-controls",
+      "company-upload-rule-settings-initializers-typed-none-proposals-and-fresh-server-stale-guard"
     ],
-    "supersedesCandidateCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+    "supersedesCandidateCommit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.78.0-upload-header-references"
+    "branch": "release/0.79.0-upload-save-rules"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -1368,6 +1394,15 @@
       "ownNewScopes": 4,
       "originalCachedScopes": 1,
       "coverage": "unknown",
+      "runtimeEquivalence": false
+    },
+    "uploadSaveRuleSettings": {
+      "reference": "evidence/manual-request-upload-save-policy-20261022.json",
+      "ownNewScopes": 13,
+      "originalCachedScopes": 4,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
       "runtimeEquivalence": false
     }
   }

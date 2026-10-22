@@ -1,0 +1,207 @@
+{
+  "baselineVersion": "0.78.0",
+  "version": "0.79.0",
+  "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
+  "status": "deployed-company-upload-save-rules-review-whole-manual-incomplete",
+  "requirements": [
+    "REQ-PUR-REQ-005"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 23,
+  "newManualBodies": 0,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "reference": "evidence/manual-request-upload-save-rules-20261022.json",
+    "newOriginalInteractionsThisImplementation": false,
+    "newPublicSources": 0,
+    "tenantSettingsCopied": false,
+    "originalCodeExecuted": false,
+    "originalBusinessOrSettingsWritten": false
+  },
+  "implementation": {
+    "configKey": "requestUploadRules",
+    "version": 1,
+    "legacyDefault": null,
+    "companyConfigWriteAndRevisionCAS": true,
+    "initializerKinds": [
+      "unknown",
+      "today",
+      "literal"
+    ],
+    "fieldModes": {
+      "date": [
+        "unknown",
+        "keep",
+        "initial"
+      ],
+      "transaction": [
+        "unknown",
+        "keep",
+        "initial"
+      ],
+      "currency": [
+        "unknown",
+        "keep",
+        "none"
+      ]
+    },
+    "supportedExplicitTransactionInitialCodes": [
+      "21",
+      "22"
+    ],
+    "unsupportedLatestVoucherInitializer": true,
+    "noneTypedAndDistinctFromKRW": true,
+    "companyRevisionDateTimeZoneSnapshot": true,
+    "todayTimeZone": "Asia/Seoul",
+    "raw22ColumnsPreserved": true,
+    "explicitZeroAndNonblankUntouched": true,
+    "proposalsSeparatedFromRaw": true,
+    "unknownUnresolved": true,
+    "defaultCompanyRulesAutoInstalled": false,
+    "businessValidation": false,
+    "voucherSaving": false,
+    "legacyDataOrFormsConverted": false,
+    "serverFreshness": {
+      "read": "GET /api/auth/status",
+      "triggers": [
+        "before-review",
+        "window-focus",
+        "storage"
+      ],
+      "identitySettingsRevisionReadPermissionChecked": true,
+      "pendingControlsLocked": true,
+      "concurrentChecksCoalesced": true,
+      "networkFailureOrStaleClearsRawAndReview": true,
+      "closedRevokedOrReplacedDialogCannotRevive": true
+    },
+    "settingsUI": "Self-Customizing > 기본값설정 > 입력기본값설정 > 자료올리기 > 발주요청 업로드 저장시값변경",
+    "settingsUIScope": "Own preview-specific subset, not full original business-settings or global initializer engine"
+  },
+  "checks": {
+    "newNodeTests": 19,
+    "relatedNodeTests": 91,
+    "verifyLocalPassed": true,
+    "fullBrowserTests": 109,
+    "newBrowserTests": 2,
+    "viewportWidths": [
+      390,
+      1280
+    ],
+    "browserTimezone": "America/Los_Angeles",
+    "seoulDateProvenanceAndMidnightInvalidation": true,
+    "remoteServerRevisionWithoutInMemoryRefreshTested": true,
+    "tools": 7,
+    "releaseChecks": 4,
+    "buildPassed": true,
+    "independentReadOnlyReview": "Two P2 findings corrected and focused rereview approved; reviewer did not execute tests or deployment",
+    "initialSharedFixtureFailure": "Root tests initially used installed0.78 bundle against research package0.53; moved to isolated candidate and rebuilt. Root production bundle was not built. Final candidate verify passed.",
+    "rea": {
+      "version": "6.4.0",
+      "ownNewScopes": 13,
+      "originalCachedScopes": 4,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-upload-save-policy-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+    "branch": "release/0.79.0-upload-save-rules",
+    "bundleSha256": "bf46a237fd0bbfaf5f761e171593e119f90a7076e272333907300038ce2b2b36",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "inventoryCoreUnchanged": true,
+    "transactionVatCoreIntentionallyAbsent": true,
+    "runtimeSession": 49821,
+    "linuxPid": 2423761,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedSettingsOpenedClosedUnconfigured": true,
+    "hostedConfiguredSettingsSaveTested": false,
+    "hostedSyntheticReviewVerified": true,
+    "hostedBusinessSaved": false,
+    "settingsSaved": false,
+    "publicAssetsMatched": true,
+    "anonymousMailStatus": 401,
+    "publicHealthStatus": 404,
+    "localHealthStatus": 200,
+    "browserPreservation": {
+      "version": "0.79.0",
+      "beforeDownload": 43,
+      "afterDownload": 44,
+      "exactBytesAndJson": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formsExact": true,
+      "documents": 8,
+      "plans": 0,
+      "existingLoginRetained": true,
+      "hostedSettingsOpenedClosedUnconfigured": true,
+      "hostedServerCheckedSyntheticReviewVerified": true,
+      "raw22ColumnsPreserved": true,
+      "rawInputDiscarded": true,
+      "businessSaved": false,
+      "settingsSaved": false,
+      "sent": false,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.79.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "screenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/upload-save-rules-0.79.0.png"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 66,
+    "savedThisStage": false,
+    "readbackThisStage": false,
+    "block": "Existing authentication401 and required work-document tools unavailable; no new authorization/state, so not retried",
+    "localPending": ".artifacts/manual-upload-save-policy-20261022/moa-pending-save-policy.html"
+  },
+  "remaining": [
+    "Latest voucher initializer selection and ordering",
+    "None storage representation and original default/grouping order",
+    "Full upload required and menu-specific validators",
+    "Currency precision, two quantities precedence and rounding",
+    "Manual money persistence and all consumers",
+    "Voucher grouping equality, partial failure/retry/CAS",
+    "Configured hosted business save and full manual acceptance"
+  ],
+  "nextWork": "REQ-PUR-REQ-005: 다음은 전표묶음기준 실제 도움말·설정 공급원과 요청 메뉴의 필수/Validator metadata를 좁혀 확인한다. 기존 규칙 helper/전체회귀를 변화 없이 반복하지 않는다. 최신전표 초기값 선택범위/순서·통화 없음 저장표현·기본값과 grouping 순서·통화자릿수·두수량 우선순위·수동금액 영속 소비자·부분실패/재시도/CAS가 미확인이다. 확인한 계약만 작은 단위로 구현하고, 미확인 값을 오늘/21/KRW로 임의 대입하지 않는다. 원본 주입력행/행이동·저장·설정저장·발송과 main VAT5 전체빌드/배포는 금지한다. 운영0.79.0/runtime49821/PID2423761 유지, 전체완료 false.",
+  "allDone": false
+}
