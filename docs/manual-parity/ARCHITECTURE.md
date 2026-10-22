@@ -1,5 +1,11 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 통화 추가의 부모 수명과 자체 쓰기 경계
+
+외화 master 입력 필드 생성/값 보존을 InventoryUI 내부의 공통 master 폼 생성기로 추출한다. configureGrid는 기본 customizer 인수를 유지하면서 별도 폼 인스턴스를 받을 수 있게 해 기존 양식 metadata를 공통 적용한다. 새 등록창은 독립 id와 지역 FormOptions 인스턴스를 사용하고 부모의 host/route/editor/customizer/activeEditorModal을 교체하지 않는다. 부모 닫기/이동 시 자식은 폐기된다. 등록창의 양식편집/설정 저장은 추가하지 않는다.
+
+docEditor의 storageBaseline을 let으로 바꾸되 허용된 새 외화1건의 pure master command 결과를 검증하고 저장한 경로만 갱신한다. 전표/다른 master/양식/금액·재고·기존 currency prefix의 일치를 확인하며 로그/sequence만 명시적으로 허용한다. 새로운 record를 선택하고 기존 change 경로를 통해 조건부 부모 양식을 재평가한다. 등록 취소/실패 때 부모와 DB의 값은 바뀌지 않는다. 신원/권한/설정 snapshot과 부모 초안/DOM/raw를 검사하고 stale callback은 저장/선택 갱신을 할 수 없다. 이는 자체 client 상태 보존 계약이며 원본 server CAS/권한의 실행 동등성으로 주장하지 않는다.
+
 ## 0.84.0 적용 결과
 
 외화등록의 공란 환율·소수점 metadata와 계정/회사/CAS 보존을 보완해 기존 운영에 반영했다. 신규Node8·전체npm test/도구/릴리스/빌드·최종119브라우저·운영 읽기/전후 JSON·서버·메일 보존 통과다. verify:local의 데스크톱 임의 크기 검사 실패는 test-only 정정 뒤 전체119브라우저 재실행으로 해소했으며 명령자체 exit0은 주장하지 않는다. 다음은 실제 등록완료 메시지의 소비자를 확인한 뒤 부모 초안을 보존하는 발주요청 통화 추가 연결이다. 외화금액 환산/출력·원본 취소/권한/운영 저장 합격은 미완료다. 상세는 PROGRESS 첫 절과 `evidence/manual-currency-registration-20261023.json`을 따른다.

@@ -1,5 +1,15 @@
 # REA ERP 매뉴얼 기반 기능 재현 PRD
 
+## 이번 구현 단위 · 발주요청 통화 dropdown 추가
+
+REQ-COM-CURRENCY-001 2차: EC-VID-13914 95초의 통화 dropdown 추가와 공개 OpenInsertForeignCurrencyUserAction을 대조했다. footer는 IOpenInsertForeignCurrencyUserAction, bridge는 ESA035M/S10 신규창이다. 등록완료 result.message.data가 있으면 CODE_DES/CODE_NO/EXCHANGE_RATE/AMTDIGIT_LEN을 선택항목에 추가하고 owner DMC의 foreign_currency를 새 코드로 설정한다. 응답이 없으면 선택 변경이 없다. 원본실행/서버의 검증·취소·권한 예외는 미확인이다.
+
+발주요청에 한정해 native 통화 선택의 추가 항목으로 별도 외화등록 dialog를 연다. 선택 직후 이전 통화로 돌려놓아 부모 초안에 UI전용 값을 넣지 않는다. 0.84의 외화등록 필드/소수점·기존 양식 기본/readonly/숨김/추가항목을 공통 폼 생성기로 재사용한다. 닫기는 등록 쓰기 없이 부모를 유지하며, 성공한 신규 등록만 새 통화로 선택한다. 부모 전표는 별도 저장해야 한다. 합계는 기존 원화 계산을 유지하고 환율·외화금액/출력 적용은 확장하지 않는다.
+
+부모 DOM/route/전표원본·전체 초안/선택·양식·계정/회사/역할/권한/설정/저장raw를 등록 전 재검사한다. 등록은 currency master1건과 해당 로그/sequence 외의 차이를 허용하지 않는 pure command 후보를 검증한 후1회 저장한다. 이 자체 쓰기 성공에 한해 부모 저장 기준을 그 결과 raw로 갱신한다. 외부 변경·권한변경·창닫기/이동 후 저장은 차단하며 중복 저장/F8·빈값/중복오류·수정 후 재시도를 검증한다. 무조건 CAS 재설정·단일 activeEditorModal 중첩은 하지 않는다.
+
+운영0.84에서 분리 후보를 만들고 root 미배포 VAT5/mapping을 제외한다. 신규 Node/390·1280 실제 셸에서 기본/사용자양식·부모 신규/수정/취소/후속저장·외부변경/닫기/역할/양식조건·모바일 버튼을 확인한 뒤 필요한 회귀·REA6.4·보존대조·커밋/push 후 기존 운영에 반영한다. 원본 ERP 입력/저장·실제 업무 발송은 없다. 전체 매뉴얼 합격은 false다.
+
 ## 0.84.0 적용 결과
 
 외화등록의 공란 환율·소수점 metadata와 계정/회사/CAS 보존을 보완해 기존 운영에 반영했다. 신규Node8·전체npm test/도구/릴리스/빌드·최종119브라우저·운영 읽기/전후 JSON·서버·메일 보존 통과다. verify:local의 데스크톱 임의 크기 검사 실패는 test-only 정정 뒤 전체119브라우저 재실행으로 해소했으며 명령자체 exit0은 주장하지 않는다. 다음은 실제 등록완료 메시지의 소비자를 확인한 뒤 부모 초안을 보존하는 발주요청 통화 추가 연결이다. 외화금액 환산/출력·원본 취소/권한/운영 저장 합격은 미완료다. 상세는 PROGRESS 첫 절과 `evidence/manual-currency-registration-20261023.json`을 따른다.
