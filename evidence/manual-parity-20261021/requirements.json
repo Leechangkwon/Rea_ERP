@@ -2102,7 +2102,7 @@
       "expected": [
         "참조를 일반 텍스트로 입력하고 기존 전표 저장·조회 경로에서 보존한다"
       ],
-      "status": "request-reference-input-implemented-focused-synthetic-passed-full-regression-and-hosted-pending",
+      "status": "deployed-synthetic-save-search-passed-hosted-readonly-preservation-passed-business-save-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
@@ -2117,12 +2117,16 @@
       "done": false,
       "hostedAcceptance": false,
       "implementationEvidence": [
-        "dist/inventory-ui.js"
+        "dist/inventory-ui.js",
+        "evidence/manual-request-reference-20261023.json"
       ],
       "automatedEvidence": [
         "tests/request-reference-text.cjs",
         "tests/browser/request-reference-text.spec.cjs"
-      ]
+      ],
+      "sourceCommit": "801c3e6e1f337cfa86b3831122b3ec6137b97cd4",
+      "releaseCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
+      "productionVersion": "0.83.0"
     }
   ]
 }

@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.83.0 적용 결과
+
+발주요청 참조의 일반 text 입력을 두 UI 지점에서 보완했다. 신규Node4·최종verify:local/브라우저117·기존로그인/읽기전용 운영확인·전후 전체JSON/서버/메일 보존을 통과했다. 원본 참조의 역할예외/서버저장 및 실제 운영업무 저장 합격은 미확인이고 전체완료false다. 후보/검증/보존 상세는 `evidence/manual-request-reference-20261023.json`과 PROGRESS 첫 절을 따른다. 미배포 mapping/VAT는 포함하지 않았다.
+
 ## 이번 구현 단위 · 발주요청 참조의 일반 텍스트 입력
 
 공식 교육 EC-VID-13914([발주요청입력](https://www.youtube.com/watch?v=6eQxoh6CKic), 공개2024-04-03)의 1:45~1:50 실제 화면/자막에서 참조는 메모·검색 키워드 입력칸임을 확인했다. 현재 docEditor는 reference를 첨부/전표연결 미지원으로 간주해 readOnly 및 calculated로 잠그는 차이가 있다. 공개 V56↔V3 양식 item map에서도 txt_007→ref_des와 slip_link→file_cd는 별도다. 이 수정은 일반 참조 문자열에 한정하며 전표연결/첨부를 구현했다고 주장하지 않는다.

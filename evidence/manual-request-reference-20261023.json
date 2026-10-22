@@ -1,0 +1,398 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-PUR-REQ-006",
+  "status": "deployed-synthetic-save-search-passed-hosted-readonly-preservation-passed-full-manual-pending",
+  "productionVersion": "0.83.0",
+  "sourceCommit": "801c3e6e1f337cfa86b3831122b3ec6137b97cd4",
+  "releaseCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
+  "sourceManifest": ".artifacts/manual-request-reference-20261023/source-manifest.json",
+  "source": {
+    "originalAsset": {
+      "file": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app/v56app.37986c84.js",
+      "sha256": "af20cfebe62d4b4318a6338c9976a4a95e0ccbc411f1559a4bf018a13006ebf2",
+      "bytes": 1577340,
+      "retrievedThisRun": false,
+      "executed": false
+    },
+    "officialVideo": {
+      "sourceId": "EC-VID-13914",
+      "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
+      "publisher": "이카운트 ERP",
+      "publishedDateObserved": "2024-04-03",
+      "lengthSeconds": 333,
+      "relevantSeconds": [
+        105,
+        110
+      ],
+      "sampleCount": 66,
+      "sampleArtifact": ".artifacts/manual-request-video-20261023/visible-caption-samples.json",
+      "sampleSha256": "60e02947c07d1eb95cdb6e48c35e11941f32affe1b5d3b3ffa03674456154a1d",
+      "screenArtifact": ".artifacts/manual-request-video-20261023/reference-110s.png",
+      "screenSha256": "7bfafeef16364c090c29c89e78f1047b763125b8217dd16a45b3c5d89bf84b3f",
+      "reviewStatus": "timestamp-caption-samples-and-keyframes-reviewed-not-full-transcript-or-full-video",
+      "fullSourceBodyCountIncrement": 0
+    },
+    "ownUiSha256": "bb61d970be451a0304c7ed6950df4b0f19f4fca699294973ca8ba71f79fd93b3",
+    "newNodeTestSha256": "c1e657e7e121c08dd9c9280a4757ca7a982a741eef21f07bde9ec316a1388652",
+    "newBrowserTestSha256": "7c88efeb7ce6360a3a5861cd5a00bb4052ebf98a8d3ab30c809dc6a89ac8315d"
+  },
+  "confirmedGap": "Official video segment describes plain reference memo/search keywords and shows text entry. Own request editor incorrectly treated reference as an unimplemented attachment/slip link and made it calculated/read-only. Original generic item-map separately lists txt_007/ref_des and slip_link/file_cd; request-specific server binding/runtime equivalence remains unverified.",
+  "implementation": {
+    "files": [
+      "dist/inventory-ui.js"
+    ],
+    "changedUiPoints": 2,
+    "scope": "request only; use existing getDoc/document.save/list query paths",
+    "referenceDefaultEditable": true,
+    "calculatedReferenceDisabledForRequest": true,
+    "schemaChanged": false,
+    "otherDocumentReferenceChanged": false,
+    "userHiddenReadonlyLabelsAndStoredFormsPreserved": true,
+    "valuesClearedExplicitly": true,
+    "normalizationOrTruncationIntroduced": false,
+    "searchCodeChanged": false,
+    "rootBuilt": false,
+    "rootVatOrMappingDeployed": false
+  },
+  "checks": {
+    "newNode": 4,
+    "focusedNodePassedInRootAndIsolated": true,
+    "newBrowser": 2,
+    "widths": [
+      390,
+      1280
+    ],
+    "fullBrowser": 117,
+    "fullNpmTestPassed": true,
+    "fullNpmTapSubtests": 1451,
+    "legacyConsoleChecksAlsoPassed": true,
+    "verifyLocalPassed": true,
+    "environmentPassed": true,
+    "tools": 7,
+    "releaseChecks": 4,
+    "isolatedBuildPassed": true,
+    "verifyLog": ".artifacts/validation/request-reference-20261023/.artifacts/reference-verify-final.log",
+    "verifyLogSha256": "be8461c80db85776a879368c152dc67472d5359ffff64d2dbd7dfe8308b102a7",
+    "actualAndroidDeviceTested": false,
+    "independentAgentReviewPerformed": false,
+    "selfReviewPassed": true,
+    "cases": [
+      "literal memo with markup characters preserved without HTML execution",
+      "new save/reload and keyword search",
+      "existing edit and explicit empty clear",
+      "cancel leaves whole stored DB unchanged",
+      "read-only account cannot save",
+      "saved hidden/readonly metadata and values retained",
+      "unchanged other vouchers/masters/forms/line amounts and stable IDs"
+    ]
+  },
+  "initialFailures": {
+    "fixtures": [
+      "Existing sample line IDs/memo/custom defaults needed normal saved-shape fixture",
+      "Fixture storage injection needed existing InventoryUI module reload helper",
+      "All-hidden one-field form was invalid; kept a visible date field"
+    ],
+    "browserSelectors": [
+      "Actual dialog title is 발주요청 상세 / 수정",
+      "Empty-result placeholder is a table row; assert zero selectable data rows and explicit empty message"
+    ],
+    "releaseLabel": "API manual example version was0.82; updated to0.83 before final full verify",
+    "preflightAssumptions": [
+      "Manager pid file is repo .artifacts/wsl-dev.pid",
+      "Health identifies backend, version comes from served login HTML; corrected before any runtime mutation"
+    ],
+    "productChangesBeyondTwoUiPoints": false
+  },
+  "rea": {
+    "version": "6.4.0",
+    "newOriginalScopes": 1,
+    "newOwnScopes": 3,
+    "summary": ".artifacts/manual-request-reference-20261023/rea/rea-summary.json",
+    "results": [
+      {
+        "name": "Original_ReferenceAndLinkItemMap",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.js",
+        "sourceSha256": "af20cfebe62d4b4318a6338c9976a4a95e0ccbc411f1559a4bf018a13006ebf2",
+        "start": 295881,
+        "end": 300304,
+        "lineStart": 7142,
+        "lineEnd": 7269,
+        "fragmentSha256": "c4c4510fa80bac82873fee62efc7c5807cf1024c1ddb0704a54f525ee4539420",
+        "resultSha256": "0a3d951e9125f386ced33b375a66c8f5f8894004de6f6da5969948486f07f52a",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 4451,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 410,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_RequestReferenceControl",
+        "category": "own",
+        "file": ".artifacts/validation/request-reference-20261023/dist/inventory-ui.js",
+        "sourceSha256": "bb61d970be451a0304c7ed6950df4b0f19f4fca699294973ca8ba71f79fd93b3",
+        "start": 47654,
+        "end": 49082,
+        "lineStart": 235,
+        "lineEnd": 238,
+        "fragmentSha256": "e36bb63d210c475182fe7ee7c4ae0de03c0481c2fc9047a9d47002327b4d9836",
+        "resultSha256": "84f9cf1df1525c201e1a68e51bc9adb461e81d0b76a5e43c3ffbd12074959868",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1584,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 286,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_RequestHeaderSchema",
+        "category": "own",
+        "file": ".artifacts/validation/request-reference-20261023/dist/inventory-ui.js",
+        "sourceSha256": "bb61d970be451a0304c7ed6950df4b0f19f4fca699294973ca8ba71f79fd93b3",
+        "start": 50411,
+        "end": 51418,
+        "lineStart": 244,
+        "lineEnd": 244,
+        "fragmentSha256": "748de4ed693e9ff0e7f36117f711820975698d5c9d3b01f57f7cbf04364546d8",
+        "resultSha256": "a49e0b0036a89f72bbfd3b30469a18f69723de4030cb77e035f6151124424d27",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1014,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 197,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_GetDocumentDraft",
+        "category": "own",
+        "file": ".artifacts/validation/request-reference-20261023/dist/inventory-ui.js",
+        "sourceSha256": "bb61d970be451a0304c7ed6950df4b0f19f4fca699294973ca8ba71f79fd93b3",
+        "start": 57588,
+        "end": 58160,
+        "lineStart": 259,
+        "lineEnd": 259,
+        "fragmentSha256": "222c84348e0ede01a6ac4d43178bd9798da7ea875b76bedb41f3bcdbebc6556a",
+        "resultSha256": "67deb80fb83bffb0c4466c8be79c74d6a81ae3f6279ced0771793f044e5f985a",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 591,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 136,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false
+  },
+  "deployment": {
+    "sourceCommit": "801c3e6e1f337cfa86b3831122b3ec6137b97cd4",
+    "releaseCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
+    "releaseBranch": "release/0.83.0-request-reference",
+    "validationDirectory": ".artifacts/validation/request-reference-20261023",
+    "releaseDirectory": ".artifacts/releases/0.83.0-request-reference",
+    "workerSha256": "74ea7bae55beb1eccb51f08dc28470df5cf1bae73e1d43ae17036b7b42ac79ac",
+    "workerBytes": 2277238,
+    "verifyLocalPassed": true,
+    "fullBrowser": 117,
+    "newNode": 4,
+    "newBrowser": 2,
+    "excludesRootVatAndMapping": true,
+    "rootApplicationPatchTwoPointsOnly": true,
+    "runtime": {
+      "version": "0.83.0",
+      "session": 70514,
+      "pid": 2473340,
+      "workerSha256": "74ea7bae55beb1eccb51f08dc28470df5cf1bae73e1d43ae17036b7b42ac79ac"
+    },
+    "publicChecks": {
+      "version": "0.83.0",
+      "sourceCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/form-core.js",
+          "status": 200,
+          "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+          "equalsLocal": true
+        },
+        {
+          "path": "/form-options.js",
+          "status": 200,
+          "sha256": "b7161d7c5833b0a1cd8828f60df701f03b3ebf245544db104f321cfbea45dc20",
+          "equalsLocal": true
+        },
+        {
+          "path": "/form-options.css",
+          "status": 200,
+          "sha256": "e08e280f2dc4ecbc2210ede30e1575035e1c39de4043a4abcf98953ac7a8841b",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-ui.js",
+          "status": 200,
+          "sha256": "bb61d970be451a0304c7ed6950df4b0f19f4fca699294973ca8ba71f79fd93b3",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "hosted": {
+      "version": "0.83.0",
+      "existingLoginRetained": true,
+      "reference": {
+        "disabled": false,
+        "empty": true,
+        "readonly": false,
+        "title": "메모나 검색할 키워드를 입력하세요.",
+        "type": "text"
+      },
+      "typed": false,
+      "saved": false
+    },
+    "hostedScreenshot": ".artifacts/manual-request-reference-20261023/hosted-reference.png",
+    "businessOrConfigSavedInProduction": false,
+    "realMailSent": false,
+    "existingSessionRetained": true,
+    "previousVersion": "0.82.0",
+    "previousWorkerSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "sitesUsed": false
+  },
+  "preservation": {
+    "browser": {
+      "exactJsonBytesEqual": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "plans": 0,
+      "formsExact": true,
+      "businessOrSettingsSaved": false,
+      "restored": false
+    },
+    "serverAndMail": {
+      "version": "0.83.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupLocationRecordedOnlyLocally": true,
+    "accountCompanySettingsExactInAppBody": true,
+    "remoteRevisionsBefore": {
+      "rea_app_state": 30,
+      "rea_gateway_state": 0
+    },
+    "originalErpMutations": 0
+  },
+  "sourceLimitations": {
+    "fullVideoReviewed": false,
+    "automatedTranscriptToolFailed": true,
+    "publicCaptionResponseEmpty": true,
+    "normalBrowserCaptionsAndKeyframesUsed": true,
+    "originalErpSessionLoginRequired": true,
+    "originalUiVersionCurrentParityVerified": false,
+    "sourceAgeNotHidden": true
+  },
+  "community": {
+    "target": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredToolsAvailable": false,
+    "published": false,
+    "lastActualSavedAndReadVersion": "0.51.0",
+    "pendingLocalUpdates": 76,
+    "draft": ".artifacts/manual-request-reference-20261023/moa-pending-request-reference.html"
+  },
+  "counters": {
+    "onlineManualIndex": 54,
+    "onlineManualBodiesReviewed": 24,
+    "officialRequirements": 28,
+    "fullyAccepted": 0,
+    "allDone": false
+  },
+  "nextWork": {
+    "sourceId": "EC-VID-13899",
+    "title": "재고1 외화등록",
+    "url": "https://www.youtube.com/watch?v=sMVrKsgaU7c",
+    "context": "Request input video1:35 shows inline currency dropdown 추가. Observe registration popup fields/save/cancel metadata before integrating registered-currency creation; preserve existing rates/codes/documents and do not infer FX amount calculations.",
+    "legacyMappingEditor": "Evidence-gated; requires actual TC101P_01 source/read-only view. Rebase unshipped mapping candidate on0.83 before any release."
+  },
+  "done": false,
+  "hostedBusinessSaveAcceptance": false
+}
