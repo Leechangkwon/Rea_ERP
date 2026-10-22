@@ -16,10 +16,10 @@
  // A disconnected preflight: exact arithmetic checks the observed relation only.
  // It never chooses an upload winner, fills missing cells, rounds, or creates a document.
  const quantityFields=Object.freeze({additional:'inv_m$add_qty',base:'inv_m$qty'});
- function decimal(text,label,digits){
+ function decimal(text,label,digits,integerDigits=12){
   if(typeof text!=='string'||text.length>64||!/^[-]?\d+(?:\.\d+)?$/.test(text))throw Error(label+'는 지수/구분자 없는 십진 문자열이어야 합니다.');
   const negative=text.startsWith('-'),unsigned=negative?text.slice(1):text,[whole,fraction='']=unsigned.split('.');
-  if(whole.replace(/^0+(?=\d)/,'').length>12||fraction.length>digits)throw Error(label+'의 정수/소수 자릿수를 확인하세요.');
+  if(whole.replace(/^0+(?=\d)/,'').length>integerDigits||fraction.length>digits)throw Error(label+'의 정수/소수 자릿수를 확인하세요.');
   return {coefficient:BigInt(whole+fraction)*(negative?-1n:1n),scale:10n**BigInt(fraction.length)};
  }
  function fractionText(numerator,denominator,digits){
@@ -48,5 +48,22 @@
   result.relation=input.base===''?'additional-only':parsed.base.coefficient*divisor===product*parsed.base.scale?'matched':'conflict';
   return result;
  }
- const api=Object.freeze({columns,stageRaw,quantityFields,inspectQuantity});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadCandidate=api;
+ const amountFields=Object.freeze({price:'inv_m$apply_price_amt',foreignSupply:'inv_m$foreign_currency_supply_amt',supply:'inv_m$supply_amt',tax:'inv_m$vat_amt'});
+ // Uploaded monetary amounts are independent entries, unlike ordinary entry totals.
+ // Keep decimal strings and blank origins; neither quantity/price/VAT nor exchange rate recalculates them.
+ function inspectAmounts(values,policy){
+  if(!values||typeof values!=='object'||Array.isArray(values)||Object.values(amountFields).some(key=>!Object.hasOwn(values,key)||typeof values[key]!=='string'))throw Error('원문 매핑의 단가·외화공급가액·공급가액·부가세 문자열이 필요합니다.');
+  const digitsValid=value=>Number.isInteger(value)&&value>=0&&value<=10;
+  if(!policy||typeof policy!=='object'||Array.isArray(policy)||!digitsValid(policy.priceDigits)||!digitsValid(policy.amountDigits)||policy.foreignDigits!==null&&!digitsValid(policy.foreignDigits))throw Error('단가·국내금액·통화금액 소수 자릿수를 명시하세요. 통화 자릿수 미상은 null입니다.');
+  const precision={price:policy.priceDigits,foreignSupply:policy.foreignDigits,supply:policy.amountDigits,tax:policy.amountDigits},labels={price:'단가',foreignSupply:'외화공급가액',supply:'공급가액',tax:'부가세'},input={},amounts={},origins={},issues=[];
+  for(const [kind,fieldId] of Object.entries(amountFields)){
+   const text=values[fieldId];input[kind]=text;origins[kind]=text===''?'blank-zero':'explicit';
+   if(text===''){amounts[kind]='0';continue;}
+   if(precision[kind]===null){amounts[kind]=null;issues.push({code:'foreign-precision-required',fieldId,message:'통화에 설정된 금액 소수 자릿수를 확인하세요.'});continue;}
+   try{const parsed=decimal(text,labels[kind],precision[kind],kind==='supply'||kind==='tax'?15:12);amounts[kind]=fractionText(parsed.coefficient,parsed.scale,precision[kind]);}
+   catch(error){amounts[kind]=null;issues.push({code:'amount-format',fieldId,message:error.message});}
+  }
+  return {input,values:amounts,origins,precision,status:issues.some(x=>x.code==='amount-format')?'invalid-input':issues.length?'precision-required':'valid',issues,calculation:'none',numberConversion:false,businessValidation:false,currencyValidated:false,saveSupported:false};
+ }
+ const api=Object.freeze({columns,stageRaw,quantityFields,inspectQuantity,amountFields,inspectAmounts});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadCandidate=api;
 })(typeof globalThis==='object'?globalThis:this);
