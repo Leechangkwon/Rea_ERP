@@ -144,3 +144,13 @@ RequestUploadPreview는 quantity/amounts의 명시 null을 미상 정책으로 �
 sourcecca6b53/test522481f·release1425779. 신규Node8/관련62·실제앱셸 신규8, 분리후보 전체verify:local·브라우저98 및 별도컴포넌트2 통과. 원본 새본문 없음/해시검증캐시2범위·자체REA7범위 parse0/coverage unknown/truncated false. source/release push후 WSL·Supabase·Cloudflare에0.74.0 반영했다. 기존로그인 유지와 합성1행 기본30/추가3·수동777.00/VAT12 검토 및 원문폐기를 확인했다. 저장/발송/복원은 없으며 브라우저8전표/양식·서버수정30/0·설정·메일3함8통1첨부 전후동일이다. 런타임12797/PID2380443을 유지한다. 목록51/본문21/요구사항26/전체합격0·모아59갱신 로컬대기. 근거 evidence/manual-request-upload-connection-20261022.json.
 
 다음은 REQ-PUR-REQ-005 업로드 저장의 선행 설정 계약을 채운다. 기존 기능 계획의 versioned uploadSnapshot/CAS·기본/추가수량·명시금액 소비자 차이표를 기준으로, 실제 요청 업로드에 적용되는 회사별 수량 사용/자릿수·통화/단가 정밀도·필수/상단 매핑·묶음 equality·저장시값변경을 공식 본문/분리 조회설정/공개소스에서 확인한다. 현재 conveniences 표시자릿수나 보고서 위젯을 업무 설정으로 대체하지 않는다. 확인된 계약은 업로드 전용 정책 snapshot으로 연결하고 일반입력 자동금액/기존 qty·백업/자료는 변환하지 않는다. 원본 저장/주입력행/설정적용·발송 없이 진행하며 metadata가 미상인 채 묶음저장·부분실패/재시도를 추정 구현하지 않는다. 다음 구현은 독립 저장후보의 모든 유효금액 소비자와 역호환 검증을 묶어 진행한다. 운영0.74.0·기존 계정/자료/양식/메일 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.
+
+## 2026-10-22 수량·금액 설정 계층의 분리 해석 계획
+
+원본 Self-Customizing > 환경설정 > 기본값설정 > 공통에서 금액소수점·기본수량/추가수량/단가소수점과 구매관리 소수점을 읽었다. 구매 팝업은 양식이 기본설정일 때 적용할 값이라고 안내하며 금액/VAT는 공통탭을 가리킨다. 구매 단가 dropdown은 사용안함(0),1~6을 표시했다. 선택지를 열기만 하고 선택/저장/F8은 하지 않았고 Escape로 분리창을 닫았다. 앞서 남아 있던 보고서 양식은 취소만으로 닫히지 않았으므로 실제 닫기로 정리했다. 새 온라인 매뉴얼 본문으로 세지 않는다.
+
+관찰된 공개V3 XESC006M은 viewBag.InitDatas.ScCofsComnSettingItems 서버자료로 기본값 트리를 만든다. ESC001P_308 onInitContents는 공통 companyForm.OUT_DEC_*와 구매 inventory.IN_DEC_Q/IN_DEC_UQ/IN_DEC_P를 구분한다. 수량/단가 선택지는0~6, 공통 금액 선택지는0~2다. 원본 저장 함수는 권한검사 후별도 API를 사용하지만 호출하지 않는다. 이 팝업이 요청업로드의 실제 effective formatter를 계산하는 실행순서를 입증하지 않으며 양식 metadata/추가수량 사용/외화 자릿수는 계속 별도 확인 대상이다. 공개 원문은 .artifacts/manual-request-upload-policy-20261022/에 출처/해시로 분리한다.
+
+RequestUploadPolicyCore.resolve의 독립 metadata 해석기를 만든다. 명시 version1 snapshot의 common(금액/기본/추가수량/단가), purchase(기본/추가수량/단가), form(각수량/단가의 explicit/default/unknown)과 quantityUse를 받는다. explicit0도 양식 명시값이며 default일 때만 구매값을 사용한다. unknown 양식 또는 미상 구매값은 공통값으로 대체하지 않는다. 금액은 common.amountDigits에서만 읽고 다른 표시 설정·반올림/단가 자릿수와 혼합하지 않는다. 금액0~2·수량/단가0~6의 명시 정수만 허용하고 null은 미상, undefined/잘못된 shape는 오류다. 추가수량 사용여부와0자릿수를 구분하고 필요한 값이 모두 확인된 경우만 기존 review용 quantity/amounts 정책을 반환한다. 출처와 미해결필드를 함께 반환하며 외화정밀도/묶음/기본값/권한/저장을 해결하지 않는다.
+
+기존0.74.0 실제 메뉴의 null정책/저장차단은 유지한다. 이 해석기를 회사 snapshot 공급원과 연결한 것은 아니며 원본 관찰값을 REA 회사 기본값으로 하드코딩/저장하지 않는다. 정확한metadata형식·양식0우선·default구매0우선·unknown상속차단·공통금액/비율분리·사용안함과수량사용·불변/JSON·잘못된값을 집중 검사한다. 필요한 자체/새원본 범위를 REA6.4로 분석하고 기존설계에 기록하여 commit/push한다. 실제앱/배포 변경이 없으므로 전체98브라우저/서버메일 백업을 반복하지 않는다.
