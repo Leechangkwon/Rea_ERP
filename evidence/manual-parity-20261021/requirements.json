@@ -1799,7 +1799,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "catalog-and-import-core-candidate-tested-authenticated-ui-and-field-editor-pending-not-deployed",
+      "status": "authenticated-ui-consumer-full-isolated-regression-passed-field-editor-and-hosted-acceptance-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1812,11 +1812,16 @@
         "dist/self-core.js",
         "evidence/manual-mapping-field-storage-20261023.json",
         "dist/mapping-core.js",
-        "evidence/manual-mapping-import-core-20261023.json"
+        "evidence/manual-mapping-import-core-20261023.json",
+        "dist/inventory-ui.js",
+        "dist/entry-ui.js",
+        "evidence/manual-mapping-import-ui-20261023.json"
       ],
       "automatedEvidence": [
         "tests/mapping-field-storage.cjs",
-        "tests/mapping-import-core.cjs"
+        "tests/mapping-import-core.cjs",
+        "tests/mapping-import-ui.cjs",
+        "tests/browser/mapping-import.spec.cjs"
       ],
       "hostedAcceptance": false,
       "done": false,
@@ -1848,6 +1853,26 @@
         "optionalEntryCoreConsumerConnected": true,
         "authenticatedUiConsumerConnected": false,
         "communityPendingLocalUpdates": 73,
+        "done": false
+      },
+      "authenticatedUiCandidate": {
+        "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
+        "evidence": "evidence/manual-mapping-import-ui-20261023.json",
+        "status": "authenticated-mapping-ui-consumer-implemented-full-isolated-regression-passed-editor-and-hosted-acceptance-pending",
+        "newUiNode": 17,
+        "newCoreNode": 1,
+        "relatedNode": 286,
+        "fullBrowser": 119,
+        "newBrowser": 4,
+        "npmTestPassed": true,
+        "tools": 7,
+        "release": 4,
+        "baseVersion": "0.82.0",
+        "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+        "productionDeployed": false,
+        "fieldEditorEnabled": false,
+        "authenticatedUiConsumerConnected": true,
+        "communityPendingLocalUpdates": 74,
         "done": false
       }
     },

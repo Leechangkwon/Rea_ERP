@@ -288,7 +288,7 @@
     "requestHeaderInputSequenceNewNode": 7,
     "requestHeaderInputSequenceNewBrowser": 2
   },
-  "future_research": "REQ-COM-MAPPING-001: 기존 주문 불러오기 화면에 인증 설정 전달 어댑터를 연결한다. GET /api/auth/status의 현재 계정·회사·권한·settingsRevision/menuMappings를 확인하고 대기 중 닫기/부모교체/초안·원본·양식·설정 변경을 차단한 뒤 MappingCore를 호출한다. 합성 실제 셸에서 성공/충돌/취소/재시도/늦은 응답/계정변경을 검증한다. 원본 미관찰 필드편집 UI는 별도로 보류하며 BODY·업로드 저장은 기존 재개조건 없이 재분석하지 않는다. main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
+  "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-request-input-order-20261022.json",
@@ -1324,6 +1324,27 @@
       "optionalEntryCoreConsumerConnected": true,
       "authenticatedUiConsumerConnected": false,
       "communityPendingLocalUpdates": 73,
+      "done": false,
+      "supersededBy": "evidence/manual-mapping-import-ui-20261023.json"
+    },
+    "mappingAuthenticatedUiCandidate": {
+      "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
+      "evidence": "evidence/manual-mapping-import-ui-20261023.json",
+      "status": "authenticated-mapping-ui-consumer-implemented-full-isolated-regression-passed-editor-and-hosted-acceptance-pending",
+      "newUiNode": 17,
+      "newCoreNode": 1,
+      "relatedNode": 286,
+      "fullBrowser": 119,
+      "newBrowser": 4,
+      "npmTestPassed": true,
+      "tools": 7,
+      "release": 4,
+      "baseVersion": "0.82.0",
+      "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+      "productionDeployed": false,
+      "fieldEditorEnabled": false,
+      "authenticatedUiConsumerConnected": true,
+      "communityPendingLocalUpdates": 74,
       "done": false
     }
   },
