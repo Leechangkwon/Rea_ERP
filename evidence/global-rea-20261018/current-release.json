@@ -1,6 +1,6 @@
 {
-  "version": "0.83.0",
-  "status": "partial-manual-parity-request-reference-memo-deployed",
+  "version": "0.84.0",
+  "status": "partial-manual-parity-currency-registration-subset-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -296,16 +296,29 @@
       "verifyLocalPassed": true,
       "tools": 7,
       "release": 4
+    },
+    "currencyRegistration": {
+      "newNode": 8,
+      "fullNpmTest": true,
+      "tools": 7,
+      "release": 4,
+      "environment": true,
+      "build": true,
+      "fullBrowser": 119,
+      "fullBrowserPassed": true,
+      "allRequiredComponentsPassed": true,
+      "verifyLocalCommandExit0": false,
+      "reason": "Existing27px desktop buttons vs arbitrary32px new-test assumption; test-only correction followed by complete119 browser pass"
     }
   },
   "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-reference-20261023.json",
+    "reference": "evidence/manual-currency-registration-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
-    "publicVersionVerified": "0.83.0",
+    "deployedSourceCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+    "publicVersionVerified": "0.84.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -364,20 +377,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.80.0",
+    "existingSessionRetainedVersion": "0.84.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.80.0",
+    "lastExactBrowserBackupComparisonVersion": "0.84.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.80.0",
+    "currentServerStateAndMailPreservedVersion": "0.84.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.80.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.84.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -517,11 +530,13 @@
       "preservationPassed": true,
       "runtimeSession": 70514,
       "linuxPid": 2473340
-    }
+    },
+    "currencyRegistrationHostedReadOnlyVerified": true,
+    "currencyRegistrationHostedBusinessSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 28,
+    "officialRequirements": 29,
     "sourceBodiesReviewed": 24,
     "done": 0,
     "nextWork": {
@@ -529,7 +544,7 @@
       "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.83.0",
+      "productionVersion": "0.84.0",
       "done": false,
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
@@ -1334,7 +1349,7 @@
       "done": false,
       "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb",
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.83.0"
+      "releaseRequiresRebaseOn": "0.84.0"
     },
     "mappingImportCoreCandidate": {
       "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
@@ -1352,7 +1367,7 @@
       "communityPendingLocalUpdates": 73,
       "done": false,
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.83.0"
+      "releaseRequiresRebaseOn": "0.84.0"
     },
     "mappingAuthenticatedUiCandidate": {
       "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
@@ -1373,7 +1388,7 @@
       "authenticatedUiConsumerConnected": true,
       "communityPendingLocalUpdates": 74,
       "done": false,
-      "releaseRequiresRebaseOn": "0.83.0"
+      "releaseRequiresRebaseOn": "0.84.0"
     },
     "mappingEditorResearch": {
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
@@ -1406,18 +1421,31 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-VID-13899",
-      "title": "재고1 외화등록",
-      "url": "https://www.youtube.com/watch?v=sMVrKsgaU7c",
-      "context": "Request input video1:35 shows inline currency dropdown 추가. Observe registration popup fields/save/cancel metadata before integrating registered-currency creation; preserve existing rates/codes/documents and do not infer FX amount calculations.",
-      "legacyMappingEditor": "Evidence-gated; requires actual TC101P_01 source/read-only view. Rebase unshipped mapping candidate on0.83 before any release."
+      "sourceId": "EC-VID-13914",
+      "requirement": "REQ-COM-CURRENCY-001",
+      "title": "발주요청 통화 추가와 등록완료 메시지 소비자",
+      "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
+      "context": "Currency master subset deployed0.84. Confirm public registration result consumer before wiring request inline add; preserve parent draft/form/amounts and account/company/permission/storage snapshots. No blind parent CAS reset or nested activeEditorModal reuse.",
+      "legacyMappingEditor": "Still gated on actual TC101P_01; unshipped mapping must rebase on0.84 before release."
+    },
+    "currencyRegistration": {
+      "requirement": "REQ-COM-CURRENCY-001",
+      "status": "deployed-preservation-verified-hosted-readonly-passed-business-save-pending",
+      "evidence": "evidence/manual-currency-registration-20261023.json",
+      "sourceCommit": "fb1f7c675079a0063162d92cad5a958d71d87f50",
+      "releaseCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+      "newNode": 8,
+      "newBrowser": 2,
+      "fullBrowser": 119,
+      "done": false,
+      "inlineCurrencyAddImplemented": false
     }
   },
   "preparedCandidate": {
-    "version": "0.83.0",
-    "commit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
-    "manifest": ".artifacts/manual-request-reference-20261023/release-manifest.json",
-    "bundleSha256": "74ea7bae55beb1eccb51f08dc28470df5cf1bae73e1d43ae17036b7b42ac79ac",
+    "version": "0.84.0",
+    "commit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+    "manifest": ".artifacts/manual-currency-registration-20261023/release-manifest.json",
+    "bundleSha256": "16854ab544fe87b3b84a537dcd69b60cba9ee58049f5ed7ee261b87f25d03f41",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1458,14 +1486,15 @@
       "body-required-column-aria-and-populated-item-errors-with-actual-inline-failure",
       "request-basic-field-catalog-stable-slots-longtext-legacy-and-projected-forms-preservation",
       "request-header-native-input-sequence-independent-display-and-preserved-unknown-order-metadata",
-      "request-reference-plain-text-edit-preserve-search"
+      "request-reference-plain-text-edit-preserve-search",
+      "currency-registration-optional-rate-and-amount-precision"
     ],
-    "supersedesCandidateCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+    "supersedesCandidateCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.80.0-body-required-guidance"
+    "branch": "release/0.84.0-currency-registration"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {

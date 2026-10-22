@@ -2144,7 +2144,7 @@
         "선택한 금액소수점 metadata 보존",
         "기존 코드/환율/전표·양식과 부모 초안 보존"
       ],
-      "status": "master-subset-implemented-candidate-validation-pending",
+      "status": "master-subset-deployed-preservation-verified-inline-add-and-full-acceptance-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "sourceId": "EC-VID-13899",
@@ -2215,7 +2215,11 @@
         "request inline add/parent draft integration",
         "foreign amount conversion/print consumers",
         "current original account save/cancel/permission and production saved-business acceptance"
-      ]
+      ],
+      "sourceCommit": "fb1f7c675079a0063162d92cad5a958d71d87f50",
+      "releaseCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+      "productionVersion": "0.84.0",
+      "hostedReadOnlyPassed": true
     }
   ]
 }

@@ -2,8 +2,8 @@
   "schema": 1,
   "date": "2026-10-23",
   "requirement": "REQ-COM-CURRENCY-001",
-  "status": "isolated-candidate-all-required-components-passed-ready-to-release",
-  "productionVersion": "0.83.0",
+  "status": "deployed-preservation-verified-hosted-readonly-passed-business-save-pending",
+  "productionVersion": "0.84.0",
   "candidateVersion": "0.84.0",
   "sourceManifest": ".artifacts/manual-currency-registration-20261023/source-manifest.json",
   "source": {
@@ -287,12 +287,98 @@
       }
     ]
   },
-  "deployment": null,
+  "deployment": {
+    "version": "0.84.0",
+    "publicVersionAndAssetsVerified": true,
+    "sourceCommit": "fb1f7c675079a0063162d92cad5a958d71d87f50",
+    "releaseCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+    "branch": "release/0.84.0-currency-registration",
+    "immutableCheckout": ".artifacts/releases/0.84.0-currency-registration",
+    "bundleSha256": "16854ab544fe87b3b84a537dcd69b60cba9ee58049f5ed7ee261b87f25d03f41",
+    "runtimeSessionId": 62840,
+    "runtimePid": 2482988,
+    "existingLoginRetained": true,
+    "hostedFieldsInspected": {
+      "digits": "2",
+      "label": "외화 신규",
+      "options": [
+        {
+          "label": "사용안함",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "rate": "",
+      "saved": false,
+      "typed": false
+    },
+    "rootFullBuildPerformed": false,
+    "unshippedVatMappingIncluded": false,
+    "publicChecks": ".artifacts/manual-currency-registration-20261023/public-deploy.json"
+  },
   "preservation": {
     "predeployBackup": ".artifacts/manual-currency-registration-20261023/predeploy-backup.json",
-    "postdeployVerified": false,
+    "postdeployVerified": true,
     "businessWrites": false,
-    "restored": false
+    "restored": false,
+    "browser": {
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "exactBytes": true,
+      "allInventoryJsonExact": true,
+      "formsExact": true,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "documents": 8,
+      "plans": 0,
+      "restored": false
+    },
+    "serverAndMail": {
+      "version": "0.84.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    }
   },
   "sourceLimitations": [
     "Only timestamp captions/keyframes, not full transcript/video",
@@ -323,5 +409,7 @@
     "unshippedMappingRebaseAfterRelease": true
   },
   "done": false,
-  "hostedBusinessSaveAcceptance": false
+  "hostedBusinessSaveAcceptance": false,
+  "sourceCommit": "fb1f7c675079a0063162d92cad5a958d71d87f50",
+  "releaseCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89"
 }
