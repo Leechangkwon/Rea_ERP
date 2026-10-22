@@ -1096,23 +1096,28 @@
         "evidence/manual-request-upload-connection-20261022.json",
         "evidence/manual-request-upload-policy-20261022.json",
         "evidence/manual-purchase-precision-20261022.json",
-        "evidence/manual-form-numeric-display-20261022.json"
+        "evidence/manual-form-numeric-display-20261022.json",
+        "evidence/manual-request-upload-save-rules-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Form explicit/default metadata and foreign precision, required/header/grouping/defaults, two-quantity precedence, versioned manual-money persistence/consumers, failure/retry and actual business acceptance remain incomplete",
+      "remaining": "Actual save-time exceptions for date/transaction/currency are now observed; versioned rule/initial-value/none representation and review adapter remain to implement. Grouping equality/order, complete upload required/Validator metadata, menu/currency precision, quantity precedence, manual-money persistence/consumers, retries/CAS and hosted business acceptance remain incomplete.",
       "supportingSourceIds": [
         "EC-HELP-UPLOAD-COMPARE-001",
         "EC-HELP-UPLOAD-DUPLICATE-001",
         "EC-HELP-QUANTITY-001",
         "EC-HELP-UPLOAD-USE-001",
-        "EC-HELP-UPLOAD-FIELDS-001"
+        "EC-HELP-UPLOAD-FIELDS-001",
+        "EC-HELP-SETTINGS-WORKFLOW-001",
+        "EC-HELP-SETTINGS-ENTRY-001"
       ],
       "supportingSourceScope": {
         "duplicateFaq": "sales only; does not establish request retry/idempotency",
         "comparisonVideo": "full auto transcript only; current row limit and legacy Excel claims unverified",
         "uploadUseGuide": "header exclusion, retain empty columns, leading-zero text, bold required and maximum300cases notice; case unit/runtime limit unverified",
-        "uploadFieldGuide": "master item/partner basic-tab registration only; request upload setting/required map not established"
+        "uploadFieldGuide": "master item/partner basic-tab registration only; request upload setting/required map not established",
+        "workflowGuide": "Board workflow only; describes save-time modification but supplies no request-upload defaults.",
+        "settingsEntryGuide": "One-sentence item-add screen navigation only; video unreviewed."
       },
       "uploadRawCandidate": {
         "sourceCommit": "5b761c5cd22f10945f27c59368cea8694baa6101",
@@ -1231,6 +1236,14 @@
         "appIntegrated": true,
         "productionDeployed": true,
         "hostedThreeHeaderProposalsVerified": true,
+        "saveImplemented": false,
+        "done": false
+      },
+      "uploadSaveRuleResearch": {
+        "evidence": "evidence/manual-request-upload-save-rules-20261022.json",
+        "actualMenuSpecificRulesObserved": 3,
+        "summaryCanOmitExceptions": true,
+        "appIntegrated": false,
         "saveImplemented": false,
         "done": false
       }

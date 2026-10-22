@@ -1,7 +1,7 @@
 {
   "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
-  "count": 51,
-  "bodyReviewed": 21,
+  "count": 54,
+  "bodyReviewed": 23,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -505,6 +505,47 @@
       "textBodyReviewed": true,
       "originalBusinessOrSettingsWrites": false,
       "scopeLimit": "item/partner master registration basic-tab fields; transaction upload mapping not established"
+    },
+    {
+      "id": "EC-HELP-SETTINGS-WORKFLOW-001",
+      "title": "그룹웨어 게시판 업무설정 기능 소개",
+      "kind": "official online manual text",
+      "status": "body-reviewed",
+      "sourcePath": "발주요청입력 > 도움말 > 통합검색 저장시값변경 > 그룹웨어 게시판 업무설정 기능 소개",
+      "observedDate": "2026-10-22",
+      "localArtifact": ".artifacts/manual-upload-save-rules-20261022/observed-save-value-manual.txt",
+      "bodySha256": "3e71a9f44415d2cf5b9b42db0d7d3eacc3254a73b8eb3052c4d7f289a6418b47",
+      "textBodyReviewed": true,
+      "scopeLimit": "Board workflow only; distinguishes initializer/trigger/save-time value change. Does not define request-upload defaults or grouping.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-HELP-SETTINGS-ENTRY-001",
+      "title": "입력화면설정에 원하는 항목이 없을 때 업무설정으로 다시 들어가는 게 번거로워요.",
+      "kind": "official FAQ text plus video",
+      "status": "body-reviewed",
+      "sourcePath": "발주요청입력 > 도움말 > 통합검색 업무설정 > 입력화면설정에 원하는 항목이 없을 때 업무설정으로 다시 들어가는 게 번거로워요.",
+      "observedDate": "2026-10-22",
+      "localArtifact": ".artifacts/manual-upload-save-rules-20261022/official-item-settings-entry.txt",
+      "bodySha256": "6bd22568ce7968d9b2bdce0879527c583f659c9f35c3223993933153398645c1",
+      "textBodyReviewed": true,
+      "videoUrl": "https://www.youtube.com/watch?v=PKpHmAB2fjo",
+      "videoReviewed": false,
+      "scopeLimit": "One-sentence text points to the 업무설정 button in the item-add screen; no upload formula contract.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-HELP-UPLOAD-FAILURE-001",
+      "title": "엑셀자료올리기/웹자료올리기가 실패하는 경우",
+      "kind": "official embedded video",
+      "status": "index-only",
+      "sourcePath": "발주요청입력 > 도움말 > 온라인매뉴얼 > 전표묶음기준 검색 > 엑셀자료올리기/웹자료올리기가 실패하는 경우",
+      "observedDate": "2026-10-22",
+      "videoUrl": "https://www.youtube.com/watch?v=eblu6bPexEk",
+      "textBodyAvailable": false,
+      "videoReviewed": false,
+      "transcriptStatus": "connector returned Unexpected response type; no retry or body-completion claim",
+      "originalBusinessOrSettingsWrites": false
     }
   ]
 }

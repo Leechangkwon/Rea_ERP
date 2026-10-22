@@ -1,6 +1,14 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
-## 업로드 정책 metadata의 양식·구매·공통 계층
+## 현재 업로드 계층 · 운영0.78.0 / 저장시규칙은 다음 통합 작업
+
+현재 입력정밀도는 RequestUploadPolicyCore version2이며 Renderer.value_format과 구매 표시 자릿수는 공급원에서 제외한다. 아래 version1 설명은 과거 독립 후보 이력이다. 0.78.0의 실제 snapshot/Review는 등록참조와 독립수량/금액/환율 검토만 제공하며 전표저장은 없다.
+
+새로 관찰한 저장시값변경은 `initializer` 자체나 무조건적인 공란 기본값과 다르다. 요청 업무설정의 기본 기존값유지와 업로드/엑셀/OAPI+공란 예외를 각각 표현해야 한다. 일자/거래유형은 초기값 참조이고 외화종류는 직접입력없음이다. 거래유형 초기값의 최신전표 공급원·없음의 저장표현·그룹화 전후순서는 아직 확정하지 않았다. `-` 목록요약은 예외규칙 부재를 뜻하지 않았다.
+
+다음 versioned save-rule snapshot은 회사·설정revision/field/source를 고정하고 raw/proposed/none/unknown 및 초기값 결과출처를 분리한다. 외부 original 설정을 가져와 저장하거나 원본 Flow를 실행하지 않는다. 기존 account/company/config/raw/route guard에 연결하고 지원하지 않는 식/누락공급원은 unresolved로 유지한다. 이 snapshot을 실제 Preview/InputUI에 연결하기 전 미연결 helper만으로 배포하지 않는다. 일반문서의 qty×price 계산·VAT5·모든 유효금액 소비자와 업로드 수동금액 영속화는 별도 저장계약이며 변경하지 않았다. 구체적 순서/검사는 docs/plan-request-upload-close-20261022.md, 근거 evidence/manual-request-upload-save-rules-20261022.json이다.
+
+## 과거 version1 후보 · 업로드 정책 metadata의 양식·구매·공통 계층
 
 독립 RequestUploadPolicyCore는 명시 version1 snapshot의 양식 explicit/default/unknown을 구분한다. explicit0도 유효하고 default는 구매값만 선택한다. 미상양식이나 미상구매를 공통 수량·단가로 대체하지 않는다. 금액은 공통0~2, 수량/단가는0~6이며 공통 표시/반올림과 분리한다. quantityUse는0자리와 별개의 boolean/null이다. provenance/unresolved를 보존하고 확인된 경우에만 기존 review 검사에 호환되는 quantity/amounts를 만든다. 외화/필수/묶음/저장 계약은 계속 미해결이다. 원본 popup의 실제 formatter 호출/서버 schema를 복제한 것은 아니며 회사/양식 설정·adapter는 미연결이다. 기존 FormCore/FormOptions는 자릿수 metadata가 없으므로 다음 nullable schema/UI/guard를 별도 설계한다. 근거 evidence/manual-request-upload-policy-20261022.json.
 

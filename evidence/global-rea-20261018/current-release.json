@@ -266,9 +266,16 @@
       "verifyLocalPassed": true,
       "tools": 7,
       "release": 4
+    },
+    "requestUploadSaveRuleResearch": {
+      "reference": "evidence/manual-request-upload-save-rules-20261022.json",
+      "newOriginalReaScopes": 4,
+      "parseFailures": 0,
+      "npmTestsRepeated": false,
+      "deploymentRepeated": false
     }
   },
-  "future_research": "다음은 REQ-PUR-REQ-005의 전표묶음기준·저장시값변경 온라인매뉴얼 전문을 찾아 실제 양식의 설정 공급원/공개 코드 전달경로와 대조한다. 이미 확인한 담당자·창고·프로젝트 helper나 같은 표시 팝업을 반복 검사하지 않는다. 비활성 링크는 새 상태/권한 변화 없이 재클릭하지 않는다. 확인된 묶음 equality·공란값 처리·필수/상하단 규칙만 versioned 저장 snapshot/미리보기에 연결하고, 메뉴별 수량/단가 Validator·통화정밀도·두수량 우선순위·수동금액 소비자·부분실패/재시도/CAS 계약 전에는 전표저장을 열지 않는다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.78.0·runtime77210/PID2412461 유지, 전체매뉴얼 완료 false.",
+  "future_research": "REQ-PUR-REQ-005: 기존 표시/등록자료 helper 검사와 같은 매뉴얼 검색을 반복하지 말고, 이번에 실제 확인한 업로드경로+공란 조건의 저장시값변경 3종을 회사별 versioned 규칙 snapshot으로 설계하여 현재 검토 모델/원문·제안값·stale guard에 연결한다. 일자는 초기값 참조이며 거래유형 초기값에는 최신전표내역 공급원이 있다. 통화는 초기값 참조가 아닌 직접입력(없음)이다. 원본 회사의 현재 규칙/최신값을 REA 전역 기본값으로 복사하거나 오늘/21/KRW를 일괄 대입하지 않는다. 별도 초기값·none 의미/표현을 명시하고 미확인 공급원은 unresolved로 남긴다. 명시0/공란/원문·설정revision을 보존한다. 저장 후보는 묶음 equality·기본값과 grouping 순서·필수/Validator·통화자릿수·두수량·수동금액 모든 소비자·실패재시도/CAS 계약 후에만 활성화한다. 새 상태 없이 비활성 링크 재시도/원본 주입력행·설정저장·발송과 main VAT5 전체빌드/배포는 금지한다. 운영0.78.0/runtime77210/PID2412461을 유지하며 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-request-upload-header-references-20261022.json",
@@ -446,83 +453,16 @@
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 26,
-    "sourceBodiesReviewed": 21,
+    "sourceBodiesReviewed": 23,
     "done": 0,
     "nextWork": {
-      "requirement": "REQ-COM-TAX-001",
-      "status": "calculation-evidence-conflict-local-audit",
-      "plan": "docs/plan-manual-transaction-vat-20261021.md",
-      "evidence": "evidence/manual-transaction-vat-conflicts-20261021.json",
-      "storageIntegrated": true,
-      "uiIntegrated": true,
-      "deploymentPending": true,
-      "sourceCommit": "4f1e23c08d8d3535ed68f6df65f51ab7f980a829",
-      "settingsIntegrated": false,
-      "settingsStorageIntegrated": true,
-      "settingsSelectionUiIntegrated": false,
-      "basicOriginalFieldMappingVerified": true,
-      "implementationSourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
-      "calculationEvidenceConflict": true,
-      "conflictingSyntheticCases": 5,
-      "calculationParityVerified": false,
-      "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
-      "independentFormulaCandidate": {
-        "sourceCommit": "8c07d91a485e5e9f40a82230aeef87c0ac0d8533",
-        "evidence": "evidence/manual-vat-price-binding-20261021.json",
-        "algorithm": "raw-supply-static-candidate-v1",
-        "matchedStaticCases": 7,
-        "unresolvedConflicts": 5,
-        "appIntegrated": false,
-        "persistenceVersion": null,
-        "originalParityPassed": false,
-        "previousEvidence": "evidence/manual-vat-static-candidate-20261021.json",
-        "appliedPriceDecimals": 10,
-        "upstreamStaticMappingRefined": true
-      },
-      "resolverResearch": {
-        "sourceCommit": "420cfd5d4da671a0b521352645e8026866c22525",
-        "evidence": "evidence/manual-vat-resolver-20261021.json",
-        "status": "default-input-flow-and-post-format-mapped",
-        "originalScopes": 14,
-        "actualSelectedFormulaVerified": false,
-        "originalParityPassed": false
-      },
-      "independentDecimalCandidate": {
-        "sourceCommit": "18393fe3631d5227836d81a92fe559c1f2703694",
-        "evidence": "evidence/manual-vat-decimal-20261021.json",
-        "algorithm": "decimal29-divisor-order-v0",
-        "status": "initial-profile-validated-not-integrated",
-        "newNodeTests": 12,
-        "relatedVatTests": 138,
-        "independentComparisons": 13302,
-        "originalScopes": 14,
-        "ownScopes": 7,
-        "appIntegrated": false,
-        "canApply": false,
-        "originalParityPassed": false,
-        "unresolvedConflicts": 5,
-        "currentResolverVersionDifferenceRecorded": true
-      },
-      "resolvedGroupsCandidate": {
-        "sourceCommit": "d8035b910dce9bc8f54f99e15db688b0874cdeda",
-        "evidence": "evidence/manual-vat-groups-20261021.json",
-        "algorithm": "resolved-rate-groups-static-v0",
-        "resolvedRates": [
-          0,
-          10
-        ],
-        "newNodeTests": 13,
-        "relatedVatTests": 151,
-        "independentCases": 2011,
-        "independentRows": 41905,
-        "originalScopes": 5,
-        "ownScopes": 2,
-        "appIntegrated": false,
-        "canApply": false,
-        "rateResolutionVerified": false,
-        "originalParityPassed": false,
-        "unresolvedConflicts": 5
-      }
+      "requirement": "REQ-PUR-REQ-005",
+      "status": "actual-save-rules-observed-versioned-snapshot-and-review-adapter-next",
+      "plan": "docs/plan-request-upload-close-20261022.md",
+      "evidence": "evidence/manual-request-upload-save-rules-20261022.json",
+      "applicationCodeChangedThisResearch": false,
+      "productionVersion": "0.78.0",
+      "done": false
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1132,7 +1072,91 @@
       "productionDeployed": true,
       "saveImplemented": false,
       "done": false
-    }
+    },
+    "blockedVatResearch": {
+      "requirement": "REQ-COM-TAX-001",
+      "status": "calculation-evidence-conflict-local-audit",
+      "plan": "docs/plan-manual-transaction-vat-20261021.md",
+      "evidence": "evidence/manual-transaction-vat-conflicts-20261021.json",
+      "storageIntegrated": true,
+      "uiIntegrated": true,
+      "deploymentPending": true,
+      "sourceCommit": "4f1e23c08d8d3535ed68f6df65f51ab7f980a829",
+      "settingsIntegrated": false,
+      "settingsStorageIntegrated": true,
+      "settingsSelectionUiIntegrated": false,
+      "basicOriginalFieldMappingVerified": true,
+      "implementationSourceCommit": "94a569e383c5ff0e69f025fe3fdccb74e9fbae1b",
+      "calculationEvidenceConflict": true,
+      "conflictingSyntheticCases": 5,
+      "calculationParityVerified": false,
+      "version1PreservationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
+      "independentFormulaCandidate": {
+        "sourceCommit": "8c07d91a485e5e9f40a82230aeef87c0ac0d8533",
+        "evidence": "evidence/manual-vat-price-binding-20261021.json",
+        "algorithm": "raw-supply-static-candidate-v1",
+        "matchedStaticCases": 7,
+        "unresolvedConflicts": 5,
+        "appIntegrated": false,
+        "persistenceVersion": null,
+        "originalParityPassed": false,
+        "previousEvidence": "evidence/manual-vat-static-candidate-20261021.json",
+        "appliedPriceDecimals": 10,
+        "upstreamStaticMappingRefined": true
+      },
+      "resolverResearch": {
+        "sourceCommit": "420cfd5d4da671a0b521352645e8026866c22525",
+        "evidence": "evidence/manual-vat-resolver-20261021.json",
+        "status": "default-input-flow-and-post-format-mapped",
+        "originalScopes": 14,
+        "actualSelectedFormulaVerified": false,
+        "originalParityPassed": false
+      },
+      "independentDecimalCandidate": {
+        "sourceCommit": "18393fe3631d5227836d81a92fe559c1f2703694",
+        "evidence": "evidence/manual-vat-decimal-20261021.json",
+        "algorithm": "decimal29-divisor-order-v0",
+        "status": "initial-profile-validated-not-integrated",
+        "newNodeTests": 12,
+        "relatedVatTests": 138,
+        "independentComparisons": 13302,
+        "originalScopes": 14,
+        "ownScopes": 7,
+        "appIntegrated": false,
+        "canApply": false,
+        "originalParityPassed": false,
+        "unresolvedConflicts": 5,
+        "currentResolverVersionDifferenceRecorded": true
+      },
+      "resolvedGroupsCandidate": {
+        "sourceCommit": "d8035b910dce9bc8f54f99e15db688b0874cdeda",
+        "evidence": "evidence/manual-vat-groups-20261021.json",
+        "algorithm": "resolved-rate-groups-static-v0",
+        "resolvedRates": [
+          0,
+          10
+        ],
+        "newNodeTests": 13,
+        "relatedVatTests": 151,
+        "independentCases": 2011,
+        "independentRows": 41905,
+        "originalScopes": 5,
+        "ownScopes": 2,
+        "appIntegrated": false,
+        "canApply": false,
+        "rateResolutionVerified": false,
+        "originalParityPassed": false,
+        "unresolvedConflicts": 5
+      }
+    },
+    "uploadSaveRuleResearch": {
+      "evidence": "evidence/manual-request-upload-save-rules-20261022.json",
+      "actualMenuSpecificRulesObserved": 3,
+      "appIntegrated": false,
+      "newTextBodies": 2,
+      "done": false
+    },
+    "onlineManualIndexItems": 54
   },
   "preparedCandidate": {
     "version": "0.78.0",

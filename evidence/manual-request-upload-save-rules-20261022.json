@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "operatingVersion": "0.78.0",
+  "baseSourceCommit": "9af6de15c8056da7d5d280408bb05e0a26a35206",
+  "status": "actual-request-save-rules-researched-no-implementation-or-deployment",
+  "requirements": [
+    "REQ-PUR-REQ-005"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 23,
+  "newIndexItems": 3,
+  "newTextBodies": 2,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "scope": "Read-only actual purchase-request business-setting rules, not saved settings or original business execution",
+    "route": "발주요청입력 > Option > 업무설정 > 항목설정 > 일자/거래유형/통화 > 저장시값변경",
+    "sourceFacts": [
+      {
+        "field": "일자",
+        "route": "발주요청입력 > Option > 업무설정 > 항목설정 > 일자 > 저장시값변경",
+        "base": "기존값유지",
+        "exceptions": [
+          {
+            "label": "1 ECOUNT",
+            "condition": "입력경로 = 웹자료올리기, 엑셀자료올리기, OAPI AND 일자 값없음",
+            "trueValue": "속성불러오기 (초기값)"
+          }
+        ],
+        "initialValueDisplay": "접속환경-일자(금일) (일자형)",
+        "settingsChanged": false
+      },
+      {
+        "field": "거래유형코드",
+        "route": "발주요청입력 > Option > 업무설정 > 항목설정 > 거래유형 > 저장시값변경",
+        "base": "기존값유지",
+        "exceptions": [
+          {
+            "label": "1 ECOUNT",
+            "condition": "입력경로 = 웹자료올리기, 엑셀자료올리기, OAPI AND 거래유형코드 값없음",
+            "trueValue": "속성불러오기 (초기값)"
+          }
+        ],
+        "settingsChanged": false,
+        "initialRule": {
+          "base": "기본설정",
+          "exceptionLabel": "1 ECOUNT",
+          "conditionSummary": "empty in DOM",
+          "trueValue": "최신전표내역",
+          "resolvedCodeNotRead": true
+        }
+      },
+      {
+        "field": "외화종류",
+        "route": "발주요청입력 > Option > 업무설정 > 항목설정 > 통화 > 저장시값변경",
+        "base": "기존값유지",
+        "exceptions": [
+          {
+            "label": "1 ECOUNT",
+            "condition": "입력경로 = 웹자료올리기, 엑셀자료올리기, OAPI AND 외화종류 값없음",
+            "trueValue": "직접입력 (없음)"
+          }
+        ],
+        "noneEncodingUnverified": true,
+        "settingsChanged": false
+      }
+    ],
+    "summaryTableLimitation": "Save-time value column and item-setting label were blank or dash, but opening details exposed ECOUNT exception rules. A blank summary does not prove no rule.",
+    "currentHeaderSummary": [
+      {
+        "field": "일자",
+        "initial": "접속환경-일자(금일) (일자형)",
+        "requiredDisplay": "Y"
+      },
+      {
+        "field": "담당자",
+        "initial": "최신전표내역",
+        "requiredDisplay": "N"
+      },
+      {
+        "field": "통화",
+        "initialSummary": "blank",
+        "requiredDisplay": "N"
+      },
+      {
+        "field": "환율",
+        "initialSummary": "blank",
+        "requiredDisplay": "blank"
+      },
+      {
+        "field": "창고",
+        "initial": "최신전표내역",
+        "requiredDisplay": "Y"
+      },
+      {
+        "field": "프로젝트",
+        "initial": "최신전표내역",
+        "requiredDisplay": "N"
+      },
+      {
+        "field": "거래유형",
+        "initialSummary": "blank",
+        "requiredDisplay": "Y"
+      }
+    ],
+    "requiredScope": "Current business-setting summary, not exhaustive upload-specific validation metadata. Do not make universal required-field defaults.",
+    "groupingEqualityVerified": false,
+    "uploadOrderOfDefaultsAndGroupingVerified": false,
+    "disabledItemSettingLinkRetried": false,
+    "mainInputRowsEdited": false,
+    "uploadCellsEdited": false,
+    "settingsAppliedOrSaved": false,
+    "businessWrites": false,
+    "originalMailSent": false,
+    "cleanup": {
+      "requestEntryVisible": true,
+      "settingsDialogsClosed": true
+    },
+    "privateBusinessRowsOrSessionUrlsStored": false
+  },
+  "publicStaticFindings": {
+    "manifest": ".artifacts/manual-upload-save-rules-20261022/source-manifest.json",
+    "newFiles": 5,
+    "newBytes": 1514960,
+    "sourceScopes": ".artifacts/manual-upload-save-rules-20261022/scope-index.json",
+    "rea": ".artifacts/manual-upload-save-rules-20261022/rea/rea-summary.json",
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 4,
+    "newOwnScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "findings": [
+      "IGetItemSettingListSetupAction and IGetItemSettingSetupAction supply the visible list/item setup; list summaries cannot replace full per-attribute rules.",
+      "GetAttributeSettingCommonSetupProgram requests setup with route parameters and refer_menu_sid or current menu_sid, then returns server result.",
+      "AttributeDefaultSettingSetupProgram forwards bizz_sid, attr_sid, attr_set_sid, menu_type, data_model_ids and item_set_sid to a server action. Rules are scoped server-supplied metadata, not constants in the public presentation wrapper."
+    ],
+    "originalExecuted": false,
+    "serverActionsInvokedByResearchScript": false,
+    "runtimeEquivalence": false
+  },
+  "checks": {
+    "applicationCodeChanged": false,
+    "npmTestsRun": false,
+    "fullRegressionRepeated": false,
+    "buildRun": false,
+    "deploymentPerformed": false,
+    "runtimePid": 2412461,
+    "runtimeProcessAlive": true,
+    "installedBundleSha256": "0647bcc19d674135e6feae240c9fb8dc1c0351c6b9aad057286e62b61d7d0b03",
+    "installedBundleUnchanged": true,
+    "liveDatabaseReadOrWrite": false,
+    "hostedBusinessAcceptancePerformed": false
+  },
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "localPendingUpdates": 65,
+    "auth401Unchanged": true,
+    "retriedWithoutNewAuthentication": false,
+    "published": false,
+    "pendingArtifact": ".artifacts/manual-upload-save-rules-20261022/moa-pending-save-rules.html"
+  },
+  "remaining": [
+    "Current observed company configuration is not a universal original default.",
+    "Latest-voucher selection scope/order and initial-value resolution",
+    "Meaning/storage representation of direct-input none, not implicitly KRW or unknown",
+    "Grouping equality/normalization and relation to defaulting",
+    "Complete upload-specific required/Validator metadata",
+    "Two-quantity precedence and menu/currency input precision",
+    "Versioned manual-money storage and every effective consumer",
+    "Partial failure/retry/idempotency/CAS and hosted saved-result acceptance"
+  ],
+  "nextWork": "REQ-PUR-REQ-005: 기존 표시/등록자료 helper 검사와 같은 매뉴얼 검색을 반복하지 말고, 이번에 실제 확인한 업로드경로+공란 조건의 저장시값변경 3종을 회사별 versioned 규칙 snapshot으로 설계하여 현재 검토 모델/원문·제안값·stale guard에 연결한다. 일자는 초기값 참조이며 거래유형 초기값에는 최신전표내역 공급원이 있다. 통화는 초기값 참조가 아닌 직접입력(없음)이다. 원본 회사의 현재 규칙/최신값을 REA 전역 기본값으로 복사하거나 오늘/21/KRW를 일괄 대입하지 않는다. 별도 초기값·none 의미/표현을 명시하고 미확인 공급원은 unresolved로 남긴다. 명시0/공란/원문·설정revision을 보존한다. 저장 후보는 묶음 equality·기본값과 grouping 순서·필수/Validator·통화자릿수·두수량·수동금액 모든 소비자·실패재시도/CAS 계약 후에만 활성화한다. 새 상태 없이 비활성 링크 재시도/원본 주입력행·설정저장·발송과 main VAT5 전체빌드/배포는 금지한다. 운영0.78.0/runtime77210/PID2412461을 유지하며 전체완료 false.",
+  "done": false
+}
