@@ -26,8 +26,9 @@
   return selected[0].fieldLinks?.entries.length?selected[0]:null;
  }
  function byteLength(value){let bytes=0;for(const c of JSON.stringify(value)){const n=c.codePointAt(0);bytes+=n<=127?1:n<=2047?2:n<=65535?3:4;}return bytes;}
- function valueValid(field,value){
+ function valueValid(field,value,target=false){
   if(field.type==='text'&&(typeof value!=='string'||value.length>20000)||field.type==='number'&&!(typeof value==='number'&&Number.isFinite(value)||typeof value==='string'&&value.trim()!==''&&Number.isFinite(Number(value)))||field.type==='date'&&typeof value!=='string'||field.type==='checkbox'&&typeof value!=='boolean')throw Error(field.label+': 항목 형식과 검토 길이를 확인하세요.');
+  if(target&&field.type==='text'&&(/\r/.test(value)||!field.multiline&&/\n/.test(value)))throw Error(field.label+': 줄바꿈을 그대로 표시할 수 없습니다. LF 줄바꿈의 장문 항목을 선택하세요.');
   F.check([field],{[field.id]:value});
  }
  function stage(db,draft,incoming,selections,config,options={}){
@@ -53,7 +54,7 @@
     const values=fromField.custom?sourceRecord.custom:sourceRecord,value=values&&Object.hasOwn(values,fromField.id)?values[fromField.id]:undefined;
     const proposal={context,documentId:source.id,...(sourceLine?.lineId?{sourceLineId:sourceLine.lineId}:{}),source:fromField.id,target:toField.id,status:'blank'};
     if(blank(value)){proposals.push(proposal);continue;}
-    valueValid(fromField,value);valueValid(toField,value);usedBytes+=byteLength(value);if(usedBytes>1048576)throw Error('매핑값이 로컬 검토 한도1MiB를 초과했습니다. 나누어 적용하세요.');
+    valueValid(fromField,value);valueValid(toField,value,true);usedBytes+=byteLength(value);if(usedBytes>1048576)throw Error('매핑값이 로컬 검토 한도1MiB를 초과했습니다. 나누어 적용하세요.');
     const previous=Object.hasOwn(custom,toField.id)?custom[toField.id]:F.defaultValue(toField,C.today());
     if(!blank(previous)&&!Object.is(previous,value))throw Error(toField.label+': 기존 값 또는 기본값과 다릅니다. 현재 초안을 유지했습니다.');
     const write=!Object.hasOwn(custom,toField.id)||!Object.is(custom[toField.id],value);if(write){custom[toField.id]=value;changed=true;}

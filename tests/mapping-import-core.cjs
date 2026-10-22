@@ -1,7 +1,7 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const C=require('../dist/inventory-core.js'),E=require('../dist/entry-core.js'),F=require('../dist/form-core.js'),M=require('../dist/mapping-core.js');
-const field=(id,type='text',extra={})=>F.field(id,id,type,{custom:true,...extra});
+const field=(id,type='text',extra={})=>F.field(id,id,type,{custom:true,...(id==='x_header'?{multiline:true}:{}),...extra});
 function form(db,type,context,fields,id=context){db.settings.customization=F.save(db.settings.customization,'doc:'+type,context,{id,name:id,fields});}
 const link=(source,target,context='input')=>({source:{context,id:source},target:{context,id:target}});
 function config(entries=[link('memo','x_header'),link('x_src','x_target','lines')]){return {rules:[{id:'MAP',from:'order',to:'request',enabled:true,fieldLinks:{version:1,entries}}]};}
@@ -36,7 +36,7 @@ test('explicit zero false date and multiline values transfer without coercion or
  const numeric=fixture();numeric.db.documents[0].custom.x_num='0.00';assert.equal(stage(numeric,{},config([link('x_num','x_num')])).custom.x_num,'0.00');
 });
 test('reused source fields and missing null or blank values do not erase the target draft',()=>{
- const x=fixture();let out=stage(x,{},config([link('memo','x_header'),link('memo','x_note')]));assert.equal(out.custom.x_header,out.custom.x_note);
+ const x=fixture();x.db.documents[0].memo='한 원본 두 대상';let out=stage(x,{},config([link('memo','x_header'),link('memo','x_note')]));assert.equal(out.custom.x_header,out.custom.x_note);
  for(const value of [undefined,null,'']){x.db.documents[0].custom.x_note=value;x.draft.custom.x_note='기존';out=stage(x,{},config([link('x_note','x_note')]));assert.equal(out.custom.x_note,'기존');}
 });
 test('line mapping resolves duplicate items by source line ID and preserves existing rows and imported lineage',()=>{
@@ -102,4 +102,11 @@ test('browser UMD load order resolves mapping before EntryCore and reads SelfCor
   assert.ok(w.MappingCore.catalog(x.db,'request','input',x.draft).fields.length);assert.throws(()=>w.EntryCore.stageDocuments(x.db,x.draft,options),/메뉴 매핑 저장 규칙/);
   w.eval(fs.readFileSync('dist/self-core.js','utf8'));const out=w.EntryCore.stageDocuments(x.db,x.draft,options);assert.equal(out.custom.x_header,x.source.memo);assert.equal(out.lines[0].custom.x_target,'LOT-A');assert.equal(out.lines[0].qty,2.5);
  }finally{w.close();}
+});
+
+test('mapped multiline text must roundtrip through target controls without CR or single-line newline loss',()=>{
+ const x=fixture();form(x.db,'request','input',[field('x_header','text',{multiline:false})]);unchanged(x,()=>stage(x),/줄바꿈/);
+ form(x.db,'request','input',[field('x_header','text',{multiline:true})]);assert.equal(stage(x).custom.x_header,x.source.memo);
+ // Use actual CRLF, which a native textarea would normalize into LF.
+ x.db.documents[0].memo='첫째'+String.fromCharCode(13,10)+'둘째';unchanged(x,()=>stage(x),/줄바꿈/);
 });
