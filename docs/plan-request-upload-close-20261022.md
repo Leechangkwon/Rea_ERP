@@ -1,5 +1,24 @@
 # 발주요청 자료올리기·현황 종결 차이표와 구현 계획
 
+## 이번 조사 결과 · BODY 입력순서의 묶음 metadata
+
+발주요청 하단은 상단 입력순서 구현의 단순 확장으로 처리하지 않는다. 원본 로그인 만료와 별개로 공개 모듈의 실제 지도 함수/공급 경로, 자체0.82 BODY 소비자까지 새로 대조했다. 근거 `evidence/manual-request-body-focus-20261023.json`, 해시/원문/REA `.artifacts/manual-request-body-focus-20261023/`.
+
+| 계약 | 새로 확인한 내용 | 아직 필요한 근거 |
+|---|---|---|
+| 묶음 구성 | Renderer.props_layout.target_props.items가 부모→자식, 역지도는 자식→부모 | 요청 BODY의 실제 부모/자식ID·조건별 유효설정 |
+| 적용 재정렬 | 정의별1부터, 자식 외부순회 제외, 지정 내부순서, 기존focus_order만 갱신 | 실제 필드별 값/검증·동일번호 예외 |
+| 설정 편집 | getConfigProps는 원래 정렬목록에서 자식을 펼침 | 적용기 items순서와 실제 화면 대응 |
+| 항목 추가 | 기존최대 이후 자식번호, props_layout/line_merge 복사 | 기존메뉴 bundle/권한·기본값 |
+| GRID 공급 | grid/subtype/template_set/item_separate_tf, THEAD→TBODY 분기, association_prop+section_type 또는 정확ID | 요청별 서버 반환metadata·입력 포커스 runtime |
+| 자체 소비자 | 평면 schema·native select/표시span, row action/수입·생성잠금, tbody 재생성, Tab 미개입 | 의미표/표시열을 보존하는 행간/역방향/피커 포커스 설계와 실제 대응 |
+
+상단의 DOM/CSSGrid 전략이나 양의tabindex로 전체 폼 순서를 덮지 않는다. 명칭/옆열로 bundle을 만들지 않으며 원본코드를 실행하지 않는다. 입력순서 속성 미존재·미상버전·숨김/readonly/disabled는 임의 보정하지 않는다. 신규 optional metadata는 읽기/취소로 저장자료를 변환하지 않도록 설계한다.
+
+후속 합격 순서: 원본 분리 위젯의 요청별 자식설정 읽기→자체 컨트롤 매핑→좁은 runtime 구현→실제셸에서 forward/ShiftTab·행경계/툴바 진출입·숨김/조건/잠금·popup 복귀·render후 detached 방지·저장/재조회/복사/백업 보존→격리후보 회귀→push/운영보존 검증이다. 요청별 metadata 없이 BODY UI를 활성화하지 않는다. 이미 완료한 지도 분석/상단 회귀는 반복하지 않는다.
+
+원본은 버전 변경 새로고침 후 로그인 상태다. 사용자 부재 중 독립 다음 단위는 기존 업로드 과제 REQ-PUR-REQ-005의 IGetAttributeSettingProgram/Validator 입력 metadata 실제 공급 경로를 보유 소스에서 추적하는 것이다. 서버 반환값이 없다는 사실과 없는 계약을 분리하고 새 근거가 있는 단위만 구현한다. 본문/요구사항/최종합격 수는 늘리지 않는다. 운영0.82.0과 자료·양식·메일을 유지한다.
+
 ## 현재 배포 인계 · 0.82.0 발주요청 상단 입력순서
 
 source d39981f·release138ad50을 push한 뒤 기존 WSL·Supabase·Cloudflare에0.82.0을 반영했다. 발주요청 상단의 표시순서와 입력순서 번호를 분리했다. 필드별 입력순서를 설정하고 입력순서재정렬 체크 후 저장하면 현재 표시순서로1..N을 매긴다. 미체크 배치이동은 기존 순서번호를 동결한다. 동일번호의 표시순서 tie·양의 정수 검증은 자체 정책이며 원본 서버 동등성 미확인이다. 상단 필드 묶음 DOM을 입력순서로 두고 CSSGrid order로 표시위치를 유지해 양의tabindex/강제keydown 루프 없이 nativeTab/ShiftTab을 사용한다. 복합 reference 내부는 기존 동작을 보존한다.

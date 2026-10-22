@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## BODY 묶음·입력순서 조사 (운영0.82.0 유지)
+
+원본 common.util.definitionUtil의 props_layout.target_props.items→양방향 bundle map→정의별 ApplyWidget 순회와 grid의 association_prop/section_type 설정 공급을 확인했다. 자체 request BODY의 평면 schema/native select/표시span·tbody 교체/잠금과 원본 bundle을 자동동일시하지 않는다. 설정편집 펼침순서와 적용 items순서는 별도다. 원본별 mapper/키보드소비자 계약을 먼저 확보하며 상단 DOM/CSSGrid 또는 전역 양의tabindex로 table focus를 덮지 않는다. 운영/자료schema는 그대로다. 근거 `evidence/manual-request-body-focus-20261023.json`.
+
 ## 0.82.0 발주요청 상단 입력순서
 
 Optional focusOrder={version:1,order:positiveSafeInteger}를 추가한다. 없는/미상 metadata는 읽기/취소로 주입하지 않는다. FormOptions는 미체크 배치이동 때 이전 순서번호를 동결하고 체크저장 때 표시순서로 재배정한다. 미상metadata는 순서 조작을 차단하고 일반편집을 보존한다. request 상단 configureGrid는 DOM을 inputSequence로 두고 CSSGrid order로 표시를 유지한다. 다른메뉴/BODY와 전표 값/계산/영속은 변경하지 않는다. 근거 evidence/manual-request-input-order-20261022.json

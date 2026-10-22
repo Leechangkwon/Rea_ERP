@@ -505,11 +505,13 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-FORMS-002",
-      "status": "request-body-focus-and-bundle-metadata-next",
+      "status": "body-bundle-pipeline-researched-request-specific-settings-login-required",
       "plan": "docs/plan-request-upload-close-20261022.md",
-      "evidence": "evidence/manual-request-input-order-20261022.json",
+      "evidence": "evidence/manual-request-body-focus-20261023.json",
       "productionVersion": "0.82.0",
-      "done": false
+      "done": false,
+      "nextIndependentRequirement": "REQ-PUR-REQ-005",
+      "nextIndependentWork": "Trace actual request attribute-setting/Validator policy supplier in held public modules; no repeat bundle/header checks."
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1255,6 +1257,17 @@
       "unknownLegacyPreserved": true,
       "bodyBundlesCompanySharingIncomplete": true,
       "done": false
+    },
+    "requestBodyFocusResearch": {
+      "evidence": "evidence/manual-request-body-focus-20261023.json",
+      "productionVersion": "0.82.0",
+      "implemented": false,
+      "done": false,
+      "originalLoginRequired": true,
+      "newOriginalScopes": 6,
+      "cachedOriginalScopesVerified": 2,
+      "ownConsumersMapped": true,
+      "communityPendingLocalUpdates": 70
     }
   },
   "preparedCandidate": {
@@ -1373,6 +1386,15 @@
       "reference": "evidence/manual-request-input-order-20261022.json",
       "newPublicSources": 0,
       "existingSourceManifest": ".artifacts/manual-request-input-order-20261022/source-manifest.json",
+      "originalExecuted": false,
+      "includedInHistoricalReaCorpusBaseline": false
+    },
+    "requestBodyFocus": {
+      "reference": "evidence/manual-request-body-focus-20261023.json",
+      "relevantNewPublicSources": 1,
+      "bytes": 85643,
+      "nonRelevantLoginBootstrapBytes": 24651,
+      "sourceManifest": ".artifacts/manual-request-body-focus-20261023/scope-source-manifest.json",
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
     }
@@ -1527,6 +1549,18 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-input-order-20261022/rea/rea-summary.json"
+    },
+    "requestBodyFocus": {
+      "version": "6.4.0",
+      "ownNewScopes": 0,
+      "originalNewScopes": 6,
+      "cachedOriginalScopesVerified": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-body-focus-20261023/rea/rea-summary.json"
     }
   }
 }

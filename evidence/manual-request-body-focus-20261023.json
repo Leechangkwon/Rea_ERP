@@ -1,0 +1,248 @@
+{
+  "baselineVersion": "0.82.0",
+  "productionVersion": "0.82.0",
+  "status": "body-bundle-metadata-supplier-contract-researched-not-implemented",
+  "requirements": [
+    "REQ-COM-FORMS-002"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 24,
+  "newManualBodies": 0,
+  "officialRequirements": 27,
+  "wholeManualDone": false,
+  "allDone": false,
+  "originalObservation": {
+    "observedAt": "2026-10-22T18:03:08.136404+00:00",
+    "surface": "Original request input / separated settings navigation",
+    "initialSessionAuthenticated": true,
+    "steps": [
+      "Option > input screen settings link opened",
+      "System-version-change notice appeared",
+      "Confirmed version refresh",
+      "Login page appeared"
+    ],
+    "result": "login-required",
+    "bodyFieldFocusSettingsObserved": false,
+    "mainRowInteractions": false,
+    "settingsValuesModified": false,
+    "settingsSaved": false,
+    "businessSaveDeleteCancelSend": false,
+    "credentialsReadOrEntered": false,
+    "furtherAuthRetries": 0,
+    "sessionUrlsOrBusinessDataRecorded": false
+  },
+  "staticFindings": {
+    "schema": "request-body-focus-research-v1",
+    "requirement": "REQ-COM-FORMS-002",
+    "productionVersion": "0.82.0",
+    "implemented": false,
+    "done": false,
+    "staticRules": [
+      {
+        "id": "B1",
+        "rule": "Bundle membership comes from Renderer.props_layout.target_props.items. getPropBundleInfo maps each listed child ID to its parent and excludes child IDs from the outer index_list. It does not infer membership from labels or adjacency.",
+        "scope": "getPropBundleInfo"
+      },
+      {
+        "id": "B2",
+        "rule": "Display sorting uses numeric display_order if any relevant display order is truthy; otherwise the existing prop list is returned. This is not a runtime keyboard-focus algorithm.",
+        "scope": "sortDisplayOrder"
+      },
+      {
+        "id": "B3",
+        "rule": "Checked ApplyWidget renumbers independently inside every definition. Child props in the reverse bundle map are skipped at outer traversal. Bundle parents use their target_props.items order; an empty items array takes the bundle branch with no numbered child. Only existing focus_order attributes receive numbers. Unchecked preserves values.",
+        "scope": "ApplyWidgetUserAction_executeAsync",
+        "cachedEvidenceVerified": true
+      },
+      {
+        "id": "B4",
+        "rule": "getConfigProps expands the selected outer bundle to matching child props in source_sorted_props order and marks their prop indicator readonly. This configuration expansion order differs in source from ApplyWidget items order; they must not be collapsed into one inferred order.",
+        "scope": "getConfigProps"
+      },
+      {
+        "id": "B5",
+        "rule": "Adding a bundle copies its props_layout and optional line_merge and assigns appended child focus_order after the current maximum. Newly added props include bundle child IDs. This does not establish the existing request-specific bundle map.",
+        "scope": "setItemBundlePropIds"
+      },
+      {
+        "id": "B6",
+        "rule": "SetGridItemProgram obtains attribute settings for widget grid, menu subtype, template set and item_separate_tf. With separated items, THEAD settings can request TBODY. It resolves children by matching association_prop plus section_type or exact prop_id and preserves table row/column mapping.",
+        "scope": "SetGridItemProgram_onExecuteAsync"
+      }
+    ],
+    "notEstablished": [
+      "Current request BODY parent/child IDs and effective props_layout values",
+      "Input-order controls and values of each actual BODY child field",
+      "Eligibility of readonly, hidden, conditional and disabled fields in runtime focus",
+      "Traversal across rows, reverse traversal, composite pickers and popup return focus",
+      "Nested or conflicting bundle parent semantics",
+      "Duplicate focus order, invalid values and server validation",
+      "Company sharing and other menus; real saved workflow acceptance"
+    ],
+    "implementationPrerequisites": [
+      "Observe request-specific BODY separated widget and field settings without apply/save or main-row/row-number interactions",
+      "Map actual bundle children to own form fields and interactive controls; do not assume product/partner are flat",
+      "Specify per-row keyboard traversal preserving semantic table/visual column order, composite native behavior, entry/exit and Shift+Tab",
+      "Optional versioned metadata must preserve unknown/legacy data and never renumber from read/cancel",
+      "Only implement the observed subset with actual-shell synthetic save/reload/copy/hide/disabled/popup/row-boundary/backups tests and preservation checks before release"
+    ],
+    "nextIndependentWork": "While original login is unavailable, inspect existing own BODY render/keyboard/picker ownership and tab-exit paths, produce a narrow consumer map against B1-B6, without changing runtime focus or enabling BODY settings. Do not repeat header helper/regression checks.",
+    "noAssumedFallbacks": [
+      "No numeric column-position fallback for unknown original bundle metadata",
+      "No automatic readonly-name field numbering based on its label",
+      "No reuse of header DOM/CSS grid strategy on semantic table cells",
+      "No positive tabindex sequence across toolbar/header/body",
+      "No original bundle code execution"
+    ]
+  },
+  "sources": {
+    "relevantNewPublicSources": 1,
+    "relevantNewBytes": 85643,
+    "infraSource": {
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.infra.common/ecount.infra.common.0292b541.20.js",
+      "path": ".artifacts/manual-request-body-focus-20261023/ecount.infra.common.0292b541.20.js",
+      "sha256": "3b48b8923680134d01078517a7a2bbe0a3420724f76032eafbd99f83f236a846",
+      "bytes": 85643,
+      "observedOn": "2026-10-22; URL from observed-public-scripts.json",
+      "anonymousDownload": true,
+      "executed": false
+    },
+    "otherNewPublicBootstrap": {
+      "path": ".artifacts/manual-request-body-focus-20261023/bundle-v5-ec-core.production.985159049866765.6.20.js",
+      "bytes": 24651,
+      "relevance": "Anonymous login bootstrap; does not supply BODY metadata, excluded from useful-source count and REA scopes",
+      "executed": false
+    },
+    "manifest": ".artifacts/manual-request-body-focus-20261023/scope-source-manifest.json"
+  },
+  "checks": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 0,
+    "newOriginalScopes": 6,
+    "cachedOriginalScopesHashVerified": 2,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "summary": ".artifacts/manual-request-body-focus-20261023/rea/rea-summary.json",
+    "applicationCodeChanged": false,
+    "fullRegressionRerun": false,
+    "browserSyntheticRerun": false,
+    "reason": "No application changes; new source analysis and evidence validation only."
+  },
+  "deployment": {
+    "performed": false,
+    "productionVersionRetained": "0.82.0",
+    "installedBundleSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "runtimePid": 2454806,
+    "processExists": true,
+    "runtimeSession": 57336,
+    "restartPerformed": false,
+    "databaseBrowserSettingsMailMutations": false,
+    "freshPreservationComparisonPerformed": false,
+    "priorPreservationEvidence": "evidence/manual-request-input-order-20261022.json"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "actualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 70,
+    "published": false,
+    "currentRequiredWorkDocumentToolsAvailable": false,
+    "legacyToolsCannotUpdateExistingWorkDocument": true,
+    "localDraft": ".artifacts/manual-request-body-focus-20261023/moa-pending-request-body-focus.html"
+  },
+  "nextWork": "Original login required for actual request BODY child settings. Static bundle pipeline and own BODY consumers are now mapped; do not repeat them. Next independent path is REQ-PUR-REQ-005 actual server attribute-setting supplier/Validator metadata in already-held public modules; resolve which request-specific input policy remains server-only, and implement only an evidenced subset. Original session restoration may resume BODY field mapping; do not enable guessed bundle focus.",
+  "ownBodyConsumerMap": {
+    "source": ".artifacts/releases/0.82.0-request-input-order/dist/inventory-ui.js",
+    "sha256": "447b4ad289e3829c1f72aad808606b7edba1dfea33e96dbc6dfe1058192b9e9c",
+    "version": "0.82.0",
+    "scope": "request BODY only; source reading, not new browser proof",
+    "references": [
+      {
+        "lines": [
+          10,
+          10
+        ],
+        "owner": "select",
+        "finding": "Creates native select; no composite action wrapper."
+      },
+      {
+        "lines": [
+          36,
+          36
+        ],
+        "owner": "reference",
+        "finding": "Line supplier uses native select from registered choices, not ReferencePickerUI modal."
+      },
+      {
+        "lines": [
+          231,
+          231
+        ],
+        "owner": "itemReference",
+        "finding": "Native item select, first20 when more than200 items; complete item add workflow separate."
+      },
+      {
+        "lines": [
+          249,
+          254
+        ],
+        "owner": "lineBase",
+        "finding": "Own fields are flat IDs. Description/supplierName/spec/unit/amount totals are display elements, not independent edit controls or recorded original bundle children."
+      },
+      {
+        "lines": [
+          268,
+          274
+        ],
+        "owner": "renderLines",
+        "finding": "Header cells and row cells follow lineMeta.fields visual order. Invisible fields generally do not mount; discount has a hidden cell. No BODY inputSequence consumer."
+      },
+      {
+        "lines": [
+          272,
+          273
+        ],
+        "owner": "renderLines locks",
+        "finding": "Field readOnly/calculated/checkbox/select flags plus imported/source/generated-plan item and qty locks affect focus eligibility. Later readonlyEditor can disable all editing controls."
+      },
+      {
+        "lines": [
+          269,
+          271
+        ],
+        "owner": "row controls",
+        "finding": "Selection checkbox and remove button are row actions, separate from business field traversal; native defaults currently determine their focus."
+      },
+      {
+        "lines": [
+          265,
+          274
+        ],
+        "owner": "refreshTotals/renderLines",
+        "finding": "Renders/recalculates display values and can replace the entire tbody; traversal cannot retain detached control references."
+      },
+      {
+        "lines": [
+          329,
+          332
+        ],
+        "owner": "form keyboard",
+        "finding": "F3 and F7/F8 handlers exist; no BODY Tab override. DOM row order currently defines forward/reverse Tab and toolbar entry/exit."
+      },
+      {
+        "lines": [
+          11,
+          11
+        ],
+        "owner": "field",
+        "finding": "Header wrapper appends referenceActions when present; this is not used to wrap BODY native supplier/item controls."
+      }
+    ],
+    "implementationGate": "Do not invent original bundle correspondence from native control names. Any future focus strategy must preserve semantic cells/columns, generated-plan locks, read-only view, row actions, nested/popup behavior and current focus after render."
+  },
+  "repositoryBaselineCommit": "a31606b5cf9c1a84708a273c48019a4777d44355",
+  "deployedSourceCommit": "d39981fb09dee15dd8e041a3968042b901395413"
+}
