@@ -39,6 +39,18 @@
     if(value.mode==='explicit'&&(!Number.isInteger(value.digits)||value.digits<0||value.digits>6))throw Error('표시 소수점은0~6 정수입니다.');return copy(value);
   }
   function displayDigits(f){return f?.numericFormat===undefined?null:numericFormat(f.numericFormat).mode==='explicit'?f.numericFormat.digits:null;}
+  // Verified request input slots only. Legacy free fields and other menus retain their own schema.
+  function fieldCatalog(key,context){
+    if(key!=='doc:request'||!['input','lines'].includes(context))return null;
+    const groups=context==='input'?[['text','문자형식','text',5],['long','장문형식','text',1]]:[['memo','적요','text',3],['amount','금액','number',2]];
+    return groups.flatMap(([kind,label,type,count])=>Array.from({length:count},(_,i)=>field('x_request_'+context+'_'+kind+(i+1),label+(i+1),type,{custom:true,catalogSlot:context+'.'+kind+(i+1),...(kind==='long'?{multiline:true}:{})})));
+  }
+  function checkCatalogField(f,context){
+    if(!Object.hasOwn(f,'catalogSlot'))return;
+    const slot=[...fieldCatalog('doc:request','input'),...fieldCatalog('doc:request','lines')].find(x=>x.catalogSlot===f.catalogSlot);
+    const projected=f.custom===false&&typeof context==='string'&&!['input','lines'].includes(context);
+    if(!slot||f.custom!==true&&!projected||f.id!==slot.id||f.type!==slot.type||Boolean(f.multiline)!==Boolean(slot.multiline))throw Error('추가항목 목록의 항목과 유형을 확인하세요.');
+  }
   function validateForm(input){
     if(!input||!validKey(input.id)||input.id==='default'||!String(input.name||'').trim()||input.name.length>60||!Array.isArray(input.fields)||input.fields.length>100)throw Error('양식명과 항목 구성을 확인하세요.');
     const form=copy(input);form.name=form.name.trim();const seen=new Set();
@@ -49,6 +61,7 @@
       if(!['left','center','right'].includes(f.align))throw Error('항목 정렬을 확인하세요.');
       f.width=Number(f.width);f.label=f.label.trim();f.formula=String(f.formula||'').trim();f.options=Array.isArray(f.options)?f.options.map(String).slice(0,50):[];
       if(Object.hasOwn(f,'numericFormat')){if(f.type!=='number')throw Error('숫자 항목에만 표시 자릿수를 설정하세요.');f.numericFormat=numericFormat(f.numericFormat);}
+      checkCatalogField(f,input.context);
       if(f.custom&&!f.id.startsWith('x_'))throw Error('추가항목 ID는 x_로 시작해야 합니다.');
       if(f.protected&&!f.visible)throw Error(f.label+' 항목은 숨길 수 없습니다.');
       if(f.formula){if(!f.custom||f.type!=='number')throw Error('계산식은 숫자 추가항목에만 설정하세요.');parse(f.formula);f.readonly=true;}
@@ -111,6 +124,6 @@
   function check(fields,values){for(const f of fields){const v=values[f.id];if(f.required&&(v===undefined||v===null||v===''||(f.type==='checkbox'&&v!==true)))throw Error(f.label+' 항목은 필수입니다.');if(v!==undefined&&v!==null&&v!==''){if(f.type==='number'&&!Number.isFinite(Number(v)))throw Error(f.label+' 숫자를 확인하세요.');if(f.type==='select'&&!f.options.includes(String(v)))throw Error(f.label+' 선택값을 확인하세요.');if(f.type==='date'&&(!/^\d{4}-\d{2}-\d{2}$/.test(v)||!Number.isFinite(Date.parse(v))||new Date(v).toISOString().slice(0,10)!==v))throw Error(f.label+' 일자를 확인하세요.');}}return values;}
   function custom(store,key,context){const result=new Map();for(const f of screen(store,key).forms.filter(f=>f.context===context))for(const x of f.fields)if(x.custom)result.set(x.id,x);return [...result.values()];}
   function defaultValue(f,date){if(f.defaultValue==='@today')return date;return f.defaultValue??'';}
-  const api={field,pageDefaults,numericFormat,displayDigits,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
+  const api={field,fieldCatalog,pageDefaults,numericFormat,displayDigits,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.FormCore=api;
 })(typeof globalThis==='object'?globalThis:this);

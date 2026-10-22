@@ -43,7 +43,7 @@
   }
   function schema(id,label,type='text',extra={}){return F.field(id,label,type,extra);}
   function controlValue(x){return x.getReferenceValues?x.getReferenceValues():x.type==='checkbox'?x.checked:x.value;}
-  function customControl(f,value){const v=value??F.defaultValue(f,C.today());const x=f.type==='select'?select(f.label,f.options.map(x=>[x,x]),v):input(f.label,v,f.type==='reference'?'text':f.type);if(f.type==='checkbox')x.checked=v===true||v==='true'||v==='1';x.dataset.customField=f.id;return x;}
+  function customControl(f,value){const v=value??F.defaultValue(f,C.today());const x=f.multiline&&f.type==='text'?N('textarea'):f.type==='select'?select(f.label,f.options.map(x=>[x,x]),v):input(f.label,v,f.type==='reference'?'text':f.type);if(x.tagName==='TEXTAREA'){x.value=v;x.setAttribute('aria-label',f.label);x.rows=3;}if(f.type==='checkbox')x.checked=v===true||v==='true'||v==='1';x.dataset.customField=f.id;return x;}
   function configureGrid(grid,context,title,base,controls,record={},fresh=false,changed=()=>{}){
     customizer.register(context,title,base,record);const meta=customizer.form(context,base,record),customControls={};let customBase={...record.custom};grid.replaceChildren();
     for(const f of meta.fields){let x=controls[f.id];if(!x){if(!f.custom)continue;x=customControl(f,record.custom?.[f.id]);customControls[f.id]=x;}else if(fresh&&f.defaultValue!==''){const v=F.defaultValue(f,C.today());if(x.type==='checkbox')x.checked=v===true||v==='true';else x.value=v;}

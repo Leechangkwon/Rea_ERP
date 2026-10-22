@@ -6,3 +6,5 @@
 .form-options-dialog button{box-sizing:border-box;height:36px;min-height:36px;align-self:center;flex:0 0 auto}.form-options-dialog select,.form-options-dialog input:not([type=checkbox]):not([type=radio]){box-sizing:border-box;height:36px;min-height:36px}.form-options-dialog select[aria-label^="숫자 표시 자릿수"]{min-width:145px}.form-options-dialog>header>button{width:36px;font-size:22px}@media(max-width:1100px){.form-options-dialog button,.form-options-dialog select,.form-options-dialog input:not([type=checkbox]):not([type=radio]){height:44px;min-height:44px}.form-options-dialog>header>button{width:44px}}
 
 .form-options-dialog[open]{display:flex;flex-direction:column}.form-options-dialog>header{flex:0 0 auto}.form-options-body{min-height:0;max-height:none;overflow:auto}
+
+.form-option-actions>select[aria-label="추가할 항목"]{max-width:210px;flex:0 1 210px}.inv-field textarea[data-custom-field]{box-sizing:border-box;width:100%;min-width:0;min-height:72px;padding:8px;border:1px solid #cbd5e1;border-radius:3px;font:inherit;color:inherit;background:white;resize:vertical}
