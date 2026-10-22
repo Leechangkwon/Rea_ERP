@@ -271,9 +271,9 @@
     }
   }
   function log(db,text){db.logs.unshift({id:'L'+(++db.sequence),date:today(),text});db.logs=db.logs.slice(0,1000);}
-  function applyForm(db,key,context,record,conditionValues=record){
+  function applyForm(db,key,context,record,conditionValues=record,errorContext=''){
     const store=db.settings.customization,meta=F.effective(store,key,context,[],conditionValues),form=F.screen(store,key).forms.find(f=>f.id===meta.id);if(!form)return record;
-    const values=F.compute(form.fields,{...record,...record.custom});F.check(form.fields,values);record.custom={...record.custom,...Object.fromEntries(form.fields.filter(f=>f.custom).map(f=>[f.id,values[f.id]??'']))};return record;
+    let values;try{values=F.compute(form.fields,{...record,...record.custom});F.check(form.fields,values);}catch(error){if(!errorContext)throw error;throw Error(errorContext+' · '+error.message);}record.custom={...record.custom,...Object.fromEntries(form.fields.filter(f=>f.custom).map(f=>[f.id,values[f.id]??'']))};return record;
   }
   function validateMasterGroups(key,record){
     if(!['partners','projects'].includes(key))return;
@@ -356,7 +356,7 @@
     if(d.autoConsume&&d.type==='production'){for(const l of d.lines)if(!db.bom.some(b=>b.product===l.item))throw Error('BOM이 없는 품목입니다. BOM을 등록하거나 자동소모를 해제하세요.');requireCode(db,'warehouses',d.materialWarehouse||d.warehouse);}
     d.consumption=d.type==='production'&&d.autoConsume?d.lines.flatMap(l=>db.bom.filter(b=>b.product===l.item).map(b=>({product:l.item,item:b.material,qty:quantity(l.qty*b.qty*(1+b.loss/100))}))):[];
     setReturnAmounts(db,d);
-    applyForm(db,'doc:'+d.type,'input',d);d.lines=d.lines.map(l=>applyForm(db,'doc:'+d.type,'lines',l,d));
+    applyForm(db,'doc:'+d.type,'input',d);d.lines=d.lines.map((l,index)=>applyForm(db,'doc:'+d.type,'lines',l,d,'입력된 품목 중 '+(index+1)+'번째 ['+l.item+']'));
     const index=d.id?db.documents.findIndex(x=>x.id===d.id):-1;
     if(d.id&&index<0)throw Error('수정할 전표가 없습니다.');
     if(index>=0&&db.documents[index].type!==d.type)throw Error('전표 종류는 변경할 수 없습니다.');
