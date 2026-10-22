@@ -2255,7 +2255,7 @@
         "기존 조건부 인쇄 양식·각 전표 값과 용지/방향/여백을 보존",
         "인쇄에 따른 전표 저장·상태변경·업무발송 없음"
       ],
-      "status": "batch-subset-deployed-preservation-verified-hosted-single-preview-passed-hosted-batch-pending",
+      "status": "batch-and-basic-header-supplier-subset-isolated-verified-deployment-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=200s",
@@ -2270,17 +2270,20 @@
       "implementationEvidence": [
         "dist/inventory-ui.js",
         "dist/inventory.css",
-        "evidence/manual-request-print-batch-20261023.json"
+        "evidence/manual-request-print-batch-20261023.json",
+        "evidence/manual-request-print-fields-20261023.json"
       ],
       "automatedEvidence": [
         "tests/request-print-batch.cjs",
-        "tests/browser/request-print-batch.spec.cjs"
+        "tests/browser/request-print-batch.spec.cjs",
+        "tests/request-print-fields.cjs",
+        "tests/browser/request-print-fields.spec.cjs"
       ],
       "remaining": [
-        "original request header/line-supplier print layout",
         "connected original eapproval/deleted exclusion and errors",
         "actual hosted multi-request/physical print/Android acceptance",
-        "PDF/email button workflow and complete original form parity"
+        "PDF/email button workflow and complete original form parity",
+        "complete original header/line template and current-account equivalence beyond the observed basic subset"
       ],
       "done": false,
       "hostedAcceptance": false,
@@ -2289,7 +2292,20 @@
       "productionVersion": "0.86.0",
       "hostedSinglePreviewPassed": true,
       "hostedMultiRequestAcceptance": false,
-      "preservationPassed": true
+      "preservationPassed": true,
+      "headerLineSubset": {
+        "sourceId": "EC-VID-13914",
+        "observedSeconds": 206,
+        "videoQuality": "1080p",
+        "fullVideoReviewed": false,
+        "basicHeaderAndSavedLineSuppliersImplemented": true,
+        "savedCustomHeaderRetained": true,
+        "newNode": 8,
+        "newBrowser": 2,
+        "fullBrowser": 125,
+        "evidence": "evidence/manual-request-print-fields-20261023.json",
+        "deployed": false
+      }
     }
   ]
 }

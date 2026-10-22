@@ -1,0 +1,8 @@
+"use strict";
+const C=require('../../dist/inventory-core.js'),F=require('../../dist/form-core.js');
+function data({legacy=false,explicitSupplier=false}={}){let db=C.empty();db.masters=C.clone(C.seed().masters);db.masters.partners.push({...C.clone(db.masters.partners.find(p=>p.code==='V001')),code:'V002',name:'합성 공급처 <2>',disabled:false});const ids=[];
+ for(let i=0;i<2;i++){const result=C.command(db,'document',{type:'request',date:C.today(),partner:'V001',warehouse:'W001',employee:'E001',project:'PR001',dueDate:'2026-11-05',reference:'납기 <b>'+i+'</b>\n참조',memo:'인쇄 메모 <script>금지</script>',lines:[{item:'M001',supplier:'V001',qty:2,price:10.125},{item:'P001',supplier:'V002',qty:3,price:12.5}]});db=result.db;ids.push(result.result.id);}
+ db.masters.partners.find(p=>p.code==='V002').disabled=true;
+ if(legacy){const fields=[F.field('item','기존 품목'),F.field('qty','기존 수량','number',{width:180,align:'right'}),F.field('price','기존 단가','number',{visible:false}),...(explicitSupplier?[F.field('supplier','공급 협력사','text',{width:210,align:'center'})]:[])];db=C.command(db,'formSave',{key:'doc:request',context:'print',form:{id:'legacy',name:'기존 사용자 양식',fields,page:{...F.pageDefaults,title:'유지할 요청서',paper:'A5',orientation:'landscape',margin:8,fontSize:13,footer:'기존 꼬리말',showTotals:false}}}).db;db=C.command(db,'formRules',{key:'doc:request',rules:[{field:'reference',operator:'eq',value:db.documents[1].reference,context:'print',formId:'legacy',enabled:true,priority:0}]}).db;db=C.command(db,'formActivate',{key:'doc:request',context:'print',id:'default'}).db;}
+ return {db,ids};}
+module.exports={data};
