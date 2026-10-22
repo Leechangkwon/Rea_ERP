@@ -1,5 +1,10 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 현재 보완 · 0.80.0 BODY 필수 표시와 오류 안내
+
+InventoryCore.applyForm→FormCore.compute/check의 기존 중앙검증은 유지하고 saveDoc의 line 호출에 유효품목 순서/코드 오류 문맥만 추가했다. 화면은 lineMeta.required를 열 별표/aria-required로 표시한다. commit의 lastCommitError를 편집창 role=alert에 보존하고 저장 시 초기화한다. UI 검증기는 중복 추가하지 않았다. 화면 공란행 제거 후 순번임을 명시하며 영속자료·계산·설정 schema는 그대로다. 다음 추가항목 한도는 metadata/메뉴 예외를 실제로 확인한 후 신규추가UI에 연결하고 legacy 양식은 변환하지 않는다. 운영0.80.0·목록54/본문24/요구사항27/전체합격0. 근거 evidence/manual-entry-required-guidance-20261022.json.
+
+
 ## 현재 업로드 계층 · 운영0.79.0 / 회사 저장규칙과 검토 snapshot 연결
 
 SelfCore.requestUploadRules(version1/null) → 기존 app config.write/수정번호 CAS → publicContext.settingsRevision/settings → RequestUploadInputCore.saveRulesSnapshot → RequestUploadSaveRules.inspect → Preview의 raw/proposed/typed-none/unknown → 실제 ReviewUI로 연결한다. 브라우저 표시설정/양식값과 업로드 숫자 input version2 정책은 계속 분리한다. legacy load는 null을 메모리에서만 보충하고 DB/수정번호를 쓰지 않는다. 서버·스키마·계정·자료 이관은 없다.

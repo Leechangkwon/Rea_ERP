@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 26,
+  "officialRequirementsDecomposed": 27,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -1972,6 +1972,26 @@
         "hostedExistingSessionRetained": true,
         "hostedDataBearingSaveVerified": false
       }
+    },
+    {
+      "id": "REQ-COM-FORMS-002",
+      "sourceId": "EC-HELP-REQUEST-003",
+      "title": "전표 입력 양식의 항목 추가·표시·필수·순서·기본값과 메뉴별 한도",
+      "expected": [
+        "Available header/detail item addition and per-menu limits",
+        "Label/required/order/default setting and saved entry behavior",
+        "Hide unused items and optional input-sequence reorder",
+        "Company-wide user application and account/attendance exceptions"
+      ],
+      "status": "body-required-guidance-deployed-full-field-limits-shared-application-and-reorder-incomplete",
+      "referenceBodyReviewed": true,
+      "implementationEvidence": [
+        "evidence/manual-entry-required-guidance-20261022.json"
+      ],
+      "hostedReadOnlyPartial": true,
+      "hostedAcceptance": false,
+      "done": false,
+      "remaining": "Inventory header text5/long1 and detail remarks3/money2/menu exceptions, account-attendance restrictions, input reorder, whole-company shared application, full saved-form/workflow acceptance. Existing saved forms must be preserved."
     }
   ]
 }

@@ -1,0 +1,203 @@
+{
+  "baselineVersion": "0.79.0",
+  "version": "0.80.0",
+  "sourceCommit": "5ceb8f98fb41bbfdbac0ec7753db2225babcea81",
+  "status": "deployed-body-required-display-and-item-error-context-whole-manual-incomplete",
+  "requirements": [
+    "REQ-COM-FORMS-002"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 24,
+  "newManualBodies": 1,
+  "officialRequirements": 27,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "manualSourceId": "EC-HELP-REQUEST-003",
+    "bodyLocator": "EAM012M_1635805911988",
+    "observedTitle": "전표 입력화면에서 원하는 항목을 추가하거나 수정, 삭제하는 방법",
+    "bodySha256": "45882f2577ad0804185827859378e3b1050bb3f4ce7ae53d50f97d25de53006b",
+    "manualOnlyArtifact": ".artifacts/manual-entry-required-20261022/official-entry-fields.txt",
+    "bodyReadCompletely": true,
+    "manualSteps": [
+      "Input Option > input-form settings > select base form",
+      "Add available header/detail item",
+      "Set label/required/order/default then save form",
+      "Reopen entry and check configured behavior",
+      "Hide unused item and optional reorder input sequence"
+    ],
+    "limitsNotImplementedThisStage": {
+      "inventoryHeaderText": 5,
+      "inventoryHeaderLongText": 1,
+      "inventoryDetailRemarks": 3,
+      "inventoryDetailAmounts": 2,
+      "menuExceptionsAndAccountAttendance": true,
+      "companyWideApplicationAndReorderInput": true
+    },
+    "uploadRequiredVisualsOnly": [
+      "date",
+      "warehouse",
+      "transaction",
+      "product-code",
+      "product-name",
+      "foreign-supply",
+      "base-quantity"
+    ],
+    "uploadRequiredANDRuleInferred": false,
+    "foreignSupplyHelp": "Foreign-currency amount blank treated as zero; exchange rate does not auto-calculate foreign amounts; integer12 and currency-code fraction digits. Not used as unconditional required rule.",
+    "currentGroupingTokensPreviouslyObserved": [
+      "date",
+      "transaction",
+      "sequence",
+      "warehouse"
+    ],
+    "groupingEqualityOrDefaultOrderVerified": false,
+    "groupingHHelpHadNoVisibleEffectNotRetried": true,
+    "originalBusinessOrSettingsWrites": false,
+    "originalInputsOrUploadRowsEdited": false,
+    "allOriginalSettingsHelpWindowsClosed": true
+  },
+  "staticFindings": {
+    "sourceManifest": ".artifacts/manual-request-upload-research-20261022/v5-source-manifest.json",
+    "newDownloadedSources": 0,
+    "originalExecution": false,
+    "supplierScope": "UploadExecuteSetupMainProgram invokes menu API after pre-executor/sync prop groups and merges server result/bundle_index/success/failure. _getGroupIds is sync property grouping, not proven voucher equality.",
+    "validatorScope": "CheckValidRowProgram and CheckInputLineProgram use target model lists, valid_key_list, code types and model indices; visible bold headers are insufficient to reconstruct request validator conditions.",
+    "ownFindingCorrection": "Initial UI-only hypothesis of missing save validation was rejected by synthetic reproduction. InventoryCore.applyForm already checks required BODY fields; no duplicate validation was introduced."
+  },
+  "implementation": {
+    "existingCentralValidatorAndSaveSemanticsPreserved": true,
+    "applyFormOptionalErrorContext": true,
+    "errorContext": "입력된 품목 중 N번째 [코드]",
+    "contextMeansPopulatedItemOrdinalNotScreenRow": true,
+    "leadingIntermediateAndTrailingBlankRowsCovered": true,
+    "bodyRequiredColumnMarkers": true,
+    "bodyAriaRequired": true,
+    "editorRoleAlert": true,
+    "actualCommitErrorKeptInline": true,
+    "lastCommitErrorClearedPerAttempt": true,
+    "noSchemaSettingsOrCalculationChange": true,
+    "legacyDataOrFormsConverted": false,
+    "uploadVoucherSaveEnabled": false
+  },
+  "checks": {
+    "verifyLocalPassed": true,
+    "newNodeTests": 7,
+    "fullBrowserTests": 111,
+    "newBrowserTests": 2,
+    "viewportWidths": [
+      390,
+      1280
+    ],
+    "testedFlows": [
+      "existing required blocks before changes",
+      "specific item/context errors on verify and save",
+      "new save and detail edit/reload/cancel",
+      "second populated item missing field and leading/intermediate blank rows",
+      "explicit number0/calculated0/checkbox false true/defaulted and optional blank",
+      "all previous records/forms unchanged",
+      "storage errors and allocated-source errors show actual reason"
+    ],
+    "tools": 7,
+    "releaseChecks": 4,
+    "buildPassed": true,
+    "review": "Initial P2 concerning compressed row-number wording corrected to populated-item ordinal; focused rereview approved. Read-only reviewer did not run tests or deploy.",
+    "initialFailures": "Fixture background Option/alert selection and numeric0 expectation fixed before regression baseline. Then3 guidance deficiencies reproduced. Browser exposed generic editor error masking; fixed. Close selector corrected to actual 상세 창 닫기. Existing heading/generic-message expectations updated. Final verify passed.",
+    "rea": {
+      "version": "6.4.0",
+      "ownNewScopes": 5,
+      "originalNewScopes": 5,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-entry-required-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "14f282594de3afee0b691a34e10be7c5bb5f88a5",
+    "branch": "release/0.80.0-body-required-guidance",
+    "bundleSha256": "d5fa98d2245707c27e24b3a50d8cdee88e8db414286783b63f5845620605763f",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "inventoryCoreChangeScope": "applyForm optional errorContext and line-call ordinal/code; calculation unchanged",
+    "runtimeSession": 42349,
+    "linuxPid": 2429819,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedRequiredMarkersAriaAndAlertVerified": true,
+    "hostedNewDialogOpenedClosedWithoutEditing": true,
+    "hostedConfiguredRequiredErrorSaveVerified": false,
+    "businessSaved": false,
+    "settingsSaved": false,
+    "publicAssetsMatched": true,
+    "localHealthStatus": 200,
+    "publicHealthStatus": 404,
+    "anonymousMailStatus": 401,
+    "browserPreservation": {
+      "version": "0.80.0",
+      "beforeDownload": 45,
+      "afterDownload": 46,
+      "exactBytesAndJson": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formsExact": true,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "documents": 8,
+      "plans": 0,
+      "existingLoginRetained": true,
+      "hostedRequiredColumnsAndAriaVerified": true,
+      "hostedNewDialogOpenCloseOnly": true,
+      "hostedConfiguredRequiredErrorOrSaveVerified": false,
+      "businessSaved": false,
+      "settingsSaved": false,
+      "sent": false,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.80.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "screenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/body-required-0.80.0.png"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 67,
+    "savedThisStage": false,
+    "readbackThisStage": false,
+    "block": "Existing401 and required work-document tools unavailable; no new authentication/state, not retried",
+    "localPending": ".artifacts/manual-entry-required-20261022/moa-pending-required-guidance.html"
+  },
+  "nextWork": "REQ-COM-FORMS-002(발주요청 우선): 새 본문의 상단 문자5/장문1·하단 적요3/금액2 한도와 원본 입력양식 추가목록의 실제 항목 종류·메뉴 예외를 읽기 전용 대조한다. 확인된 신규 추가 허용범위를 실제 FormOptions에 연결하되 기존 저장양식/추가값은 한도초과·미상종류여도 자동변환/삭제하지 않는다. 범용100개 제한을 원본 한도로 간주하지 않는다. 입력순서재정렬/공용사용자·회계/근태 예외도 미완료다. 업로드 Req005의 묶음 equality/기본값 순서·조건부필수/Validator/최신전표 초기값/통화none 인코딩/금액영속/실패재시도는 여전히 미확인이라 저장을 켜지 않는다. 같은 규칙 helper나 통과검사를 변화 없이 반복하지 않는다. 운영0.80.0/runtime42349/PID2429819 유지, mainVAT5 전체빌드·원본 입력행/행이동·설정/업무저장/발송 금지, 전체매뉴얼완료 false.",
+  "allDone": false
+}
