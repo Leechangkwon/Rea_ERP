@@ -1,5 +1,17 @@
 # Windows 주도 개발 인계 — 2026-10-19
 
+## 현재 구현 후보 · 주문→발주요청 항목 catalog·적용 core (운영0.82.0 유지)
+
+소스 `915c83c`에서 MappingCore의 활성/조건별 양식 항목목록과 기존 EntryCore.stageDocuments의 optional mappingConfig 적용 경로를 구현했다. 실제 메뉴ID는 order/request 같은 전표종류이며 이전 route형 구조시험과 구분했다. 주문 적요/등록 추가항목→발주요청 등록 추가항목의 동일 primitive 형식만 대상으로 한다. 옵션/구형/비활성/빈연결은 기존 결과가 동일하다.
+
+신규15·관련269/269·도구7·격리 worker build 통과.0/false/장문·공란 skip·기존/기본값 충돌 원자거부·동일품목 원본라인/부분수량·다중주문 BODY/상단거부·조건양식 변경·숫자문자열/형식·미상규칙·저장재조회/백업·원본/초안/양식/재고/수량/단가/세금 보존을 합성 확인했다. 제안목록은 별도 반환하며 전표 metadata를 늘리지 않았다. JSDOM UMD 의존성 검사는 포함하되 실제 셸/운영 설정적용 합격은 아니다. text20,000자/매핑값 JSON UTF8 1MiB는 자체 안전한도다.
+
+REA6.4 자체6 새범위 parse0·coverage unknown/truncated false, 원본4 기존범위는 원문/입력/결과 해시 검증 재사용했다. 새 원본다운로드/본문/실행/저장0. EntryUI는 아직 인증 설정 snapshot을 전달하지 않고 필드편집UI도 비활성이라 후보를 배포하지 않았다. 운영0.82/PID2454806·설치SHA `d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7` 유지, root 전체빌드/재시작/자료·계정·양식·메일 쓰기와 새 운영보존 대조는 없다. 근거 `evidence/manual-mapping-import-core-20261023.json`.
+
+REQ-COM-MAPPING-001: 기존 주문 불러오기 화면에 인증 설정 전달 어댑터를 연결한다. GET /api/auth/status의 현재 계정·회사·권한·settingsRevision/menuMappings를 확인하고 대기 중 닫기/부모교체/초안·원본·양식·설정 변경을 차단한 뒤 MappingCore를 호출한다. 합성 실제 셸에서 성공/충돌/취소/재시도/늦은 응답/계정변경을 검증한다. 원본 미관찰 필드편집 UI는 별도로 보류하며 BODY·업로드 저장은 기존 재개조건 없이 재분석하지 않는다. main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.
+
+목록54/본문24/요구사항27/전체합격0. 모아 실제저장/재조회0.51.0·73갱신 로컬대기다. 이번 도구 metadata에도 기존 업무문서 read/update 도구0이며 인증재시도·대체페이지 생성은 하지 않았다. 게시완료로 처리하지 않는다.
+
 ## 현재 구현 후보 · 매핑센터 항목 연결 저장 기반 (운영0.82.0 유지)
 
 소스 `2d5ed1a`에서 SelfCore.menuMappings 규칙에 optional `fieldLinks(version1, entries)` 저장 검증을 연결했다. 기존 규칙에는 속성을 주입하지 않고 명시 빈목록/미존재를 구분한다. 같은 input/lines 문맥, 자체ID/100개 한도·목표중복/위험경로 차단은 자체 안전 subset이며 원본 한도가 아니다. 기존 config.save 권한·CSRF·revision CAS와 실제 state/publicContext/backup 재조회 경로에서 동작한다. 미상형식은 해당 메뉴설정 저장을 차단하고 읽기/다른설정 저장/백업에서 원문을 보존한다.

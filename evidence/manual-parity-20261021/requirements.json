@@ -1799,7 +1799,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "field-link-storage-candidate-tested-ui-and-import-consumer-pending-not-deployed",
+      "status": "catalog-and-import-core-candidate-tested-authenticated-ui-and-field-editor-pending-not-deployed",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1810,10 +1810,13 @@
         "dist/self-settings-ui.js",
         "dist/entry-core.js",
         "dist/self-core.js",
-        "evidence/manual-mapping-field-storage-20261023.json"
+        "evidence/manual-mapping-field-storage-20261023.json",
+        "dist/mapping-core.js",
+        "evidence/manual-mapping-import-core-20261023.json"
       ],
       "automatedEvidence": [
-        "tests/mapping-field-storage.cjs"
+        "tests/mapping-field-storage.cjs",
+        "tests/mapping-import-core.cjs"
       ],
       "hostedAcceptance": false,
       "done": false,
@@ -1830,6 +1833,22 @@
         "productionDeployed": false,
         "done": false,
         "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
+      },
+      "importCoreCandidate": {
+        "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
+        "evidence": "evidence/manual-mapping-import-core-20261023.json",
+        "status": "catalog-import-core-tested-authenticated-ui-adapter-pending-not-deployed",
+        "newNode": 15,
+        "relatedNode": 269,
+        "tools": 7,
+        "baseVersion": "0.82.0",
+        "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+        "productionDeployed": false,
+        "fieldEditorEnabled": false,
+        "optionalEntryCoreConsumerConnected": true,
+        "authenticatedUiConsumerConnected": false,
+        "communityPendingLocalUpdates": 73,
+        "done": false
       }
     },
     {

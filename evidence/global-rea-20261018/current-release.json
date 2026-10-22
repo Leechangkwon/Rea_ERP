@@ -288,7 +288,7 @@
     "requestHeaderInputSequenceNewNode": 7,
     "requestHeaderInputSequenceNewBrowser": 2
   },
-  "future_research": "REQ-COM-FORMS-002: 다음은 발주요청 하단 분리 위젯의 필드 입력순서와 bundle/복합항목 포커스 metadata를 읽기 전용 대조한다. ApplyWidgetUserAction의 bundle_prop_map/bundle_item_map과 실제 품목/거래처/관리항목 설정 공급원을 좁혀 확인하며, 상단의 평면 DOM/CSS 전략을 하단 표에 추정 적용하지 않는다. 원본 주입력행/행번호/설정저장 없이 확인하고 근거가 있는 흐름만 구현한다. 동일번호 tie·권한/조건별 포커스·회사공유/다른메뉴 예외와 실제 업무저장 합격은 미확인이다. 통과한 상단 helper/회귀를 변화 없이 반복하지 않는다. REQ-PUR-REQ-005 업로드 묶음 equality/조건부필수/저장·재시도 미확인으로 저장비활성 유지. 운영0.82.0/runtime57336/PID2454806 유지, mainVAT5 전체빌드·원본 업무/설정저장/주입력행·발송 금지, 전체매뉴얼완료 false.",
+  "future_research": "REQ-COM-MAPPING-001: 기존 주문 불러오기 화면에 인증 설정 전달 어댑터를 연결한다. GET /api/auth/status의 현재 계정·회사·권한·settingsRevision/menuMappings를 확인하고 대기 중 닫기/부모교체/초안·원본·양식·설정 변경을 차단한 뒤 MappingCore를 호출한다. 합성 실제 셸에서 성공/충돌/취소/재시도/늦은 응답/계정변경을 검증한다. 원본 미관찰 필드편집 UI는 별도로 보류하며 BODY·업로드 저장은 기존 재개조건 없이 재분석하지 않는다. main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-request-input-order-20261022.json",
@@ -1309,6 +1309,22 @@
       "communityPendingLocalUpdates": 72,
       "done": false,
       "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
+    },
+    "mappingImportCoreCandidate": {
+      "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
+      "evidence": "evidence/manual-mapping-import-core-20261023.json",
+      "status": "catalog-import-core-tested-authenticated-ui-adapter-pending-not-deployed",
+      "newNode": 15,
+      "relatedNode": 269,
+      "tools": 7,
+      "baseVersion": "0.82.0",
+      "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+      "productionDeployed": false,
+      "fieldEditorEnabled": false,
+      "optionalEntryCoreConsumerConnected": true,
+      "authenticatedUiConsumerConnected": false,
+      "communityPendingLocalUpdates": 73,
+      "done": false
     }
   },
   "preparedCandidate": {
