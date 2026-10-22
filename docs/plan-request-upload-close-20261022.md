@@ -128,3 +128,13 @@ mount에는 isCurrent guard를 필수로 받아 false/예외·닫기·호스트�
 sourced7dfb51, 신규Node9/관련54 및 독립localhost 브라우저2검사 통과.1280/390px에서 버튼36/44px·체크박스16px·본문 가로넘침 없음/표만 스크롤·안전한 원문표시·필터/guard를 확인하고 스크린샷을 시각검토했다. REA6.4 자체issueText/mount2범위·새공개원본CRMSetupPage 초기화/본문2범위 parse0·coverage unknown/truncated false. 운영0.73.0 번들/런타임 유지, 실제앱메뉴/입력/DB/저장은 미연결이다. 본문21/목록51/요구사항26/전체합격0, 모아58로컬대기. 근거 evidence/manual-request-upload-review-ui-20261022.json.
 
 다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.
+
+## 2026-10-22 실제 조회 메뉴의 붙여넣기 검토 연결 계획
+
+발주요청조회 하단의 disabled 웹자료올리기를 읽기 전용 검토창에 연결한다. 기존 요청 입력의 EntryTools.openPaste(일반 행 입력)는 바꾸지 않는다. 회사·사용자 identity와 inventory.read·원본 localStorage raw·현재 route/host·AuthUI.settings snapshot을 고정하고 조작/포커스·storage event·닫기/메뉴이동에서 변경을 감지해 원문을 지운다. DB는 validateBackup으로 읽기 검증한 뒤 품목/거래처/통화의 코드·명칭·바코드·중단여부만 snapshot으로 만든다. 기초자료 누락값을 임의1/1 비율이나 통화 소수로 채우지 않는다. 정책에 실제 매핑이 없는 추가수량 사용/수량·단가·통화 정밀도는 null로 명시하고 검토 사유로 표시한다. 기존 표시용 conveniences.numberDecimals를 업로드 업무 정밀도로 쓰지 않는다.
+
+RequestUploadPreview는 quantity/amounts의 명시 null을 미상 정책으로 처리하여 원문금액/공란을 유지하고 설정 미상 사유를 반환한다. undefined/잘못된 정책은 계속 거부한다. 브라우저 붙여넣기는22열 TSV의 문자열·탭/빈열/선행0/공란행을 보존한다. 인용된 탭/줄바꿈은 별도 정확한 TSV 파서로 해석하며 닫히지 않은 인용은 오류다. 제목행 포함 여부는 사용자가 명시하고 초기 미선택으로 자동 추정하지 않는다. 자체 자원한도1000행/1MiB를 표시하며 원본300건 의미로 쓰지 않는다. 입력창은 저장되지 않고 전표 생성 버튼은 없다.
+
+영속화 계획: InventoryCore.lineTotals(119–123)의 qty×price/세율 재계산과 effectiveDocumentLines/ effectiveLineTotals/totals(127–141), stock(155이후), source 잔량/연결전표의 qty와 단가 비교(200/209/243/284), validateBackup(691–716)의 정규화는 현재 업로드 수동금액/이중수량 스키마를 보존하지 않는다. 후속 저장 후보는 문서별 uploadSnapshot.version=1의 원문/회사 설정 revision/필드매핑/묶음기준/기초자료식별과 행별 기본·추가수량 및 explicit money 문자열·blank-zero 출처를 분리해야 한다. 기존 qty 의미와 자동계산 문서는 변환하지 않고 저장조건 모두 확인된 경우에만 baseQty를 재고/잔량 qty로 투영한다. 금액 소비자·조회/집계·인쇄/CSV·백업/복원·후속전표가 모두 동일 유효금액을 사용하도록 합성 저장/재조회/기존 backup 역호환 검증이 필요하다. 저장 요청은 identity/쓰기권한·예상 raw/revision·schema/config 해시 CAS를 재확인하고 전체 사전검증 후 원자적 저장한다. 부분실패/재시도 원본 계약 전에는 묶음 저장·멱등성 정책을 만들지 않는다. 이번에는 이 저장 구조를 DB에 추가하지 않는다.
+
+검사는 파서 빈열/인용/자원한도·기초자료 snapshot 불변/미상 정밀도, 실제 InventoryUI 메뉴에서 붙여넣기/원문검토·모바일 크기·조회전용·닫기/메뉴이동/자료변경·권한변경 무효화를 포함한다. root에서 관련 검사만 하고0.73.0 릴리스에서 필요한 파일만 격리해0.74.0 후보를 만든다. 후보 전체회귀/브라우저검사·보존 대조를 통과한 커밋을 push한 뒤 기존 WSL 런타임에 설치한다. 원본 입력/설정/저장/발송은 하지 않는다. 전체업로드 및 전체매뉴얼 완료는 false다.
