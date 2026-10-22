@@ -1,0 +1,7 @@
+"use strict";
+const C=require('../../dist/inventory-core.js'),F=require('../../dist/form-core.js');
+function data(){let db=C.empty();db.masters=C.clone(C.seed().masters);db.masters.partners.push({...C.clone(db.masters.partners.find(p=>p.code==='V001')),code:'V002',name:'합성 공급처2'});const ids=[];for(let i=0;i<3;i++){const x=C.command(db,'document',{type:'request',date:C.today(),partner:i===1?'V002':'V001',warehouse:'W001',reference:'요청 '+i,memo:'메모 <b>'+i+'</b>',lines:[{item:'M001',qty:i+2,price:10.125,custom:{x_lot:'LOT-'+i}}]});db=x.db;ids.push(x.result.id);}
+ const fields=[F.field('item','품목'),F.field('qty','수량','number'),F.field('price','단가','number',{visible:false}),F.field('x_lot','제조번호','text',{custom:true}),F.field('x_sum','검토금액','number',{custom:true,formula:'qty*price',numericFormat:{version:1,mode:'explicit',digits:2}})];
+ for(const [id,title,orientation,paper,margin,footer] of [['normal','기존 요청서','portrait','A4',12,'기존 꼬리말'],['special','거래처 조건 요청서','landscape','A5',8,'조건부 꼬리말']])db=C.command(db,'formSave',{key:'doc:request',context:'print',form:{id,name:title,fields,page:{...F.pageDefaults,title,company:'합성 회사',orientation,paper,margin,fontSize:13,footer}}}).db;
+ db=C.command(db,'formActivate',{key:'doc:request',context:'print',id:'normal'}).db;db=C.command(db,'formRules',{key:'doc:request',rules:[{field:'partner',operator:'eq',value:'V002',context:'print',formId:'special',enabled:true,priority:0}]}).db;return {db,ids};}
+module.exports={data};

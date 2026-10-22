@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 선택 요청서 인쇄 배치의 경계
+
+단건 printDoc의 전표 본문 출력을 공통 렌더 함수로 추출하고 배치는 동일한 인쇄 schema/조건부 metadata를 전표별 평가한다. 배치만 독립 scoped guard와 페이지 이름을 사용하며 공유 style은 명시인쇄 동안만 설정하고 복원한다. 각 sheet에 page 이름·페이지구분을 부여하고 toolbar는 인쇄에서 숨긴다. 배치에서 저장/양식설정 commit을 제공하지 않는다. 기존 단건/반품 인쇄 경로와 양식 key는 바꾸지 않는다.
+
 ## 통화 metadata와 금액 소비자 경계
 
 공개 subscriber의 표시/입력 format 갱신, AST input/display resolver, $exchange 우선 helper를 별도 경로로 기록했다. subscriber의 주석 _syncForeignCurrency를 실행 경로로 구현하지 않는다. 원본 code0 외화/내자 판단을 자체 KRW 코드에 그대로 적용하지 않는다. 발주요청 고유 정의와 rate writer/계산/출력 규칙을 확보하기 전에는 자체 문서의 통화 코드 선택을 금액 환산에 연결하지 않는다. 앱 변경 없이 신규 원본10범위만 분석했으며 전체 실행 동등성은 미확인이다. 근거 `evidence/manual-request-currency-consumers-20261023.json`.

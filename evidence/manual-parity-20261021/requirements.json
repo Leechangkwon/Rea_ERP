@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 29,
+  "officialRequirementsDecomposed": 30,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2237,6 +2237,52 @@
       },
       "consumerResearchEvidence": "evidence/manual-request-currency-consumers-20261023.json",
       "consumerImplementationGate": "request-specific master/detail/$exchange metadata, active exchange-rate writer, amount/rounding/output contract"
+    },
+    {
+      "id": "REQ-PUR-REQ-007",
+      "parentRequirement": "REQ-PUR-OUTPUT-001",
+      "sourceId": "EC-VID-13914",
+      "title": "발주요청조회 선택 전표 인쇄와 기존 양식 보존",
+      "procedure": [
+        "조회 목록의 전표 선택 후 하단 인쇄",
+        "하단버튼은 선택행 전체, 행 링크는 해당 전표를 인쇄창에 전달",
+        "미리보기에서 전표별 양식을 확인한 뒤 명시적으로 인쇄",
+        "닫으면 기존 조회 선택·자료·양식 보존"
+      ],
+      "expected": [
+        "선택한 여러 발주요청을 한 건 제한 없이 전달",
+        "기존 조건부 인쇄 양식·각 전표 값과 용지/방향/여백을 보존",
+        "인쇄에 따른 전표 저장·상태변경·업무발송 없음"
+      ],
+      "status": "isolated-candidate-full-regression-passed-ready-for-release",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=200s",
+        "publisher": "이카운트 ERP",
+        "observedSeconds": 207,
+        "reviewStatus": "focused-print-preview-frame-and-caption-not-full-video",
+        "sourceManifest": ".artifacts/manual-request-print-batch-20261023/source-manifest.json",
+        "requestBinding": "purchase_request_print_user_action_list -> common$ISlipLinkUserAction -> IInventorySlipPage",
+        "originalCurrentAccountAcceptance": false
+      },
+      "role": "Own readonly preview/print allowed, identity/company/read/settings/storage/lifecycle rechecked; original live-server authorization unverified",
+      "implementationEvidence": [
+        "dist/inventory-ui.js",
+        "dist/inventory.css",
+        "evidence/manual-request-print-batch-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/request-print-batch.cjs",
+        "tests/browser/request-print-batch.spec.cjs"
+      ],
+      "remaining": [
+        "original request header/line-supplier print layout",
+        "connected original eapproval/deleted exclusion and errors",
+        "actual hosted multi-request/physical print/Android acceptance",
+        "PDF/email button workflow and complete original form parity"
+      ],
+      "done": false,
+      "hostedAcceptance": false
     }
   ]
 }
