@@ -13,10 +13,28 @@
   function settingsObject(value,keys,label){if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).some(k=>!keys.includes(k)))throw Error(label+' 설정 항목을 확인하세요.');return value;}
   function boolean(value,fallback,label){if(value===undefined)return fallback;if(typeof value!=='boolean')throw Error(label+' 값을 확인하세요.');return value;}
   function enumValue(value,values,fallback,label){const out=value===undefined?fallback:value;if(!values.includes(out))throw Error(label+' 값을 확인하세요.');return out;}
+  function validateMappingFieldLinks(value){
+    settingsObject(value,['version','entries'],'항목 연결');
+    if(Object.keys(value).length!==2||!Object.hasOwn(value,'version')||!Object.hasOwn(value,'entries')||value.version!==1||!Array.isArray(value.entries)||value.entries.length>100)throw Error('항목 연결 버전1과100개 이하의 연결 목록을 확인하세요.');
+    const endpoint=(value,label)=>{
+      settingsObject(value,['context','id'],label);
+      if(Object.keys(value).length!==2||!Object.hasOwn(value,'context')||!Object.hasOwn(value,'id')||!['input','lines'].includes(value.context)||typeof value.id!=='string'||!/^[A-Za-z_][A-Za-z0-9_]{0,79}$/.test(value.id)||['__proto__','prototype','constructor'].includes(value.id))throw Error(label+'의 입력/BODY 구분과 항목 ID를 확인하세요.');
+      return {context:value.context,id:value.id};
+    },targets=new Set(),entries=[];
+    for(const entry of value.entries){
+      settingsObject(entry,['source','target'],'항목 연결');
+      if(Object.keys(entry).length!==2||!Object.hasOwn(entry,'source')||!Object.hasOwn(entry,'target'))throw Error('원본과 목표 항목을 확인하세요.');
+      const source=endpoint(entry.source,'원본 항목'),target=endpoint(entry.target,'목표 항목'),key=target.context+':'+target.id;
+      if(source.context!==target.context)throw Error('상단과 BODY 사이의 항목 연결은 지원하지 않습니다.');
+      if(targets.has(key))throw Error('같은 목표 항목에 여러 연결을 지정할 수 없습니다.');
+      targets.add(key);entries.push({source,target});
+    }
+    return {version:1,entries};
+  }
   function validateStructuredConfig(key,raw){
     const initial=empty().config[key];settingsObject(raw,Object.keys(initial),key);
     if(key==='commonDefaults'){if(raw.amountDigits!==undefined&&(!Number.isInteger(raw.amountDigits)||raw.amountDigits<0||raw.amountDigits>2))throw Error('공통 금액 자릿수를 확인하세요.');const result={supplyRounding:enumValue(raw.supplyRounding,['round','floor','ceil'],initial.supplyRounding,'공급가액 반올림'),vatRounding:enumValue(raw.vatRounding,['round','floor','ceil'],initial.vatRounding,'부가세 반올림'),amountDigits:raw.amountDigits??initial.amountDigits,showZero:boolean(raw.showZero,initial.showZero,'0 표시'),trailingZeros:boolean(raw.trailingZeros,initial.trailingZeros,'끝자리 0 표시'),thousandSeparator:enumValue(raw.thousandSeparator,[',','.',"'",'·',' '],initial.thousandSeparator,'천 단위 구분'),decimalSeparator:enumValue(raw.decimalSeparator,['.',',','·'],initial.decimalSeparator,'소수점 구분')};if(result.thousandSeparator===result.decimalSeparator)throw Error('천 단위와 소수점 구분 기호를 다르게 선택하세요.');return result;}
-    if(key==='menuMappings'){const rules=raw.rules??[];if(!Array.isArray(rules)||rules.length>200)throw Error('메뉴 매핑은 200개 이하여야 합니다.');const ids=new Set(),pairs=new Set();return {rules:rules.map(rule=>{settingsObject(rule,['id','from','to','enabled'],'메뉴 매핑');const id=text(rule.id,'매핑 ID',80,true),from=text(rule.from,'원본 메뉴',80,true),to=text(rule.to,'대상 메뉴',80,true),pair=from+'|'+to;if(from===to||ids.has(id)||pairs.has(pair))throw Error('동일 메뉴 또는 중복 메뉴 매핑은 등록할 수 없습니다.');ids.add(id);pairs.add(pair);return {id,from,to,enabled:boolean(rule.enabled,false,'메뉴 매핑 사용')};})};}
+    if(key==='menuMappings'){const rules=raw.rules??[];if(!Array.isArray(rules)||rules.length>200)throw Error('메뉴 매핑은 200개 이하여야 합니다.');const ids=new Set(),pairs=new Set();return {rules:rules.map(rule=>{settingsObject(rule,['id','from','to','enabled','fieldLinks'],'메뉴 매핑');const id=text(rule.id,'매핑 ID',80,true),from=text(rule.from,'원본 메뉴',80,true),to=text(rule.to,'대상 메뉴',80,true),pair=from+'|'+to;if(from===to||ids.has(id)||pairs.has(pair))throw Error('동일 메뉴 또는 중복 메뉴 매핑은 등록할 수 없습니다.');ids.add(id);pairs.add(pair);const result={id,from,to,enabled:boolean(rule.enabled,false,'메뉴 매핑 사용')};if(Object.hasOwn(rule,'fieldLinks'))result.fieldLinks=validateMappingFieldLinks(rule.fieldLinks);return result;})};}
     const input=raw.import===undefined?initial.import:settingsObject(raw.import,Object.keys(initial.import),'전표 불러오기'),rules=raw.progressRules===undefined?[]:raw.progressRules;
     if(!Array.isArray(rules)||rules.length>100)throw Error('진행 규칙은 100개 이하여야 합니다.');
     const types=['quote','order','sale','shippingorder','shipment','request','plan','pricerequest','purchaseorder','purchase','workorder','issue','work','production','transfer','consume','defect','count','adjust','shoporder','purchasereturn','exchangereceipt'],seen=new Set();

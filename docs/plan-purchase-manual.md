@@ -1,5 +1,23 @@
 # 구매실 매뉴얼 기반 재현
 
+## 현재 구현 후보 · 매핑센터 항목 연결 저장 기반 (운영0.82.0 유지)
+
+SelfCore.menuMappings 규칙에 optional `fieldLinks(version1, entries)` 저장 검증을 연결했다. 기존 규칙에는 속성을 주입하지 않고 명시 빈목록/미존재를 구분한다. 같은 input/lines 문맥, 자체ID/100개 한도·목표중복/위험경로 차단은 자체 안전 subset이며 원본 한도가 아니다. 기존 config.save 권한·CSRF·revision CAS와 실제 state/publicContext/backup 재조회 경로에서 동작한다. 미상형식은 해당 메뉴설정 저장을 차단하고 읽기/다른설정 저장/백업에서 원문을 보존한다.
+
+운영0.82 기준 격리검증에 변경 helper/분기를 동일하게 적용해 신규7·관련74 검사 통과. 권한/CSRF/회사격리·CAS/일부실패 무변경·저장재조회/활성토글·구형/미상metadata·기존설정/전표·백업 보존을 합성 확인했다. 첫 관련 인증검사는 격리서버 번들이 없어 실패했고 격리 build-worker 후 전체74가 통과했다. root VAT5 전체빌드/설치는 하지 않았다. REA6.4 자체3/원본4 새범위 parse0·coverage unknown/truncated false, 원본 실행/전체동등성은 미확인이다.
+
+원본 generic model copier·legacy mapping-center 메뉴제한·modern derive3방식은 서로 연결이 입증되지 않은 별도 경로로 기록했다. 메뉴 pair만으로 모든 항목/메뉴 지원을 가정하지 않는다. 필드편집UI/EntryCore 적용 소비자는 아직 미연결이라 운영에 배포하지 않았다. 운영0.82/PID2454806·설치SHA `d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7` 유지, 운영자료/설정/메일 쓰기와 새 보존대조는 없다. 실제 코드/검증 근거 `evidence/manual-mapping-field-storage-20261023.json`, 격리소스 `.artifacts/validation/mapping-field-storage-20261023`.
+
+다음은 주문→발주요청의 실제 데이터/양식 schema에서 허용 source/target catalog와 읽기 전용 제안 계약을 좁혀 기존 lineage/초안/계산·공란/다중원본을 보존할 소비자를 연결한다. 저장된 ID만으로 필드 실재/타입/보호항목 적격성을 인정하지 않는다. 원본 미관찰 필드편집 UI는 켜지 않는다. 모아 마지막실제저장/재조회0.51.0·72갱신 로컬대기, 동일도구누락 재시도/게시완료 주장은 없다. 목록54/본문24/요구사항27/전체합격0, BODY/업로드 저장의 재개조건과 main VAT5 설치금지를 유지한다.
+
+## 이번 구현 단위 · 항목 연결 저장 기반 (운영 미반영 후보)
+
+매핑 필드 편집 UI/전표 적용을 켜기 전에 기존 인증 설정 저장 경로에 optional `fieldLinks`를 연결한다. 자체 저장형식은 `{version:1, entries:[{source:{context,id}, target:{context,id}}]}`이며 context는 input/lines, source/target은 같은 context만 허용한다. 기존 규칙에 속성이 없으면 반환/읽기/저장 때도 주입하지 않는다. 빈 entries는 명시적인 빈 연결이고 미상버전/null/알 수 없는 key는 해당 설정 저장을 거부하며 읽기와 다른 설정 저장은 보존한다.
+
+목표 중복·빈/위험/경로형ID·상하단 교차는 차단하고 같은 원본을 여러 서로 다른 목표에 저장하는 것은 허용한다. ID 1~80자 ASCII 영문/숫자/밑줄·첫글자 영문/밑줄, entries100개는 자체 안전 subset이며 원본 한도로 주장하지 않는다. 필드 실재/타입/보호항목·메뉴별 적용 적격성은 후속 catalog/실행 검증 대상이다. 문자열 eval/업무 값 저장이나 자동매핑/전표계산은 하지 않는다.
+
+수정 대상은 SelfCore의 구조 검증과 기존 `config.save` API에 대한 합성 검사다. config.write·CSRF·revision CAS·회사격리를 기존 경로로 검증하고 publicContext/backup에 저장형식이 그대로 재조회되는지 확인한다. 구형규칙/알 수 없는 저장형식/기존 전표·계정·설정/양식은 자동 이관하지 않는다. 원본 UI 대조·소비자 연결 전에는 새 설정 UI를 켜거나 저장완료를 전체매뉴얼 합격으로 세지 않는다. root VAT5는 전체빌드하지 않고0.82 기반 격리검증에서 실제 서버 소스 경로를 검사한다. 운영 배포는 후속 연결·보존 검증 전까지 보류한다.
+
 ## 현재 조사 · 업로드 검증 분기 정정 / 다음 매핑센터 차이표 (운영0.82.0 유지)
 
 공개 GetAttributeSettingProgram의 서버반환 설정창 변환과 실제 upload 검증 진입을 대조했다. 이전 `_checkValidRow`/`_checkInputLineWithKeyProps`의 valid_key_list 설명은 **일반 입력 분기**였다. upload는 이 분기에 앞서 별도로 행 상태·빈 행, input_required_value와 내부 import-target metadata를 처리한다. 설정창의 attr_data_types 우선순위/기본값도 업로드 필수·숫자정밀도 계약으로 대체할 수 없다. 기존 증거에 정정 근거를 연결했으며 앱의 업로드 저장은 계속 비활성이다.

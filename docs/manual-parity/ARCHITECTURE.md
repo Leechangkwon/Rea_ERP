@@ -1,5 +1,17 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 항목 연결 저장 후보 구현·합성 검증
+
+SelfCore.validateMappingFieldLinks→validateStructuredConfig(menuMappings)→기존 config.save/권한·CAS→state/publicContext/backup 경로를 실제 합성 검사했다. helper/해당분기는 root와0.82 격리검증에서 같고 root VAT 연구는 설치하지 않았다. 미존재 metadata는 주입하지 않으며 미상형식은 read/다른section save에서 보존한다. id/context 구조검사는 향후 schema catalog/타입/보호필드 적용 검사를 대신하지 않는다. UI/전표소비자 미연결 상태로 운영 배포하지 않았다. 근거 `evidence/manual-mapping-field-storage-20261023.json`.
+
+## 이번 구현 단위 · 항목 연결 저장 기반 (운영 미반영 후보)
+
+매핑 필드 편집 UI/전표 적용을 켜기 전에 기존 인증 설정 저장 경로에 optional `fieldLinks`를 연결한다. 자체 저장형식은 `{version:1, entries:[{source:{context,id}, target:{context,id}}]}`이며 context는 input/lines, source/target은 같은 context만 허용한다. 기존 규칙에 속성이 없으면 반환/읽기/저장 때도 주입하지 않는다. 빈 entries는 명시적인 빈 연결이고 미상버전/null/알 수 없는 key는 해당 설정 저장을 거부하며 읽기와 다른 설정 저장은 보존한다.
+
+목표 중복·빈/위험/경로형ID·상하단 교차는 차단하고 같은 원본을 여러 서로 다른 목표에 저장하는 것은 허용한다. ID 1~80자 ASCII 영문/숫자/밑줄·첫글자 영문/밑줄, entries100개는 자체 안전 subset이며 원본 한도로 주장하지 않는다. 필드 실재/타입/보호항목·메뉴별 적용 적격성은 후속 catalog/실행 검증 대상이다. 문자열 eval/업무 값 저장이나 자동매핑/전표계산은 하지 않는다.
+
+수정 대상은 SelfCore의 구조 검증과 기존 `config.save` API에 대한 합성 검사다. config.write·CSRF·revision CAS·회사격리를 기존 경로로 검증하고 publicContext/backup에 저장형식이 그대로 재조회되는지 확인한다. 구형규칙/알 수 없는 저장형식/기존 전표·계정·설정/양식은 자동 이관하지 않는다. 원본 UI 대조·소비자 연결 전에는 새 설정 UI를 켜거나 저장완료를 전체매뉴얼 합격으로 세지 않는다. root VAT5는 전체빌드하지 않고0.82 기반 격리검증에서 실제 서버 소스 경로를 검사한다. 운영 배포는 후속 연결·보존 검증 전까지 보류한다.
+
 ## 현재 매핑센터 차이와 선행 설계
 
 현재 SelfCore.menuMappings는 `{id,from,to,enabled}` pair만 검증/저장하고 SelfSettingsUI.mappingPage의 필드설정버튼은 비활성이다. 운영0.82 비서버 JS의 menuMappings 직접참조는 self-core/self-settings-ui/self-ui뿐이며 InventoryUI/EntryCore에 적용 소비자가 없다. 새로운 `fieldLinks`를 기존 strict schema에 임의 추가하면 저장에서 거부되므로 설정 검증→인증 서버 설정/CAS/publicContext→import draft 소비자를 함께 설계해야 한다.
