@@ -13,5 +13,40 @@
   const rows=source.map((cells,index)=>{const raw=Array.from({length:columns.length},(_,i)=>i<cells.length?cells[i]:''),values=Object.fromEntries(columns.map((c,i)=>[c.fieldId,raw[i].trim()]));return {sourceRow:index+offset+1,raw,values,empty:Object.values(values).every(v=>v==='')};});
   return {rows,columns:columns.map(x=>({...x})),hasHeader:options.hasHeader,rowLimit:options.maxRows,rowLimitSource:'caller-policy',businessValidation:false,groupingResolved:false,saveSupported:false};
  }
- const api=Object.freeze({columns,stageRaw});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadCandidate=api;
+ // A disconnected preflight: exact arithmetic checks the observed relation only.
+ // It never chooses an upload winner, fills missing cells, rounds, or creates a document.
+ const quantityFields=Object.freeze({additional:'inv_m$add_qty',base:'inv_m$qty'});
+ function decimal(text,label,digits){
+  if(typeof text!=='string'||text.length>64||!/^[-]?\d+(?:\.\d+)?$/.test(text))throw Error(label+'는 지수/구분자 없는 십진 문자열이어야 합니다.');
+  const negative=text.startsWith('-'),unsigned=negative?text.slice(1):text,[whole,fraction='']=unsigned.split('.');
+  if(whole.replace(/^0+(?=\d)/,'').length>12||fraction.length>digits)throw Error(label+'의 정수/소수 자릿수를 확인하세요.');
+  return {coefficient:BigInt(whole+fraction)*(negative?-1n:1n),scale:10n**BigInt(fraction.length)};
+ }
+ function fractionText(numerator,denominator,digits){
+  const factor=10n**BigInt(digits),scaled=numerator*factor;if(scaled%denominator!==0n)return null;
+  const integer=scaled/denominator,negative=integer<0n,absolute=negative?-integer:integer;
+  const text=absolute.toString().padStart(digits+1,'0'),whole=digits?text.slice(0,-digits):text,fraction=digits?text.slice(-digits).replace(/0+$/,''):'';
+  return (negative?'-':'')+whole+(fraction?'.'+fraction:'');
+ }
+ function inspectQuantity(values,policy){
+  if(!values||typeof values!=='object'||Array.isArray(values)||Object.values(quantityFields).some(key=>!Object.hasOwn(values,key)||typeof values[key]!=='string'))throw Error('원문 매핑의 기본수량과 추가수량 문자열이 필요합니다.');
+  if(!policy||typeof policy!=='object'||Array.isArray(policy)||typeof policy.enabled!=='boolean'||!Number.isInteger(policy.baseDigits)||policy.baseDigits<0||policy.baseDigits>10||!Number.isInteger(policy.additionalDigits)||policy.additionalDigits<0||policy.additionalDigits>10)throw Error('추가수량 사용여부와 두 수량의 소수 자릿수를 명시하세요.');
+  const input={base:values[quantityFields.base],additional:values[quantityFields.additional]},issues=[],parsed={},result={input,precision:{base:policy.baseDigits,additional:policy.additionalDigits},enabled:policy.enabled,relation:'empty',expectedBase:null,issues,businessValidation:false,uploadPrecedenceResolved:false,saveSupported:false};
+  for(const kind of ['base','additional'])if(input[kind]!=='')try{parsed[kind]=decimal(input[kind],kind==='base'?'기본수량':'추가수량',policy[kind+'Digits']);}catch(e){issues.push({code:'quantity-format',fieldId:quantityFields[kind],message:e.message});}
+  if(issues.length){result.relation='invalid-input';return result;}
+  if(!policy.enabled){result.relation=input.additional===''?(input.base===''?'empty':'base-only'):'additional-disabled';return result;}
+  if(input.additional===''){result.relation=input.base===''?'empty':'base-only';return result;}
+  if(policy.rate==null){result.relation='rate-required';return result;}
+  if(typeof policy.rate!=='object'||Array.isArray(policy.rate))throw Error('품목의 기본수량/추가수량 환산비율을 확인하세요.');
+  const numerator=decimal(policy.rate.numerator,'환산 분자',10),denominator=decimal(policy.rate.denominator,'환산 분모',0);
+  if(numerator.coefficient<=0n||denominator.coefficient<=0n)throw Error('분리 검증은 양수 분자와 양의 정수 분모가 명시된 환산비율만 지원합니다.');
+  result.rate={numerator:policy.rate.numerator,denominator:policy.rate.denominator};
+  const product=parsed.additional.coefficient*numerator.coefficient,divisor=parsed.additional.scale*numerator.scale*denominator.coefficient;
+  result.expectedBase=fractionText(product,divisor,policy.baseDigits);
+  if(result.expectedBase===null){result.relation='rounding-required';return result;}
+  if(result.expectedBase.replace(/^-/,'').split('.')[0].length>12){result.relation='base-overflow';return result;}
+  result.relation=input.base===''?'additional-only':parsed.base.coefficient*divisor===product*parsed.base.scale?'matched':'conflict';
+  return result;
+ }
+ const api=Object.freeze({columns,stageRaw,quantityFields,inspectQuantity});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadCandidate=api;
 })(typeof globalThis==='object'?globalThis:this);
