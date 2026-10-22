@@ -51,6 +51,8 @@
     const projected=f.custom===false&&typeof context==='string'&&!['input','lines'].includes(context);
     if(!slot||f.custom!==true&&!projected||f.id!==slot.id||f.type!==slot.type||Boolean(f.multiline)!==Boolean(slot.multiline))throw Error('추가항목 목록의 항목과 유형을 확인하세요.');
   }
+  function inputOrder(f){return f?.focusOrder?.version===1?f.focusOrder.order:null;}
+  function inputSequence(fields){return fields.map((field,index)=>({field,index,order:inputOrder(field)??index+1})).sort((a,b)=>a.order-b.order||a.index-b.index).map(x=>x.field);}
   function validateForm(input){
     if(!input||!validKey(input.id)||input.id==='default'||!String(input.name||'').trim()||input.name.length>60||!Array.isArray(input.fields)||input.fields.length>100)throw Error('양식명과 항목 구성을 확인하세요.');
     const form=copy(input);form.name=form.name.trim();const seen=new Set();
@@ -61,6 +63,7 @@
       if(!['left','center','right'].includes(f.align))throw Error('항목 정렬을 확인하세요.');
       f.width=Number(f.width);f.label=f.label.trim();f.formula=String(f.formula||'').trim();f.options=Array.isArray(f.options)?f.options.map(String).slice(0,50):[];
       if(Object.hasOwn(f,'numericFormat')){if(f.type!=='number')throw Error('숫자 항목에만 표시 자릿수를 설정하세요.');f.numericFormat=numericFormat(f.numericFormat);}
+      if(f.focusOrder?.version===1&&(!Number.isSafeInteger(f.focusOrder.order)||f.focusOrder.order<1))throw Error('입력순서는 1 이상의 정수로 설정하세요.');
       checkCatalogField(f,input.context);
       if(f.custom&&!f.id.startsWith('x_'))throw Error('추가항목 ID는 x_로 시작해야 합니다.');
       if(f.protected&&!f.visible)throw Error(f.label+' 항목은 숨길 수 없습니다.');
@@ -124,6 +127,6 @@
   function check(fields,values){for(const f of fields){const v=values[f.id];if(f.required&&(v===undefined||v===null||v===''||(f.type==='checkbox'&&v!==true)))throw Error(f.label+' 항목은 필수입니다.');if(v!==undefined&&v!==null&&v!==''){if(f.type==='number'&&!Number.isFinite(Number(v)))throw Error(f.label+' 숫자를 확인하세요.');if(f.type==='select'&&!f.options.includes(String(v)))throw Error(f.label+' 선택값을 확인하세요.');if(f.type==='date'&&(!/^\d{4}-\d{2}-\d{2}$/.test(v)||!Number.isFinite(Date.parse(v))||new Date(v).toISOString().slice(0,10)!==v))throw Error(f.label+' 일자를 확인하세요.');}}return values;}
   function custom(store,key,context){const result=new Map();for(const f of screen(store,key).forms.filter(f=>f.context===context))for(const x of f.fields)if(x.custom)result.set(x.id,x);return [...result.values()];}
   function defaultValue(f,date){if(f.defaultValue==='@today')return date;return f.defaultValue??'';}
-  const api={field,fieldCatalog,pageDefaults,numericFormat,displayDigits,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
+  const api={field,fieldCatalog,inputOrder,inputSequence,pageDefaults,numericFormat,displayDigits,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.FormCore=api;
 })(typeof globalThis==='object'?globalThis:this);

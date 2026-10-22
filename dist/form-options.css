@@ -8,3 +8,9 @@
 .form-options-dialog[open]{display:flex;flex-direction:column}.form-options-dialog>header{flex:0 0 auto}.form-options-body{min-height:0;max-height:none;overflow:auto}
 
 .form-option-actions>select[aria-label="추가할 항목"]{max-width:210px;flex:0 1 210px}.inv-field textarea[data-custom-field]{box-sizing:border-box;width:100%;min-width:0;min-height:72px;padding:8px;border:1px solid #cbd5e1;border-radius:3px;font:inherit;color:inherit;background:white;resize:vertical}
+
+.form-option-actions>label:has(input[aria-label="입력순서재정렬"]){display:flex;align-items:center;gap:6px;min-height:36px;flex:0 0 auto}.form-option-actions>label[hidden]{display:none}.form-fields-table input[aria-label^="입력순서 "]{width:80px}
+
+.form-focus-order td:nth-child(4) input{width:130px}.form-focus-order td:nth-child(13) input{width:200px}
+
+@media(max-width:760px){.form-option-actions>label:has(input[aria-label="입력순서재정렬"]){min-height:44px}}
