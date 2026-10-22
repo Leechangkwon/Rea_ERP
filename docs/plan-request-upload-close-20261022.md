@@ -192,3 +192,9 @@ sourceb02a264/release15e315f·최종관련Node115/신규12·브라우저100/신�
 필드형/버전/shape/0~6 strict검증·legacy무변경·save/reload/backup/조건양식·보호필드/숫자추가항목·raw CSV/문서 불변·설정창취소/권한/stale·모바일 화면을 검사한다. 원본 source와 자체 수정범위를 REA6.4로 분리 분석한다. 운영0.75기반0.76 격리후보에서 필요한 전체회귀 후 commit/push·기존운영 반영/읽기검증·보존대조한다. main VAT5는 배포하지 않는다. 업로드 저장/기본·필수/묶음/실패재시도/전체매뉴얼 합격은 계속 미완료다.
 
 보완: FormOptions registry에 numericDisplay=true로 선언한 InventoryUI 조회/인쇄 renderer에서만 편집을 활성화한다. 미연결 input/BODY·다른현황은 비활성으로 두며 기존 metadata는 보존한다. 기본양식 복사 시 새초안의 폭만 기존 저장검증범위50~600px으로 맞춰 기본폭25/631로 저장이 막히던 문제를 해결한다. 기존 저장양식/기본화면 폭은 바꾸지 않는다. 초기전체회귀에서 발견된 반품의 이름변경 세액/합계 기본표시 회귀는 이전 금액 formatter를 유지해 해결했다. 명시digits일때만 새표시를 적용하며 계산/배분원본은 유지한다.
+
+### 양식 숫자 표시 결과 ·0.76.0
+
+source44ec333/fix52c41ea·release38a8137·전체verify:local/브라우저102·최종관련Node88/신규12·최종화면2·릴리스4/도구7통과. 원본Renderer표시metadata와 업로드업무formatter를분리했고 기존계정/브라우저8전표·양식·서버30/0·메일3함8통1첨부가정확히동일하다. 본문21/요구사항26/전체합격0·모아62로컬대기.
+
+다음은 REQ-PUR-REQ-005의 실제 업로드 input formatter 공급원과 저장시값변경/필수·상단매핑·묶음 equality 계약으로 돌아간다. 이번 표시형태 Renderer.value_format과 tenant.input_formatter_numeric를 구분하고, 기존 공개 V5 업로드 help/행처리 함수에서 요청 메뉴에 전달되는 숫자정밀도 경로를 REA6.4로 좁혀 추적한다. 일반 입력/리스트/인쇄 numericFormat을 업로드 업무정밀도로 재사용하지 않는다. 재사용 원문은 입력/도구/결과해시·근거를 검증하며, 같은 팝업/이미 통과한 미연결 helper를 새 진척으로 반복하지 않는다. 확인된 계약만 versioned upload snapshot에 연결하고 수량우선순위·수동금액 영속소비자·실패재시도/CAS·보존 검증 후 저장 후보를 만든다. 원본 주입력행/이동·적용/저장/발송은 하지 않는다. 운영0.76.0·runtime12870/PID2394386 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.

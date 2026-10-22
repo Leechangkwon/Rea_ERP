@@ -1,6 +1,6 @@
 {
-  "version": "0.75.0",
-  "status": "0.75.0 deployed: nullable purchase settings/authenticated read-only upload snapshot; whole-manual acceptance incomplete; root VAT5 excluded",
+  "version": "0.76.0",
+  "status": "0.76.0 deployed: optional numeric form display settings; upload business precision and whole-manual acceptance incomplete; root VAT5 excluded",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -80,7 +80,8 @@
     "gmail-purchaseorder/mail-contract.json",
     "domain-webmail/mail-contract.json",
     "mail-routing/mail-contract.json",
-    "Nullable version1 purchase precision config with authenticated review snapshot, no assumed form inheritance, and consistent settings-modal controls; voucher upload saving incomplete"
+    "Nullable version1 purchase precision config with authenticated review snapshot, no assumed form inheritance, and consistent settings-modal controls; voucher upload saving incomplete",
+    "Optional numericFormat display-only metadata preserved in existing forms/backups; explicit0..6 only in connected InventoryUI table/aggregate/print renderers; raw business and CSV values unchanged; not an upload input precision policy"
   ],
   "checks": {
     "total": 998,
@@ -232,16 +233,27 @@
       "verifyLocalPassed": true,
       "tools": 7,
       "release": 4
+    },
+    "numericFormDisplay": {
+      "reference": "evidence/manual-form-numeric-display-20261022.json",
+      "relatedNode": 88,
+      "newNode": 12,
+      "fullBrowser": 102,
+      "newBrowser": 2,
+      "finalFocusedBrowser": 2,
+      "verifyLocalPassed": true,
+      "tools": 7,
+      "release": 4
     }
   },
-  "future_research": "다음은 원본 발주요청 입력의 Option에서 실제 양식/BODY 항목설정 진입과 기본수량·추가수량·단가의 자릿수 explicit/default 메타데이터를 읽기 전용 확인한다. 주 입력행/행이동·적용/설정저장은 하지 않는다. 관찰한 metadata만 기존 FormCore/FormOptions의 nullable versioned 설정과 업로드 adapter에 연결하고 구양식/조건양식/백업 보존을 검증한다. 통화별 외화정밀도도 별도 공급원을 확인한다. 같은 비활성 링크·이미 읽은 팝업/해석기 검사를 새 진척으로 반복하지 않는다. 필수/상단/묶음 equality·저장시값변경·수량우선순위·수동금액 소비자/실패재시도와 업무저장은 계속 미완료다. 운영0.75.0·runtime65304/PID2387612 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
+  "future_research": "다음은 REQ-PUR-REQ-005의 실제 업로드 input formatter 공급원과 저장시값변경/필수·상단매핑·묶음 equality 계약으로 돌아간다. 이번 표시형태 Renderer.value_format과 tenant.input_formatter_numeric를 구분하고, 기존 공개 V5 업로드 help/행처리 함수에서 요청 메뉴에 전달되는 숫자정밀도 경로를 REA6.4로 좁혀 추적한다. 일반 입력/리스트/인쇄 numericFormat을 업로드 업무정밀도로 재사용하지 않는다. 재사용 원문은 입력/도구/결과해시·근거를 검증하며, 같은 팝업/이미 통과한 미연결 helper를 새 진척으로 반복하지 않는다. 확인된 계약만 versioned upload snapshot에 연결하고 수량우선순위·수동금액 영속소비자·실패재시도/CAS·보존 검증 후 저장 후보를 만든다. 원본 주입력행/이동·적용/저장/발송은 하지 않는다. 운영0.76.0·runtime12870/PID2394386 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-purchase-precision-20261022.json",
+    "reference": "evidence/manual-form-numeric-display-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
-    "publicVersionVerified": "0.75.0",
+    "deployedSourceCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+    "publicVersionVerified": "0.76.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -300,20 +312,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.75.0",
+    "existingSessionRetainedVersion": "0.76.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.75.0",
+    "lastExactBrowserBackupComparisonVersion": "0.76.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.75.0",
+    "currentServerStateAndMailPreservedVersion": "0.76.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.75.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.76.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -386,7 +398,10 @@
     "purchasePrecisionSettingsDeployed": true,
     "purchasePrecisionSettingsHostedOpenCloseVerified": true,
     "purchasePrecisionSettingsHostedSavePerformed": false,
-    "requestUploadPolicySnapshotHostedVerified": true
+    "requestUploadPolicySnapshotHostedVerified": true,
+    "numericFormDisplayDeployed": true,
+    "numericFormDisplayHostedOpenCloseVerified": true,
+    "numericFormDisplayHostedSavePerformed": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -1039,13 +1054,28 @@
       "voucherSaveImplemented": false,
       "deployedVersion": "0.75.0",
       "done": false
+    },
+    "numericFormDisplay": {
+      "requirements": [
+        "REQ-COM-FORMS-001",
+        "REQ-PUR-OUTPUT-001"
+      ],
+      "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+      "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+      "evidence": "evidence/manual-form-numeric-display-20261022.json",
+      "deployedVersion": "0.76.0",
+      "displayMetadataIntegrated": true,
+      "uploadBusinessPrecisionIntegrated": false,
+      "hostedOpenCloseVerified": true,
+      "hostedFormSaved": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.75.0",
-    "commit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
-    "manifest": ".artifacts/manual-purchase-precision-20261022/candidate-manifest.json",
-    "bundleSha256": "4624c0b190ac257f6b25799257aabb1987988c35ae220fc8d544265aca6a89c1",
+    "version": "0.76.0",
+    "commit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+    "manifest": ".artifacts/manual-form-precision-20261022/candidate-manifest.json",
+    "bundleSha256": "1c5c64f1dc1da64ba344533669424a91f376927a7f0f88707ca519a37142b2c0",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1080,9 +1110,10 @@
       "observed-plan-list-five-date-shortcuts-sunday-weeks-and-atomic-render-preservation",
       "0.73.0-plan-generation-reference-baseline",
       "request-upload-readonly-tsv-paste-registered-snapshot-review-client-guards",
-      "nullable-purchase-precision-settings-authenticated-review-snapshot-and-scoped-modal-controls"
+      "nullable-purchase-precision-settings-authenticated-review-snapshot-and-scoped-modal-controls",
+      "optional-numeric-field-display-preservation-and-connected-table-print-renderers-mobile-editor-controls"
     ],
-    "supersedesCandidateCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+    "supersedesCandidateCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
@@ -1117,6 +1148,12 @@
       "evidence": "evidence/manual-purchase-precision-20261022.json",
       "publicAnonymousBytes": 6483,
       "sha256": "01863f1b90321d230c0a56d63162a11a377dc8ff4e6a06e800d60796b7750646",
+      "originalExecuted": false
+    },
+    "numericFormDisplay": {
+      "reference": "evidence/manual-form-numeric-display-20261022.json",
+      "publicAnonymousBundles": 4,
+      "bytes": 2353096,
       "originalExecuted": false
     }
   },
@@ -1203,6 +1240,15 @@
       "reference": "evidence/manual-purchase-precision-20261022.json",
       "ownScopes": 3,
       "originalScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false
+    },
+    "numericFormDisplay": {
+      "reference": "evidence/manual-form-numeric-display-20261022.json",
+      "ownScopes": 7,
+      "originalScopes": 3,
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false,

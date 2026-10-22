@@ -1,0 +1,220 @@
+{
+  "baselineVersion": "0.75.0",
+  "version": "0.76.0",
+  "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+  "sourceFinalCommit": "52c41ea9c4069065ce67b112edd2ff0ec4d246fd",
+  "status": "deployed-optional-numeric-form-display-whole-manual-incomplete",
+  "requirements": [
+    "REQ-COM-FORMS-001",
+    "REQ-PUR-OUTPUT-001"
+  ],
+  "supportingInvestigation": "REQ-PUR-REQ-005",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 51,
+  "manualBodiesReviewed": 21,
+  "newManualBodies": 0,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "path": "발주요청입력 > Option > 입력화면설정 > 기본 > BODY 설정 > 항목 설정",
+    "numericFieldObserved": "단가(vat포함), selected in an unsaved separate setting draft",
+    "displayModes": [
+      "기본설정",
+      "직접입력"
+    ],
+    "decimalChoices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "draftDirectModeSelectedToInspectDisabledDropdown": true,
+    "decimalValueChanged": false,
+    "applied": false,
+    "settingsSaved": false,
+    "businessEntryRowsEditedOrMoved": false,
+    "draftAndAllSetupWindowsClosed": true,
+    "rendererSettingsAreNotProvenUploadBusinessPrecision": true
+  },
+  "publicSources": [
+    {
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/presentation/app.setup/app.setup.ReportGridSetupPage/app.setup.ReportGridSetupPage.d99c62b5.20.js",
+      "file": "app.setup.ReportGridSetupPage.d99c62b5.20.js",
+      "sha256": "74cd51308047d8c6e6dbd96bf85c080bcf18bc30ea30c89d0a326fc19ea0340c",
+      "bytes": 551,
+      "authenticated": false,
+      "executed": false
+    },
+    {
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.setup/app.setup.user_action.10765e7e.20.js",
+      "file": "app.setup.user_action.10765e7e.20.js",
+      "sha256": "5bebd778de1b573cb7de6d5662f899548d419a1740165d02c7bd17ee022c992e",
+      "bytes": 1873614,
+      "authenticated": false,
+      "executed": false
+    },
+    {
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.setup/app.setup.component.02e22a70.20.js",
+      "file": "app.setup.component.02e22a70.20.js",
+      "sha256": "5d2ff43ada13b535ab536d29a13f1be9657c17c39dfddf92c2b90e183d54c19b",
+      "bytes": 33949,
+      "authenticated": false,
+      "executed": false
+    },
+    {
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.browser.template_setup/ecount.browser.template_setup.d3e73290.20.js",
+      "file": "ecount.browser.template_setup.d3e73290.20.js",
+      "sha256": "f579715e1ef6caff922827f3f215ada366c7ce05740acc875a7fc07f3c3b1cec",
+      "bytes": 444982,
+      "authenticated": false,
+      "executed": false
+    }
+  ],
+  "publicStaticFindings": [
+    "ReportGridSetupPage binds IReportGridSetupProgram",
+    "AttributeSettingTemplateConvertFeature groups value_format basic_tf/decimal_part_size in Renderer metadata",
+    "basic_tf=true serializes only {basic_tf:true}; explicit fields keep independent attributes",
+    "Original callbacks parsed only, never executed; input formatter routing/business equivalence not verified"
+  ],
+  "implementation": {
+    "fieldProperty": "numericFormat",
+    "version": 1,
+    "optionalLegacyMissingUnchanged": true,
+    "modes": [
+      "default",
+      "explicit"
+    ],
+    "explicitDigitsRange": [
+      0,
+      6
+    ],
+    "type": "numeric fields only; strict version/keys/integer validation",
+    "storage": "existing FormCore/FormOptions store, backup and conditional forms",
+    "renderers": "explicitly registered InventoryUI projection tables/aggregates and print tables only",
+    "unsupportedInputBodyAndOtherReportsEditorEnabled": false,
+    "rawInputsCalculationsStockAndCsvChanged": false,
+    "uploadBusinessPrecisionInferredFromDisplay": false,
+    "legacyFormsAutoMigrated": false,
+    "newDefaultFormDraftWidthRange": [
+      50,
+      600
+    ],
+    "legacyExistingFormWidthChangedAutomatically": false,
+    "mobileControls": 44,
+    "desktopControls": 36,
+    "mobileFooterClippingFixed": true,
+    "renamedCreditMoneyDefaultsPreserved": true
+  },
+  "checks": {
+    "newNodeTests": 12,
+    "candidateRelatedNodeTests": 88,
+    "candidateVerifyLocalPassed": true,
+    "fullBrowserTests": 102,
+    "newBrowserTests": 2,
+    "finalFocusedBrowserTests": 2,
+    "viewportWidths": [
+      390,
+      1280
+    ],
+    "screenshotsVisuallyReviewed": true,
+    "tools": 7,
+    "releaseChecks": 4,
+    "finalBuildPassed": true,
+    "initialFailure": "Existing renamed signed credit money lost its money formatter; restored the original formatter unless field precision is explicitly selected. Added frozen allocation preservation regression. Earlier new tests corrected current label and existing aggregate CSV expectations.",
+    "rea": {
+      "version": "6.4.0",
+      "ownScopes": 7,
+      "originalScopes": 3,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-form-precision-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+    "branch": "release/0.76.0-form-numeric-display",
+    "bundleSha256": "1c5c64f1dc1da64ba344533669424a91f376927a7f0f88707ca519a37142b2c0",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "runtimeSession": 12870,
+    "linuxPid": 2394386,
+    "existingLoginRetained": true,
+    "hostedFormEditorOpenChoicesCloseVerified": true,
+    "hostedFormSaved": false,
+    "hostedBusinessSaved": false,
+    "publicAssetsMatched": true,
+    "anonymousMailStatus": 401,
+    "publicHealthStatus": 404,
+    "localHealthStatus": 200,
+    "backend": "supabase",
+    "browserPreservation": {
+      "version": "0.76.0",
+      "beforeDownload": 37,
+      "afterDownload": 38,
+      "exactBytesAndJson": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "documents": 8,
+      "plans": 0,
+      "hostedFormSaved": false,
+      "businessSaved": false,
+      "sent": false,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.76.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "proofScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/FORM-DISPLAY-0.76.0.png"
+  },
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "localPendingUpdates": 62,
+    "auth401Unchanged": true,
+    "retriedWithoutNewAuthentication": false,
+    "published": false
+  },
+  "remaining": [
+    "Original full display formatter/rounding and zero/separator options and all report renderers",
+    "Actual upload input precision source, currency/required/default/header/grouping contracts",
+    "Two quantity precedence, manual amount persistence/consumers, partial failure and retry",
+    "Actual production form save and business output acceptance, whole manuals"
+  ],
+  "nextWork": "다음은 REQ-PUR-REQ-005의 실제 업로드 input formatter 공급원과 저장시값변경/필수·상단매핑·묶음 equality 계약으로 돌아간다. 이번 표시형태 Renderer.value_format과 tenant.input_formatter_numeric를 구분하고, 기존 공개 V5 업로드 help/행처리 함수에서 요청 메뉴에 전달되는 숫자정밀도 경로를 REA6.4로 좁혀 추적한다. 일반 입력/리스트/인쇄 numericFormat을 업로드 업무정밀도로 재사용하지 않는다. 재사용 원문은 입력/도구/결과해시·근거를 검증하며, 같은 팝업/이미 통과한 미연결 helper를 새 진척으로 반복하지 않는다. 확인된 계약만 versioned upload snapshot에 연결하고 수량우선순위·수동금액 영속소비자·실패재시도/CAS·보존 검증 후 저장 후보를 만든다. 원본 주입력행/이동·적용/저장/발송은 하지 않는다. 운영0.76.0·runtime12870/PID2394386 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
+  "done": false
+}

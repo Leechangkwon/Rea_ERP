@@ -488,3 +488,9 @@ PurchasingPlanListUI의 quantityFilter는 저장된 row.line.qty에 적용되며
 config.purchasePrecision version1은 quantityUse boolean|null, baseDigits/additionalDigits/priceDigits integer0..6|null이다. 기존 업무config와 독립적인 nullable 추가이며 legacy load는 읽기시에만 미설정값을 제공한다. config.write·현재 서버revision CAS·기존회사분리로 저장하고 Auth publicContext/SelfUI.refresh를 통해 전달한다. 기존 공통금액/표시용편의소수·문서/양식을 변환하지 않는다.
 
 RequestUploadInputCore.snapshot은 실제인증회사 구매설정과 기존공통amountDigits만 독립 해석기에 전달한다. 양식 metadata는 unknown으로 유지하여 구매기본값의 자동상속을 차단한다. 회사설정/미상출처를 검토UI에서 표시하고 기존 identity/storage/route/settings guard가 바뀐 snapshot의 재사용을 막는다. 영속전표 저장은 없고 원본의 필수/묶음/우선순위/기본값/부분실패 계약은 미해결이다. 관련115Node·전체브라우저100·실제운영설정창/원문폐기를 확인했고 기존전체자료/양식/서버/메일 동일성을 대조했다. 근거 evidence/manual-purchase-precision-20261022.json.
+
+## 0.76.0 표시 정밀도와 업무 정밀도 분리
+
+숫자형 FormCore 필드의 numericFormat은 선택적 version1 metadata다. 미존재는 legacy 그대로, default는 기존 표시규칙, explicit의 digits는0~6 정수다. validateForm/backup/조건양식이 보존하며 metadata를 계산·입력·재고·CSV 값으로 변환하지 않는다. displayDigits→SelfCore.formatNumber의 표시옵션은 명시0을 보존한다. InventoryUI projection의 표/합계 및 printTable만 field metadata를 적용한다. register numericDisplay=true인 renderer에서만 FormOptions 편집을 활성화한다. 기존 이름변경 반품 금액은 explicit이 없으면 기존 money formatter로 표시해 frozen source를 유지한다.
+
+원본 AttributeSettingTemplateConvertFeature의 value_format/basic_tf/decimal_part_size는 Renderer metadata이며 업로드 input formatter와 호출관계는 미확인이다. 따라서0.75 purchasePrecision snapshot의 upload form unknown을 새 표시 metadata로 채우지 않는다. 기본양식 복사의 새초안 폭만50~600으로 정리하며 기존형식 자동마이그레이션은 없다. 데스크톱36/모바일44px controls와 flex 본문으로 하단 잘림을 막았다. 근거 evidence/manual-form-numeric-display-20261022.json.

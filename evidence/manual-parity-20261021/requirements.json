@@ -1095,7 +1095,8 @@
         "evidence/manual-request-upload-review-ui-20261022.json",
         "evidence/manual-request-upload-connection-20261022.json",
         "evidence/manual-request-upload-policy-20261022.json",
-        "evidence/manual-purchase-precision-20261022.json"
+        "evidence/manual-purchase-precision-20261022.json",
+        "evidence/manual-form-numeric-display-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
@@ -1200,6 +1201,16 @@
         "hostedSettingsOpenCloseVerified": true,
         "hostedSettingsSavePerformed": false,
         "voucherSaveImplemented": false,
+        "done": false
+      },
+      "numericFormDisplayPartial": {
+        "version": "0.76.0",
+        "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+        "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+        "displayOnly": true,
+        "uploadInputPrecisionProven": false,
+        "hostedOpenCloseVerified": true,
+        "hostedSavePerformed": false,
         "done": false
       }
     },
@@ -1693,7 +1704,8 @@
       "implementationEvidence": [
         "dist/purchase-return-core.js",
         "dist/inventory-ui.js",
-        "evidence/manual-purchase-return-print-20261022.json"
+        "evidence/manual-purchase-return-print-20261022.json",
+        "evidence/manual-form-numeric-display-20261022.json"
       ],
       "automatedEvidence": [
         "tests/purchase-return-print.cjs",
@@ -1701,7 +1713,17 @@
       ],
       "hostedAcceptance": false,
       "done": false,
-      "hostedPositivePrintPreview": true
+      "hostedPositivePrintPreview": true,
+      "numericFormDisplayPartial": {
+        "version": "0.76.0",
+        "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+        "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+        "displayOnly": true,
+        "uploadInputPrecisionProven": false,
+        "hostedOpenCloseVerified": true,
+        "hostedSavePerformed": false,
+        "done": false
+      }
     },
     {
       "id": "REQ-COM-MAPPING-001",
@@ -1780,14 +1802,25 @@
       "implementationEvidence": [
         "dist/form-core.js",
         "dist/form-options.js",
-        "evidence/manual-conditional-forms-20261022.json"
+        "evidence/manual-conditional-forms-20261022.json",
+        "evidence/manual-form-numeric-display-20261022.json"
       ],
       "automatedEvidence": [
         "tests/conditional-forms.cjs",
         "tests/browser/conditional-forms.spec.cjs"
       ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "numericFormDisplayPartial": {
+        "version": "0.76.0",
+        "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+        "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+        "displayOnly": true,
+        "uploadInputPrecisionProven": false,
+        "hostedOpenCloseVerified": true,
+        "hostedSavePerformed": false,
+        "done": false
+      }
     },
     {
       "id": "REQ-PUR-PLAN-002",
