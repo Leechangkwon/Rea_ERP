@@ -1799,7 +1799,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "authenticated-ui-consumer-full-isolated-regression-passed-field-editor-and-hosted-acceptance-pending",
+      "status": "authenticated-ui-candidate-passed-legacy-field-editor-evidence-gated-not-deployed",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1826,7 +1826,8 @@
       "hostedAcceptance": false,
       "done": false,
       "researchEvidence": [
-        "evidence/manual-upload-policy-supplier-20261023.json"
+        "evidence/manual-upload-policy-supplier-20261023.json",
+        "evidence/manual-mapping-editor-research-20261023.json"
       ],
       "storageCandidate": {
         "optionalVersionedFieldLinks": true,
@@ -1873,6 +1874,14 @@
         "fieldEditorEnabled": false,
         "authenticatedUiConsumerConnected": true,
         "communityPendingLocalUpdates": 74,
+        "done": false
+      },
+      "editorResearch": {
+        "evidence": "evidence/manual-mapping-editor-research-20261023.json",
+        "legacyEditor": "TC101P_01",
+        "legacyEditorBodyVerified": false,
+        "modernDeriveEquivalent": false,
+        "newOriginalScopes": 6,
         "done": false
       }
     },

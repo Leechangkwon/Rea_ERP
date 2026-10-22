@@ -505,12 +505,15 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
-      "status": "mapping-storage-candidate-tested-field-catalog-and-import-consumer-next",
+      "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
       "plan": "docs/plan-purchase-manual.md",
-      "evidence": "evidence/manual-mapping-field-storage-20261023.json",
+      "evidence": "evidence/manual-mapping-editor-research-20261023.json",
       "productionVersion": "0.82.0",
       "done": false,
-      "scope": "Continue eligible source/target field catalog and read-only import proposal contract against actual order-to-request data/form schemas; preserve lineage, current draft, source raw values and existing calculations. Current storage is structural only; do not enable unseen original UI or apply arbitrary field links before catalog/type/protected-field/multi-source/blank rules and actual-shell tests."
+      "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
+      "candidateDeployed": false,
+      "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
+      "nextIndependentManual": "EC-HELP-REQUEST-002"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1308,7 +1311,8 @@
       "importConsumerConnected": false,
       "communityPendingLocalUpdates": 72,
       "done": false,
-      "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
+      "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb",
+      "supersededBy": "evidence/manual-mapping-import-ui-20261023.json"
     },
     "mappingImportCoreCandidate": {
       "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
@@ -1345,6 +1349,19 @@
       "fieldEditorEnabled": false,
       "authenticatedUiConsumerConnected": true,
       "communityPendingLocalUpdates": 74,
+      "done": false
+    },
+    "mappingEditorResearch": {
+      "evidence": "evidence/manual-mapping-editor-research-20261023.json",
+      "status": "distinct-legacy-and-modern-paths-researched-legacy-editor-evidence-gated",
+      "newOriginalScopes": 6,
+      "newOwnScopes": 0,
+      "newManualBodies": 0,
+      "codeChanges": 0,
+      "testsRepeated": false,
+      "productionDeployed": false,
+      "fieldEditorEnabled": false,
+      "communityPendingLocalUpdates": 75,
       "done": false
     }
   },
@@ -1665,6 +1682,16 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-mapping-field-storage-20261023/rea/rea-summary.json"
+    },
+    "mappingEditorResearch": {
+      "reference": "evidence/manual-mapping-editor-research-20261023.json",
+      "newOriginalScopes": 6,
+      "newOwnScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-mapping-editor-research-20261023/rea/rea-summary.json"
     }
   }
 }

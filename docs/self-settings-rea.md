@@ -95,3 +95,10 @@
 **신규 팝업의 저장/F8은 화면 이동만 하는 버튼이 아니다.** 코드 순서는 검증 → `SaveMappgMain` 저장 → 부모 메시지 → 필드 매핑 편집기 열기다. 저장 데이터는 `Request.Data[].Data.SaveMain` 안의 `FROM_PRG_ID`, `FROM_PRG_NAME`, `TO_PRG_ID`, `TO_PRG_NAME`, `DEL_TF: "True"`다. 마지막 값은 원본의 문자열 그대로 기록한 것이며 의미를 추정해서 boolean으로 바꾸지 않는다. 원본 신규 저장을 실행하지 않았다.
 
 기존 목록의 매핑설정 링크는 `/ECERP/SVC/Popup/TC101P_01`을 바로 열고 `FromPrgId`, `ToPrgId`, `FromProgramId`, `PrevUrl`을 전달한다. 이 1500×600 편집기의 필드 매핑 행 구조·필수값·저장 경로는 현재 세 파일에 없으므로 별도 파일과 UI 관찰이 필요하다. 메뉴 쌍의 생성 schema를 필드 매핑 schema로 혼동하지 않는다.
+
+
+## 2026-10-23 매핑 필드편집기 조사 보완
+
+기존 OpenPopupMappingCenterUserAction과 V56→V3 bridge의 새 범위로 TC101M 경로를 확인했다. 기존 목록의 TC101P_01과 modern IDeriveMappingSettingPage는 서로 다른 entry/identity/schema다. modern 공개 후보필터는 exact data_type, master/detail, 현재 source 제외를 사용하며 선택 취소는 행 변경 없이 돌아간다. modern 저장은 non_mapping 생략/same_item_meaning 목표만/item_mapping 양쪽 model/prop이고 서버 wrapper의 success 뒤 닫는다. 이를 TC101P_01 또는 자체 fieldLinks의 동등성 근거로 쓰지 않는다.
+
+TC101P_01 실제 소스/분리창은 미확보다. 기존 페이지명과 공개 version token에서 도출한 미관찰 asset URL1회가403이어서 중단했으며 실제파일 존재·권한/인증 결함으로 단정하지 않는다. 신규6scope REA6.4 parse0·coverage unknown/truncatedfalse, 원본실행/전체모듈/서버 동등성 미확인. 필드편집기 비활성·운영0.82 유지. 근거 `evidence/manual-mapping-editor-research-20261023.json`.

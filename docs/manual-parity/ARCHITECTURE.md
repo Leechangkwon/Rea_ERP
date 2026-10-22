@@ -1,5 +1,11 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 이번 조사 단위 · 매핑 설정 경로의 비동등성과 실행 상태 원장
+
+공개 OpenPopupMappingCenterUserAction→IOpenPopupMappingCenterPage_converter는 legacy TC101M과 LINK_PRG_ID/LINK_PRG_NM/FromProgramId를 사용한다(E040253은E040205로 변환). 기존 목록의 필드편집기 TC101P_01 본문은 미확보다. modern derive의 bizz_conn_sid/start_bizz_sid/end_bizz_sid 및 model/prop 기반 3종 serialization은 별도 시스템이며 optional fieldLinks schema와 자동 변환하지 않는다. modern GetDeriveMappingSettingAction 응답 공급원·서버 권한/영속화도 wrapper만으로 입증하지 않는다. 실제 legacy metadata를 확보한 뒤 adapter/설정 guard를 설계하며 현재 editor는 비활성을 유지한다.
+
+current-release.manualParity.nextWork가 실제 인증 UI 소비자보다 뒤처진 storage 상태였으므로 current editor evidence gate로 정정하고 과거 후보에는 supersededBy를 둔다. 신규6 REA scope는 이전 입력/회귀와 별도 조사이고 coverage unknown이다. 앱·schema·운영은 변경하지 않는다. 다음 독립 조사는 EC-HELP-REQUEST-002의 실제 본문/consumer이며, 본문 접근 제한은 우회하지 않는다. 근거 `evidence/manual-mapping-editor-research-20261023.json`.
+
 ## 이번 구현 단위 · 인증 설정을 확인하는 주문 불러오기 소비자
 
 기존 주문/전표 불러오기 버튼과 선택 적용(F8) 위치를 유지한다. 지원되는 앱 로그인 환경의 발주요청 입력만 mappingAdapter를 전달하고, 주문 행 선택 적용 시 GET /api/auth/status 한 번으로 서버의 동일 계정·회사·역할·조회/입력권한·settingsRevision/menuMappings를 확인한다. 원본/초안/활성양식과 부모 화면·브라우저 저장소가 열린 시점과 다르면 적용을 차단하며 늦은 응답·취소/부모교체·대기 중 선택/집계조건 변화·중복F8도 반영하지 않는다. 설정 변경 시 동일 계정의 최신 AuthUI 정보는 갱신하되 현재 선택/초안은 보존하고 다시 열어 확인한다.

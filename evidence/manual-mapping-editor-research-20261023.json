@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "requirement": "REQ-COM-MAPPING-001",
+  "status": "legacy-field-editor-source-unavailable-distinct-modern-contract-researched-not-implemented",
+  "date": "2026-10-23",
+  "baseCommit": "a7a5375aaaa1929ab6f8368cadd8907bcb13867d",
+  "productionVersion": "0.82.0",
+  "productionDeployed": false,
+  "done": false,
+  "manual": {
+    "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+    "sha256": "c26fc1e907834b49cf1b09c82183b951e628f52ebed6a30f5e8d169ca7c8192f",
+    "alreadyCounted": true,
+    "newBodies": 0,
+    "confirmedProcedure": [
+      "메뉴 연결 신규/저장",
+      "기존 행의 매핑설정/설정",
+      "목표 입력항목 클릭",
+      "기존 연결 X 해제 후 오른쪽 원본항목 선택/적용",
+      "목표 입력에서 원본 메뉴 전표 선택/적용"
+    ],
+    "unspecified": [
+      "권한 예외",
+      "공란과 기본값 우선순위",
+      "다중원본/집계",
+      "적용·저장의 정확한 영속 경계",
+      "취소의 전체 범위"
+    ]
+  },
+  "sourceManifest": ".artifacts/manual-mapping-editor-research-20261023/source-manifest.json",
+  "findings": {
+    "legacyMenuEntry": {
+      "action": "OpenPopupMappingCenterUserAction",
+      "bridge": "IOpenPopupMappingCenterPage_converter",
+      "page": "/ECERP/SVC/Popup/TC101M",
+      "data": [
+        "LINK_PRG_ID",
+        "LINK_PRG_NM",
+        "FromProgramId"
+      ],
+      "specialProgramRemap": "E040253 -> E040205",
+      "fieldEditorPageFromPriorRetainedEvidence": "/ECERP/SVC/Popup/TC101P_01",
+      "fieldEditorProvenance": "docs/self-settings-rea.md:97; retained list/editor sources not newly downloaded or reanalyzed"
+    },
+    "modernEditor": {
+      "page": "IDeriveMappingSettingPage",
+      "openedBy": "OpenDeriveMappingSettingUserAction",
+      "mappingKey": "bizz_conn_sid/start_bizz_sid/end_bizz_sid",
+      "sourceCandidates": "Exact data_type; matching master/detail section; exclude currently selected source key; sorted metadata; data_model_id/prop_id/item_sid retained. This does not establish legacy TC101P_01 filtering.",
+      "selectionCancellation": "closed or missing data_model_id/prop_id returns before updating row",
+      "saveTypes": {
+        "non_mapping": "omitted from mappings payload",
+        "same_item_meaning": "target model/prop only",
+        "item_mapping": "source and target model/prop"
+      },
+      "saveAction": "/ec56/api/setup/action/derive_setting/SaveDeriveMappingSettingAction",
+      "getAction": "/ec56/api/setup/action/derive_setting/GetDeriveMappingSettingAction",
+      "close": "only after result.success in save action; server authorization/persistence not proved"
+    },
+    "criticalBoundary": "Legacy popup bridge and modern derive editor are distinct entry/identity/serialization paths. No evidence establishes equivalence; do not copy modern three modes into legacy fieldLinks or enable inferred legacy UI.",
+    "canonicalNextWorkDrift": "current-release.manualParity.nextWork still named storage/catalog/import-consumer work even though authenticated consumer source878a009 was committed and isolated regression passed. Replaced with current editor evidence gate; historical candidate snapshots retained with supersededBy."
+  },
+  "browser": {
+    "inventoryOnly": true,
+    "originalTabTitle": "이카운트 로그인 | ECOUNT",
+    "originalSessionLoginRequired": true,
+    "originalPageInteraction": false,
+    "productionInteraction": false
+  },
+  "publicFetch": {
+    "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.popup.transcustomize/views/xtc101p_01.8817889999307615571.20.js",
+    "urlBasis": "Single public-resource inference: TC101P_01 page path from retained TC101M/TC101P documentation; directory and version token from source-catalog TC101P URL. Not an authenticated route; no credentials/cookies supplied.",
+    "attempts": 1,
+    "downloadedAt": "2026-10-22T20:26:38.112140+00:00",
+    "accepted": false,
+    "error": "HTTP Error 403: Forbidden",
+    "notAnObservedAssetUrl": true,
+    "interpretation": "403 for one inferred legacy resource name is not proof of its existence, access policy, or an authentication defect. No URL/version enumeration or retry; use actual observed resource URL when available."
+  },
+  "rea": {
+    "version": "6.4.0",
+    "newOriginalScopes": 6,
+    "newOwnScopes": 0,
+    "summary": ".artifacts/manual-mapping-editor-research-20261023/rea/rea-summary.json",
+    "results": [
+      {
+        "name": "Legacy_MappingCenterBridge",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.js",
+        "sourceSha256": "af20cfebe62d4b4318a6338c9976a4a95e0ccbc411f1559a4bf018a13006ebf2",
+        "start": 293521,
+        "end": 294616,
+        "lineStart": 7078,
+        "lineEnd": 7109,
+        "fragmentSha256": "05fc3f4a250087f6220a5a7edb7771a1e8de744037aa035c349e3efecb0b715b",
+        "resultSha256": "0581630525690a2e125b81d096a15fa3cfda85a5d6661904f69f2cbe85fb01c5",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1102,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 113,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Legacy_OpenMappingCenter",
+        "category": "original",
+        "file": ".artifacts/manual-vat-price-binding-20261021/original-common.js",
+        "sourceSha256": "8fb54ef102207d57b8d750a70ebe8401cfb80ae0ff4717d16052ea9aed3e9921",
+        "start": 2495682,
+        "end": 2496607,
+        "lineStart": 53313,
+        "lineEnd": 53328,
+        "fragmentSha256": "1a80f2115c33fc301a266d4c595646d77ed5610776c77fb00bc6294405148d8c",
+        "resultSha256": "0d7f7a809a7e3e94fbcacd568604513e581a5029c1221df310ce2c13da0c86c9",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 962,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 81,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Modern_SourceCandidateTypeAndSection",
+        "category": "original",
+        "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+        "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+        "start": 410999,
+        "end": 412085,
+        "lineStart": 8037,
+        "lineEnd": 8063,
+        "fragmentSha256": "4e661ae31d493a571111d48c6c244402037bd0859f7c395ffd1fe6b3ad15e713",
+        "resultSha256": "ad88bc4e7d7c37d1d04f310404651831f48870ec84b27ade40fe1c789c1e07f6",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1086,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 125,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Modern_SourceSelectionCancellation",
+        "category": "original",
+        "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+        "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+        "start": 1528400,
+        "end": 1532827,
+        "lineStart": 29141,
+        "lineEnd": 29216,
+        "fragmentSha256": "ba20cc80df0c545403e6e660479a3cbf73d364f0958529f475d1a6ef57e0c15e",
+        "resultSha256": "16db7dcbbde23f1655a2e9846eab36c2d2194004bb6c9fc79452d56fabecc574",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 4440,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 439,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Modern_SaveTypeSerialization",
+        "category": "original",
+        "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+        "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+        "start": 1525207,
+        "end": 1527478,
+        "lineStart": 29084,
+        "lineEnd": 29130,
+        "fragmentSha256": "96be79ba4736b7e9fb4cf94efc988b2ce42f117b11e0075e2f0ed9d695cf91d4",
+        "resultSha256": "334e46a1f13da0f4aeeeb9498bae3851774f2b1fdad81cc624336b71ef0f2183",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2322,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 213,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Modern_GetEditorDataWrapper",
+        "category": "original",
+        "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+        "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+        "start": 456565,
+        "end": 456829,
+        "lineStart": 8968,
+        "lineEnd": 8970,
+        "fragmentSha256": "7afd0f2e3c528c958974c704ee3eb7aae8d3ae88ae5d8e5de0fca2ac1578ad7b",
+        "resultSha256": "120e8b3124768f378e5a1f6824e6cfa46daac4761a2a99a952db35f4b7a4ae43",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 277,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 25,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "coverage": "unknown",
+    "truncated": false
+  },
+  "changes": {
+    "applicationCodeFiles": 0,
+    "testsAdded": 0,
+    "schemaChanged": false,
+    "fieldEditorEnabled": false,
+    "rootBuild": false,
+    "isolatedBuild": false,
+    "npmTestRepeated": false,
+    "browserRegressionRepeated": false,
+    "runtimeRestart": false,
+    "businessOrSettingsWrites": false,
+    "preservationComparisonRepeated": false
+  },
+  "preservation": {
+    "installedWorkerSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "expectedWorkerSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "hashMatched": true,
+    "healthOrRuntimeLivenessRetested": false,
+    "productionDataFreshlyCompared": false
+  },
+  "resumeGate": {
+    "legacyEditor": [
+      "Read-only original settings view with actual loaded TC101P_01 asset URL or independently provided verified editor source",
+      "Confirm target-field click, right source candidates, X/remove, apply/save boundary and cancel without saving original ERP",
+      "Then update existing PRD/architecture before implementing observed subset; keep fresh own authorization/revision/cancel guards"
+    ],
+    "noRepeat": [
+      "Do not repeat these six scopes, generic copier, old menu-pair tests or full119 browser regression without code change/new evidence",
+      "Do not retry inferred resource URL or request login while user sleeps",
+      "Do not infer modern three-mode semantics as legacy parity"
+    ],
+    "independentNext": "Review the not-yet-read EC-HELP-REQUEST-002 other-menu linking/query manual and its actual consumer, using public/retained material first. If only login-gated body is available, record that gate and choose the next genuinely unreviewed purchase manual; do not call an index title body-reviewed."
+  },
+  "community": {
+    "target": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredToolsAvailable": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 75,
+    "publishedThisRun": false,
+    "draft": ".artifacts/manual-mapping-editor-research-20261023/moa-pending-mapping-editor-research.html"
+  },
+  "counters": {
+    "manualIndex": 54,
+    "reviewedBodies": 24,
+    "officialRequirements": 27,
+    "fullyAccepted": 0,
+    "allDone": false
+  },
+  "independentManualDiscovery": {
+    "manualId": "EC-HELP-REQUEST-002",
+    "exactTitleOfficialDomainSearch": {
+      "domain": "ecount.com",
+      "query": "전표 작성 시 다른 메뉴를 연결하고 조회하는 방법",
+      "attempts": 1,
+      "resultCount": 0
+    },
+    "bodyReviewed": false,
+    "requirementsInferredFromTitle": false,
+    "loginRequiredOriginalTab": true,
+    "next": "Use actual manual body/document locator from restored original session or independently supplied verified content; do not repeat exact-title search with no new evidence."
+  }
+}
