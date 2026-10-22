@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 업로드 행별 검토 모델과 기초자료 snapshot
+
+RequestUploadPreview는 raw/수량/명시금액 검사 위에 등록 items/partners/currencies의 정확 일치 후보를 연결한다. 코드/바코드/명칭 우선순위는 미확인이라 상충·중복·중단은 검토로 남기는 자체 정책이다. Map 인덱스로 prototype형 코드를 구분하고 중복후보20개/잘림표시로 반환량을 제한한다. 등록통화별 자릿수·품목별비율만 적용하고 원문과 제안값을 분리한다. 필수 null과[]·빈행과오류를 구분하며 그룹/기본값/권한/저장/재시도는 미해결 metadata로 남긴다. 항상saveSupported=false이며 clear상태는 일부검사 사유없음을 뜻한다. actualUI/DB/영속스키마 연결은 별도이며 기존 입력·자료·양식은 변경하지 않는다. 근거 evidence/manual-request-upload-preview-20261022.json.
+
 ## 업로드 명시금액과 일반 입력 계산 분리
 
 inspectAmounts는 단가/외화공급가액/공급가액/부가세를 독립 십진 문자열로 보존한다. 공란0은blank-zero 출처와 원문공란을 남기고, 명시0과 구분한다. 회사 국내금액/단가·통화 금액 소수 자릿수 snapshot을 받아 범위를 검사하며 미상·형식 오류는null과 사유를 반환한다. BigInt 기반 정규화이고 금액 자동계산/Number 변환/반올림/저장은 없다. 일반 InventoryCore.lineTotals의 qty×price/VAT를 업로드 저장에 재사용하면 명시값이 손실되므로 영속 스키마와 유효금액 소비자(조회·집계·백업·후속전표)를 함께 확장해야 한다. 현재 앱·DB 미연결이며 기존 계산과자료는 보존한다. 근거 evidence/manual-request-upload-amounts-20261022.json.

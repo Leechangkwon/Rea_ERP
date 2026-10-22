@@ -1,0 +1,460 @@
+{
+  "baselineVersion": "0.73.0",
+  "requirement": "REQ-PUR-REQ-005",
+  "sourceCommit": "1edc72f99b10f1e25373ea557236fd3fd45f18ec",
+  "status": "local-row-review-model-master-candidates-quantity-money-no-ui-or-save",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualBodies": [
+    {
+      "id": "EC-HELP-UPLOAD-USE-001",
+      "title": "웹자료올리기 사용 방법",
+      "kind": "official online manual text",
+      "status": "body-reviewed",
+      "sourcePath": "Original item list > help search > online manual > 웹자료올리기 사용 방법",
+      "observedDate": "2026-10-22",
+      "localArtifact": ".artifacts/manual-request-upload-preview-20261022/official-upload-use.txt",
+      "bodySha256": "b2240177e1a89a1370313e71608f06c9bad75687b4f62e784fea585c9920702e",
+      "textBodyReviewed": true,
+      "originalBusinessOrSettingsWrites": false,
+      "scopeLimit": "generic web upload guide;300cases unit not verified by runtime"
+    },
+    {
+      "id": "EC-HELP-UPLOAD-FIELDS-001",
+      "title": "자료올리기 양식에 업로드할 정보(항목)를 추가하는 방법",
+      "kind": "official online manual text",
+      "status": "body-reviewed",
+      "sourcePath": "Original item list > help search > online manual > 자료올리기 양식에 업로드할 정보(항목)를 추가하는 방법",
+      "observedDate": "2026-10-22",
+      "localArtifact": ".artifacts/manual-request-upload-preview-20261022/official-upload-fields.txt",
+      "bodySha256": "f7a48fc1c9b18b6333844c264fa132a5e1cd1ab96fd2a0adfe81617ce6f4d853",
+      "textBodyReviewed": true,
+      "originalBusinessOrSettingsWrites": false,
+      "scopeLimit": "item/partner master registration basic-tab fields; transaction upload mapping not established"
+    }
+  ],
+  "manualBodiesReviewed": 21,
+  "manualIndexItems": 51,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "helpSearches": [
+      "자료올리기",
+      "전표묶음",
+      "저장시값변경"
+    ],
+    "newTextBodiesReviewed": 2,
+    "defaultSearchFoundApplicableRequestContract": false,
+    "failureArticle": "only video embed title read; not counted body reviewed",
+    "disabledItemSettingRetried": false,
+    "itemUploadFieldManualAppliesDirectlyTo": "item and partner master registration only",
+    "templateHeaderStyle": {
+      "workbookSha256": "08f0c4172ceb825c127f7537757096f50c00e2cc73d0034382ab88d4e785c7ef",
+      "businessRows": 0,
+      "headers": [
+        {
+          "cell": "A1",
+          "label": "일자",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "B1",
+          "label": "순번",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "C1",
+          "label": "담당자",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "D1",
+          "label": "창고",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "E1",
+          "label": "거래유형",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "F1",
+          "label": "통화",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "G1",
+          "label": "환율",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "H1",
+          "label": "납기일자",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "I1",
+          "label": "참조",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "J1",
+          "label": "프로젝트",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "K1",
+          "label": "품목코드",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "L1",
+          "label": "품목명",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "M1",
+          "label": "거래처코드",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "N1",
+          "label": "거래처명",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "O1",
+          "label": "규격",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "P1",
+          "label": "수량",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "Q1",
+          "label": "단가",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "R1",
+          "label": "외화공급가액",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "S1",
+          "label": "공급가액",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "T1",
+          "label": "부가세",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "U1",
+          "label": "적요",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        },
+        {
+          "cell": "V1",
+          "label": "낱개수량",
+          "styleId": "4",
+          "fontId": "2",
+          "bold": false,
+          "richTextBold": false
+        }
+      ],
+      "boldRequiredInterpretation": "official online upload usage manual; current observed template only",
+      "requiredFieldSetVerified": false,
+      "interpretationLimit": "No positive bold marker found in cell style or rich text; does not prove no required fields or resolve company/server metadata."
+    },
+    "noBoldDoesNotProveNoRequiredFields": true,
+    "originalMainInputEdited": false,
+    "businessOrSettingsWrites": false,
+    "uploadCellsFilled": false,
+    "helpClosedWithoutSaving": true,
+    "businessRowsStored": false
+  },
+  "implementation": {
+    "file": "dist/request-upload-preview.js",
+    "sha256": "fe8f4e40bb1ec428c02a7f998cb1a970d95a03a0fb0019b76233a673d327a53e",
+    "entry": "review",
+    "flow": [
+      "stageRaw",
+      "exact registered item/partner/currency candidate proposals",
+      "resolved-item quantity ratio",
+      "resolved-currency precision and explicit monetary preflight",
+      "required-policy and field review reasons"
+    ],
+    "referencePolicy": "Own conservative exact-match review; no first-result or code-over-barcode/name precedence claimed original",
+    "ambiguityAndDisabled": "review only; do not choose or write",
+    "candidateResourceLimit": 20,
+    "candidateTruncationFlag": true,
+    "snapshotResourceLimit": 50000,
+    "resourceLimitsAreOwnPolicy": true,
+    "requiredPolicy": "Explicit field IDs or null; null not interpreted as empty",
+    "proposedValues": "Separate only; original cells/order/leading-zero/raw/manual money preserved",
+    "currencyPrecision": "Resolved registered currency for each row; blank default not guessed",
+    "groupingResolved": false,
+    "defaultingResolved": false,
+    "appIntegrated": false,
+    "saveImplemented": false,
+    "wholeBusinessValidation": false
+  },
+  "originalStatic": {
+    "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+    "sha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+    "executed": false,
+    "requestInvocationVerified": false,
+    "sequence": "CheckValidUploadSeqProgram reads descriptor upload_seq and checks undefined; not proven UI upload_bundle_seq",
+    "validRows": "FilterRowDataProgram._filterValidRowForWebUpload excludes record/result fields, skips truthy upload_status and checks remaining values. Descriptor properties and route/call/retry outcome unverified",
+    "selection": "Filter method selected within FilterRowDataProgram variable range; same-named method elsewhere not conflated",
+    "masterPriorityVerified": false
+  },
+  "checks": {
+    "newNode": 13,
+    "relatedNode": 45,
+    "passed": 45,
+    "command": "node --test tests/request-upload-candidate.cjs tests/request-upload-amounts.cjs tests/request-upload-preview.cjs",
+    "syntaxPassed": true,
+    "diffCheckPassed": true,
+    "rea": {
+      "reaVersion": "6.4.0",
+      "originalExecuted": false,
+      "requestRouteInvocationVerified": false,
+      "scope": "Own row review and exact reference candidates; public upload sequence presence check and menu-upload valid-row filtering. Descriptor keys, attributes, server route and code/name/barcode precedence remain external/unverified. upload_seq is not assumed to be UI upload_bundle_seq",
+      "results": [
+        {
+          "name": "referenceIndex",
+          "category": "own",
+          "file": "dist/request-upload-preview.js",
+          "sourceSha256": "fe8f4e40bb1ec428c02a7f998cb1a970d95a03a0fb0019b76233a673d327a53e",
+          "start": 319,
+          "end": 1455,
+          "lineStart": 5,
+          "lineEnd": 16,
+          "fragmentSha256": "b41f08e6b51791cffd199462f9382a9d3b4982b53c801b18160c89ff90c0b773",
+          "resultSha256": "02c9c98576bdd977aa0fc8429c3db65314e246726cebfadf447ad734cc7a6b70",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1270,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 252,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "resolveReference",
+          "category": "own",
+          "file": "dist/request-upload-preview.js",
+          "sourceSha256": "fe8f4e40bb1ec428c02a7f998cb1a970d95a03a0fb0019b76233a673d327a53e",
+          "start": 1457,
+          "end": 2801,
+          "lineStart": 17,
+          "lineEnd": 27,
+          "fragmentSha256": "4107b703fe3ae9e619eb661b99d54f4333798e111b75c9b53bc4a42b80b0596d",
+          "resultSha256": "c6a5406c79b74fb3aa9831800914094f3dd9d63b1291179f59e16b9c5c0f9240",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1344,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 325,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "review",
+          "category": "own",
+          "file": "dist/request-upload-preview.js",
+          "sourceSha256": "fe8f4e40bb1ec428c02a7f998cb1a970d95a03a0fb0019b76233a673d327a53e",
+          "start": 2803,
+          "end": 6995,
+          "lineStart": 28,
+          "lineEnd": 56,
+          "fragmentSha256": "e55b0afb4fd12a7230bd56ba6e0b4a4523aab5d36a425cb364949539a40201e4",
+          "resultSha256": "367848cac8dce220458e3b04c2efd7829d9fc71691c75cadf7d1dfae531d29f5",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 4378,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 841,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "CheckValidUploadSeqProgram",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+          "sourceSha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+          "start": 3158519,
+          "end": 3159703,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "6d4eed96dd9ef2eeca93fdd4a0e943fc4ac6dd1d7699690746f37a3a9f24af9c",
+          "resultSha256": "21771643d6421cb3bfec0ed1ddeb8128a0e4fa43938e0d4e5da7cf03938315b6",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1191,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 156,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false,
+          "cacheReusedAfterHashValidation": true
+        },
+        {
+          "name": "_filterValidRowForWebUpload",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+          "sourceSha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+          "start": 3162603,
+          "end": 3163875,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "8428f39435f93be75253fd469ff326f824f31bb9f8538c4340de7f0cabd1eafe",
+          "resultSha256": "3a4e3d93075e760a964e4e23fb356b2c92b65623fcfb57ad6b6cf891d060306f",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1285,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 229,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false,
+          "cacheReusedAfterHashValidation": true
+        }
+      ]
+    },
+    "fullAppRegressionRepeated": false,
+    "browserSuiteRepeated": false
+  },
+  "deployment": {
+    "performed": false,
+    "runtimeVersion": "0.73.0",
+    "runtimeSession": 60080,
+    "runtimeBundleSha256": "e947a8d49c4b3816eab5bced3781f07224511c20541b64b6a5e9d29bbfd7cd0d",
+    "noRuntimeFilesInstalled": true,
+    "productionBusinessWrites": false,
+    "mailSent": false,
+    "preservation": "No deployment or stored data change. Prior0.73.0 preservation evidence remains historical and was not rerun."
+  },
+  "remaining": [
+    "Actual company grouping/defaults/required top-bottom metadata",
+    "Original matching priority and inactive behavior",
+    "Preview UI and account/company/revision lifecycle guards",
+    "Explicit quantity and money persistence with all consumers/backup/conversion preservation",
+    "Batch partial failure/retry and hosted write acceptance"
+  ],
+  "next": "다음은 발주요청 실제 웹자료올리기 분리창의 상위 양식설정/전표묶음기준설정/저장시값변경 진입과 적용중인 값·필수/상하단 메타데이터를 읽기 전용 확인한다. 품목/거래처 기초등록의 기본탭 문서를 요청 전표 규칙으로 확대하지 않고, 이전 disabled 항목설정 링크는 새 상태/권한 없이 반복 클릭하지 않는다. 현재 raw→코드제안→수량/금액→행별사유 모델을 실제 미리보기 UI에 연결하기 전 회사 snapshot·권한/변경번호·동시 수량/고정금액 영속화와 조회/백업/후속전표 소비자 계획을 확정한다. 원본 우선순위·기본값·묶음·필수·부분실패/재시도와300건의 단위를 추정하지 않는다. 세션 만료 시 독립 분석/합성 검증을 계속한다. 운영0.73.0·기존 자료/계정/양식/메일 유지, main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 57,
+    "authChanged": false,
+    "probeRepeated": false,
+    "uploaded": false,
+    "readbackVerified": false
+  },
+  "done": false
+}

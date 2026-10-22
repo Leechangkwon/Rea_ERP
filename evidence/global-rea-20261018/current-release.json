@@ -197,9 +197,11 @@
     "requestUploadQuantityCandidateNewNode": 10,
     "requestUploadQuantityCandidateRelatedNode": 20,
     "requestUploadAmountCandidateNewNode": 12,
-    "requestUploadAmountCandidateRelatedNode": 32
+    "requestUploadAmountCandidateRelatedNode": 32,
+    "requestUploadReviewCandidateNewNode": 13,
+    "requestUploadReviewCandidateRelatedNode": 45
   },
-  "future_research": "다음은 REQ-PUR-REQ-005의 회사별 묶음·저장시값변경·필수/상하단 매핑과 코드/바코드/명칭 일치 규칙을 원본 도움말·분리 양식창·공개 REA에서 확인하고, 확보한 raw/수량/금액 결과를 행별 검토 미리보기 모델로 연결한다. 이전 항목 설정 링크 disabled는 새 상태/권한 변화 없이 반복 클릭하지 않는다. 기본값·동일명 중복·사용중단·일괄 부분실패/재시도·동시 수량 우선순위를 추정하지 않는다. 명시 금액 snapshot을 기존 일반 입력 자동계산에 직접 저장하면 다시 계산되므로 영속 스키마/유효금액 소비자·백업/전표연결/권한을 별도 격리후보에서 함께 검증해야 한다. 기존 자료의 qty·금액·품목 설정·양식은 자동 변환하지 않는다. 운영0.73.0 유지, main VAT5 전체빌드/배포 금지, 전체업로드/전체매뉴얼 done=false를 유지한다.",
+  "future_research": "다음은 발주요청 실제 웹자료올리기 분리창의 상위 양식설정/전표묶음기준설정/저장시값변경 진입과 적용중인 값·필수/상하단 메타데이터를 읽기 전용 확인한다. 품목/거래처 기초등록의 기본탭 문서를 요청 전표 규칙으로 확대하지 않고, 이전 disabled 항목설정 링크는 새 상태/권한 없이 반복 클릭하지 않는다. 현재 raw→코드제안→수량/금액→행별사유 모델을 실제 미리보기 UI에 연결하기 전 회사 snapshot·권한/변경번호·동시 수량/고정금액 영속화와 조회/백업/후속전표 소비자 계획을 확정한다. 원본 우선순위·기본값·묶음·필수·부분실패/재시도와300건의 단위를 추정하지 않는다. 세션 만료 시 독립 분석/합성 검증을 계속한다. 운영0.73.0·기존 자료/계정/양식/메일 유지, main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../manual-plan-generation-reference-20261022.json",
@@ -349,7 +351,7 @@
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 26,
-    "sourceBodiesReviewed": 19,
+    "sourceBodiesReviewed": 21,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
@@ -581,7 +583,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 REQ-PUR-REQ-005의 회사별 묶음·저장시값변경·필수/상하단 매핑과 코드/바코드/명칭 일치 규칙을 원본 도움말·분리 양식창·공개 REA에서 확인하고, 확보한 raw/수량/금액 결과를 행별 검토 미리보기 모델로 연결한다. 이전 항목 설정 링크 disabled는 새 상태/권한 변화 없이 반복 클릭하지 않는다. 기본값·동일명 중복·사용중단·일괄 부분실패/재시도·동시 수량 우선순위를 추정하지 않는다. 명시 금액 snapshot을 기존 일반 입력 자동계산에 직접 저장하면 다시 계산되므로 영속 스키마/유효금액 소비자·백업/전표연결/권한을 별도 격리후보에서 함께 검증해야 한다. 기존 자료의 qty·금액·품목 설정·양식은 자동 변환하지 않는다. 운영0.73.0 유지, main VAT5 전체빌드/배포 금지, 전체업로드/전체매뉴얼 done=false를 유지한다.",
+    "nextIndependentWork": "다음은 발주요청 실제 웹자료올리기 분리창의 상위 양식설정/전표묶음기준설정/저장시값변경 진입과 적용중인 값·필수/상하단 메타데이터를 읽기 전용 확인한다. 품목/거래처 기초등록의 기본탭 문서를 요청 전표 규칙으로 확대하지 않고, 이전 disabled 항목설정 링크는 새 상태/권한 없이 반복 클릭하지 않는다. 현재 raw→코드제안→수량/금액→행별사유 모델을 실제 미리보기 UI에 연결하기 전 회사 snapshot·권한/변경번호·동시 수량/고정금액 영속화와 조회/백업/후속전표 소비자 계획을 확정한다. 원본 우선순위·기본값·묶음·필수·부분실패/재시도와300건의 단위를 추정하지 않는다. 세션 만료 시 독립 분석/합성 검증을 계속한다. 운영0.73.0·기존 자료/계정/양식/메일 유지, main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -940,6 +942,17 @@
       "saveImplemented": false,
       "productionDeployed": false,
       "done": false
+    },
+    "requestUploadReviewCandidate": {
+      "sourceCommit": "1edc72f99b10f1e25373ea557236fd3fd45f18ec",
+      "evidence": "evidence/manual-request-upload-preview-20261022.json",
+      "status": "local-row-review-model-master-candidates-quantity-money-no-ui-or-save",
+      "newNode": 13,
+      "relatedNode": 45,
+      "appIntegrated": false,
+      "saveImplemented": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -1018,6 +1031,17 @@
       "summary": ".artifacts/manual-request-amounts-20261022/rea/rea-summary.json",
       "ownScopes": 3,
       "originalScopes": 4,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "requestUploadReviewCandidate": {
+      "evidence": "evidence/manual-request-upload-preview-20261022.json",
+      "summary": ".artifacts/manual-request-upload-preview-20261022/rea/rea-summary.json",
+      "ownScopes": 3,
+      "originalScopes": 2,
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false,

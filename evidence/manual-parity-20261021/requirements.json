@@ -1082,7 +1082,7 @@
         "자료올리기 일괄 업로드",
         "조회/현황에서 완료 요청 종결"
       ],
-      "status": "closure-partial-deployed-upload-quantity-money-candidate-local-only",
+      "status": "closure-partial-deployed-upload-row-review-model-local-only",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
@@ -1090,19 +1090,24 @@
         "evidence/manual-request-report-state-20261022.json",
         "evidence/manual-request-upload-candidate-20261022.json",
         "evidence/manual-request-quantity-20261022.json",
-        "evidence/manual-request-upload-amounts-20261022.json"
+        "evidence/manual-request-upload-amounts-20261022.json",
+        "evidence/manual-request-upload-preview-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Quantity relation and explicit monetary preflight implemented locally; both-field quantity precedence/rounding, master and company grouping/default/required mapping, explicit-basis persistence and consumers, failure/retry and hosted business acceptance incomplete",
+      "remaining": "Local raw/reference proposals/quantity/money row review exists; company metadata, matching precedence, preview UI, persistence and consumers, failure/retry and real hosted acceptance remain incomplete",
       "supportingSourceIds": [
         "EC-HELP-UPLOAD-COMPARE-001",
         "EC-HELP-UPLOAD-DUPLICATE-001",
-        "EC-HELP-QUANTITY-001"
+        "EC-HELP-QUANTITY-001",
+        "EC-HELP-UPLOAD-USE-001",
+        "EC-HELP-UPLOAD-FIELDS-001"
       ],
       "supportingSourceScope": {
         "duplicateFaq": "sales only; does not establish request retry/idempotency",
-        "comparisonVideo": "full auto transcript only; current row limit and legacy Excel claims unverified"
+        "comparisonVideo": "full auto transcript only; current row limit and legacy Excel claims unverified",
+        "uploadUseGuide": "header exclusion, retain empty columns, leading-zero text, bold required and maximum300cases notice; case unit/runtime limit unverified",
+        "uploadFieldGuide": "master item/partner basic-tab registration only; request upload setting/required map not established"
       },
       "uploadRawCandidate": {
         "sourceCommit": "5b761c5cd22f10945f27c59368cea8694baa6101",
@@ -1130,6 +1135,17 @@
         "status": "local-explicit-upload-money-preflight-no-ui-or-persistence",
         "newNode": 12,
         "relatedNode": 32,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      },
+      "uploadReviewCandidate": {
+        "sourceCommit": "1edc72f99b10f1e25373ea557236fd3fd45f18ec",
+        "evidence": "evidence/manual-request-upload-preview-20261022.json",
+        "status": "local-row-review-model-master-candidates-quantity-money-no-ui-or-save",
+        "newNode": 13,
+        "relatedNode": 45,
         "appIntegrated": false,
         "saveImplemented": false,
         "productionDeployed": false,
