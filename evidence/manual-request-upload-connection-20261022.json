@@ -1,0 +1,453 @@
+{
+  "version": "0.74.0",
+  "status": "deployed-read-only-paste-review-save-not-implemented",
+  "requirement": "REQ-PUR-REQ-005",
+  "sourceCommit": "cca6b53010e3a74ab016616970c31ae33d13218e",
+  "testFollowupCommit": "522481fcc339cd5aee01c820d52530e3ffe42525",
+  "releaseCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualBodiesReviewed": 21,
+  "manualIndexItems": 51,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "implementation": {
+    "flow": "Request list footer > 웹자료올리기 > explicit header selection > TSV paste > review > close/discard",
+    "masters": "Read-only C.validateBackup registered item/code/name/barcode/disabled, partner/code/name/disabled and currency/code/name/disabled snapshot",
+    "unknownPolicies": "Explicit null for unimplemented quantity/price/money/currency precision and required fields; no display-decimal/implicit1to1/zero/default/grouping substitutions",
+    "rawPreserved": "Original22 cells, leading zero, blank rows/cells, quoted tabs/CRLF/doubled quote, both quantity strings and manual money",
+    "ownResources": {
+      "rows": 1000,
+      "UTF8Bytes": 1048576,
+      "reviewPageRows": 50,
+      "original300CasesUnitVerified": false
+    },
+    "guards": [
+      "client account/company identity and inventory.read",
+      "storage raw CAS and current db source",
+      "settings JSON snapshot",
+      "route/host lifetime",
+      "storage/focus/input/close/navigation invalidation"
+    ],
+    "serverPermissionRevocationIndependentlyVerified": false,
+    "persistedDraft": false,
+    "saveSupported": false,
+    "productionBusinessWrites": false,
+    "generalEntryPasteUnchanged": true,
+    "uploadedBusinessVouchersCreated": 0
+  },
+  "checks": {
+    "newNode": 8,
+    "relatedNode": 62,
+    "newActualShellBrowser": 8,
+    "fullVerifyLocalPassed": true,
+    "fullBrowserPassed": 98,
+    "separateComponentBrowser": 2,
+    "toolsPassed": 7,
+    "syntaxPassed": true,
+    "diffCheckPassed": true,
+    "rea": {
+      "reaVersion": "6.4.0",
+      "originalExecuted": false,
+      "requestRouteInvocationVerified": false,
+      "scope": "Seven own integration scopes including TSV parser, master snapshot, modal lifecycle, null-policy review and InventoryUI launcher. Existing public source evidence is hash-validated separately, not counted as new. No original execution or persistence equivalence",
+      "results": [
+        {
+          "name": "parseTsv",
+          "category": "own",
+          "file": "dist/request-upload-input-core.js",
+          "sourceSha256": "7b715d95202c1e72d24585a8de0f39e4c8487d4a2e556f02bda160f0e5cdf9e7",
+          "start": 71,
+          "end": 1144,
+          "lineStart": 4,
+          "lineEnd": 20,
+          "fragmentSha256": "bbe3f6e33e62e8e403cb25485c7926966eb5dfbb56290d6799494c951581281e",
+          "resultSha256": "29c666179cb8a12fab3548d004dcd69afcfbb8c28892759461367053c831163e",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1319,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 258,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "snapshot",
+          "category": "own",
+          "file": "dist/request-upload-input-core.js",
+          "sourceSha256": "7b715d95202c1e72d24585a8de0f39e4c8487d4a2e556f02bda160f0e5cdf9e7",
+          "start": 1146,
+          "end": 1996,
+          "lineStart": 21,
+          "lineEnd": 28,
+          "fragmentSha256": "81cc6cb3d8600423b5809494436b4abd207862be4e3e550060c1a3758d6bd082",
+          "resultSha256": "31b0b04a5d19c0a6174978cf13b1ce6045e50b32a8517e080ed174be8cfcb817",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 948,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 188,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "openUpload",
+          "category": "own",
+          "file": "dist/request-upload-input-ui.js",
+          "sourceSha256": "6a7505b564d36ca2562c6170fc72d73f070012ff6da7a857b5b0758896b34e88",
+          "start": 33,
+          "end": 3381,
+          "lineStart": 3,
+          "lineEnd": 16,
+          "fragmentSha256": "62b17f7f84b15134d6d31502c5f0c8405bc2c0ad17610a94826c35a93a0c1028",
+          "resultSha256": "c8639d9bec729dbb8c73a92291a027db83d6fe4eca8995cffea1c5fde0cc8b65",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 3736,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 702,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "review",
+          "category": "own",
+          "file": "dist/request-upload-preview.js",
+          "sourceSha256": "adcab4744c65abc26fecce6f16ac04ee2e3dbccd52b298b072c9157c9ede9a7c",
+          "start": 2803,
+          "end": 7382,
+          "lineStart": 28,
+          "lineEnd": 56,
+          "fragmentSha256": "d3d8cce7ff84e8cccb1aba1d42faba27bc88f596958dfbd11abfc2c048fdc2e4",
+          "resultSha256": "1c9e503208b938bc333c5eb793c30488a9b470e2e6747fe2d5a5e7240677ce7f",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 4765,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 919,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "openRequestUpload",
+          "category": "own",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "39e6948f00fe65981d24744bfd82478956d38bc9451b9d7064a7e2053a205c35",
+          "start": 24252,
+          "end": 25039,
+          "lineStart": 142,
+          "lineEnd": 147,
+          "fragmentSha256": "656b90fb5810dd016510e8335d0c108c8499cac785134d85747ffc468bcec67b",
+          "resultSha256": "d6d87a70a0401b5c82922bf8f98f40c865b04a0da86c276b5e02592647486094",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 813,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 144,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "issueText",
+          "category": "own",
+          "file": "dist/request-upload-review-ui.js",
+          "sourceSha256": "c679c4b72129c40b93e8c0cf16776338a19931c999fd5e6964fd44ac4ea22692",
+          "start": 414,
+          "end": 1262,
+          "lineStart": 4,
+          "lineEnd": 8,
+          "fragmentSha256": "2bc523f97e2f63a98d0f13131832ddc5ec95a79578731930b235a7b8b81e77e8",
+          "resultSha256": "f5061d6540891aeeb655d57ebcca91a45a439263bc055bd7c0c3f07c046b38d3",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1292,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 84,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "mount",
+          "category": "own",
+          "file": "dist/request-upload-review-ui.js",
+          "sourceSha256": "c679c4b72129c40b93e8c0cf16776338a19931c999fd5e6964fd44ac4ea22692",
+          "start": 1264,
+          "end": 6611,
+          "lineStart": 9,
+          "lineEnd": 35,
+          "fragmentSha256": "2b1a240b8f698ac4d8246703be83e13a1c8f51430682c55f2f5eb55e9a24601b",
+          "resultSha256": "20b579af22786f6826e41205e30924f1366d7234f007ce4315028c49df910895",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 5732,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 1256,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        }
+      ]
+    },
+    "originalScopeCache": [
+      {
+        "name": "onInitializePage",
+        "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+        "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+        "fragmentSha256": "e350636c12122a987be29a18f2c3099d1320e0711606468f1dc2b192d825b856",
+        "resultSha256": "dcc3763c3e5a78c220cb24995c51a3121b5b4364b4d4a146312e9de867171904",
+        "reusedAfterHashValidation": true,
+        "newAnalysis": false
+      },
+      {
+        "name": "buildContent",
+        "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+        "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+        "fragmentSha256": "4b5832dbca7d839897c6c8f57d66dec46dba0a03388d082420f91ddc03c5b767",
+        "resultSha256": "e497c0d0b5007888ceb935cbda80c071297fe753c3d802f823150a52c4dc1434",
+        "reusedAfterHashValidation": true,
+        "newAnalysis": false
+      }
+    ],
+    "originalScopeNewAnalysis": 0,
+    "rootFullBuildRun": false,
+    "candidateOnlyFullBuild": true,
+    "resolvedCheckIssues": [
+      "Updated previous tests that required upload to be disconnected/disabled after explicit readonly connection",
+      "Corrected candidate API manual version examples",
+      "Reused existing browser-libs symlink in isolated worktree; no package installs"
+    ],
+    "physicalAndroidRetest": false
+  },
+  "deployment": {
+    "version": "0.74.0",
+    "baseCommit": "5c3ef405b06fe61113eae3399487561521cd4eba",
+    "sourceCommit": "cca6b53010e3a74ab016616970c31ae33d13218e",
+    "branch": "release/0.74.0-request-upload-preview",
+    "worktree": ".artifacts/releases/0.74.0-request-upload-preview",
+    "copiedFiles": {
+      "dist/request-upload-candidate.js": "6964dee2eeba056e0a2b59a19550103f919f23f660bd8b82426403bc9c9d685e",
+      "dist/request-upload-preview.js": "adcab4744c65abc26fecce6f16ac04ee2e3dbccd52b298b072c9157c9ede9a7c",
+      "dist/request-upload-review-ui.js": "c679c4b72129c40b93e8c0cf16776338a19931c999fd5e6964fd44ac4ea22692",
+      "dist/request-upload-review.css": "03ce0fe9e9da76b57cf2ed7a0a724dea22c889ed585ccec9915b5785967c238b",
+      "dist/request-upload-input-core.js": "7b715d95202c1e72d24585a8de0f39e4c8487d4a2e556f02bda160f0e5cdf9e7",
+      "dist/request-upload-input-ui.js": "6a7505b564d36ca2562c6170fc72d73f070012ff6da7a857b5b0758896b34e88",
+      "tests/request-upload-candidate.cjs": "1835ce9e8bd6681fdb5414b1d83ee375762f31c91f210c0c428748c2ec88ef97",
+      "tests/request-upload-amounts.cjs": "1b21d87a1943acaf53050837a686b1d50b9a3f8a8bfaf55b42c5b66a9c062fd6",
+      "tests/request-upload-preview.cjs": "8f1410e96317832552d094ada0710fd05266923bb392f75fadc8e8750e1482be",
+      "tests/request-upload-review-ui.cjs": "4ed0c3359a885e333e6b0b03dbce5ab875d7c777af8ed50b2394e5596f6b2a95",
+      "tests/request-upload-input.cjs": "91a72ae4f37efbe6922ddf62a48fa9fff0b2b02a463cd1b0f26fd10c6a2c81b8",
+      "tests/helpers/upload-review-fixture.cjs": "10c3ae445f614d26428a3b2b8d9d379de083762cce4e5f0808539bcb6bdbb863",
+      "tests/browser/request-upload-review.cjs": "1685f12516e30e44e739d09a4a7669ec75b30bbdd085c69d7d9ea132663e1a45",
+      "tests/browser/request-upload-input.spec.cjs": "78ed106700d1c12818fcf46932d1795397f657b7a76431327117ad3c85ed454b",
+      "tests/request-list.cjs": "fd0ed8cc304a343df2f37f81651195791b06fa5de9cee7004833a9469e77bda3"
+    },
+    "surgicalInventoryUiChanges": [
+      "openRequestUpload",
+      "controller handle and beforeNavigate disposal",
+      "request footer button only"
+    ],
+    "rootVatResearchIncluded": false,
+    "dependencyInstallation": false,
+    "sourceRootFullBuild": false,
+    "testFollowupCommit": "522481fcc339cd5aee01c820d52530e3ffe42525",
+    "existingBrowserLibrariesSymlink": true,
+    "newDependencyInstallations": false,
+    "releaseCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+    "bundleSha256": "421bc699dd4efb921911b743a0b380e6713a346541fc7d995c7a2e62a61c415b",
+    "componentBrowserPassed": 2,
+    "fullVerificationPending": false,
+    "fullVerifyLocalPassed": true,
+    "fullBrowserPassed": 98,
+    "newActualShellBrowserPassed": 8,
+    "installed": true,
+    "pushedBeforeDeploy": true,
+    "runtimeSessionId": 12797,
+    "linuxPid": 2380443,
+    "sitesUsed": false,
+    "public": {
+      "version": "0.74.0",
+      "sourceCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/request-upload-input-core.js",
+          "status": 200,
+          "sha256": "7b715d95202c1e72d24585a8de0f39e4c8487d4a2e556f02bda160f0e5cdf9e7",
+          "equalsLocal": true
+        },
+        {
+          "path": "/request-upload-input-ui.js",
+          "status": 200,
+          "sha256": "6a7505b564d36ca2562c6170fc72d73f070012ff6da7a857b5b0758896b34e88",
+          "equalsLocal": true
+        },
+        {
+          "path": "/request-upload-review.css",
+          "status": 200,
+          "sha256": "03ce0fe9e9da76b57cf2ed7a0a724dea22c889ed585ccec9915b5785967c238b",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-ui.js",
+          "status": 200,
+          "sha256": "8cba61bfeaeac5243cd93e73abe3c5f99ecac3e0c503d6176a49c0aef8f9a8d2",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "rollback": ".artifacts/manual-request-upload-connection-20261022/rollback-0.73.0-index.js"
+  },
+  "hosted": {
+    "existingSessionRetainedAfterRefresh": true,
+    "version": "0.74.0",
+    "requestFooterEnabled": true,
+    "syntheticOnlyRow": "Unregistered REA-QA-ONLY, additional3/base30, manual777.00 and VAT12",
+    "syntheticPasteReviewVerified": true,
+    "unknownReferenceAndPolicyShown": true,
+    "closedAndDiscarded": true,
+    "realBusinessSaveAcceptance": false,
+    "screenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/UPLOAD-REVIEW-0.74.0.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.74.0",
+      "exactBytesEqual": true,
+      "exactJsonEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "browserDownloadBefore": 33,
+      "browserDownloadAfter": 34,
+      "restored": false,
+      "formsHashComparison": "exact structures; Node JSON.stringify hash remains in predeploy manifest"
+    },
+    "serverMail": {
+      "version": "0.74.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "afterUi": {
+      "rea_app_state": {
+        "revision": 30,
+        "exact": true
+      },
+      "rea_gateway_state": {
+        "revision": 0,
+        "exact": true
+      }
+    },
+    "privateBackupDirectory": "/home/lck/.local/share/rea-erp/backups/request-upload-0.74.0-1792635097873",
+    "restored": false
+  },
+  "remaining": [
+    "Company input-policy/required/header/default/grouping contracts",
+    "Two quantity precedence and rounding",
+    "Versioned explicit-money persistence, all effective consumers, backup restore and downstream vouchers",
+    "Atomic write permissions/revision, failure retry and actual business acceptance"
+  ],
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 59,
+    "authChanged": false,
+    "probeRepeated": false,
+    "uploaded": false,
+    "readbackVerified": false
+  },
+  "nextWork": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 설정 계약을 채운다. 기존 기능 계획의 versioned uploadSnapshot/CAS·기본/추가수량·명시금액 소비자 차이표를 기준으로, 실제 요청 업로드에 적용되는 회사별 수량 사용/자릿수·통화/단가 정밀도·필수/상단 매핑·묶음 equality·저장시값변경을 공식 본문/분리 조회설정/공개소스에서 확인한다. 현재 conveniences 표시자릿수나 보고서 위젯을 업무 설정으로 대체하지 않는다. 확인된 계약은 업로드 전용 정책 snapshot으로 연결하고 일반입력 자동금액/기존 qty·백업/자료는 변환하지 않는다. 원본 저장/주입력행/설정적용·발송 없이 진행하며 metadata가 미상인 채 묶음저장·부분실패/재시도를 추정 구현하지 않는다. 다음 구현은 독립 저장후보의 모든 유효금액 소비자와 역호환 검증을 묶어 진행한다. 운영0.74.0·기존 계정/자료/양식/메일 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
+  "done": false
+}

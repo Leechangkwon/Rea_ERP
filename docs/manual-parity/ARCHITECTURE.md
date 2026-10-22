@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.74.0 읽기 전용 업로드 메뉴 연결
+
+RequestUploadInputCore는 Excel TSV의 문자열/빈셀/인용탭·CRLF/따옴표를 보존하고 자체1MiB/1000행 자원한도를 검사한다. registered snapshot은 기초자료 코드·명칭·바코드·사용중단만 복사하며 수량·금액·통화 정밀도/필수는 null이다. Preview는 미상 정책에 영점/표시정밀도를 대입하지 않고 원문과 검토사유를 반환한다. InventoryUI launcher가 계정·회사·조회권한/설정JSON·raw/route/host guard를 구성하고 InputUI가 storage/focus/조작·닫기/메뉴이동 때 폐기한다. 서버 권한 실변경 동등성은 미검증이고 저장 API/브라우저 초안은 만들지 않는다. 기존 general entry paste·InventoryCore 자동계산·DB schema는 유지한다. 저장 선행 versioned uploadSnapshot/CAS·기본/추가수량/유효금액 소비자 차이표는 docs/plan-request-upload-close-20261022.md에 추가했다. 운영0.74.0은 검토까지만 제공하며 전체업로드 완료가 아니다. 근거 evidence/manual-request-upload-connection-20261022.json.
+
 ## 업로드 검토 컴포넌트 수명과 화면 범위
 
 RequestUploadReviewUI.mount는 모델을 JSON snapshot으로 분리하고 textContent만으로 원문/제안값·수량·수동금액을 표시한다. WeakMap host 소유권·AbortController listener 정리·필수 isCurrent callback으로 false/예외·교체/닫기/remount 후 오래된 조작을 차단한다. 실제 계정/자료 revision 변경 통지는 아직 caller adapter 연결 전이다.50행 페이지는 자체 DOM 자원정책이며 원본300건 제한과 무관하다. Scoped CSS는 toolbar button36/44px·checkbox16px를 고정하고 표에만 가로스크롤을 둔다. 신규Node9/관련54와 고립 HTML 브라우저2검사는 실제 앱셸/운영 권한 합격이 아니다. 입력붙여넣기·파일해석·메뉴/DB/저장은 미연결이며 일반입력 자동계산/영속자료는 바꾸지 않는다. 근거 evidence/manual-request-upload-review-ui-20261022.json.

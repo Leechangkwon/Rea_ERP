@@ -1082,7 +1082,7 @@
         "자료올리기 일괄 업로드",
         "조회/현황에서 완료 요청 종결"
       ],
-      "status": "closure-partial-deployed-upload-isolated-review-ui-local-only",
+      "status": "closure-partial-deployed-upload-paste-review-deployed-save-incomplete",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
@@ -1092,11 +1092,12 @@
         "evidence/manual-request-quantity-20261022.json",
         "evidence/manual-request-upload-amounts-20261022.json",
         "evidence/manual-request-upload-preview-20261022.json",
-        "evidence/manual-request-upload-review-ui-20261022.json"
+        "evidence/manual-request-upload-review-ui-20261022.json",
+        "evidence/manual-request-upload-connection-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Isolated row review UI exists; actual menu/paste/company snapshot/revision guard, grouping/defaults/required/quantity precedence, versioned persistence and consumers, failure/retry and hosted acceptance remain incomplete",
+      "remaining": "Company upload input policies/required/header/grouping/defaults, two-quantity precedence, versioned manual-money persistence and consumers, failure/retry and actual business acceptance remain incomplete",
       "supportingSourceIds": [
         "EC-HELP-UPLOAD-COMPARE-001",
         "EC-HELP-UPLOAD-DUPLICATE-001",
@@ -1162,6 +1163,17 @@
         "appIntegrated": false,
         "saveImplemented": false,
         "productionDeployed": false,
+        "done": false
+      },
+      "uploadPasteReview": {
+        "version": "0.74.0",
+        "sourceCommit": "cca6b53010e3a74ab016616970c31ae33d13218e",
+        "releaseCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+        "evidence": "evidence/manual-request-upload-connection-20261022.json",
+        "appIntegrated": true,
+        "productionDeployed": true,
+        "syntheticHostedReviewVerified": true,
+        "saveImplemented": false,
         "done": false
       }
     },

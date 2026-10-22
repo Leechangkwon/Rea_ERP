@@ -1,6 +1,6 @@
 {
-  "version": "0.73.0",
-  "status": "deployed-public-authenticated-session-and-preservation-verified",
+  "version": "0.74.0",
+  "status": "0.74.0 deployed: readonly request upload paste review; whole-manual acceptance incomplete; root VAT5 excluded",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -114,7 +114,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 90,
+    "currentReleaseBrowserSynthetic": 98,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -142,7 +142,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.73.0",
+    "currentReleaseFullRegressionVersion": "0.74.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -207,15 +207,22 @@
       "actualAppMenu": false,
       "production": false,
       "evidence": "evidence/manual-request-upload-review-ui-20261022.json"
+    },
+    "requestUploadPasteReview": {
+      "newNode": 8,
+      "relatedNode": 62,
+      "newActualShellBrowser": 8,
+      "separateComponentBrowser": 2,
+      "evidence": "evidence/manual-request-upload-connection-20261022.json"
     }
   },
-  "future_research": "다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
+  "future_research": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 설정 계약을 채운다. 기존 기능 계획의 versioned uploadSnapshot/CAS·기본/추가수량·명시금액 소비자 차이표를 기준으로, 실제 요청 업로드에 적용되는 회사별 수량 사용/자릿수·통화/단가 정밀도·필수/상단 매핑·묶음 equality·저장시값변경을 공식 본문/분리 조회설정/공개소스에서 확인한다. 현재 conveniences 표시자릿수나 보고서 위젯을 업무 설정으로 대체하지 않는다. 확인된 계약은 업로드 전용 정책 snapshot으로 연결하고 일반입력 자동금액/기존 qty·백업/자료는 변환하지 않는다. 원본 저장/주입력행/설정적용·발송 없이 진행하며 metadata가 미상인 채 묶음저장·부분실패/재시도를 추정 구현하지 않는다. 다음 구현은 독립 저장후보의 모든 유효금액 소비자와 역호환 검증을 묶어 진행한다. 운영0.74.0·기존 계정/자료/양식/메일 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "../manual-plan-generation-reference-20261022.json",
+    "reference": "evidence/manual-request-upload-connection-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "5c3ef405b06fe61113eae3399487561521cd4eba",
+    "deployedSourceCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
     "publicVersionVerified": "0.73.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
@@ -275,20 +282,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.73.0",
+    "existingSessionRetainedVersion": "0.74.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.73.0",
+    "lastExactBrowserBackupComparisonVersion": "0.74.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.73.0",
+    "currentServerStateAndMailPreservedVersion": "0.74.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.73.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.74.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -354,7 +361,10 @@
     "planGenerationEmployeeBatchDeployed": true,
     "planGenerationEmployeeHostedDataBearingSaveVerified": false,
     "planGenerationReferenceBatchDeployed": true,
-    "planGenerationReferenceHostedDataBearingSaveVerified": false
+    "planGenerationReferenceHostedDataBearingSaveVerified": false,
+    "requestUploadPasteReviewDeployed": true,
+    "requestUploadSyntheticHostedReviewVerified": true,
+    "requestUploadHostedBusinessSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -591,7 +601,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
+    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 설정 계약을 채운다. 기존 기능 계획의 versioned uploadSnapshot/CAS·기본/추가수량·명시금액 소비자 차이표를 기준으로, 실제 요청 업로드에 적용되는 회사별 수량 사용/자릿수·통화/단가 정밀도·필수/상단 매핑·묶음 equality·저장시값변경을 공식 본문/분리 조회설정/공개소스에서 확인한다. 현재 conveniences 표시자릿수나 보고서 위젯을 업무 설정으로 대체하지 않는다. 확인된 계약은 업로드 전용 정책 snapshot으로 연결하고 일반입력 자동금액/기존 qty·백업/자료는 변환하지 않는다. 원본 저장/주입력행/설정적용·발송 없이 진행하며 metadata가 미상인 채 묶음저장·부분실패/재시도를 추정 구현하지 않는다. 다음 구현은 독립 저장후보의 모든 유효금액 소비자와 역호환 검증을 묶어 진행한다. 운영0.74.0·기존 계정/자료/양식/메일 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -973,13 +983,24 @@
       "saveImplemented": false,
       "productionDeployed": false,
       "done": false
+    },
+    "requestUploadPasteReview": {
+      "version": "0.74.0",
+      "sourceCommit": "cca6b53010e3a74ab016616970c31ae33d13218e",
+      "releaseCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+      "evidence": "evidence/manual-request-upload-connection-20261022.json",
+      "appIntegrated": true,
+      "productionDeployed": true,
+      "syntheticHostedReviewVerified": true,
+      "saveImplemented": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.70.0",
-    "commit": "db9b68e03db380717720a7f534e81801277170ee",
-    "manifest": ".artifacts/manual-plan-search-modes-20261022/candidate-manifest.json",
-    "bundleSha256": "af9d4129565aed0dcca15d1b35d7f891d70bd92cf29d57a65496deccf0bc70ff",
+    "version": "0.74.0",
+    "commit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+    "manifest": ".artifacts/manual-request-upload-connection-20261022/candidate-manifest.json",
+    "bundleSha256": "421bc699dd4efb921911b743a0b380e6713a346541fc7d995c7a2e62a61c415b",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1011,9 +1032,11 @@
       "request-report-state-explicit-transition-applied-query-pending-filter-lifecycle-and-preservation",
       "plan-only-explicit-zero-quantity-preservation-zero-nonzero-search-and-consumed-quantum-guards",
       "bounded-column-entry-toolbar-and-report-owned-search-mode-controls",
-      "observed-plan-list-five-date-shortcuts-sunday-weeks-and-atomic-render-preservation"
+      "observed-plan-list-five-date-shortcuts-sunday-weeks-and-atomic-render-preservation",
+      "0.73.0-plan-generation-reference-baseline",
+      "request-upload-readonly-tsv-paste-registered-snapshot-review-client-guards"
     ],
-    "supersedesCandidateCommit": "01932d7cf2f2da7886a672685dc1d8ae846c046c",
+    "supersedesCandidateCommit": "5c3ef405b06fe61113eae3399487561521cd4eba",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
@@ -1085,6 +1108,18 @@
       "summary": ".artifacts/manual-request-upload-settings-20261022/rea/rea-summary.json",
       "ownScopes": 2,
       "originalScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "requestUploadPasteReview": {
+      "evidence": "evidence/manual-request-upload-connection-20261022.json",
+      "summary": ".artifacts/manual-request-upload-connection-20261022/rea/rea-summary.json",
+      "ownScopes": 7,
+      "originalNewScopes": 0,
+      "originalCacheVerifiedScopes": 2,
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false,
