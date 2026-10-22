@@ -36,7 +36,7 @@
   if(options.amounts!==null)C.inspectAmounts(Object.fromEntries(Object.values(C.amountFields).map(x=>[x,''])),{...options.amounts,foreignDigits:null});
   const rows=staged.rows.map(row=>{
    const proposedValues={...row.values},issues=[];
-   if(row.empty)return {...row,proposedValues,status:'empty',issues,references:null,quantity:null,amounts:null};
+   if(row.empty)return {...row,proposedValues,status:'empty',issues,references:null,quantity:null,amounts:null,exchangeRate:null};
    const item=resolveReference(items,row.values[fields.itemCode],row.values[fields.itemName]),partner=resolveReference(partners,row.values[fields.partnerCode],row.values[fields.partnerName]),currency=resolveReference(currencies,row.values[fields.currency],'',true),references={item,partner,currency};
    for(const [kind,result] of Object.entries(references)){
     if(result.status==='resolved'){
@@ -50,9 +50,10 @@
    if(!['matched','base-only'].includes(quantity.relation))issues.push({code:'quantity-'+quantity.relation,fieldId:'inv_m$qty'});
    const foreignDigits=currency.status==='resolved'?currencies.byCode.get(currency.code).fractionDigits:null,amounts=options.amounts===null?null:C.inspectAmounts(row.values,{...options.amounts,foreignDigits});
    if(amounts)issues.push(...amounts.issues.map(x=>({...x})));else issues.push({code:'amount-policy-required'});
-   return {...row,proposedValues,status:issues.length?'review':'clear',issues,references,quantity,amounts};
+   const exchangeRate=C.inspectExchangeRate(row.values['inv_s$exchange_rate']);issues.push(...exchangeRate.issues.map(x=>({...x})));
+   return {...row,proposedValues,status:issues.length?'review':'clear',issues,references,quantity,amounts,exchangeRate};
   });
-  return {rows,columns:staged.columns,hasHeader:staged.hasHeader,rowLimit:staged.rowLimit,rowLimitSource:staged.rowLimitSource,summary:{rows:rows.length,empty:rows.filter(x=>x.status==='empty').length,needsReview:rows.filter(x=>x.status==='review').length,withoutDetectedIssues:rows.filter(x=>x.status==='clear').length},requiredPolicyKnown:options.requiredFieldIds!==null,unresolvedContracts:[...(options.quantity===null?['quantity-policy']:[]),...(options.amounts===null?['amount-policy']:[]),...(options.requiredFieldIds===null?['required-fields']:[]),'voucher-grouping','save-time-defaults','other-header-references','quantity-upload-precedence-and-rounding','partial-failure-and-retry','permissions-and-persistence'],groupingResolved:false,defaultingResolved:false,businessValidation:false,saveSupported:false,manualLimitNotice:{sourceId:'EC-HELP-UPLOAD-USE-001',text:'최대300건 안내',unitVerified:false,enforcedAsOriginalRowLimit:false}};
+  return {rows,columns:staged.columns,hasHeader:staged.hasHeader,rowLimit:staged.rowLimit,rowLimitSource:staged.rowLimitSource,summary:{rows:rows.length,empty:rows.filter(x=>x.status==='empty').length,needsReview:rows.filter(x=>x.status==='review').length,withoutDetectedIssues:rows.filter(x=>x.status==='clear').length},requiredPolicyKnown:options.requiredFieldIds!==null,unresolvedContracts:[...(options.quantity===null?['quantity-policy']:[]),...(options.amounts===null?['amount-policy']:[...(options.amounts.priceDigits===null?['price-policy']:[]),...(options.amounts.amountDigits===null?['domestic-amount-policy']:[])]),...(options.requiredFieldIds===null?['required-fields']:[]),'voucher-grouping','save-time-defaults','other-header-references','quantity-upload-precedence-and-rounding','partial-failure-and-retry','permissions-and-persistence'],groupingResolved:false,defaultingResolved:false,businessValidation:false,saveSupported:false,manualLimitNotice:{sourceId:'EC-HELP-UPLOAD-USE-001',text:'최대300건 안내',unitVerified:false,enforcedAsOriginalRowLimit:false}};
  }
  const api=Object.freeze({review});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadPreview=api;
 })(typeof globalThis==='object'?globalThis:this);

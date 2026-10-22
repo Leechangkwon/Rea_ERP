@@ -29,8 +29,8 @@
   if(settings!==undefined){
    if(!settings||typeof settings!=='object'||Array.isArray(settings))throw Error('회사 설정을 다시 조회하세요.');
    const purchase=settings.purchasePrecision??{version:1,quantityUse:null,baseDigits:null,additionalDigits:null,priceDigits:null};
-   if(!purchase||purchase.version!==1||Object.keys(purchase).length!==5||!['version','quantityUse','baseDigits','additionalDigits','priceDigits'].every(k=>Object.hasOwn(purchase,k)))throw Error('구매 설정 구조를 확인하세요.');
-   const input={version:1,quantityUse:purchase.quantityUse,common:{amountDigits:settings.commonDefaults?.amountDigits??null,baseDigits:null,additionalDigits:null,priceDigits:null},purchase:{baseDigits:purchase.baseDigits,additionalDigits:purchase.additionalDigits,priceDigits:purchase.priceDigits},form:{baseDigits:{mode:'unknown'},additionalDigits:{mode:'unknown'},priceDigits:{mode:'unknown'}}};
+   if(!purchase||purchase.version!==1||Object.keys(purchase).length!==5||!['version','quantityUse','baseDigits','additionalDigits','priceDigits'].every(k=>Object.hasOwn(purchase,k))||['baseDigits','additionalDigits','priceDigits'].some(k=>purchase[k]!==null&&(!Number.isInteger(purchase[k])||purchase[k]<0||purchase[k]>6)))throw Error('구매 설정 구조를 확인하세요.');
+   const input={version:2,quantityUse:purchase.quantityUse,input:{amountDigits:settings.commonDefaults?.amountDigits??null,baseDigits:null,additionalDigits:null,priceDigits:null}};
    const resolved=P.resolve(input);out.quantity=resolved.quantity;out.amounts=resolved.amounts;out.policySnapshot=JSON.parse(JSON.stringify(input));out.policyResolution=resolved;
   }
   return out;
