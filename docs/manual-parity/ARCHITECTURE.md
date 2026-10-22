@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 업로드 수량 관계의 정확한 분리 검사
+
+추가수량 add_qty와 기본수량 qty를 함께 보존하고, 호출자가 명시한 업무 사용여부·기본/추가수량 자릿수·품목 비율의 snapshot으로 관계만 검사한다. 십진 문자열→BigInt 유리수→무반올림 비교이므로 부동소수 오차나 암묵1/1 기본값을 만들지 않는다. 미상비율/불일치/정밀도부족/초과를 반환하며 자동필드 선택·값교체·저장은 없다. 분자소수/분모정수·기본수량 재고관리는 공식 온라인 본문 근거다. 기존 ItemCore.additionalQuantity와 단일 InventoryCore.qty의 저장 의미를 변경하지 않는다. 전체업로드 연결 전 수동금액 보존·회사별 metadata·양쪽 입력 우선순위 계약이 필요하다. 근거 evidence/manual-request-quantity-20261022.json.
+
 ## 업로드 입력 해석 분리후보 · 운영 미연결
 
 원본 UI/빈서식22열의 표시명과 field ID를 고정한 RequestUploadCandidate.stageRaw를 독립시켰다. raw 셀과 String.trim 결과·원본행번호를 반환하며, 명시한 제목행/자원행수 정책으로 누락/초과열을 검사한다. inv_m$add_qty와inv_m$qty를 별도로 보존하고 금액/코드/일자를 해석하지 않는다. 원본 _.vTrim의 모든 Unicode 동등성은 미확인이다. 현재 회사의 관찰 schema snapshot이며 전체회사 설정으로 간주하지 않는다. UI/DB/권한/저장 스키마에 연결하지 않았다. 이후 회사별 metadata→단위환산/금액보존→묶음/기본/필수 검증→미리보기→동시성/권한/저장 계층을 각각 합격시킨다. 일반 입력의 자동계산을 업로드 수동금액에 바로 연결하지 않는다. 근거 evidence/manual-request-upload-candidate-20261022.json.

@@ -1,7 +1,7 @@
 {
   "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
-  "count": 48,
-  "bodyReviewed": 18,
+  "count": 49,
+  "bodyReviewed": 19,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -461,6 +461,24 @@
       "appliesDirectlyTo": "sales only",
       "requestUploadIdempotencyProven": false,
       "originalBusinessWrites": false
+    },
+    {
+      "id": "EC-HELP-QUANTITY-001",
+      "title": "추가수량 당수량 기능 사용 방법",
+      "kind": "official online manual text",
+      "status": "body-reviewed",
+      "sourcePath": "Original item list > help > 추가수량 search > 온라인매뉴얼 > 추가수량 당수량 기능 사용 방법",
+      "observedDate": "2026-10-22",
+      "localArtifact": ".artifacts/manual-request-quantity-20261022/official-additional-quantity-manual.txt",
+      "bodySha256": "68786ef5deed64991186843d23b21420f26bfa6831ae2a8a7cc000e70595f806",
+      "formulaExample": {
+        "additional": "3",
+        "numerator": "10",
+        "denominator": "1",
+        "base": "30"
+      },
+      "settingsSaved": false,
+      "uploadFieldPrecedenceVerified": false
     }
   ]
 }

@@ -193,9 +193,11 @@
     "planGenerationReferenceNewNode": 6,
     "planGenerationReferenceRelatedNode": 62,
     "planGenerationReferenceNewBrowser": 3,
-    "requestUploadRawCandidateNode": 10
+    "requestUploadRawCandidateNode": 10,
+    "requestUploadQuantityCandidateNewNode": 10,
+    "requestUploadQuantityCandidateRelatedNode": 20
   },
-  "future_research": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 계약을 채운다. 우선 실제 inv_m$add_qty(표시 수량)와 inv_m$qty(표시 낱개수량)의 품목 단위/환산 규칙을 공식 도움말·품목등록 조회·공개 REA 근거로 대조하고, 현재 입력/재고/발주 잔량 모델과 차이표를 만든다. 이어 수동 공급가액/부가세/외화금액의 공란0·고정금액 보존 저장을 일반 입력 자동계산과 구분해 설계한다. 회사별 묶음/저장시값변경/필수·부분실패/재시도는 실제 설정 계약을 확인한 범위만 연결한다. 분리후보를 전체 웹자료올리기 완성으로 부르거나 캡션의300행·날짜+순번만을 현재 기본 정책으로 적용하지 않는다. 기존0.73.0 운영과 자료/양식/메일을 유지하고 root VAT5 전체빌드/배포는 금지한다.",
+  "future_research": "다음은 REQ-PUR-REQ-005 업로드의 명시 공급가액/부가세/외화금액을 공란0·고정금액으로 보존하는 선행 코어를 구현한다. 일반 입력 qty×price 자동계산과 구분하고, 실제 원본 서식 메모·공개 V5 help generator의 회사별 formatter와 대조한다. 수량 환산 방향은 EC-HELP-QUANTITY-001 본문으로 확인했으나 동시 기본/추가수량의 업로드 우선순위·반올림·음수 허용은 미확인이다. 단일 기존 InventoryCore.qty 의미를 바꾸거나 기존 자료를 자동 환산하지 않는다. 이후 회사별 묶음·저장시값변경·기초자료/필수/부분실패·재시도 계약을 채운 뒤 미리보기/저장/권한/보존을 격리후보에 연결한다. 후보 코어를 전체 웹자료올리기 완료로 부르지 않는다. 운영0.73.0과 기존 자료/양식/메일을 유지하며 root VAT5 전체빌드/배포는 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../manual-plan-generation-reference-20261022.json",
@@ -345,7 +347,7 @@
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 26,
-    "sourceBodiesReviewed": 18,
+    "sourceBodiesReviewed": 19,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-TAX-001",
@@ -577,7 +579,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "발주계획조회 건별/전표별 차이표를 작성했다. 다음은 원본 발주계획조회 도움말의 조회구분·대표품목/수량·합계·필터 절차를 본문과 예외로 분해하고, 공개 GetListSearchPurchasePlan DTO/응답열 매핑과 대조한다. 대표수량을 전체수량합으로 추정하거나 전표 전체/부분 선택과 종결·생성 권한을 확대하지 않는다. 날짜 바로조회0.70.0과 UI회귀0.69.1은 반영·보존 검증을 마쳤으므로 같은 검사를 새 개발량으로 반복하지 않는다. 웹자료올리기 회사별 Flow/setup/dataModel·묶음/필수/부분실패·재시도 계약, VAT5·상이단가/전체적용·부서/직위/직책·직접음수/환불·회계/일괄인쇄·원본작업탭 동등성은 미완료다. 미확인 요청 전체계획 합산 제외는 원본근거가 없어 확정 요구사항이 아니다.",
+    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 업로드의 명시 공급가액/부가세/외화금액을 공란0·고정금액으로 보존하는 선행 코어를 구현한다. 일반 입력 qty×price 자동계산과 구분하고, 실제 원본 서식 메모·공개 V5 help generator의 회사별 formatter와 대조한다. 수량 환산 방향은 EC-HELP-QUANTITY-001 본문으로 확인했으나 동시 기본/추가수량의 업로드 우선순위·반올림·음수 허용은 미확인이다. 단일 기존 InventoryCore.qty 의미를 바꾸거나 기존 자료를 자동 환산하지 않는다. 이후 회사별 묶음·저장시값변경·기초자료/필수/부분실패·재시도 계약을 채운 뒤 미리보기/저장/권한/보존을 격리후보에 연결한다. 후보 코어를 전체 웹자료올리기 완료로 부르지 않는다. 운영0.73.0과 기존 자료/양식/메일을 유지하며 root VAT5 전체빌드/배포는 금지한다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -915,6 +917,16 @@
       "saveImplemented": false,
       "productionDeployed": false,
       "done": false
+    },
+    "requestUploadQuantityCandidate": {
+      "sourceCommit": "d136921b623f856ee5ed2e47407156055426f189",
+      "evidence": "evidence/manual-request-quantity-20261022.json",
+      "newNode": 10,
+      "relatedNode": 20,
+      "appIntegrated": false,
+      "saveImplemented": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -976,6 +988,17 @@
     "boundedPublicScopes": 4,
     "fullBodiesAnalyzed": false,
     "originalExecuted": false,
-    "currentReaCorpusBaselineNotRecounted": true
+    "currentReaCorpusBaselineNotRecounted": true,
+    "requestUploadQuantityCandidate": {
+      "evidence": "evidence/manual-request-quantity-20261022.json",
+      "summary": ".artifacts/manual-request-quantity-20261022/rea/rea-summary.json",
+      "ownScopes": 3,
+      "originalScopes": 1,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    }
   }
 }
