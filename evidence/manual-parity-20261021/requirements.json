@@ -1188,7 +1188,8 @@
         "appIntegrated": false,
         "saveImplemented": false,
         "productionDeployed": false,
-        "done": false
+        "done": false,
+        "supersededBy": "evidence/manual-request-upload-numeric-input-20261022.json"
       },
       "purchasePrecisionSettings": {
         "version": "0.75.0",
@@ -1211,6 +1212,16 @@
         "uploadInputPrecisionProven": false,
         "hostedOpenCloseVerified": true,
         "hostedSavePerformed": false,
+        "done": false
+      },
+      "uploadIndependentNumericReview": {
+        "version": "0.77.0",
+        "evidence": "evidence/manual-request-upload-numeric-input-20261022.json",
+        "releaseCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+        "appIntegrated": true,
+        "productionDeployed": true,
+        "hostedSyntheticReviewVerified": true,
+        "saveImplemented": false,
         "done": false
       }
     },

@@ -1,6 +1,6 @@
 {
-  "version": "0.76.0",
-  "status": "0.76.0 deployed: optional numeric form display settings; upload business precision and whole-manual acceptance incomplete; root VAT5 excluded",
+  "version": "0.77.0",
+  "status": "0.77.0 deployed: independent exact upload money and exchange-rate review; upload voucher saving and whole-manual acceptance incomplete; root VAT5 excluded",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -81,7 +81,8 @@
     "domain-webmail/mail-contract.json",
     "mail-routing/mail-contract.json",
     "Nullable version1 purchase precision config with authenticated review snapshot, no assumed form inheritance, and consistent settings-modal controls; voucher upload saving incomplete",
-    "Optional numericFormat display-only metadata preserved in existing forms/backups; explicit0..6 only in connected InventoryUI table/aggregate/print renderers; raw business and CSV values unchanged; not an upload input precision policy"
+    "Optional numericFormat display-only metadata preserved in existing forms/backups; explicit0..6 only in connected InventoryUI table/aggregate/print renderers; raw business and CSV values unchanged; not an upload input precision policy",
+    "Version2 upload input-only snapshot excludes purchase/Renderer display inheritance; known domestic money checked independently, exchange rate14/4 declared limits checked, raw/blank preserved; saving remains unsupported"
   ],
   "checks": {
     "total": 998,
@@ -116,7 +117,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 98,
+    "currentReleaseBrowserSynthetic": 104,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -144,7 +145,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.74.0",
+    "currentReleaseFullRegressionVersion": "0.77.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -244,16 +245,26 @@
       "verifyLocalPassed": true,
       "tools": 7,
       "release": 4
+    },
+    "requestUploadIndependentNumericInput": {
+      "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
+      "newNode": 7,
+      "relatedNode": 91,
+      "newBrowser": 2,
+      "fullBrowser": 104,
+      "verifyLocalPassed": true,
+      "tools": 7,
+      "release": 4
     }
   },
-  "future_research": "다음은 REQ-PUR-REQ-005의 실제 업로드 input formatter 공급원과 저장시값변경/필수·상단매핑·묶음 equality 계약으로 돌아간다. 이번 표시형태 Renderer.value_format과 tenant.input_formatter_numeric를 구분하고, 기존 공개 V5 업로드 help/행처리 함수에서 요청 메뉴에 전달되는 숫자정밀도 경로를 REA6.4로 좁혀 추적한다. 일반 입력/리스트/인쇄 numericFormat을 업로드 업무정밀도로 재사용하지 않는다. 재사용 원문은 입력/도구/결과해시·근거를 검증하며, 같은 팝업/이미 통과한 미연결 helper를 새 진척으로 반복하지 않는다. 확인된 계약만 versioned upload snapshot에 연결하고 수량우선순위·수동금액 영속소비자·실패재시도/CAS·보존 검증 후 저장 후보를 만든다. 원본 주입력행/이동·적용/저장/발송은 하지 않는다. 운영0.76.0·runtime12870/PID2394386 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
+  "future_research": "다음은 REQ-PUR-REQ-005 상단 참조 중 원본 서식 주석 C/D/J에서 확인한 담당자·창고·프로젝트의 등록코드/명칭 exact 검토를 실제 masters snapshot에 연결한다. 실제 구조·조회/도움말을 먼저 확인하고 선행0/원문·별도제안·동일명/사용중단/불일치 사유와 공란을 보존한다. 회사 기본값은 채우지 않는다. 단가 도움말6/일반 검증기 기본10 차이는 메뉴의 명시 Validator metadata 미확인으로 유지하고 같은 표시 팝업·해석기 검사를 반복하지 않는다. 거래유형 허용코드·필수/묶음 equality·저장시값변경·두수량 우선순위·외화자릿수·수동금액 영속소비자·부분실패/CAS는 별도 계약 후 저장 후보에서 검증한다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.77.0·runtime36221/PID2407897 유지, 전체매뉴얼 완료는 false다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-form-numeric-display-20261022.json",
+    "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
-    "publicVersionVerified": "0.76.0",
+    "deployedSourceCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+    "publicVersionVerified": "0.77.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -312,20 +323,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.76.0",
+    "existingSessionRetainedVersion": "0.77.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.76.0",
+    "lastExactBrowserBackupComparisonVersion": "0.77.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.76.0",
+    "currentServerStateAndMailPreservedVersion": "0.77.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.76.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.77.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -401,7 +412,16 @@
     "requestUploadPolicySnapshotHostedVerified": true,
     "numericFormDisplayDeployed": true,
     "numericFormDisplayHostedOpenCloseVerified": true,
-    "numericFormDisplayHostedSavePerformed": false
+    "numericFormDisplayHostedSavePerformed": false,
+    "uploadIndependentNumericReview": {
+      "version": "0.77.0",
+      "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
+      "existingSessionRetained": true,
+      "hostedSyntheticInvalidAndCorrectedInputsVerified": true,
+      "businessSaved": false,
+      "runtimeSession": 36221,
+      "linuxPid": 2407897
+    }
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -638,7 +658,11 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.",
+    "nextIndependentWork": {
+      "requirement": "REQ-PUR-REQ-005",
+      "plan": "docs/plan-request-upload-close-20261022.md",
+      "description": "다음은 REQ-PUR-REQ-005 상단 참조 중 원본 서식 주석 C/D/J에서 확인한 담당자·창고·프로젝트의 등록코드/명칭 exact 검토를 실제 masters snapshot에 연결한다. 실제 구조·조회/도움말을 먼저 확인하고 선행0/원문·별도제안·동일명/사용중단/불일치 사유와 공란을 보존한다. 회사 기본값은 채우지 않는다. 단가 도움말6/일반 검증기 기본10 차이는 메뉴의 명시 Validator metadata 미확인으로 유지하고 같은 표시 팝업·해석기 검사를 반복하지 않는다. 거래유형 허용코드·필수/묶음 equality·저장시값변경·두수량 우선순위·외화자릿수·수동금액 영속소비자·부분실패/CAS는 별도 계약 후 저장 후보에서 검증한다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.77.0·runtime36221/PID2407897 유지, 전체매뉴얼 완료는 false다."
+    },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -1041,7 +1065,8 @@
       "appIntegrated": false,
       "saveImplemented": false,
       "productionDeployed": false,
-      "done": false
+      "done": false,
+      "supersededBy": "evidence/manual-request-upload-numeric-input-20261022.json"
     },
     "purchasePrecisionSettings": {
       "requirement": "REQ-PUR-REQ-005",
@@ -1069,13 +1094,22 @@
       "hostedOpenCloseVerified": true,
       "hostedFormSaved": false,
       "done": false
+    },
+    "uploadIndependentNumericReview": {
+      "version": "0.77.0",
+      "evidence": "evidence/manual-request-upload-numeric-input-20261022.json",
+      "sourceCommit": "49a1e751c957a570debba456cce1b268f5a0c352",
+      "releaseCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+      "productionDeployed": true,
+      "saveImplemented": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.76.0",
-    "commit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
-    "manifest": ".artifacts/manual-form-precision-20261022/candidate-manifest.json",
-    "bundleSha256": "1c5c64f1dc1da64ba344533669424a91f376927a7f0f88707ca519a37142b2c0",
+    "version": "0.77.0",
+    "commit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+    "manifest": ".artifacts/manual-upload-formatter-20261022/candidate-manifest.json",
+    "bundleSha256": "8fddf36bbe937e3651d0288b8ea19bca5d5c700342b5007a63018a5111a01cac",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1113,7 +1147,7 @@
       "nullable-purchase-precision-settings-authenticated-review-snapshot-and-scoped-modal-controls",
       "optional-numeric-field-display-preservation-and-connected-table-print-renderers-mobile-editor-controls"
     ],
-    "supersedesCandidateCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+    "supersedesCandidateCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
@@ -1155,6 +1189,13 @@
       "publicAnonymousBundles": 4,
       "bytes": 2353096,
       "originalExecuted": false
+    },
+    "uploadInputFormatter": {
+      "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
+      "newPublicSources": 3,
+      "bytes": 752683,
+      "originalsExecuted": false,
+      "globalCorpusCountsRecomputed": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -1252,6 +1293,13 @@
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false,
+      "runtimeEquivalence": false
+    },
+    "uploadIndependentNumericReview": {
+      "reference": "evidence/manual-request-upload-numeric-input-20261022.json",
+      "ownScopes": 4,
+      "originalScopes": 4,
+      "coverage": "unknown",
       "runtimeEquivalence": false
     }
   }

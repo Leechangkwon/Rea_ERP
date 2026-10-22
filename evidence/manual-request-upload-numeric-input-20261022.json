@@ -1,0 +1,212 @@
+{
+  "baselineVersion": "0.76.0",
+  "version": "0.77.0",
+  "sourceCommit": "49a1e751c957a570debba456cce1b268f5a0c352",
+  "sourceFinalCommit": "bca7447a354e5dbe3c4850bde8b04536d62566a2",
+  "status": "deployed-independent-upload-money-and-exchange-rate-review-whole-manual-incomplete",
+  "requirements": [
+    "REQ-PUR-REQ-005"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 51,
+  "manualBodiesReviewed": 21,
+  "newManualBodies": 0,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "path": "발주요청입력 > 웹자료올리기 > 단가/환율 열 도움말",
+    "priceHelp": {
+      "integerDigits": 12,
+      "fractionDigits": 6
+    },
+    "exchangeRateHelp": {
+      "integerDigits": 14,
+      "fractionDigits": 4
+    },
+    "originalMainRowsEdited": false,
+    "originalUploadCellsEdited": false,
+    "originalSavedOrApplied": false,
+    "separateWindowClosed": true,
+    "newManualBodies": 0,
+    "genericPriceValidatorDefaultDigits": 10,
+    "actualRequestPriceValidatorMetadataResolved": false,
+    "priceHelpNotUsedAsRuntimeValidationPolicy": true,
+    "reusedCommonSource": {
+      "path": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+      "sha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+      "hashVerified": true,
+      "executed": false
+    },
+    "publicSources": [
+      {
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.infra.attribute/ecount.infra.attribute.85b62891.20.js",
+        "file": ".artifacts/manual-upload-formatter-20261022/ecount.infra.attribute.85b62891.20.js",
+        "bytes": 340878,
+        "sha256": "0217bbe7fe883148b8c3b276eafaa1b5b6e54c60c5948c25b09397cff3cc5687",
+        "inputFormatterOccurrences": 93,
+        "authenticated": false,
+        "executed": false
+      },
+      {
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.usecase.base/ecount.usecase.base.b7f5d744.20.js",
+        "file": ".artifacts/manual-upload-formatter-20261022/ecount.usecase.base.b7f5d744.20.js",
+        "bytes": 44452,
+        "sha256": "4269b80c6d3836ac2c8699a6838a474dacdc735a9a3ac949455257a9d406fe39",
+        "inputFormatterOccurrences": 0,
+        "authenticated": false,
+        "executed": false
+      },
+      {
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.usecase.inventory/ecount.usecase.inventory.74d4f873.20.js",
+        "file": ".artifacts/manual-upload-formatter-20261022/ecount.usecase.inventory.74d4f873.20.js",
+        "bytes": 367353,
+        "sha256": "429bda32cca750dcac2578680c22b1ad55495814d6131692dd1c90228a9632d1",
+        "inputFormatterOccurrences": 1,
+        "authenticated": false,
+        "executed": false
+      }
+    ],
+    "totalNewPublicSourceBytes": 752683
+  },
+  "publicStaticFindings": [
+    "Upload setup takes tenant from server response",
+    "Basic qty/add_qty/amt maxlength creators read tenant.input_formatter_numeric, independently of Renderer.value_format",
+    "Generic price maxlength default10 differs from current request upload help6; actual request Validator metadata remains unresolved; neither value substituted",
+    "Original code parsed only; original cells/settings/save never executed"
+  ],
+  "implementation": {
+    "reviewSnapshotVersion": 2,
+    "reviewSnapshotPersisted": false,
+    "purchaseAndFormDisplayPrecisionExcluded": true,
+    "knownDomesticAmountPrecisionIndependentFromUnknownPrice": true,
+    "unresolvedPrecisionPerField": true,
+    "exchangeRateDeclaredIntegerDigits": 14,
+    "exchangeRateDeclaredFractionDigits": 4,
+    "exchangeRateMissingDefaulted": false,
+    "exchangeRateSignAndCurrencyAcceptanceVerified": false,
+    "exactDecimalStringsAndBlankOriginsPreserved": true,
+    "moneyOrFxAutomaticallyRecalculated": false,
+    "voucherSaving": false
+  },
+  "checks": {
+    "newNodeTests": 7,
+    "relatedNodeTests": 91,
+    "verifyLocalPassed": true,
+    "fullBrowserTests": 104,
+    "newBrowserTests": 2,
+    "focusedNewBrowserTests": 2,
+    "viewportWidths": [
+      390,
+      864,
+      1280
+    ],
+    "screenshotsVisuallyReviewed": true,
+    "tools": 7,
+    "releaseChecks": 4,
+    "buildPassed": true,
+    "initialFailures": "Updated stale version1/all-or-nothing and old policy-notice assertions. New browser expectations initially looked for limit digits inside generic errors, then confused a preserved raw-detail label with an active error; scoped the assertion to issue lists. Product JS was unchanged during these assertion corrections. Final full verify:local exited0.",
+    "rea": {
+      "version": "6.4.0",
+      "ownScopes": 4,
+      "originalScopes": 4,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-upload-formatter-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+    "branch": "release/0.77.0-upload-numeric-input",
+    "bundleSha256": "8fddf36bbe937e3651d0288b8ea19bca5d5c700342b5007a63018a5111a01cac",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "unchangedCriticalRuntimeSourceHashes": {
+      "dist/inventory-core.js": "f62733e013084bd065988733add3ad59cf4328fbc972f17651aac018dbabcae9",
+      "dist/inventory-ui.js": "563134a602b83d0708b0974f93096edf611fb1c6b9641443328c86b883a65d46",
+      "dist/self-core.js": "ae4da541a9c01b134bd784e3cc58287a2abbf81a36115527edecf553f448dc61",
+      "worker/app-service.cjs": "490b5741d73bf92cf71da93019211097f957a77b8bf9d7383d06c75910d7f7f8"
+    },
+    "runtimeSession": 36221,
+    "linuxPid": 2407897,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedSyntheticReviewVerified": true,
+    "hostedBusinessSaved": false,
+    "settingsSaved": false,
+    "publicAssetsMatched": true,
+    "anonymousMailStatus": 401,
+    "publicHealthStatus": 404,
+    "localHealthStatus": 200,
+    "browserPreservation": {
+      "version": "0.77.0",
+      "beforeDownload": 39,
+      "afterDownload": 40,
+      "exactBytesAndJson": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formsExact": true,
+      "documents": 8,
+      "plans": 0,
+      "existingLoginRetained": true,
+      "hostedSyntheticInvalidRateAndSupplyVerified": true,
+      "hostedCorrectedRateAndSupplyErrorsAbsent": true,
+      "rawInputDiscarded": true,
+      "businessSaved": false,
+      "settingsSaved": false,
+      "sent": false,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.77.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "proofScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/UPLOAD-NUMERIC-0.77.0.png"
+  },
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "localPendingUpdates": 63,
+    "auth401Unchanged": true,
+    "retriedWithoutNewAuthentication": false,
+    "published": false
+  },
+  "remaining": [
+    "Actual request quantity/price Validator metadata and currency precision",
+    "Header references, required/grouping equality/save-time defaults",
+    "Two-quantity precedence/manual amount persistence and consumers/partial failure/retry/CAS",
+    "Actual business save and whole-manual acceptance"
+  ],
+  "nextWork": "다음은 REQ-PUR-REQ-005 상단 참조 중 원본 서식 주석 C/D/J에서 확인한 담당자·창고·프로젝트의 등록코드/명칭 exact 검토를 실제 masters snapshot에 연결한다. 실제 구조·조회/도움말을 먼저 확인하고 선행0/원문·별도제안·동일명/사용중단/불일치 사유와 공란을 보존한다. 회사 기본값은 채우지 않는다. 단가 도움말6/일반 검증기 기본10 차이는 메뉴의 명시 Validator metadata 미확인으로 유지하고 같은 표시 팝업·해석기 검사를 반복하지 않는다. 거래유형 허용코드·필수/묶음 equality·저장시값변경·두수량 우선순위·외화자릿수·수동금액 영속소비자·부분실패/CAS는 별도 계약 후 저장 후보에서 검증한다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.77.0·runtime36221/PID2407897 유지, 전체매뉴얼 완료는 false다.",
+  "done": false
+}

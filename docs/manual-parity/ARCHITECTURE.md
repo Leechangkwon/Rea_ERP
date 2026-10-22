@@ -494,3 +494,8 @@ RequestUploadInputCore.snapshot은 실제인증회사 구매설정과 기존공�
 숫자형 FormCore 필드의 numericFormat은 선택적 version1 metadata다. 미존재는 legacy 그대로, default는 기존 표시규칙, explicit의 digits는0~6 정수다. validateForm/backup/조건양식이 보존하며 metadata를 계산·입력·재고·CSV 값으로 변환하지 않는다. displayDigits→SelfCore.formatNumber의 표시옵션은 명시0을 보존한다. InventoryUI projection의 표/합계 및 printTable만 field metadata를 적용한다. register numericDisplay=true인 renderer에서만 FormOptions 편집을 활성화한다. 기존 이름변경 반품 금액은 explicit이 없으면 기존 money formatter로 표시해 frozen source를 유지한다.
 
 원본 AttributeSettingTemplateConvertFeature의 value_format/basic_tf/decimal_part_size는 Renderer metadata이며 업로드 input formatter와 호출관계는 미확인이다. 따라서0.75 purchasePrecision snapshot의 upload form unknown을 새 표시 metadata로 채우지 않는다. 기본양식 복사의 새초안 폭만50~600으로 정리하며 기존형식 자동마이그레이션은 없다. 데스크톱36/모바일44px controls와 flex 본문으로 하단 잘림을 막았다. 근거 evidence/manual-form-numeric-display-20261022.json.
+
+
+## 0.77.0 입력정밀도 snapshot 경계
+
+RequestUploadPolicyCore.resolve의 검토전용 version2는 {quantityUse,input:{baseDigits,additionalDigits,priceDigits,amountDigits}}를 받는다. 실제 adapter는 commonDefaults.amountDigits와 구매 quantityUse만 사용하며 수량/단가 자릿수는 nullable 미상이다. purchasePrecision의 자릿수와 FormCore.numericFormat은 공급원이 아니다. inspectAmounts는 필드별 null정밀도 사유와 알려진 수동금액을 독립 반환한다. inspectExchangeRate는 명시 십진문자열14/4한도·blank null을 반환하고 통화/부호/기본값 승인을 주장하지 않는다. ReviewUI까지 연결했지만 영속 schema/전표저장 API에는 미연결이다. 기존 자료/양식은 변환하지 않는다. 근거 evidence/manual-request-upload-numeric-input-20261022.json.
