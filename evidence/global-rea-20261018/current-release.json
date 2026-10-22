@@ -1,6 +1,6 @@
 {
-  "version": "0.86.0",
-  "status": "partial-manual-parity-request-print-batch-subset-deployed",
+  "version": "0.87.0",
+  "status": "partial-manual-parity-request-print-header-supplier-subset-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -90,7 +90,8 @@
     "Request header focusOrder v1 independent of display order, explicit renumber on save, native DOM/CSS grid focus, unknown legacy order edits blocked while metadata/values preserved; BODY/bundles/sharing unresolved",
     "Request plain reference memo: editable request-only default field; existing save/search; exact custom form/old value/cancel preservation. Evidence evidence/manual-request-reference-20261023.json",
     "Request-only currency inline registration restores old selection on cancel, selects successful new master, guards parent lifecycle and bounded own CAS advancement; separate parent save, existing KRW totals unchanged",
-    "Request bottom print accepts2+ selected current-query requests with saved per-document conditional forms, named paper/orientation/margins and explicit guarded native printing; single print paths retained, hosted multi-request and original approval exclusions incomplete"
+    "Request bottom print accepts2+ selected current-query requests with saved per-document conditional forms, named paper/orientation/margins and explicit guarded native printing; single print paths retained, hosted multi-request and original approval exclusions incomplete",
+    "Built-in request print displays six saved header fields and stored line supplier names. Saved custom/conditional print layouts preserved; no current item/header supplier fallback; guarded single preview and native mobile/print layout."
   ],
   "checks": {
     "total": 998,
@@ -125,7 +126,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 123,
+    "currentReleaseBrowserSynthetic": 125,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -153,7 +154,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.86.0",
+    "currentReleaseFullRegressionVersion": "0.87.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -352,16 +353,19 @@
       "independentAgentReview": false,
       "pdfPagesPerWidth": 2,
       "mobileDesktopVisualReviewed": true
-    }
+    },
+    "requestPrintFieldsNewNode": 8,
+    "requestPrintFieldsRelatedNode": 26,
+    "requestPrintFieldsNewBrowser": 2
   },
   "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-print-batch-20261023.json",
+    "reference": "evidence/manual-request-print-fields-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "3d768fd320f19a06da86838c1855f2402989b249",
-    "publicVersionVerified": "0.86.0",
+    "deployedSourceCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+    "publicVersionVerified": "0.87.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -420,20 +424,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.86.0",
+    "existingSessionRetainedVersion": "0.87.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.86.0",
+    "lastExactBrowserBackupComparisonVersion": "0.87.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.86.0",
+    "currentServerStateAndMailPreservedVersion": "0.87.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.86.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.87.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -597,6 +601,17 @@
       "preservationPassed": true,
       "runtimeSession": 29585,
       "linuxPid": 2502481
+    },
+    "requestPrintFields": {
+      "version": "0.87.0",
+      "reference": "evidence/manual-request-print-fields-20261023.json",
+      "deployed": true,
+      "existingSessionRetained": true,
+      "hostedSinglePreviewWithoutPrintOrSave": true,
+      "hostedMultiRequestAcceptance": false,
+      "preservationPassed": true,
+      "runtimeSession": 60635,
+      "linuxPid": 2508011
     }
   },
   "manualParity": {
@@ -609,12 +624,12 @@
       "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.86.0",
+      "productionVersion": "0.87.0",
       "done": false,
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "EC-VID-13914 request print header and line fields"
+      "nextIndependentManual": "EC-VID-13914 request print PDF button/action and output contract"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -771,9 +786,10 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "requirement": "REQ-PUR-REQ-005",
-      "plan": "docs/plan-request-upload-close-20261022.md",
-      "description": "다음은 REQ-PUR-REQ-005의 전표묶음기준·저장시값변경 온라인매뉴얼 전문을 찾아 실제 양식의 설정 공급원/공개 코드 전달경로와 대조한다. 이미 확인한 담당자·창고·프로젝트 helper나 같은 표시 팝업을 반복 검사하지 않는다. 비활성 링크는 새 상태/권한 변화 없이 재클릭하지 않는다. 확인된 묶음 equality·공란값 처리·필수/상하단 규칙만 versioned 저장 snapshot/미리보기에 연결하고, 메뉴별 수량/단가 Validator·통화정밀도·두수량 우선순위·수동금액 소비자·부분실패/재시도/CAS 계약 전에는 전표저장을 열지 않는다. 원본 주입력행/이동·저장/발송 금지, main VAT5 전체빌드/배포 금지. 운영0.78.0·runtime77210/PID2412461 유지, 전체매뉴얼 완료 false."
+      "requirement": "REQ-PUR-REQ-007",
+      "plan": "docs/plan-purchase-manual.md",
+      "description": "Inspect official request print preview PDF button output-type/file-name/action contract before connecting a local-only download. No original print/send, no repeated completed currency helper or unchanged regression.",
+      "done": false
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -1496,12 +1512,12 @@
     "nextExecutableWork": {
       "sourceId": "EC-VID-13914",
       "requirement": "REQ-PUR-REQ-007",
-      "title": "발주요청 인쇄 상단 정보·행 거래처 표시 대조",
+      "title": "발주요청 인쇄창 PDF 출력형식·파일명/액션 계약 대조",
       "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=207s",
-      "context": "Compare the focused original request-slip preview header and line supplier fields with current generic print representation. Confirm labels, own field mapping, blank/legacy values and stored custom-form behavior before changes. Keep current batch selection/page layout and existing data/forms. No repeated completed currency helper or batch regression without a change.",
-      "operatingVersion": "0.86.0",
+      "context": "Inspect official request print preview PDF button output-type/file-name/action contract before connecting a local-only download. No original print/send, no repeated completed currency helper or unchanged regression.",
+      "operatingVersion": "0.87.0",
       "currencyGateEvidence": "evidence/manual-request-currency-consumers-20261023.json",
-      "legacyMappingEditor": "TC101P_01 remains gated; unshipped mapping requires rebase on0.86.0."
+      "legacyMappingEditor": "TC101P_01 remains gated; unshipped mapping requires rebase on0.87.0."
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1565,13 +1581,33 @@
       "preservationPassed": true,
       "communityPendingLocalUpdates": 80,
       "done": false
+    },
+    "requestPrintFields": {
+      "requirement": "REQ-PUR-REQ-007",
+      "evidence": "evidence/manual-request-print-fields-20261023.json",
+      "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15",
+      "releaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "status": "basic-header-saved-supplier-subset-deployed-preservation-verified-hosted-single-preview-passed-full-output-parity-pending",
+      "productionVersion": "0.87.0",
+      "productionDeployed": true,
+      "newNode": 8,
+      "newBrowser": 2,
+      "fullBrowser": 125,
+      "verifyLocalPassed": true,
+      "hostedSinglePreviewVerified": true,
+      "hostedMultiRequestAcceptance": false,
+      "physicalPrinterOrAndroidVerified": false,
+      "preservationPassed": true,
+      "communityPendingLocalUpdates": 81,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.86.0",
-    "commit": "3d768fd320f19a06da86838c1855f2402989b249",
-    "manifest": ".artifacts/manual-request-print-batch-20261023/release-manifest.json",
-    "bundleSha256": "1fd5b21602ce212cf6e5c90137e1014cbd2bc5dd82ce024240c760bf756e6f24",
+    "version": "0.87.0",
+    "commit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+    "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15",
+    "manifest": ".artifacts/manual-request-print-fields-20261023/release-manifest.json",
+    "bundleSha256": "37f26c42722639590d52c6f340f317e3ecc244c7ca055d87708e36cab33467ab",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1615,15 +1651,15 @@
       "request-reference-plain-text-edit-preserve-search",
       "currency-registration-optional-rate-and-amount-precision",
       "request-inline-currency-registration-independent-dialog-bounded-master-write-parent-draft-and-dirty-state-preservation",
-      "request-only-multiple-selected-print-preview-per-document-conditional-forms-named-pages-and-mobile-contained-tables"
+      "request-only-multiple-selected-print-preview-per-document-conditional-forms-named-pages-and-mobile-contained-tables",
+      "request-basic-print-six-headers-saved-supplier-custom-layout-preservation-and-single-preview-guards"
     ],
-    "supersedesCandidateCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+    "supersedesCandidateCommit": "3d768fd320f19a06da86838c1855f2402989b249",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.86.0-request-print-batch",
-    "preValidationCommitPreserved": "6201c18a71d67b5a029bb563822cf853cc5bbd9c"
+    "branch": "release/0.87.0-request-print-fields"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -1699,6 +1735,14 @@
       "sourceManifest": ".artifacts/manual-request-body-focus-20261023/scope-source-manifest.json",
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
+    },
+    "requestPrintFields": {
+      "sourceManifest": ".artifacts/manual-request-print-fields-20261023/source-manifest.json",
+      "officialVideoPartial": true,
+      "observedSeconds": 206,
+      "quality": "1080p",
+      "fullBodyReviewed": false,
+      "newOriginalDownloads": 0
     }
   },
   "additional_REA_scope_evidence": {
@@ -1946,6 +1990,19 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-print-batch-20261023/rea/rea-summary.json"
+    },
+    "requestPrintFields": {
+      "reference": "evidence/manual-request-print-fields-20261023.json",
+      "version": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 7,
+      "cachedOriginalScopesHashVerified": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-print-fields-20261023/rea/rea-summary.json"
     }
   }
 }

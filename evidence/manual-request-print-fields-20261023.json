@@ -3,8 +3,8 @@
   "date": "2026-10-23",
   "requirement": "REQ-PUR-REQ-007",
   "parentRequirement": "REQ-PUR-OUTPUT-001",
-  "status": "isolated-0870-fully-verified-awaiting-pushed-release-and-deployment",
-  "productionVersion": "0.86.0",
+  "status": "basic-header-saved-supplier-subset-deployed-preservation-verified-hosted-single-preview-passed-full-output-parity-pending",
+  "productionVersion": "0.87.0",
   "candidateVersion": "0.87.0",
   "sourceManifest": ".artifacts/manual-request-print-fields-20261023/source-manifest.json",
   "confirmed": [
@@ -347,15 +347,140 @@
     ]
   },
   "deployment": {
-    "productionDeployed": false,
+    "productionDeployed": true,
     "candidateDirectory": ".artifacts/validation/request-print-fields-20261023",
     "baseRelease": "3d768fd320f19a06da86838c1855f2402989b249",
     "rootBuildPerformed": false,
-    "unshippedVat5OrMappingIncluded": false
+    "unshippedVat5OrMappingIncluded": false,
+    "releaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+    "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15",
+    "immutableDirectory": ".artifacts/releases/0.87.0-request-print-fields",
+    "bundleSha256": "37f26c42722639590d52c6f340f317e3ecc244c7ca055d87708e36cab33467ab",
+    "runtimeSession": 60635,
+    "linuxPid": 2508011,
+    "publicChecks": {
+      "version": "0.87.0",
+      "sourceCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "checks": [
+        {
+          "path": "/login",
+          "status": 200,
+          "versionPresent": true
+        },
+        {
+          "path": "/form-core.js",
+          "status": 200,
+          "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+          "equalsLocal": true
+        },
+        {
+          "path": "/form-options.js",
+          "status": 200,
+          "sha256": "b7161d7c5833b0a1cd8828f60df701f03b3ebf245544db104f321cfbea45dc20",
+          "equalsLocal": true
+        },
+        {
+          "path": "/form-options.css",
+          "status": 200,
+          "sha256": "e08e280f2dc4ecbc2210ede30e1575035e1c39de4043a4abcf98953ac7a8841b",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-ui.js",
+          "status": 200,
+          "sha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory.css",
+          "status": 200,
+          "sha256": "e851910059b3a2135dd6c8f399504164d502ff8cf7241f87c632045759aa4812",
+          "equalsLocal": true
+        },
+        {
+          "path": "/inventory-core.js",
+          "status": 200,
+          "sha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+          "equalsLocal": true
+        },
+        {
+          "path": "/api/mail/mailboxes",
+          "status": 401
+        },
+        {
+          "path": "/__rea/health",
+          "status": 404
+        }
+      ]
+    },
+    "existingSessionRetained": true,
+    "hostedObservation": {
+      "businessSaved": false,
+      "formSaved": false,
+      "hasSupplierColumn": true,
+      "headerFields": [
+        "전표번호",
+        "입고될창고",
+        "담당자",
+        "납기일자",
+        "프로젝트",
+        "참조"
+      ],
+      "headerValueCount": 6,
+      "hostedMultiRequestAcceptance": false,
+      "printInvoked": false,
+      "title": "발주요청서"
+    }
   },
   "preservation": {
     "predeployEvidence": ".artifacts/manual-request-print-fields-20261023/predeploy-backup.json",
-    "pendingPostdeploy": true
+    "pendingPostdeploy": false,
+    "browser": {
+      "version": "0.87.0",
+      "preDownload": "ecount-inventory-2026-10-23 (10).json",
+      "postDownload": "ecount-inventory-2026-10-23 (11).json",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "requests": 1,
+      "plans": 0,
+      "formsExact": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "businessWrites": false
+    },
+    "serverAndMail": {
+      "version": "0.87.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "passed": true
   },
   "community": {
     "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
@@ -378,5 +503,7 @@
   },
   "nextWork": "Inspect official request print preview PDF button output-type/file-name/action contract before connecting a local-only download. No original print/send, no repeated completed currency helper or unchanged regression.",
   "done": false,
-  "hostedBusinessAcceptance": false
+  "hostedBusinessAcceptance": false,
+  "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15",
+  "releaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52"
 }

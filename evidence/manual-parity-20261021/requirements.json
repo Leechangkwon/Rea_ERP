@@ -2253,9 +2253,10 @@
       "expected": [
         "선택한 여러 발주요청을 한 건 제한 없이 전달",
         "기존 조건부 인쇄 양식·각 전표 값과 용지/방향/여백을 보존",
-        "인쇄에 따른 전표 저장·상태변경·업무발송 없음"
+        "인쇄에 따른 전표 저장·상태변경·업무발송 없음",
+        "관찰된 기본 요청서의 상단6개 정보와 저장된 행 거래처명 출력, 기존 사용자/조건부 상단 배치 보존"
       ],
-      "status": "batch-and-basic-header-supplier-subset-isolated-verified-deployment-pending",
+      "status": "basic-header-saved-supplier-subset-deployed-preservation-verified-hosted-single-preview-passed-full-output-parity-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=200s",
@@ -2287,9 +2288,9 @@
       ],
       "done": false,
       "hostedAcceptance": false,
-      "sourceCommit": "16299efe0392893390e36023a9c4915246df502d",
-      "releaseCommit": "3d768fd320f19a06da86838c1855f2402989b249",
-      "productionVersion": "0.86.0",
+      "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15",
+      "releaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "productionVersion": "0.87.0",
       "hostedSinglePreviewPassed": true,
       "hostedMultiRequestAcceptance": false,
       "preservationPassed": true,
@@ -2304,7 +2305,9 @@
         "newBrowser": 2,
         "fullBrowser": 125,
         "evidence": "evidence/manual-request-print-fields-20261023.json",
-        "deployed": false
+        "deployed": true,
+        "hostedSingleReadonlyPreviewVerified": true,
+        "preservationPassed": true
       }
     }
   ]
