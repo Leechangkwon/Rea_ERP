@@ -1,5 +1,10 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 0.81.0 발주요청 기본 추가항목
+
+FormCore.fieldCatalog는 doc:request/input·lines에만 기본 슬롯을 반환하고 optional catalogSlot/multiline metadata를 저장한다. 기존 legacy 필드에 metadata를 주입하지 않는다. FormOptions 선택기에서 중복슬롯을 제외하고 타입을 고정한다. InventoryUI의 장문은 text 저장값/줄바꿈을 textarea로 표현한다. 조회/인쇄의 base 투영은 custom:false가 되므로 명시된 input/lines 외 context에서 이를 허용하면서 슬롯ID/type/장문을 검증한다. 기존 compute/check·영속/custom 값·백업과 계산은 유지한다. 근거 evidence/manual-request-field-catalog-20261022.json
+
+
 ## 현재 보완 · 0.80.0 BODY 필수 표시와 오류 안내
 
 InventoryCore.applyForm→FormCore.compute/check의 기존 중앙검증은 유지하고 saveDoc의 line 호출에 유효품목 순서/코드 오류 문맥만 추가했다. 화면은 lineMeta.required를 열 별표/aria-required로 표시한다. commit의 lastCommitError를 편집창 role=alert에 보존하고 저장 시 초기화한다. UI 검증기는 중복 추가하지 않았다. 화면 공란행 제거 후 순번임을 명시하며 영속자료·계산·설정 schema는 그대로다. 다음 추가항목 한도는 metadata/메뉴 예외를 실제로 확인한 후 신규추가UI에 연결하고 legacy 양식은 변환하지 않는다. 운영0.80.0·목록54/본문24/요구사항27/전체합격0. 근거 evidence/manual-entry-required-guidance-20261022.json.

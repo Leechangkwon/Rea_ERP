@@ -1,0 +1,165 @@
+{
+  "baselineVersion": "0.80.0",
+  "version": "0.81.0",
+  "sourceCommit": "58de8023eb1bc13183dd5de2c2282d83436fd68e",
+  "status": "deployed-request-basic-field-catalog-whole-manual-incomplete",
+  "requirements": [
+    "REQ-COM-FORMS-002"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 24,
+  "newManualBodies": 0,
+  "officialRequirements": 27,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "manualSourceId": "EC-HELP-REQUEST-003",
+    "manualBodySha256": "45882f2577ad0804185827859378e3b1050bb3f4ce7ae53d50f97d25de53006b",
+    "path": "발주요청입력 > Option > 입력화면설정 > 기본 > 상단/하단 위젯 > 항목 삽입",
+    "observedLists": ".artifacts/manual-request-field-catalog-20261022/observed-fields.json",
+    "headerBasicTextSlots": 5,
+    "headerBasicLongTextSlots": 1,
+    "bodyBasicRemarksSlots": 3,
+    "bodyBasicAmountsSlots": 2,
+    "otherExtensionFamiliesPresent": true,
+    "companyListAppliedGlobally": false,
+    "duplicateOriginalLayoutBehaviorVerified": false,
+    "originalSettingsApplied": false,
+    "originalBusinessOrMainRowsTouched": false,
+    "originalWindowsClosedWithoutApply": true
+  },
+  "staticFindings": {
+    "sourceManifest": ".artifacts/manual-request-field-catalog-20261022/source-manifest.json",
+    "newPublicSources": 2,
+    "newPublicBytes": 445687,
+    "originalExecution": false,
+    "supplier": "GetTemplateItemListSetupProgram selects template items by search/menu/model options, groups categories and creates display_name/prop_id rows. display_option.max_count default50 concerns multiselection, not manual field-kind capacities. External model/business metadata and server-side sharing remain unresolved.",
+    "canonicalOriginalPropertyIdsCopied": false
+  },
+  "implementation": {
+    "requestInputAndLinesOnly": true,
+    "independentStableSlotIds": true,
+    "catalogMetadataOptionalForLegacy": true,
+    "legacyFreeFieldsTypesCountsAndValuesUnchanged": true,
+    "newCatalogTypesFixed": true,
+    "hiddenSlotConsumesChoice": true,
+    "deleteReaddSameId": true,
+    "onePerSlotOwnPresentationPolicy": true,
+    "longTextStoredAsTextRenderedAsTextarea": true,
+    "projectedListAndPrintFieldsPreserved": true,
+    "allOtherMenusAndContextsKept": true,
+    "extensionFamiliesImplemented": false,
+    "companySharedSettingsImplemented": false,
+    "inputSequenceReorderImplemented": false,
+    "dataMigration": false,
+    "uploadSaveEnabled": false
+  },
+  "checks": {
+    "verifyLocalPassed": true,
+    "newNodeTests": 6,
+    "focusedRequiredAndCatalogNodeTests": 13,
+    "relatedFormRunnerTests": 46,
+    "fullBrowserTests": 113,
+    "newBrowserTests": 2,
+    "viewportWidths": [
+      390,
+      1280
+    ],
+    "mobileActionHeight": 44,
+    "desktopActionHeight": 36,
+    "tools": 7,
+    "release": 4,
+    "buildPassed": true,
+    "review": "Initial P2: custom:false projection of catalog fields blocked list/print save. Fixed contextual validation and actual list/print save/reload test. Read-only rereview approved; no remaining P1/P2. First reviewer unavailable at model capacity; reused existing other reviewer.",
+    "initialFailures": "Synthetic reload helper reused old UI module cache; corrected fresh runtime fixture. Empty form fixture required one visible base field. Release version labels were updated after first preflight mismatch. Browser runtime needed the existing browser-libs symlink; then a mobile test expectation was corrected to established44px instead of desktop36px. Final full verify passed.",
+    "rea": {
+      "version": "6.4.0",
+      "ownNewScopes": 4,
+      "originalNewScopes": 3,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-field-catalog-20261022/rea/rea-summary.json"
+    }
+  },
+  "deployment": {
+    "releaseCommit": "c4dc7925a592aaf46c651dd6652efb2b0d97a2fe",
+    "branch": "release/0.81.0-request-field-catalog",
+    "bundleSha256": "0affc000e843e2448041136c770e5d2ce14a5d16a17d54455bf217ba26f2074a",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "inventoryCoreUnchangedFrom080": true,
+    "runtimeSession": 69720,
+    "linuxPid": 2439078,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedHeaderOptionsVerified": 6,
+    "hostedBodyOptionsVerified": 5,
+    "hostedSettingsOpenedClosedWithoutAddOrSave": true,
+    "hostedDataBearingSaveVerified": false,
+    "businessSaved": false,
+    "settingsSaved": false,
+    "publicAssetsMatched": true,
+    "localHealthStatus": 200,
+    "publicHealthStatus": 404,
+    "anonymousMailStatus": 401,
+    "browserPreservation": {
+      "version": "0.81.0",
+      "beforeDownload": 47,
+      "afterDownload": 48,
+      "bytesExact": true,
+      "jsonExact": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formsExact": true,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.81.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "productionScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/request-field-catalog-0.81.0.png"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "actualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 68,
+    "published": false,
+    "unchangedBlock": "Work-document connector401 and required tools unavailable; no new auth or repeated retry",
+    "localDraft": ".artifacts/manual-request-field-catalog-20261022/moa-pending-request-field-catalog.html"
+  },
+  "nextWork": "REQ-COM-FORMS-002: 다음은 발주요청 입력순서재정렬과 필드 설정의 실제 포커스/Tab 순서 metadata를 원본 분리 위젯·공개 코드로 대조한다. 주입력행/행번호·설정저장 조작 없이 확인하고, 근거가 확보된 순서만 실제 입력에 연결한다. 업무설정 확장계열·회사전체 공유/다른메뉴·회계/근태 예외는 미확인이다. 기본11슬롯/통과검사를 변화 없이 반복하지 않는다. REQ-PUR-REQ-005의 묶음 equality/기본값 순서·조건부필수/저장·실패재시도는 미확인이라 업로드 저장을 켜지 않는다. 운영0.81.0/runtime69720/PID2439078 유지, mainVAT5 전체빌드·원본 입력행/행이동·설정/업무저장·발송 금지, 전체매뉴얼완료 false.",
+  "allDone": false
+}
