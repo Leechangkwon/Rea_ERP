@@ -31,7 +31,8 @@
   function formatNumber(value,settings,options={}){
     if(value===null||value===undefined||value==='')return '';
     const numeric=Number(value);if(!Number.isFinite(numeric))return '';
-    const common=settings?.commonDefaults,precision=options.money&&Number.isInteger(common?.amountDigits)&&common.amountDigits>=0&&common.amountDigits<=2?common.amountDigits:Number.isInteger(settings?.conveniences?.numberDecimals)&&settings.conveniences.numberDecimals>=0&&settings.conveniences.numberDecimals<=6?settings.conveniences.numberDecimals:6;
+    if(options.displayDigits!==undefined&&options.displayDigits!==null&&(!Number.isInteger(options.displayDigits)||options.displayDigits<0||options.displayDigits>6))throw Error('표시 소수 자릿수를 확인하세요.');
+    const common=settings?.commonDefaults,precision=options.displayDigits!==undefined&&options.displayDigits!==null?options.displayDigits:options.money&&Number.isInteger(common?.amountDigits)&&common.amountDigits>=0&&common.amountDigits<=2?common.amountDigits:Number.isInteger(settings?.conveniences?.numberDecimals)&&settings.conveniences.numberDecimals>=0&&settings.conveniences.numberDecimals<=6?settings.conveniences.numberDecimals:6;
     if(common?.showZero===false&&numeric===0)return '';
     const formatter=new Intl.NumberFormat('ko-KR',{maximumFractionDigits:precision,minimumFractionDigits:common?.trailingZeros===true?precision:0});
     return formatter.formatToParts(numeric).map(part=>part.type==='group'?(common?.thousandSeparator??part.value):part.type==='decimal'?(common?.decimalSeparator??part.value):part.value).join('');
