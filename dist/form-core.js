@@ -33,6 +33,12 @@
     };return walk(tree);
   }
   const pageDefaults={title:'',company:'샘플회사',footer:'로컬 샘플 · 외부 발행 없음',paper:'A4',orientation:'portrait',margin:12,fontSize:11,showTotals:true};
+  function numericFormat(value){
+    if(!value||typeof value!=='object'||Array.isArray(value)||value.version!==1||!['default','explicit'].includes(value.mode))throw Error('숫자 표시 설정의 버전과 기본/직접입력을 확인하세요.');
+    const keys=value.mode==='explicit'?['version','mode','digits']:['version','mode'];if(Object.keys(value).length!==keys.length||keys.some(k=>!Object.hasOwn(value,k)))throw Error('숫자 표시 설정 항목을 확인하세요.');
+    if(value.mode==='explicit'&&(!Number.isInteger(value.digits)||value.digits<0||value.digits>6))throw Error('표시 소수점은0~6 정수입니다.');return copy(value);
+  }
+  function displayDigits(f){return f?.numericFormat===undefined?null:numericFormat(f.numericFormat).mode==='explicit'?f.numericFormat.digits:null;}
   function validateForm(input){
     if(!input||!validKey(input.id)||input.id==='default'||!String(input.name||'').trim()||input.name.length>60||!Array.isArray(input.fields)||input.fields.length>100)throw Error('양식명과 항목 구성을 확인하세요.');
     const form=copy(input);form.name=form.name.trim();const seen=new Set();
@@ -42,6 +48,7 @@
       if(typeof f.visible!=='boolean'||typeof f.required!=='boolean'||typeof f.readonly!=='boolean'||!Number.isFinite(Number(f.width))||f.width<50||f.width>600)throw Error('항목 표시·폭 설정을 확인하세요.');
       if(!['left','center','right'].includes(f.align))throw Error('항목 정렬을 확인하세요.');
       f.width=Number(f.width);f.label=f.label.trim();f.formula=String(f.formula||'').trim();f.options=Array.isArray(f.options)?f.options.map(String).slice(0,50):[];
+      if(Object.hasOwn(f,'numericFormat')){if(f.type!=='number')throw Error('숫자 항목에만 표시 자릿수를 설정하세요.');f.numericFormat=numericFormat(f.numericFormat);}
       if(f.custom&&!f.id.startsWith('x_'))throw Error('추가항목 ID는 x_로 시작해야 합니다.');
       if(f.protected&&!f.visible)throw Error(f.label+' 항목은 숨길 수 없습니다.');
       if(f.formula){if(!f.custom||f.type!=='number')throw Error('계산식은 숫자 추가항목에만 설정하세요.');parse(f.formula);f.readonly=true;}
@@ -104,6 +111,6 @@
   function check(fields,values){for(const f of fields){const v=values[f.id];if(f.required&&(v===undefined||v===null||v===''||(f.type==='checkbox'&&v!==true)))throw Error(f.label+' 항목은 필수입니다.');if(v!==undefined&&v!==null&&v!==''){if(f.type==='number'&&!Number.isFinite(Number(v)))throw Error(f.label+' 숫자를 확인하세요.');if(f.type==='select'&&!f.options.includes(String(v)))throw Error(f.label+' 선택값을 확인하세요.');if(f.type==='date'&&(!/^\d{4}-\d{2}-\d{2}$/.test(v)||!Number.isFinite(Date.parse(v))||new Date(v).toISOString().slice(0,10)!==v))throw Error(f.label+' 일자를 확인하세요.');}}return values;}
   function custom(store,key,context){const result=new Map();for(const f of screen(store,key).forms.filter(f=>f.context===context))for(const x of f.fields)if(x.custom)result.set(x.id,x);return [...result.values()];}
   function defaultValue(f,date){if(f.defaultValue==='@today')return date;return f.defaultValue??'';}
-  const api={field,pageDefaults,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
+  const api={field,pageDefaults,numericFormat,displayDigits,parse,calculate,validateForm,empty,screen,merge,effective,save,activate,remove,rules,validateStore,compute,check,custom,defaultValue,environment};
   if(typeof module==='object'&&module.exports)module.exports=api;else root.FormCore=api;
 })(typeof globalThis==='object'?globalThis:this);
