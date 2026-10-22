@@ -15,7 +15,7 @@
  function purchaseSettings(){return config().purchasePrecision??{version:1,quantityUse:null,baseDigits:null,additionalDigits:null,priceDigits:null};}
  function editPurchase(label){
   const initial={version:1,quantityUse:null,baseDigits:null,additionalDigits:null,priceDigits:null};
-  editSection(label,'purchasePrecision',(body,raw)=>{const draft=raw??initial,inputs={};body.append(N('p','웹자료올리기 검토에서 참조할 구매 설정입니다. 기존 전표·일반입력·재고·양식의 수량이나 금액을 자동 변경하지 않습니다. 양식별 자릿수가 확인돼야 검토에 적용됩니다.','self-note'));
+  editSection(label,'purchasePrecision',(body,raw)=>{const draft=raw??initial,inputs={};body.append(N('p','구매 기본 자릿수와 추가수량 사용 설정입니다. 기존 전표·일반입력·재고·양식의 수량이나 금액을 자동 변경하지 않습니다. 업로드는 별도의 입력 자릿수를 확인하며 구매·양식 표시 자릿수를 입력 제한으로 대입하지 않습니다.','self-note'));
    const entries=label==='구매관리 소수점'?[['baseDigits','기본수량소수점'],['additionalDigits','추가수량소수점'],['priceDigits','단가소수점']]:[['quantityUse','추가수량관리여부(구매관리)']];
    for(const [key,title]of entries){const choices=key==='quantityUse'?[['','미설정'],['yes','사용'],['no','사용안함']]:[['','미설정'],...[0,1,2,3,4,5,6].map(v=>[String(v),v===0?'사용안함 (0)':String(v)])],value=key==='quantityUse'?(draft[key]===null?'':draft[key]?'yes':'no'):draft[key]??'',x=select(title,choices,value);x.disabled=!can();inputs[key]=x;body.append(field(title,x));}
    body.append(N('p','금액·부가세 자릿수는 공통 금액소수점 설정을 사용합니다. 미설정은 0으로 간주하지 않습니다.','self-note'));

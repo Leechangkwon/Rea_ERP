@@ -54,16 +54,25 @@
  function inspectAmounts(values,policy){
   if(!values||typeof values!=='object'||Array.isArray(values)||Object.values(amountFields).some(key=>!Object.hasOwn(values,key)||typeof values[key]!=='string'))throw Error('원문 매핑의 단가·외화공급가액·공급가액·부가세 문자열이 필요합니다.');
   const digitsValid=value=>Number.isInteger(value)&&value>=0&&value<=10;
-  if(!policy||typeof policy!=='object'||Array.isArray(policy)||!digitsValid(policy.priceDigits)||!digitsValid(policy.amountDigits)||policy.foreignDigits!==null&&!digitsValid(policy.foreignDigits))throw Error('단가·국내금액·통화금액 소수 자릿수를 명시하세요. 통화 자릿수 미상은 null입니다.');
+  if(!policy||typeof policy!=='object'||Array.isArray(policy)||policy.priceDigits!==null&&!digitsValid(policy.priceDigits)||policy.amountDigits!==null&&!digitsValid(policy.amountDigits)||policy.foreignDigits!==null&&!digitsValid(policy.foreignDigits))throw Error('단가·국내금액·통화금액 소수 자릿수를 명시하세요. 미상은 null입니다.');
   const precision={price:policy.priceDigits,foreignSupply:policy.foreignDigits,supply:policy.amountDigits,tax:policy.amountDigits},labels={price:'단가',foreignSupply:'외화공급가액',supply:'공급가액',tax:'부가세'},input={},amounts={},origins={},issues=[];
   for(const [kind,fieldId] of Object.entries(amountFields)){
    const text=values[fieldId];input[kind]=text;origins[kind]=text===''?'blank-zero':'explicit';
    if(text===''){amounts[kind]='0';continue;}
-   if(precision[kind]===null){amounts[kind]=null;issues.push({code:'foreign-precision-required',fieldId,message:'통화에 설정된 금액 소수 자릿수를 확인하세요.'});continue;}
+   if(precision[kind]===null){amounts[kind]=null;issues.push({code:kind==='foreignSupply'?'foreign-precision-required':kind==='price'?'price-precision-required':'amount-precision-required',fieldId,message:kind==='foreignSupply'?'통화에 설정된 금액 소수 자릿수를 확인하세요.':kind==='price'?'단가의 입력 소수 자릿수를 확인하세요.':'공급가액·부가세의 입력 소수 자릿수를 확인하세요.'});continue;}
    try{const parsed=decimal(text,labels[kind],precision[kind],kind==='supply'||kind==='tax'?15:12);amounts[kind]=fractionText(parsed.coefficient,parsed.scale,precision[kind]);}
    catch(error){amounts[kind]=null;issues.push({code:'amount-format',fieldId,message:error.message});}
   }
   return {input,values:amounts,origins,precision,status:issues.some(x=>x.code==='amount-format')?'invalid-input':issues.length?'precision-required':'valid',issues,calculation:'none',numberConversion:false,businessValidation:false,currencyValidated:false,saveSupported:false};
  }
- const api=Object.freeze({columns,stageRaw,quantityFields,inspectQuantity,amountFields,inspectAmounts});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadCandidate=api;
+ // The request upload help explicitly declares14 integer and4 fractional digits for exchange rate.
+ // This check does not infer a missing rate, currency validity, sign permission or save-time defaults.
+ function inspectExchangeRate(text){
+  if(typeof text!=='string')throw Error('원문 환율 문자열이 필요합니다.');
+  const result={input:text,value:null,status:text===''?'blank':'valid',issues:[],precision:{integerDigits:14,fractionDigits:4},limitSource:'request-upload-column-help',currencyValidated:false,signValidated:false,defaultingResolved:false,calculation:'none',saveSupported:false};
+  if(text==='')return result;
+  try{const parsed=decimal(text,'환율',4,14);result.value=fractionText(parsed.coefficient,parsed.scale,4);}catch(error){result.status='invalid-input';result.issues.push({code:'exchange-rate-format',fieldId:'inv_s$exchange_rate',message:error.message});}
+  return result;
+ }
+ const api=Object.freeze({columns,stageRaw,quantityFields,inspectQuantity,amountFields,inspectAmounts,inspectExchangeRate});if(typeof module==='object'&&module.exports)module.exports=api;else root.RequestUploadCandidate=api;
 })(typeof globalThis==='object'?globalThis:this);
