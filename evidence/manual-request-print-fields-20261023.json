@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-PUR-REQ-007",
+  "parentRequirement": "REQ-PUR-OUTPUT-001",
+  "status": "isolated-0870-fully-verified-awaiting-pushed-release-and-deployment",
+  "productionVersion": "0.86.0",
+  "candidateVersion": "0.87.0",
+  "sourceManifest": ".artifacts/manual-request-print-fields-20261023/source-manifest.json",
+  "confirmed": [
+    "Official EC-VID-13914 request print preview at observed206s/1080p has voucher number/receiving warehouse/employee/due date/project/reference in three rows, two pairs each, and line supplier name. Focused segment only, not full video or current original account acceptance.",
+    "Current generic print omitted these headers and saved line suppliers. Existing original print binding/common route reused with source/input/result/configuration hashes validated; no new original download or execution."
+  ],
+  "implementation": [
+    "Built-in request default print only gets six saved header fields and request-slip title; existing saved/conditional forms retain their old header/layout.",
+    "New request supplier field visible by default only on built-in template. Existing saved forms append hidden supplier unless explicitly saved supplier metadata takes precedence.",
+    "Print resolves saved line.supplier only; missing/blank stays empty, disabled registered master still resolves; header/item defaults and custom.supplier never replace stored supplier. Existing backup validation still rejects unknown line supplier/warehouse.",
+    "Shared single/batch rendering with screen-only mobile header stacking and contained horizontal table scrolling; print retains two header pairs per row.",
+    "Request single-preview guards current stored record, full user/company/read/policy/storage/route/DOM. Navigation closes request preview; saved form edits/activation remain explicitly supported. Other document/credit-return rendering and financial computation unchanged."
+  ],
+  "checks": {
+    "newNode": 8,
+    "rootFocusedPassed": true,
+    "relatedInitialNode": 26,
+    "focusedNodeTotal": 34,
+    "newBrowser": 2,
+    "targetedBrowserPassed": true,
+    "visual390And1280Reviewed": true,
+    "pdf": [
+      {
+        "width": 390,
+        "pages": 2,
+        "boxes": [
+          [
+            594.95996,
+            841.91998
+          ],
+          [
+            594.95996,
+            420
+          ]
+        ],
+        "headerPairs": 2,
+        "synthetic": true,
+        "sha256": "bbdf78066f238b7b8a2e952fdaf1bd49898fa5e7004dc47ad3cc56ca249d006d"
+      },
+      {
+        "width": 1280,
+        "pages": 2,
+        "boxes": [
+          [
+            594.95996,
+            841.91998
+          ],
+          [
+            594.95996,
+            420
+          ]
+        ],
+        "headerPairs": 2,
+        "synthetic": true,
+        "sha256": "25b27f811d60d52894849a34c4b65b766c7927ec0fae4991eecad8d4a5d17ead"
+      }
+    ],
+    "finalFullVerifyPending": false,
+    "physicalAndroid": false,
+    "physicalPrinter": false,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "candidateFocusedPassed": true,
+    "finalFullVerifyPassed": true,
+    "finalFullVerifyExit": 0,
+    "finalFullBrowser": 125,
+    "tools": 7,
+    "release": 4,
+    "environment": true,
+    "build": true,
+    "finalFullVerifyLog": ".artifacts/validation/request-print-fields-20261023/.artifacts/verify-request-print-fields.log",
+    "finalFullVerifyLogSha256": "795bbc3ae3ae984f653e27f1dc7b79bbe18d24223d7057be2eb1ccf7666ff964"
+  },
+  "initialFailures": [
+    "Synthetic fixture tried creating a line with an already-disabled vendor; fixture now creates valid records then marks that master disabled to test historical output. Validation unchanged.",
+    "Synthetic unknown supplier/warehouse inputs were correctly rejected by existing backup validation; exercised valid blank/missing supplier and optional raw project instead, without weakening validation.",
+    "formSave makes saved form active; mixed-form fixture explicitly restores default. Form-switch test now targets the preview picker rather than the underlying list picker.",
+    "Retained single print callback remained available after beforeNavigate; request preview is now explicitly closed and lifecycle test passes."
+  ],
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 7,
+    "newOriginalScopes": 0,
+    "reusedOriginalScopes": 2,
+    "fullModuleCoverage": false,
+    "cached": [
+      {
+        "name": "Original_RequestPrintBinding",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "start": 1531066,
+        "end": 1531295,
+        "lineStart": 32376,
+        "lineEnd": 32384,
+        "fragmentSha256": "0a2501541925e1517084e9438d4f93b7b756c0dcf7695e7c80ce6fa37ec7d071",
+        "resultSha256": "a11d78351e872f97febcaf88eb4fc14fa29e9583db2a8a27ece07fce9d24f655",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 236,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 21,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "cacheReused": true,
+        "cacheDirectory": ".artifacts/manual-request-print-batch-20261023/rea/original/Original_RequestPrintBinding-1531066",
+        "sourceInputResultConfigValidated": true
+      },
+      {
+        "name": "Original_SlipLinkUserAction",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 2380479,
+        "end": 2389280,
+        "lineStart": 51368,
+        "lineEnd": 51541,
+        "fragmentSha256": "8d0289301dcb6c6b8e779f5a0d684e4e01439be6a8a87c188d2504dea11c04e1",
+        "resultSha256": "ccc5dac9925736bed57bcbf421ef46480ba2b877e1c37e3f2d71b57f55373aff",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 9091,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 918,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true,
+        "cacheReused": true,
+        "cacheDirectory": ".artifacts/manual-request-print-batch-20261023/rea/original/Original_SlipLinkUserAction-2380479",
+        "sourceInputResultConfigValidated": true
+      }
+    ],
+    "results": [
+      {
+        "name": "Own_printSchema",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 28255,
+        "end": 28709,
+        "lineStart": 160,
+        "lineEnd": 160,
+        "fragmentSha256": "d8c7a3dcdd8f17cf313ab0d60bf9ac4eb490bfd7087a3ee1ca69483390a8b4a8",
+        "resultSha256": "0df94e902d6e3e0bc67aefce040e4b4cc5a5221d6ed44a3e98fa2a90c4edea9d",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 506,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 95,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_requestPrintSupplier",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 29395,
+        "end": 29530,
+        "lineStart": 163,
+        "lineEnd": 163,
+        "fragmentSha256": "d7675e8bde2e5a59d898edae5d7ab987b95a5f86421ddc99502c3848e2f75822",
+        "resultSha256": "3527377c54c0d036b8420a71fefe102b9435c26c1e5af3fd4cbd0fcd3d17d8fb",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 135,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 33,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_appendRequestPrintHeader",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 29533,
+        "end": 30332,
+        "lineStart": 164,
+        "lineEnd": 168,
+        "fragmentSha256": "267f4d03c5548b1d9216c6075538f915db75cdeb00f68de19120ee1cb27d3beb",
+        "resultSha256": "f05904c73873623c79766d3f14c66adaac2613ea195aaae893e5a6eea24d0ba3",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 859,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 208,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_appendPrintDocument",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 30335,
+        "end": 31885,
+        "lineStart": 169,
+        "lineEnd": 175,
+        "fragmentSha256": "17d9641e18bf65d28cd1e558ca39a4e7462fbf0d0eed906740538fdc4314b871",
+        "resultSha256": "c1dd3263fedac4a266676fe6a0e0c41cb9e67ac5488dc920df8c9dccd1aa30e2",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1664,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 412,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_printDoc",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 35431,
+        "end": 37892,
+        "lineStart": 194,
+        "lineEnd": 205,
+        "fragmentSha256": "6259024a7a407cb5833b11bebf4c781fac73f23b4bc326b87cd02817b37eac67",
+        "resultSha256": "6d081af3a4fced4b1ecb348843076bfdb6d55277b25e942edd5c9d37dfb1eece",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2646,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 541,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_printRequestBatch",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 31924,
+        "end": 35391,
+        "lineStart": 177,
+        "lineEnd": 192,
+        "fragmentSha256": "2b2509d58de98d54547b087af95050deb2d67ca2847b84f89715a084fc2f9c28",
+        "resultSha256": "f4e72852345e7e3d43616f615b45a4169327b43501088b77840d46105e4d2238",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3785,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 680,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_NavigationClosesRequestPrint",
+        "category": "own",
+        "file": ".artifacts/validation/request-print-fields-20261023/dist/inventory-ui.js",
+        "sourceSha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7",
+        "start": 153453,
+        "end": 154367,
+        "lineStart": 586,
+        "lineEnd": 586,
+        "fragmentSha256": "730a1717f2fbf69b18ede9edf87e8fd37e05960e6f02e717fe355d042c2f4a6a",
+        "resultSha256": "21657a128ce54c57836ee7724e1ff025c71f7fc08527be0a1ca401a39d2974c1",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 914,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 149,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "deployment": {
+    "productionDeployed": false,
+    "candidateDirectory": ".artifacts/validation/request-print-fields-20261023",
+    "baseRelease": "3d768fd320f19a06da86838c1855f2402989b249",
+    "rootBuildPerformed": false,
+    "unshippedVat5OrMappingIncluded": false
+  },
+  "preservation": {
+    "predeployEvidence": ".artifacts/manual-request-print-fields-20261023/predeploy-backup.json",
+    "pendingPostdeploy": true
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "posted": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 81
+  },
+  "limits": [
+    "Original session login required; no original business edits/saves/row moves/settings or print/send performed.",
+    "Hosted data-bearing multi-request, physical Android/printer, original approval exclusion and complete custom template parity remain unverified.",
+    "PDF/email button workflow and original currency conversion/precision remain gated; native synthetic PDF verification is not original PDF-button parity."
+  ],
+  "counters": {
+    "manualIndex": 54,
+    "bodiesReviewed": 24,
+    "requirements": 30,
+    "finalAcceptance": 0,
+    "wholeManualDenominatorKnown": false
+  },
+  "nextWork": "Inspect official request print preview PDF button output-type/file-name/action contract before connecting a local-only download. No original print/send, no repeated completed currency helper or unchanged regression.",
+  "done": false,
+  "hostedBusinessAcceptance": false,
+  "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15"
+}

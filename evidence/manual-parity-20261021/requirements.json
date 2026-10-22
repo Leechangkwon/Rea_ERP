@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 26,
+  "officialRequirementsDecomposed": 30,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -1082,16 +1082,199 @@
         "자료올리기 일괄 업로드",
         "조회/현황에서 완료 요청 종결"
       ],
-      "status": "local-closure-passed-hosted-open-close-preserved-upload-contract-pending",
+      "status": "closure-partial-deployed-upload-company-settings-and-paste-review-deployed-save-incomplete",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "implementationEvidence": [
-        "evidence/manual-request-report-state-20261022.json"
+        "evidence/manual-request-report-state-20261022.json",
+        "evidence/manual-request-upload-candidate-20261022.json",
+        "evidence/manual-request-quantity-20261022.json",
+        "evidence/manual-request-upload-amounts-20261022.json",
+        "evidence/manual-request-upload-preview-20261022.json",
+        "evidence/manual-request-upload-review-ui-20261022.json",
+        "evidence/manual-request-upload-connection-20261022.json",
+        "evidence/manual-request-upload-policy-20261022.json",
+        "evidence/manual-purchase-precision-20261022.json",
+        "evidence/manual-form-numeric-display-20261022.json",
+        "evidence/manual-request-upload-save-rules-20261022.json",
+        "evidence/manual-request-upload-save-policy-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Uploader grouping/setup/required mapping/batch failure/retry and original server save plus hosted business write acceptance remain unverified"
+      "remaining": "Versioned company save-rule settings, initial/none proposals and actual preview are now integrated. Latest-voucher initializer, none storage representation, grouping equality/order, full required/Validator metadata, menu/currency precision, quantity precedence, manual-money persistence/consumers, retries/CAS and hosted business save acceptance remain incomplete.",
+      "supportingSourceIds": [
+        "EC-HELP-UPLOAD-COMPARE-001",
+        "EC-HELP-UPLOAD-DUPLICATE-001",
+        "EC-HELP-QUANTITY-001",
+        "EC-HELP-UPLOAD-USE-001",
+        "EC-HELP-UPLOAD-FIELDS-001",
+        "EC-HELP-SETTINGS-WORKFLOW-001",
+        "EC-HELP-SETTINGS-ENTRY-001"
+      ],
+      "supportingSourceScope": {
+        "duplicateFaq": "sales only; does not establish request retry/idempotency",
+        "comparisonVideo": "full auto transcript only; current row limit and legacy Excel claims unverified",
+        "uploadUseGuide": "header exclusion, retain empty columns, leading-zero text, bold required and maximum300cases notice; case unit/runtime limit unverified",
+        "uploadFieldGuide": "master item/partner basic-tab registration only; request upload setting/required map not established",
+        "workflowGuide": "Board workflow only; describes save-time modification but supplies no request-upload defaults.",
+        "settingsEntryGuide": "One-sentence item-add screen navigation only; video unreviewed."
+      },
+      "uploadRawCandidate": {
+        "sourceCommit": "5b761c5cd22f10945f27c59368cea8694baa6101",
+        "evidence": "evidence/manual-request-upload-candidate-20261022.json",
+        "fieldsMapped": 22,
+        "newNode": 10,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      },
+      "uploadQuantityCandidate": {
+        "sourceCommit": "d136921b623f856ee5ed2e47407156055426f189",
+        "evidence": "evidence/manual-request-quantity-20261022.json",
+        "newNode": 10,
+        "relatedNode": 20,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      },
+      "uploadAmountCandidate": {
+        "sourceCommit": "866ec3bae8480a89344743482b4911e610cdc709",
+        "evidence": "evidence/manual-request-upload-amounts-20261022.json",
+        "status": "local-explicit-upload-money-preflight-no-ui-or-persistence",
+        "newNode": 12,
+        "relatedNode": 32,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      },
+      "uploadReviewCandidate": {
+        "sourceCommit": "1edc72f99b10f1e25373ea557236fd3fd45f18ec",
+        "evidence": "evidence/manual-request-upload-preview-20261022.json",
+        "status": "local-row-review-model-master-candidates-quantity-money-no-ui-or-save",
+        "newNode": 13,
+        "relatedNode": 45,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      },
+      "uploadReviewUIComponent": {
+        "sourceCommit": "d7dfb51383022ae56cb230c48136802ffeea9a47",
+        "evidence": "evidence/manual-request-upload-review-ui-20261022.json",
+        "status": "isolated-review-ui-component-only-no-app-menu-or-storage",
+        "newNode": 9,
+        "relatedNode": 54,
+        "syntheticComponentBrowser": 2,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false
+      },
+      "uploadPasteReview": {
+        "version": "0.74.0",
+        "sourceCommit": "cca6b53010e3a74ab016616970c31ae33d13218e",
+        "releaseCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
+        "evidence": "evidence/manual-request-upload-connection-20261022.json",
+        "appIntegrated": true,
+        "productionDeployed": true,
+        "syntheticHostedReviewVerified": true,
+        "saveImplemented": false,
+        "done": false
+      },
+      "uploadPrecisionPolicyCandidate": {
+        "sourceCommit": "a668b4c703d693d97d88526c72a174d87c7cd3ab",
+        "evidence": "evidence/manual-request-upload-policy-20261022.json",
+        "newNode": 12,
+        "relatedNode": 74,
+        "companyFormAdapterConnected": false,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "productionDeployed": false,
+        "done": false,
+        "supersededBy": "evidence/manual-request-upload-numeric-input-20261022.json"
+      },
+      "purchasePrecisionSettings": {
+        "version": "0.75.0",
+        "sourceCommit": "b02a26443aed8cb8de09717800313a8b9f407be2",
+        "releaseCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+        "evidence": "evidence/manual-purchase-precision-20261022.json",
+        "authenticatedCompanyAdapter": true,
+        "formAdapter": false,
+        "productionDeployed": true,
+        "hostedSettingsOpenCloseVerified": true,
+        "hostedSettingsSavePerformed": false,
+        "voucherSaveImplemented": false,
+        "done": false
+      },
+      "numericFormDisplayPartial": {
+        "version": "0.76.0",
+        "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+        "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+        "displayOnly": true,
+        "uploadInputPrecisionProven": false,
+        "hostedOpenCloseVerified": true,
+        "hostedSavePerformed": false,
+        "done": false
+      },
+      "uploadIndependentNumericReview": {
+        "version": "0.77.0",
+        "evidence": "evidence/manual-request-upload-numeric-input-20261022.json",
+        "releaseCommit": "09c5d8f9c4166d4b57daee9c662f5774bd7c2e89",
+        "appIntegrated": true,
+        "productionDeployed": true,
+        "hostedSyntheticReviewVerified": true,
+        "saveImplemented": false,
+        "done": false
+      },
+      "uploadHeaderReferences": {
+        "version": "0.78.0",
+        "evidence": "evidence/manual-request-upload-header-references-20261022.json",
+        "releaseCommit": "cc8eb212cb274b7730c7c363d1d619a264f01dee",
+        "appIntegrated": true,
+        "productionDeployed": true,
+        "hostedThreeHeaderProposalsVerified": true,
+        "saveImplemented": false,
+        "done": false
+      },
+      "uploadSaveRuleResearch": {
+        "evidence": "evidence/manual-request-upload-save-rules-20261022.json",
+        "actualMenuSpecificRulesObserved": 3,
+        "summaryCanOmitExceptions": true,
+        "appIntegrated": false,
+        "saveImplemented": false,
+        "done": false
+      },
+      "uploadSaveRuleSettings": {
+        "version": "0.79.0",
+        "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
+        "releaseCommit": "acbd6fa2b08a73c5d606a35ce121a5fc288dda92",
+        "evidence": "evidence/manual-request-upload-save-policy-20261022.json",
+        "settingsPersistAndReviewIntegrated": true,
+        "freshServerRevisionGuard": true,
+        "hostedOpenCloseAndSyntheticReview": true,
+        "hostedConfiguredSaveVerified": false,
+        "voucherSaving": false,
+        "done": false
+      },
+      "researchEvidence": [
+        "evidence/manual-upload-policy-supplier-20261023.json"
+      ],
+      "researchGate": {
+        "status": "request-specific-policy-and-save-contract-waiting-for-new-evidence",
+        "resumeOnlyOn": [
+          "Restored original session with read-only request upload/settings metadata",
+          "New documented original source/manual with a missing request-specific contract"
+        ],
+        "noRepeatEvidence": [
+          "evidence/manual-upload-policy-supplier-20261023.json",
+          "evidence/manual-request-body-focus-20261023.json"
+        ],
+        "savingEnabled": false
+      }
     },
     {
       "id": "REQ-PUR-FLOW-001",
@@ -1583,7 +1766,8 @@
       "implementationEvidence": [
         "dist/purchase-return-core.js",
         "dist/inventory-ui.js",
-        "evidence/manual-purchase-return-print-20261022.json"
+        "evidence/manual-purchase-return-print-20261022.json",
+        "evidence/manual-form-numeric-display-20261022.json"
       ],
       "automatedEvidence": [
         "tests/purchase-return-print.cjs",
@@ -1591,7 +1775,18 @@
       ],
       "hostedAcceptance": false,
       "done": false,
-      "hostedPositivePrintPreview": true
+      "hostedPositivePrintPreview": true,
+      "numericFormDisplayPartial": {
+        "version": "0.76.0",
+        "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+        "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+        "displayOnly": true,
+        "uploadInputPrecisionProven": false,
+        "hostedOpenCloseVerified": true,
+        "hostedSavePerformed": false,
+        "done": false
+      },
+      "requestPrintChildRequirement": "REQ-PUR-REQ-007"
     },
     {
       "id": "REQ-COM-MAPPING-001",
@@ -1605,7 +1800,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "needs-detailed-compatibility-review",
+      "status": "authenticated-ui-candidate-passed-legacy-field-editor-evidence-gated-not-deployed",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1614,11 +1809,82 @@
       "role": "Manual does not specify role exceptions; existing authorization must be preserved",
       "implementationEvidence": [
         "dist/self-settings-ui.js",
-        "dist/entry-core.js"
+        "dist/entry-core.js",
+        "dist/self-core.js",
+        "evidence/manual-mapping-field-storage-20261023.json",
+        "dist/mapping-core.js",
+        "evidence/manual-mapping-import-core-20261023.json",
+        "dist/inventory-ui.js",
+        "dist/entry-ui.js",
+        "evidence/manual-mapping-import-ui-20261023.json"
       ],
-      "automatedEvidence": [],
+      "automatedEvidence": [
+        "tests/mapping-field-storage.cjs",
+        "tests/mapping-import-core.cjs",
+        "tests/mapping-import-ui.cjs",
+        "tests/browser/mapping-import.spec.cjs"
+      ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "researchEvidence": [
+        "evidence/manual-upload-policy-supplier-20261023.json",
+        "evidence/manual-mapping-editor-research-20261023.json"
+      ],
+      "storageCandidate": {
+        "optionalVersionedFieldLinks": true,
+        "newNode": 7,
+        "relatedNode": 74,
+        "structuralStorageOnly": true,
+        "catalogAndRuntimeConsumerConnected": false,
+        "fieldEditorEnabled": false,
+        "productionDeployed": false,
+        "done": false,
+        "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb"
+      },
+      "importCoreCandidate": {
+        "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
+        "evidence": "evidence/manual-mapping-import-core-20261023.json",
+        "status": "catalog-import-core-tested-authenticated-ui-adapter-pending-not-deployed",
+        "newNode": 15,
+        "relatedNode": 269,
+        "tools": 7,
+        "baseVersion": "0.82.0",
+        "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+        "productionDeployed": false,
+        "fieldEditorEnabled": false,
+        "optionalEntryCoreConsumerConnected": true,
+        "authenticatedUiConsumerConnected": false,
+        "communityPendingLocalUpdates": 73,
+        "done": false
+      },
+      "authenticatedUiCandidate": {
+        "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
+        "evidence": "evidence/manual-mapping-import-ui-20261023.json",
+        "status": "authenticated-mapping-ui-consumer-implemented-full-isolated-regression-passed-editor-and-hosted-acceptance-pending",
+        "newUiNode": 17,
+        "newCoreNode": 1,
+        "relatedNode": 286,
+        "fullBrowser": 119,
+        "newBrowser": 4,
+        "npmTestPassed": true,
+        "tools": 7,
+        "release": 4,
+        "baseVersion": "0.82.0",
+        "isolatedSource": ".artifacts/validation/mapping-field-storage-20261023",
+        "productionDeployed": false,
+        "fieldEditorEnabled": false,
+        "authenticatedUiConsumerConnected": true,
+        "communityPendingLocalUpdates": 74,
+        "done": false
+      },
+      "editorResearch": {
+        "evidence": "evidence/manual-mapping-editor-research-20261023.json",
+        "legacyEditor": "TC101P_01",
+        "legacyEditorBodyVerified": false,
+        "modernDeriveEquivalent": false,
+        "newOriginalScopes": 6,
+        "done": false
+      }
     },
     {
       "id": "REQ-ACC-PRINT-001",
@@ -1670,14 +1936,25 @@
       "implementationEvidence": [
         "dist/form-core.js",
         "dist/form-options.js",
-        "evidence/manual-conditional-forms-20261022.json"
+        "evidence/manual-conditional-forms-20261022.json",
+        "evidence/manual-form-numeric-display-20261022.json"
       ],
       "automatedEvidence": [
         "tests/conditional-forms.cjs",
         "tests/browser/conditional-forms.spec.cjs"
       ],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "numericFormDisplayPartial": {
+        "version": "0.76.0",
+        "sourceCommit": "44ec3337168c40b610cb4ca41f6fb481c794c488",
+        "releaseCommit": "38a81372c0c9d5ef5d7982513ea3e897960f075e",
+        "displayOnly": true,
+        "uploadInputPrecisionProven": false,
+        "hostedOpenCloseVerified": true,
+        "hostedSavePerformed": false,
+        "done": false
+      }
     },
     {
       "id": "REQ-PUR-PLAN-002",
@@ -1712,7 +1989,7 @@
         "직접설정 기준 예로 거래처·담당자를 사용할 수 있다",
         "생성 전에 전표별 담당자와 금액을 구분할 수 있다"
       ],
-      "status": "preview-context-and-explicit-employee-subsets-deployed-full-custom-mapping-pending",
+      "status": "preview-employee-and-explicit-reference-subsets-deployed-full-custom-mapping-pending",
       "sourceLocator": {
         "artifact": ".artifacts/manual-plan-generation-review-20261022/manual-plan-generation-faq.txt",
         "video": "https://www.youtube.com/watch?v=ivdIVimbCDU",
@@ -1727,24 +2004,28 @@
         "dist/purchase-plan-ui.js",
         "docs/plan-plan-generation-review-20261022.md",
         "dist/purchase-plan-core.js",
-        "docs/plan-plan-generation-employee-20261022.md"
+        "docs/plan-plan-generation-employee-20261022.md",
+        "docs/plan-plan-generation-reference-20261022.md"
       ],
       "automatedEvidence": [
         "tests/plan-generation-preview.cjs",
         "tests/browser/plan-generation-preview.spec.cjs",
         "tests/plan-generation-employee.cjs",
-        "tests/browser/plan-generation-employee.spec.cjs"
+        "tests/browser/plan-generation-employee.spec.cjs",
+        "tests/plan-generation-reference.cjs",
+        "tests/browser/plan-generation-reference.spec.cjs"
       ],
       "remaining": [
         "담당자·참조 외 일괄변경과 직접설정 추가 집계기준 미구현",
         "선택하지 않은 머리값이 다른 경우 최종 매핑 미확인",
         "상이단가 품목합산 서버규칙 미확인",
-        "원본 기본입력 값 선택·빈값 처리와 운영 유자료 저장/전체매뉴얼 합격 미완료"
+        "원본 기본입력 값 선택·빈값 처리와 운영 유자료 저장/전체매뉴얼 합격 미완료",
+        "입고창고 일괄변경의 원본 배분/후속전표/백업 예외와 납기 머리/행 적용, 참조 기본상속·빈값삭제 미확인"
       ],
       "hostedAcceptance": false,
       "done": false,
-      "deploymentVersion": "0.72.0",
-      "deploymentEvidence": "evidence/manual-plan-generation-employee-20261022.json",
+      "deploymentVersion": "0.73.0",
+      "deploymentEvidence": "evidence/manual-plan-generation-reference-20261022.json",
       "hostedVersionAssetAndEmptyLookupVerified": true,
       "employeeBatchSubset": {
         "status": "deployed-synthetic-verified-hosted-data-bearing-save-pending",
@@ -1763,14 +2044,267 @@
         "hostedDataBearingSaveVerified": false
       },
       "referenceBatchSubset": {
-        "status": "candidate-synthetic-passed-awaiting-full-validation",
+        "status": "deployed-synthetic-verified-hosted-data-bearing-save-pending",
         "plan": "docs/plan-plan-generation-reference-20261022.md",
         "evidence": "evidence/manual-plan-generation-reference-20261022.json",
         "defaultBehavior": "prior generator behavior retained, original source-reference inheritance and explicit blank clearing not verified",
         "regrouping": false,
         "newNode": 6,
         "newBrowser": 3,
-        "done": false
+        "done": false,
+        "sourceCommit": "5170fbd7df5672735883c423662720836e686710",
+        "releaseCommit": "5c3ef405b06fe61113eae3399487561521cd4eba",
+        "deployedVersion": "0.73.0",
+        "fullBrowserPassed": 90,
+        "hostedExistingSessionRetained": true,
+        "hostedDataBearingSaveVerified": false
+      }
+    },
+    {
+      "id": "REQ-COM-FORMS-002",
+      "sourceId": "EC-HELP-REQUEST-003",
+      "title": "전표 입력 양식의 항목 추가·표시·필수·순서·기본값과 메뉴별 한도",
+      "expected": [
+        "Available header/detail item addition and per-menu limits",
+        "Label/required/order/default setting and saved entry behavior",
+        "Hide unused items and optional input-sequence reorder",
+        "Company-wide user application and account/attendance exceptions"
+      ],
+      "status": "request-header-input-sequence-deployed-body-bundles-extensions-shared-and-other-menus-incomplete",
+      "referenceBodyReviewed": true,
+      "implementationEvidence": [
+        "evidence/manual-entry-required-guidance-20261022.json",
+        "evidence/manual-request-field-catalog-20261022.json",
+        "evidence/manual-request-input-order-20261022.json"
+      ],
+      "hostedReadOnlyPartial": true,
+      "hostedAcceptance": false,
+      "done": false,
+      "remaining": "Generic BODY bundle map and attribute-setting pipeline are statically identified; request-specific child IDs, field order values and runtime keyboard/row/popup behavior remain unobserved after original session expired. Header subset deployed. Extensions, sharing, other menus and full hosted saved-form/workflow acceptance remain incomplete.",
+      "researchEvidence": [
+        "evidence/manual-request-body-focus-20261023.json"
+      ],
+      "researchGate": {
+        "status": "body-request-specific-fields-login-required",
+        "resumeOnlyOn": "Actual separated BODY settings or new source carrying request-specific field/bundle definitions",
+        "genericBundleConsumerAnalysisComplete": true,
+        "wholeRequirementDone": false
+      }
+    },
+    {
+      "id": "REQ-PUR-REQ-006",
+      "sourceId": "EC-VID-13914",
+      "title": "발주요청 참조 메모 입력·재조회·검색",
+      "procedure": [
+        "발주요청입력 상단 참조에 메모 또는 검색 키워드 입력",
+        "전표 저장 후 조회/수정에서 원문 확인",
+        "검색 키워드로 요청 전표 조회"
+      ],
+      "expected": [
+        "참조를 일반 텍스트로 입력하고 기존 전표 저장·조회 경로에서 보존한다"
+      ],
+      "status": "deployed-synthetic-save-search-passed-hosted-readonly-preservation-passed-business-save-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
+        "segmentSeconds": [
+          105,
+          110
+        ],
+        "proofArtifact": ".artifacts/manual-request-video-20261023/reference-110s.png",
+        "fullVideoReviewed": false
+      },
+      "role": "Existing own inventory.read/write and stale/CAS policies preserved; original role exceptions unspecified",
+      "done": false,
+      "hostedAcceptance": false,
+      "implementationEvidence": [
+        "dist/inventory-ui.js",
+        "evidence/manual-request-reference-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/request-reference-text.cjs",
+        "tests/browser/request-reference-text.spec.cjs"
+      ],
+      "sourceCommit": "801c3e6e1f337cfa86b3831122b3ec6137b97cd4",
+      "releaseCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
+      "productionVersion": "0.83.0"
+    },
+    {
+      "id": "REQ-COM-CURRENCY-001",
+      "sourceId": "EC-VID-13899",
+      "title": "외화등록의 선택적 환율·금액소수점과 입력 통화 추가",
+      "procedure": [
+        "외화등록 신규에서 코드와 명칭 입력",
+        "고정환율 입력 또는 변동환율을 위해 공란 유지",
+        "금액소수점 사용안함/1~4 선택(신규기본2)",
+        "저장 후 재조회·중단 관리",
+        "발주요청 통화 dropdown 추가에서 신규 외화 등록 및 부모 초안 복귀"
+      ],
+      "expected": [
+        "공란 환율을1로 자동 대체하지 않음",
+        "선택한 금액소수점 metadata 보존",
+        "기존 코드/환율/전표·양식과 부모 초안 보존"
+      ],
+      "status": "master-and-request-inline-add-deployed-preservation-verified-fx-and-full-acceptance-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-VID-13899",
+        "url": "https://www.youtube.com/watch?v=sMVrKsgaU7c",
+        "publisher": "이카운트 ERP",
+        "lengthSeconds": 176,
+        "publishedDateVerified": false,
+        "uiReportsAge": "7 years",
+        "reviewStatus": "5-second-caption-samples-and-selected-keyframes-not-full-video-or-transcript",
+        "sampleArtifact": ".artifacts/manual-currency-registration-20261023/caption-samples.json",
+        "sampleSha256": "43cfdaf9c9df61b38fd7236bead55e271792a4dd193c5a7ae308477f96b76ce7",
+        "sampleTimingCaution": "Rapid seeking sometimes retained prior-frame caption/time. Preserve requested and observed time and use settled screenshots for exact controls.",
+        "confirmedKeyframeSeconds": [
+          35,
+          60,
+          81
+        ],
+        "keyframes": [
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-035.png",
+            "sha256": "c751ffa79c6806fe5a9ef8f5cdffab4c23504451b04dad11be11f80d93c780c8"
+          },
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-060.png",
+            "sha256": "a66d73af6b5e3f1c093b44bd0c499139333da6860fe7438eb9be14922640159b"
+          },
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-075.png",
+            "sha256": "bdcc1a53f54ae76c4adee2bb64cba574cfb1e3cbe541d4a55e62f3e4dedd578b"
+          },
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-081-options.png",
+            "sha256": "c3755ed4fec186f9820c1d0ef0235bf2dc7cf49938ee0a87d7c2013f74098b24"
+          }
+        ],
+        "newOnlineBodyCount": 0,
+        "fieldsObserved": [
+          "외화코드",
+          "외화명",
+          "환율",
+          "금액소수점"
+        ],
+        "fractionDigitsOptions": [
+          "사용안함",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "newDefaultFractionDigits": 2,
+        "fixedRateOptional": true,
+        "saveCloseButtonsObserved": true,
+        "originalServerSaveCancelPermissionsVerified": false
+      },
+      "role": "Original role exceptions/cancel outcomes unverified; own read/write and identity/company/CAS guard enforced",
+      "done": false,
+      "hostedAcceptance": false,
+      "implementationEvidence": [
+        "dist/inventory-core.js",
+        "dist/inventory-ui.js",
+        "evidence/manual-currency-registration-20261023.json",
+        "evidence/manual-request-currency-add-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/currency-registration.cjs",
+        "tests/browser/currency-registration.spec.cjs",
+        "tests/request-currency-add.cjs",
+        "tests/browser/request-currency-add.spec.cjs"
+      ],
+      "remaining": [
+        "request-specific exchange-rate and amount-precision value consumers",
+        "foreign amount conversion/print consumers",
+        "current original account save/cancel/permission and production saved-business acceptance"
+      ],
+      "sourceCommit": "fb1f7c675079a0063162d92cad5a958d71d87f50",
+      "releaseCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
+      "productionVersion": "0.85.0",
+      "hostedReadOnlyPassed": true,
+      "inlineRequestAddImplemented": true,
+      "inlineRequestAddSourceCommit": "f0c934ebcb95152bf52b63f963785cfbb60c5e60",
+      "inlineRequestAddReleaseCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+      "inlineRequestAddEvidence": "evidence/manual-request-currency-add-20261023.json",
+      "inlineAddSourceLocator": {
+        "sourceId": "EC-VID-13914",
+        "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
+        "reusedCaptionObservationSeconds": 95,
+        "newFullVideoOrBodyReview": false,
+        "staticContract": "OpenInsertForeignCurrencyUserAction and shared footer binding; prior bridge hash reverified",
+        "sourceManifest": ".artifacts/manual-request-currency-add-20261023/source-manifest.json"
+      },
+      "consumerResearchEvidence": "evidence/manual-request-currency-consumers-20261023.json",
+      "consumerImplementationGate": "request-specific master/detail/$exchange metadata, active exchange-rate writer, amount/rounding/output contract"
+    },
+    {
+      "id": "REQ-PUR-REQ-007",
+      "parentRequirement": "REQ-PUR-OUTPUT-001",
+      "sourceId": "EC-VID-13914",
+      "title": "발주요청조회 선택 전표 인쇄와 기존 양식 보존",
+      "procedure": [
+        "조회 목록의 전표 선택 후 하단 인쇄",
+        "하단버튼은 선택행 전체, 행 링크는 해당 전표를 인쇄창에 전달",
+        "미리보기에서 전표별 양식을 확인한 뒤 명시적으로 인쇄",
+        "닫으면 기존 조회 선택·자료·양식 보존"
+      ],
+      "expected": [
+        "선택한 여러 발주요청을 한 건 제한 없이 전달",
+        "기존 조건부 인쇄 양식·각 전표 값과 용지/방향/여백을 보존",
+        "인쇄에 따른 전표 저장·상태변경·업무발송 없음"
+      ],
+      "status": "batch-and-basic-header-supplier-subset-isolated-verified-deployment-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=200s",
+        "publisher": "이카운트 ERP",
+        "observedSeconds": 207,
+        "reviewStatus": "focused-print-preview-frame-and-caption-not-full-video",
+        "sourceManifest": ".artifacts/manual-request-print-batch-20261023/source-manifest.json",
+        "requestBinding": "purchase_request_print_user_action_list -> common$ISlipLinkUserAction -> IInventorySlipPage",
+        "originalCurrentAccountAcceptance": false
+      },
+      "role": "Own readonly preview/print allowed, identity/company/read/settings/storage/lifecycle rechecked; original live-server authorization unverified",
+      "implementationEvidence": [
+        "dist/inventory-ui.js",
+        "dist/inventory.css",
+        "evidence/manual-request-print-batch-20261023.json",
+        "evidence/manual-request-print-fields-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/request-print-batch.cjs",
+        "tests/browser/request-print-batch.spec.cjs",
+        "tests/request-print-fields.cjs",
+        "tests/browser/request-print-fields.spec.cjs"
+      ],
+      "remaining": [
+        "connected original eapproval/deleted exclusion and errors",
+        "actual hosted multi-request/physical print/Android acceptance",
+        "PDF/email button workflow and complete original form parity",
+        "complete original header/line template and current-account equivalence beyond the observed basic subset"
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "sourceCommit": "16299efe0392893390e36023a9c4915246df502d",
+      "releaseCommit": "3d768fd320f19a06da86838c1855f2402989b249",
+      "productionVersion": "0.86.0",
+      "hostedSinglePreviewPassed": true,
+      "hostedMultiRequestAcceptance": false,
+      "preservationPassed": true,
+      "headerLineSubset": {
+        "sourceId": "EC-VID-13914",
+        "observedSeconds": 206,
+        "videoQuality": "1080p",
+        "fullVideoReviewed": false,
+        "basicHeaderAndSavedLineSuppliersImplemented": true,
+        "savedCustomHeaderRetained": true,
+        "newNode": 8,
+        "newBrowser": 2,
+        "fullBrowser": 125,
+        "evidence": "evidence/manual-request-print-fields-20261023.json",
+        "deployed": false
       }
     }
   ]
