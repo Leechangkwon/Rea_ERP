@@ -1,5 +1,13 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 이번 구현 단위 · 발주요청 참조의 일반 텍스트 입력
+
+공식 교육 EC-VID-13914([발주요청입력](https://www.youtube.com/watch?v=6eQxoh6CKic), 공개2024-04-03)의 1:45~1:50 실제 화면/자막에서 참조는 메모·검색 키워드 입력칸임을 확인했다. 현재 docEditor는 reference를 첨부/전표연결 미지원으로 간주해 readOnly 및 calculated로 잠그는 차이가 있다. 공개 V56↔V3 양식 item map에서도 txt_007→ref_des와 slip_link→file_cd는 별도다. 이 수정은 일반 참조 문자열에 한정하며 전표연결/첨부를 구현했다고 주장하지 않는다.
+
+발주요청의 기본 입력 reference를 비계산 일반 text로 바꾸고 기존 getDoc→document.save→재조회·빠른검색을 사용한다. 기존 수정/빈값으로 지우기·닫기취소·저장/내용유지·저장/신규, 사용자 양식의 표시/명칭/readonly/기본값·조건 및 원문/기존 자료를 보존한다. 발주계획/발주서의 미확인 참조 계약과 회사설정·금액·재고·영속 schema는 바꾸지 않는다. 자체 readonly 권한/CAS 검증은 그대로이며 공개영상은2024설명이지 현재 계정 전체 동등성 증거가 아니다.
+
+운영0.82.0에서 파생한 별도0.83.0 후보에 UI두 지점만 적용한다. root VAT5·미배포 mapping 후보는 포함하지 않는다. 새 합성 Node/390·1280px 셸에서 입력/저장·재조회·수정/지우기/취소/참조검색/사용자양식·조회권한을 확인한 뒤 필요한 전체회귀·REA6.4·도구/릴리스/빌드 검사와 기존 브라우저/서버/설정/메일 보존 대조를 수행한다. 원본 ERP 입력·저장/발송은 하지 않는다. 전체매뉴얼 합격은 false다.
+
 ## 이번 조사 단위 · 매핑 설정 경로의 비동등성과 실행 상태 원장
 
 공개 OpenPopupMappingCenterUserAction→IOpenPopupMappingCenterPage_converter는 legacy TC101M과 LINK_PRG_ID/LINK_PRG_NM/FromProgramId를 사용한다(E040253은E040205로 변환). 기존 목록의 필드편집기 TC101P_01 본문은 미확보다. modern derive의 bizz_conn_sid/start_bizz_sid/end_bizz_sid 및 model/prop 기반 3종 serialization은 별도 시스템이며 optional fieldLinks schema와 자동 변환하지 않는다. modern GetDeriveMappingSettingAction 응답 공급원·서버 권한/영속화도 wrapper만으로 입증하지 않는다. 실제 legacy metadata를 확보한 뒤 adapter/설정 guard를 설계하며 현재 editor는 비활성을 유지한다.

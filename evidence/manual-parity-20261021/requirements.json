@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 27,
+  "officialRequirementsDecomposed": 28,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2089,6 +2089,40 @@
         "genericBundleConsumerAnalysisComplete": true,
         "wholeRequirementDone": false
       }
+    },
+    {
+      "id": "REQ-PUR-REQ-006",
+      "sourceId": "EC-VID-13914",
+      "title": "발주요청 참조 메모 입력·재조회·검색",
+      "procedure": [
+        "발주요청입력 상단 참조에 메모 또는 검색 키워드 입력",
+        "전표 저장 후 조회/수정에서 원문 확인",
+        "검색 키워드로 요청 전표 조회"
+      ],
+      "expected": [
+        "참조를 일반 텍스트로 입력하고 기존 전표 저장·조회 경로에서 보존한다"
+      ],
+      "status": "request-reference-input-implemented-focused-synthetic-passed-full-regression-and-hosted-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
+        "segmentSeconds": [
+          105,
+          110
+        ],
+        "proofArtifact": ".artifacts/manual-request-video-20261023/reference-110s.png",
+        "fullVideoReviewed": false
+      },
+      "role": "Existing own inventory.read/write and stale/CAS policies preserved; original role exceptions unspecified",
+      "done": false,
+      "hostedAcceptance": false,
+      "implementationEvidence": [
+        "dist/inventory-ui.js"
+      ],
+      "automatedEvidence": [
+        "tests/request-reference-text.cjs",
+        "tests/browser/request-reference-text.spec.cjs"
+      ]
     }
   ]
 }
