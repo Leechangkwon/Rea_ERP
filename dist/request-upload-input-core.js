@@ -21,10 +21,10 @@
  }
  function snapshot(db,settings){
   if(!db?.masters||!['items','partners','currencies'].every(k=>Array.isArray(db.masters[k])))throw Error('등록 기초자료를 다시 조회하세요.');
-  const masters={};for(const key of ['items','partners','currencies'])masters[key]=db.masters[key].map(entry=>{
+  const masters={};for(const key of ['items','partners','currencies','employees','warehouses','projects']){if(!Object.hasOwn(db.masters,key)){masters[key]=null;continue;}if(!Array.isArray(db.masters[key]))throw Error('등록 기초자료를 다시 조회하세요.');masters[key]=db.masters[key].map(entry=>{
    if(!entry||typeof entry.code!=='string'||!entry.code||typeof entry.name!=='string'||entry.disabled!==undefined&&typeof entry.disabled!=='boolean')throw Error('등록 기초자료의 코드·명칭·사용중단 여부를 확인하세요.');
    const copy={code:entry.code,name:entry.name,disabled:entry.disabled===true};if(key==='items'){if(entry.barcode!==undefined&&typeof entry.barcode!=='string')throw Error('품목 바코드를 확인하세요.');if(entry.barcode!==undefined)copy.barcode=entry.barcode;}if(key==='currencies')copy.fractionDigits=null;return copy;
-  });
+  });}
   const out={maxRows,masters,requiredFieldIds:null,quantity:null,amounts:null};
   if(settings!==undefined){
    if(!settings||typeof settings!=='object'||Array.isArray(settings))throw Error('회사 설정을 다시 조회하세요.');
