@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 업로드 명시금액과 일반 입력 계산 분리
+
+inspectAmounts는 단가/외화공급가액/공급가액/부가세를 독립 십진 문자열로 보존한다. 공란0은blank-zero 출처와 원문공란을 남기고, 명시0과 구분한다. 회사 국내금액/단가·통화 금액 소수 자릿수 snapshot을 받아 범위를 검사하며 미상·형식 오류는null과 사유를 반환한다. BigInt 기반 정규화이고 금액 자동계산/Number 변환/반올림/저장은 없다. 일반 InventoryCore.lineTotals의 qty×price/VAT를 업로드 저장에 재사용하면 명시값이 손실되므로 영속 스키마와 유효금액 소비자(조회·집계·백업·후속전표)를 함께 확장해야 한다. 현재 앱·DB 미연결이며 기존 계산과자료는 보존한다. 근거 evidence/manual-request-upload-amounts-20261022.json.
+
 ## 업로드 수량 관계의 정확한 분리 검사
 
 추가수량 add_qty와 기본수량 qty를 함께 보존하고, 호출자가 명시한 업무 사용여부·기본/추가수량 자릿수·품목 비율의 snapshot으로 관계만 검사한다. 십진 문자열→BigInt 유리수→무반올림 비교이므로 부동소수 오차나 암묵1/1 기본값을 만들지 않는다. 미상비율/불일치/정밀도부족/초과를 반환하며 자동필드 선택·값교체·저장은 없다. 분자소수/분모정수·기본수량 재고관리는 공식 온라인 본문 근거다. 기존 ItemCore.additionalQuantity와 단일 InventoryCore.qty의 저장 의미를 변경하지 않는다. 전체업로드 연결 전 수동금액 보존·회사별 metadata·양쪽 입력 우선순위 계약이 필요하다. 근거 evidence/manual-request-quantity-20261022.json.

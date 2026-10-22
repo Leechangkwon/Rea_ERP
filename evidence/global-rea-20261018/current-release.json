@@ -195,9 +195,11 @@
     "planGenerationReferenceNewBrowser": 3,
     "requestUploadRawCandidateNode": 10,
     "requestUploadQuantityCandidateNewNode": 10,
-    "requestUploadQuantityCandidateRelatedNode": 20
+    "requestUploadQuantityCandidateRelatedNode": 20,
+    "requestUploadAmountCandidateNewNode": 12,
+    "requestUploadAmountCandidateRelatedNode": 32
   },
-  "future_research": "다음은 REQ-PUR-REQ-005 업로드의 명시 공급가액/부가세/외화금액을 공란0·고정금액으로 보존하는 선행 코어를 구현한다. 일반 입력 qty×price 자동계산과 구분하고, 실제 원본 서식 메모·공개 V5 help generator의 회사별 formatter와 대조한다. 수량 환산 방향은 EC-HELP-QUANTITY-001 본문으로 확인했으나 동시 기본/추가수량의 업로드 우선순위·반올림·음수 허용은 미확인이다. 단일 기존 InventoryCore.qty 의미를 바꾸거나 기존 자료를 자동 환산하지 않는다. 이후 회사별 묶음·저장시값변경·기초자료/필수/부분실패·재시도 계약을 채운 뒤 미리보기/저장/권한/보존을 격리후보에 연결한다. 후보 코어를 전체 웹자료올리기 완료로 부르지 않는다. 운영0.73.0과 기존 자료/양식/메일을 유지하며 root VAT5 전체빌드/배포는 금지한다.",
+  "future_research": "다음은 REQ-PUR-REQ-005의 회사별 묶음·저장시값변경·필수/상하단 매핑과 코드/바코드/명칭 일치 규칙을 원본 도움말·분리 양식창·공개 REA에서 확인하고, 확보한 raw/수량/금액 결과를 행별 검토 미리보기 모델로 연결한다. 이전 항목 설정 링크 disabled는 새 상태/권한 변화 없이 반복 클릭하지 않는다. 기본값·동일명 중복·사용중단·일괄 부분실패/재시도·동시 수량 우선순위를 추정하지 않는다. 명시 금액 snapshot을 기존 일반 입력 자동계산에 직접 저장하면 다시 계산되므로 영속 스키마/유효금액 소비자·백업/전표연결/권한을 별도 격리후보에서 함께 검증해야 한다. 기존 자료의 qty·금액·품목 설정·양식은 자동 변환하지 않는다. 운영0.73.0 유지, main VAT5 전체빌드/배포 금지, 전체업로드/전체매뉴얼 done=false를 유지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../manual-plan-generation-reference-20261022.json",
@@ -579,7 +581,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 업로드의 명시 공급가액/부가세/외화금액을 공란0·고정금액으로 보존하는 선행 코어를 구현한다. 일반 입력 qty×price 자동계산과 구분하고, 실제 원본 서식 메모·공개 V5 help generator의 회사별 formatter와 대조한다. 수량 환산 방향은 EC-HELP-QUANTITY-001 본문으로 확인했으나 동시 기본/추가수량의 업로드 우선순위·반올림·음수 허용은 미확인이다. 단일 기존 InventoryCore.qty 의미를 바꾸거나 기존 자료를 자동 환산하지 않는다. 이후 회사별 묶음·저장시값변경·기초자료/필수/부분실패·재시도 계약을 채운 뒤 미리보기/저장/권한/보존을 격리후보에 연결한다. 후보 코어를 전체 웹자료올리기 완료로 부르지 않는다. 운영0.73.0과 기존 자료/양식/메일을 유지하며 root VAT5 전체빌드/배포는 금지한다.",
+    "nextIndependentWork": "다음은 REQ-PUR-REQ-005의 회사별 묶음·저장시값변경·필수/상하단 매핑과 코드/바코드/명칭 일치 규칙을 원본 도움말·분리 양식창·공개 REA에서 확인하고, 확보한 raw/수량/금액 결과를 행별 검토 미리보기 모델로 연결한다. 이전 항목 설정 링크 disabled는 새 상태/권한 변화 없이 반복 클릭하지 않는다. 기본값·동일명 중복·사용중단·일괄 부분실패/재시도·동시 수량 우선순위를 추정하지 않는다. 명시 금액 snapshot을 기존 일반 입력 자동계산에 직접 저장하면 다시 계산되므로 영속 스키마/유효금액 소비자·백업/전표연결/권한을 별도 격리후보에서 함께 검증해야 한다. 기존 자료의 qty·금액·품목 설정·양식은 자동 변환하지 않는다. 운영0.73.0 유지, main VAT5 전체빌드/배포 금지, 전체업로드/전체매뉴얼 done=false를 유지한다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -927,6 +929,17 @@
       "saveImplemented": false,
       "productionDeployed": false,
       "done": false
+    },
+    "requestUploadAmountCandidate": {
+      "sourceCommit": "866ec3bae8480a89344743482b4911e610cdc709",
+      "evidence": "evidence/manual-request-upload-amounts-20261022.json",
+      "status": "local-explicit-upload-money-preflight-no-ui-or-persistence",
+      "newNode": 12,
+      "relatedNode": 32,
+      "appIntegrated": false,
+      "saveImplemented": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -994,6 +1007,17 @@
       "summary": ".artifacts/manual-request-quantity-20261022/rea/rea-summary.json",
       "ownScopes": 3,
       "originalScopes": 1,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "requestUploadAmountCandidate": {
+      "evidence": "evidence/manual-request-upload-amounts-20261022.json",
+      "summary": ".artifacts/manual-request-amounts-20261022/rea/rea-summary.json",
+      "ownScopes": 3,
+      "originalScopes": 4,
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false,

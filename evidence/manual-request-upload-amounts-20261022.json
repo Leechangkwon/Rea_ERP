@@ -1,0 +1,328 @@
+{
+  "baselineVersion": "0.73.0",
+  "requirement": "REQ-PUR-REQ-005",
+  "sourceCommit": "866ec3bae8480a89344743482b4911e610cdc709",
+  "status": "local-explicit-upload-money-preflight-no-ui-or-persistence",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "existingEvidenceReused": [
+    "evidence/manual-request-upload-candidate-20261022.json",
+    "evidence/manual-request-quantity-20261022.json"
+  ],
+  "originalUiRevisited": false,
+  "newManualBodies": 0,
+  "manualBodiesReviewed": 19,
+  "manualIndexItems": 49,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "templateHelp": {
+    "source": ".artifacts/manual-request-upload-research-20261022/template-field-help.json",
+    "sha256": "b5361475684764adc9321993ac998f25fb784a64b8cca02be6577f4d5eade89d",
+    "workbookSha256": "08f0c4172ceb825c127f7537757096f50c00e2cc73d0034382ab88d4e785c7ef",
+    "businessRows": 0,
+    "comments": [
+      {
+        "cell": "Q1",
+        "text": "단가\n\n* 입력내용\n   - 품목의 거래단가를 입력합니다.\n   - 입력하지 않을 경우 0원 처리됩니다. \n\n* 입력글자제한\n   - 정수 최대 12자리\n   - 소수 최대 6자리"
+      },
+      {
+        "cell": "R1",
+        "text": "외화공급가액\n\n* 입력내용\n- 외화거래인 경우 품목의 외화공급가액을 입력합니다.\n- 입력하지 않을 경우 0원 처리됩니다.\n- 환율을 입력해도 외화금액이 자동계산 되지는 않습니다.\n\n* 입력글자제한\n- 정수: 최대 12자리\n- 소수: 외화코드 금액소수점"
+      },
+      {
+        "cell": "S1",
+        "text": "공급가액\n\n* 입력내용\n   - 품목의 공급가액을 입력합니다.\n   - 입력하지 않을 경우 0원 처리됩니다. \n   - 수량, 단가를 입력해도 공급가액이 자동계산 되지는 않습니다.\n\n* 입력글자제한\n   - 정수 최대 15자리\n   - 소수 최대 0자리"
+      },
+      {
+        "cell": "T1",
+        "text": "부가세\n\n* 입력내용\n   - 품목의 부가세액을 입력합니다.\n   - 입력하지 않을 경우 0원 처리됩니다.\n   - 공급가액을 입력해도 부가세액이 자동계산 되지는 않습니다.\n\n* 입력글자제한\n   - 정수 최대 15자리\n   - 소수 최대 0자리"
+      }
+    ]
+  },
+  "templateEvidenceHashValidated": true,
+  "originalPublicSource": {
+    "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+    "sha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+    "reusedExactPreviouslyObservedVersion": true,
+    "newDownloads": 0,
+    "executed": false,
+    "requestUploadInvocationVerified": false,
+    "findings": [
+      "inventory supply and VAT upload help reads tenant numeric amount decimal_part_size with generic fallback2; actual observed company template0 is not universal",
+      "shared foreign-currency formatter reads model prop value_format_in_data.option",
+      "shared numeric formatter supports R round/C ceil/F floor but request upload invocation and server save semantics unverified"
+    ],
+    "scopeLimit": "Source help and formatter declarations are not proof of amount storage/defaulting or all-company runtime behavior"
+  },
+  "implementation": {
+    "file": "dist/request-upload-candidate.js",
+    "sha256": "6964dee2eeba056e0a2b59a19550103f919f23f660bd8b82426403bc9c9d685e",
+    "entry": "inspectAmounts",
+    "fields": {
+      "price": "inv_m$apply_price_amt",
+      "foreignSupply": "inv_m$foreign_currency_supply_amt",
+      "supply": "inv_m$supply_amt",
+      "tax": "inv_m$vat_amt"
+    },
+    "blankRule": "zero string candidate with blank-zero provenance; original input remains blank",
+    "explicitRule": "canonical decimal string plus original string and explicit provenance",
+    "precision": "required caller price/amount/foreign policies; null foreign policy leaves nonblank input unresolved",
+    "integerLimits": {
+      "price": 12,
+      "foreignSupply": 12,
+      "supply": 15,
+      "tax": 15
+    },
+    "parserResourceLimits": {
+      "fractionDigitsMax": 10,
+      "inputLengthMax": 64
+    },
+    "unsupportedGrammar": "separator/exponent/plus/whitespace not coerced; not claimed original all-locale acceptance",
+    "overPrecision": "review issue, no rounding; original formatter modes remain unintegrated",
+    "signedInput": "mathematical sign preserved; original negative business acceptance unknown",
+    "autoQuantityPriceCalculation": false,
+    "autoVatCalculation": false,
+    "autoExchangeCalculation": false,
+    "numberCoercion": false,
+    "sumOrTotalInvented": false,
+    "appIntegrated": false,
+    "saveImplemented": false,
+    "businessValidation": false,
+    "currencyValidated": false,
+    "generalEntryVatOrInventoryChanged": false
+  },
+  "checks": {
+    "newNode": 12,
+    "relatedNode": 32,
+    "passed": 32,
+    "quantityRegressionPassed": true,
+    "syntaxPassed": true,
+    "diffCheckPassed": true,
+    "command": "node --test tests/request-upload-candidate.cjs tests/request-upload-amounts.cjs",
+    "rea": {
+      "reaVersion": "6.4.0",
+      "originalExecuted": false,
+      "originalRequestUploadInvocationVerified": false,
+      "scope": "Own monetary preflight, public inventory supply/VAT upload help and shared numeric formatter scopes. Company/currency precisions and R/C/F rounding depend on external attributes/model; selected scopes do not establish request upload invocation, amount save behavior or exact server contracts",
+      "results": [
+        {
+          "name": "decimal",
+          "category": "own",
+          "file": "dist/request-upload-candidate.js",
+          "sourceSha256": "6964dee2eeba056e0a2b59a19550103f919f23f660bd8b82426403bc9c9d685e",
+          "start": 2993,
+          "end": 3515,
+          "lineStart": 19,
+          "lineEnd": 24,
+          "fragmentSha256": "b80fc1ec4665975c243344d843154e08e9c2c1c5619096507c3b41ef1f967047",
+          "resultSha256": "b0fe3f27f4d62e793e41ec8dd0d345c1982815a8ebba394364c7b2bc0ee8bb36",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 588,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 111,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "fractionText",
+          "category": "own",
+          "file": "dist/request-upload-candidate.js",
+          "sourceSha256": "6964dee2eeba056e0a2b59a19550103f919f23f660bd8b82426403bc9c9d685e",
+          "start": 3517,
+          "end": 3977,
+          "lineStart": 25,
+          "lineEnd": 30,
+          "fragmentSha256": "2ea1dd3b9d2dc54b8c1293b2a89d84f245a437c746f83758d2ab8d35aead28b3",
+          "resultSha256": "08baf9a6ecd063c4050b1b84505ce8f347fcc1f3d537d220a73539c3dbc8ece9",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 460,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 103,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "inspectAmounts",
+          "category": "own",
+          "file": "dist/request-upload-candidate.js",
+          "sourceSha256": "6964dee2eeba056e0a2b59a19550103f919f23f660bd8b82426403bc9c9d685e",
+          "start": 6861,
+          "end": 8606,
+          "lineStart": 54,
+          "lineEnd": 67,
+          "fragmentSha256": "d22d4120f47e04a7eb58ba22fea828e840a978a7de1969121f0bdec467e36136",
+          "resultSha256": "cf6f149952ddbf5e2bbfa76d88af4691b597c20ab83f8324328badd9abca7dcb",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1940,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 359,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "inventory_supply_amt_help_text_upload",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+          "sourceSha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+          "start": 1121907,
+          "end": 1123340,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "e8f9d2dd7bd52e60a8439a56dabbf2af161267934f467767c747a26136f012fe",
+          "resultSha256": "e94b50732ccbadeff83ffd5a1f111d84a167e4b251ce88e196b20dbf0878f39c",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1440,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 123,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "inventory_vat_amt_help_text_upload",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+          "sourceSha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+          "start": 1123341,
+          "end": 1124771,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "6f651b368bb950c5a3ad4b177c98a88f6c0ac10151ba48c42a12b232de548635",
+          "resultSha256": "acd857c0eb792078d75501f161ee0bd7a5fc6b1ca4fadd827cc0f82abd1e01d6",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1437,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 123,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "_setForeignCurrencyDecimalPoint",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+          "sourceSha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+          "start": 3047951,
+          "end": 3048584,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "2ede35dda6c3564aacfd6c0f8d5babc7318ac0f9b75b4faf1921c6590c58fa72",
+          "resultSha256": "8252694e2ce22eea01ee3414692a83ff3350a842a551d64360f59da14b6b6b65",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 646,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 88,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "_decimalNum",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+          "sourceSha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+          "start": 3046275,
+          "end": 3046749,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "f342328813924d861adbdb3218c5c29fc0d346c72a141596b79b77813f269fb7",
+          "resultSha256": "3eac00c56a1ca6cdc4f5d918fd82c762d9519d199a08b65678481c62a073f5ee",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 487,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 105,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        }
+      ]
+    },
+    "fullAppRegressionRepeated": false,
+    "browserSuiteRepeated": false
+  },
+  "remaining": [
+    "Company grouping/defaults/required top-bottom mapping and master matching/ambiguity policies",
+    "Both quantity fields upload precedence and original rounding/negative business contracts",
+    "Persistence of explicit monetary basis and all totals/report/backup/conversion consumers",
+    "Batch partial failure/retry and real hosted business-write acceptance"
+  ],
+  "deployment": {
+    "performed": false,
+    "runtimeVersion": "0.73.0",
+    "runtimeSession": 60080,
+    "runtimeBundleSha256": "e947a8d49c4b3816eab5bced3781f07224511c20541b64b6a5e9d29bbfd7cd0d",
+    "noRuntimeFilesInstalled": true,
+    "originalBusinessOrSettingsWrites": false,
+    "productionBusinessOrSettingsWrites": false,
+    "mailSent": false,
+    "preservation": "No deployment/storage changes this milestone. Prior0.73.0 preservation proof is historical and not rerun."
+  },
+  "next": "다음은 REQ-PUR-REQ-005의 회사별 묶음·저장시값변경·필수/상하단 매핑과 코드/바코드/명칭 일치 규칙을 원본 도움말·분리 양식창·공개 REA에서 확인하고, 확보한 raw/수량/금액 결과를 행별 검토 미리보기 모델로 연결한다. 이전 항목 설정 링크 disabled는 새 상태/권한 변화 없이 반복 클릭하지 않는다. 기본값·동일명 중복·사용중단·일괄 부분실패/재시도·동시 수량 우선순위를 추정하지 않는다. 명시 금액 snapshot을 기존 일반 입력 자동계산에 직접 저장하면 다시 계산되므로 영속 스키마/유효금액 소비자·백업/전표연결/권한을 별도 격리후보에서 함께 검증해야 한다. 기존 자료의 qty·금액·품목 설정·양식은 자동 변환하지 않는다. 운영0.73.0 유지, main VAT5 전체빌드/배포 금지, 전체업로드/전체매뉴얼 done=false를 유지한다.",
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 56,
+    "authChanged": false,
+    "probeRepeated": false,
+    "uploaded": false,
+    "readbackVerified": false
+  },
+  "done": false
+}
