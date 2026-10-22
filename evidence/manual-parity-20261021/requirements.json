@@ -2144,7 +2144,7 @@
         "선택한 금액소수점 metadata 보존",
         "기존 코드/환율/전표·양식과 부모 초안 보존"
       ],
-      "status": "master-subset-deployed-preservation-verified-inline-add-and-full-acceptance-pending",
+      "status": "master-and-request-inline-add-deployed-preservation-verified-fx-and-full-acceptance-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "sourceId": "EC-VID-13899",
@@ -2205,21 +2205,36 @@
       "implementationEvidence": [
         "dist/inventory-core.js",
         "dist/inventory-ui.js",
-        "evidence/manual-currency-registration-20261023.json"
+        "evidence/manual-currency-registration-20261023.json",
+        "evidence/manual-request-currency-add-20261023.json"
       ],
       "automatedEvidence": [
         "tests/currency-registration.cjs",
-        "tests/browser/currency-registration.spec.cjs"
+        "tests/browser/currency-registration.spec.cjs",
+        "tests/request-currency-add.cjs",
+        "tests/browser/request-currency-add.spec.cjs"
       ],
       "remaining": [
-        "request inline add/parent draft integration",
+        "request-specific exchange-rate and amount-precision value consumers",
         "foreign amount conversion/print consumers",
         "current original account save/cancel/permission and production saved-business acceptance"
       ],
       "sourceCommit": "fb1f7c675079a0063162d92cad5a958d71d87f50",
       "releaseCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
-      "productionVersion": "0.84.0",
-      "hostedReadOnlyPassed": true
+      "productionVersion": "0.85.0",
+      "hostedReadOnlyPassed": true,
+      "inlineRequestAddImplemented": true,
+      "inlineRequestAddSourceCommit": "f0c934ebcb95152bf52b63f963785cfbb60c5e60",
+      "inlineRequestAddReleaseCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+      "inlineRequestAddEvidence": "evidence/manual-request-currency-add-20261023.json",
+      "inlineAddSourceLocator": {
+        "sourceId": "EC-VID-13914",
+        "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
+        "reusedCaptionObservationSeconds": 95,
+        "newFullVideoOrBodyReview": false,
+        "staticContract": "OpenInsertForeignCurrencyUserAction and shared footer binding; prior bridge hash reverified",
+        "sourceManifest": ".artifacts/manual-request-currency-add-20261023/source-manifest.json"
+      }
     }
   ]
 }

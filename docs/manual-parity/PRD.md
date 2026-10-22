@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 기반 기능 재현 PRD
 
+## 0.85.0 적용 결과와 다음 순서
+
+발주요청의 통화 추가를 독립 외화등록창에 연결했다. 성공 시 신규통화를 선택하고 부모는 별도 저장하며, 등록취소·부모취소·기존 양식/초안과 허용된 자체 쓰기 이외의 자료를 보존한다. 신규Node15·최종verify:local(exit0)/전체브라우저121·운영 읽기와 전후 전체JSON/서버/메일 보존을 확인했다. 실제 운영 등록/전표 저장은 미수행이다. 다음은 발주요청 고유 통화 값변경의 환율·소수점 소비자 근거이며 원화 계산을 유지한다. 미배포VAT5/mapping은 제외했고 mapping 재통합 기준은0.85다. 모아78갱신 로컬대기·목록54/본문24/요구사항29/전체합격0이다. 상세는 PROGRESS 첫 절과 `evidence/manual-request-currency-add-20261023.json`을 따른다.
+
 ## 이번 구현 단위 · 발주요청 통화 dropdown 추가
 
 REQ-COM-CURRENCY-001 2차: EC-VID-13914 95초의 통화 dropdown 추가와 공개 OpenInsertForeignCurrencyUserAction을 대조했다. footer는 IOpenInsertForeignCurrencyUserAction, bridge는 ESA035M/S10 신규창이다. 등록완료 result.message.data가 있으면 CODE_DES/CODE_NO/EXCHANGE_RATE/AMTDIGIT_LEN을 선택항목에 추가하고 owner DMC의 foreign_currency를 새 코드로 설정한다. 응답이 없으면 선택 변경이 없다. 원본실행/서버의 검증·취소·권한 예외는 미확인이다.

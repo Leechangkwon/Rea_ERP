@@ -1,6 +1,6 @@
 {
-  "version": "0.84.0",
-  "status": "partial-manual-parity-currency-registration-subset-deployed",
+  "version": "0.85.0",
+  "status": "partial-manual-parity-request-inline-currency-add-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -88,7 +88,8 @@
     "Existing central BODY form validation retained; required column/aria metadata and populated-item ordinal/code errors exposed; actual commit failure retained in editor alert; no business schema/calculation change",
     "Request input/header text5 long1 and BODY remarks3 amount2 selectable stable slots; preserve legacy free fields/counts/values and projected list/print forms; extensions/shared/reorder unresolved",
     "Request header focusOrder v1 independent of display order, explicit renumber on save, native DOM/CSS grid focus, unknown legacy order edits blocked while metadata/values preserved; BODY/bundles/sharing unresolved",
-    "Request plain reference memo: editable request-only default field; existing save/search; exact custom form/old value/cancel preservation. Evidence evidence/manual-request-reference-20261023.json"
+    "Request plain reference memo: editable request-only default field; existing save/search; exact custom form/old value/cancel preservation. Evidence evidence/manual-request-reference-20261023.json",
+    "Request-only currency inline registration restores old selection on cancel, selects successful new master, guards parent lifecycle and bounded own CAS advancement; separate parent save, existing KRW totals unchanged"
   ],
   "checks": {
     "total": 998,
@@ -123,7 +124,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 115,
+    "currentReleaseBrowserSynthetic": 121,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -151,7 +152,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.78.0",
+    "currentReleaseFullRegressionVersion": "0.85.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -309,16 +310,30 @@
       "allRequiredComponentsPassed": true,
       "verifyLocalCommandExit0": false,
       "reason": "Existing27px desktop buttons vs arbitrary32px new-test assumption; test-only correction followed by complete119 browser pass"
+    },
+    "requestCurrencyAdd": {
+      "reference": "evidence/manual-request-currency-add-20261023.json",
+      "newNode": 15,
+      "newBrowser": 2,
+      "fullBrowser": 121,
+      "verifyLocalPassed": true,
+      "verifyLocalCommandExit": 0,
+      "tools": 7,
+      "release": 4,
+      "environment": true,
+      "build": true,
+      "selfReview": true,
+      "independentAgentReview": false
     }
   },
   "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-currency-registration-20261023.json",
+    "reference": "evidence/manual-request-currency-add-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
-    "publicVersionVerified": "0.84.0",
+    "deployedSourceCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+    "publicVersionVerified": "0.85.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -377,20 +392,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.84.0",
+    "existingSessionRetainedVersion": "0.85.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.84.0",
+    "lastExactBrowserBackupComparisonVersion": "0.85.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.84.0",
+    "currentServerStateAndMailPreservedVersion": "0.85.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.84.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.85.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -532,7 +547,18 @@
       "linuxPid": 2473340
     },
     "currencyRegistrationHostedReadOnlyVerified": true,
-    "currencyRegistrationHostedBusinessSaveVerified": false
+    "currencyRegistrationHostedBusinessSaveVerified": false,
+    "requestCurrencyAdd": {
+      "version": "0.85.0",
+      "reference": "evidence/manual-request-currency-add-20261023.json",
+      "deployed": true,
+      "existingSessionRetained": true,
+      "hostedOpenCloseWithoutInputOrSave": true,
+      "hostedBusinessSaved": false,
+      "preservationPassed": true,
+      "runtimeSession": 28632,
+      "linuxPid": 2492631
+    }
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -544,7 +570,7 @@
       "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.84.0",
+      "productionVersion": "0.85.0",
       "done": false,
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
@@ -1349,7 +1375,7 @@
       "done": false,
       "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb",
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.84.0"
+      "releaseRequiresRebaseOn": "0.85.0"
     },
     "mappingImportCoreCandidate": {
       "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
@@ -1367,7 +1393,7 @@
       "communityPendingLocalUpdates": 73,
       "done": false,
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.84.0"
+      "releaseRequiresRebaseOn": "0.85.0"
     },
     "mappingAuthenticatedUiCandidate": {
       "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
@@ -1388,7 +1414,7 @@
       "authenticatedUiConsumerConnected": true,
       "communityPendingLocalUpdates": 74,
       "done": false,
-      "releaseRequiresRebaseOn": "0.84.0"
+      "releaseRequiresRebaseOn": "0.85.0"
     },
     "mappingEditorResearch": {
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
@@ -1423,10 +1449,10 @@
     "nextExecutableWork": {
       "sourceId": "EC-VID-13914",
       "requirement": "REQ-COM-CURRENCY-001",
-      "title": "발주요청 통화 추가와 등록완료 메시지 소비자",
+      "title": "발주요청 통화 선택의 환율·소수점 소비자",
       "url": "https://www.youtube.com/watch?v=6eQxoh6CKic",
-      "context": "Currency master subset deployed0.84. Confirm public registration result consumer before wiring request inline add; preserve parent draft/form/amounts and account/company/permission/storage snapshots. No blind parent CAS reset or nested activeEditorModal reuse.",
-      "legacyMappingEditor": "Still gated on actual TC101P_01; unshipped mapping must rebase on0.84 before release."
+      "context": "Trace request-specific foreign_currency value-change bindings, attributes and amount precision consumers before exposing exchange-rate inputs or changing current KRW totals. Do not infer request behavior from the older sales foreign-currency video. Inline add is deployed0.85.0; do not repeat completed helpers/regressions as new progress.",
+      "legacyMappingEditor": "Still gated on actual TC101P_01; unshipped mapping requires rebase on0.85.0 before release."
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1438,14 +1464,35 @@
       "newBrowser": 2,
       "fullBrowser": 119,
       "done": false,
-      "inlineCurrencyAddImplemented": false
+      "inlineCurrencyAddImplemented": true,
+      "inlineCurrencyAddScope": "request only, deployed0.85.0",
+      "inlineCurrencyAddEvidence": "evidence/manual-request-currency-add-20261023.json",
+      "foreignAmountConversionAndPrintComplete": false
+    },
+    "requestCurrencyAdd": {
+      "requirement": "REQ-COM-CURRENCY-001",
+      "status": "deployed-preservation-verified-hosted-readonly-passed-business-save-pending",
+      "sourceCommit": "f0c934ebcb95152bf52b63f963785cfbb60c5e60",
+      "releaseCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+      "evidence": "evidence/manual-request-currency-add-20261023.json",
+      "productionVersion": "0.85.0",
+      "productionDeployed": true,
+      "newNode": 15,
+      "newBrowser": 2,
+      "fullBrowser": 121,
+      "verifyLocalPassed": true,
+      "hostedReadonlyVerified": true,
+      "hostedBusinessSaved": false,
+      "preservationPassed": true,
+      "communityPendingLocalUpdates": 78,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.84.0",
-    "commit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
-    "manifest": ".artifacts/manual-currency-registration-20261023/release-manifest.json",
-    "bundleSha256": "16854ab544fe87b3b84a537dcd69b60cba9ee58049f5ed7ee261b87f25d03f41",
+    "version": "0.85.0",
+    "commit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+    "manifest": ".artifacts/manual-request-currency-add-20261023/release-manifest.json",
+    "bundleSha256": "5865c76ff6c918534a7a0f02dfb0ee705dd0440c49aebf109cd27a15ec8cbb4a",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1487,14 +1534,15 @@
       "request-basic-field-catalog-stable-slots-longtext-legacy-and-projected-forms-preservation",
       "request-header-native-input-sequence-independent-display-and-preserved-unknown-order-metadata",
       "request-reference-plain-text-edit-preserve-search",
-      "currency-registration-optional-rate-and-amount-precision"
+      "currency-registration-optional-rate-and-amount-precision",
+      "request-inline-currency-registration-independent-dialog-bounded-master-write-parent-draft-and-dirty-state-preservation"
     ],
-    "supersedesCandidateCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
+    "supersedesCandidateCommit": "a941e74ced5594eb69676e740dc2c95b37aaff89",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.84.0-currency-registration"
+    "branch": "release/0.85.0-request-currency-add"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -1780,6 +1828,19 @@
       "truncated": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-reference-20261023/rea/rea-summary.json"
+    },
+    "requestCurrencyAdd": {
+      "reference": "evidence/manual-request-currency-add-20261023.json",
+      "version": "6.4.0",
+      "newOwnScopes": 8,
+      "newOriginalScopes": 2,
+      "cachedOriginalScopesHashVerified": 1,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": ".artifacts/manual-request-currency-add-20261023/rea/rea-summary.json"
     }
   }
 }

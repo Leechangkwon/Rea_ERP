@@ -2,8 +2,8 @@
   "schema": 1,
   "date": "2026-10-23",
   "requirement": "REQ-COM-CURRENCY-001",
-  "status": "isolated-candidate-verified-ready-for-release",
-  "productionVersion": "0.84.0",
+  "status": "deployed-preservation-verified-hosted-readonly-passed-business-save-pending",
+  "productionVersion": "0.85.0",
   "candidateVersion": "0.85.0",
   "sourceManifest": ".artifacts/manual-request-currency-add-20261023/source-manifest.json",
   "confirmedSourceContract": [
@@ -329,12 +329,46 @@
       }
     ]
   },
-  "deployment": null,
+  "deployment": {
+    "version": "0.85.0",
+    "branch": "release/0.85.0-request-currency-add",
+    "sourceCommit": "f0c934ebcb95152bf52b63f963785cfbb60c5e60",
+    "releaseCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684",
+    "sourceAndReleasePushedBeforeInstall": true,
+    "bundleSha256": "5865c76ff6c918534a7a0f02dfb0ee705dd0440c49aebf109cd27a15ec8cbb4a",
+    "runtimeSession": 28632,
+    "linuxPid": 2492631,
+    "publicVersionVerified": true,
+    "publicAssetsHashVerified": true,
+    "existingLoginRetained": true,
+    "hostedChildOpenCloseWithoutInputOrSave": true,
+    "rootFullBuild": false,
+    "unshippedVatAndMappingIncluded": false,
+    "releaseManifest": ".artifacts/manual-request-currency-add-20261023/release-manifest.json",
+    "publicEvidence": ".artifacts/manual-request-currency-add-20261023/public-deploy.json",
+    "runtimeEvidence": ".artifacts/manual-request-currency-add-20261023/runtime-after.json",
+    "hostedEvidence": ".artifacts/manual-request-currency-add-20261023/hosted-currency-add.json"
+  },
   "preservation": {
     "predeployBackup": ".artifacts/manual-request-currency-add-20261023/predeploy-backup.json",
-    "postdeployVerified": false,
+    "postdeployVerified": true,
     "productionBusinessSave": false,
-    "restored": false
+    "restored": false,
+    "browser": ".artifacts/manual-request-currency-add-20261023/browser-preservation.json",
+    "serverConfigAndMail": ".artifacts/manual-request-currency-add-20261023/postdeploy-preservation.json",
+    "browserDocuments": 8,
+    "browserPlans": 0,
+    "allBrowserJsonExact": true,
+    "formsExact": true,
+    "serverAppRevision": 30,
+    "serverGatewayRevision": 0,
+    "serverBodyAndRevisionExact": true,
+    "runtimeConfigExact": true,
+    "mailBoxes": 3,
+    "mailMessages": 8,
+    "mailFiles": 1,
+    "mailExact": true,
+    "restorePreviewConflicts": 0
   },
   "community": {
     "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
@@ -364,5 +398,7 @@
     "mappingRequiresActualTC101P01": true
   },
   "done": false,
-  "hostedBusinessAcceptance": false
+  "hostedBusinessAcceptance": false,
+  "sourceCommit": "f0c934ebcb95152bf52b63f963785cfbb60c5e60",
+  "releaseCommit": "8b0080d325b3f80c0688a226489a5ea04b2bd684"
 }
