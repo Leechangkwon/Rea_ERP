@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 업로드 정책 metadata의 양식·구매·공통 계층
+
+독립 RequestUploadPolicyCore는 명시 version1 snapshot의 양식 explicit/default/unknown을 구분한다. explicit0도 유효하고 default는 구매값만 선택한다. 미상양식이나 미상구매를 공통 수량·단가로 대체하지 않는다. 금액은 공통0~2, 수량/단가는0~6이며 공통 표시/반올림과 분리한다. quantityUse는0자리와 별개의 boolean/null이다. provenance/unresolved를 보존하고 확인된 경우에만 기존 review 검사에 호환되는 quantity/amounts를 만든다. 외화/필수/묶음/저장 계약은 계속 미해결이다. 원본 popup의 실제 formatter 호출/서버 schema를 복제한 것은 아니며 회사/양식 설정·adapter는 미연결이다. 기존 FormCore/FormOptions는 자릿수 metadata가 없으므로 다음 nullable schema/UI/guard를 별도 설계한다. 근거 evidence/manual-request-upload-policy-20261022.json.
+
 ## 0.74.0 읽기 전용 업로드 메뉴 연결
 
 RequestUploadInputCore는 Excel TSV의 문자열/빈셀/인용탭·CRLF/따옴표를 보존하고 자체1MiB/1000행 자원한도를 검사한다. registered snapshot은 기초자료 코드·명칭·바코드·사용중단만 복사하며 수량·금액·통화 정밀도/필수는 null이다. Preview는 미상 정책에 영점/표시정밀도를 대입하지 않고 원문과 검토사유를 반환한다. InventoryUI launcher가 계정·회사·조회권한/설정JSON·raw/route/host guard를 구성하고 InputUI가 storage/focus/조작·닫기/메뉴이동 때 폐기한다. 서버 권한 실변경 동등성은 미검증이고 저장 API/브라우저 초안은 만들지 않는다. 기존 general entry paste·InventoryCore 자동계산·DB schema는 유지한다. 저장 선행 versioned uploadSnapshot/CAS·기본/추가수량/유효금액 소비자 차이표는 docs/plan-request-upload-close-20261022.md에 추가했다. 운영0.74.0은 검토까지만 제공하며 전체업로드 완료가 아니다. 근거 evidence/manual-request-upload-connection-20261022.json.

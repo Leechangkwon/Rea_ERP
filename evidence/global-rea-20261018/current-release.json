@@ -214,9 +214,16 @@
       "newActualShellBrowser": 8,
       "separateComponentBrowser": 2,
       "evidence": "evidence/manual-request-upload-connection-20261022.json"
+    },
+    "requestUploadPrecisionPolicyCandidate": {
+      "newNode": 12,
+      "relatedNode": 74,
+      "tools": 7,
+      "production": false,
+      "evidence": "evidence/manual-request-upload-policy-20261022.json"
     }
   },
-  "future_research": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 설정 계약을 채운다. 기존 기능 계획의 versioned uploadSnapshot/CAS·기본/추가수량·명시금액 소비자 차이표를 기준으로, 실제 요청 업로드에 적용되는 회사별 수량 사용/자릿수·통화/단가 정밀도·필수/상단 매핑·묶음 equality·저장시값변경을 공식 본문/분리 조회설정/공개소스에서 확인한다. 현재 conveniences 표시자릿수나 보고서 위젯을 업무 설정으로 대체하지 않는다. 확인된 계약은 업로드 전용 정책 snapshot으로 연결하고 일반입력 자동금액/기존 qty·백업/자료는 변환하지 않는다. 원본 저장/주입력행/설정적용·발송 없이 진행하며 metadata가 미상인 채 묶음저장·부분실패/재시도를 추정 구현하지 않는다. 다음 구현은 독립 저장후보의 모든 유효금액 소비자와 역호환 검증을 묶어 진행한다. 운영0.74.0·기존 계정/자료/양식/메일 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
+  "future_research": "다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-request-upload-connection-20261022.json",
@@ -601,7 +608,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 업로드 저장의 선행 설정 계약을 채운다. 기존 기능 계획의 versioned uploadSnapshot/CAS·기본/추가수량·명시금액 소비자 차이표를 기준으로, 실제 요청 업로드에 적용되는 회사별 수량 사용/자릿수·통화/단가 정밀도·필수/상단 매핑·묶음 equality·저장시값변경을 공식 본문/분리 조회설정/공개소스에서 확인한다. 현재 conveniences 표시자릿수나 보고서 위젯을 업무 설정으로 대체하지 않는다. 확인된 계약은 업로드 전용 정책 snapshot으로 연결하고 일반입력 자동금액/기존 qty·백업/자료는 변환하지 않는다. 원본 저장/주입력행/설정적용·발송 없이 진행하며 metadata가 미상인 채 묶음저장·부분실패/재시도를 추정 구현하지 않는다. 다음 구현은 독립 저장후보의 모든 유효금액 소비자와 역호환 검증을 묶어 진행한다. 운영0.74.0·기존 계정/자료/양식/메일 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
+    "nextIndependentWork": "다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -994,6 +1001,17 @@
       "syntheticHostedReviewVerified": true,
       "saveImplemented": false,
       "done": false
+    },
+    "requestUploadPrecisionPolicyCandidate": {
+      "sourceCommit": "a668b4c703d693d97d88526c72a174d87c7cd3ab",
+      "evidence": "evidence/manual-request-upload-policy-20261022.json",
+      "newNode": 12,
+      "relatedNode": 74,
+      "companyFormAdapterConnected": false,
+      "appIntegrated": false,
+      "saveImplemented": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -1059,6 +1077,13 @@
       "newManualBodies": 0,
       "fullBodyAnalyzed": false,
       "includedInHistoricalReaCorpusBaseline": false
+    },
+    "requestUploadPrecisionSettings": {
+      "manifest": ".artifacts/manual-request-upload-policy-20261022/source-manifest.json",
+      "downloadedPublicBodies": 2,
+      "publicBytes": 12535,
+      "includedInHistoricalReaCorpusBaseline": false,
+      "semanticScopeComplete": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -1120,6 +1145,20 @@
       "ownScopes": 7,
       "originalNewScopes": 0,
       "originalCacheVerifiedScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "requestUploadPrecisionPolicyCandidate": {
+      "evidence": "evidence/manual-request-upload-policy-20261022.json",
+      "summary": ".artifacts/manual-request-upload-policy-20261022/rea/rea-summary.json",
+      "ownScopes": 4,
+      "originalScopes": 3,
+      "downloadedPublicBodies": 2,
+      "publicBytes": 12535,
+      "fullBodiesAnalyzed": false,
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false,

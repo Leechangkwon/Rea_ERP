@@ -154,3 +154,9 @@ sourcecca6b53/test522481f·release1425779. 신규Node8/관련62·실제앱셸 �
 RequestUploadPolicyCore.resolve의 독립 metadata 해석기를 만든다. 명시 version1 snapshot의 common(금액/기본/추가수량/단가), purchase(기본/추가수량/단가), form(각수량/단가의 explicit/default/unknown)과 quantityUse를 받는다. explicit0도 양식 명시값이며 default일 때만 구매값을 사용한다. unknown 양식 또는 미상 구매값은 공통값으로 대체하지 않는다. 금액은 common.amountDigits에서만 읽고 다른 표시 설정·반올림/단가 자릿수와 혼합하지 않는다. 금액0~2·수량/단가0~6의 명시 정수만 허용하고 null은 미상, undefined/잘못된 shape는 오류다. 추가수량 사용여부와0자릿수를 구분하고 필요한 값이 모두 확인된 경우만 기존 review용 quantity/amounts 정책을 반환한다. 출처와 미해결필드를 함께 반환하며 외화정밀도/묶음/기본값/권한/저장을 해결하지 않는다.
 
 기존0.74.0 실제 메뉴의 null정책/저장차단은 유지한다. 이 해석기를 회사 snapshot 공급원과 연결한 것은 아니며 원본 관찰값을 REA 회사 기본값으로 하드코딩/저장하지 않는다. 정확한metadata형식·양식0우선·default구매0우선·unknown상속차단·공통금액/비율분리·사용안함과수량사용·불변/JSON·잘못된값을 집중 검사한다. 필요한 자체/새원본 범위를 REA6.4로 분석하고 기존설계에 기록하여 commit/push한다. 실제앱/배포 변경이 없으므로 전체98브라우저/서버메일 백업을 반복하지 않는다.
+
+### 자릿수 해석기 결과
+
+sourcea668b4c, 신규Node12/관련74·도구7·구문/diff 통과. 양식0우선·구매0기본/공통6분리·unknown상속차단·금액/수량사용 분리·정확 수량/수동금액 helper 호환·불변/JSON·잘못된 metadata를 확인했다. REA6.4 자체4/새원본3범위 parse0·coverage unknown/truncated false. 회사/양식 adapter·앱/DB/저장 미연결로 운영0.74.0 유지·전체98브라우저/배포/서버메일 백업 반복없음. 본문21/목록51/요구사항26/전체합격0·모아60로컬대기. 근거 evidence/manual-request-upload-policy-20261022.json.
+
+다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.

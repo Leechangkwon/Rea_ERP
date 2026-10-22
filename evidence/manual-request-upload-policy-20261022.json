@@ -1,0 +1,337 @@
+{
+  "baselineVersion": "0.74.0",
+  "sourceCommit": "a668b4c703d693d97d88526c72a174d87c7cd3ab",
+  "status": "local-precision-metadata-resolver-company-form-adapter-not-connected",
+  "requirement": "REQ-PUR-REQ-005",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 51,
+  "manualBodiesReviewed": 21,
+  "newManualBodies": 0,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "route": "Self-Customizing > 환경설정 > 기본값설정 > 공통 > 구매관리 소수점",
+    "labels": [
+      "금액소수점",
+      "기본수량소수점",
+      "추가수량소수점",
+      "단가소수점",
+      "단가(vat포함)소수점"
+    ],
+    "purchasePopup": "소수점기본값(구매)",
+    "formDefaultOnlyDescription": true,
+    "moneyAndVatReferToCommonTab": true,
+    "observedPriceContrast": {
+      "common": 6,
+      "purchase": 0,
+      "meaning": "Illustrates separate layers only; not assigned to REA defaults"
+    },
+    "priceDropdownChoices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "zeroLabel": "사용안함",
+    "precisionZeroNotQuantityUseDisabled": true,
+    "selectedDropdownOption": false,
+    "originalSettingsSaveOrBusinessWrite": false,
+    "mainInputOrRowMovementTouched": false,
+    "popupClosedWithEscapeWithoutSave": true,
+    "earlierReportFormCleanup": "취소 kept the form open; explicit 닫기 closed settings and upload panels",
+    "businessRecordsOrAuthenticatedUrlsInEvidence": false
+  },
+  "publicSources": [
+    {
+      "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/view.selfcustomize/esc/views/xesc006m.-232706259923588377.20.js?v=240503&pathv3=https:loginbb.ecount.com/ec56/view/erp",
+      "file": ".artifacts/manual-request-upload-policy-20261022/xesc006m.-232706259923588377.20.js",
+      "bytes": 3523,
+      "sha256": "1f30cdfe3009bc81b27725919594a421eccff973a3d3ef561e120cc4b373d724",
+      "observedLoaded": true,
+      "authenticated": false,
+      "executed": false
+    },
+    {
+      "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/ui.selfcustomize/esc/views/esc001p_308.-8445920423630179186.20.js?v=240503&pathv3=https:loginbb.ecount.com/ec56/view/erp",
+      "file": ".artifacts/manual-request-upload-policy-20261022/esc001p_308.-8445920423630179186.20.js",
+      "bytes": 9012,
+      "sha256": "62f0b4b8d358d778188f2bea8741b2a59ec197ff804a5cdbf033a11692119350",
+      "observedLoaded": true,
+      "authenticated": false,
+      "executed": false
+    }
+  ],
+  "publicStaticFindings": {
+    "overview": "XESC006M creates a category tree from server ScCofsComnSettingItems; actual tenant definitions remain outside public source",
+    "popupModes": {
+      "509": "companyForm OUT_DEC_*",
+      "522": "inventory IN_DEC_Q/IN_DEC_UQ/IN_DEC_P/BUY_PRICE_VAT_DECIMAL_PLACE"
+    },
+    "numericOptions": {
+      "quantityAndPrice": [
+        0,
+        6
+      ],
+      "commonAmount": [
+        0,
+        2
+      ]
+    },
+    "saveConstruction": "Parent authorization gate and distinct common/purchase save payloads parsed only; never invoked",
+    "inputFormatterInvocationVerified": false,
+    "companyConfigurationAdapterVerified": false
+  },
+  "implementation": {
+    "file": "dist/request-upload-policy-core.js",
+    "sha256": "c08ecb13a4a2f4d89975f29c336c1e6ba7161c44d4767cc9d0b6df4df518b7fd",
+    "entry": "resolve",
+    "schema": "Own explicit version1 common/purchase/form/quantityUse snapshot, not original server JSON schema",
+    "explicitForm": "0..6, including0 overrides purchase",
+    "defaultForm": "Only explicit default selects purchase; missing purchase does not use common quantity/price",
+    "unknownForm": "Keeps digits null, never guesses the selection or inherits",
+    "domesticAmount": "Only explicit common amountDigits0..2; separate from price/format display settings",
+    "quantityUsage": "boolean or explicit null, separate from0decimal precision",
+    "output": "Per-field digits/provenance/unresolved list and compatible quantity/amounts policy only when known",
+    "foreignPrecisionResolved": false,
+    "appIntegrated": false,
+    "companyFormAdapterConnected": false,
+    "savedSettingsChanged": false,
+    "saveSupported": false,
+    "wholeUploadDone": false
+  },
+  "checks": {
+    "newNode": 12,
+    "relatedNode": 74,
+    "tools": 7,
+    "syntaxPassed": true,
+    "diffCheckPassed": true,
+    "rea": {
+      "reaVersion": "6.4.0",
+      "originalExecuted": false,
+      "requestRouteInvocationVerified": false,
+      "scope": "Own strict precision metadata resolution4scopes; observed public V3 decimal popup initialization/save request construction and overview authorization3scopes. Only UI-advertised form explicit vs purchase default rule implemented; input formatter invocation, company mapping and save equivalence not verified. Original methods parsed only, never executed",
+      "results": [
+        {
+          "name": "record",
+          "category": "own",
+          "file": "dist/request-upload-policy-core.js",
+          "sourceSha256": "c08ecb13a4a2f4d89975f29c336c1e6ba7161c44d4767cc9d0b6df4df518b7fd",
+          "start": 100,
+          "end": 326,
+          "lineStart": 4,
+          "lineEnd": 6,
+          "fragmentSha256": "ef06993cef7f05e9351c20b474c628e04288922280d3e4bcc9941047184d4dda",
+          "resultSha256": "d7f626728e8ed7963d577bdf49f11858cf8366b9bc5d2487ce0f08248043f2a7",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 246,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 54,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "digits",
+          "category": "own",
+          "file": "dist/request-upload-policy-core.js",
+          "sourceSha256": "c08ecb13a4a2f4d89975f29c336c1e6ba7161c44d4767cc9d0b6df4df518b7fd",
+          "start": 328,
+          "end": 501,
+          "lineStart": 7,
+          "lineEnd": 7,
+          "fragmentSha256": "55ebf6b8b80da1984dcfc8bb47b296cb7fd113b1cc6fdd357a06880cd229e73a",
+          "resultSha256": "ebccd1b586f1127006f615c6cff575320d3e9c0cd9efe74b03268980164b5741",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 207,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 37,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "formValue",
+          "category": "own",
+          "file": "dist/request-upload-policy-core.js",
+          "sourceSha256": "c08ecb13a4a2f4d89975f29c336c1e6ba7161c44d4767cc9d0b6df4df518b7fd",
+          "start": 503,
+          "end": 1157,
+          "lineStart": 8,
+          "lineEnd": 13,
+          "fragmentSha256": "39568d4d5e3c79f5e0f8871e83093bf2dd6f87d77a38e06dc89678fd9ec9743b",
+          "resultSha256": "e40a950ed909c9042b685123a48f960d66fa2403b2b50259b57f069aa3d67c56",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 722,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 127,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "resolve",
+          "category": "own",
+          "file": "dist/request-upload-policy-core.js",
+          "sourceSha256": "c08ecb13a4a2f4d89975f29c336c1e6ba7161c44d4767cc9d0b6df4df518b7fd",
+          "start": 1159,
+          "end": 2869,
+          "lineStart": 14,
+          "lineEnd": 23,
+          "fragmentSha256": "5c8c155d0fb5057b8501cf71385fe9db0dfef2d665949be7713a0e6af17fe60c",
+          "resultSha256": "ff4c04acee442c71b3ff4b3bcf7a8ba99f60b9a9efd270f644830f571be8b384",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1810,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 326,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "onInitContents",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-policy-20261022/esc001p_308.-8445920423630179186.20.js",
+          "sourceSha256": "62f0b4b8d358d778188f2bea8741b2a59ec197ff804a5cdbf033a11692119350",
+          "start": 1214,
+          "end": 5562,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "b5f134c3ce0b4f9eccf24b1055cfea3e423d3c0a793631e114365b63cadc0cc1",
+          "resultSha256": "cf3bc5b6ac7da8b80310649c6f5b6df4ca39095b08546a8aac8f14eae0ef9a87",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 4363,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 1133,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "onFooterSave",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-policy-20261022/esc001p_308.-8445920423630179186.20.js",
+          "sourceSha256": "62f0b4b8d358d778188f2bea8741b2a59ec197ff804a5cdbf033a11692119350",
+          "start": 6274,
+          "end": 8509,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "d92cdbb719a93528c6d4eae8865beb142aa0e74fdd81f52aa6a8274989b2ac86",
+          "resultSha256": "a031cb0e28120f7295ab71e6190367af562427cb4506a51eee9632e7949e219b",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 2250,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 535,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "getAuthorize",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-policy-20261022/xesc006m.-232706259923588377.20.js",
+          "sourceSha256": "1f30cdfe3009bc81b27725919594a421eccff973a3d3ef561e120cc4b373d724",
+          "start": 3053,
+          "end": 3520,
+          "lineStart": 1,
+          "lineEnd": 1,
+          "fragmentSha256": "13ddd3a57ec68525197c679c89830eaf48e2aae2398c4019849188565f2cdf06",
+          "resultSha256": "282dd85fb76690e5c1b63663635cb906405561bd92bc37759a80e1336dfe948d",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 482,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 141,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        }
+      ]
+    },
+    "fullBrowser98Repeated": false,
+    "rootFullBuildRun": false
+  },
+  "deployment": {
+    "performed": false,
+    "runtimeVersion": "0.74.0",
+    "runtimeSession": 12797,
+    "runtimePid": 2380443,
+    "runtimeManagerRunningChecked": true,
+    "runtimeBundleSha256": "421bc699dd4efb921911b743a0b380e6713a346541fc7d995c7a2e62a61c415b",
+    "preservation": "Installed bundle unchanged, no REA account/business/form/mail writes. Previous0.74 preservation is historical and not rerun.",
+    "mailSent": false,
+    "backupOrRestoreRepeated": false
+  },
+  "moa": {
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 60,
+    "authChanged": false,
+    "probeRepeated": false,
+    "uploaded": false,
+    "readbackVerified": false
+  },
+  "remaining": [
+    "Company/form configuration schema/UI/adapter and true additional-quantity usage metadata",
+    "Foreign precision/required/header/grouping/defaults/two-quantity precedence",
+    "Versioned explicit-money persistence, effective consumers, failure/retry and business acceptance"
+  ],
+  "nextWork": "다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.",
+  "done": false
+}
