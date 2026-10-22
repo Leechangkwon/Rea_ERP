@@ -199,9 +199,17 @@
     "requestUploadAmountCandidateNewNode": 12,
     "requestUploadAmountCandidateRelatedNode": 32,
     "requestUploadReviewCandidateNewNode": 13,
-    "requestUploadReviewCandidateRelatedNode": 45
+    "requestUploadReviewCandidateRelatedNode": 45,
+    "requestUploadReviewUIComponent": {
+      "newNode": 9,
+      "relatedNode": 54,
+      "syntheticComponentBrowser": 2,
+      "actualAppMenu": false,
+      "production": false,
+      "evidence": "evidence/manual-request-upload-review-ui-20261022.json"
+    }
   },
-  "future_research": "다음은 발주요청 실제 웹자료올리기 분리창의 상위 양식설정/전표묶음기준설정/저장시값변경 진입과 적용중인 값·필수/상하단 메타데이터를 읽기 전용 확인한다. 품목/거래처 기초등록의 기본탭 문서를 요청 전표 규칙으로 확대하지 않고, 이전 disabled 항목설정 링크는 새 상태/권한 없이 반복 클릭하지 않는다. 현재 raw→코드제안→수량/금액→행별사유 모델을 실제 미리보기 UI에 연결하기 전 회사 snapshot·권한/변경번호·동시 수량/고정금액 영속화와 조회/백업/후속전표 소비자 계획을 확정한다. 원본 우선순위·기본값·묶음·필수·부분실패/재시도와300건의 단위를 추정하지 않는다. 세션 만료 시 독립 분석/합성 검증을 계속한다. 운영0.73.0·기존 자료/계정/양식/메일 유지, main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
+  "future_research": "다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "../manual-plan-generation-reference-20261022.json",
@@ -583,7 +591,7 @@
       "deployedCommit": "8434b1c8f1fac8339a68eafc82ff8b1fefa2ba94",
       "hostedWriteAcceptancePending": true
     },
-    "nextIndependentWork": "다음은 발주요청 실제 웹자료올리기 분리창의 상위 양식설정/전표묶음기준설정/저장시값변경 진입과 적용중인 값·필수/상하단 메타데이터를 읽기 전용 확인한다. 품목/거래처 기초등록의 기본탭 문서를 요청 전표 규칙으로 확대하지 않고, 이전 disabled 항목설정 링크는 새 상태/권한 없이 반복 클릭하지 않는다. 현재 raw→코드제안→수량/금액→행별사유 모델을 실제 미리보기 UI에 연결하기 전 회사 snapshot·권한/변경번호·동시 수량/고정금액 영속화와 조회/백업/후속전표 소비자 계획을 확정한다. 원본 우선순위·기본값·묶음·필수·부분실패/재시도와300건의 단위를 추정하지 않는다. 세션 만료 시 독립 분석/합성 검증을 계속한다. 운영0.73.0·기존 자료/계정/양식/메일 유지, main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
+    "nextIndependentWork": "다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
       "sourceCommit": "b7101adf129678cb65ea0d4dbb63fbaf2f74ef54",
@@ -953,6 +961,18 @@
       "saveImplemented": false,
       "productionDeployed": false,
       "done": false
+    },
+    "requestUploadReviewUIComponent": {
+      "sourceCommit": "d7dfb51383022ae56cb230c48136802ffeea9a47",
+      "evidence": "evidence/manual-request-upload-review-ui-20261022.json",
+      "status": "isolated-review-ui-component-only-no-app-menu-or-storage",
+      "newNode": 9,
+      "relatedNode": 54,
+      "syntheticComponentBrowser": 2,
+      "appIntegrated": false,
+      "saveImplemented": false,
+      "productionDeployed": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -1004,6 +1024,18 @@
       "manifest": ".artifacts/manual-request-upload-contracts-20261022/attribute-setting-source-manifest.json",
       "includedInHistoricalReaCorpusBaseline": false,
       "semanticScopeComplete": false
+    },
+    "requestUploadSetupContainer": {
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/setup/setup.9656efa9.js",
+      "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+      "bytes": 1576978,
+      "sha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+      "observedLoadedInOriginal": true,
+      "authenticated": false,
+      "executed": false,
+      "newManualBodies": 0,
+      "fullBodyAnalyzed": false,
+      "includedInHistoricalReaCorpusBaseline": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -1041,6 +1073,17 @@
       "evidence": "evidence/manual-request-upload-preview-20261022.json",
       "summary": ".artifacts/manual-request-upload-preview-20261022/rea/rea-summary.json",
       "ownScopes": 3,
+      "originalScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "requestUploadReviewUIComponent": {
+      "evidence": "evidence/manual-request-upload-review-ui-20261022.json",
+      "summary": ".artifacts/manual-request-upload-settings-20261022/rea/rea-summary.json",
+      "ownScopes": 2,
       "originalScopes": 2,
       "parseFailures": 0,
       "coverage": "unknown",

@@ -1,0 +1,354 @@
+{
+  "baselineVersion": "0.73.0",
+  "requirement": "REQ-PUR-REQ-005",
+  "sourceCommit": "d7dfb51383022ae56cb230c48136802ffeea9a47",
+  "status": "isolated-review-ui-component-only-no-app-menu-or-storage",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualBodiesReviewed": 21,
+  "manualIndexItems": 51,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "route": "발주요청조회 > 하단 더보기 > 웹자료올리기 > Option > 양식설정",
+    "parentPage": "ICRMSetupPage",
+    "separateSettingsButton": "IReportFormSetupPage 위젯설정; input save-time defaults not established",
+    "bundlePage": "IAttributeSettingCommonPage 전표 묶음기준",
+    "selectedTokens": [
+      {
+        "label": "일자",
+        "className": "tag label label-light label-muted",
+        "index": 0
+      },
+      {
+        "label": "거래유형",
+        "className": "tag label label-light label-primary",
+        "index": 1
+      },
+      {
+        "label": "순번",
+        "className": "tag label label-light label-muted",
+        "index": 2
+      },
+      {
+        "label": "창고",
+        "className": "tag label label-light label-primary",
+        "index": 3
+      }
+    ],
+    "tokenInterpretation": "Four DOM tags, not two AX-combined phrases; muted style does not prove required/fixed behavior",
+    "addItemPage": "ITemplateItemListPage 항목추가",
+    "addItemCategories": [
+      "발주요청서(detail)",
+      "상단-기본"
+    ],
+    "newManualBodiesReviewed": 0,
+    "mandatoryFieldsVerified": false,
+    "groupingEqualityVerified": false,
+    "saveTimeDefaultsVerified": false,
+    "originalInputCellsEdited": false,
+    "originalMainRowsOrMovementTouched": false,
+    "checkboxSelectionsChanged": false,
+    "settingsAppliedOrSaved": false,
+    "businessWrites": false,
+    "mailSent": false,
+    "cleanup": "항목추가 닫기 > 묶음 닫기 > 양식 취소 > 웹자료올리기 닫기; viewport restored; tabs handed off",
+    "privateBusinessRowsOrSessionUrlsStored": false,
+    "disabledItemSettingLinkRetried": false
+  },
+  "originalStatic": {
+    "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/setup/setup.9656efa9.js",
+    "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+    "bytes": 1576978,
+    "sha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+    "observedLoadedInOriginal": true,
+    "authenticated": false,
+    "executed": false,
+    "methods": [
+      "CRMSetupPage.onInitializePage",
+      "CRMSetupPage.buildContent"
+    ],
+    "inference": "Generic CRM template_widget DMC and toolbar/content assembly match observed ICRMSetupPage; input defaults/required metadata/grouping save contracts remain unverified",
+    "requestInvocationVerified": false,
+    "fullBodyAnalyzed": false
+  },
+  "implementation": {
+    "files": {
+      "dist/request-upload-review-ui.js": "5a19658c59b6776fa321fe78c1369163141faf062c862defdf77d04fff956433",
+      "dist/request-upload-review.css": "f9007fee201d7ef6e2e9aafb089f69ce8b0a954d0afc6142d2de03d8934156bd",
+      "tests/helpers/upload-review-fixture.cjs": "10c3ae445f614d26428a3b2b8d9d379de083762cce4e5f0808539bcb6bdbb863",
+      "tests/request-upload-review-ui.cjs": "4ed0c3359a885e333e6b0b03dbce5ab875d7c777af8ed50b2394e5596f6b2a95",
+      "tests/browser/request-upload-review.cjs": "1685f12516e30e44e739d09a4a7669ec75b30bbdd085c69d7d9ea132663e1a45"
+    },
+    "entry": "RequestUploadReviewUI.mount(host,result,{isCurrent,onClose})",
+    "features": [
+      "immutable model snapshot",
+      "raw22-column details and separate proposed values",
+      "both quantity strings and independent exact manual amounts",
+      "Korean review reasons and unresolved contracts",
+      "review filter and50-row pages",
+      "textContent only",
+      "guard revocation/host replacement/remount/close cleanup"
+    ],
+    "pageSize": 50,
+    "pageSizeIsOwnResourcePolicy": true,
+    "guardIntegration": "Required caller callback; synthetic lifecycle checked, actual ERP account/revision adapter not yet connected",
+    "buttons": "36px desktop,44px at mobile<=700px; checkbox16px; only table horizontal scroll",
+    "pasteOrFileInputImplemented": false,
+    "appMenuIntegrated": false,
+    "storageIntegrated": false,
+    "saveSupported": false,
+    "realAccountAcceptance": false
+  },
+  "checks": {
+    "newNode": 9,
+    "relatedNode": 54,
+    "passed": 54,
+    "command": "node --test tests/request-upload-candidate.cjs tests/request-upload-amounts.cjs tests/request-upload-preview.cjs tests/request-upload-review-ui.cjs",
+    "syntheticComponentBrowser": {
+      "passed": 2,
+      "command": "npm run test:upload-review:browser",
+      "runtime": "existing browserEnvironment() helper; no dependency installs",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 950,
+          "boxes": [
+            {
+              "text": "이전",
+              "width": 48,
+              "height": 36
+            },
+            {
+              "text": "다음",
+              "width": 48,
+              "height": 36
+            },
+            {
+              "text": "닫기",
+              "width": 48,
+              "height": 36
+            }
+          ],
+          "bounds": {
+            "body": 1280,
+            "viewport": 1280,
+            "wrap": 1254,
+            "table": 1254,
+            "checkbox": {
+              "width": 16,
+              "height": 16
+            }
+          },
+          "rawTextSafe": true,
+          "filterAndGuardPassed": true,
+          "onlyLocalGET": true,
+          "actualAppMenu": false,
+          "originalOrProductionTouched": false
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "boxes": [
+            {
+              "text": "이전",
+              "width": 52,
+              "height": 44
+            },
+            {
+              "text": "다음",
+              "width": 52,
+              "height": 44
+            },
+            {
+              "text": "닫기",
+              "width": 52,
+              "height": 44
+            }
+          ],
+          "bounds": {
+            "body": 390,
+            "viewport": 390,
+            "wrap": 372,
+            "table": 880,
+            "checkbox": {
+              "width": 16,
+              "height": 16
+            }
+          },
+          "rawTextSafe": true,
+          "filterAndGuardPassed": true,
+          "onlyLocalGET": true,
+          "actualAppMenu": false,
+          "originalOrProductionTouched": false
+        }
+      ],
+      "screenshots": {
+        "1280": {
+          "path": ".artifacts/manual-request-upload-settings-20261022/synthetic-upload-review-1280.png",
+          "sha256": "a46019a87baca4bd41f36d320a8c62c3bf6b72528d45a6bba67debbea1f63329",
+          "visuallyReviewed": true
+        },
+        "390": {
+          "path": ".artifacts/manual-request-upload-settings-20261022/synthetic-upload-review-390.png",
+          "sha256": "eefa9711ee7271ce6549ee38c6296a3d76b0a257434ba99ab69d4dba2c4e9e92",
+          "visuallyReviewed": true
+        }
+      },
+      "actualAppMenuOrProduction": false
+    },
+    "syntaxPassed": true,
+    "diffCheckPassed": true,
+    "rea": {
+      "reaVersion": "6.4.0",
+      "originalExecuted": false,
+      "requestRouteInvocationVerified": false,
+      "scope": "Own isolated UI mount and issue labels; observed public CRMSetupPage initialization and template content assembly. Mount includes nested lifecycle and draw functions; external bindings unresolved. This does not establish input defaults, required fields, grouping equality or persistence",
+      "results": [
+        {
+          "name": "issueText",
+          "category": "own",
+          "file": "dist/request-upload-review-ui.js",
+          "sourceSha256": "5a19658c59b6776fa321fe78c1369163141faf062c862defdf77d04fff956433",
+          "start": 344,
+          "end": 1094,
+          "lineStart": 4,
+          "lineEnd": 8,
+          "fragmentSha256": "50e4a28e3b683e4a692d00a052354af975106367158dc2d2631c13b2c1eb3846",
+          "resultSha256": "ef24ca4011b93eff7570549553aceb92587c4a96a00ed60059fe404cf5e40ef2",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1132,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 78,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "mount",
+          "category": "own",
+          "file": "dist/request-upload-review-ui.js",
+          "sourceSha256": "5a19658c59b6776fa321fe78c1369163141faf062c862defdf77d04fff956433",
+          "start": 1096,
+          "end": 6314,
+          "lineStart": 9,
+          "lineEnd": 35,
+          "fragmentSha256": "e44f10e5fcda7adde9bbe9514d78520b069c351545c30485cb71fdceb79a4637",
+          "resultSha256": "10cf2222de3150c3b3919f49f02e7405bc5ae99a7b2965cf4234f8bfaf53694e",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 5601,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 1224,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "onInitializePage",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+          "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+          "start": 202030,
+          "end": 203139,
+          "lineStart": 3330,
+          "lineEnd": 3343,
+          "fragmentSha256": "e350636c12122a987be29a18f2c3099d1320e0711606468f1dc2b192d825b856",
+          "resultSha256": "dcc3763c3e5a78c220cb24995c51a3121b5b4364b4d4a146312e9de867171904",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1232,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 63,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        },
+        {
+          "name": "buildContent",
+          "category": "original",
+          "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+          "sourceSha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+          "start": 203205,
+          "end": 204693,
+          "lineStart": 3345,
+          "lineEnd": 3371,
+          "fragmentSha256": "4b5832dbca7d839897c6c8f57d66dec46dba0a03388d082420f91ddc03c5b767",
+          "resultSha256": "e497c0d0b5007888ceb935cbda80c071297fe753c3d802f823150a52c4dc1434",
+          "statistics": {
+            "relevant_files": 1,
+            "nested_asar_containers": 0,
+            "text_bytes_read": 1759,
+            "invalid_utf8_files": 0,
+            "parsed_javascript_files": 1,
+            "visited_ast_nodes": 107,
+            "findings": 0,
+            "modules": 0,
+            "parse_failures": 0
+          },
+          "coverage": "unknown",
+          "truncated": false,
+          "bindingsOutsideScopeUnresolved": true,
+          "runtimeEquivalence": false
+        }
+      ]
+    },
+    "rootFullBuildOrFullTestRun": false,
+    "operating90BrowserChecksRepeated": false,
+    "tools": {
+      "passed": 7,
+      "command": "npm run test:tools"
+    }
+  },
+  "deployment": {
+    "performed": false,
+    "runtimeVersion": "0.73.0",
+    "runtimeSession": 60080,
+    "runtimePid": 2368982,
+    "runtimeStatusChecked": true,
+    "runtimeBundleSha256": "e947a8d49c4b3816eab5bced3781f07224511c20541b64b6a5e9d29bbfd7cd0d",
+    "noRuntimeFilesInstalled": true,
+    "productionBusinessWrites": false,
+    "mailSent": false,
+    "preservation": "Installed bundle unchanged and manager running. No stored data writes. Prior0.73.0 data/account/forms/mail comparisons are historical and not rerun."
+  },
+  "remaining": [
+    "Actual menu/paste/file handling and company master/settings/revision snapshot",
+    "Company required/header mapping, defaults and grouping equality",
+    "Base/additional quantity precedence and rounding",
+    "Versioned manual-money persistence and all consumers/backups/downstream vouchers",
+    "Permission/revision checks, partial failure/retry and real-account operating acceptance"
+  ],
+  "next": "다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.",
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingUpdates": 58,
+    "authChanged": false,
+    "probeRepeated": false,
+    "uploaded": false,
+    "readbackVerified": false
+  },
+  "done": false
+}

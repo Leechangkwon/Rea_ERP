@@ -122,3 +122,9 @@ source1edc72f, 신규13/관련45·구문/diff 통과. 공란/원문·제안값, 
 모델 검토45검사는 유지하고 별도 RequestUploadReviewUI를 구현한다. review 결과를 textContent 기반의 공통 toolbar/table/details로 표시하고 원문/제안코드·기본/추가수량·정확한 금액문자열·검토사유를 분리한다. 미확인 계약은 사용자 판단에 필요한 한국어 안내로 표시한다. 필터/상세/닫기만 제공하고 전표저장 버튼은 만들지 않는다. 입력붙여넣기/파일해석·실제앱메뉴/DB는 이번 범위가 아니다. 22열 원문은 상세에서 보존하고 모바일은 테이블만 가로스크롤하며 버튼 높이를 기존 공통 스타일로 유지한다.
 
 mount에는 isCurrent guard를 필수로 받아 false/예외·닫기·호스트교체·새 mount 이후 오래된 조작은 현재화면을 변경하지 않게 한다. destroy는 자신이 소유한 root/listener만 정리한다. 합성 jsdom으로 XSS/원문보존·필터/상세·수명/guard와 Node 모델 회귀를 검사하고, localhost 고립 HTML에서 실제1280/390px 브라우저 검사를 한다. root VAT5 전체빌드/실제운영 데이터에 연결하지 않고 운영0.73.0은 유지한다. 필요한 REA 범위와근거를 남기고 기존설계를 갱신해 commit/push한다.
+
+### 검토 UI 컴포넌트 구현 결과
+
+sourced7dfb51, 신규Node9/관련54 및 독립localhost 브라우저2검사 통과.1280/390px에서 버튼36/44px·체크박스16px·본문 가로넘침 없음/표만 스크롤·안전한 원문표시·필터/guard를 확인하고 스크린샷을 시각검토했다. REA6.4 자체issueText/mount2범위·새공개원본CRMSetupPage 초기화/본문2범위 parse0·coverage unknown/truncated false. 운영0.73.0 번들/런타임 유지, 실제앱메뉴/입력/DB/저장은 미연결이다. 본문21/목록51/요구사항26/전체합격0, 모아58로컬대기. 근거 evidence/manual-request-upload-review-ui-20261022.json.
+
+다음은 REQ-PUR-REQ-005 검토 화면의 실제 메뉴 연결에 필요한 읽기 전용 회사/기초자료 snapshot adapter와 계정·자료 revision guard를 확정한다. 기존 InventoryCore 단일qty/자동금액 계산·조회/백업/후속전표 소비자를 좁게 조사하여 기본/추가수량 및 명시금액을 보존할 업로드 전용 versioned schema/CAS 저장 계획을 기존 기능 계획에 추가한다. 먼저 붙여넣기→검토까지만 격리후보에 연결하고 미확인 묶음/기본값/필수/수량우선순위/실패재시도는 저장 차단 사유로 유지한다. 보고서 위젯설정을 입력 기본값으로 간주하거나 같은 disabled 링크/설정을 반복 탐색하지 않는다. 신규 연결에는 실제 앱셸 합성검사와 필요한 회귀를 수행한 뒤 별도 release commit에서 검증·운영반영한다. 운영0.73.0 및 기존 자료/계정/양식/메일을 보존하고 main VAT5 전체빌드/배포와 전체완료 주장은 금지한다.

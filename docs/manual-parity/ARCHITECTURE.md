@@ -1,5 +1,11 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 업로드 검토 컴포넌트 수명과 화면 범위
+
+RequestUploadReviewUI.mount는 모델을 JSON snapshot으로 분리하고 textContent만으로 원문/제안값·수량·수동금액을 표시한다. WeakMap host 소유권·AbortController listener 정리·필수 isCurrent callback으로 false/예외·교체/닫기/remount 후 오래된 조작을 차단한다. 실제 계정/자료 revision 변경 통지는 아직 caller adapter 연결 전이다.50행 페이지는 자체 DOM 자원정책이며 원본300건 제한과 무관하다. Scoped CSS는 toolbar button36/44px·checkbox16px를 고정하고 표에만 가로스크롤을 둔다. 신규Node9/관련54와 고립 HTML 브라우저2검사는 실제 앱셸/운영 권한 합격이 아니다. 입력붙여넣기·파일해석·메뉴/DB/저장은 미연결이며 일반입력 자동계산/영속자료는 바꾸지 않는다. 근거 evidence/manual-request-upload-review-ui-20261022.json.
+
+원본 ICRMSetupPage/위젯설정/묶음기준의 읽기 전용 관찰과 새 공개V56 CRMSetupPage 범위 분석은 보고서 template_widget 구성을 확인한 것이다. 입력 기본값/필수/그룹 equality와 저장순서는 미확인이다. 다음 연결은 실제 회사/기초자료 snapshot·revision guard와 업로드 전용 수량/명시금액 versioned schema/CAS·소비자 보존 계획을 먼저 확정한다.
+
 ## 업로드 행별 검토 모델과 기초자료 snapshot
 
 RequestUploadPreview는 raw/수량/명시금액 검사 위에 등록 items/partners/currencies의 정확 일치 후보를 연결한다. 코드/바코드/명칭 우선순위는 미확인이라 상충·중복·중단은 검토로 남기는 자체 정책이다. Map 인덱스로 prototype형 코드를 구분하고 중복후보20개/잘림표시로 반환량을 제한한다. 등록통화별 자릿수·품목별비율만 적용하고 원문과 제안값을 분리한다. 필수 null과[]·빈행과오류를 구분하며 그룹/기본값/권한/저장/재시도는 미해결 metadata로 남긴다. 항상saveSupported=false이며 clear상태는 일부검사 사유없음을 뜻한다. actualUI/DB/영속스키마 연결은 별도이며 기존 입력·자료·양식은 변경하지 않는다. 근거 evidence/manual-request-upload-preview-20261022.json.
