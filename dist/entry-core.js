@@ -1,6 +1,7 @@
 (function(root){
   'use strict';
   const C=typeof module==='object'&&module.exports?require('./inventory-core.js'):root.InventoryCore;
+  const M=typeof module==='object'&&module.exports?require('./mapping-core.js'):root.MappingCore;
   const salesTypes=['quote','order','sale','shippingorder','shipment'];
   const purchaseTypes=['request','plan','pricerequest','purchaseorder','purchase','purchasereturn','exchangereceipt'];
   const sourceTypes=Object.keys(C.types);
@@ -189,7 +190,7 @@
       if(result.type==='exchangereceipt'){if(source.settlementMode!=='exchange')throw Error('교환 방식의 반품 전표를 선택하세요.');result.settlementMode='exchange';}
     }
     enabled(db,'warehouses',result.warehouse);if(result.partner)enabled(db,'partners',result.partner);
-    const view=stockDb(db,{excludeId:result.id}),incoming=selections.map(selection=>{
+    const view=stockDb(db,{excludeId:result.id});let incoming=selections.map(selection=>{
       const d=sources.get(selection.documentId),matches=d.lines.filter(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));if(matches.length>1)throw Error('동일 품목의 원본 라인을 선택하세요.');const line=matches[0];enabled(db,'items',selection.item);
       if(!line)throw Error('원본 전표에 없는 품목입니다.');
       if(mode==='linked'&&d.type==='plan'&&result.type==='purchaseorder'){
@@ -212,6 +213,11 @@
     if(!history&&result.type==='purchaseorder'&&incoming.some(line=>line.priceRequestBasis))result.partner=C.priceRequestOrderPartner([...(replace?[]:result.lines||[]),...incoming],options.adoptHeader===true&&incoming.some(line=>line.priceRequestBasis?.vendorCode)?'':result.partner);
     const purchaseOrderLineCopy=result.type==='purchase'&&[...sources.values()].every(d=>d.type==='purchaseorder'),lineCopy=mode==='copy'&&options.grouping==='line'&&(history||purchaseOrderLineCopy||result.type==='request'&&[...sources.values()].every(d=>d.type==='order'));
     if(lineCopy&&(purchaseOrderLineCopy||history)&&result.id){const saved=db.documents.find(d=>d.id===result.id);if(saved&&!saved.lines.some(line=>line.lineId)&&db.documents.some(d=>d.sourceId===saved.id))throw Error('후속 전표가 있는 기존 구매는 라인별 복사로 변경할 수 없습니다. 신규 구매전표를 사용하세요.');}
+    if(options.mappingConfig!==undefined){
+      if(!M)throw Error('항목 매핑 모듈을 다시 불러오세요.');
+      const mapped=M.stage(db,result,incoming,selections,options.mappingConfig,{mode,grouping:options.grouping,history,adoptHeader:options.adoptHeader,environment:options.mappingEnvironment});
+      if(mapped){if(mapped.customChanged)result.custom=mapped.custom;incoming=mapped.lines;}
+    }
     result.lines=lineCopy?appendCopyLines(replace?[]:result.lines,incoming):mergeLines(replace?[]:result.lines,incoming,{type:result.type,...(['request','plan'].includes(result.type)?{supplier:line=>C.purchaseSupplier(db,line,result)}:{}),structured:['item','document'].includes(options.grouping)&&mode==='copy'&&(!result.id||(result.lines||[]).every(l=>l.lineId))});
     if(mode==='linked'){
       const limits=new Map(C.remaining(view,source,result.type).map(l=>[l.lineId||l.item,l.qty]));

@@ -1,5 +1,22 @@
 # 구매실 매뉴얼 기반 재현
 
+## 이번 구현 단위 · 주문→요청의 항목 catalog와 import core 후보
+
+실제 매핑센터 menuOptions는 InventoryCore.types의 `order`/`request` 같은 전표종류 ID를 저장한다. 이전 저장 구조 시험에 쓴 route 형태 문자열은 구조 보존 사례이며 실제 적용 대상이 아니다. 이번 실행 subset은 활성 order→request 규칙의 fieldLinks version1만 지원한다. 필드편집UI·원본 미관찰 옵션은 켜지 않는다.
+
+FormCore.effective의 조건/활성 양식에서 visible·비계산·비readonly 항목만 읽는다. source는 주문의 기본 적요(memo) 및 등록 추가항목, target은 요청의 등록 추가항목으로 제한한다. text/number/date/checkbox의 동일형식만 허용하고 source 원문을 숫자/문자/불리언으로 자동 변환하지 않는다. 대상 타입과 값은 실제 FormCore.check로 확인한다. 필드 실재/형식/보호/조건별 양식은 저장된 ID만으로 인정하지 않는다.
+
+기존 EntryCore.stageDocuments에 optional mappingConfig 경로를 연결한다. 옵션/활성 fieldLinks가 없거나 비활성/빈연결이면 기존 결과를 그대로 유지한다. 비어 있지 않은 유효 연결은 copy·line에 한정하고 상단은 주문 한 건만 허용한다. 라인은 실제 선택 sourceLine별로 대응한다. 공란(undefined/null/빈문자열)은 skip하며 0/false는 명시값이다. 기존 nonblank와 다른 값은 overwrite하지 않고 전체 stage를 거부한다. target 양식선택이 매핑으로 변하면 재검토 오류다. 자체 안전 한도로 text20,000자·총 매핑값 JSON UTF8 1MiB를 두고 초과는 잘라내지 않는다.
+
+본 단계는 core 후보이며 실제 import UI에서 인증 설정 snapshot을 전달하는 소비자/편집 UI와 fresh 권한·revision guard는 후속이다. 제안 목록은 별도 반환하고 전표에는 새 metadata를 주입하지 않는다. 원본/초안/양식·sourceLineId/importedFrom·수량/단가/세율/합계를 보존하는 합성 stage→document.save→재조회 및 관련 legacy 회귀를0.82 기반 격리 환경에서 검사한다. 모든 범위/정책은 자체 fail-closed subset으로 기록하며 원본 다중원본/공란우선순위/집계 예외를 입증했다고 부르지 않는다. 운영0.82 유지, 후보 미배포·전체합격 false.
+
+### 이 단위의 구현 결과
+
+MappingCore.catalog/stage와 EntryCore.stageDocuments의 optional mappingConfig 경로를 구현했다. 신규15·관련269/269·도구7 검사와 격리 worker build가 통과했다. 브라우저 UMD 로드 순서/SelfCore 지연 연결은 JSDOM에서만 확인했고 실제 셸/운영 버튼은 아직 설정 snapshot을 전달하지 않는다. 신규 REA6.4 자체6범위 parse0·coverage unknown/truncated false, 기존 원본4범위는 원문/입력/결과 해시를 확인해 재사용했다. 원본 새 다운로드·본문·실행·저장·배포는0이다. 숫자문자열은 stage에서 보존하며 최종 저장에서는 기존 FormCore의 숫자 정규화를 그대로 따른다.
+
+다음은 기존 주문 불러오기 버튼의 **인증 설정 전달 어댑터**다. GET /api/auth/status의 현재 계정·회사·권한·settingsRevision/menuMappings를 확인하고 대기 중 닫기/부모교체/초안·원본·양식·설정 변경을 차단한 뒤 이 core를 호출하는 흐름을 구현·합성 셸 검증한다. 새 원본 근거가 없는 필드편집 UI는 별도로 보류하며 원본/보존/운영 합격 없이 완료 처리하지 않는다. 통과한 core/helper 분석·전체회귀를 변화 없이 다시 진척으로 세지 않는다. 근거 `evidence/manual-mapping-import-core-20261023.json`.
+
+
 ## 현재 구현 후보 · 매핑센터 항목 연결 저장 기반 (운영0.82.0 유지)
 
 SelfCore.menuMappings 규칙에 optional `fieldLinks(version1, entries)` 저장 검증을 연결했다. 기존 규칙에는 속성을 주입하지 않고 명시 빈목록/미존재를 구분한다. 같은 input/lines 문맥, 자체ID/100개 한도·목표중복/위험경로 차단은 자체 안전 subset이며 원본 한도가 아니다. 기존 config.save 권한·CSRF·revision CAS와 실제 state/publicContext/backup 재조회 경로에서 동작한다. 미상형식은 해당 메뉴설정 저장을 차단하고 읽기/다른설정 저장/백업에서 원문을 보존한다.
