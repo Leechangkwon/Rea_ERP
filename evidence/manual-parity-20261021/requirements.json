@@ -1259,6 +1259,21 @@
         "hostedConfiguredSaveVerified": false,
         "voucherSaving": false,
         "done": false
+      },
+      "researchEvidence": [
+        "evidence/manual-upload-policy-supplier-20261023.json"
+      ],
+      "researchGate": {
+        "status": "request-specific-policy-and-save-contract-waiting-for-new-evidence",
+        "resumeOnlyOn": [
+          "Restored original session with read-only request upload/settings metadata",
+          "New documented original source/manual with a missing request-specific contract"
+        ],
+        "noRepeatEvidence": [
+          "evidence/manual-upload-policy-supplier-20261023.json",
+          "evidence/manual-request-body-focus-20261023.json"
+        ],
+        "savingEnabled": false
       }
     },
     {
@@ -1784,7 +1799,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "needs-detailed-compatibility-review",
+      "status": "purchase-first-compatibility-review-next-field-settings-and-import-consumer-missing",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1797,7 +1812,10 @@
       ],
       "automatedEvidence": [],
       "hostedAcceptance": false,
-      "done": false
+      "done": false,
+      "researchEvidence": [
+        "evidence/manual-upload-policy-supplier-20261023.json"
+      ]
     },
     {
       "id": "REQ-ACC-PRINT-001",
@@ -1996,7 +2014,13 @@
       "remaining": "Generic BODY bundle map and attribute-setting pipeline are statically identified; request-specific child IDs, field order values and runtime keyboard/row/popup behavior remain unobserved after original session expired. Header subset deployed. Extensions, sharing, other menus and full hosted saved-form/workflow acceptance remain incomplete.",
       "researchEvidence": [
         "evidence/manual-request-body-focus-20261023.json"
-      ]
+      ],
+      "researchGate": {
+        "status": "body-request-specific-fields-login-required",
+        "resumeOnlyOn": "Actual separated BODY settings or new source carrying request-specific field/bundle definitions",
+        "genericBundleConsumerAnalysisComplete": true,
+        "wholeRequirementDone": false
+      }
     }
   ]
 }

@@ -1,5 +1,21 @@
 # 발주요청 자료올리기·현황 종결 차이표와 구현 계획
 
+## 현재 종료한 독립 조사 · upload 분기와 설정창 공급 구분
+
+근거 `evidence/manual-upload-policy-supplier-20261023.json`. GetAttributeSettingProgram은 서버 GetAttributeSettingSetupAction의 정의/prop_ids/setting_info/attr_data_types를 설정창 모델로 변환한다. 항목의 item_meaning→refer_type→refer_group→data_type→attr_id별 설정 자료형 우선순위와 기존속성/기본값 선택은 설정편집 의미다. template/template_code/calc/default converter를 구분하며, 이를 요청 upload Formatter/Validator 실제 공급으로 확정하지 않는다.
+
+기존 `_checkValidRow`/`_checkInputLineWithKeyProps` 분석은 upload의 실제 진입이 아니었다. 이번 진입함수 대조로 다음을 정정했다.
+
+| upload 경로 | 확인한 동작 | 미확인 입력 |
+|---|---|---|
+| FilterRowDataProgram | valid_key_list 읽기 전 upload 모델로 분기. record_sid/result를 제외한 값과 upload_status로 원래 인덱스 check_valid_row를 표시. reduce 결과를 data_model에 재할당하지 않음 | status 값 의미·vIsEmpty 정확 의미·기존 결과/재시도 |
+| CheckValidRowProgram | upload 정의/모델이 없으면 반환. 유효행 true가0이면 첫 display_order 항목에 not_null 오류 | 실제 정의/값/오류 문구·호출순서 |
+| CheckInputLineProgram | input_required_value가 참일 때만 검사, upload는 without-key-props 사용. 내부 import-target/제외항목/코드형식/데이터로 유효행 판정 | 요청 메뉴의 실제 metadata·조건·Validator |
+
+요청의 실제 필수/그룹화·통화/수량/고정금액/저장실패 계약은 여전히 없다. 전표저장/재시도 UI를 활성화하지 않는다. 원본 로그인 복구 또는 새 요청별 계약이 생길 때만 이 과제를 재개한다. BODY bundle 조사도 같은 재개조건으로 관리하며 동일한10범위·이전5범위 분석/상단115회귀를 변화 없이 반복하지 않는다.
+
+독립 다음 과제는 REQ-COM-MAPPING-001이다. 기존 매핑 매뉴얼 본문은 메뉴연결→항목별 source/target 설정→목표 입력에서 선택적용을 요구한다. 현재 자체는 menuMappings의 id/from/to/enabled만 저장하고 필드설정버튼은 비활성, 입력쪽 직접 소비자가 없다. 기존 설정/계정/자료/양식을 보존하는 매핑 계약과 주문→요청 실제 import 소비자를 먼저 좁혀 조사한다. 신규 필드편집 화면을 원본 관찰 없이 추정하지 않는다. 상세 선행조건은 기존 PRD/ARCHITECTURE의 현재 매핑센터 절을 따른다.
+
 ## 이번 조사 결과 · BODY 입력순서의 묶음 metadata
 
 발주요청 하단은 상단 입력순서 구현의 단순 확장으로 처리하지 않는다. 원본 로그인 만료와 별개로 공개 모듈의 실제 지도 함수/공급 경로, 자체0.82 BODY 소비자까지 새로 대조했다. 근거 `evidence/manual-request-body-focus-20261023.json`, 해시/원문/REA `.artifacts/manual-request-body-focus-20261023/`.

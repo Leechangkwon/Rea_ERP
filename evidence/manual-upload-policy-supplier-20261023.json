@@ -1,0 +1,170 @@
+{
+  "baselineVersion": "0.82.0",
+  "productionVersion": "0.82.0",
+  "repositoryBaselineCommit": "5d6581c5721be0a1fb5c163ea87087a3adc4d6e2",
+  "status": "upload-validation-branch-correction-and-policy-supplier-researched-not-implemented",
+  "requirements": [
+    "REQ-PUR-REQ-005"
+  ],
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 54,
+  "manualBodiesReviewed": 24,
+  "newManualBodies": 0,
+  "officialRequirements": 27,
+  "wholeManualDone": false,
+  "allDone": false,
+  "staticFindings": {
+    "schema": "request-upload-supplier-research-v1",
+    "requirement": "REQ-PUR-REQ-005",
+    "implemented": false,
+    "done": false,
+    "newStaticFindings": [
+      {
+        "id": "S1",
+        "scope": "GetAttributeSettingProgram.onExecuteAsync",
+        "finding": "Calls IGetAttributeSettingSetupAction to obtain data_model_definition, prop_ids, setting_info and attr_data_types. Attribute presentation picks item_meaning_id+attr, refer_type+attr, refer_group+attr, stripped data_type+attr, then plain attr_id; an existing owner attribute value wins over returned default_value. These are settings-editor conversion rules, not established upload numeric/required policy."
+      },
+      {
+        "id": "S2",
+        "scope": "GetAttributeSettingProgram._setFeatures",
+        "finding": "template/template_code/calc/default choose different conversion features. Actual upload policy cannot be inferred from template conversion."
+      },
+      {
+        "id": "V1",
+        "scope": "FilterRowDataProgram.onExecuteAsync",
+        "finding": "menu_type upload takes a distinct web-upload branch before valid_key_list is read. The non-upload branch depends on valid_key_list and sub_array_list."
+      },
+      {
+        "id": "V2",
+        "scope": "FilterRowDataProgram._filterValidRowForWebUpload",
+        "finding": "Uses upload definition refer types to identify record_sid, upload_result and upload_status. A cloned row excludes record_sid/upload_result; truthy upload_status excludes the row, otherwise remaining nonempty values determine check_valid_row at the original index. Reduce builds an accumulator but this function does not assign it back to data_model. Exact vIsEmpty semantics and status value meaning are outside these scopes."
+      },
+      {
+        "id": "V3",
+        "scope": "CheckValidRowProgram.onExecuteAsync and _initialize/_checkZeroValidRow/_checkResult",
+        "finding": "For upload, resolves upload model/definition; if absent it returns. If check_valid_row exists and no true entry remains, reports not_null against the first display-ordered property. This is an aggregate nonempty-row check, not an AND-required rule for every bold column."
+      },
+      {
+        "id": "V4",
+        "scope": "CheckInputLineProgram.onExecuteAsync and _checkInputLineWithoutKeyProps",
+        "finding": "input_required_value menu attribute controls whether line-required validation runs. Upload uses the without-key-props branch; eligible internal import-target prop IDs, exclusions including upload_seq, typed-code emptiness, detail definition and data determine presence. It does not use the non-upload valid_key_list branch."
+      }
+    ],
+    "historicalInterpretationCorrection": {
+      "priorEvidence": "evidence/manual-entry-required-guidance-20261022.json",
+      "priorScope": "CheckValidRowProgram._checkValidRow and CheckInputLineProgram._checkInputLineWithKeyProps",
+      "correction": "Those methods describe non-upload branches. Earlier validatorScope language must not be read as proof that upload uses valid_key_list. No deployed upload-saving/conditional-required implementation was based on that inference; saving remains disabled."
+    },
+    "serverOrRuntimeInputsStillMissing": [
+      "Request-menu input_required_value and actual upload/detail model definitions",
+      "Internal import-target prop mappings and request Validator/formatter attributes",
+      "Actual request upload_status semantics and retry behavior",
+      "Voucher grouping equality and default/grouping execution order",
+      "Currency/price precision, two-quantity precedence, fixed amounts and all persistence consumers",
+      "Original permission/CAS/partial-save/retry acceptance"
+    ],
+    "blockedScope": [
+      "BODY request-specific bundle mapping",
+      "Request upload saving/conditional-required policy"
+    ],
+    "resumeOnlyOn": [
+      "Original session restored and read-only settings/details become observable",
+      "New documented public source or official manual supplies a missing request-specific contract"
+    ],
+    "doNotRepeat": [
+      "Generic bundle map and own BODY consumer analysis from 5d6581c",
+      "The ten provider/upload branch scopes or cached generic upload scopes without a changed source/configuration/result",
+      "Current header/regression115 and production backup/deploy without an application change"
+    ],
+    "nextIndependentRequirement": "REQ-COM-MAPPING-001",
+    "nextIndependentWork": "Purchase-first mapping center compatibility: read existing official mapping manual, existing menuMappings validation/settings UI and order-to-request import consumers; identify target/source field and persistence/permission gaps, then update existing PRD/architecture before implementing an observed subset. Do not invent unseen field mapping UI."
+  },
+  "newDownloads": 0,
+  "originalInteraction": {
+    "newBrowserObservation": false,
+    "loginStillRequiredFromPriorTurn": true,
+    "originalExecuted": false,
+    "serverRequestsInvoked": false,
+    "saveOrMainRowInteractions": false
+  },
+  "checks": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 10,
+    "newOwnScopes": 0,
+    "cachedOriginalScopesHashVerified": 5,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "summary": [
+      ".artifacts/manual-upload-policy-supplier-20261023/rea/rea-summary.json",
+      ".artifacts/manual-upload-policy-supplier-20261023/rea-branches/rea-summary.json"
+    ],
+    "sourceManifest": ".artifacts/manual-upload-policy-supplier-20261023/source-manifest.json",
+    "applicationCodeChanged": false,
+    "fullRegressionRerun": false,
+    "browserSyntheticRerun": false
+  },
+  "deployment": {
+    "performed": false,
+    "productionVersionRetained": "0.82.0",
+    "installedBundleSha256": "d75324008ca67d48255893b5caf776302f2e0815c396de0fdc2ca0b60035c2c7",
+    "runtimeSession": 57336,
+    "runtimePid": 2454806,
+    "processExists": true,
+    "restartPerformed": false,
+    "databaseBrowserSettingsMailMutations": false,
+    "freshPreservationComparisonPerformed": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "actualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 71,
+    "published": false,
+    "requiredReadUpdateWorkDocumentToolsAvailable": false,
+    "discovery": {
+      "query1": "모아 moa community records",
+      "query1ReturnedMoa": false,
+      "query2": "qaredi",
+      "query2Results": 0
+    },
+    "authRetried": false,
+    "legacyNewPrivatePageUsed": false,
+    "localDraft": ".artifacts/manual-upload-policy-supplier-20261023/moa-pending-upload-policy-supplier.html"
+  },
+  "nextIndependentBaseline": {
+    "requirement": "REQ-COM-MAPPING-001",
+    "sourceBody": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
+    "sourceBodySha256": "c26fc1e907834b49cf1b09c82183b951e628f52ebed6a30f5e8d169ca7c8192f",
+    "manualAlreadyReviewed": true,
+    "newManualBodies": 0,
+    "ownFiles": [
+      {
+        "path": ".artifacts/releases/0.82.0-request-input-order/dist/self-core.js",
+        "sha256": "804d9a0f0f8acc7709cf653a03331b70cd67dea8e5ddb18b4776dde6fe521684"
+      },
+      {
+        "path": ".artifacts/releases/0.82.0-request-input-order/dist/self-settings-ui.js",
+        "sha256": "3417821f90272194552d30f2ba7633efac8a7cfa5df507a5f2565a6cdba3b3c8"
+      },
+      {
+        "path": ".artifacts/releases/0.82.0-request-input-order/dist/entry-core.js",
+        "sha256": "d054536aad7c000ed7463f0c5c7495501afb565e3cf308a2a86be6a4028c716a"
+      },
+      {
+        "path": ".artifacts/releases/0.82.0-request-input-order/dist/inventory-ui.js",
+        "sha256": "447b4ad289e3829c1f72aad808606b7edba1dfea33e96dbc6dfe1058192b9e9c"
+      }
+    ],
+    "observedStaticGaps": [
+      "Menu mapping save validates only id/from/to/enabled, rejecting additional structured field metadata",
+      "Existing Settings button is explicitly disabled",
+      "menuMappings token found only in self-core/self-settings-ui/self-ui among deployed non-server JS; entry-core/inventory-ui do not directly consume it",
+      "Original mapping field editor UI and complete cross-menu runtime contract not yet observed"
+    ],
+    "implementationStarted": false,
+    "done": false
+  },
+  "nextWork": "Purchase-first mapping center compatibility: read existing official mapping manual, existing menuMappings validation/settings UI and order-to-request import consumers; identify target/source field and persistence/permission gaps, then update existing PRD/architecture before implementing an observed subset. Do not invent unseen field mapping UI."
+}

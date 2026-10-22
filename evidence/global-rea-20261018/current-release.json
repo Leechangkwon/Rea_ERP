@@ -504,14 +504,13 @@
     "sourceBodiesReviewed": 24,
     "done": 0,
     "nextWork": {
-      "requirement": "REQ-COM-FORMS-002",
-      "status": "body-bundle-pipeline-researched-request-specific-settings-login-required",
-      "plan": "docs/plan-request-upload-close-20261022.md",
-      "evidence": "evidence/manual-request-body-focus-20261023.json",
+      "requirement": "REQ-COM-MAPPING-001",
+      "status": "purchase-first-mapping-compatibility-review-next",
+      "plan": "docs/plan-purchase-manual.md",
+      "evidence": "evidence/manual-upload-policy-supplier-20261023.json",
       "productionVersion": "0.82.0",
       "done": false,
-      "nextIndependentRequirement": "REQ-PUR-REQ-005",
-      "nextIndependentWork": "Trace actual request attribute-setting/Validator policy supplier in held public modules; no repeat bundle/header checks."
+      "scope": "Existing menuMappings config/CAS, field mapping and order-to-request import consumer; PRD/architecture before implementation, no guessed original UI."
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1268,6 +1267,34 @@
       "cachedOriginalScopesVerified": 2,
       "ownConsumersMapped": true,
       "communityPendingLocalUpdates": 70
+    },
+    "blockedResearch": [
+      {
+        "requirement": "REQ-COM-FORMS-002",
+        "scope": "Request BODY field/bundle runtime mapping",
+        "resumeOnlyOn": "Restored original session or new source carrying request-specific BODY metadata",
+        "genericStaticAnalysisFinished": true,
+        "reference": "evidence/manual-request-body-focus-20261023.json",
+        "done": false
+      },
+      {
+        "requirement": "REQ-PUR-REQ-005",
+        "scope": "Actual upload request policy/save contract",
+        "resumeOnlyOn": "Read-only request-specific settings/definitions/Validator data or a new official contract",
+        "genericStaticAnalysisFinished": true,
+        "reference": "evidence/manual-upload-policy-supplier-20261023.json",
+        "savingEnabled": false,
+        "done": false
+      }
+    ],
+    "uploadPolicySupplierResearch": {
+      "evidence": "evidence/manual-upload-policy-supplier-20261023.json",
+      "newOriginalScopes": 10,
+      "cachedOriginalScopesHashVerified": 5,
+      "validatorScopeCorrectedToNonUpload": true,
+      "applicationChanged": false,
+      "communityPendingLocalUpdates": 71,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -1561,6 +1588,21 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-body-focus-20261023/rea/rea-summary.json"
+    },
+    "uploadPolicySupplier": {
+      "version": "6.4.0",
+      "ownNewScopes": 0,
+      "originalNewScopes": 10,
+      "cachedOriginalScopesHashVerified": 5,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false,
+      "summary": [
+        ".artifacts/manual-upload-policy-supplier-20261023/rea/rea-summary.json",
+        ".artifacts/manual-upload-policy-supplier-20261023/rea-branches/rea-summary.json"
+      ]
     }
   }
 }

@@ -1,5 +1,13 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 현재 매핑센터 차이와 선행 설계
+
+현재 SelfCore.menuMappings는 `{id,from,to,enabled}` pair만 검증/저장하고 SelfSettingsUI.mappingPage의 필드설정버튼은 비활성이다. 운영0.82 비서버 JS의 menuMappings 직접참조는 self-core/self-settings-ui/self-ui뿐이며 InventoryUI/EntryCore에 적용 소비자가 없다. 새로운 `fieldLinks`를 기존 strict schema에 임의 추가하면 저장에서 거부되므로 설정 검증→인증 서버 설정/CAS/publicContext→import draft 소비자를 함께 설계해야 한다.
+
+이전 규칙은 새 metadata를 읽기로 주입하거나 기본 매핑으로 변환하지 않는다. versioned optional 항목매핑·허용메뉴/필드/타입 및 미상형식 보존, 저장 취소/충돌·비활성·기존라인 lineage/재고/합계 소비자 계약이 선행이다. 구매 우선으로 기존 주문→요청 import의 별도 제안 단계를 사용하고 알 수 없는 필드/타입·상하단 결합·업무 계산 덮어쓰기는 차단하도록 설계한다. 실제 원본 필드선택 UI·빈값/다중원본 우선순위는 관찰 전 미지원이며 이번에 앱 schema/버튼을 변경하지 않았다.
+
+upload 분기 정정: GetAttributeSettingProgram은 설정편집용 서버 metadata 변환이다. 웹자료올리기의 행상태/유효행·input_required_value/internal-import-target 분기와 별개로 추적한다. 일반입력 valid_key_list 분기를 upload 필수조건으로 재사용하지 않는다. 근거 `evidence/manual-upload-policy-supplier-20261023.json`.
+
 ## BODY 묶음·입력순서 조사 (운영0.82.0 유지)
 
 원본 common.util.definitionUtil의 props_layout.target_props.items→양방향 bundle map→정의별 ApplyWidget 순회와 grid의 association_prop/section_type 설정 공급을 확인했다. 자체 request BODY의 평면 schema/native select/표시span·tbody 교체/잠금과 원본 bundle을 자동동일시하지 않는다. 설정편집 펼침순서와 적용 items순서는 별도다. 원본별 mapper/키보드소비자 계약을 먼저 확보하며 상단 DOM/CSSGrid 또는 전역 양의tabindex로 table focus를 덮지 않는다. 운영/자료schema는 그대로다. 근거 `evidence/manual-request-body-focus-20261023.json`.

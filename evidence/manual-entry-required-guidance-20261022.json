@@ -63,7 +63,12 @@
     "originalExecution": false,
     "supplierScope": "UploadExecuteSetupMainProgram invokes menu API after pre-executor/sync prop groups and merges server result/bundle_index/success/failure. _getGroupIds is sync property grouping, not proven voucher equality.",
     "validatorScope": "CheckValidRowProgram and CheckInputLineProgram use target model lists, valid_key_list, code types and model indices; visible bold headers are insufficient to reconstruct request validator conditions.",
-    "ownFindingCorrection": "Initial UI-only hypothesis of missing save validation was rejected by synthetic reproduction. InventoryCore.applyForm already checks required BODY fields; no duplicate validation was introduced."
+    "ownFindingCorrection": "Initial UI-only hypothesis of missing save validation was rejected by synthetic reproduction. InventoryCore.applyForm already checks required BODY fields; no duplicate validation was introduced.",
+    "validatorScopeCorrection": {
+      "reference": "evidence/manual-upload-policy-supplier-20261023.json",
+      "appliesTo": "Earlier methods are non-upload paths. Upload branches before valid_key_list, using web-upload row-state/empty-row checks and input_required_value/internal import-target metadata.",
+      "applicationSavingEnabledAsResult": false
+    }
   },
   "implementation": {
     "existingCentralValidatorAndSaveSemanticsPreserved": true,
