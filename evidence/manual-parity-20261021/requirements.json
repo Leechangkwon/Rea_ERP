@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 28,
+  "officialRequirementsDecomposed": 29,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2127,6 +2127,95 @@
       "sourceCommit": "801c3e6e1f337cfa86b3831122b3ec6137b97cd4",
       "releaseCommit": "8ebd192b34ca4c267accf88ea2781c0c111d0609",
       "productionVersion": "0.83.0"
+    },
+    {
+      "id": "REQ-COM-CURRENCY-001",
+      "sourceId": "EC-VID-13899",
+      "title": "외화등록의 선택적 환율·금액소수점과 입력 통화 추가",
+      "procedure": [
+        "외화등록 신규에서 코드와 명칭 입력",
+        "고정환율 입력 또는 변동환율을 위해 공란 유지",
+        "금액소수점 사용안함/1~4 선택(신규기본2)",
+        "저장 후 재조회·중단 관리",
+        "발주요청 통화 dropdown 추가에서 신규 외화 등록 및 부모 초안 복귀"
+      ],
+      "expected": [
+        "공란 환율을1로 자동 대체하지 않음",
+        "선택한 금액소수점 metadata 보존",
+        "기존 코드/환율/전표·양식과 부모 초안 보존"
+      ],
+      "status": "master-subset-implemented-candidate-validation-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-VID-13899",
+        "url": "https://www.youtube.com/watch?v=sMVrKsgaU7c",
+        "publisher": "이카운트 ERP",
+        "lengthSeconds": 176,
+        "publishedDateVerified": false,
+        "uiReportsAge": "7 years",
+        "reviewStatus": "5-second-caption-samples-and-selected-keyframes-not-full-video-or-transcript",
+        "sampleArtifact": ".artifacts/manual-currency-registration-20261023/caption-samples.json",
+        "sampleSha256": "43cfdaf9c9df61b38fd7236bead55e271792a4dd193c5a7ae308477f96b76ce7",
+        "sampleTimingCaution": "Rapid seeking sometimes retained prior-frame caption/time. Preserve requested and observed time and use settled screenshots for exact controls.",
+        "confirmedKeyframeSeconds": [
+          35,
+          60,
+          81
+        ],
+        "keyframes": [
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-035.png",
+            "sha256": "c751ffa79c6806fe5a9ef8f5cdffab4c23504451b04dad11be11f80d93c780c8"
+          },
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-060.png",
+            "sha256": "a66d73af6b5e3f1c093b44bd0c499139333da6860fe7438eb9be14922640159b"
+          },
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-075.png",
+            "sha256": "bdcc1a53f54ae76c4adee2bb64cba574cfb1e3cbe541d4a55e62f3e4dedd578b"
+          },
+          {
+            "file": ".artifacts/manual-currency-registration-20261023/frame-081-options.png",
+            "sha256": "c3755ed4fec186f9820c1d0ef0235bf2dc7cf49938ee0a87d7c2013f74098b24"
+          }
+        ],
+        "newOnlineBodyCount": 0,
+        "fieldsObserved": [
+          "외화코드",
+          "외화명",
+          "환율",
+          "금액소수점"
+        ],
+        "fractionDigitsOptions": [
+          "사용안함",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "newDefaultFractionDigits": 2,
+        "fixedRateOptional": true,
+        "saveCloseButtonsObserved": true,
+        "originalServerSaveCancelPermissionsVerified": false
+      },
+      "role": "Original role exceptions/cancel outcomes unverified; own read/write and identity/company/CAS guard enforced",
+      "done": false,
+      "hostedAcceptance": false,
+      "implementationEvidence": [
+        "dist/inventory-core.js",
+        "dist/inventory-ui.js",
+        "evidence/manual-currency-registration-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/currency-registration.cjs",
+        "tests/browser/currency-registration.spec.cjs"
+      ],
+      "remaining": [
+        "request inline add/parent draft integration",
+        "foreign amount conversion/print consumers",
+        "current original account save/cancel/permission and production saved-business acceptance"
+      ]
     }
   ]
 }

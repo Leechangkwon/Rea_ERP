@@ -1,5 +1,11 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 외화등록 데이터 보존 설계 · 1차
+
+saveMaster(currencies)는 저장 전의 동일 코드 record를 기준으로 비교한다. rate null은 변동환율용 미지정이며1로 대체하지 않는다. 새/변경한 고정 환율은 기존 양수 검증을 사용한다. fractionDigits는 선택적으로 저장하며 새/변경값은0~4 정수로 검증한다. 기존 누락/확장 metadata는 동일값이면 byte 의미를 보존한다. validateBackup/seed/전표 계산·잔액/환율 소비자는 변환하지 않는다.
+
+masterEditor에 금액소수점 native select를 추가한다. 신규만2, 구자료는 미설정/기존값 보존 선택지를 사용하고 저장 시 해당 속성의 존재 여부와 원형을 유지한다. 기존 사용자 양식 readonly/hidden/명칭과 command/localStorage CAS·권한 검증은 그대로 사용한다. dropdown 추가는 부모의 DOM/미저장 값·권한/회사/CAS를 보존해야 하므로 별도2차로 다룬다. 원본 bridge의 ESA035M 신규창은 정적 근거이며 실행/서버 동등성은 미확인이다.
+
 ## 0.83.0 적용 결과
 
 발주요청 참조의 일반 text 입력을 두 UI 지점에서 보완했다. 신규Node4·최종verify:local/브라우저117·기존로그인/읽기전용 운영확인·전후 전체JSON/서버/메일 보존을 통과했다. 원본 참조의 역할예외/서버저장 및 실제 운영업무 저장 합격은 미확인이고 전체완료false다. 후보/검증/보존 상세는 `evidence/manual-request-reference-20261023.json`과 PROGRESS 첫 절을 따른다. 미배포 mapping/VAT는 포함하지 않았다.

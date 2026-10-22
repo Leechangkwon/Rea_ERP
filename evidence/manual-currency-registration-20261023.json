@@ -1,0 +1,327 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-COM-CURRENCY-001",
+  "status": "isolated-candidate-all-required-components-passed-ready-to-release",
+  "productionVersion": "0.83.0",
+  "candidateVersion": "0.84.0",
+  "sourceManifest": ".artifacts/manual-currency-registration-20261023/source-manifest.json",
+  "source": {
+    "originalAsset": {
+      "file": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app/v56app.37986c84.js",
+      "sha256": "af20cfebe62d4b4318a6338c9976a4a95e0ccbc411f1559a4bf018a13006ebf2",
+      "bytes": 1577340,
+      "retrievedThisRun": false,
+      "executed": false
+    },
+    "officialVideo": {
+      "sourceId": "EC-VID-13899",
+      "url": "https://www.youtube.com/watch?v=sMVrKsgaU7c",
+      "publisher": "이카운트 ERP",
+      "lengthSeconds": 176,
+      "publishedDateVerified": false,
+      "uiReportsAge": "7 years",
+      "reviewStatus": "5-second-caption-samples-and-selected-keyframes-not-full-video-or-transcript",
+      "sampleArtifact": ".artifacts/manual-currency-registration-20261023/caption-samples.json",
+      "sampleSha256": "43cfdaf9c9df61b38fd7236bead55e271792a4dd193c5a7ae308477f96b76ce7",
+      "sampleTimingCaution": "Rapid seeking sometimes retained prior-frame caption/time. Preserve requested and observed time and use settled screenshots for exact controls.",
+      "confirmedKeyframeSeconds": [
+        35,
+        60,
+        81
+      ],
+      "keyframes": [
+        {
+          "file": ".artifacts/manual-currency-registration-20261023/frame-035.png",
+          "sha256": "c751ffa79c6806fe5a9ef8f5cdffab4c23504451b04dad11be11f80d93c780c8"
+        },
+        {
+          "file": ".artifacts/manual-currency-registration-20261023/frame-060.png",
+          "sha256": "a66d73af6b5e3f1c093b44bd0c499139333da6860fe7438eb9be14922640159b"
+        },
+        {
+          "file": ".artifacts/manual-currency-registration-20261023/frame-075.png",
+          "sha256": "bdcc1a53f54ae76c4adee2bb64cba574cfb1e3cbe541d4a55e62f3e4dedd578b"
+        },
+        {
+          "file": ".artifacts/manual-currency-registration-20261023/frame-081-options.png",
+          "sha256": "c3755ed4fec186f9820c1d0ef0235bf2dc7cf49938ee0a87d7c2013f74098b24"
+        }
+      ],
+      "newOnlineBodyCount": 0,
+      "fieldsObserved": [
+        "외화코드",
+        "외화명",
+        "환율",
+        "금액소수점"
+      ],
+      "fractionDigitsOptions": [
+        "사용안함",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "newDefaultFractionDigits": 2,
+      "fixedRateOptional": true,
+      "saveCloseButtonsObserved": true,
+      "originalServerSaveCancelPermissionsVerified": false
+    },
+    "ownCandidate": {
+      "coreSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+      "uiSha256": "282f8a1da4f63beeab5c1681e8c878c5a343d0f9b116ed58a2fa22a4436d2643"
+    },
+    "scope": "master registration first; request inline add and amount/print consumers not implemented in this slice"
+  },
+  "confirmedGap": [
+    "Blank rate was silently stored as1",
+    "Currency amount precision was absent in registration/list",
+    "The released0.83 master-save path lacked a storage-current check present only in unshipped root work"
+  ],
+  "implementation": [
+    "Optional rate is null for new/cleared values; positive explicit rate retained",
+    "New amount precision defaults2 in UI and stores0..4; legacy absent/extended/unknown values preserved unchanged",
+    "Currency save checks same account/company, read/write access and localStorage currentness before commit",
+    "Existing codes/rates/documents/forms and own command/backup flow retained; no migration or seed rewrite"
+  ],
+  "checks": {
+    "newNode": 8,
+    "rootFocusedPassed": true,
+    "candidateFocusedPassed": true,
+    "fullVerifyPassed": false,
+    "fullVerifyLog": ".artifacts/validation/currency-registration-20261023/.artifacts/currency-verify-final.log",
+    "newBrowserTests": 2,
+    "browserWholePassed": true,
+    "actualAndroidTested": false,
+    "independentAgentReview": false,
+    "selfReview": true,
+    "allRequiredVerifyLocalComponentsPassed": true,
+    "fullVerifyCommandFinalFailure": "test-only desktop32px assumption corrected to24px; app assets unchanged, full browser rerun119 passed",
+    "fullNpmTestPassed": true,
+    "toolsPassed": 7,
+    "releaseChecksPassed": 4,
+    "environmentPassed": true,
+    "buildPassed": true,
+    "browserWholeCount": 119,
+    "finalFullBrowserLog": ".artifacts/validation/currency-registration-20261023/.artifacts/currency-browser-final.log",
+    "browserBothWidthsVisualInspected": true
+  },
+  "initialFailures": [
+    "First Node fixture tried a new currency hidden on pagination; search helper corrected",
+    "Nonfinite number was converted to null by command JSON clone; explicit currency input guard added",
+    "Initial browser size test counted hidden controls and applied main-button desktop size to small Option control; visibility/main-action scope corrected",
+    "Isolated full run exposed missing0.83 master CAS; currency-specific storage-current guard fixed and final regression started",
+    "Final desktop save/close buttons are existing27px; arbitrary32px assertion corrected to24px desktop target while mobile44px remains. Complete119 browser suite passed after test-only correction."
+  ],
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 5,
+    "newOriginalScopes": 1,
+    "reusedOriginalScopes": 0,
+    "fullModuleCoverage": false,
+    "results": [
+      {
+        "name": "Original_InsertForeignCurrencyBridge",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app.37986c84.js",
+        "sourceSha256": "af20cfebe62d4b4318a6338c9976a4a95e0ccbc411f1559a4bf018a13006ebf2",
+        "start": 232973,
+        "end": 233715,
+        "lineStart": 5539,
+        "lineEnd": 5561,
+        "fragmentSha256": "3866623ccce238f974b037c2916bdbae2c5e80b7e48c527343380a30aa6cc3de",
+        "resultSha256": "d3e84c82f7a7b24e6443053db74ce8eee23f8222331c0f4d8acfd39d4e760585",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 749,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 70,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_CurrencyMasterSave",
+        "category": "own",
+        "file": ".artifacts/validation/currency-registration-20261023/dist/inventory-core.js",
+        "sourceSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+        "start": 33576,
+        "end": 36326,
+        "lineStart": 283,
+        "lineEnd": 318,
+        "fragmentSha256": "edafa791d3bfec567f282b9bde39c65039726f79e6b142312a8bf7f9233651cd",
+        "resultSha256": "c26c9d716fd36f44a37db9d4c872983c141df094ea862d0518fd64963370935c",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3120,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 653,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_CommandCurrencyInputGuard",
+        "category": "own",
+        "file": ".artifacts/validation/currency-registration-20261023/dist/inventory-core.js",
+        "sourceSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+        "start": 76442,
+        "end": 82613,
+        "lineStart": 634,
+        "lineEnd": 684,
+        "fragmentSha256": "497ac6f5837bb894d6ced85b5deb69f4939b1ecb9642187944c2092829a86dc4",
+        "resultSha256": "38669fd8167f74edd0fd5e0109fd571116125711e5e5846d69b3d951437bf2f5",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 6755,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 1333,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_CurrencyMasterEditor",
+        "category": "own",
+        "file": ".artifacts/validation/currency-registration-20261023/dist/inventory-ui.js",
+        "sourceSha256": "282f8a1da4f63beeab5c1681e8c878c5a343d0f9b116ed58a2fa22a4436d2643",
+        "start": 32403,
+        "end": 37169,
+        "lineStart": 184,
+        "lineEnd": 207,
+        "fragmentSha256": "e5278f0ec7932e274379df88e9950072b25a45a2f3d3e15ae6962aa8d7f83b59",
+        "resultSha256": "48cd571d40010b32912801b2e55873f29ec1ea85b29c361425182d8431173a3e",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 4940,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 1036,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_CurrencyList",
+        "category": "own",
+        "file": ".artifacts/validation/currency-registration-20261023/dist/inventory-ui.js",
+        "sourceSha256": "282f8a1da4f63beeab5c1681e8c878c5a343d0f9b116ed58a2fa22a4436d2643",
+        "start": 37419,
+        "end": 40787,
+        "lineStart": 209,
+        "lineEnd": 216,
+        "fragmentSha256": "d97a3608a657fa94cd0a7517b69a248f56a9d410bde332fc34059797747ce4f2",
+        "resultSha256": "6b1ff4ebf88fcc19b1938392bdaddde3b20ed32c669c282bb84d5016bbf2149f",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3530,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 777,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_MasterFields",
+        "category": "own",
+        "file": ".artifacts/validation/currency-registration-20261023/dist/inventory-ui.js",
+        "sourceSha256": "282f8a1da4f63beeab5c1681e8c878c5a343d0f9b116ed58a2fa22a4436d2643",
+        "start": 31704,
+        "end": 32399,
+        "lineStart": 179,
+        "lineEnd": 183,
+        "fragmentSha256": "a2718c1e28800aec2572a564e0a2435c0b307e775cf2d4c0b4e8e785da535b49",
+        "resultSha256": "74de8841491ad6ded24b2b38fdec45e8d565b528b9a88edace60defbe776853f",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 908,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 118,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "deployment": null,
+  "preservation": {
+    "predeployBackup": ".artifacts/manual-currency-registration-20261023/predeploy-backup.json",
+    "postdeployVerified": false,
+    "businessWrites": false,
+    "restored": false
+  },
+  "sourceLimitations": [
+    "Only timestamp captions/keyframes, not full transcript/video",
+    "Old official video and V56 ESA035M/S10 bridge are distinct UI sources; not current server equivalence",
+    "Original save/cancel/roles not exercised",
+    "Inline request currency add and parent-draft return not yet implemented",
+    "Foreign amount/print behavior remains incomplete; registration metadata alone is not whole manual acceptance",
+    "Own retained fixed-rate range0.000001..1e12 and null storage encoding are not verified original server limits/encoding"
+  ],
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "posted": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 77
+  },
+  "counters": {
+    "onlineIndex": 54,
+    "onlineBodies": 24,
+    "requirements": 29,
+    "wholeAcceptance": 0
+  },
+  "nextWork": {
+    "requirement": "REQ-COM-CURRENCY-001",
+    "title": "Request currency dropdown inline addition with parent draft preservation",
+    "existingHelperWholeRegressionRepeatWithoutChange": false,
+    "mappingEditorRequiresActualTC101P01Evidence": true,
+    "unshippedMappingRebaseAfterRelease": true
+  },
+  "done": false,
+  "hostedBusinessSaveAcceptance": false
+}

@@ -315,7 +315,19 @@
       if(x.relatedItems!==undefined&&(!Array.isArray(x.relatedItems)||x.relatedItems.length>200||x.relatedItems.some(code=>typeof code!=='string'||code===x.code||!master(db,'items',code))))throw Error('관계 품목은 등록된 다른 품목을 선택하세요.');
       if(x.relatedItems)x.relatedItems=[...new Set(x.relatedItems)];
     }
-    if(key==='currencies')x.rate=num(x.rate||1,'환율',.000001);
+    if(key==='currencies'){
+      const old=db.masters.currencies[index],same=key=>old&&Object.hasOwn(old,key)===Object.hasOwn(x,key)&&JSON.stringify(old[key])===JSON.stringify(x[key]);
+      // Preserve legacy metadata when unchanged; never invent a fixed rate for an empty value.
+      if(!same('rate')&&!(old&&!Object.hasOwn(x,'rate')&&!Object.hasOwn(old,'rate'))){
+        if(x.rate!==undefined&&x.rate!==null&&x.rate!==''&&!['number','string'].includes(typeof x.rate))throw Error('환율 값을 확인하세요.');
+        x.rate=x.rate===undefined||x.rate===null||x.rate===''?null:num(x.rate,'환율',.000001);
+      }
+      if(Object.hasOwn(x,'fractionDigits')&&!same('fractionDigits')){
+        const value=x.fractionDigits;
+        if(!['number','string'].includes(typeof value)||!/^([0-4])$/.test(String(value)))throw Error('금액 소수점은 사용안함 또는 1~4를 선택하세요.');
+        x.fractionDigits=Number(value);
+      }
+    }
     applyForm(db,'master:'+key,'input',x);
     if(index<0)db.masters[key].push(x);else db.masters[key][index]=x;log(db,masterNames[key]+' 등록/수정: '+x.code);return x;
   }
@@ -642,6 +654,7 @@
     if(!commandNames.includes(op)||!payload||typeof payload!=='object'||Array.isArray(payload))throw Error('지원하지 않는 작업 또는 요청 자료입니다.');
     if(input?.settings&&Object.hasOwn(input.settings,'priceRequests'))priceRequestModule().validateStore(input.settings.priceRequests);
     if(op==='settings'&&Object.hasOwn(payload,'priceRequests'))throw Error('단가 비교 자료는 전용 업무 명령으로 변경하세요.');
+    if(op==='master'&&payload.key==='currencies'&&typeof payload.record?.rate==='number'&&!Number.isFinite(payload.record.rate))throw Error('환율 값을 확인하세요.');
     const db=applyPolicy(input,policy);payload=op==='priceRequest'?payload:clone(payload);let result;
     if(op==='master')result=saveMaster(db,payload);
     else if(op==='itemBatch'){
