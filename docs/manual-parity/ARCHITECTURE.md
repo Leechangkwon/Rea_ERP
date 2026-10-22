@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 통화 metadata와 금액 소비자 경계
+
+공개 subscriber의 표시/입력 format 갱신, AST input/display resolver, $exchange 우선 helper를 별도 경로로 기록했다. subscriber의 주석 _syncForeignCurrency를 실행 경로로 구현하지 않는다. 원본 code0 외화/내자 판단을 자체 KRW 코드에 그대로 적용하지 않는다. 발주요청 고유 정의와 rate writer/계산/출력 규칙을 확보하기 전에는 자체 문서의 통화 코드 선택을 금액 환산에 연결하지 않는다. 앱 변경 없이 신규 원본10범위만 분석했으며 전체 실행 동등성은 미확인이다. 근거 `evidence/manual-request-currency-consumers-20261023.json`.
+
 ## 0.85.0 적용 결과와 다음 순서
 
 발주요청의 통화 추가를 독립 외화등록창에 연결했다. 성공 시 신규통화를 선택하고 부모는 별도 저장하며, 등록취소·부모취소·기존 양식/초안과 허용된 자체 쓰기 이외의 자료를 보존한다. 신규Node15·최종verify:local(exit0)/전체브라우저121·운영 읽기와 전후 전체JSON/서버/메일 보존을 확인했다. 실제 운영 등록/전표 저장은 미수행이다. 다음은 발주요청 고유 통화 값변경의 환율·소수점 소비자 근거이며 원화 계산을 유지한다. 미배포VAT5/mapping은 제외했고 mapping 재통합 기준은0.85다. 모아78갱신 로컬대기·목록54/본문24/요구사항29/전체합격0이다. 상세는 PROGRESS 첫 절과 `evidence/manual-request-currency-add-20261023.json`을 따른다.
