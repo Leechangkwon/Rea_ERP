@@ -1,0 +1,183 @@
+{
+  "baselineVersion": "0.74.0",
+  "candidateVersion": "0.75.0",
+  "sourceCommit": "b02a26443aed8cb8de09717800313a8b9f407be2",
+  "status": "deployed-purchase-settings-and-readonly-snapshot-original-upload-persistence-incomplete",
+  "requirement": "REQ-PUR-REQ-005",
+  "plan": "docs/plan-request-upload-close-20261022.md",
+  "manualIndexItems": 51,
+  "manualBodiesReviewed": 21,
+  "newManualBodies": 0,
+  "officialRequirements": 26,
+  "wholeManualDone": 0,
+  "originalObservation": {
+    "path": "Self-Customizing > 환경설정 > 기능설정 > 재고 > 기본수량/추가수량(구매관리) > 추가수량관리여부",
+    "popup": "수량단위(구매)",
+    "choices": [
+      "사용",
+      "사용안함"
+    ],
+    "currentCompanyObserved": "사용",
+    "companyValueCopiedIntoRea": false,
+    "originalSaved": false,
+    "originalEntryEdited": false,
+    "popupClosed": true
+  },
+  "publicSources": [
+    {
+      "url": "https://resourcev3.ecount.com/ec3/freq/ecerp/contents/pages/ui.selfcustomize/esc/views/esc001p_307.5016223946142868472.20.js?v=240503&pathv3=https:loginbb.ecount.com/ec56/view/erp",
+      "file": "esc001p_307.5016223946142868472.20.js",
+      "bytes": 6483,
+      "sha256": "01863f1b90321d230c0a56d63162a11a377dc8ff4e6a06e800d60796b7750646",
+      "authenticated": false,
+      "executed": false
+    }
+  ],
+  "publicStaticFindings": [
+    "ESC001P_307 mode521 reads inventory.IN_UQTY_FLAG, distinct from sales/other scopes",
+    "onFooterSave constructs separate purchase payload; parsed only, never executed",
+    "Actual request upload formatter invocation, form precision metadata, required/default/grouping semantics remain unverified"
+  ],
+  "implementation": {
+    "setting": "config.purchasePrecision",
+    "version": 1,
+    "nullableFields": [
+      "quantityUse",
+      "baseDigits",
+      "additionalDigits",
+      "priceDigits"
+    ],
+    "strictTypes": true,
+    "precisionRange": [
+      0,
+      6
+    ],
+    "legacyLoadPersistsNothing": true,
+    "usesExistingConfigWritePermissionAndRevisionCAS": true,
+    "settingsUi": [
+      "기본값설정 > 구매관리 소수점",
+      "기능설정 > 재고 > 추가수량관리여부(구매관리)"
+    ],
+    "authenticatedSnapshot": true,
+    "formMetadata": "unknown, no implicit default mode",
+    "usesDisplayDecimalsAsBusinessPolicy": false,
+    "legacyDocumentsOrFormsConverted": false,
+    "reviewShowsSettingsAndUnknownForm": true,
+    "ordinaryEntryCalculationChanged": false,
+    "voucherSaveImplemented": false,
+    "uiRepair": "Settings modal body/head/footer classes mismatched CSS and body-mounted controls missed .self-app styling; preserve legacy classes, add matching classes and scoped36/44px controls"
+  },
+  "checks": {
+    "newNodeTests": 12,
+    "scopedRootNodeTests": 108,
+    "rootCountIncludesExistingUnreleasedVatTests": true,
+    "focusedBrowserTests": 10,
+    "newBrowserTests": 2,
+    "viewportWidths": [
+      390,
+      1280
+    ],
+    "screenshotsVisuallyReviewed": true,
+    "initialFailure": "jsdom fixture lacked TextEncoder; explicit test platform injection, no product workaround",
+    "tools": 7,
+    "rea": {
+      "version": "6.4.0",
+      "ownScopes": 3,
+      "originalScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "summary": ".artifacts/manual-purchase-precision-20261022/rea/rea-summary.json",
+      "runtimeEquivalence": false
+    },
+    "finalCandidateRelatedNodeTests": 115,
+    "verifyLocalPassed": true,
+    "fullBrowserTests": 100,
+    "finalBuildPassed": true,
+    "releaseChecks": 4
+  },
+  "deployment": {
+    "version": "0.75.0",
+    "releaseCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+    "branch": "release/0.75.0-purchase-precision",
+    "bundleSha256": "4624c0b190ac257f6b25799257aabb1987988c35ae220fc8d544265aca6a89c1",
+    "pushedBeforeInstall": true,
+    "productionDeployed": true,
+    "mainVat5Excluded": true,
+    "runtimeSession": 65304,
+    "linuxPid": 2387612,
+    "publicAssetsMatched": true,
+    "anonymousMailStatus": 401,
+    "publicHealthStatus": 404,
+    "localHealthStatus": 200,
+    "backend": "supabase",
+    "existingLoginRetained": true,
+    "hostedSettingsReadOnlyOpenCloseVerified": true,
+    "hostedSettingsSavePerformed": false,
+    "hostedSyntheticPasteVerified": true,
+    "hostedVoucherSavePerformed": false,
+    "browserPreservation": {
+      "version": "0.75.0",
+      "beforeDownload": 35,
+      "afterDownload": 36,
+      "exactBytesAndJson": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "plans": 0,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "businessSaved": false,
+      "operatingSettingsSaved": false,
+      "sent": false,
+      "restored": false
+    },
+    "serverAndMailPreservation": {
+      "version": "0.75.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "proofScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/PURCHASE-SETTINGS-0.75.0.png"
+  },
+  "moa": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "localPendingUpdates": 61,
+    "auth401Unchanged": true,
+    "retriedWithoutNewAuthentication": false,
+    "published": false
+  },
+  "remaining": [
+    "form explicit/default metadata and foreign precision mapping",
+    "request required/header mapping and grouping equality/defaults",
+    "quantity precedence and immutable manual-amount persistence/consumers",
+    "partial failure/retry, actual business saves and whole-manual acceptance"
+  ],
+  "done": false,
+  "nextWork": "다음은 원본 발주요청 입력의 Option에서 실제 양식/BODY 항목설정 진입과 기본수량·추가수량·단가의 자릿수 explicit/default 메타데이터를 읽기 전용 확인한다. 주 입력행/행이동·적용/설정저장은 하지 않는다. 관찰한 metadata만 기존 FormCore/FormOptions의 nullable versioned 설정과 업로드 adapter에 연결하고 구양식/조건양식/백업 보존을 검증한다. 통화별 외화정밀도도 별도 공급원을 확인한다. 같은 비활성 링크·이미 읽은 팝업/해석기 검사를 새 진척으로 반복하지 않는다. 필수/상단/묶음 equality·저장시값변경·수량우선순위·수동금액 소비자/실패재시도와 업무저장은 계속 미완료다. 운영0.75.0·runtime65304/PID2387612 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다."
+}

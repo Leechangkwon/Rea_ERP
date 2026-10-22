@@ -1082,7 +1082,7 @@
         "자료올리기 일괄 업로드",
         "조회/현황에서 완료 요청 종결"
       ],
-      "status": "closure-partial-deployed-upload-paste-review-deployed-save-incomplete",
+      "status": "closure-partial-deployed-upload-company-settings-and-paste-review-deployed-save-incomplete",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
@@ -1094,11 +1094,12 @@
         "evidence/manual-request-upload-preview-20261022.json",
         "evidence/manual-request-upload-review-ui-20261022.json",
         "evidence/manual-request-upload-connection-20261022.json",
-        "evidence/manual-request-upload-policy-20261022.json"
+        "evidence/manual-request-upload-policy-20261022.json",
+        "evidence/manual-purchase-precision-20261022.json"
       ],
       "hostedReadOnlyPartial": true,
       "uploadImplemented": false,
-      "remaining": "Company upload input policies/required/header/grouping/defaults, two-quantity precedence, versioned manual-money persistence and consumers, failure/retry and actual business acceptance remain incomplete",
+      "remaining": "Form explicit/default metadata and foreign precision, required/header/grouping/defaults, two-quantity precedence, versioned manual-money persistence/consumers, failure/retry and actual business acceptance remain incomplete",
       "supportingSourceIds": [
         "EC-HELP-UPLOAD-COMPARE-001",
         "EC-HELP-UPLOAD-DUPLICATE-001",
@@ -1186,6 +1187,19 @@
         "appIntegrated": false,
         "saveImplemented": false,
         "productionDeployed": false,
+        "done": false
+      },
+      "purchasePrecisionSettings": {
+        "version": "0.75.0",
+        "sourceCommit": "b02a26443aed8cb8de09717800313a8b9f407be2",
+        "releaseCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+        "evidence": "evidence/manual-purchase-precision-20261022.json",
+        "authenticatedCompanyAdapter": true,
+        "formAdapter": false,
+        "productionDeployed": true,
+        "hostedSettingsOpenCloseVerified": true,
+        "hostedSettingsSavePerformed": false,
+        "voucherSaveImplemented": false,
         "done": false
       }
     },

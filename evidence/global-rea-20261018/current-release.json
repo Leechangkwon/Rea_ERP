@@ -1,6 +1,6 @@
 {
-  "version": "0.74.0",
-  "status": "0.74.0 deployed: readonly request upload paste review; whole-manual acceptance incomplete; root VAT5 excluded",
+  "version": "0.75.0",
+  "status": "0.75.0 deployed: nullable purchase settings/authenticated read-only upload snapshot; whole-manual acceptance incomplete; root VAT5 excluded",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -79,7 +79,8 @@
     "plan-request-import/voucher-contract.json",
     "gmail-purchaseorder/mail-contract.json",
     "domain-webmail/mail-contract.json",
-    "mail-routing/mail-contract.json"
+    "mail-routing/mail-contract.json",
+    "Nullable version1 purchase precision config with authenticated review snapshot, no assumed form inheritance, and consistent settings-modal controls; voucher upload saving incomplete"
   ],
   "checks": {
     "total": 998,
@@ -221,16 +222,26 @@
       "tools": 7,
       "production": false,
       "evidence": "evidence/manual-request-upload-policy-20261022.json"
+    },
+    "purchasePrecisionSettings": {
+      "evidence": "evidence/manual-purchase-precision-20261022.json",
+      "relatedNode": 115,
+      "newNode": 12,
+      "fullBrowser": 100,
+      "newBrowser": 2,
+      "verifyLocalPassed": true,
+      "tools": 7,
+      "release": 4
     }
   },
-  "future_research": "다음은 원본 Self-Customizing > 환경설정 > 기능설정에서 발주요청 추가수량 사용여부의 실제 항목/적용범위를 읽기 전용 확인하고, 양식의 수량/단가 explicit/default metadata와 외화 정밀도 공급원을 확인한다. REA의 FormCore/FormOptions에는 자릿수 metadata가 없고 SelfCore에는 공통 amountDigits/표시용 numberDecimals만 있으므로, 기존 값·양식을 변환하지 않는 nullable 회사/구매/양식 설정 schema·설정UI·인증 snapshot adapter 계획을 기존 기능 계획에 추가한다. 관찰된 원본 회사값을 자동 저장하거나 표시용 소수 설정을 업무정책으로 쓰지 않는다. 확보된 정책을0.74 붙여넣기 검토에 연결하는 다음 격리후보에서 설정 저장/재조회·구양식/계정/자료 보존·guard를 검증한 뒤 운영반영한다. 외화/필수/상단/묶음/기본값/수량우선순위·수동금액 저장 소비자/실패재시도는 미해결이며 원본 저장·주입력행·설정적용·발송과 main VAT5 전체빌드/배포를 하지 않는다.",
+  "future_research": "다음은 원본 발주요청 입력의 Option에서 실제 양식/BODY 항목설정 진입과 기본수량·추가수량·단가의 자릿수 explicit/default 메타데이터를 읽기 전용 확인한다. 주 입력행/행이동·적용/설정저장은 하지 않는다. 관찰한 metadata만 기존 FormCore/FormOptions의 nullable versioned 설정과 업로드 adapter에 연결하고 구양식/조건양식/백업 보존을 검증한다. 통화별 외화정밀도도 별도 공급원을 확인한다. 같은 비활성 링크·이미 읽은 팝업/해석기 검사를 새 진척으로 반복하지 않는다. 필수/상단/묶음 equality·저장시값변경·수량우선순위·수동금액 소비자/실패재시도와 업무저장은 계속 미완료다. 운영0.75.0·runtime65304/PID2387612 유지, main VAT5 전체빌드/배포와 전체매뉴얼 완료 주장은 금지한다.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-upload-connection-20261022.json",
+    "reference": "evidence/manual-purchase-precision-20261022.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
-    "publicVersionVerified": "0.73.0",
+    "deployedSourceCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+    "publicVersionVerified": "0.75.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -289,20 +300,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.74.0",
+    "existingSessionRetainedVersion": "0.75.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.74.0",
+    "lastExactBrowserBackupComparisonVersion": "0.75.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.74.0",
+    "currentServerStateAndMailPreservedVersion": "0.75.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.74.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.75.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -371,7 +382,11 @@
     "planGenerationReferenceHostedDataBearingSaveVerified": false,
     "requestUploadPasteReviewDeployed": true,
     "requestUploadSyntheticHostedReviewVerified": true,
-    "requestUploadHostedBusinessSaveVerified": false
+    "requestUploadHostedBusinessSaveVerified": false,
+    "purchasePrecisionSettingsDeployed": true,
+    "purchasePrecisionSettingsHostedOpenCloseVerified": true,
+    "purchasePrecisionSettingsHostedSavePerformed": false,
+    "requestUploadPolicySnapshotHostedVerified": true
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -1012,13 +1027,25 @@
       "saveImplemented": false,
       "productionDeployed": false,
       "done": false
+    },
+    "purchasePrecisionSettings": {
+      "requirement": "REQ-PUR-REQ-005",
+      "sourceCommit": "b02a26443aed8cb8de09717800313a8b9f407be2",
+      "releaseCommit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+      "evidence": "evidence/manual-purchase-precision-20261022.json",
+      "settingsSaveReloadIntegrated": true,
+      "authenticatedSnapshotIntegrated": true,
+      "formMetadataIntegrated": false,
+      "voucherSaveImplemented": false,
+      "deployedVersion": "0.75.0",
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.74.0",
-    "commit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
-    "manifest": ".artifacts/manual-request-upload-connection-20261022/candidate-manifest.json",
-    "bundleSha256": "421bc699dd4efb921911b743a0b380e6713a346541fc7d995c7a2e62a61c415b",
+    "version": "0.75.0",
+    "commit": "15e315f18ee79efc1fd44e0fe7f3397733618edc",
+    "manifest": ".artifacts/manual-purchase-precision-20261022/candidate-manifest.json",
+    "bundleSha256": "4624c0b190ac257f6b25799257aabb1987988c35ae220fc8d544265aca6a89c1",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -1052,9 +1079,10 @@
       "bounded-column-entry-toolbar-and-report-owned-search-mode-controls",
       "observed-plan-list-five-date-shortcuts-sunday-weeks-and-atomic-render-preservation",
       "0.73.0-plan-generation-reference-baseline",
-      "request-upload-readonly-tsv-paste-registered-snapshot-review-client-guards"
+      "request-upload-readonly-tsv-paste-registered-snapshot-review-client-guards",
+      "nullable-purchase-precision-settings-authenticated-review-snapshot-and-scoped-modal-controls"
     ],
-    "supersedesCandidateCommit": "5c3ef405b06fe61113eae3399487561521cd4eba",
+    "supersedesCandidateCommit": "14257795667e1efd7d9eae25f329b0e81f33ba4a",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
@@ -1084,6 +1112,12 @@
       "publicBytes": 12535,
       "includedInHistoricalReaCorpusBaseline": false,
       "semanticScopeComplete": false
+    },
+    "purchaseQuantityUsage": {
+      "evidence": "evidence/manual-purchase-precision-20261022.json",
+      "publicAnonymousBytes": 6483,
+      "sha256": "01863f1b90321d230c0a56d63162a11a377dc8ff4e6a06e800d60796b7750646",
+      "originalExecuted": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -1163,6 +1197,15 @@
       "coverage": "unknown",
       "truncated": false,
       "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "purchasePrecisionSettings": {
+      "reference": "evidence/manual-purchase-precision-20261022.json",
+      "ownScopes": 3,
+      "originalScopes": 2,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
       "runtimeEquivalence": false
     }
   }

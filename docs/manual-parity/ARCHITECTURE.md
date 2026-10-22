@@ -482,3 +482,9 @@ plan만 명시적 숫자/비공란 숫자 문자열0을 허용한다. saveDoc/va
 PurchasingPlanListUI의 quantityFilter는 저장된 row.line.qty에 적용되며 remaining과독립이다. applied/draft/F3/선택·편집·CSV에 동일한 행범위를 사용한다. 기존 snapshot에 필드가 없으면 all로복구하고 잘못된선택은명시거부한다. 원본 건별검색의 All/Zero/UnZero와대조했으며 SEARCH_TYPE1의필터숨김/서버집계순서는미완료다.
 
 업로드 slip_bundle_standard와 저장시값변경/필수는 외부Flow/setup정의가필요하다. 현재4칩이나 generic batch chunk/upload_seq만으로묶음키·마스터미검증·원자성/재시도규칙을확정하지않는다.
+
+## 0.75.0 구매 정밀도 설정 경계
+
+config.purchasePrecision version1은 quantityUse boolean|null, baseDigits/additionalDigits/priceDigits integer0..6|null이다. 기존 업무config와 독립적인 nullable 추가이며 legacy load는 읽기시에만 미설정값을 제공한다. config.write·현재 서버revision CAS·기존회사분리로 저장하고 Auth publicContext/SelfUI.refresh를 통해 전달한다. 기존 공통금액/표시용편의소수·문서/양식을 변환하지 않는다.
+
+RequestUploadInputCore.snapshot은 실제인증회사 구매설정과 기존공통amountDigits만 독립 해석기에 전달한다. 양식 metadata는 unknown으로 유지하여 구매기본값의 자동상속을 차단한다. 회사설정/미상출처를 검토UI에서 표시하고 기존 identity/storage/route/settings guard가 바뀐 snapshot의 재사용을 막는다. 영속전표 저장은 없고 원본의 필수/묶음/우선순위/기본값/부분실패 계약은 미해결이다. 관련115Node·전체브라우저100·실제운영설정창/원문폐기를 확인했고 기존전체자료/양식/서버/메일 동일성을 대조했다. 근거 evidence/manual-purchase-precision-20261022.json.
