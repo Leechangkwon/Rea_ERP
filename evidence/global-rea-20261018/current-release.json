@@ -1054,7 +1054,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "부분 확정 단가요청의 미확정행 노출·불러오기와 요청가 확정 행의 거래처 지정 계약을 공식 근거로 좁혀 확인한다. 확정0개 차단과 이미 합격한 저장 회귀는 변화 없이 반복하지 않는다. VAT5 5충돌·최소구매단위·TC101P_01 원본/운영 수락 gate 유지.",
+      "nextIndependentManual": "EC-HELP-REQUEST-012 리스트탭의 list_tab_data 공급·기본/표시/정렬 메타데이터와 설정 저장/권한 계약을 기존 공개 코드·공식 본문부터 확인한다. 부분 확정/요청가 거래처는 새 원본 근거 확보 때 재개하며 동일 FAQ 검색·기합격 회귀를 반복하지 않는다. VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1069,7 +1069,8 @@
       "latestPlanTaxContextSourceRequired": "86bfa9132f72a74c728e0a58ee3ec7b59dd748eb",
       "latestVatConvertGuardSourceRequired": "958d7ed09d785a1451b9f164e57594b6d6847d06",
       "latestConfirmedRequestTaxHeaderSourceRequired": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
-      "latestPriceRequestConfirmationSourceRequired": "22536b8363f421955d45732991f2dc27b8220eeb"
+      "latestPriceRequestConfirmationSourceRequired": "22536b8363f421955d45732991f2dc27b8220eeb",
+      "listTabContractResearchEvidence": "evidence/manual-price-partial-contract-20261024.json"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1090,7 +1091,7 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "부분 확정 단가요청의 미확정행 노출·불러오기와 요청가 확정 행의 거래처 지정 계약을 공식 근거로 좁혀 확인한다. 확정0개 차단과 이미 합격한 저장 회귀는 변화 없이 반복하지 않는다. VAT5 5충돌·최소구매단위·TC101P_01 원본/운영 수락 gate 유지.",
+      "nextWork": "EC-HELP-REQUEST-012 리스트탭의 list_tab_data 공급·기본/표시/정렬 메타데이터와 설정 저장/권한 계약을 기존 공개 코드·공식 본문부터 확인한다. 부분 확정/요청가 거래처는 새 원본 근거 확보 때 재개하며 동일 FAQ 검색·기합격 회귀를 반복하지 않는다. VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
       "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
       "currentOperatingVersion": "0.88.13",
@@ -2537,6 +2538,29 @@
       "requestedPriceSupplierOriginalContractVerified": false,
       "hostedDataBearingSaveVerified": false,
       "done": false
+    },
+    "requirementScopeReconciliation": {
+      "reference": "evidence/manual-price-partial-contract-20261024.json",
+      "operatingVersionUnchanged": "0.88.13",
+      "reconciledRequirementIds": [
+        "REQ-PUR-FLOW-001",
+        "REQ-PUR-PRICE-001"
+      ],
+      "doneUnchanged": 0,
+      "runtimeChanged": false,
+      "quotePartialOriginalContractVerified": false
+    },
+    "listTabContractResearch": {
+      "reference": "evidence/manual-price-partial-contract-20261024.json",
+      "sourceId": "EC-HELP-REQUEST-012",
+      "exactBodyRecovered": false,
+      "originalScopes": 3,
+      "ownScopes": 1,
+      "sourceMetadataSupplierVerified": false,
+      "settingSaveContractVerified": false,
+      "appIntegrated": false,
+      "canApply": false,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -2772,6 +2796,12 @@
       "officialPublicFaq": true,
       "originalBusinessWrites": false,
       "fullManualAcceptance": false
+    },
+    "pricePartialSupplierFaq": {
+      "reference": "evidence/manual-price-partial-contract-20261024.json",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFH194A353QE7&page=551",
+      "bodySha256": "bcb5fd79936e05958e4728c19831caf88bd758d04e1cb5da0ca9d1c845f72165",
+      "originalPartialContractVerified": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -3271,6 +3301,17 @@
       "parseFailures": 0,
       "coverage": "unknown",
       "fullModuleCoverage": false
+    },
+    "listTabContractResearch": {
+      "reference": "evidence/manual-price-partial-contract-20261024.json",
+      "originalScopes": 3,
+      "ownScopes": 1,
+      "newOriginalBodies": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "fullBodiesAnalyzed": false,
+      "originalExecuted": false,
+      "canApply": false
     }
   }
 }

@@ -1,0 +1,255 @@
+{
+  "date": "2026-10-24",
+  "status": "source-reviewed-requirement-ledger-reconciled-no-runtime-change",
+  "operatingVersion": "0.88.13",
+  "baselineMainCommit": "e13944d0527c10f41c45a6ffee39e35df8951b4a",
+  "productionReleaseCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+  "productionWorkerSha256": "dcd54b6c3885a498f979d6c8e5e8bd10b86e53791e138cd34e8f39b5ec2327db",
+  "deploymentAttempted": false,
+  "runtimeChanged": false,
+  "originalSession": "login-required-as-previously-observed-not-retried",
+  "originalBusinessWrites": false,
+  "productionBusinessWrites": false,
+  "productionSettingsWrites": false,
+  "actualEmailSent": false,
+  "reference": {
+    "id": "EC-FAQ-7WCFH194A353QE7",
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFH194A353QE7&page=551",
+    "title": "단가요청 내역을 발주서로 불러올 때 거래처와 단가가 표시되지 않는 이유는 무엇인가요?",
+    "method": "Public official FAQ index551 -> exact link -> visible answer and screenshot using Windows CUA",
+    "bodySha256": "bcb5fd79936e05958e4728c19831caf88bd758d04e1cb5da0ca9d1c845f72165",
+    "screenshotSha256": "e1e0767b391e532b18fb80162c6bab8472b892e4caf5a3c0a4d81beecd560120",
+    "confirmed": "Select a supplier-quoted confirmed price in price-request progress, then reload into a purchase order to display the confirmed supplier and price.",
+    "unresolved": [
+      "Visibility/import of unconfirmed rows in partly confirmed documents",
+      "Supplier assignment for an explicitly selected requested price"
+    ],
+    "currentPolicyChanged": false,
+    "notEvidenceForPerRowExclusionOrAutoSupplier": true
+  },
+  "reconciliation": {
+    "ids": [
+      "REQ-PUR-FLOW-001",
+      "REQ-PUR-PRICE-001"
+    ],
+    "beforeSha256": "a5673dc85bc558bbf5065ffb6b0f437ce2be7ca113943ce90b1fde902fd1fa54",
+    "legacyFields": [
+      "comparisonModel",
+      "comparisonStorage",
+      "comparisonView",
+      "comparisonSelection"
+    ],
+    "legacySnapshotsPreserved": true,
+    "staleClaims": [
+      "Direct reply, close/reopen UI and confirmed-price purchase-order application were listed as remaining implementation although later deployment evidence exists.",
+      "Optional comparison UI/storage historical milestones were not marked as historical in the current requirement entry."
+    ],
+    "why": "Prevent repeated implementation and misleading missing-feature reports while keeping original/manual/hosted acceptance incomplete.",
+    "deploymentEvidence": [
+      {
+        "path": "evidence/manual-price-request-input-close-20261021.json",
+        "sha256": "2a3f46b096be919df3bb4103feac71e78b0ff74ed2abb83a1fe9520d04ebade8",
+        "version": "0.53.4",
+        "status": "deployed-preservation-verified-local-close-reopen-accepted-hosted-write-and-manual-parity-pending",
+        "releaseCommit": "c23ec8eab58ef3dbd329f4777c2e00f83764f4b3",
+        "allManualAcceptance": false
+      },
+      {
+        "path": "evidence/manual-price-request-direct-reply-20261021.json",
+        "sha256": "6e3eb641f7361972422275aa80357aa44cd46579595c9ebb06634bbe59ee17d6",
+        "version": "0.53.5",
+        "status": "deployed-preservation-verified-local-direct-reply-accepted-hosted-write-and-manual-parity-pending",
+        "releaseCommit": "ce2e569cfe752bbd0103f82a5f806a44b4d8e445",
+        "allManualAcceptance": false
+      },
+      {
+        "path": "evidence/manual-price-request-suppliers-20261021.json",
+        "sha256": "0b380a4ec3310dd8913a596af81d61d2a9f06f154016201ca3bb83a4bc7745ff",
+        "version": "0.53.6",
+        "status": "deployed-synthetic-start-accepted-preservation-verified-hosted-write-and-manual-parity-pending",
+        "releaseCommit": "a613d8c4e9842215a467cd6a19f467b427d71887",
+        "allManualAcceptance": false
+      },
+      {
+        "path": "evidence/manual-price-request-defaults-20261021.json",
+        "sha256": "029f410d8d8d28575fc1ca4d1cb1019f33cde9a69fadd98f69920939031f6351",
+        "version": "0.53.7",
+        "status": "deployed-preservation-verified-synthetic-first-confirmation-accepted",
+        "releaseCommit": "b2b73d223e6632c070e2de37c35d071b4ed7970d",
+        "allManualAcceptance": false
+      },
+      {
+        "path": "evidence/manual-price-request-order-flow-20261021.json",
+        "sha256": "e1553d68154bd9c191af38a4fdeac9028b1818bc4a955c569f78a087b654ba6e",
+        "version": "0.54.0",
+        "status": "deployed-public-session-readonly-and-preservation-verified",
+        "releaseCommit": "e5b7b4a49acb884455c52156e2250d41b965569b",
+        "allManualAcceptance": false
+      },
+      {
+        "path": "evidence/manual-price-order-tax-20261024.json",
+        "sha256": "4ffd2e88d7e5b33ad74511eb53378c1f488dc26d67640a314a96b8bd7f8855c2",
+        "version": "0.88.12",
+        "status": "deployed-preservation-verified-manual-acceptance-pending",
+        "releaseCommit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+        "allManualAcceptance": false
+      },
+      {
+        "path": "evidence/manual-price-unconfirmed-20261024.json",
+        "sha256": "7b5324fd0dbbbb91b43a7d4ab711e04573ccf19b03137785212b766bf879007c",
+        "version": "0.88.13",
+        "status": "deployed-readonly-and-preservation-verified-manual-acceptance-pending",
+        "releaseCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+        "allManualAcceptance": false
+      }
+    ]
+  },
+  "nextIndependentResearch": {
+    "sourceId": "EC-HELP-REQUEST-012",
+    "title": "조회 메뉴에서 진행상태를 추가하는 방법(리스트탭 설정 방법)",
+    "exactBodyRecovered": false,
+    "publicSearchExactBodyRecovered": false,
+    "rea": {
+      "reaVersion": "6.4.0",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "downloadedOriginalBodies": 0,
+      "newOriginalScopes": 3,
+      "newOwnScopes": 1,
+      "scopes": [
+        {
+          "category": "original",
+          "symbol": "_injectListTabState",
+          "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+          "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+          "lineStart": 32642,
+          "lineEnd": 32675,
+          "start": 1478491,
+          "end": 1479870,
+          "fragmentSha256": "5845949536156b8cfd9796263a9fe1f82c2fb65164bb6cdda8cfe8dddd3852e8",
+          "inputSha256": "b5cfcbd7ec3e88dd63f2958a52cb64cfaac78b42161a984aeb5e3b2fdd4ffa3c",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "original",
+          "symbol": "_findDefaultTab",
+          "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+          "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+          "lineStart": 32679,
+          "lineEnd": 32716,
+          "start": 1480021,
+          "end": 1481692,
+          "fragmentSha256": "8a6a5366aaef208b2af96182e7f3021ad91effb3babb9857d2e00c18630a4b78",
+          "inputSha256": "ec364663b7d452e950ed1b7e1852698f3a37e622ac00b82981a0f58c08410282",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "original",
+          "symbol": "_forEachListTab",
+          "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+          "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+          "lineStart": 32722,
+          "lineEnd": 32738,
+          "start": 1481883,
+          "end": 1482698,
+          "fragmentSha256": "7d07b5cfed82bae0cb2334433fe0a3ea2b3a76092e23d7890fa96c69f776b4e8",
+          "inputSha256": "dbd69e5c940494093c957483224d202a1bcf451fb2c0abb35bd83ec875921699",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "stages",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "a6882e6ef3eb21ffc1410ff36d074a0242b1f94d94f8f83c24fad74ae6f76b69",
+          "lineStart": 479,
+          "lineEnd": 479,
+          "start": 115040,
+          "end": 115242,
+          "fragmentSha256": "53dc7100549e150379f33e2b545b1b2b6864a5f62539ba48c78358847d86f26c",
+          "inputSha256": "53dc7100549e150379f33e2b545b1b2b6864a5f62539ba48c78358847d86f26c",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "7604b25ec708a0a93c5133e0079185f703d86dcbc17cdfa9b51fa91f015791dd",
+      "statistics": {
+        "relevant_files": 4,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 4386,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 4,
+        "visited_ast_nodes": 473,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "originalExecuted": false,
+      "runtimeEquivalence": false,
+      "menuSpecificMetadataVerified": false,
+      "settingSaveContractVerified": false
+    },
+    "observedStaticContract": [
+      "list_tab_data supplies tab_data and user_action; injected only for enabled list_tab metadata.",
+      "Default parent vs child tab derives from saved default/display metadata; not a fixed always-all policy.",
+      "Parent and children sort by display_order; child visibility checks display_tf and use_tf.",
+      "Current own requestList declares fixed stages, so list-tab configuration parity is not implemented by existing status buttons."
+    ],
+    "unknown": [
+      "Actual purchase-menu list_tab_data supplier and current metadata",
+      "Settings save, cancellation, permission and persistence contract",
+      "Legacy request menu applicability of modern V56 behavior"
+    ],
+    "appIntegration": false,
+    "canApply": false,
+    "originalExecuted": false,
+    "ownDeployedScopeCheck": {
+      "releaseVersion": "0.88.13",
+      "scope": "requestList stages declaration",
+      "rootReleaseFragmentEqual": true,
+      "fragmentSha256": "53dc7100549e150379f33e2b545b1b2b6864a5f62539ba48c78358847d86f26c",
+      "wholeInventoryUiEqualityClaimed": false
+    }
+  },
+  "validation": {
+    "method": "Evidence JSON/schema/reference/hash and ledger preservation checks; no unchanged application regression rerun",
+    "newApplicationTests": 0,
+    "fullRegressionRerun": false,
+    "previousFullBrowserPassed": 148,
+    "previousFullRegressionEvidence": "evidence/manual-price-unconfirmed-20261024.json",
+    "ledgerChecks": {
+      "passed": true,
+      "requirements": 44,
+      "unchangedOtherRequirements": 42,
+      "allAcceptanceFlagsUnchanged": true,
+      "historicalSnapshotFieldsExact": 4,
+      "referencedEvidenceHashes": 7,
+      "reaResultAndSourceHashesVerified": true,
+      "productionWorkerUnchanged": true,
+      "dirtyMappingFilesExact": 12,
+      "applicationCodeChanged": false,
+      "newApplicationRegressionRun": false
+    }
+  },
+  "manualCounts": {
+    "indexed": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "allDone": false,
+    "newSupplementalFaq": 1,
+    "newOriginalBodies": 0
+  },
+  "moa": {
+    "workDocumentToolsExposed": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authenticationFailureInferred": false,
+    "pendingLocalUpdates": 118
+  },
+  "nextWork": "EC-HELP-REQUEST-012 리스트탭의 list_tab_data 공급·기본/표시/정렬 메타데이터와 설정 저장/권한 계약을 기존 공개 코드·공식 본문부터 확인한다. 부분 확정/요청가 거래처는 새 원본 근거 확보 때 재개하며 동일 FAQ 검색·기합격 회귀를 반복하지 않는다. VAT5 5충돌·최소구매단위·TC101P_01 gate 유지."
+}

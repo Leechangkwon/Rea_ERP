@@ -1326,10 +1326,11 @@
       "implementationEvidence": "evidence/manual-purchase-link-preservation-20261021.json",
       "localLinkPreservationVerified": true,
       "remaining": [
-        "Original full optional purchase-stage procedures, permission/save/preservation and authenticated hosted business acceptance.",
-        "Comparison-confirmed vendor/line → partial order → partial receipt cross-stage acceptance; implemented comparison is no longer treated as missing.",
+        "Original full optional purchase-stage procedures, permission/save/preservation and authenticated hosted data-bearing business acceptance.",
+        "Confirmed comparison -> partial order -> partial receipt has synthetic acceptance; original/hosted business save acceptance remains pending.",
         "Original minimum purchase-unit and plan-quantity calculation contracts.",
-        "Original completed-plan modification/restoration policy; deployed link fixes are not deployment-pending."
+        "Original completed-plan modification/restoration policy; deployed link fixes are not deployment-pending.",
+        "Original partly confirmed/request-price supplier assignment details; no-confirmation import guard is deployed0.88.13."
       ],
       "isolatedReleaseCandidateEvidence": "evidence/manual-plan-allocation-preservation-20261021.json",
       "supplierLinkPreservationEvidence": "evidence/manual-plan-supplier-preservation-20261021.json",
@@ -1340,7 +1341,7 @@
       "purchaseReceivingWarehouseEvidence": "evidence/manual-purchase-receiving-warehouse-20261021.json",
       "localPurchaseReceivingWarehouseVerified": true,
       "purchaseOrderWarehouseEqualityCorrection": "Official inventory textbook physical page 18 permits selecting actual receiving warehouse after loading purchase order. Prior equality guard is corrected only for purchaseorder -> purchase. Inspection/rack warehouse changes remain guarded for preservation.",
-      "currentOperatingVersion": "0.88.6",
+      "currentOperatingVersion": "0.88.13",
       "currentWorkflowGapTable": "docs/plan-manual-purchase-gaps-20261021.md",
       "requestOrderSupplierEvidence": "evidence/manual-request-order-supplier-20261023.json",
       "localRequestOrderSupplierVerified": true,
@@ -1351,7 +1352,13 @@
       "comparisonPartialFlowHostedSaveVerified": false,
       "planSupplierViewEvidence": "evidence/manual-plan-supplier-view-20261023.json",
       "localPlanSupplierViewVerified": true,
-      "planSupplierViewHostedDataBearingSaveVerified": false
+      "planSupplierViewHostedDataBearingSaveVerified": false,
+      "currentComparisonOrderEvidence": [
+        "evidence/manual-price-request-order-flow-20261021.json",
+        "evidence/manual-price-order-tax-20261024.json",
+        "evidence/manual-price-unconfirmed-20261024.json"
+      ],
+      "scopeReconciliationEvidence": "evidence/manual-price-partial-contract-20261024.json"
     },
     {
       "id": "REQ-PUR-PLAN-001",
@@ -1386,28 +1393,31 @@
         "최대5거래처 단가 요청",
         "Email 회신 단가 비교 및 발주서 적용"
       ],
-      "status": "partial-implementation-local-validated-hosted-pending",
+      "status": "deployed-local-synthetic-validated-original-and-hosted-data-bearing-acceptance-pending",
       "referenceBodyReviewed": true,
       "hostedAcceptance": false,
       "done": false,
       "additionalSourceIds": [
-        "EC-VID-13917"
+        "EC-VID-13917",
+        "EC-FAQ-7WCFH194A353QE7"
       ],
       "evidence": "evidence/manual-price-request-import-20261021.json",
       "implementedScope": [
-        "Primary order/plan copy-import shortcuts",
-        "Auxiliary web upload and mobile access preservation",
-        "Shared browser/Node comparison storage with immutable source snapshot",
-        "Optional backup preservation and source/vendor-change edit guards",
-        "Read-only requested/received/confirmed comparison view with permission, account, stale-data and dialog-lifecycle protection",
-        "Explicit row confirmed-price selection, atomic guarded save/F8 and cancel for already archived ready comparisons"
+        "Deployed independent app order/plan copy-import shortcuts and auxiliary review/mobile preservation.",
+        "Browser comparison storage and immutable source snapshots, backup validation and source/vendor guards.",
+        "Read-only comparison view plus explicit confirmed-price selection/save/cancel; first unsaved selection defaults to requested price.",
+        "New requests select 1-5 registered suppliers and save the request with its comparison atomically.",
+        "Explicit direct received-price entry and vendor input close/reopen, with stale revision/user/permission guards.",
+        "Confirmed price/supplier projection into order picker, staging, first save, copy and conversion; saved basis and immediate source-line quantities preserved through partial receipt.",
+        "0.88.12 preserves stored transaction type/rate in explicitly adopted quote headers.",
+        "0.88.13 requires at least one saved confirmation for records with comparison data; legacy sources and existing orders retain documented preservation policies."
       ],
       "remainingScope": [
-        "Supplier registration, direct reply, close/reopen UI; original default/header/partial selection semantics",
-        "Dedicated server quote mutation CAS/permissions when connected",
-        "Confirmed-price purchase-order application",
-        "External reply/email authorization and expiry",
-        "Authenticated original and hosted acceptance"
+        "Original partial/header selection semantics, visibility/import of unconfirmed rows in partly confirmed requests, and supplier assignment for explicitly selected requested prices.",
+        "Original automatic supplier splitting, quote validity and discount handling.",
+        "Central/shared quote mutation API and its authorization/concurrency contract when connected; current browser comparison state is separate.",
+        "External supplier reply/email authorization, expiration and actual business sending.",
+        "Original procedure/permission/save/preservation equivalence and data-bearing hosted business acceptance; local synthetic saves are separate."
       ],
       "comparisonModel": {
         "status": "independent-model-validated-not-integrated",
@@ -1440,7 +1450,45 @@
         "status": "explicit-confirmed-selection-local-validated-production-pending",
         "candidateCommit": "f181c53088d6db2555230e022e3f3b26840ecfb3",
         "hostedAcceptance": false
-      }
+      },
+      "priorScopeSnapshot": {
+        "status": "partial-implementation-local-validated-hosted-pending",
+        "implementedScope": [
+          "Primary order/plan copy-import shortcuts",
+          "Auxiliary web upload and mobile access preservation",
+          "Shared browser/Node comparison storage with immutable source snapshot",
+          "Optional backup preservation and source/vendor-change edit guards",
+          "Read-only requested/received/confirmed comparison view with permission, account, stale-data and dialog-lifecycle protection",
+          "Explicit row confirmed-price selection, atomic guarded save/F8 and cancel for already archived ready comparisons"
+        ],
+        "remainingScope": [
+          "Supplier registration, direct reply, close/reopen UI; original default/header/partial selection semantics",
+          "Dedicated server quote mutation CAS/permissions when connected",
+          "Confirmed-price purchase-order application",
+          "External reply/email authorization and expiry",
+          "Authenticated original and hosted acceptance"
+        ]
+      },
+      "currentOperatingVersion": "0.88.13",
+      "currentImplementationEvidence": [
+        "evidence/manual-price-request-input-close-20261021.json",
+        "evidence/manual-price-request-direct-reply-20261021.json",
+        "evidence/manual-price-request-suppliers-20261021.json",
+        "evidence/manual-price-request-defaults-20261021.json",
+        "evidence/manual-price-request-order-flow-20261021.json",
+        "evidence/manual-price-order-tax-20261024.json",
+        "evidence/manual-price-unconfirmed-20261024.json"
+      ],
+      "historicalSnapshotFields": {
+        "fields": [
+          "comparisonModel",
+          "comparisonStorage",
+          "comparisonView",
+          "comparisonSelection"
+        ],
+        "interpretation": "These are immutable milestone snapshots at their recorded evidence/source commits. Pending/integration flags describe those milestones, not current0.88.13. Use currentImplementationEvidence and implementedScope for current implementation; final acceptance remains false."
+      },
+      "scopeReconciliationEvidence": "evidence/manual-price-partial-contract-20261024.json"
     },
     {
       "id": "REQ-PUR-ORDER-001",
