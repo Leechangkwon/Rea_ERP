@@ -405,6 +405,7 @@
       lines=src.lines.map(l=>({...l,qty:quantity(l.qty-stock(db,l.item,src.warehouse,src.date))})).filter(l=>l.qty!==0);
     }
     if(!lines.length)throw Error('처리할 잔량이 없습니다.');
+    if(purchasingTypes.includes(type)&&src.transactionType==='22'&&Number(src.vatRate??10)!==0)throw Error('원본 거래유형과 부가세율을 함께 변환할 수 없습니다. 원본 전표의 머리 항목을 확인하세요.');
     const header={...src};delete header.generatedFrom;delete header.planGeneration;delete header.confirmation;delete header.progress;
     if(src.type==='transfer'&&type==='sale'){header.warehouse=src.targetWarehouse;header.partner=partner||'';delete header.targetWarehouse;}
     if(type==='transfer')header.targetWarehouse=targetWarehouse||src.targetWarehouse||'';
