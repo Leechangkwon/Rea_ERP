@@ -638,7 +638,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "북마크014 미독 본문; 원본 로그인 완료시 My탭010 우선"
+      "nextIndependentManual": "타임라인013 미독 본문; 원본/모아 연결 완료 응답 우선"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1519,13 +1519,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-014",
+      "sourceId": "EC-HELP-REQUEST-013",
       "requirement": null,
-      "title": "전표 북마크의 미독 공식 본문과 등록·조회·보관 계약",
-      "context": "원본 로그인 완료 응답이 오면 먼저 My탭010/011 실제 조회/독립 설정팝업을 저장 없이 관찰한다. 미로그인 동안은 독립 미독014 전표 북마크의 공개 본문/읽기전용 코드 계약을 대조한다. 같은 preset helper/통과회귀나 동일 로그인 요청은 반복하지 않는다.",
+      "title": "타임라인 작업이력의 미독 공식 본문과 조회·권한·보관 계약",
+      "context": "원본 로그인 완료 응답이 오면 My탭010/011을 먼저 저장 없이 관찰하고 모아 연결 완료면 기존문서 재조회→미반영 기록 append→실제 저장 재조회한다. 응답 전 독립 미독013 타임라인의 본문/읽기전용 코드와 현재 이력조회를 대조한다. 북마크 send는 저장이 먼저 발생하므로 조회용 버튼으로 조작하지 않는다. 같은 분석/회귀/인증 요청은 반복하지 않는다.",
       "operatingVersion": "0.88.0",
-      "myTabGateEvidence": "evidence/manual-my-tab-20261023.json",
-      "legacyGates": "quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
+      "bookmarkGateEvidence": "evidence/manual-voucher-bookmark-20261023.json",
+      "legacyGates": "myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1720,6 +1720,29 @@
       "done": false,
       "originalLoginRequestPending": true,
       "resumeWhen": "Full official manual010/011 and readonly actual My-tab entry/edit/rename/default/reorder/remove/apply/cancel UI, including field labels and constraints. Actual preset$ISavePresetUserAction / set-menu module and persistence/authorization contract are absent in currently cached files. Do not treat generic common helpers as the My-tab implementation."
+    },
+    "voucherBookmarkResearch": {
+      "candidate": "CAND-COM-BOOKMARK-001",
+      "status": "voucher-bookmark-static-contract-mapped-save-before-open-original-manual-and-server-gated",
+      "evidence": "evidence/manual-voucher-bookmark-20261023.json",
+      "newOfficialBodies": 0,
+      "newOfficialRequirements": 0,
+      "newOriginalScopes": 8,
+      "newOwnScopes": 2,
+      "implemented": false,
+      "done": false,
+      "sourceActionWritesBeforeOptionalOpen": true
+    },
+    "moaConnectionDiagnostic": {
+      "evidence": "evidence/manual-voucher-bookmark-20261023.json",
+      "cachedPluginPackagePresent": true,
+      "requiredWorkToolsExposed": false,
+      "unauthenticatedMcpInitializeStatus": 401,
+      "hostTokenExpiryProven": false,
+      "userConnectionRequested": true,
+      "connected": false,
+      "posted": false,
+      "lastSavedReadbackVersion": "0.51.0"
     }
   },
   "preparedCandidate": {

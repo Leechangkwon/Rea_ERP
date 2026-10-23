@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 전표 북마크와 메뉴 즐겨찾기 분리 · 2026-10-23
+
+원본 SendSlipToInsideBookmark는 선택 전표의 키를 서버 action에 보낸 뒤 선택적으로 북마크 목록을 연다. 열기 확인창을 사전 저장승인이나 조회 전용으로 해석하지 않는다. 자체 메뉴ID favorites와 전표 북마크는 다른 저장 도메인이며, 서버/목록·중복/한도·보관/권한 계약 확인 전 schema/UI를 추가하지 않는다. CAND-COM-BOOKMARK-001 조사 후보이고 공식본문/요구사항/앱/배포 추가0이다. 근거 evidence/manual-voucher-bookmark-20261023.json.
+
 ## My탭과 일반 프리셋의 경계 · 2026-10-23
 
 현재 목록 snapshot/restore는 메모리 화면 복귀다. 원본 common 일반 프리셋의 숨김키 제외/기본값 보완·상대날짜/선택양식·정렬·표시 복원은 확인했으나 실제 My탭 binding·편집/저장 preset 모듈과 권한/보관 계약은 미확인이다. helper를 명명된 검색조건 저장 기능으로 대체하지 않는다. CAND-COM-MYTAB-001은 조사 후보이며 공식본문/요구사항/앱/schema/배포 추가0이다. 근거 evidence/manual-my-tab-20261023.json.

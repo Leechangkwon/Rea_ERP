@@ -52,4 +52,6 @@
 
 행 번호/이동 링크를 읽기 위해 열어도 빈 임시초안이 자동 저장되는 것을 추가 확인했습니다. 이번 빈 초안도 정리했습니다. 원본 주 입력행의 값 입력과 행 번호·선택·순서·이동 컨트롤 조작을 중단하고, 원본 조사는 정적 DOM 읽기·조회 전용 페이지·공개 코드로 진행합니다.
 
+공개 코드의 `SendSlipToInsideBookmarkUserAction`은 서버 `send` 저장 호출을 기다린 뒤 북마크 목록 열기 확인창을 표시합니다. 원본 전표 북마크 버튼을 조회용 팝업으로 눌러 관찰하지 않습니다. 확인창 취소가 앞선 저장을 취소한다는 가정도 하지 않습니다. 검증된 별도 읽기 전용 경로와 정적 분석만 사용하며 근거는 `evidence/manual-voucher-bookmark-20261023.json`입니다.
+
 최신 누계와 배포 근거의 시작점은 `evidence/global-rea-20261018/current-release.json`입니다. 과거 global-summary는 당시 연구의 기준 자료로 보존하며 현재 누계로 오해하지 않습니다. 버전 변경은 package-lock의 최상위 version과 packages 빈 키의 version만 수정하고 의존성 engines·버전 문자열은 바꾸지 않습니다.
