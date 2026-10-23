@@ -1,6 +1,6 @@
 {
-  "version": "0.88.2",
-  "status": "partial-manual-parity-ordinary-form-role-boundary-and-feedback-deployed",
+  "version": "0.88.3",
+  "status": "deployed-closed-form-actions-blocked-preservation-verified-manual-parity-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -377,11 +377,11 @@
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-form-role-20261023.json",
+    "reference": "evidence/manual-list-form-close-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "699203fbf0af6511a7839429c888d40b1650d4fb",
-    "publicVersionVerified": "0.88.2",
+    "deployedSourceCommit": "031afde042eb285e817584475429a6eda8fd59b5",
+    "publicVersionVerified": "0.88.3",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -440,20 +440,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.2",
+    "existingSessionRetainedVersion": "0.88.3",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.2",
+    "lastExactBrowserBackupComparisonVersion": "0.88.3",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.2",
+    "currentServerStateAndMailPreservedVersion": "0.88.3",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.2",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.3",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -658,28 +658,43 @@
       "runtimeSession": 49427,
       "linuxPid": 2547127,
       "workerSha256": "e575b6efacf384e95a8db68f4f489ab6c3d4c033022e053dca7079ba3a0920f0"
+    },
+    "ordinaryFormCloseBoundary": {
+      "version": "0.88.3",
+      "reference": "evidence/manual-list-form-close-20261023.json",
+      "sourceCommit": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
+      "releaseCommit": "031afde042eb285e817584475429a6eda8fd59b5",
+      "runtimeSession": 2265,
+      "linuxPid": 2555562,
+      "workerSha256": "540c1fb2944e8c242e20825f63f5c9e27343f280ea1caedca2f0bf400d345197",
+      "existingSessionRetained": true,
+      "hostedFormOpenCloseWithoutSave": true,
+      "syntheticClosedActionSaveDefaultDeleteRejected": true,
+      "productionSettingWrites": false,
+      "preservationPassed": true
     }
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 44,
-    "sourceBodiesReviewed": 45,
+    "sourceBodiesReviewed": 47,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.2",
+      "productionVersion": "0.88.3",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "034 각 조회 메뉴 양식설정;033 메뉴 기간 기본값의 저장/상대기간 계약 대기(done아님)",
+      "nextIndependentManual": "기확보035/036 재열람 없이 구매5단계 차이표 미완료 gate 재정렬",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
-      "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0"
+      "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
+      "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -836,9 +851,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-034",
+      "sourceId": "EC-HELP-REQUEST-036",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "033의 고정 날짜/@today 검색 양식 기본값과 탭의 미적용/적용 조건 보존은 기존 구현이다. 메뉴별 상대 기간·회사/사용자 저장·초기화/재진입 계약은 CAND-COM-SEARCHPERIOD-001로 대기다. 다음034 각 조회 메뉴 양식설정을 기존0.88.2 양식/권한/검색/CSV와 먼저 대조하고 같은 helper/통과회귀를 반복하지 않는다. root 전체빌드/미커밋 후보 설치 금지와 기존 gate 유지.",
+      "description": "034의 공유 양식창 닫힘 경계는0.88.3으로 수정·합성/전체회귀·운영 열기닫기/보존 대조를 마쳤다. 정확한034 본문과 원본/운영 설정 저장 합격은 미완료다.035/036 본문은 기확보이므로 반복하지 않고 기존 구매5단계 차이표에서 실제 미완료 흐름·미확인 저장/수량/VAT·BOM/주문 연결 gate를 재정렬한다. 원본 로그인/매핑TC101P_01 편집기 및 후보 설치 gate는 유지하고 같은 양식/날짜 helper·통과회귀를 반복하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1374,7 +1389,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 75,
+    "onlineManualIndexItems": 77,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1569,17 +1584,18 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-034",
-      "title": "각 조회 메뉴 양식설정 기능 활용 방법",
-      "context": "033의 고정 날짜/@today 검색 양식 기본값과 탭의 미적용/적용 조건 보존은 기존 구현이다. 메뉴별 상대 기간·회사/사용자 저장·초기화/재진입 계약은 CAND-COM-SEARCHPERIOD-001로 대기다. 다음034 각 조회 메뉴 양식설정을 기존0.88.2 양식/권한/검색/CSV와 먼저 대조하고 같은 helper/통과회귀를 반복하지 않는다. root 전체빌드/미커밋 후보 설치 금지와 기존 gate 유지.",
-      "operatingVersion": "0.88.2",
+      "sourceId": "EC-HELP-REQUEST-036",
+      "title": "구매 5단계 차이표의 미완료 흐름·수락검증 재정렬",
+      "context": "034의 공유 양식창 닫힘 경계는0.88.3으로 수정·합성/전체회귀·운영 열기닫기/보존 대조를 마쳤다. 정확한034 본문과 원본/운영 설정 저장 합격은 미완료다.035/036 본문은 기확보이므로 반복하지 않고 기존 구매5단계 차이표에서 실제 미완료 흐름·미확인 저장/수량/VAT·BOM/주문 연결 gate를 재정렬한다. 원본 로그인/매핑TC101P_01 편집기 및 후보 설치 gate는 유지하고 같은 양식/날짜 helper·통과회귀를 반복하지 않는다.",
+      "operatingVersion": "0.88.3",
       "historyAuditEvidence": "evidence/manual-history-audit-session-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "legacyGates": "TC101P_01 editor/hosted acceptance retained. Mapping088 candidate must also integrate history guard source before future release. No root build/install.",
       "automaticClosureEvidence": "evidence/manual-auto-closure-20261023.json",
       "ordinaryFormRoleEvidence": "evidence/manual-form-role-20261023.json",
       "printRowsEvidence": "evidence/manual-print-rows-20261023.json",
-      "searchPeriodEvidence": "evidence/manual-search-period-20261023.json"
+      "searchPeriodEvidence": "evidence/manual-search-period-20261023.json",
+      "ordinaryFormCloseEvidence": "evidence/manual-list-form-close-20261023.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1805,7 +1821,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "local-cli-reports-oauth-current-conversation-work-tools-unexposed",
-      "pendingLocalUpdates": 106,
+      "pendingLocalUpdates": 107,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false,
       "localCliAuthStatus": "o_auth",
@@ -2046,6 +2062,16 @@
       "newOriginalScopes": 3,
       "applicationChanged": false,
       "implementationDeployed": false,
+      "done": false,
+      "additionalSalesTodayDefaultBody": "EC-FAQ-87VCAW33TOM855K"
+    },
+    "ordinaryFormCloseBoundary": {
+      "sourceId": "EC-HELP-REQUEST-034",
+      "requirement": "REQ-COM-FORMS-002",
+      "reference": "evidence/manual-list-form-close-20261023.json",
+      "deployed": true,
+      "exact034BodyRead": false,
+      "configuredSaveAcceptance": "synthetic-only",
       "done": false
     }
   },
@@ -2266,6 +2292,12 @@
       "sourceManifest": ".artifacts/manual-print-rows-20261023/source-manifest.json",
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
+    },
+    "listFormClose": {
+      "reference": "evidence/manual-list-form-close-20261023.json",
+      "newOfficialBodies": 2,
+      "newOriginalJsDownloaded": 0,
+      "exact033Or034BodyRead": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -2643,6 +2675,13 @@
       "parseFailures": 0,
       "coverage": "unknown",
       "truncated": false
+    },
+    "ordinaryFormClose": {
+      "reference": "evidence/manual-list-form-close-20261023.json",
+      "newOwnScopes": 1,
+      "newOriginalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "scope": "Request-context manual index plus separately scoped official public FAQ bodies; not all ERP manuals",
-  "count": 75,
-  "bodyReviewed": 45,
+  "count": 77,
+  "bodyReviewed": 47,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -382,7 +382,9 @@
       "page": 3,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "researchEvidence": "evidence/manual-list-form-close-20261023.json",
+      "researchStatus": "shared-editor-close-race-fixed-exact034-parity-pending"
     },
     {
       "id": "EC-HELP-REQUEST-035",
@@ -916,6 +918,28 @@
       "localArtifact": ".artifacts/manual-print-rows-20261023/8717MGQG93W7LTI.body.txt",
       "scopeLimit": "Named purchase-order display-row or header replacement-row setting only; not exact032 full body or original saved-setting/renderer acceptance.",
       "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-87VCB3O5E9F85EP",
+      "title": "판매조회 화면의 양식설정에서 기본값 양식이 수정되지 않는데 어떻게 해야 하나요?",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCB3O5E9F85EP&page=2&category=erp",
+      "status": "body-reviewed",
+      "sourcePath": "공개 ERP FAQ > 판매조회",
+      "observedDate": "2026-10-23",
+      "bodySha256": "3a212697a7d312734cbbaf912138cd7e16c13f50b2c39caa1a141e699d1bcb15",
+      "localArtifact": ".artifacts/manual-list-form-close-20261023/87VCB3O5E9F85EP.body.txt",
+      "scope": "Sales-list default form only; not exact034 or purchase-wide acceptance"
+    },
+    {
+      "id": "EC-FAQ-87VCAW33TOM855K",
+      "title": "판매조회를 할 때 기준일자가 오늘 날짜로만 조회되도록 설정하는 방법을 알려주세요.",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCAW33TOM855K&page=2&category=erp",
+      "status": "body-reviewed",
+      "sourcePath": "공개 ERP FAQ > 판매조회",
+      "observedDate": "2026-10-23",
+      "bodySha256": "07269fe013c9b17f2b6fb4bcdbd9e391b6b0e2c8d6109d028273ef893ff1810f",
+      "localArtifact": ".artifacts/manual-list-form-close-20261023/87VCAW33TOM855K.body.txt",
+      "scope": "Sales-list search(F3) > search(F8)-adjacent settings > today default checkbox; not exact033 or purchase-wide acceptance"
     }
   ]
 }

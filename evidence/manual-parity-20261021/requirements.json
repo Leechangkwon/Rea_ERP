@@ -987,7 +987,19 @@
         "Original read-only contracts and synthetic configured save/cancel/permission/preservation acceptance before app integration and hosted setting acceptance."
       ],
       "implementationDeployed": false,
-      "done": false
+      "done": false,
+      "additionalSalesTodayDefaultBody": {
+        "id": "EC-FAQ-87VCAW33TOM855K",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCAW33TOM855K&page=2&category=erp",
+        "question": "판매조회를 할 때 기준일자가 오늘 날짜로만 조회되도록 설정하는 방법을 알려주세요.",
+        "bodySha256": "07269fe013c9b17f2b6fb4bcdbd9e391b6b0e2c8d6109d028273ef893ff1810f",
+        "artifact": ".artifacts/manual-list-form-close-20261023/87VCAW33TOM855K.json",
+        "artifactSha256": "6ee37de70e712e56bea8cdec508138d2f70780a2c432b7b6562af4215b8c9d75",
+        "bodyArtifact": ".artifacts/manual-list-form-close-20261023/87VCAW33TOM855K.body.txt",
+        "fullAnswerRead": true,
+        "scope": "Sales-list search(F3) > search(F8)-adjacent settings > today default checkbox; not exact033 or purchase-wide acceptance"
+      },
+      "purchaseMenuContractStillUnverified": true
     }
   ],
   "allDone": false,
@@ -2155,7 +2167,8 @@
         "evidence/manual-entry-required-guidance-20261022.json",
         "evidence/manual-request-field-catalog-20261022.json",
         "evidence/manual-request-input-order-20261022.json",
-        "evidence/manual-form-role-20261023.json"
+        "evidence/manual-form-role-20261023.json",
+        "evidence/manual-list-form-close-20261023.json"
       ],
       "hostedReadOnlyPartial": true,
       "hostedAcceptance": false,
@@ -2177,6 +2190,17 @@
         "configuredRoleChangeAndSaveAcceptance": "synthetic-only",
         "exact031BodyRead": false,
         "wholeRequirementDone": false
+      },
+      "automatedEvidence": [
+        "tests/form-close-boundary.cjs",
+        "tests/browser/form-close-boundary.spec.cjs"
+      ],
+      "ordinaryFormCloseBoundary": {
+        "reference": "evidence/manual-list-form-close-20261023.json",
+        "deployedVersion": "0.88.3",
+        "configuredSaveAcceptance": "synthetic-only",
+        "hostedFormOpenCloseVerified": true,
+        "exact034ParityVerified": false
       }
     },
     {

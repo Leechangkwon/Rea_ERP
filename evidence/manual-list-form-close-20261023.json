@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "date": "2026-10-23T12:16:29.692375+00:00",
+  "sourceId": "EC-HELP-REQUEST-034",
+  "title": "조회 양식창이 닫힌 후 지연된 저장·기본값·삭제 차단",
+  "status": "deployed-synthetic-close-boundary-accepted-preservation-verified-full034-parity-pending",
+  "version": "0.88.3",
+  "sourceCommit": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
+  "releaseCommit": "031afde042eb285e817584475429a6eda8fd59b5",
+  "releaseBranch": "release/0.88.3-form-close",
+  "pushed": true,
+  "releaseDirectory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.88.3-list-form-close",
+  "workerSha256": "540c1fb2944e8c242e20825f63f5c9e27343f280ea1caedca2f0bf400d345197",
+  "previousWorkerSha256": "e575b6efacf384e95a8db68f4f489ab6c3d4c033022e053dca7079ba3a0920f0",
+  "requirementId": "REQ-COM-FORMS-002",
+  "scope": "Ordinary shared form editor close-state integrity, exercised on print settings and actual request-list search settings; not full original034 equivalence.",
+  "exact034OfficialBodyRead": false,
+  "officialSupportingBodies": [
+    {
+      "id": "EC-FAQ-87VCB3O5E9F85EP",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCB3O5E9F85EP&page=2&category=erp",
+      "question": "판매조회 화면의 양식설정에서 기본값 양식이 수정되지 않는데 어떻게 해야 하나요?",
+      "bodySha256": "3a212697a7d312734cbbaf912138cd7e16c13f50b2c39caa1a141e699d1bcb15",
+      "artifact": ".artifacts/manual-list-form-close-20261023/87VCB3O5E9F85EP.json",
+      "artifactSha256": "7c3687a573671a7172586ede309057cee486d3edb8fe14da8188f858ac1e2395",
+      "bodyArtifact": ".artifacts/manual-list-form-close-20261023/87VCB3O5E9F85EP.body.txt",
+      "fullAnswerRead": true,
+      "scope": "Sales-list default form only; not exact034 or purchase-wide acceptance"
+    },
+    {
+      "id": "EC-FAQ-87VCAW33TOM855K",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCAW33TOM855K&page=2&category=erp",
+      "question": "판매조회를 할 때 기준일자가 오늘 날짜로만 조회되도록 설정하는 방법을 알려주세요.",
+      "bodySha256": "07269fe013c9b17f2b6fb4bcdbd9e391b6b0e2c8d6109d028273ef893ff1810f",
+      "artifact": ".artifacts/manual-list-form-close-20261023/87VCAW33TOM855K.json",
+      "artifactSha256": "6ee37de70e712e56bea8cdec508138d2f70780a2c432b7b6562af4215b8c9d75",
+      "bodyArtifact": ".artifacts/manual-list-form-close-20261023/87VCAW33TOM855K.body.txt",
+      "fullAnswerRead": true,
+      "scope": "Sales-list search(F3) > search(F8)-adjacent settings > today default checkbox; not exact033 or purchase-wide acceptance"
+    }
+  ],
+  "newOfficialBodies": 2,
+  "newOfficialRequirements": 0,
+  "sourceManifest": ".artifacts/manual-list-form-close-20261023/source-manifest.json",
+  "sourceManifestSha256": "8a84932afeac0c9cf175f0376fb2b6413d3615b3367039886a8ac60f1c371067",
+  "change": "apply rejects a dialog that is no longer open, in addition to existing connected DOM, generation, account/company/role/read/write, and saved-form snapshot guards.",
+  "files": [
+    "dist/form-options.js",
+    "tests/form-close-boundary.cjs",
+    "tests/browser/form-close-boundary.spec.cjs",
+    "package.json"
+  ],
+  "schemaChanged": false,
+  "validation": {
+    "focusedNodePassed": 41,
+    "newNodeTests": 4,
+    "preFixNodeFailed": 3,
+    "preFixNodePassed": 1,
+    "preFixNativeBrowserFailed": 1,
+    "newBrowserTests": 2,
+    "fullNodeSuitePassed": true,
+    "fullBrowserPassed": 133,
+    "environmentAndToolsPassed": true,
+    "releaseBuildBrowserStagesPassed": true,
+    "verifyLocalInitialAttemptsExitCodes": [
+      1,
+      1
+    ],
+    "initialFailures": "Release preparation omitted API manual version first, then login version. Both were aligned to0.88.3. The second attempt passed the complete npm test stage; only remaining release/build/browser stages were resumed, avoiding another unchanged full Node run.",
+    "nativeCloseReproduction": "open:false and isConnected:true before queued close removal; delayed action must not commit. jsdom close queues its close event and native Chromium reproduces the same failure.",
+    "sourceAndCandidateFilesEqual": true,
+    "logs": [
+      ".artifacts/manual-list-form-close-20261023/pre-fix-tests.log",
+      ".artifacts/manual-list-form-close-20261023/pre-fix-browser-native.log",
+      ".artifacts/manual-list-form-close-20261023/focused-tests.log",
+      ".artifacts/manual-list-form-close-20261023/browser-focused.log",
+      ".artifacts/manual-list-form-close-20261023/verify-local.log",
+      ".artifacts/manual-list-form-close-20261023/verify-release-build-browser.log"
+    ]
+  },
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-list-form-close-20261023/rea/rea-summary.json",
+    "summarySha256": "1dc4e154f9ea13e0afd9214b2a90c7914f5d05263ad125479cd545442d6f4087",
+    "newOwnScopes": 1,
+    "newOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "runtime": {
+    "version": "0.88.3",
+    "linuxPid": 2555562,
+    "runtimeSession": 2265,
+    "workerSha256": "540c1fb2944e8c242e20825f63f5c9e27343f280ea1caedca2f0bf400d345197",
+    "localHealth": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "pollOrTerminateRuntimeSession": false
+  },
+  "hosted": {
+    "existingLoginRetained": true,
+    "workTabs": 1,
+    "formOpenCloseVerified": true,
+    "formConfiguredSaveVerified": false,
+    "closedDelayedActionsTested": "synthetic Chromium only",
+    "settingsOrBusinessWrites": 0,
+    "screenshot": ".artifacts/manual-list-form-close-20261023/hosted-form-settings.png",
+    "screenshotSha256": "fa16c3f84afeb06ff08a2981cf9b11e755d27187d6a3335f80810f509add3371",
+    "screenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/form-close-0883-hosted.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.3",
+      "exactBytesEqual": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "existingLoginRetained": true,
+      "workTabsRetained": 1,
+      "hostedFormOpenCloseVerified": true,
+      "hostedFormOrBusinessSavePerformed": false
+    },
+    "serverAndMail": {
+      "version": "0.88.3",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupReference": ".artifacts/manual-list-form-close-20261023/predeploy-backup.json",
+    "publicChecks": 12,
+    "assetsMatchRelease": true,
+    "restorationApplied": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkToolsExposed": false,
+    "priorLocalCliAuthStatus": "o_auth",
+    "authRecheckedThisTurn": false,
+    "posted": false,
+    "readback": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 107,
+    "localBody": ".artifacts/manual-list-form-close-20261023/moa-pending-list-form-close.html"
+  },
+  "remaining": [
+    "Exact034 full manual and original purchase-list editor, role/sharing/save/preservation rules remain unverified.",
+    "Two new public sales FAQ answers support only immutable base-form behavior and the separate sales today-default setting path; do not generalize to all purchase menus or mark exact033/034 read.",
+    "Configured setting writes and delayed-action rejection were synthetic only; hosted verification opened/closed the existing form without saving.",
+    "Mapping088 candidate remains undeployed and must integrate history, role and close-state source guards before any future release."
+  ],
+  "counters": {
+    "indexed": 77,
+    "bodyReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-036",
+  "nextWork": "Resume existing purchase five-stage difference table and unresolved workflow acceptance; do not reread already-reviewed035/036 or rerun unchanged form/date helpers.",
+  "done": false
+}

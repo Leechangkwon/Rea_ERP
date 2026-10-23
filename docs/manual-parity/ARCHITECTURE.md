@@ -710,3 +710,7 @@ FormOptions의 기존 계정/회사/read/DOM 경계에 mount 시점 roleId를 �
 ### 검색기간 기본값과 조회 상태 보존의 경계
 
 현재 configureGrid는 fresh 검색 양식의 고정 날짜/@today를 적용하고 requestList/renderReport의 보관 상태는 미적용 입력과 적용 결과를 별도로 복원한다. 원본의 검색 prop 스냅샷/자료형 기본값 채움은 실제 메뉴 기본기간 저장기나 상대기간 계산기를 입증하지 않는다.033의 회사/사용자·메뉴/양식 우선순위와 날짜 경계 계약을 확인한 후에만 별도 정책을 통합하며 현재 설정 schema/초기기간은 변경하지 않는다. 근거 `evidence/manual-search-period-20261023.json`.
+
+### 일반 양식의 native close 지연 경계
+
+HTML dialog.close() 후 close 이벤트의 DOM 제거 전에는 open=false/isConnected=true일 수 있다. 기존 DOM 연결/세대/계정/회사/role/권한/양식 snapshot 검사에 open 상태를 추가해 지연 동작을 차단한다. jsdom fixture도 close 이벤트를 지연시키고 실제 Chromium에서 같은 실패/차단을 확인했다. schema·저장 내용·다른 편집기 정책은 변경하지 않는다. 근거 `evidence/manual-list-form-close-20261023.json`.
