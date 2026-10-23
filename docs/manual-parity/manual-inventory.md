@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 인쇄 상단 명칭023과 생산 타이틀 구분
+
+[작업지시서 페이지별 타이틀 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=5&record_sid=7WCRO8EUTQ93QW7)와 [수정 불가 메뉴번호+작업지시No FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=5&record_sid=7WCS3U8KA463Q87)2본문을 읽고 해시를 보관했다.023 정확한 본문은 index-only이며 생산 사례로 대체하지 않는다. 기존 요청서 제목3함수/검사는 변경 없음·재실행0, 새 공식요구사항0. 목록73/본문43/요구사항42/최종합격0. 근거 `evidence/manual-print-title-20261023.json`.
+
 ## 2026-10-23 인쇄 위치022와 회계 여백 범위
 
 [세금계산서 여백 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=accounting&page=19&record_sid=86JR5JPP75W3P3P)1본문은 해당 회계 인쇄의 일회성 적용·고정저장 미지원 안내다.022 구매 전체본문을 대체하지 않는다. 원본REA6범위에서 test_props/서버 정의 주석과 실제 소비자 전달을 구분했다. 목록71/본문41/요구사항42/최종합격0, 앱/회귀/배포0. 근거 `evidence/manual-print-position-20261023.json`.

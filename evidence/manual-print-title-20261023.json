@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-023",
+  "candidate": "CAND-COM-PRINTTITLE-001",
+  "title": "인쇄 상단 명칭과 페이지별 타이틀·보호 식별자 범위 대조",
+  "status": "existing-own-title-preserved-exact-manual-and-editor-gated",
+  "productionVersion": "0.88.0",
+  "exact023OfficialBodyRead": false,
+  "exact023IndexStatus": "index-only",
+  "supportingOfficialBodies": [
+    {
+      "id": "EC-FAQ-7WCRO8EUTQ93QW7",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=5&record_sid=7WCRO8EUTQ93QW7",
+      "title": "작업지시서 인쇄 페이지별 타이틀 설정 방법",
+      "bodyArtifact": ".artifacts/manual-print-title-20261023/7WCRO8EUTQ93QW7.body.txt",
+      "bodySha256": "281b3dc371d9789f822fc0ac6db1bd576a54a8e7431a1c818f869a2b5585925a",
+      "htmlArtifact": ".artifacts/manual-print-title-20261023/7WCRO8EUTQ93QW7.html",
+      "htmlSha256": "798c5ac209c7dd82056714d49c368426929aa360fb8d20dcc5aa93d853fa6d93",
+      "fullBodyRead": true,
+      "scope": "Named production work-order print only; not exact023 or purchase title editing.",
+      "settingsSaved": false
+    },
+    {
+      "id": "EC-FAQ-7WCS3U8KA463Q87",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=5&record_sid=7WCS3U8KA463Q87",
+      "title": "작업지시서 인쇄 양식 상단 60+작업지시No 항목 수정 방법 안내",
+      "bodyArtifact": ".artifacts/manual-print-title-20261023/7WCS3U8KA463Q87.body.txt",
+      "bodySha256": "c3e8212a757484720c7d563e1fae89444f0c0c222fbc335988afbd85e665368d",
+      "htmlArtifact": ".artifacts/manual-print-title-20261023/7WCS3U8KA463Q87.html",
+      "htmlSha256": "c330338b685a1253cff5423bf3a0af618e139d20b9d9790fde597612cb758be6",
+      "fullBodyRead": true,
+      "scope": "Named production work-order print only; not exact023 or purchase title editing.",
+      "settingsSaved": false
+    }
+  ],
+  "newOfficialBodies": 2,
+  "newOfficialRequirements": 0,
+  "scopeDecision": "Production FAQs are supporting distinctions only. No purchase requirement completion, new production implementation or defect assertion. Existing request title behavior is already covered; do not duplicate it.",
+  "sourceFindings": [
+    "Production work-order FAQ separates TOP header placement from title above data across printed pages. It suggests about five displayed rows; this is not an exact mandatory page size or a generic repeat-h1 option.",
+    "Another production work-order FAQ describes menu-number plus work-order-number as a program-defined, non-editable field. It is separate from a customizable print title/field label and does not justify hardcoding60 into purchase identifiers.",
+    "Cached original common HTML print action passes sourceData.menu.menu_name as printTitle. This does not prove the in-document title editor or persistent title storage writer.",
+    "Existing Excel top-row menu.menu_name output is an Excel header path; no inference about purchase HTML title persistence or exact023 from it."
+  ],
+  "ownOperatingComparison": {
+    "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "priorTitleEvidence": "evidence/manual-request-print-fields-20261023.json",
+    "priorReleaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+    "audit": ".artifacts/manual-print-title-20261023/audit.json",
+    "auditSha256": "1d0e0e8ea4947cdcced0d6cf6e74411ca29288ef05c795d771b13eea1f3f2099",
+    "unchangedScopes": [
+      {
+        "file": "dist/form-options.js",
+        "name": "edit",
+        "scopeSha256": "c4fc8b49a41e562c2de125279d10adb40cf6af52891c19f4efc2ca1735b665c4"
+      },
+      {
+        "file": "dist/form-core.js",
+        "name": "validateForm",
+        "scopeSha256": "24859fd8fc6415a1c8bf2bc72713b9c224135a43191b4595e932d6ab424fcdc8"
+      },
+      {
+        "file": "dist/inventory-ui.js",
+        "name": "appendPrintDocument",
+        "scopeSha256": "17d9641e18bf65d28cd1e558ca39a4e7462fbf0d0eed906740538fdc4314b871"
+      }
+    ],
+    "priorTitleTestUnchanged": true,
+    "existingBehavior": "Print page title, company name and column labels remain separate. Prior synthetic test explicitly saves/activates custom title and supplier label, prints via stub, restores default and checks business records unchanged. No test rerun in this research turn.",
+    "freshHostedTitleSaveOrPrintAcceptance": false
+  },
+  "rea": {
+    "version": "6.4.0",
+    "newOriginalScopes": 0,
+    "reusedOriginalScopes": 1,
+    "newOwnScopes": 0,
+    "newRuns": 0,
+    "inputConfigurationToolAndResultValidated": true,
+    "evidenceValidated": true,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "remainingGates": [
+    "Exact023 body and actual readonly title configuration/editor, permission and save/storage lifecycle. Existing own title is not full parity proof.",
+    "Production per-page heading and protected identifier are distinct and outside the current purchase implementation. Full renderer layout remains unverified.",
+    "Original tab readonly AX check still shows login screen; pending login request retained without repetition.",
+    "Existing mapping TC101P_01 editor/hosted configured save acceptance, VAT/source and earlier manual gates retained."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "present": true,
+    "freshBusinessBackupComparison": false
+  },
+  "preservedCandidates": {
+    "old082UncommittedStateAndFileHashesUnchanged": true,
+    "mapping088Commit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
+    "mapping088Clean": true,
+    "mapping088Deployed": false
+  },
+  "community": {
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 99,
+    "posted": false,
+    "readback": false,
+    "repeatedAuthenticationRequests": 0
+  },
+  "counters": {
+    "indexed": 73,
+    "bodyReviewed": 43,
+    "officialRequirements": 42,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-024",
+  "done": false
+}

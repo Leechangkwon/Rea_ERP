@@ -1,7 +1,7 @@
 {
   "scope": "Request-context manual index plus separately scoped official public FAQ bodies; not all ERP manuals",
-  "count": 71,
-  "bodyReviewed": 41,
+  "count": 73,
+  "bodyReviewed": 43,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -238,7 +238,17 @@
       "page": 2,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "latestBodyRecoveryAttempt": {
+        "date": "2026-10-23",
+        "bodyRecovered": false,
+        "evidence": "evidence/manual-print-title-20261023.json",
+        "relatedSourceIds": [
+          "EC-FAQ-7WCRO8EUTQ93QW7",
+          "EC-FAQ-7WCS3U8KA463Q87"
+        ],
+        "resumeWhen": "Exact023 full body and actual readonly print-title editor; production page titles/protected identifiers are not replacements."
+      }
     },
     {
       "id": "EC-HELP-REQUEST-024",
@@ -811,6 +821,32 @@
       "bodySha256": "a09a6c08b366994eddff27adcab10a303dd01c4e81662bdcb1bea49de0541048",
       "localArtifact": ".artifacts/manual-print-position-20261023/tax-margin-faq.body.txt",
       "scopeLimit": "Accounting tax invoice temporary margins only; not exact022 or a purchase persistent default policy.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-7WCRO8EUTQ93QW7",
+      "title": "작업지시서 인쇄 페이지별 타이틀 설정 방법",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 생산/제조 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=5&record_sid=7WCRO8EUTQ93QW7",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "281b3dc371d9789f822fc0ac6db1bd576a54a8e7431a1c818f869a2b5585925a",
+      "localArtifact": ".artifacts/manual-print-title-20261023/7WCRO8EUTQ93QW7.body.txt",
+      "scopeLimit": "Named production work-order print only; not exact023 or purchase title editing.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-7WCS3U8KA463Q87",
+      "title": "작업지시서 인쇄 양식 상단 60+작업지시No 항목 수정 방법 안내",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 생산/제조 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=5&record_sid=7WCS3U8KA463Q87",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "c3e8212a757484720c7d563e1fae89444f0c0c222fbc335988afbd85e665368d",
+      "localArtifact": ".artifacts/manual-print-title-20261023/7WCS3U8KA463Q87.body.txt",
+      "scopeLimit": "Named production work-order print only; not exact023 or purchase title editing.",
       "originalBusinessOrSettingsWrites": false
     }
   ]
