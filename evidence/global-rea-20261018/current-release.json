@@ -625,8 +625,8 @@
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 38,
-    "sourceBodiesReviewed": 34,
+    "officialRequirements": 39,
+    "sourceBodiesReviewed": 35,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "입력경로별 전표검색016; 원본/모아 연결 완료 응답 우선"
+      "nextIndependentManual": "등록 거래처·품목 검색누락017; 원본/모아 연결 완료 응답 우선"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -795,9 +795,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-016",
+      "sourceId": "EC-HELP-REQUEST-017",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "원본/모아 연결 완료 응답을 우선 처리한다. 응답 전016의 공개 본문·보유 소스와 실제0.88 구현을 대조한다. 같은 mail/MyTab/history helper 및 통과회귀·인증 요청은 반복하지 않는다. 메일은 기본문구 유형과 수신화면 양식의 실제 편집·권한·보관 계약 확보 후 재개한다.",
+      "description": "원본/모아 연결 완료 응답 우선. 응답 전017의 공개 본문과 실제0.88 기초코드/검색 필터를 대조한다. 입력경로016은 실제 선택 리소스·신규/수정/복사/업로드 분류 계약 확보 후 재개하고 기존 전표를 I/Web으로 추정 이관하지 않는다. 같은 helper/통과회귀/인증 요청을 반복하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1333,7 +1333,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 64,
+    "onlineManualIndexItems": 65,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1519,12 +1519,12 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-016",
-      "title": "입력경로를 구분한 전표 검색의 미독 공식 본문과 실제 저장·필터 계약",
-      "context": "원본/모아 연결 완료 응답을 우선 처리한다. 응답 전016의 공개 본문·보유 소스와 실제0.88 구현을 대조한다. 같은 mail/MyTab/history helper 및 통과회귀·인증 요청은 반복하지 않는다. 메일은 기본문구 유형과 수신화면 양식의 실제 편집·권한·보관 계약 확보 후 재개한다.",
+      "sourceId": "EC-HELP-REQUEST-017",
+      "title": "등록한 거래처·품목이 조회/현황 검색에 나타나지 않는 조건의 공식본문·실제 필터 대조",
+      "context": "원본/모아 연결 완료 응답 우선. 응답 전017의 공개 본문과 실제0.88 기초코드/검색 필터를 대조한다. 입력경로016은 실제 선택 리소스·신규/수정/복사/업로드 분류 계약 확보 후 재개하고 기존 전표를 I/Web으로 추정 이관하지 않는다. 같은 helper/통과회귀/인증 요청을 반복하지 않는다.",
       "operatingVersion": "0.88.0",
-      "mailTemplateGateEvidence": "evidence/manual-mail-template-20261023.json",
-      "legacyGates": "bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
+      "inputPathGateEvidence": "evidence/manual-input-path-20261023.json",
+      "legacyGates": "mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1767,6 +1767,17 @@
       "implemented": false,
       "done": false,
       "communityPendingLocalUpdates": 91
+    },
+    "inputPathResearch": {
+      "requirement": "REQ-COM-INPUTPATH-001",
+      "status": "confirmed-origin-search-gap-purchase-resource-and-assignment-contract-gated",
+      "evidence": "evidence/manual-input-path-20261023.json",
+      "newOfficialBodies": 1,
+      "newOriginalScopes": 4,
+      "coverage": "unknown",
+      "implemented": false,
+      "done": false,
+      "communityPendingLocalUpdates": 92
     }
   },
   "preparedCandidate": {

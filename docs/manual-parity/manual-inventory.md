@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 입력경로와 원전표 연결 구분
+
+[생산입고 자료올리기 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86JR58OQHOB73I6)의 입력경로·최초작성일자 조회 절차를 읽었다. 삭제/설정변경은 읽기만 했으며 실행0이다. 생산 사례와 미독016 전체본문·구매 적용범위를 구분한다. 목록65/본문35/요구사항39/최종합격0. 새 원본REA4범위(coverage unknown), 앱/회귀/배포0. 근거 `evidence/manual-input-path-20261023.json`.
+
 ## 2026-10-23 메일 템플릿 범위 구분
 
 [발신 기본문구 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCB58J7DV85LL&page=1&category=erp)와 [메일 수신화면 양식 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFLMSVP831G99&page=549)를 별도 본문으로 읽었다. 유형별 고정문구와 이름 있는 수신화면 양식은 별도 요구사항이며015 전체매뉴얼을 읽었다고 세지 않는다. 목록64/본문34/요구사항38/최종합격0, 신규REA/앱/회귀/배포0. 근거 `evidence/manual-mail-template-20261023.json`.

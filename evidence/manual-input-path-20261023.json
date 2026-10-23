@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-COM-INPUTPATH-001",
+  "status": "confirmed-origin-search-gap-purchase-resource-and-assignment-contract-gated",
+  "productionVersion": "0.88.0",
+  "releaseCommitInspected": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "officialBody": {
+    "sourceId": "EC-FAQ-86JR58OQHOB73I6",
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86JR58OQHOB73I6",
+    "question": "생산입고에서 웹자료올리기로 자료를 등록하면 작업지시서별진행현황에 기록이 반영되지 않습니다. 어떻게 해야 하나요?",
+    "observedAt": "2026-10-23T04:25:14.148Z",
+    "artifact": ".artifacts/manual-input-path-20261023/production-upload-faq.json",
+    "bodySha256": "583878f47b20e50ba57c74dad7bb0d12c70d0f27d24db9270e16a9c320345ba0",
+    "fullAnswerRead": true,
+    "scopeLimit": "Production receipt list, Search(F3) expanded filters: upload input path plus initial creation date. Not proof of complete purchase/request origin choices or migration rules. FAQ also includes destructive remediation which was read only and never performed."
+  },
+  "fullManual016Reviewed": false,
+  "sourceManifest": ".artifacts/manual-input-path-20261023/source-manifest.json",
+  "rea": {
+    "version": "6.4.0",
+    "newOriginalScopes": 4,
+    "newOwnScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "originalStaticFindings": [
+    "data_input_type_render_items resolves the separately loaded refer_type data_input_type_search; actual labels/values are not embedded in inspected modules.",
+    "Checkbox view and all-selection metadata are present for list-search contexts; business availability and empty/all semantics remain unverified.",
+    "ConvertSearchConditionV3Program forwards inv_s$data_input_type directly as INFLOW and initial write-date range as separate parameters.",
+    "CtxRuntimeBase.data_input_type falls back to I/Web in current runtime context; this is not a persisted legacy-data classification contract.",
+    "B/DataUpLoad, E/DataUploadExcel and A/Api are referenced by validation-context branches; this does not establish full search-choice mapping or permit disabling own validation."
+  ],
+  "ownCurrentBehavior": {
+    "firstCreatedDateFilter": "Existing filterDocumentDates implements created/modified date ranges and historical timestamp fallback; not a new feature this run.",
+    "inputPathFilter": false,
+    "sourceLinksAreNotInputPath": "sourceId/importedFrom/generatedFrom identify relationships, not manual/upload/API creation channels.",
+    "originAssignmentPolicy": "No dedicated origin normalization or assignment contract in inspected shipped saveDoc. Arbitrary cloned keys do not establish provenance.",
+    "legacyMigrationPerformed": false,
+    "comparisonUsesShippedRelease": true
+  },
+  "remaining": [
+    "Exact full manual016 and read-only purchase/request Search popup, complete labels/values/defaults, permission/menu-specific availability and empty/all-selection behavior.",
+    "Actual data_input_type_search resource values, source assignment at manual/upload/API/mobile/linked/copy creation, and whether later edits preserve original classification.",
+    "Server storage/filter semantics and coexistence with document date, first-created date, modified date, cancellation/status, paging and saved search conditions.",
+    "Legacy documents lacking provenance must remain unknown; runtime getter default I/Web does not establish the historical origin of existing documents.",
+    "Synthetic save/edit/copy/backup roundtrip and hosted read-only/preservation acceptance; no production settings/business write or original destructive remediation."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "originalDeletes": 0,
+    "operatingBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "managerStatusVerified": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginRequestPending": true,
+    "moaConnectionRequestPending": true,
+    "repeatedRequestsThisRun": false,
+    "repeatedMcpHandshakeThisRun": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 92
+  },
+  "counters": {
+    "indexedManuals": 65,
+    "sourceBodiesReviewed": 35,
+    "officialRequirements": 39,
+    "done": 0
+  },
+  "done": false
+}

@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 38,
+  "officialRequirementsDecomposed": 39,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2658,6 +2658,49 @@
         "Actual loaded mail-default and recipient-template modules; cache absence does not justify invented schemas or template HTML.",
         "Exact full manual015 is still index-only; these two public FAQ bodies are separately scoped sources.",
         "No original/production settings save or mail send; synthetic save/preview/preservation and production read-only acceptance remain pending."
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.88.0",
+      "appChangeNeeded": true,
+      "productionDeployed": false
+    },
+    {
+      "id": "REQ-COM-INPUTPATH-001",
+      "sourceId": "EC-FAQ-86JR58OQHOB73I6",
+      "title": "입력경로·최초작성일자 독립 검색 — 생산입고 사례 확인, 구매 적용범위 대기",
+      "procedure": [
+        "생산입고조회 > Search(F3) > 펼치기",
+        "입력경로에서 자료올리기만 선택",
+        "최초작성일자를 업로드 일자로 지정해 검색"
+      ],
+      "expected": [
+        "자료올리기 경로와 최초작성일자를 결합해 해당 전표를 조회한다.",
+        "원전표 연결과 입력경로를 구분하고 기존 미분류 전표를 추정 변경하지 않는다."
+      ],
+      "status": "confirmed-origin-search-gap-purchase-resource-and-assignment-contract-gated",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-86JR58OQHOB73I6",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86JR58OQHOB73I6",
+        "question": "생산입고에서 웹자료올리기로 자료를 등록하면 작업지시서별진행현황에 기록이 반영되지 않습니다. 어떻게 해야 하나요?",
+        "observedAt": "2026-10-23T04:25:14.148Z",
+        "artifact": ".artifacts/manual-input-path-20261023/production-upload-faq.json",
+        "bodySha256": "583878f47b20e50ba57c74dad7bb0d12c70d0f27d24db9270e16a9c320345ba0",
+        "fullAnswerRead": true,
+        "scopeLimit": "Production receipt list, Search(F3) expanded filters: upload input path plus initial creation date. Not proof of complete purchase/request origin choices or migration rules. FAQ also includes destructive remediation which was read only and never performed."
+      },
+      "role": "Read-only production search procedure documented; actual purchase/request field availability and authorization unverified",
+      "implementationEvidence": [
+        "evidence/manual-input-path-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Exact full manual016 and read-only purchase/request Search popup, complete labels/values/defaults, permission/menu-specific availability and empty/all-selection behavior.",
+        "Actual data_input_type_search resource values, source assignment at manual/upload/API/mobile/linked/copy creation, and whether later edits preserve original classification.",
+        "Server storage/filter semantics and coexistence with document date, first-created date, modified date, cancellation/status, paging and saved search conditions.",
+        "Legacy documents lacking provenance must remain unknown; runtime getter default I/Web does not establish the historical origin of existing documents.",
+        "Synthetic save/edit/copy/backup roundtrip and hosted read-only/preservation acceptance; no production settings/business write or original destructive remediation."
       ],
       "done": false,
       "hostedAcceptance": false,
