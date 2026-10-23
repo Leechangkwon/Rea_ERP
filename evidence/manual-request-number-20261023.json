@@ -1,0 +1,256 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-PUR-REQ-009",
+  "status": "official-faq-and-static-numbering-path-reviewed-separate-business-number-gap-confirmed-editor-contract-gated",
+  "productionVersion": "0.87.0",
+  "sourceManifest": ".artifacts/manual-request-number-20261023/source-manifest.json",
+  "officialBody": {
+    "sourceId": "EC-FAQ-8717KQG6GB77MO3",
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717KQG6GB77MO3&page=2&category=purchase",
+    "question": "발주 요청 시 부여되는 고유번호의 형식을 변경할 수 있나요?",
+    "bodySha256": "1c55391cb6097cfa491c55162e09c5aafc4827d00fe28959ace70b0de22ca051",
+    "artifact": ".artifacts/manual-request-number-20261023/official-faq.json",
+    "fullAnswerRead": true
+  },
+  "officialProcedure": [
+    "재고I > 구매관리 > 발주요청 > 발주요청입력 > Option > 업무설정 > 항목설정",
+    "품의번호 > 번호생성기준 설정 > 발주요청No. 반복코드 > 반복코드설정 > 수정 > 코드 수정/저장"
+  ],
+  "originalProcedureExecuted": false,
+  "newContractFindings": [
+    "Official answer confirms a configurable business-number generation rule; it does not specify the available format tokens, reset scope, duplicate reservation, permissions or cancellation behavior.",
+    "Shared request no_001 has its own display-name resolver. Generic inventory_doc_no_fn consults numbering_info.autocode_info.no_001 and suppresses manual generation/check-duplicate functions for Automatic inputmake_type2. Generic payload code40 is not proof of request-specific settings.",
+    "Combination resolver loads business mapping and condition information. Series resolver loads repeats by category_sid and returns simple_cd_nm only when one result exists; manual generation API resolver has different behavior outside the selected scope.",
+    "CreateNumberingGenProgram requires prop_id/dmc/refer_type, fetches tenant/business numbering entity or sub-business action, clones/normalizes stored script/targets/descriptors and returns false when required configuration is absent.",
+    "Missing target values open IEmptyValuePage; cancel/no message returns false. Successful generation writes the selected data model property, with digit/unit logic for multiple records. This does not establish server persistence/reservation/reset semantics."
+  ],
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 0,
+    "newOriginalScopes": 5,
+    "reusedOriginalScopes": 0,
+    "fullModuleCoverage": false,
+    "results": [
+      {
+        "name": "Original_purchase_request_no_001_custom_display_name",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "start": 58104,
+        "end": 58186,
+        "lineStart": 1383,
+        "lineEnd": 1385,
+        "fragmentSha256": "347cdcd810549f6f2b661c40a799788c36a0a14aeebde7cd4bf300c5d717b097",
+        "resultSha256": "8415c28969b841e6d16d6135fdcc475ff61bf350d82329ff55659d7d1838b651",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 89,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 11,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_inventory_doc_no_fn",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "start": 116868,
+        "end": 118360,
+        "lineStart": 2812,
+        "lineEnd": 2851,
+        "fragmentSha256": "9a64ba4dff22f755720f445f2b87212b3b85c653b4bf8c6617f430fce3a604d9",
+        "resultSha256": "e217103d7b9e0d1a8e2b3494766859b81d739f61169b3e5f15b32ee65235c0d2",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1523,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 121,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_getNumberingCombinationResolver",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 468981,
+        "end": 472811,
+        "lineStart": 10185,
+        "lineEnd": 10266,
+        "fragmentSha256": "152ea58a32868c2e0daefa578596e229c462fff441544d0875ecd5c2559f3ca9",
+        "resultSha256": "3d4624db0d8308d9ae0df8ca6e92dea5087c232126eced2b99b76a6ac4ef04a7",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3962,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 348,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_getNumberingSeriesResolver",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 473082,
+        "end": 474159,
+        "lineStart": 10272,
+        "lineEnd": 10296,
+        "fragmentSha256": "91e4c3641639d2845e24665cd7b9cd10f16cd1f45d667ac6d86f38188468229f",
+        "resultSha256": "1e5f559c579965ba9c2ee89ed5df9320d629613fab53549701cda9b6ff4869e0",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1077,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 116,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_CreateNumberingGenProgram",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 3842844,
+        "end": 3866641,
+        "lineStart": 80511,
+        "lineEnd": 81016,
+        "fragmentSha256": "14d8a1b47ec70028ed5369f26661b6dfe6000fd35bc7ef3b0016b03e0acb7fc9",
+        "resultSha256": "518e4a9f4ffe13baaf6f7093af2c0a3ef6787ecd0809a3e58e403b9ae6c98f5d",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 25321,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 2385,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "ownShippedSourceReview": [
+    {
+      "file": "dist/inventory-core.js",
+      "baseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "sha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce"
+    },
+    {
+      "file": "dist/inventory-ui.js",
+      "baseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "sha256": "aa4ec2d4efbd7500be91a5bce4bd5a57329ceb0b93e634d016379ff3e693d7b7"
+    },
+    {
+      "file": "dist/purchasing-report-core.js",
+      "baseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "sha256": "5b7f5286813912a133a4a7ed9ee17d34e4fb5e86cc077e8f6ad434f996227494"
+    },
+    {
+      "file": "dist/form-core.js",
+      "baseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69"
+    },
+    {
+      "file": "dist/form-options.js",
+      "baseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+      "sha256": "b7161d7c5833b0a1cd8828f60df701f03b3ebf245544db104f321cfbea45dc20"
+    }
+  ],
+  "confirmedGap": {
+    "separateBusinessNumber": false,
+    "numberGenerationSettings": false,
+    "currentInternalId": "TYPE-YYYYMMDD-5digit global sequence fallback on new document; existing ID retained",
+    "currentRequestNumberFilter": "purchasing-report-core.js filters doc.id for filter.number",
+    "independentRequestNo001FieldOrConfigFound": false,
+    "existingInternalIdsOrLinksModified": false,
+    "productionApplicationInspectionBase": "0.87.0 release3960e78; root unshipped core/UI differ and were not installed"
+  },
+  "logoSource": {
+    "id": "EC-HELP-REQUEST-004",
+    "status": "index-only-body-not-recovered-with-current-public-search",
+    "erpSessionLastObservedLoginRequired": true,
+    "publicSearchAndPurchaseFaqPagesChecked": [
+      1,
+      2
+    ],
+    "systemLoginLogoFaqNotSubstitutedForVoucherLogo": true,
+    "bodyReviewedIncrement": 0,
+    "newFeatureImplemented": false
+  },
+  "applicationChanged": false,
+  "newTests": 0,
+  "testsRepeated": false,
+  "fullRegressionRepeated": false,
+  "buildRepeated": false,
+  "deploymentRepeated": false,
+  "preservation": {
+    "productionWorkerSha256": "37f26c42722639590d52c6f340f317e3ecc244c7ca055d87708e36cab33467ab",
+    "runtimeSession": 60635,
+    "linuxPid": 2508011,
+    "productionBusinessOrSettingsOrMailWrites": false,
+    "freshProductionBackupComparisonPerformed": false,
+    "priorOperatingEvidence": "evidence/manual-request-print-fields-20261023.json"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 84
+  },
+  "counters": {
+    "manualIndex": 57,
+    "bodiesReviewed": 27,
+    "requirements": 33,
+    "finalAcceptance": 0
+  },
+  "gates": [
+    "Request-specific no_001 numbering metadata; available editor fields/values/constraints/save/cancel/roles.",
+    "Server series reservation/reset/duplicate concurrency and mapping from external request business number to internal immutable ID.",
+    "Keep existing documents, saved forms, mappings, mail and IDs unchanged; do not infer prefix/sequence settings from own global sequence."
+  ],
+  "nextWork": "공식FAQ의 품의번호 번호생성기준과 연결되는 반복코드설정 편집기의 실제 값/자리수·단위·초기화/중복·저장·취소/권한 및 발주요청 고유 numbering_info 계약을 좁힌다. 확인 전 내부 전표ID를 품의번호로 변경하거나 기존 링크/저장자료를 재번호화하지 않는다. 현재 캐시의5범위 분석만 변화 없이 반복하지 않는다. 로고004는 본문 확보 시 재개하고 독립 후속 본문은 EC-HELP-REQUEST-007 전표상태구분이다.",
+  "done": false
+}

@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 32,
+  "officialRequirementsDecomposed": 33,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2391,6 +2391,45 @@
       "productionVersion": "0.87.0",
       "appChangeNeeded": false,
       "syntheticUiAcceptance": true
+    },
+    {
+      "id": "REQ-PUR-REQ-009",
+      "sourceId": "EC-FAQ-8717KQG6GB77MO3",
+      "title": "발주요청 품의번호의 별도 번호생성기준과 반복코드 설정",
+      "procedure": [
+        "재고I > 구매관리 > 발주요청 > 발주요청입력 > Option > 업무설정 > 항목설정",
+        "품의번호 > 번호생성기준 설정 > 발주요청No. 반복코드 > 반복코드설정 > 수정 > 코드 수정/저장"
+      ],
+      "expected": [
+        "품의번호 형식을 번호생성기준/반복코드설정에서 수정 가능",
+        "업무번호 생성 대상을 내부 저장식별자/전표연결과 구분하며 기존자료 보존은 자체 합격조건으로 검증"
+      ],
+      "status": "official-body-reviewed-static-consumer-mapped-not-implemented-editor-contract-gated",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-8717KQG6GB77MO3",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717KQG6GB77MO3&page=2&category=purchase",
+        "question": "발주 요청 시 부여되는 고유번호의 형식을 변경할 수 있나요?",
+        "bodySha256": "1c55391cb6097cfa491c55162e09c5aafc4827d00fe28959ace70b0de22ca051",
+        "artifact": ".artifacts/manual-request-number-20261023/official-faq.json",
+        "fullAnswerRead": true
+      },
+      "role": "Official FAQ does not specify role/company exceptions; actual settings authorization and persistence unverified",
+      "implementationEvidence": [
+        "evidence/manual-request-number-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Request-specific no_001 numbering metadata; available editor fields/values/constraints/save/cancel/roles.",
+        "Server series reservation/reset/duplicate concurrency and mapping from external request business number to internal immutable ID.",
+        "Keep existing documents, saved forms, mappings, mail and IDs unchanged; do not infer prefix/sequence settings from own global sequence.",
+        "Implementation and synthetic/hosted operational acceptance after original editor contract verification"
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.87.0",
+      "appChangeNeeded": true,
+      "legacyInternalIdReplacementAuthorized": false
     }
   ]
 }

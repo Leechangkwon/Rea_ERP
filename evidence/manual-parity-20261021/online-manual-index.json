@@ -1,7 +1,7 @@
 {
-  "scope": "request context/manual index plus focused purchasing/closure bodies and2official public FAQ answers; not all ERP manuals",
-  "count": 56,
-  "bodyReviewed": 26,
+  "scope": "request context/manual index plus focused purchasing/closure bodies and3official public FAQ answers; not all ERP manuals",
+  "count": 57,
+  "bodyReviewed": 27,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -41,7 +41,13 @@
       "page": 1,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "latestBodyRecoveryAttempt": {
+        "date": "2026-10-23",
+        "bodyRecovered": false,
+        "evidence": "evidence/manual-request-number-20261023.json",
+        "resumeWhen": "Actual online manual body or request-voucher-specific public official procedure; do not substitute app login logo guidance"
+      }
     },
     {
       "id": "EC-HELP-REQUEST-005",
@@ -57,7 +63,10 @@
       "page": 1,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "supplementalBodySources": [
+        "EC-FAQ-8717KQG6GB77MO3"
+      ]
     },
     {
       "id": "EC-HELP-REQUEST-007",
@@ -576,6 +585,18 @@
       "localArtifact": ".artifacts/manual-request-pdf-contract-20261023/independent-due-date-faq.json",
       "fullAnswerRead": true,
       "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717KQG6GB77MO3",
+      "title": "발주 요청 시 부여되는 고유번호의 형식을 변경할 수 있나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 구매/발주 > 2페이지",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717KQG6GB77MO3&page=2&category=purchase",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "1c55391cb6097cfa491c55162e09c5aafc4827d00fe28959ace70b0de22ca051",
+      "localArtifact": ".artifacts/manual-request-number-20261023/official-faq.json",
+      "scopeLimit": "Supplement to EC-HELP-REQUEST-006; its full online manual body remains unread; format grammar/server behavior unspecified"
     }
   ]
 }
