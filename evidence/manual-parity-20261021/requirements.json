@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 41,
+  "officialRequirementsDecomposed": 42,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -1789,7 +1789,8 @@
       "requestPrintChildRequirement": "REQ-PUR-REQ-007",
       "researchEvidence": [
         "evidence/manual-default-print-form-20261023.json",
-        "evidence/manual-print-quantity-20261023.json"
+        "evidence/manual-print-quantity-20261023.json",
+        "evidence/manual-print-position-20261023.json"
       ],
       "scopeNotes": [
         "Current print-window selection, persistent default and per-form shrink defaults are distinct; see2026-10-23 default-print research. Existing acceptance remains incomplete."
@@ -2822,7 +2823,45 @@
       "implementationEvidence": [],
       "automatedEvidence": [],
       "researchEvidence": [
-        "evidence/manual-default-print-form-20261023.json"
+        "evidence/manual-default-print-form-20261023.json",
+        "evidence/manual-print-position-20261023.json"
+      ],
+      "hostedAcceptance": false,
+      "done": false
+    },
+    {
+      "id": "REQ-ACC-PRINT-002",
+      "sourceId": "EC-FAQ-86JR5JPP75W3P3P",
+      "title": "세금계산서 인쇄의 일회성 네 방향 여백 적용",
+      "procedure": [
+        "회계I > 전자(세금)계산서 > (세금)계산서진행단계에서 인쇄",
+        "인쇄 설정의 상/하/좌/우 여백 지정 후 적용(F8)",
+        "다시 인쇄하여 해당 미리보기 확인"
+      ],
+      "expected": [
+        "해당 인쇄에 네 방향 여백 적용",
+        "고정 저장 정책으로 취급하지 않음"
+      ],
+      "scope": "Named accounting tax-invoice flow only; do not apply this one-time policy to purchase/request persistent forms.",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "id": "EC-FAQ-86JR5JPP75W3P3P",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=accounting&page=19&record_sid=86JR5JPP75W3P3P",
+        "title": "세금계산서 인쇄 양식의 여백을 조정할 수 있나요?",
+        "fullBodyRead": true,
+        "bodyArtifact": ".artifacts/manual-print-position-20261023/tax-margin-faq.body.txt",
+        "bodySha256": "a09a6c08b366994eddff27adcab10a303dd01c4e81662bdcb1bea49de0541048",
+        "htmlArtifact": ".artifacts/manual-print-position-20261023/tax-margin-faq.html",
+        "htmlSha256": "88c6582b0c148c4bd90159c22b90388c6c01214d8dca08802f255ed643c0e0ae",
+        "scope": "Accounting tax invoice temporary margins only; not exact022 or a purchase persistent default policy.",
+        "settingsSaved": false
+      },
+      "role": "FAQ does not specify role exceptions; actual menu/print permissions and lifecycle remain unverified.",
+      "status": "reference-scoped-accounting-temporary-margin-implementation-unverified",
+      "implementationEvidence": [],
+      "automatedEvidence": [],
+      "researchEvidence": [
+        "evidence/manual-print-position-20261023.json"
       ],
       "hostedAcceptance": false,
       "done": false

@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-022",
+  "candidate": "CAND-COM-PRINTPOS-001",
+  "title": "전표 인쇄 시 인쇄가 시작되는 위치를 설정하는 방법",
+  "status": "exact022-contract-gated-four-edge-options-and-accounting-temporary-policy-distinguished",
+  "productionVersion": "0.88.0",
+  "exact022OfficialBodyRead": false,
+  "exact022IndexStatus": "index-only",
+  "officialBodyArtifact": ".artifacts/manual-print-position-20261023/official-faq.json",
+  "officialSourceId": "EC-FAQ-86JR5JPP75W3P3P",
+  "officialUrl": "https://www.ecount.com/kr/ecount/service/faq-view?category=accounting&page=19&record_sid=86JR5JPP75W3P3P",
+  "officialScope": "Accounting tax-invoice margins are one-time, not a fixed saved setting. This is not the exact022 purchase contract.",
+  "newOfficialBodies": 1,
+  "newOfficialRequirements": 1,
+  "newRequirement": "REQ-ACC-PRINT-002",
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-print-position-20261023/rea/rea-summary.json",
+    "newOriginalScopes": 6,
+    "newOwnScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "sourceFindings": [
+    "The PrintConfig page lists four numeric margins, reduce_tf and basic_tf, but its server definition request is commented out and its properties are test_props. They are not verified live purchase definitions, defaults or permissions.",
+    "ApplyPrintConfig fills only nullish numeric values with0, validates, sends the record to the parent and closes. Empty strings are unchanged. Parent persistence is outside this handler, so the original Apply action must not be treated as read-only.",
+    "Validation delegates to DataModelValidatorProgram, rejects CUSTOM width>height and opposite-margin sum+10>=paper dimension. Units, live dimensions/defaults and additional server validation remain unverified; no arbitrary numeric limits are inferred.",
+    "syncBasicTf makes fields writable only for basic_tf=false; otherwise it attempts tenant default values and disables editing. This scope does not supply missing defaults.",
+    "Common HTML print forwards four margins separately, including the parameter spelling rigthMargin, and reduce_tf to PrintHTMLProgram. The renderer and actual purchase binding are not recovered."
+  ],
+  "ownOperatingComparison": {
+    "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "files": ["dist/form-core.js", "dist/form-options.js", "dist/inventory-ui.js", "dist/inventory.css"],
+    "existingBehavior": "Own form page stores one uniform margin and uses it in @page; batches preserve each form paper/orientation/uniform margin. This does not implement the named tax-invoice temporary four-edge flow.",
+    "priorEvidence": ["evidence/manual-request-print-batch-20261023.json", "evidence/manual-request-print-fields-20261023.json"],
+    "testsRerun": false
+  },
+  "remainingGates": [
+    "Exact022 body and live purchase definition, caller/apply/cancel/storage and permission scope.",
+    "PrintHTMLProgram renderer, units, actual tenant defaults, orientation and custom-paper constraints; separate content start from internal cell/signature and printer margins.",
+    "Accounting temporary-margin implementation, close/reset, roles and hosted acceptance; do not retrofit generic persistent form settings."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 98,
+    "sameAuthenticationProbeRepeated": false
+  },
+  "counters": {"indexedManuals": 71, "sourceBodiesReviewed": 41, "officialRequirements": 42, "finalAcceptance": 0},
+  "done": false
+}

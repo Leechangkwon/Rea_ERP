@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 인쇄 정의와 호출자 보관 정책 분리 · 2026-10-23
+
+공개 setup builder는 서버 정의 요청이 주석 처리된 test_props다. Apply는 nullish 숫자0 보완·validator 뒤 부모에 record를 보내 닫으며 부모의 영구 저장 여부는 별도다. basic_tf 동기화·마진합+10/규격 검사·PrintHTMLProgram 전달은 단위/실제 구매 binding/renderer 계약을 완성하지 않는다. 회계 일회성 정책을 generic persistent page 설정에 적용하지 않는다. 근거 `evidence/manual-print-position-20261023.json`.
+
 ## 현재 인쇄창 선택과 저장된 기본값 분리 · 2026-10-23
 
 공개 common 전표 change action은 page runtime의 전표별 선택과 page state/preserve reload를 갱신한다. 유효 이전 양식/default_template reader는 별도이며 영구 writer·실제 구매 resolver 계약은 미확인이다. 자체 formActivate의 저장과 조건양식 우선순위를 이 runtime 선택과 동일하다고 세지 않는다. 양식별 축소사용은 별도 공식요구사항이며 renderer/default/권한·보관 계약 전 기존 page schema/저장 의미를 변경하지 않는다. 앱 변경0, 근거 `evidence/manual-default-print-form-20261023.json`.

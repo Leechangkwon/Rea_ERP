@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 인쇄 위치022와 회계 여백 범위
+
+[세금계산서 여백 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=accounting&page=19&record_sid=86JR5JPP75W3P3P)1본문은 해당 회계 인쇄의 일회성 적용·고정저장 미지원 안내다.022 구매 전체본문을 대체하지 않는다. 원본REA6범위에서 test_props/서버 정의 주석과 실제 소비자 전달을 구분했다. 목록71/본문41/요구사항42/최종합격0, 앱/회귀/배포0. 근거 `evidence/manual-print-position-20261023.json`.
+
 ## 2026-10-23 인쇄 수량021의 기존 구현 부분
 
 [수량 소수점 표시 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCAVDW4ER861C&page=2&category=erp) 본문1개를 읽었다. 판매 인쇄의 가능한 표시설정 원인이며021 전체본문을 대체하지 않는다. 운영0.88의 기존 숫자표시4함수·검사와 원본REA3범위 근거를 재검증/재사용했다. 재구현/새검사/회귀/배포0, 목록70/본문40/요구사항41/최종합격0. 근거 `evidence/manual-print-quantity-20261023.json`.
