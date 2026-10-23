@@ -1,7 +1,7 @@
 {
   "scope": "Request-context manual index plus separately scoped official public FAQ bodies; not all ERP manuals",
-  "count": 65,
-  "bodyReviewed": 35,
+  "count": 67,
+  "bodyReviewed": 37,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -733,6 +733,32 @@
       "bodySha256": "583878f47b20e50ba57c74dad7bb0d12c70d0f27d24db9270e16a9c320345ba0",
       "localArtifact": ".artifacts/manual-input-path-20261023/production-upload-faq.json",
       "scopeLimit": "Production receipt list, Search(F3) expanded filters: upload input path plus initial creation date. Not proof of complete purchase/request origin choices or migration rules. FAQ also includes destructive remediation which was read only and never performed.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717MG81E617MQP",
+      "title": "품목등록을 했으나 간편재고조정에서 해당 품목이 조회되지 않습니다.",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 재고/유통 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MG81E617MQP&page=26",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "9c4cb621d89118db690b8a09f1ec21df2fb1011ff31da6b50b855b9035e70c4a",
+      "localArtifact": ".artifacts/manual-master-lookup-20261023/zero-stock-faq.json",
+      "scopeLimit": "Simple inventory adjustment search includes zero-stock items on explicit selection. This is not the general master lookup or purchase permission policy.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717MN2J1NJ7LVN",
+      "title": "허용권한이 지정된 아이디에서 특정 품목의 전표가 조회되지 않는 경우 어떻게 하나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 재고/유통 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MN2J1NJ7LVN&page=1&category=inventory",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "1aa24c11c1c276ddbaaaf628a65aea78bc58ad5b8083c785b4605e31d77c8059",
+      "localArtifact": ".artifacts/manual-master-lookup-20261023/item-permission-faq.json",
+      "scopeLimit": "User allowed-item hierarchical-group membership affects sales voucher visibility. Full mixed-item, warehouse/customer intersections and purchase/request applicability are not specified.",
       "originalBusinessOrSettingsWrites": false
     }
   ]

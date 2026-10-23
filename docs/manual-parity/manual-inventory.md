@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 등록코드 검색누락의 별도 원인
+
+[간편재고조정의 재고0 포함](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MG81E617MQP&page=26)과 [허용품목 계층그룹 권한](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MN2J1NJ7LVN&page=1&category=inventory) 본문을 읽었다. 조정/설정 저장·권한 변경0이며017 전체본문을 대체하지 않는다. 목록67/본문37/요구사항40/최종합격0. 근거 `evidence/manual-master-lookup-20261023.json`.
+
 ## 2026-10-23 입력경로와 원전표 연결 구분
 
 [생산입고 자료올리기 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86JR58OQHOB73I6)의 입력경로·최초작성일자 조회 절차를 읽었다. 삭제/설정변경은 읽기만 했으며 실행0이다. 생산 사례와 미독016 전체본문·구매 적용범위를 구분한다. 목록65/본문35/요구사항39/최종합격0. 새 원본REA4범위(coverage unknown), 앱/회귀/배포0. 근거 `evidence/manual-input-path-20261023.json`.

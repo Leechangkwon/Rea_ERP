@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 39,
+  "officialRequirementsDecomposed": 40,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2701,6 +2701,49 @@
         "Server storage/filter semantics and coexistence with document date, first-created date, modified date, cancellation/status, paging and saved search conditions.",
         "Legacy documents lacking provenance must remain unknown; runtime getter default I/Web does not establish the historical origin of existing documents.",
         "Synthetic save/edit/copy/backup roundtrip and hosted read-only/preservation acceptance; no production settings/business write or original destructive remediation."
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.88.0",
+      "appChangeNeeded": true,
+      "productionDeployed": false
+    },
+    {
+      "id": "REQ-COM-CODEAUTH-001",
+      "sourceId": "EC-FAQ-8717MN2J1NJ7LVN",
+      "title": "허용품목 계층그룹 소속에 따른 전표 조회 제한",
+      "procedure": [
+        "사용자등록 > 아이디 > 권한 > 허용권한 설정 > 허용품목 설정에서 적용 계층그룹 확인",
+        "품목등록 > 계층그룹 > 해당 그룹 > 미포함 탭에서 누락 품목 확인",
+        "그룹 포함 여부에 따라 판매전표 조회 결과 확인"
+      ],
+      "expected": [
+        "사용자별 허용품목 계층그룹과 품목 소속이 조회 결과에 반영된다.",
+        "사용중단 포함·재고0 포함·일반 업무권한을 별도 조건으로 취급하고 권한을 우회하지 않는다."
+      ],
+      "status": "confirmed-allowed-item-visibility-gap-full-permission-and-server-contract-gated",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-8717MN2J1NJ7LVN",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MN2J1NJ7LVN&page=1&category=inventory",
+        "question": "허용권한이 지정된 아이디에서 특정 품목의 전표가 조회되지 않는 경우 어떻게 하나요?",
+        "observedAt": "2026-10-23T04:55:21.638Z",
+        "artifact": ".artifacts/manual-master-lookup-20261023/item-permission-faq.json",
+        "bodySha256": "1aa24c11c1c276ddbaaaf628a65aea78bc58ad5b8083c785b4605e31d77c8059",
+        "fullAnswerRead": true,
+        "scopeLimit": "User allowed-item hierarchical-group membership affects sales voucher visibility. Full mixed-item, warehouse/customer intersections and purchase/request applicability are not specified."
+      },
+      "role": "Permission editor authority and actual purchase/request applicability remain unverified; no authorization/settings changes executed",
+      "implementationEvidence": [
+        "evidence/manual-master-lookup-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Exact full manual017 and actual readonly purchase/request lookup and allowed-permission editor; registered but unseen may have distinct conditions.",
+        "Permission precedence for item/customer/warehouse groups, unassigned users, master/settings admins, nested groups, stopped/deleted codes and mixed-item vouchers; do not infer whole-voucher versus row filtering.",
+        "Server-enforced selection, detail, search, reports, exports and saved conditions must agree; popup route authority_type descriptor alone does not establish anonymous API access.",
+        "Existing account/company/menu role authorization is separate. No currently configured item-group ACL is being bypassed; the original feature is unsupported in the own app.",
+        "Synthetic permitted/denied identities and preservation, then hosted readonly acceptance. Original permission expansion, settings save, adjustment and business writes remain prohibited."
       ],
       "done": false,
       "hostedAcceptance": false,

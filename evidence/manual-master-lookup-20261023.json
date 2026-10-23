@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-COM-CODEAUTH-001",
+  "status": "confirmed-allowed-item-visibility-gap-full-permission-and-server-contract-gated",
+  "productionVersion": "0.88.0",
+  "releaseCommitInspected": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "officialBodies": [
+    {
+      "sourceId": "EC-FAQ-8717MG81E617MQP",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MG81E617MQP&page=26",
+      "question": "품목등록을 했으나 간편재고조정에서 해당 품목이 조회되지 않습니다.",
+      "observedAt": "2026-10-23T04:54:32.491Z",
+      "artifact": ".artifacts/manual-master-lookup-20261023/zero-stock-faq.json",
+      "bodySha256": "9c4cb621d89118db690b8a09f1ec21df2fb1011ff31da6b50b855b9035e70c4a",
+      "fullAnswerRead": true,
+      "scopeLimit": "Simple inventory adjustment search includes zero-stock items on explicit selection. This is not the general master lookup or purchase permission policy."
+    },
+    {
+      "sourceId": "EC-FAQ-8717MN2J1NJ7LVN",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MN2J1NJ7LVN&page=1&category=inventory",
+      "question": "허용권한이 지정된 아이디에서 특정 품목의 전표가 조회되지 않는 경우 어떻게 하나요?",
+      "observedAt": "2026-10-23T04:55:21.638Z",
+      "artifact": ".artifacts/manual-master-lookup-20261023/item-permission-faq.json",
+      "bodySha256": "1aa24c11c1c276ddbaaaf628a65aea78bc58ad5b8083c785b4605e31d77c8059",
+      "fullAnswerRead": true,
+      "scopeLimit": "User allowed-item hierarchical-group membership affects sales voucher visibility. Full mixed-item, warehouse/customer intersections and purchase/request applicability are not specified."
+    }
+  ],
+  "fullManual017Reviewed": false,
+  "sourceManifest": ".artifacts/manual-master-lookup-20261023/source-manifest.json",
+  "rea": {
+    "version": "6.4.0",
+    "newFocusedOriginalScopes": 3,
+    "newOriginalCorpusFiles": 0,
+    "newOwnScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "originalStaticFindings": [
+    "Customer picker passes from-business context and can add account-specific customer conditions; a missing result is not proof a master record is absent.",
+    "Basic-code setup retrieves menu/model definitions and tenant/user context from an action response.",
+    "Simple-code list forwards business/parent/target/menu, include_codes, modified search-condition model, sort and pagination to server; actual ACL evaluation is outside these fragments.",
+    "The customer route authority_type Anonymous descriptor is not an observed unauthenticated or unrestricted server response."
+  ],
+  "ownCurrentBehavior": {
+    "masterList": "renderMasters has explicit stopped-code inclusion. The common options helper excludes disabled codes by default.",
+    "searchPicker": "ReferencePickerUI has explicit inactiveChoices toggle, staged selection and cancel; old selections are retained. Existing coverage inspected, not rerun.",
+    "stockHelper": "EntryCore.stockCandidates and stock import support includeZero; this is an input helper, not proof of full Simple Inventory Adjustment screen parity.",
+    "allowedItemGroupAcl": "No user-specific allowed-item hierarchical-group evaluation in inspected own master/picker/purchasing list paths. Existing whole-module account/company/role checks are separate.",
+    "securityBypassClaim": false,
+    "permissionOrLegacyDataMutation": false,
+    "comparisonUsesShippedRelease": true
+  },
+  "zeroStockRelatedScope": {
+    "officialRequirementAdded": false,
+    "reason": "Separate inventory-adjustment scenario, not proof of a purchase master lookup defect; own stock helper already has zero inclusion and was not reimplemented or retested as a new feature."
+  },
+  "remaining": [
+    "Exact full manual017 and actual readonly purchase/request lookup and allowed-permission editor; registered but unseen may have distinct conditions.",
+    "Permission precedence for item/customer/warehouse groups, unassigned users, master/settings admins, nested groups, stopped/deleted codes and mixed-item vouchers; do not infer whole-voucher versus row filtering.",
+    "Server-enforced selection, detail, search, reports, exports and saved conditions must agree; popup route authority_type descriptor alone does not establish anonymous API access.",
+    "Existing account/company/menu role authorization is separate. No currently configured item-group ACL is being bypassed; the original feature is unsupported in the own app.",
+    "Synthetic permitted/denied identities and preservation, then hosted readonly acceptance. Original permission expansion, settings save, adjustment and business writes remain prohibited."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "originalPermissionChanges": 0,
+    "originalAdjustments": 0,
+    "operatingBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "managerStatusVerified": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginRequestPending": true,
+    "moaConnectionRequestPending": true,
+    "repeatedRequestsThisRun": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 93
+  },
+  "counters": {
+    "indexedManuals": 67,
+    "sourceBodiesReviewed": 37,
+    "officialRequirements": 40,
+    "done": 0
+  },
+  "done": false
+}
