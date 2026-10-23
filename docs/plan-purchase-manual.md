@@ -1,5 +1,17 @@
 # 구매실 매뉴얼 기반 재현
 
+## 현재 운영 · 0.88.0 발주서 Option 진행상태 설정 연결
+
+발주서입력 **Option → 진행상태 변경 설정 → 발주계획-발주서 설정**을 기존 회사 설정 편집기에 연결했다. 누락 규칙은 변경안함으로 표시하고 명시 저장 전에는 만들지 않는다. 기존 config.save/revision CAS로 inventoryFeatures 한 절만 저장/재조회하며 부모 초안·저장raw·다른 설정/규칙/양식을 보존한다. 권한/계정·회사/role·설정/route·부모DOM/초안/저장raw 변경과 닫힌 뒤 callback을 차단한다. 기존 core의 실제 연결 계획행 단위 완료 정책과 나머지행/컨테이너 상태·수량·금액은 유지한다.
+
+공식FAQ EC-FAQ-86HFOODLWUR27BB 본문/공개 binding·팝업을 대조했다. 원본 설정 실행·부분/다건/회사별 권한·전체007본문 합격은 아니다. 새 원본3(번호진입1/상태설정2)·자체6 REA6.4 parse0·coverage unknown/truncatedfalse다. 번호 편집기의 값/규칙은 아직 미확인이고 이전 생성기5범위는 반복하지 않았다. 신규Node5(root/분리)·초기관련22·신규 실제셸 브라우저2·최종verify:local exit0(전체npm test/브라우저127·도구7/릴리스4/환경/분리빌드)이 통과했다.390/1280px 화면과 모바일44px/가로넘침0을 확인했다. 초기 picker/머리항목·행/컨테이너 상태 가정 및API안내 버전 잔여를 정정했고 독립 에이전트 검토 없이 자체 검토했다.
+
+source `e665dc1`·release `b903b56` push 후0.87 기반 분리0.88을 기존 WSL·Supabase·Cloudflare에 반영했다. 공개 버전/정적파일해시·익명메일401/공개health404·내부health200/Supabase를 확인했다. 기존 로그인 유지·운영 Option/한 쌍/변경안함·완료 기본값을 변경/저장 없이 열고 닫았으며 기존 요청조회 작업탭1개로 복귀했다. 실제 설정저장/발주서 저장의 운영 합격은 합성검증과 구분한다. 실제 Android/원본서버 합격도 아니다.
+
+새 브라우저백업10/23 (12)→(13)은8전표/요청1/계획0·전체JSON/양식 byte동일이다. fresh서버app30/gateway0 본문/수정번호·runtime.env·메일3함8통1첨부 exact동일, 복원미리보기0충돌/appliedfalse다. bundleSHA `0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be`·runtime28110/PID2518059 유지, root 전체빌드·미배포VAT5/mapping 설치0이다. 근거 `evidence/manual-plan-source-status-20261023.json`.
+
+목록58/본문28/요구사항34/최종합격0이며 REQ-PUR-PLAN-005는 운영 경로/보존까지만 부분검증이다. 모아 필수업무문서 도구가 없어 마지막실제저장/재조회0.51.0·85갱신 로컬대기이며 게시완료가 아니다. 다음은 **전표상태구분007/발주서 미확인→확인 변경 제한의 미독 공식본문**을 확인한다. 기존 설정/통과회귀를 새 진척으로 반복하지 않으며 번호/로고/PDF/통화/BODY/업로드/TC101P_01 gate와 전체완료false를 유지한다.
+
 ## 현재 구현 단위 · 발주서입력 Option의 진행상태 변경 설정 연결
 
 공식FAQ EC-FAQ-86HFOODLWUR27BB의 본문은 발주서입력 Option > 진행상태 변경 설정 > 발주계획-발주서 설정 > 변경 저장 뒤 발주서 저장 시 원계획 완료를 설명한다. 기존 회사 inventoryFeatures.progressRules와 SelfSettingsUI 편집기·applyLinkedProgressRules를 재사용하며 계산/DB schema는 바꾸지 않는다. 새 차이는 발주서입력 Option에 이 진입 경로가 없다는 점이다. 다른 메뉴의 바로가기나 미확인 원본 설정 문법으로 확장하지 않는다.

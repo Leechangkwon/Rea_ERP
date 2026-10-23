@@ -2,9 +2,9 @@
   "schema": 1,
   "date": "2026-10-23",
   "requirement": "REQ-PUR-PLAN-005",
-  "status": "candidate-implemented-full-local-verified-deployment-pending",
+  "status": "deployed-local-verified-hosted-readonly-and-preservation-passed-full-manual-pending",
   "candidateVersion": "0.88.0",
-  "productionVersion": "0.87.0",
+  "productionVersion": "0.88.0",
   "applicationBaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
   "sourceManifest": ".artifacts/manual-plan-source-status-20261023/source-manifest.json",
   "officialBody": {
@@ -316,9 +316,54 @@
       "messages": 8,
       "files": 1
     },
-    "postdeployPending": true,
+    "postdeployPending": false,
     "rootBuildPerformed": false,
-    "rootUnshippedVatOrMappingInstalled": false
+    "rootUnshippedVatOrMappingInstalled": false,
+    "postdeploy": {
+      "version": "0.88.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "browserComparison": {
+      "beforeFile": "ecount-inventory-2026-10-23 (12).json",
+      "afterFile": "ecount-inventory-2026-10-23 (13).json",
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "byteExact": true,
+      "documents": 8,
+      "requestCount": 1,
+      "planCount": 0,
+      "formsExact": true,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9"
+    },
+    "existingAccountsCompanySettingsAndMailPreserved": true
   },
   "community": {
     "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
@@ -333,5 +378,101 @@
     "requirements": 34,
     "finalAcceptance": 0
   },
-  "done": false
+  "done": false,
+  "sourceCommit": "e665dc135db9e780015470209f1032b0a89acd2d",
+  "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "runtime": {
+    "version": "0.88.0",
+    "sessionId": 28110,
+    "linuxPid": 2518059,
+    "bundleSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be"
+  },
+  "publicDeployment": {
+    "version": "0.88.0",
+    "sourceCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/purchasing-progress-settings-ui.js",
+        "status": 200,
+        "sha256": "915320106f73c92ecf8946bbff40b6e569b88826ac335b30aa6d180ad4387571",
+        "equalsLocal": true
+      },
+      {
+        "path": "/self-settings-ui.js",
+        "status": 200,
+        "sha256": "287ea8bc7529365f29115346e807d48c7097d36e32efc135202e997b97e21b51",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-core.js",
+        "status": 200,
+        "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.js",
+        "status": 200,
+        "sha256": "382385de477b708dc374b21fa5bccf042a09ab604aa4aa4734e1d53f91cd018b",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.css",
+        "status": 200,
+        "sha256": "e08e280f2dc4ecbc2210ede30e1575035e1c39de4043a4abcf98953ac7a8841b",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "4e7edbaa10aa5c6d97669e5d840e23a7f89fc751fc2dba5bc4524d16c05cbce1",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory.css",
+        "status": 200,
+        "sha256": "e851910059b3a2135dd6c8f399504164d502ff8cf7241f87c632045759aa4812",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ]
+  },
+  "hostedReadonly": {
+    "version": "0.88.0",
+    "existingLoginRetained": true,
+    "route": "#menu=2-2-3-1",
+    "path": [
+      "Option",
+      "진행상태 변경 설정",
+      "발주계획 - 발주서 설정"
+    ],
+    "observedChangeMode": "변경안함",
+    "observedProgressDefault": "완료",
+    "settingsEdited": false,
+    "settingsSaved": false,
+    "businessSaved": false,
+    "closedAfterRead": true,
+    "originalRequestListAndSingleWorkTabRestored": true,
+    "physicalAndroidAcceptance": false,
+    "hostedBusinessOrSettingsSaveAcceptance": false,
+    "screenshot": ".artifacts/manual-plan-source-status-20261023/hosted-progress-setting.png"
+  },
+  "nextWork": "전표상태구분007의 미독 본문과 발주서 미확인→확인 전환 제한에 관한 공개 공식FAQ를 대조한다. 이번 설정경로/이미 통과한 helper·회귀를 변화 없이 반복하지 않는다. 번호/로고/PDF/통화/BODY/업로드/TC101P_01는 새 원본 근거가 확보될 때 재개한다."
 }

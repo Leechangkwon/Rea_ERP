@@ -2444,7 +2444,7 @@
         "설정 저장 전 원계획과 부모 발주서/저장자료 유지",
         "명시한 변경 설정을 저장한 뒤 발주서 저장 시 실제 연결된 계획행 완료 표시"
       ],
-      "status": "candidate-implemented-full-local-verified-deployment-pending",
+      "status": "deployed-local-verified-hosted-readonly-and-preservation-passed-full-manual-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "sourceId": "EC-FAQ-86HFOODLWUR27BB",
@@ -2470,13 +2470,16 @@
         "Existing plan model changes only actually allocated plan rows; this patch does not change plan container/other-line status, amounts or core schema. Official partial/multiline/grouped automatic-completion and company-specific permission contracts remain unverified.",
         "Only the purchase-order entry shortcut is added; global editor and existing rule execution remain in use.",
         "Original ERP settings/save/row editing was not performed. Hosted business and setting save acceptance are not claimed.",
-        "Commit/push, isolated release and hosted readonly/preservation verification pending"
+        "Original full partial/grouped/multi-source/company-role and hosted data-bearing setting/business save acceptance."
       ],
       "done": false,
       "hostedAcceptance": false,
-      "productionVersion": "0.87.0",
+      "productionVersion": "0.88.0",
       "candidateVersion": "0.88.0",
-      "appChangeNeeded": true
+      "appChangeNeeded": true,
+      "productionDeployed": true,
+      "hostedReadonlyVerified": true,
+      "preservationVerified": true
     }
   ]
 }

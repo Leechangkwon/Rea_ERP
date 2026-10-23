@@ -1,6 +1,6 @@
 {
-  "version": "0.87.0",
-  "status": "partial-manual-parity-request-print-header-supplier-subset-deployed",
+  "version": "0.88.0",
+  "status": "partial-manual-parity-purchase-order-progress-settings-entry-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -91,7 +91,8 @@
     "Request plain reference memo: editable request-only default field; existing save/search; exact custom form/old value/cancel preservation. Evidence evidence/manual-request-reference-20261023.json",
     "Request-only currency inline registration restores old selection on cancel, selects successful new master, guards parent lifecycle and bounded own CAS advancement; separate parent save, existing KRW totals unchanged",
     "Request bottom print accepts2+ selected current-query requests with saved per-document conditional forms, named paper/orientation/margins and explicit guarded native printing; single print paths retained, hosted multi-request and original approval exclusions incomplete",
-    "Built-in request print displays six saved header fields and stored line supplier names. Saved custom/conditional print layouts preserved; no current item/header supplier fallback; guarded single preview and native mobile/print layout."
+    "Built-in request print displays six saved header fields and stored line supplier names. Saved custom/conditional print layouts preserved; no current item/header supplier fallback; guarded single preview and native mobile/print layout.",
+    "Purchase-order input Option reuses existing plan→PO progress-rule editor with explicit section CAS, parent draft/raw preservation, scoped permissions and disposed-callback guards; existing linked plan-row core is unchanged."
   ],
   "checks": {
     "total": 998,
@@ -126,7 +127,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 125,
+    "currentReleaseBrowserSynthetic": 127,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -154,7 +155,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.87.0",
+    "currentReleaseFullRegressionVersion": "0.88.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -359,16 +360,18 @@
     "requestPrintFieldsNewBrowser": 2,
     "dueDateOfficialContractNewNode": 2,
     "dueDateOfficialContractShipped087CorePassed": true,
-    "dueDateActualShellNewBrowser": 2
+    "dueDateActualShellNewBrowser": 2,
+    "planSourceProgressOptionNewNode": 5,
+    "planSourceProgressOptionNewBrowser": 2
   },
-  "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 해당 후보를 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.87.0 유지, 전체완료 false.",
+  "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 해당 후보를 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.88.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-print-fields-20261023.json",
+    "reference": "evidence/manual-plan-source-status-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
-    "publicVersionVerified": "0.87.0",
+    "deployedSourceCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "publicVersionVerified": "0.88.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -427,20 +430,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.87.0",
+    "existingSessionRetainedVersion": "0.88.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.87.0",
+    "lastExactBrowserBackupComparisonVersion": "0.88.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.87.0",
+    "currentServerStateAndMailPreservedVersion": "0.88.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.87.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -615,7 +618,10 @@
       "preservationPassed": true,
       "runtimeSession": 60635,
       "linuxPid": 2508011
-    }
+    },
+    "planSourceProgressOptionDeployed": true,
+    "planSourceProgressOptionHostedReadonlyVerified": true,
+    "planSourceProgressOptionHostedSettingOrBusinessSaved": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -627,12 +633,12 @@
       "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.87.0",
+      "productionVersion": "0.88.0",
       "done": false,
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "EC-HELP-REQUEST-007 전표상태구분 본문 확보"
+      "nextIndependentManual": "전표상태구분007/미확인→확인 제한의 미독 공식본문"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -791,7 +797,7 @@
     "nextIndependentWork": {
       "sourceId": "EC-HELP-REQUEST-007",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "번호편집기/로고가 원본 로그인·실제 설정 근거를 기다리는 동안 전표상태구분의 미독 공식본문을 확보한다. 기존 진행상태 UI/core 검사 반복은 새 차이를 확인한 경우에만 한다.",
+      "description": "전표상태구분007의 미독 본문과 발주서 미확인→확인 전환 제한에 관한 공개 공식FAQ를 대조한다. 이번 설정경로/이미 통과한 helper·회귀를 변화 없이 반복하지 않는다. 번호/로고/PDF/통화/BODY/업로드/TC101P_01는 새 원본 근거가 확보될 때 재개한다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1513,14 +1519,15 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-FAQ-8717KQG6GB77MO3",
-      "requirement": "REQ-PUR-REQ-009",
-      "title": "발주요청 품의번호/반복코드 편집 계약 확보",
-      "context": "공식FAQ의 품의번호 번호생성기준과 연결되는 반복코드설정 편집기의 실제 값/자리수·단위·초기화/중복·저장·취소/권한 및 발주요청 고유 numbering_info 계약을 좁힌다. 확인 전 내부 전표ID를 품의번호로 변경하거나 기존 링크/저장자료를 재번호화하지 않는다. 현재 캐시의5범위 분석만 변화 없이 반복하지 않는다. 로고004는 본문 확보 시 재개하고 독립 후속 본문은 EC-HELP-REQUEST-007 전표상태구분이다.",
-      "operatingVersion": "0.87.0",
-      "numberingEvidence": "evidence/manual-request-number-20261023.json",
-      "legacyGates": "PDF/currency/BODY/upload/TC101P_01 retained; no root build/install",
-      "independentBodyIfBlocked": "EC-HELP-REQUEST-007"
+      "sourceId": "EC-HELP-REQUEST-007",
+      "requirement": null,
+      "title": "전표상태 구분과 미확인→확인 변경 제한 대조",
+      "context": "전표상태구분007의 미독 본문과 발주서 미확인→확인 전환 제한에 관한 공개 공식FAQ를 대조한다. 이번 설정경로/이미 통과한 helper·회귀를 변화 없이 반복하지 않는다. 번호/로고/PDF/통화/BODY/업로드/TC101P_01는 새 원본 근거가 확보될 때 재개한다.",
+      "observedPublicFaqTitle": "발주서의 진행상태를 미확인에서 확인으로 변경할 수 없어 구매입력에서 전표불러오기를 해도 발주서가 조회되지 않습니다.",
+      "publicFaqIndex": "https://www.ecount.com/kr/ecount/service/faq?page=3&category=purchase",
+      "operatingVersion": "0.88.0",
+      "numberingGateEvidence": "evidence/manual-plan-source-status-20261023.json",
+      "legacyGates": "번호 편집기/로고/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1654,15 +1661,21 @@
     "planSourceProgressOption": {
       "requirement": "REQ-PUR-PLAN-005",
       "reference": "evidence/manual-plan-source-status-20261023.json",
-      "status": "candidate-implemented-full-local-verified-deployment-pending",
+      "status": "deployed-local-verified-hosted-readonly-and-preservation-passed-full-manual-pending",
       "candidateVersion": "0.88.0",
-      "productionDeployed": false,
+      "productionDeployed": true,
       "newNode": 5,
       "newBrowser": 2,
       "fullBrowser": 127,
       "verifyLocalPassed": true,
       "done": false,
-      "communityPendingLocalUpdates": 85
+      "communityPendingLocalUpdates": 85,
+      "productionVersion": "0.88.0",
+      "sourceCommit": "e665dc135db9e780015470209f1032b0a89acd2d",
+      "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+      "hostedReadonlyVerified": true,
+      "hostedBusinessOrSettingsSaveAcceptance": false,
+      "preservationPassed": true
     }
   },
   "preparedCandidate": {
@@ -1815,7 +1828,8 @@
         "EC-FAQ-8717OMB7BEB7MG1"
       ],
       "noOriginalBusinessWrites": true
-    }
+    },
+    "planSourceProgressOption": "evidence/manual-plan-source-status-20261023.json"
   },
   "additional_REA_scope_evidence": {
     "reference": "../manual-request-upload-candidate-20261022.json",
