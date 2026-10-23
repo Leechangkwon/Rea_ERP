@@ -1,5 +1,13 @@
 # 구매실 매뉴얼 기반 재현
 
+## 2026-10-24 · 상태 탭 조회의 페이지 초기화 수정 계획
+
+보관 inventory 공개 코드의 InventoryListProgressStatusSearchResolver는 PROGRESS_STATUS 조회에서 current_index를 1로 초기화하고 ChangeListTabStateResolver는 확인값·진행상태 SID로 활성 탭을 찾는다. 현재 requestList의 탭 클릭은 refresh()로 이전 페이지를 유지한다. 왜 수정하는가: 여러 페이지를 가진 다른 상태를 클릭했을 때 새 결과의 첫 행을 건너뛰어 자료가 누락된 것처럼 보일 수 있기 때문이다.
+
+발주요청·발주서·구매 공통 목록에서 재현한 후 탭 클릭의 조회 페이지만 0(자체 첫 페이지)으로 초기화한다. 적용된 검색·미적용 검색 초안·전표 선택·정렬·양식·업무자료는 보존한다. 원본의 확인값/진행상태 SID와 현재 고정 상태의 전체 대응, 전체 탭의 확인값 확장, 설정 UI/저장/권한은 미확인이므로 별도 gate로 유지한다. 원본 코드를 실행하거나 원본 API를 호출하지 않는다.
+
+root 전체빌드는 금지한다. 운영 b613420 기반 격리 후보에 이 변경과 검사만 반영하고 관련 Node/390·1280px 브라우저 재현→수정→전체 회귀/REA6.4→source/release push→기존 운영 반영 및 자료·양식·설정·메일 보존 확인 순으로 진행한다. 기존 dirty 매핑 후보 12파일을 보존한다.
+
 ## 현재 인계 · 리스트탭 저장 검토 후보·운영0.88.13 유지
 
 공개 클라이언트에서 리스트탭 설정의 공급→진입→조회→저장 자료 구성 경로를 새로 확인했다. common의 menu 소유 list_tab 속성이 list_tab_data를 공급하고, Option 동작은 bizz_sid/menu_sid를 전달해 V5 IConfigureListTabV5Page를 연다. success와 비어 있지 않은 message가 함께 있을 때만 재조회한다. GetConfigureListTabV5SetupProgram은 서버 설정 결과를 받으며 실제 메뉴 응답은 보관 코드에 없다. 원본 API 호출/저장/주 입력행 조작0이다.
