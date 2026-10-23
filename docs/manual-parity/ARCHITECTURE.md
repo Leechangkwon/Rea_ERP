@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## My탭과 일반 프리셋의 경계 · 2026-10-23
+
+현재 목록 snapshot/restore는 메모리 화면 복귀다. 원본 common 일반 프리셋의 숨김키 제외/기본값 보완·상대날짜/선택양식·정렬·표시 복원은 확인했으나 실제 My탭 binding·편집/저장 preset 모듈과 권한/보관 계약은 미확인이다. helper를 명명된 검색조건 저장 기능으로 대체하지 않는다. CAND-COM-MYTAB-001은 조사 후보이며 공식본문/요구사항/앱/schema/배포 추가0이다. 근거 evidence/manual-my-tab-20261023.json.
+
 ## 퀵서치 설정의 구현 경계 · 2026-10-23
 
 원본은 회사·업무별 후보와 선택값을 분리하고 basic-code autocomplete/picker와 slip targets/value를 구분한다. 저장은0개 차단·리빌드 대기/진행·이력기준 충돌을 다룬다. 자체 JSON 검색을 이 설정기능의 구현으로 보지 않는다. 실제 구매/요청 후보와3/9 한도충돌·권한/보관범위 확인 전 schema/default/검색 정책을 변경하지 않는다. 이번은 조사/차이 등록이며 앱·배포0이다. 근거 evidence/manual-search-fields-20261023.json.
