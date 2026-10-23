@@ -1,6 +1,24 @@
 # Windows 주도 개발 인계 — 2026-10-19
 
-## 현재 인계 · 운영0.88.13 유지, 요구사항 현행화·다음 리스트탭
+## 현재 인계 · 리스트탭 저장 검토 후보·운영0.88.13 유지
+
+공개 클라이언트에서 리스트탭 설정의 공급→진입→조회→저장 자료 구성 경로를 새로 확인했다. common의 menu 소유 list_tab 속성이 list_tab_data를 공급하고, Option 동작은 bizz_sid/menu_sid를 전달해 V5 IConfigureListTabV5Page를 연다. success와 비어 있지 않은 message가 함께 있을 때만 재조회한다. GetConfigureListTabV5SetupProgram은 서버 설정 결과를 받으며 실제 메뉴 응답은 보관 코드에 없다. 원본 API 호출/저장/주 입력행 조작0이다.
+
+SaveListTabSettingUserAction은 progress_status_setup.tab_data의 모든 부모/직계 자식을 순회한다. 기존 id를 bizz_information_sid로, 순서/기본값/표시를 num_001/tf_001/tf_002로 구성하고 action context의 bizz_sid와 save를 보낸다. 원본 저장 요청이 resolve된 뒤 결과 알림/닫기를 수행한다. 이름·진행상태 코드 생성이나 menu_sid 저장을 이 함수에서 확인한 것은 아니다. 왜 구분하는가: 표시/순서/기본 탭 설정을 새 진행상태 등록으로 구현하면 계약이 달라지고, 보이는 항목만 저장하면 숨김 설정을 잃을 수 있기 때문이다.
+
+독립 scripts/lib/list-tab-save-review.cjs와 tests/list-tab-save-review.cjs를 작성했다. JSON 원문·알 수 없는 metadata·기존 SID·숨긴 부모/자식·입력 순서·0/false를 보존하며 확인한 세 필드만 검토한다. 입력은 action bizz_sid와 tab_data를 명시 보관하는 자체 JSON 검토 envelope이며 미확인 서버 응답 schema로 주장하지 않는다. 형태/누락/타입/중복ID/깊은 중첩 검사는 자체 보존용 진단이다. 원본 서버의 필수값/범위/단일 기본탭 정책을 가정하지 않는다. 검토 통과도 canApplyfalse/appIntegratedfalse이며 네트워크/저장/UI 연결0이다.
+
+Node 합성12/12·test:tools7/7·env:check·구문/diff 검사가 통과했다. REA6.4 원본6/자체1범위 파싱실패0·coverage unknown·truncatedfalse이며 입력/결과/기보관 원본3본문 해시를 검증했다. 새 원본 다운로드/실행0·전체 모듈 분석/서버 동등성 주장0이다. 자체 연구 source 62db802를push했다. 검사 명령은 WSL에서 node --test tests/list-tab-save-review.cjs다. 원본의 실제 화면/설정값·업무/메뉴/공유 범위·권한·서버 검증·취소·저장 후 재조회는 아직 입증되지 않아 운영에 연결하지 않는다.
+
+기존 인증 운영 화면의0.88.13/발주요청조회/고정 상태5개는 읽기 전용으로 확인했다. dist/package/schema/CSS/운영 worker 변경·root전체빌드·새 배포·업무/양식/메일/설정 쓰기0이다. 현재 운영 worker dcd54b6c3885a498f979d6c8e5e8bd10b86e53791e138cd34e8f39b5ec2327db·릴리스b613420을 유지하며 기존dirty매핑12파일 exact보존을 확인했다. 직전 전체148브라우저·서버/자료/양식/메일 보존 근거는 evidence/manual-price-unconfirmed-20261024.json으로 구분한다. 이번에는 UI가 연결되지 않아 전체 앱/브라우저 회귀를 반복하지 않았다.
+
+기존 역사 source-catalog의41개 경로는 현재0개가 존재했다. 이번에 실제 사용한 다른 보관 경로의 원본3본문은 각각 출처 manifest/해시 일치를 확인했다. 이 제한된 경로 점검을 현재 전체 corpus 재감사나86본문 보유/분석 완료로 확대하지 않는다. 매뉴얼012는 원문 미확보/index-only를 유지하고 누계77/47/44/0·전체완료false다. 모아 업무문서 도구 미노출로119갱신 로컬대기이며 실제 저장/재조회·인증 실패로 표시하지 않는다. 근거 evidence/manual-list-tab-settings-20261024.json.
+
+다음: 리스트탭 선택의 ChangeListTabStateResolver/setListTab에서 확인값·진행상태 SID가 조회 조건으로 투영되는 경로와 현재 목록 소비자를 대조한다. 설정 UI/저장 연결은 실제 V5 메뉴 metadata·권한/취소/보존 계약을 확보한 뒤 진행한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.
+
+운영 PID2617676/지속세션78012 poll/terminate 금지. 기존0.88.13 릴리스와 비공개 백업 보존. 이번 연구 helper는 런타임 설치 대상이 아니며 mapping088 후보의 기존13개 후속 source수정 통합/원본·운영 수락 gate는 그대로다.
+
+## 이전 인계 · 운영0.88.13 유지, 요구사항 현행화·다음 리스트탭
 
 공식 공개 FAQ EC-FAQ-7WCFH194A353QE7의 본문·실제 조회 화면에서 거래처 제시 단가를 확정한 뒤 발주서에 확정 거래처/단가가 표시되는 절차를 확인했다. 부분 확정 전표의 미확정행 노출·불러오기와 요청가 확정 시 거래처 지정은 설명하지 않는다. 왜 이번에는 동작을 바꾸지 않는가: 같은 확정 선행 안내를 전체 행 확정·임의 구매처 자동지정 계약으로 확대할 수 없기 때문이다. 이 두 원본 계약은 새 근거 확보 때 재개하며 동일 FAQ 검색/기합격 회귀를 반복하지 않는다.
 

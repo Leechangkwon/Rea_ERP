@@ -1,0 +1,294 @@
+{
+  "date": "2026-10-24",
+  "status": "independent-readonly-list-tab-save-review-candidate-tested-not-integrated",
+  "sourceCommit": "62db8025e55352cb8489622911b7d7c51741cd01",
+  "sourcePushed": true,
+  "sourceId": "EC-HELP-REQUEST-012",
+  "exactManualBodyRecovered": false,
+  "sourcePlan": "docs/plan-purchase-manual.md",
+  "ownModule": "scripts/lib/list-tab-save-review.cjs",
+  "moduleSha256": "2843cf7356ab1bc4853d633d89452c5f1795549507bbde50da6b94f390a824b1",
+  "testsFile": "tests/list-tab-save-review.cjs",
+  "testsSha256": "7b1178aa14756acebf7a7309208f4db19b28330a7e3d3725b01c2223ffe9d2d3",
+  "publicClientContracts": [
+    {
+      "symbol": "CreatingBlockNodeListTabContributor",
+      "fact": "A menu-owned list_tab attribute supplies list_tab_data. Menu preset/search data is supplied independently."
+    },
+    {
+      "symbol": "OpenConfigureListTabUserAction",
+      "fact": "Option action opens V5 IConfigureListTabV5Page with bizz_sid/menu_sid; only success plus nonempty message triggers reload."
+    },
+    {
+      "symbol": "GetConfigureListTabV5SetupProgram",
+      "fact": "Queries the setup action using route popup parameters and returns server result; actual menu payload is not present in retained client code."
+    },
+    {
+      "symbol": "SaveListTabSettingUserAction",
+      "fact": "Serializes all existing tab_data parents and direct children, including hidden entries; maps id/display_order/is_display_default/display_tf to bizz_information_sid/num_001/tf_001/tf_002. Sends bizz_sid from execution-context action and save array, then sends result/search_type LAST and closes after awaited request."
+    }
+  ],
+  "candidateContract": {
+    "format": "rea-list-tab-save-review",
+    "version": 1,
+    "inputEnvelopeIsOwn": true,
+    "inputScope": "Explicitly captured action bizz_sid plus retained progress_status_setup.tab_data; not claimed to be the original setup-response schema.",
+    "rawJsonExactRetained": true,
+    "unknownMetadataRetainedInSnapshot": true,
+    "proposalFields": [
+      "bizz_information_sid",
+      "num_001",
+      "tf_001",
+      "tf_002"
+    ],
+    "includesHiddenParentAndChildRows": true,
+    "doesNotSortOrRenumber": true,
+    "createsNamesOrProgressCodes": false,
+    "menuSidAddedToSave": false,
+    "doesNotRequireSingleDefault": true,
+    "doesNotAssumeOrderRange": true,
+    "ownConservativeGuards": [
+      "JSON/root/row shape",
+      "Explicit existing ID and finite order/boolean types",
+      "Duplicate ID requires review",
+      "Missing or deeper nested shape requires review"
+    ],
+    "guardEquivalenceToOriginalServerClaimed": false,
+    "canApply": false,
+    "appIntegrated": false,
+    "networkOrStorageMutation": false
+  },
+  "validation": {
+    "newNodeTests": 12,
+    "newNodePassed": 12,
+    "toolTests": 7,
+    "toolTestsPassed": 7,
+    "envCheckPassed": true,
+    "syntaxChecksPassed": true,
+    "gitDiffCheckPassed": true,
+    "fullApplicationRegressionRerun": false,
+    "browserTestsNew": 0,
+    "reasonNoFullRegressionOrBrowser": "Disconnected helper/test and documentation only; no deployed frontend/server/stylesheet/package changes or UI integration.",
+    "previousRuntimeRegression": {
+      "version": "0.88.13",
+      "browserPassed": 148,
+      "evidence": "evidence/manual-price-unconfirmed-20261024.json"
+    },
+    "logs": {
+      "env.log": "38d72bf3e7a340a3df1b6a6d700ad2afe90f91cc38cde7e1eb467b530c784ffb",
+      "tools.log": "c6d2a81cdebf02443c74a70e530e506dd04794f0d9bc695269095d940f7bd8ab",
+      "node-tests.log": "40465f5f5e3d480069d745e1238739ed74f870afc94316338fc000416dce11fa"
+    }
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 6,
+    "newOwnScopes": 1,
+    "originalSources": [
+      {
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+        "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "bytes": 5268253,
+        "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json"
+      },
+      {
+        "file": ".artifacts/manual-form-precision-20261022/app.setup.user_action.10765e7e.20.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/app.setup/app.setup.user_action.10765e7e.20.js",
+        "sha256": "5bebd778de1b573cb7de6d5662f899548d419a1740165d02c7bd17ee022c992e",
+        "bytes": 1873614,
+        "manifest": ".artifacts/manual-form-precision-20261022/source-manifest.json"
+      },
+      {
+        "file": ".artifacts/manual-upload-save-rules-20261022/ecount.usecase.setup.7887591c.20.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.usecase.setup/ecount.usecase.setup.7887591c.20.js",
+        "sha256": "fe20a779377bb745a33242c37121b9cd63fce933684b3abb6b89c137f930df29",
+        "bytes": 1319127,
+        "manifest": ".artifacts/manual-upload-save-rules-20261022/source-manifest.json"
+      }
+    ],
+    "scopes": [
+      {
+        "category": "original",
+        "symbol": "CreatingBlockNodeListTabContributor",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 4754442,
+        "end": 4756314,
+        "lineStart": 98408,
+        "lineEnd": 98446,
+        "fragmentSha256": "9a9748949e8e27ad1ca1258e95b08bacff10410973878ff99d56c9e30eff9d44",
+        "inputFile": "original-CreatingBlockNodeListTabContributor.js",
+        "inputSha256": "2a4c2adafb9771268bb6a2a8d7c6f5b7719f3487794acd5ebf2775c0b4df46b8",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "OpenConfigureListTabUserAction",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 2663689,
+        "end": 2664810,
+        "lineStart": 56660,
+        "lineEnd": 56686,
+        "fragmentSha256": "3574d48ed2d1c6bafcee3bd55a977e19e45c52281ee63272fef31df245b6d8ab",
+        "inputFile": "original-OpenConfigureListTabUserAction.js",
+        "inputSha256": "422b176f4f3d6d4fc07017b489c1054dddaf353c33205b5385e0011788b219c4",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "GetConfigureListTabV5SetupProgram",
+        "file": ".artifacts/manual-upload-save-rules-20261022/ecount.usecase.setup.7887591c.20.js",
+        "sourceSha256": "fe20a779377bb745a33242c37121b9cd63fce933684b3abb6b89c137f930df29",
+        "start": 1111336,
+        "end": 1111683,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "a917bed691f68a548ce5d6e81ea13ed43ccb03db613d5e71c2ec49bd9c213e52",
+        "inputFile": "original-GetConfigureListTabV5SetupProgram.js",
+        "inputSha256": "f0e71d7e1e94c77e0394e21880bd56bc84789fca365ef088dc650293419dff8d",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "IGetConfigureListTabV5SetupAction",
+        "file": ".artifacts/manual-upload-save-rules-20261022/ecount.usecase.setup.7887591c.20.js",
+        "sourceSha256": "fe20a779377bb745a33242c37121b9cd63fce933684b3abb6b89c137f930df29",
+        "start": 34305,
+        "end": 34482,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "155eedcc304e26fdc352dd205b1653bc7681382043e25150e8068617bf9710b5",
+        "inputFile": "original-IGetConfigureListTabV5SetupAction.js",
+        "inputSha256": "dfa7363fb77f5feadf080df16bada562fecaa745184ade3edef63d28d52d6a16",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "IModifyListTabSettingAction",
+        "file": ".artifacts/manual-upload-save-rules-20261022/ecount.usecase.setup.7887591c.20.js",
+        "sourceSha256": "fe20a779377bb745a33242c37121b9cd63fce933684b3abb6b89c137f930df29",
+        "start": 34983,
+        "end": 35142,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "fac6db6b9fc3bb3de3b041e9e2515bf67ca2595d5127d2dbf6e237f0f6889d0d",
+        "inputFile": "original-IModifyListTabSettingAction.js",
+        "inputSha256": "a0c2bdc09aae9112804ebe22c6d7293fc7f17d56ac607299694cea4815b606d5",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "SaveListTabSettingUserAction",
+        "file": ".artifacts/manual-form-precision-20261022/app.setup.user_action.10765e7e.20.js",
+        "sourceSha256": "5bebd778de1b573cb7de6d5662f899548d419a1740165d02c7bd17ee022c992e",
+        "start": 1824344,
+        "end": 1825662,
+        "lineStart": 1,
+        "lineEnd": 1,
+        "fragmentSha256": "b4b77e5c05cdbb51f4d0331e0842f92771a184870649f978ba87b8fcfe0f351a",
+        "inputFile": "original-SaveListTabSettingUserAction.js",
+        "inputSha256": "750e8b7e2c26185984eaa6acafe1e553f01fc00b0aa82def4c605d13d5f8fa09",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "reviewListTabSave",
+        "file": "scripts/lib/list-tab-save-review.cjs",
+        "sourceSha256": "2843cf7356ab1bc4853d633d89452c5f1795549507bbde50da6b94f390a824b1",
+        "start": 173,
+        "end": 2820,
+        "lineStart": 5,
+        "lineEnd": 65,
+        "fragmentSha256": "59178f9a6f18c81dd62793530c46d85bbb01ccaf1c88c8cff81c5dd347f034ad",
+        "inputFile": "own-reviewListTabSave.js",
+        "inputSha256": "c2529f46b375e3b93c74b149fb33dc1f9e13dfce7630b2e1ce006ce771ee1a25",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": false
+      }
+    ],
+    "resultSha256": "d4da849c668b7415e8e15eeaa741f67332633257b4975dd8905ab9f731620ec2",
+    "statistics": {
+      "relevant_files": 7,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 7719,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 7,
+      "visited_ast_nodes": 1129,
+      "findings": 2,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "hostedObservation": {
+    "version08813Visible": true,
+    "existingRequestListVisible": true,
+    "fixedFiveStatusLabelsVisible": true,
+    "method": "Existing authenticated Windows CUA AX read only",
+    "writes": false,
+    "settingsPopupObserved": false
+  },
+  "preservation": {
+    "operatingVersion": "0.88.13",
+    "operatingReleaseCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+    "workerSha256": "dcd54b6c3885a498f979d6c8e5e8bd10b86e53791e138cd34e8f39b5ec2327db",
+    "workerUnchanged": true,
+    "runtimePid": 2617676,
+    "persistentExecSessionNeverPoll": 78012,
+    "dirtyMappingFiles": 12,
+    "dirtyMappingExactPreserved": true,
+    "businessAndFormAndMailWrites": false,
+    "serverDataRecheckedThisRun": false,
+    "priorPreservationEvidence": "evidence/manual-price-unconfirmed-20261024.json"
+  },
+  "actualSourceAvailability": {
+    "historicalCatalogEntriesChecked": 41,
+    "historicalCatalogPathsPresent": 0,
+    "notAnAuditOfEntireCurrentCorpus": true,
+    "originalBodiesUsedFromOtherRetainedManifests": 3,
+    "allUsedBodiesHashVerified": true,
+    "newDownloads": 0
+  },
+  "deploymentAttempted": false,
+  "productionDeployed": false,
+  "installedIntoOperatingRuntime": false,
+  "originalExecuted": false,
+  "originalBusinessWrites": false,
+  "originalApiCalls": false,
+  "originalSession": "login-required-as-previously-observed; no repeated auth attempt",
+  "limitations": [
+    "Original exact012 manual body and current V5 setting UI not observed.",
+    "Current menu setup response and its full model/schema not captured.",
+    "Business/menu/shared scope, permission checks, server validation, cancellation and persisted reload acceptance unverified.",
+    "Static payload serialization is not server save or original runtime-equivalence proof.",
+    "List-tab display/default/order is distinct from registering new progress states."
+  ],
+  "manualCounts": {
+    "indexed": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "allDone": false
+  },
+  "moa": {
+    "workDocumentToolsExposed": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingLocalUpdates": 119,
+    "authenticationFailureInferred": false
+  },
+  "nextWork": "리스트탭 선택의 ChangeListTabStateResolver/setListTab에서 확인값·진행상태 SID가 조회 조건으로 투영되는 경로와 현재 목록 소비자를 대조한다. 설정 UI/저장 연결은 실제 V5 메뉴 metadata·권한/취소/보존 계약을 확보한 뒤 진행한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지."
+}

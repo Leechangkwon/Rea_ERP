@@ -21,3 +21,7 @@
 관련 기능의 합성 저장/재조회·취소·권한·닫힌 창 검사는 수행됐고 운영에서는 기존 자료 보존과 안전한 열기/닫기를 확인했다. 원본/운영 설정 저장의 최종 합격과 다중 사용자 공용 업무 저장은 남아 있다. **왜 다음에도 보존을 먼저 확인하는가:** 공통 양식·기초자료 변경은 여러 구매 단계에 동시에 영향을 주기 때문이다.
 
 근거: [아키텍처](../manual-parity/ARCHITECTURE.md), [구매처/양식 계획](../plan-purchasing-supplier-layout-20261022.md), [진행 기록](../manual-parity/PROGRESS.md), [현재 매핑/배포 상태](../../evidence/global-rea-20261018/current-release.json).
+
+## 2026-10-24 · 리스트탭 설정과 진행상태 등록의 구분
+
+고정 상태 버튼 → 공개 클라이언트가 사용하는 기존SID의 순서/기본값/표시 설정을 독립 검토하는 후보를 추가했다. 왜 이 단위인가: 새 이름/코드를 생성하는 기능과 섞거나 숨김 행을 누락시키지 않고 확인한 자료 구성부터 보존해야 하기 때문이다. 자체 JSON 원문/미지 metadata를 보존하고 검토 통과도 canApplyfalse/appIntegratedfalse다. Node12·도구7·REA원본6/자체1 분석을 통과했으며 운영/UI/서버 연결은 하지 않았다. 실제 메뉴 응답·V5화면·권한/저장 계약 후 연결한다. source 62db802·evidence/manual-list-tab-settings-20261024.json .

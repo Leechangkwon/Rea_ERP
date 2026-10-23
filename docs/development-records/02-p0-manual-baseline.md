@@ -21,3 +21,7 @@
 P0의 설계 최초 게시와 전역 본문 조사 완료를 구분한다. 새 본문이 생기면 기존 기준판·해시·영향 요구사항을 남기고 필요 항목을 다시 연다. **왜:** 새 근거가 과거의 동작 가정을 바꾸는 경우도 있기 때문이다. 이번 16개 기록도 모아 도구가 제공될 때 실제 트리/권한/버전을 읽고 저장 후 재조회해야 게시 완료가 된다.
 
 근거: [PRD](../manual-parity/PRD.md), [조사대장](../manual-parity/manual-inventory.md), [요구사항](../../evidence/manual-parity-20261021/requirements.json), [게시대장](../../evidence/manual-parity-20261021/publication.json), [현재 릴리스](../../evidence/global-rea-20261018/current-release.json).
+
+## 2026-10-24 · 리스트탭 근거의 범위
+
+원본6/자체1개의 공급·진입·조회·저장 자료 구성 범위를REA6.4로 분석했다. 왜 원문/설정 완료로 올리지 않는가: 클라이언트가 보낸 필드와 실제 서버 검증·권한·저장 결과는 서로 다른 증거이기 때문이다. 역사 catalog41경로의 현재 부재와 다른 보관 경로에서 검증한3본문을 분리하고 전체corpus 보유/완료 수치로 확대하지 않는다. 매뉴얼012 index-only/누계77·47·44·0 유지. evidence/manual-list-tab-settings-20261024.json .
