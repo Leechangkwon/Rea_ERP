@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "date": "2026-10-23T11:31:35.260257+00:00",
+  "sourceId": "EC-HELP-REQUEST-033",
+  "title": "각 메뉴의 검색기간 기본값을 변경하는 방법",
+  "status": "partial-existing-form-defaults-confirmed-distinct-menu-period-contract-gated",
+  "productionVersion": "0.88.2",
+  "operatingReleaseCommit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+  "exact033OfficialBodyRead": false,
+  "exact033IndexStatus": "index-only",
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "candidateId": "CAND-COM-SEARCHPERIOD-001",
+  "lookup": {
+    "date": "2026-10-23T11:31:35.260257+00:00",
+    "exact033FullBodyAcquired": false,
+    "officialPublicFaqPagesRead": [
+      "https://www.ecount.com/kr/ecount/service/faq?category=purchase",
+      "https://www.ecount.com/kr/ecount/service/faq?category=erp",
+      "https://www.ecount.com/kr/ecount/service/faq?page=2&category=erp"
+    ],
+    "relevantFullAnswersAcquired": 0,
+    "lookupConcludedUnavailable": false,
+    "originalAuthenticatedSessionRechecked": false,
+    "originalLastKnownState": "login-required",
+    "originalBusinessOrSettingWrites": 0,
+    "publicWebSearch": "Focused official-domain query returned no relevant result; unrelated search results excluded",
+    "workToolsExposed": false,
+    "moaOAuthRepeated": false
+  },
+  "lookupArtifact": ".artifacts/manual-search-period-20261023/lookup.json",
+  "lookupSha256": "0f60d93b0d67a37d0c0aff9ed2383632355cab3d4ebb793f805d0df696a09804",
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-search-period-20261023/rea/rea-summary.json",
+    "summarySha256": "722e5482e468a5dad0d17b495ef99e351ba1d63fb7c44ae6ebc8030ccd184f4c",
+    "analyzer": ".artifacts/manual-search-period-20261023/analyze.mjs",
+    "analyzerSha256": "599c75d05535eb42e6eaad196669f30c4a4f1748262e86772778a4906e44c141",
+    "newOriginalScopes": 3,
+    "newOwnScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "staticFindings": [
+    {
+      "name": "date_range_condition_default_value",
+      "finding": "Generic initializer returns type:range and from_date/to_date:null. This is not proof of a purchase menu period, a saved preference, or the runtime initial dates."
+    },
+    {
+      "name": "getPresetSearchDataKeys",
+      "finding": "Preset search data collects props excluding display_state:false and includes selectable-group target props, then deduplicates. This is not proof that a specific date field is included in a real purchase preset."
+    },
+    {
+      "name": "collectPresetSearchDataWithDefaultsAsync",
+      "finding": "Collects current DMC values and calls DataModelInitializerByDataTypeProgram for missing values; no per-user/company writer or relative-date resolver is included."
+    }
+  ],
+  "existingOperatingBehavior": [
+    "Without a configured search form default, docFilters initializes Jan1 through today.",
+    "configureGrid applies nonempty saved search-form field defaults on fresh setup; FormCore.defaultValue resolves @today or a fixed literal. This existing feature is preserved.",
+    "Retained request/report work tabs keep pending/applied search values, quick text, errors and scroll as transient state. This is distinct from saved period defaults."
+  ],
+  "ownOperatingComparison": {
+    "fullFileArtifact": ".artifacts/manual-search-period-20261023/operating-comparison.json",
+    "fullFileSha256": "0c81caa782551b2a41d6948e317e143d45792584c9b7bd0a5167c42d30649c04",
+    "scopeArtifact": ".artifacts/manual-search-period-20261023/operating-scope-comparison.json",
+    "scopeSha256": "91b09029e1243f41173633da284d86f9e2eead8c96e26a60d53cc74bdd02205b",
+    "scopeNames": [
+      "configureGrid",
+      "docFilters",
+      "requestList",
+      "renderReport"
+    ],
+    "matchingScopes": 4,
+    "fullRootInventoryEqualsOperating": false,
+    "unrelatedRootChangesPreserved": true,
+    "unchangedComparedOtherSourceFiles": 2,
+    "unchangedComparedTestFiles": 2,
+    "testsRerun": 0,
+    "freshConfiguredSaveAcceptance": false
+  },
+  "remainingGates": [
+    "Exact033 full manual and read-only actual purchase/menu setting editor, including labels, selected values and setting route.",
+    "Actual saved metadata and writer: company/user/role/menu/template scope, precedence and permission validation; no assumption that a generic saved search preset is the date-default setting.",
+    "Supported fixed/relative dates, business date/timezone and week/month/year boundary rules; blank/unset/reset behavior.",
+    "New screen vs retained work tab vs close/reopen/relogin behavior; preserve pending search draft and applied results.",
+    "Original read-only contracts and synthetic configured save/cancel/permission/preservation acceptance before app integration and hosted setting acceptance."
+  ],
+  "changes": {
+    "application": 0,
+    "newTests": 0,
+    "testRuns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingWrites": 0,
+    "hostedBusinessOrSettingWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2547127,
+    "pidPresent": true,
+    "workerSha256": "e575b6efacf384e95a8db68f4f489ab6c3d4c033022e053dca7079ba3a0920f0",
+    "serviceRestarted": false,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-form-role-20261023.json"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkToolsExposed": false,
+    "priorLocalCliAuthStatus": "o_auth",
+    "authStatusRecheckedThisTurn": false,
+    "authenticationEvidence": "evidence/moa-plugin-1.0.2-verification-20261023.json",
+    "pendingLocalUpdates": 106,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "readback": false,
+    "localBody": ".artifacts/manual-search-period-20261023/moa-pending-search-period.html"
+  },
+  "counters": {
+    "indexed": 75,
+    "bodyReviewed": 45,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-034",
+  "done": false
+}

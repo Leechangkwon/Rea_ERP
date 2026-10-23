@@ -675,7 +675,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "033 메뉴 검색기간 기본값;032 표시/대체줄수 저장·renderer 계약 대기(done아님)",
+      "nextIndependentManual": "034 각 조회 메뉴 양식설정;033 메뉴 기간 기본값의 저장/상대기간 계약 대기(done아님)",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -836,9 +836,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-033",
+      "sourceId": "EC-HELP-REQUEST-034",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "032 공식 구매FAQ2본문에서 표시줄수와 머리글 대체줄수의 별도 경로를 확인했다. 자체 설정/renderer는 미구현이며 값 정의·실제 구매 바인딩/여러줄·빈행·페이지 계산/권한·저장 계약 대기다. 다음033 각 메뉴 검색기간 기본값은 기존0.51 날짜검색/단축키와 구분하고 회사·사용자 기본값 범위부터 확인한다. 같은 helper/통과회귀 재반복·root 전체빌드 금지 유지.",
+      "description": "033의 고정 날짜/@today 검색 양식 기본값과 탭의 미적용/적용 조건 보존은 기존 구현이다. 메뉴별 상대 기간·회사/사용자 저장·초기화/재진입 계약은 CAND-COM-SEARCHPERIOD-001로 대기다. 다음034 각 조회 메뉴 양식설정을 기존0.88.2 양식/권한/검색/CSV와 먼저 대조하고 같은 helper/통과회귀를 반복하지 않는다. root 전체빌드/미커밋 후보 설치 금지와 기존 gate 유지.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1569,16 +1569,17 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-033",
-      "title": "각 메뉴의 검색기간 기본값을 변경하는 방법",
-      "context": "032 공식 구매FAQ2본문에서 표시줄수와 머리글 대체줄수의 별도 경로를 확인했다. 자체 설정/renderer는 미구현이며 값 정의·실제 구매 바인딩/여러줄·빈행·페이지 계산/권한·저장 계약 대기다. 다음033 각 메뉴 검색기간 기본값은 기존0.51 날짜검색/단축키와 구분하고 회사·사용자 기본값 범위부터 확인한다. 같은 helper/통과회귀 재반복·root 전체빌드 금지 유지.",
+      "sourceId": "EC-HELP-REQUEST-034",
+      "title": "각 조회 메뉴 양식설정 기능 활용 방법",
+      "context": "033의 고정 날짜/@today 검색 양식 기본값과 탭의 미적용/적용 조건 보존은 기존 구현이다. 메뉴별 상대 기간·회사/사용자 저장·초기화/재진입 계약은 CAND-COM-SEARCHPERIOD-001로 대기다. 다음034 각 조회 메뉴 양식설정을 기존0.88.2 양식/권한/검색/CSV와 먼저 대조하고 같은 helper/통과회귀를 반복하지 않는다. root 전체빌드/미커밋 후보 설치 금지와 기존 gate 유지.",
       "operatingVersion": "0.88.2",
       "historyAuditEvidence": "evidence/manual-history-audit-session-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "legacyGates": "TC101P_01 editor/hosted acceptance retained. Mapping088 candidate must also integrate history guard source before future release. No root build/install.",
       "automaticClosureEvidence": "evidence/manual-auto-closure-20261023.json",
       "ordinaryFormRoleEvidence": "evidence/manual-form-role-20261023.json",
-      "printRowsEvidence": "evidence/manual-print-rows-20261023.json"
+      "printRowsEvidence": "evidence/manual-print-rows-20261023.json",
+      "searchPeriodEvidence": "evidence/manual-search-period-20261023.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1804,7 +1805,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "local-cli-reports-oauth-current-conversation-work-tools-unexposed",
-      "pendingLocalUpdates": 105,
+      "pendingLocalUpdates": 106,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false,
       "localCliAuthStatus": "o_auth",
@@ -2034,6 +2035,17 @@
       "exact032BodyRead": false,
       "implementationDeployed": false,
       "applicationChanged": false,
+      "done": false
+    },
+    "searchPeriodDefaultsResearch": {
+      "sourceId": "EC-HELP-REQUEST-033",
+      "reference": "evidence/manual-search-period-20261023.json",
+      "candidateId": "CAND-COM-SEARCHPERIOD-001",
+      "exact033BodyRead": false,
+      "existingFixedAndTodayFormDefaults": true,
+      "newOriginalScopes": 3,
+      "applicationChanged": false,
+      "implementationDeployed": false,
       "done": false
     }
   },
@@ -2622,6 +2634,15 @@
       "truncated": false,
       "fullModuleCoverage": false,
       "runtimeEquivalence": false
+    },
+    "searchPeriod": {
+      "reference": "evidence/manual-search-period-20261023.json",
+      "newOriginalScopes": 3,
+      "newOwnScopes": 0,
+      "reusedOriginalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false
     }
   }
 }

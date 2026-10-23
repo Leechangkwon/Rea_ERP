@@ -966,6 +966,28 @@
       "hostedAcceptance": false,
       "preservationVerifiedForThisScenario": false,
       "done": false
+    },
+    {
+      "id": "CAND-COM-SEARCHPERIOD-001",
+      "sourceId": "EC-HELP-REQUEST-033",
+      "title": "검색기간 기본값 저장·재진입 정책",
+      "status": "exact-body-and-menu-preference-contract-gated",
+      "referenceBodyReviewed": false,
+      "researchEvidence": [
+        "evidence/manual-search-period-20261023.json"
+      ],
+      "implementationEvidence": [],
+      "automatedEvidence": [],
+      "existingPartialImplementation": "Fixed search-form field defaults and @today already apply on fresh setup; retained work-tab conditions are transient. Do not count generic preset snapshots or date filters as complete033 parity.",
+      "remaining": [
+        "Exact033 full manual and read-only actual purchase/menu setting editor, including labels, selected values and setting route.",
+        "Actual saved metadata and writer: company/user/role/menu/template scope, precedence and permission validation; no assumption that a generic saved search preset is the date-default setting.",
+        "Supported fixed/relative dates, business date/timezone and week/month/year boundary rules; blank/unset/reset behavior.",
+        "New screen vs retained work tab vs close/reopen/relogin behavior; preserve pending search draft and applied results.",
+        "Original read-only contracts and synthetic configured save/cancel/permission/preservation acceptance before app integration and hosted setting acceptance."
+      ],
+      "implementationDeployed": false,
+      "done": false
     }
   ],
   "allDone": false,

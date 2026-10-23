@@ -706,3 +706,7 @@ FormOptions의 기존 계정/회사/read/DOM 경계에 mount 시점 roleId를 �
 ## 인쇄 줄 수의 설정·생성기·빈행 경계 · 032 조사
 
 공개 row_count dlt는 List/Input를 건너뛰고 data_generator.page_count에 값을 전달한다. header/footer row count와 empty_line.is_remove/empty_line_data도 별도 전달이다. 이 값 전달을 실제 구매 설정 label/default/validation·데이터 생성/행수/페이지 계산으로 간주하지 않는다. 자체 저장양식에 임의 row cap/빈 행을 추가하지 않고 표시줄수와 머리글 대체줄수의 실제 계약을 확보한 뒤 독립 출력 metadata로 설계한다. 전표 schema/기존양식/계산/회귀는 변경하지 않았다. `evidence/manual-print-rows-20261023.json`.
+
+### 검색기간 기본값과 조회 상태 보존의 경계
+
+현재 configureGrid는 fresh 검색 양식의 고정 날짜/@today를 적용하고 requestList/renderReport의 보관 상태는 미적용 입력과 적용 결과를 별도로 복원한다. 원본의 검색 prop 스냅샷/자료형 기본값 채움은 실제 메뉴 기본기간 저장기나 상대기간 계산기를 입증하지 않는다.033의 회사/사용자·메뉴/양식 우선순위와 날짜 경계 계약을 확인한 후에만 별도 정책을 통합하며 현재 설정 schema/초기기간은 변경하지 않는다. 근거 `evidence/manual-search-period-20261023.json`.
