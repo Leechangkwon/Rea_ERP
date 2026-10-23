@@ -14,3 +14,6 @@
 .form-focus-order td:nth-child(4) input{width:130px}.form-focus-order td:nth-child(13) input{width:200px}
 
 @media(max-width:760px){.form-option-actions>label:has(input[aria-label="입력순서재정렬"]){min-height:44px}}
+
+.form-option-actions>.form-option-error{flex:0 0 100%;margin:0;white-space:normal;overflow-wrap:anywhere}.form-option-actions>.form-option-error:empty{display:none}
+.form-options-body .primary:hover{background:#203fa5;color:#fff;border-color:#203fa5}
