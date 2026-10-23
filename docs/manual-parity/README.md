@@ -7,6 +7,7 @@
 - [매뉴얼 조사대장](manual-inventory.md)
 - [진행 순서](ROADMAP.md)
 - [진행/커뮤니티 게시 기록](PROGRESS.md)
+- [계획 단위별 개발 경위·변경 이유·다음 작업](../development-records/README.md) — 2026-10-24 작성, 모아 게시/재조회 대기
 - [공개 교육자료551항목 CSV](video-catalog.csv)
 - [요구사항 대장](../../evidence/manual-parity-20261021/requirements.json)
 

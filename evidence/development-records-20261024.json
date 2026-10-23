@@ -1,0 +1,302 @@
+{
+  "preparedDate": "2026-10-24",
+  "kind": "source-backed-development-history-and-future-records",
+  "status": "local-prepared-not-published",
+  "baselineCommit": "e6456f59098c86ab586e34fb671ff16dd8c8b4c5",
+  "productionVersion": "0.88.11",
+  "target": {
+    "projectId": "b28ab4c5-eb66-4c33-98d5-784303e06838",
+    "projectUrl": "https://changkwon.mso.so/community/p/b28ab4c5-eb66-4c33-98d5-784303e06838",
+    "existingProgressDocumentId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "treeCurrentlyRead": false,
+    "parentPlacementVerified": false
+  },
+  "scope": {
+    "indexCount": 1,
+    "subdocumentCount": 16,
+    "phaseScheme": "Initial, operation, P0, P1, P2.1-P2.4, P3-P10",
+    "existingDesignDocumentsReplaced": false,
+    "earliestGitSource": "0.42.0 import; earlier development reconstructed from existing documents"
+  },
+  "publication": {
+    "pluginSkillVersion": "1.0.2",
+    "workDocumentToolsExposed": false,
+    "remoteReadAttempted": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authenticationFailureInferred": false,
+    "credentialsReadOrChanged": false,
+    "lastVerifiedProgressVersion": "0.51.0",
+    "historicalPublicationLedgerPreserved": true
+  },
+  "documents": [
+    {
+      "path": "docs/development-records/00-initial-development.md",
+      "title": "초기 개발 — 메뉴에서 실제 입력·조회 흐름으로",
+      "sha256": "41cdd344b15f31b7805d9fbcc7be862cedaab5fda96448a5a5956f85f712a786",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/01-operation-preservation.md",
+      "title": "운영 — 기존 계정·자료를 보존하며 구성 변경",
+      "sha256": "b3b8219cb1efcfbe5eb6e040763b37cc5467935e94f404297a7228366bf838ca",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/02-p0-manual-baseline.md",
+      "title": "P0 — 매뉴얼 조사와 완료 정의 변경",
+      "sha256": "42040d4ab8eb77f335bc81d484220860be77272685ce8737ce5c486d7a70ac71",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/03-p1-foundation.md",
+      "title": "P1 — 공통 기반·기초자료·양식·권한",
+      "sha256": "eeedd2233253d29158a31aeeda5be624b3d8c1eb9179f79efd67ef059b533695",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/04-p21-request.md",
+      "title": "P2.1 — 발주요청 입력·조회·BOM/주문 불러오기",
+      "sha256": "666538367f70d95f8bf6e14a3f5ac920df8ba9fc36a6dfe659471998865c1718",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/05-p22-plan-price.md",
+      "title": "P2.2 — 발주계획·단가요청·비교확정",
+      "sha256": "176ef62c3706acd592ad3f85216e91e0a4167beb487b63d75c128511bf75d4a2",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/06-p23-purchase-order.md",
+      "title": "P2.3 — 발주서·거래처·출력·메일",
+      "sha256": "4cb436083ee943d23c441dabfe243046d1426508379df16ba17595fa80e556e8",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/07-p24-purchase-vat.md",
+      "title": "P2.4 — 구매·부분입고·반품과 거래유형/부가세 보존",
+      "sha256": "b5ffce928eb81d75ddc093c55c0ce6a338ac9d6373267f2f82637cf4036d7eec",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/08-p3-inventory.md",
+      "title": "P3 — 재고·창고·이동·실사·물류",
+      "sha256": "c3e876477e0f84c8323faefdcc1a4445203ddba00e7544245ee6cd3255ab2f63",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/09-p4-sales.md",
+      "title": "P4 — 견적·주문·판매·출하·반품·채권",
+      "sha256": "f21bfb1878458388e73b2f06fabe7342a2925b984c07712e0a084369b0a08400",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/10-p5-production.md",
+      "title": "P5 — BOM·MPS/MRP·생산·외주·품질·원가",
+      "sha256": "ccc9e53b5338b8f62f554dc232fc1dbd8aa8d661069ef7910642d434f8d8b093",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/11-p6-accounting.md",
+      "title": "P6 — 회계·자금·세무·결산·고정자산",
+      "sha256": "78c3bd669910347d7589099e65010b4f82a852daaf7cc702b51bc08bb75de67a",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/12-p7-hr.md",
+      "title": "P7 — 인사·근태·급여·연말정산·UserPay",
+      "sha256": "f3e65a2e431aa6b3df65530808eee9913636a67228d48ccecdaf811e93303d88",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/13-p8-groupware-mail.md",
+      "title": "P8 — 그룹웨어·전자결재·업무·CRM·파일·웹메일",
+      "sha256": "7699d7117a0fbb305de317a5a16bc5530f4b0d92f7667351c40e423a90739a72",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/14-p9-integrations.md",
+      "title": "P9 — 업로드·API·Excel·모바일·POS·외부연동",
+      "sha256": "773f39a79c2eb2c6820c32a794a64562a98d8de8e22b89c41742acf27952220f",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/15-p10-acceptance-next.md",
+      "title": "P10 — 전역 심사와 현재 다음 작업",
+      "sha256": "a45310ffc79a2ddb39d2799c60aec760e9decb1be54bb8e3f7fd5b50cb7d80f3",
+      "remoteDocumentId": null
+    },
+    {
+      "path": "docs/development-records/README.md",
+      "title": "Rea_ERP 개발 경위와 다음 작업",
+      "sha256": "1dcf36c5482f44c26c40b483ae755be41c58406fffc591c7a03cc2c654ded784",
+      "remoteDocumentId": null
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7379e8f188c7e6521f8a9a7e748ad457061c54537c6696d81c6015c354b13d65"
+    },
+    {
+      "path": "docs/api-contract.md",
+      "sha256": "599cbac5b526915fa9d339e935d3b02a580269eb6eff8b8a771a75a007bf6185"
+    },
+    {
+      "path": "docs/gmail-purchaseorder-0.45.0.md",
+      "sha256": "6774cc3c71287da7724a4e2ac0bf67d11806b1b2890abae042652cb5db4ec26f"
+    },
+    {
+      "path": "docs/handoff-windows-controller.md",
+      "sha256": "72640b099c5e4ff4bfa85b895ce75481e1b6f033b77bb86fffe363e4e4b0121c"
+    },
+    {
+      "path": "docs/manual-parity/ARCHITECTURE.md",
+      "sha256": "707a5af2f2e209863b02b1d9104584e420be4acb914cda6c7e8c72b6bb327421"
+    },
+    {
+      "path": "docs/manual-parity/PRD.md",
+      "sha256": "afce002df28ee01f6d91ed1bff727cbe3be87ce9ddef3410f83a17713fd6a7dd"
+    },
+    {
+      "path": "docs/manual-parity/PROGRESS.md",
+      "sha256": "89abe365ca8456695179fee3075df79409058ef8f887676d25a4c33d5d75da68"
+    },
+    {
+      "path": "docs/manual-parity/ROADMAP.md",
+      "sha256": "f52e9b2b239aa062a79efaeb904a010bdae15b34bb4d12fe698fc0f12a10ce19"
+    },
+    {
+      "path": "docs/manual-parity/manual-inventory.md",
+      "sha256": "12500bd43a9056bcbb3036c0178d235b954fe70b1b845267602a9082ac53b09c"
+    },
+    {
+      "path": "docs/plan-domain-webmail-20261019.md",
+      "sha256": "d50dd36c9677c158fd652d3e2edef740f47e3c3faf8fd9a3004c00981b0d19cd"
+    },
+    {
+      "path": "docs/plan-gmail-purchaseorder-20261019.md",
+      "sha256": "42a9c5ae4c8bb24d318d73af01d4be1ac7f26ca7931b3b919e591cd4983f2129"
+    },
+    {
+      "path": "docs/plan-local-supabase-cloudflare-20261019.md",
+      "sha256": "cf9b2411db1ff8a8bfe29bee5316144a1e27c66ee6971d59b8d96c20813edc08"
+    },
+    {
+      "path": "docs/plan-mail-routing-20261019.md",
+      "sha256": "88222c48e605bd7ebdafbc1c453e7ca334ed1a48c03fb912ba9bee1f9e3efd7d"
+    },
+    {
+      "path": "docs/plan-main-menu.md",
+      "sha256": "15197c41b65b5e3444ba32939f512a70bf1c5e587873f56708b74765fa41d064"
+    },
+    {
+      "path": "docs/plan-manual-order-import-20261021.md",
+      "sha256": "6c67b8937099577e22627445cf6c83bcf72704935d8731aa692400c1eb262b19"
+    },
+    {
+      "path": "docs/plan-manual-purchase-gaps-20261021.md",
+      "sha256": "c373bca9920bfd46165cba954ffe872ce58b614e0bb8d4689ae8db0a76495921"
+    },
+    {
+      "path": "docs/plan-manual-transaction-vat-20261021.md",
+      "sha256": "38593d1aed455643e35d9449dc0c66dc5f9b99f9df6668b17df65e8262fc940f"
+    },
+    {
+      "path": "docs/plan-plan-generation-review-20261022.md",
+      "sha256": "cf4e7fcce165c002b4122c3eaaf07f7fca7c19a5c12a4d5949817cd86658cd5f"
+    },
+    {
+      "path": "docs/plan-price-request-order-flow-20261021.md",
+      "sha256": "b78ee3893417141598b326b1ac398d187ba04451b9693cc38b06fed16953423c"
+    },
+    {
+      "path": "docs/plan-purchase-receipt-closure-20261021.md",
+      "sha256": "f01bc65f7ef3f0d882885df56c8e41dd4cc84b965627374c9359f3654afcade9"
+    },
+    {
+      "path": "docs/plan-purchase-return-report-20261021.md",
+      "sha256": "c9d50ded9eca65904c52421a0d183b8534889aad6b60c74b174f9dd1643d25b1"
+    },
+    {
+      "path": "docs/plan-purchasing-supplier-layout-20261022.md",
+      "sha256": "f104badaa0325dc12c4ec98f5325a9e57109048ce5808d0c2d5085b08bdd0d3a"
+    },
+    {
+      "path": "docs/plan-uiux-tablet-repair-20261022.md",
+      "sha256": "a5e2c11948075694e8e76b837d73bef88a9c2ad5b92555aa6a0dc73ae0e569e5"
+    },
+    {
+      "path": "docs/purchasing-0.8.0.md",
+      "sha256": "f99ccfcf3841f7160f19462b99ee45ff37325cefa6d7c7db3a40e5916bee919d"
+    },
+    {
+      "path": "docs/rea-reconstruction.md",
+      "sha256": "6732e42f13072eb5a5d901138c0d86082dca63d8cc7f61645720172ec4a6de06"
+    },
+    {
+      "path": "docs/release-workflow.md",
+      "sha256": "fa4f1e9b7b7363df0a162e40ae5512e905a66c0db8ec65c666c70264fc16f818"
+    },
+    {
+      "path": "docs/self-settings-0.9.0.md",
+      "sha256": "de032bf3404f1b88a5223a493e6f04a34f5b0910845c9889c20a1f79a312362e"
+    },
+    {
+      "path": "docs/stock-report-0.10.0.md",
+      "sha256": "42ec75bb6a4b79a0940032606384a8bfacc28fd7f8d19e7150cea436ace880c6"
+    },
+    {
+      "path": "evidence/deployment-local-supabase-cloudflare-20261019.json",
+      "sha256": "d02fcb3467d4542b9e62c43729d38e117648611b66602bba63394bdb364ba42d"
+    },
+    {
+      "path": "evidence/global-rea-20261018/current-release.json",
+      "sha256": "a8d9cd1d02e256427d7afdc8b3b6b2cde7faec96e5ec8241e7551b9b25b0bf0d"
+    },
+    {
+      "path": "evidence/manual-order-default-partner-20261023.json",
+      "sha256": "e80de8b7fe747f14bb40d0a909026128ab746d2d1f456d320a126255b3ed5918"
+    },
+    {
+      "path": "evidence/manual-parity-20261021/publication.json",
+      "sha256": "dc70a600cf1e5d655bff8ffe66df4757b5d344e82eef95ce0d5162dad58968f8"
+    },
+    {
+      "path": "evidence/manual-parity-20261021/requirements.json",
+      "sha256": "a5673dc85bc558bbf5065ffb6b0f437ce2be7ca113943ce90b1fde902fd1fa54"
+    },
+    {
+      "path": "evidence/manual-plan-supplier-view-20261023.json",
+      "sha256": "24fc7aae004d63c0c6908424a09db88b6f854f353a8f746efcd6773f46590183"
+    },
+    {
+      "path": "evidence/manual-plan-tax-context-20261024.json",
+      "sha256": "c277e6731569acc0fae6137078b991e419beb56a7777b8ddae3cfd1d6f3dd64b"
+    },
+    {
+      "path": "evidence/manual-request-order-supplier-20261023.json",
+      "sha256": "276f98b5d2ade78bb544c48d37c2ff13e195fe5d216b360f47a29766e6425af9"
+    },
+    {
+      "path": "evidence/manual-vat-convert-guard-20261024.json",
+      "sha256": "54c352ca19ccf0d335efdaafd4aa6460dcb8fa89875f0a2cdd929ef975177c23"
+    }
+  ],
+  "checks": {
+    "relativeDocumentLinks": 91,
+    "referencedCommits": 37,
+    "errors": [],
+    "whyAndSourcesInEverySection": true,
+    "historicalPublicationPreserved": true,
+    "dirtyCandidateFilesPreserved": 12,
+    "currentReleaseFileUnchanged": true,
+    "installedWorkerHashUnchanged": true,
+    "appBuildRun": false,
+    "appRegressionRun": false,
+    "deploymentRun": false,
+    "businessOrSettingsSaveRun": false,
+    "mailSendRun": false
+  },
+  "nextAction": "Read actual Moa project/document tree, existing content, edit permissions and current versions. Reuse matching records, create only missing requested sections, preserve existing designs and content, then reread actual saved bodies. Do not use legacy private personal-page creation."
+}
