@@ -1,0 +1,20 @@
+const {test,expect}=require('@playwright/test');
+for(const width of [390,1280])test(`request rows → direct order defaults supplier, saves and reloads at ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ await page.route('**/*',route=>new URL(route.request().url()).origin==='http://127.0.0.1:4179'?route.continue():route.abort());
+ await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
+ const baseline=await page.evaluate(()=>{const C=InventoryCore,db=C.seed();db.documents=[];C.master(db,'items','M001').supplier='V001';const out=C.command(db,'document',{type:'request',date:C.today(),warehouse:'W001',lines:[{lineId:'R1',item:'M001',qty:5,price:100}]});InventoryUI.replace(out.db);return {db:out.db,request:out.result};});
+ await page.locator('#routes').getByRole('button',{name:'발주서입력',exact:true}).click();
+ await page.getByLabel('거래처',{exact:true}).selectOption('');
+ await page.getByRole('button',{name:'전표 불러오기',exact:true}).click();const importer=page.locator('#entry-helper-dialog');
+ await importer.getByLabel('원본 전표 종류',{exact:true}).selectOption('request');await importer.getByLabel('불러오기 방식',{exact:true}).selectOption('linked');
+ await importer.getByLabel('전표 검색',{exact:true}).fill(baseline.request.id);await importer.getByLabel('행 선택 '+baseline.request.id+'|R1',{exact:true}).check();
+ await importer.getByLabel('불러올 수량 '+baseline.request.id+'|R1',{exact:true}).fill('2');await importer.getByLabel('선택 적용',{exact:true}).click();await expect(importer).toHaveCount(0);
+ await expect(page.getByLabel('거래처',{exact:true})).toHaveValue('V001');expect(await page.evaluate(()=>InventoryUI.snapshot())).toEqual(baseline.db);
+ await page.getByRole('button',{name:'저장(F8)',exact:true}).click();await page.reload();
+ const result=await page.evaluate(()=>{const db=InventoryUI.snapshot(),request=db.documents.find(d=>d.type==='request'),order=db.documents.find(d=>d.type==='purchaseorder');return {db,request,order,remaining:InventoryCore.remaining(db,request,'purchaseorder')[0].qty,debt:InventoryCore.outstanding(db,'payable','V001')};});
+ expect(result.order.partner).toBe('V001');expect(result.order.sourceId).toBe(baseline.request.id);expect(result.order.lines[0].qty).toBe(2);expect(result.order.lines[0].sourceLineId).toBe('R1');expect(result.remaining).toBe(3);expect(result.debt).toBe(0);expect(result.request).toEqual(baseline.request);expect(result.db.settings).toEqual(baseline.db.settings);
+ await page.locator('#routes').getByRole('button',{name:'발주서조회',exact:true}).click();await page.getByRole('button',{name:result.order.date+' / '+result.order.id,exact:true}).click();
+ await expect(page.locator('#inventory-dialog').getByLabel('거래처',{exact:true})).toHaveValue('V001');
+ await page.screenshot({path:`.artifacts/request-order-supplier-${width}.png`,fullPage:true});
+});
