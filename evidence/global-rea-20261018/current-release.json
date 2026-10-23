@@ -1,6 +1,6 @@
 {
-  "version": "0.88.13",
-  "status": "deployed-quote-confirmation-required-manual-parity-pending",
+  "version": "0.88.14",
+  "status": "deployed-status-tab-first-page-preserving-search-and-records",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -112,7 +112,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-price-unconfirmed-20261024.json",
+    "reference": "evidence/manual-list-tab-pagination-20261024.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -137,7 +137,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 148,
+    "currentReleaseBrowserSynthetic": 150,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -165,7 +165,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.88.13",
+    "currentReleaseFullRegressionVersion": "0.88.14",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -670,16 +670,19 @@
       "fullApplicationRegressionRerun": false,
       "browserNew": 0,
       "installedIntoRuntime": false
-    }
+    },
+    "listTabPaginationNewNode": 3,
+    "listTabPaginationRelatedNode": 40,
+    "listTabPaginationNewBrowser": 2
   },
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-price-unconfirmed-20261024.json",
+    "reference": "evidence/manual-list-tab-pagination-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
-    "publicVersionVerified": "0.88.13",
+    "deployedSourceCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+    "publicVersionVerified": "0.88.14",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -747,11 +750,11 @@
     "orderLinesHostedSavePerformed": false,
     "lastExactBrowserBackupComparisonVersion": "0.88.13",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.13",
+    "currentServerStateAndMailPreservedVersion": "0.88.14",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.13",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.14",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1058,12 +1061,12 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.13",
+      "productionVersion": "0.88.14",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "리스트탭 선택의 ChangeListTabStateResolver/setListTab에서 확인값·진행상태 SID가 조회 조건으로 투영되는 경로와 현재 목록 소비자를 대조한다. 설정 UI/저장 연결은 실제 V5 메뉴 metadata·권한/취소/보존 계약을 확보한 뒤 진행한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
+      "nextIndependentManual": "012의 실제 V5 메뉴 metadata·원문·권한/취소/저장 보존은 새 근거 확보 시 재개한다. 다음 독립 항목016 입력경로 검색의 공개 코드와 현재 전표 출처 정보를 대조한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1080,11 +1083,13 @@
       "latestConfirmedRequestTaxHeaderSourceRequired": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
       "latestPriceRequestConfirmationSourceRequired": "22536b8363f421955d45732991f2dc27b8220eeb",
       "listTabContractResearchEvidence": "evidence/manual-price-partial-contract-20261024.json",
-      "listTabSettingsResearchEvidence": "evidence/manual-list-tab-settings-20261024.json"
+      "listTabSettingsResearchEvidence": "evidence/manual-list-tab-settings-20261024.json",
+      "latestStatusTabPaginationSourceRequired": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
+      "listTabQueryEvidence": "evidence/manual-list-tab-pagination-20261024.json"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "0.88.13-quote-confirmation-required-workflow-acceptance-pending",
+      "status": "0.88.14-status-tab-first-page-workflow-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
@@ -1101,13 +1106,13 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "리스트탭 선택의 ChangeListTabStateResolver/setListTab에서 확인값·진행상태 SID가 조회 조건으로 투영되는 경로와 현재 목록 소비자를 대조한다. 설정 UI/저장 연결은 실제 V5 메뉴 metadata·권한/취소/보존 계약을 확보한 뒤 진행한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
+      "nextWork": "012의 실제 V5 메뉴 metadata·원문·권한/취소/저장 보존은 새 근거 확보 시 재개한다. 다음 독립 항목016 입력경로 검색의 공개 코드와 현재 전표 출처 정보를 대조한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
       "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
-      "currentOperatingVersion": "0.88.13",
-      "latestEvidence": "evidence/manual-price-unconfirmed-20261024.json",
-      "latestSourceCommit": "22536b8363f421955d45732991f2dc27b8220eeb",
-      "latestReleaseCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+      "currentOperatingVersion": "0.88.14",
+      "latestEvidence": "evidence/manual-list-tab-pagination-20261024.json",
+      "latestSourceCommit": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
+      "latestReleaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
       "latestHostedBusinessSaveAcceptancePending": true
     },
     "independentResearch": {
@@ -2588,14 +2593,31 @@
       "canApply": false,
       "productionDeployed": false,
       "done": false
+    },
+    "listTabPagination": {
+      "reference": "evidence/manual-list-tab-pagination-20261024.json",
+      "deployedVersion": "0.88.14",
+      "sourceCommit": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
+      "releaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+      "newNodeTests": 3,
+      "relatedNodeTests": 40,
+      "newBrowserTests": 2,
+      "fullBrowserPassed": 150,
+      "originalQueryScopes": 6,
+      "ownQueryScopes": 2,
+      "exactBodyRecovered": false,
+      "menuMetadataMappingIntegrated": false,
+      "setupSaveIntegrated": false,
+      "hostedMultiPageAcceptance": false,
+      "done": false
     }
   },
   "preparedCandidate": {
-    "version": "0.88.13",
-    "commit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
-    "sourceCommit": "22536b8363f421955d45732991f2dc27b8220eeb",
-    "manifest": ".artifacts/manual-price-unconfirmed-20261024/release-manifest.json",
-    "bundleSha256": "dcd54b6c3885a498f979d6c8e5e8bd10b86e53791e138cd34e8f39b5ec2327db",
+    "version": "0.88.14",
+    "commit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+    "sourceCommit": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
+    "manifest": ".artifacts/manual-list-tab-query-20261024/release-manifest.json",
+    "bundleSha256": "6d245a902ea3c2d70d651e220f5f71cc285fa949db6947534dc680fb9e1d3690",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -2642,14 +2664,15 @@
       "request-only-multiple-selected-print-preview-per-document-conditional-forms-named-pages-and-mobile-contained-tables",
       "request-basic-print-six-headers-saved-supplier-custom-layout-preservation-and-single-preview-guards",
       "confirmed-request-explicit-tax-header-preservation",
-      "saved-quote-confirmation-before-order-import"
+      "saved-quote-confirmation-before-order-import",
+      "status-tab-first-result-page-preserving-applied-pending-query-selection-forms-and-data"
     ],
-    "supersedesCandidateCommit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+    "supersedesCandidateCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.88.13-price-unconfirmed"
+    "branch": "release/0.88.14-list-tab-page"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -3349,6 +3372,15 @@
       "coverage": "unknown",
       "truncated": false,
       "fullBodiesAnalyzed": false,
+      "originalExecuted": false
+    },
+    "listTabQueryAndPagination": {
+      "reference": "evidence/manual-list-tab-pagination-20261024.json",
+      "originalScopes": 6,
+      "ownScopes": 2,
+      "newOriginalBodies": 0,
+      "coverage": "unknown",
+      "truncated": false,
       "originalExecuted": false
     }
   }

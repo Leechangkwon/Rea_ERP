@@ -1,5 +1,17 @@
 # REA 전역 매뉴얼 재현 진행 기록
 
+## 2026-10-24 · 운영0.88.14 상태 탭 조회의 첫 페이지
+
+발주요청·발주서·구매 조회에서 상태 탭을 누르면 이전 페이지가 남아 새 결과의 첫 행을 건너뛰는 결함을 수정했다. 공개 inventory의 PROGRESS_STATUS resolver는 첫 페이지로 초기화하고 확인값/진행상태를 복사한다. 현재 공통 requestList의 탭 클릭만 refresh(0)으로 변경했다. 왜: 서로 다른 결과 집합을 이전 페이지부터 보여 자료가 누락된 것처럼 보이는 혼란을 막기 위해서다. 적용 검색·미적용 초안·선택 전표·양식·정렬·업무자료를 보존한다.
+
+수정 전 신규Node3/390·1280px Chromium2 실패, 수정 후 관련Node40·신규브라우저2·격리0.88.14 전체 verify:local exit0/브라우저150 통과다. 세 목록 각각 2페이지→확인 탭 첫 페이지→다시2페이지→전체 첫 페이지, 검색 초안·선택·저장원문 불변을 검증했다. source ed72b29·release 0c6bc04를push 후 기존 WSL·Supabase·Cloudflare rea.qaredi.com에 반영했다. 기존 로그인/작업탭1·브라우저8전표/양식 byte동일·서버app30/gateway0 본문/수정번호·설정·메일3함8통1첨부 exact동일·복원미리보기 appliedfalse다. 운영 실제 목록은1페이지라 다중페이지 합격은 localhost 합성 근거로 구분한다. 실제 업무/설정 저장·발송0이다.
+
+원본6/자체root·후보2범위 REA6.4 파싱실패0·coverage unknown·truncatedfalse다. 원본 실행/API 호출/새본문 다운로드0, 자체 requestList 전체 범위 root/후보 해시동일이다. grid의 기존SID/code/name 투영·전체탭 확인값 확장·역방향 SID/확인값 매칭을 정적 추적했으나 실제 메뉴 metadata/UI는 미확인이다. 원본 sort 초기화와 자체 정렬 보존도 구분하며 전체 조회 동등성/설정 저장 완료로 확대하지 않는다.012 index-only·누계77/47/44/0·전체완료false 유지. 모아 업무문서 도구 미노출로120갱신 로컬대기, 실제 저장/재조회 미완료다.
+
+운영 workerSHA 6d245a902ea3c2d70d651e220f5f71cc285fa949db6947534dc680fb9e1d3690·PID2626249·지속세션21557 poll/terminate 금지. 롤백0.88.13/비공개 백업과 dirty매핑12파일을 보존했다. root 전체빌드/VAT5·매핑 설치0이며 mapping088 배포 전 기존13개와 이번ed72b29(총14개) source수정 통합·원본/운영수락 gate가 필요하다. 근거 evidence/manual-list-tab-pagination-20261024.json.
+
+다음: 012의 실제 V5 메뉴 metadata·원문·권한/취소/저장 보존은 새 근거 확보 시 재개한다. 다음 독립 항목016 입력경로 검색의 공개 코드와 현재 전표 출처 정보를 대조한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.
+
 ## 2026-10-24 · 리스트탭 설정 저장 자료의 독립 검토 후보
 
 공개 클라이언트에서 리스트탭 설정의 공급→진입→조회→저장 자료 구성 경로를 새로 확인했다. common의 menu 소유 list_tab 속성이 list_tab_data를 공급하고, Option 동작은 bizz_sid/menu_sid를 전달해 V5 IConfigureListTabV5Page를 연다. success와 비어 있지 않은 message가 함께 있을 때만 재조회한다. GetConfigureListTabV5SetupProgram은 서버 설정 결과를 받으며 실제 메뉴 응답은 보관 코드에 없다. 원본 API 호출/저장/주 입력행 조작0이다.
@@ -418,7 +430,7 @@ source `ad08cfa`·release `3960e78` push 후0.86 기반 분리0.87을 기존 WSL
 
 목록54/본문24/요구사항30/전체최종합격0 유지다. 모아 필수 업무문서 read/update 도구가 없어 마지막실제저장/재조회0.51.0·81갱신 로컬대기이며 게시완료가 아니다. 다음은 **요청서 인쇄창의 PDF 버튼 출력형식/파일명·액션 전달계약**을 대조한다. currency/BODY/업로드/TC101P_01의 기존 근거 gate를 유지하며 mapping 후보는0.87 위 재통합이 필요하다. 변화 없는 같은 helper/회귀를 반복하지 않는다. 전체매뉴얼완료false.
 
-## 현재 운영 · 0.86.0 발주요청 선택 전표 여러 건 인쇄
+## 이전 운영 · 0.86.0 발주요청 선택 전표 여러 건 인쇄
 
 원본 EC-VID-13914 3:27의 요청서 인쇄창과 공개 purchase_request_print_user_action_list → common$ISlipLinkUserAction을 대조했다. 하단버튼은 선택행 전체, 행 링크는 해당1건을 전달하고 삭제(D)/전자결재(Z) 필터와 제외 확인 뒤 slips/data_sids/slip_keys를 별도창에 넘긴다. PrintV3InventorySlipUserAction은 다른 경로로 분리했다. 원본 입력/저장/실제 인쇄·PDF/메일은 실행하지 않았다. 새본문/다운로드0이며 부분영상 관찰을 전체완독으로 세지 않는다.
 

@@ -1,0 +1,333 @@
+{
+  "version": "0.88.14",
+  "status": "deployed-status-tab-first-page-preserving-search-and-records",
+  "baselineProductionCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+  "sourceCommit": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
+  "sourcePushed": true,
+  "reference": {
+    "manualId": "EC-HELP-REQUEST-012",
+    "exactManualBodyRecovered": false,
+    "sourceFile": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+    "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35"
+  },
+  "changes": [
+    {
+      "before": "Status-tab click reused the previous result page; with multiple pages in both groups the second page remained selected.",
+      "after": "Shared request/purchaseorder/purchase status-tab click starts at own page 0.",
+      "why": "A different status is a new result set; keeping page 2 skipped its first rows, unlike the retained original PROGRESS_STATUS resolver.",
+      "preserved": [
+        "Applied search",
+        "Unapplied search draft",
+        "Selected voucher IDs",
+        "Forms",
+        "Sort policy",
+        "Business data",
+        "Master data",
+        "Linked amounts and state"
+      ],
+      "notImplemented": [
+        "Menu-specific SID/confirm-type mapping",
+        "New progress state registration",
+        "List-tab setup storage or permission integration",
+        "Original server sort/confirmation contract"
+      ]
+    }
+  ],
+  "validation": {
+    "beforeNewNodeFailed": 3,
+    "newNodePassed": 3,
+    "relatedNodePassed": 40,
+    "beforeNewBrowserFailed": 2,
+    "newBrowserPassed": 2,
+    "browserWidths": [
+      390,
+      1280
+    ],
+    "browserTypes": [
+      "request",
+      "purchaseorder",
+      "purchase"
+    ],
+    "fullRegressionPending": false,
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 150,
+    "releaseChecksPassed": 4,
+    "rootFullBuildPerformed": false,
+    "rootAndCandidateRequestListFragmentEqual": true,
+    "logs": {
+      "env.log": "38d72bf3e7a340a3df1b6a6d700ad2afe90f91cc38cde7e1eb467b530c784ffb",
+      "before-node.log": "cf8e1e2fc7d408cd62fabd0be1db8bcc7a9cc69939fa93dca481a4692ec51f13",
+      "before-browser.log": "ef486bd793816003ed034e40c1d3944b5ec349acff251b6209aca6b09bc4b384",
+      "after-node.log": "d77f2ccd7387d36d3021e33cd57e6753430ec30bfed0d5c77c122a25bf15796e",
+      "after-browser.log": "7a18890b7cfe3d582a0b357abbf0d42f4219e8b49da45e899001162248aa2797",
+      "verify-local.log": "939a3b995339164732a25e45209e1c92d19331abedb6c3bc83e3756d76d4b2a4"
+    }
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 6,
+    "newOwnScopes": 2,
+    "originalSources": [
+      {
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.d50be26e.js",
+        "sha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "bytes": 5074681,
+        "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json"
+      }
+    ],
+    "scopes": [
+      {
+        "category": "original",
+        "symbol": "InventoryGridListSearchOptionPartialResolver",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 1582,
+        "end": 4048,
+        "lineStart": 35,
+        "lineEnd": 89,
+        "fragmentSha256": "c155cfa47c0b4ff6d5ec0cf684f9329c4e52982e8a2c1a116c7fd366126ae607",
+        "inputFile": "original-InventoryGridListSearchOptionPartialResolver.js",
+        "inputSha256": "82d1dd6a19b3d13d0af25d657dbeb4030eb18ef7430e00d4c896969888a356fa",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "InventoryKanbanListSearchOptionPartialResolver",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 4048,
+        "end": 4873,
+        "lineStart": 89,
+        "lineEnd": 109,
+        "fragmentSha256": "3cf76d6275e74a07607684f53c42cb21dfe891c8543fa91f5d1f5bd8e826d6fd",
+        "inputFile": "original-InventoryKanbanListSearchOptionPartialResolver.js",
+        "inputSha256": "4db0da2151e83ce3dd6977af78f1c9a143aca3270c6ac04968fe2ba282648eba",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "ChangeListTabStateResolver",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 80512,
+        "end": 81294,
+        "lineStart": 1616,
+        "lineEnd": 1633,
+        "fragmentSha256": "8ed0597cfad51f2b1a607c55aea962a7cdcfcd4bf8f0f58446c9399078903f58",
+        "inputFile": "original-ChangeListTabStateResolver.js",
+        "inputSha256": "13746be09298a8dc2cbe847f028149795b1a573a1b863492e4bf5b41a55b53d2",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "InventoryListProgressStatusSearchResolver",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 116622,
+        "end": 117232,
+        "lineStart": 2400,
+        "lineEnd": 2417,
+        "fragmentSha256": "30b5a569f62b72937467a1d43ea04e4917015a1c70eff0e6db664b309dbcb7e3",
+        "inputFile": "original-InventoryListProgressStatusSearchResolver.js",
+        "inputSha256": "7a4d65480c719be9a0a47dffea0c7fafc8073d304f6a380d3637821dbb81279e",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "modifySearchOptionResolvers$2",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 167378,
+        "end": 168273,
+        "lineStart": 3501,
+        "lineEnd": 3517,
+        "fragmentSha256": "2c253fa92b9e221d4101fb44f2055793d70df22f2050d126e15cfbb322e9e7fa",
+        "inputFile": "original-modifySearchOptionResolvers$2.js",
+        "inputSha256": "4da0bd1ab2a3775204a18dc1a401e3ff1592c7eab4543a4a1aa95269e79365f4",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "getPrepareProcessResolvers$3",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 168274,
+        "end": 169084,
+        "lineStart": 3518,
+        "lineEnd": 3538,
+        "fragmentSha256": "1999223abfe3002ec595f80a95fc8e92c08610eea068fb6de503b6acdd0c9d00",
+        "inputFile": "original-getPrepareProcessResolvers$3.js",
+        "inputSha256": "addaf1331c91f7909a4fc455685436dc8753f6024f6972a1a04f5c7add6cf3f9",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "requestList",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "69dc98134d25eee6e9a59b32cfe01999c585a691d73701cdad92a6cdf991d5f3",
+        "start": 114111,
+        "end": 129220,
+        "lineStart": 473,
+        "lineEnd": 507,
+        "fragmentSha256": "41f06b1d74df3398aed65ae307a899ad1108fdc48ba30acd246f4ff946f8c40e",
+        "inputFile": "own-requestList.js",
+        "inputSha256": "dc9b765c87bd8bc053d74bd6c4084f09c714cedcf0ec8505233390c9bea0a075",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "requestList",
+        "file": ".artifacts/validation/list-tab-page-20261024/dist/inventory-ui.js",
+        "sourceSha256": "8898ee49ba1c18978393169e3d691283936b123874f831b1af11f0e3c9e44520",
+        "start": 109365,
+        "end": 124474,
+        "lineStart": 450,
+        "lineEnd": 484,
+        "fragmentSha256": "41f06b1d74df3398aed65ae307a899ad1108fdc48ba30acd246f4ff946f8c40e",
+        "inputFile": "candidate-requestList.js",
+        "inputSha256": "dc9b765c87bd8bc053d74bd6c4084f09c714cedcf0ec8505233390c9bea0a075",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "5bede1814ee45372b0c08ea213694b686d25e4f257751dca335c937fd919316f",
+    "statistics": {
+      "relevant_files": 8,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 39810,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 8,
+      "visited_ast_nodes": 7915,
+      "findings": 2,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "originalContracts": {
+    "gridForward": "Active tabId selects action_data; complete truthy sid/code/name tuple sets progress_status, otherwise assigns undefined; confirm_type is copied. Empty confirm_type expands nonempty menu progress_status.tab_data values joined with U+222C, when available.",
+    "reverse": "Strict confirm_type and progress_status.sid match chooses first tab; otherwise first confirm_type empty tab; active becomes target tabId or undefined.",
+    "progressStatusSearch": "Sets page.current_index to 1, deletes search_options.sort, copies payload progress_status/confirm_type. The local fix changes page only; local sort is preserved.",
+    "pipeline": "modifySearchOptionResolvers$2 routes PROGRESS_STATUS to the resolver; getPrepareProcessResolvers$3 then includes ChangeListTabStateResolver. Kanban delegates its projection to a separate common resolver.",
+    "limitations": "No actual menu metadata/body/current original UI or server-save acceptance. Static code was not executed and no original API called."
+  },
+  "deploymentAttempted": true,
+  "productionDeployed": true,
+  "originalBusinessWrites": false,
+  "manualCounts": {
+    "indexed": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "allDone": false
+  },
+  "nextWork": "012의 실제 V5 메뉴 metadata·원문·권한/취소/저장 보존은 새 근거 확보 시 재개한다. 다음 독립 항목016 입력경로 검색의 공개 코드와 현재 전표 출처 정보를 대조한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
+  "releaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+  "workerSha256": "6d245a902ea3c2d70d651e220f5f71cc285fa949db6947534dc680fb9e1d3690",
+  "productionBusinessWrites": false,
+  "originalApiCalls": false,
+  "originalSession": "login-required-as-previously-observed; not retried",
+  "communityPublished": false,
+  "releasePushed": true,
+  "runtime": {
+    "pid": 2626249,
+    "persistentExecSession": 21557,
+    "neverPollOrTerminateExecSession": true
+  },
+  "releaseManifest": ".artifacts/manual-list-tab-query-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.88.14",
+      "existingSessionAndWorkTabRetained": true,
+      "workTabs": 1,
+      "existingRequestVisible": true,
+      "confirmedTabSelected": true,
+      "doneTabZeroResults": true,
+      "allTabRestored": true,
+      "browserDataByteEqual": true,
+      "browserSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHashEqual": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedHasMultipleResultPages": false,
+      "paginationAcceptanceSource": "localhost synthetic data in 390/1280px Chromium, all three types",
+      "businessOrSettingsOrMailWrites": false,
+      "screenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/rea-0.88.14-deployed.png"
+    },
+    "serverAndMail": {
+      "version": "0.88.14",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "runtimeConfigExact": true,
+    "mappingDirtyFilesExactPreserved": 12,
+    "mappingInstalled": false,
+    "rootUnreleasedVatInstalled": false,
+    "schemaChanged": false,
+    "cssChanged": false,
+    "mailSent": false
+  },
+  "deployment": {
+    "publicChecks": 17,
+    "staticAssetsMatched": 14,
+    "evidence": ".artifacts/manual-list-tab-query-20261024/public-deploy.json",
+    "backend": "supabase",
+    "publicOrigin": "https://rea.qaredi.com",
+    "rollbackVersion": "0.88.13",
+    "rollbackSha256": "dcd54b6c3885a498f979d6c8e5e8bd10b86e53791e138cd34e8f39b5ec2327db"
+  },
+  "moa": {
+    "workDocumentToolsExposed": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingLocalUpdates": 120,
+    "authenticationFailureInferred": false
+  },
+  "limitations": [
+    "Exact012 manual body and actual menu-specific list-tab metadata/UI/setup/permission/cancel/save acceptance remain unverified.",
+    "Confirmation/progress SID projection and all-tab expansion were statically traced, not integrated into current fixed labels.",
+    "Original clears search_options.sort for PROGRESS_STATUS; local sort remains preserved, so full query equivalence is not claimed.",
+    "Hosted request list has one result page; multi-page regression is localhost synthetic Chromium evidence, not hosted real-data pagination acceptance.",
+    "REA scope coverage unknown, not whole original module analysis or original runtime equivalence."
+  ]
+}
