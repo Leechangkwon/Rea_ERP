@@ -202,6 +202,7 @@ function storeCommand(db,input,C){
 function orderLines(db,source,lines,C){
  const state=view(db,source.id,C);if(!state)return copy(lines);
  if(state.status!=='ready')fail('단가요청 원본 또는 거래처가 변경됐습니다. 비교자료를 확인하세요.');
+ if(!state.rows.some(row=>row.confirmed))fail('단가요청 비교현황에서 단가를 확정한 뒤 불러오세요.');
  return lines.map(line=>{
   const sourceId=line.lineId===undefined?(source.lines.some(row=>row.lineId!==undefined&&row.lineId===line.sourceLineId)?line.sourceLineId:undefined):line.lineId;
   const matches=source.lines.map((row,index)=>({row,index})).filter(({row})=>row.item===line.item&&(!sourceId||row.lineId===sourceId));
