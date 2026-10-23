@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 확인 정책의 구현 경계 · 2026-10-23
+
+원본 상태변경은 별도 CF001 권한 조회 후 갱신한다. 자체 inventory.write와 기존 inactive-source 필터는 이 사용자·업무별 정책을 대체하지 않는다. 신규 정책은 유형/기본·예외 우선순위/수정시상태/관리자·권한적용범위를 확인한 뒤 입력저장·목록전환·불러오기·연결상태·백업호환을 함께 설계한다. 이번은 차이 등록이며 앱/schema/권한/자료/배포 변경0이다. 원본 account전자발행/생산 예시를 구매 기본값으로 확장하지 않는다. 근거 evidence/manual-confirmation-permission-20261023.json.
+
 ## PDF 다운로드 경계와 납기일의 독립 저장 범위
 
 현재 인쇄와 별도인 원본 PDF 진입은 전표별 양식/재료·전체페이지 offscreen 준비 뒤 공통PDF 액션에 권한/용지/방향/여백·customization을 넘긴다. 본체 print$DownloadPdfProgram의 실제파일/파일명/오류 계약 없이 현재 PO-mail PDF 또는 browser print 경로로 대체하지 않는다. 공개 원본은 inert분석만 수행했다.

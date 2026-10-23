@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 34,
+  "officialRequirementsDecomposed": 35,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2480,6 +2480,57 @@
       "productionDeployed": true,
       "hostedReadonlyVerified": true,
       "preservationVerified": true
+    },
+    {
+      "id": "REQ-COM-STATE-001",
+      "sourceId": "EC-FAQ-86M6BPOJMUO6UWN",
+      "title": "사용자·업무별 전표 확인 권한과 구매 불러오기 상태 제한",
+      "procedure": [
+        "마스터/설정관리자 > Self-Customizing > 환경설정 > 기능설정 > 공통 > 제한 > 전표상태설정 > 전표상태관리유형",
+        "현재 적용값/사용자 유형 확인 후 확인 가능한 유형 설정",
+        "발주서조회 > 전표 상세 > 전표확인; 구매입력 전표불러오기에 확인 건 표시"
+      ],
+      "expected": [
+        "일반 입력 권한과 확인 권한을 구분",
+        "미확인 발주서는 구매 불러오기에서 제외",
+        "확인 정책을 임의 기본값으로 기존 계정/전표에 적용하지 않고 보존"
+      ],
+      "status": "confirmed-gap-user-business-policy-contract-gated-not-implemented",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-86M6BPOJMUO6UWN",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86M6BPOJMUO6UWN&page=3&category=purchase",
+        "question": "발주서의 진행상태를 미확인에서 확인으로 변경할 수 없어 구매입력에서 전표불러오기를 해도 발주서가 조회되지 않습니다.",
+        "bodySha256": "d83c384e23cbabafd0cfd876dfc75e9726c184320278d77f3a4bab4ac4a397f0",
+        "observedAt": "2026-10-23T01:27:03.176Z",
+        "fullAnswerRead": true,
+        "artifact": ".artifacts/manual-confirmation-permission-20261023/official-faq.json"
+      },
+      "supplementalSource": {
+        "sourceId": "EC-FAQ-86TGQQ6R4WA7ADL",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86TGQQ6R4WA7ADL",
+        "question": "생산불출 전 단계에서 자재 불출을 요청하는 메뉴가 있나요?",
+        "bodySha256": "a1eb7ea4f405ce92e6892a1b4a527b91bdc267d1fdfd3b9cec7740add322679d",
+        "observedAt": "2026-10-23T01:29:53.148Z",
+        "fullAnswerRead": true,
+        "artifact": ".artifacts/manual-confirmation-permission-20261023/supplemental-approval-faq.json"
+      },
+      "role": "Master/settings-admin configuration and separate CF001 original authority established; exact purchase type/exception/default/reset contract missing",
+      "implementationEvidence": [
+        "evidence/manual-confirmation-permission-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Actual type1–6 table including initial confirmation, modification reset, manual confirm/unconfirm and affected business scope; do not infer purchase behavior from account etax or production examples.",
+        "Default and ID/business exception evaluation priority, master/settings-admin bypass and separate authorization scope, readonly editor apply/save/cancel behavior.",
+        "Own policy design must cover entry save, list transitions, convert/import, linked progress and legacy backups without silently changing existing users/documents; implementation only after contract evidence.",
+        "EC-HELP-REQUEST-007 and008 full online manual bodies remain unread. Original session last known login; no authentication guessing or main-row/settings writes."
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.88.0",
+      "appChangeNeeded": true,
+      "productionDeployed": false
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "scope": "request context/manual index plus focused purchasing/closure bodies and4official public FAQ answers; not all ERP manuals",
-  "count": 58,
-  "bodyReviewed": 28,
+  "count": 60,
+  "bodyReviewed": 30,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -76,7 +76,9 @@
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
       "observedDate": "2026-10-21",
       "supplementalBodySources": [
-        "EC-FAQ-86HFOODLWUR27BB"
+        "EC-FAQ-86HFOODLWUR27BB",
+        "EC-FAQ-86M6BPOJMUO6UWN",
+        "EC-FAQ-86TGQQ6R4WA7ADL"
       ]
     },
     {
@@ -612,6 +614,32 @@
       "bodySha256": "bae32edc2b51fbedd9ce4f4bf5d2721832a38ee78836e0e081eaa62234ac013e",
       "localArtifact": ".artifacts/manual-plan-source-status-20261023/official-faq.json",
       "scopeLimit": "Specific plan→PO automatic status setting; not a full read of EC-HELP-REQUEST-007 or partial/grouped plan completion rules"
+    },
+    {
+      "id": "EC-FAQ-86M6BPOJMUO6UWN",
+      "title": "발주서의 진행상태를 미확인에서 확인으로 변경할 수 없어 구매입력에서 전표불러오기를 해도 발주서가 조회되지 않습니다.",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 질문 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86M6BPOJMUO6UWN&page=3&category=purchase",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "d83c384e23cbabafd0cfd876dfc75e9726c184320278d77f3a4bab4ac4a397f0",
+      "localArtifact": ".artifacts/manual-confirmation-permission-20261023/official-faq.json",
+      "scopeLimit": "Purchase confirmation restriction and setting entry; full007/008 and all type semantics not proved",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-86TGQQ6R4WA7ADL",
+      "title": "생산불출 전 단계에서 자재 불출을 요청하는 메뉴가 있나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 질문 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86TGQQ6R4WA7ADL",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "a1eb7ea4f405ce92e6892a1b4a527b91bdc267d1fdfd3b9cec7740add322679d",
+      "localArtifact": ".artifacts/manual-confirmation-permission-20261023/supplemental-approval-faq.json",
+      "scopeLimit": "Production material issue example; no assumption of purchase-specific default/reset/exception semantics",
+      "originalBusinessOrSettingsWrites": false
     }
   ]
 }

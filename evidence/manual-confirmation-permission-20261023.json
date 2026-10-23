@@ -1,0 +1,303 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-COM-STATE-001",
+  "status": "confirmed-gap-user-business-policy-contract-gated-not-implemented",
+  "productionVersion": "0.88.0",
+  "releaseCommitInspected": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "sourceManifest": ".artifacts/manual-confirmation-permission-20261023/source-manifest.json",
+  "officialBodies": [
+    {
+      "sourceId": "EC-FAQ-86M6BPOJMUO6UWN",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86M6BPOJMUO6UWN&page=3&category=purchase",
+      "question": "발주서의 진행상태를 미확인에서 확인으로 변경할 수 없어 구매입력에서 전표불러오기를 해도 발주서가 조회되지 않습니다.",
+      "bodySha256": "d83c384e23cbabafd0cfd876dfc75e9726c184320278d77f3a4bab4ac4a397f0",
+      "observedAt": "2026-10-23T01:27:03.176Z",
+      "fullAnswerRead": true,
+      "artifact": ".artifacts/manual-confirmation-permission-20261023/official-faq.json"
+    },
+    {
+      "sourceId": "EC-FAQ-86TGQQ6R4WA7ADL",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86TGQQ6R4WA7ADL",
+      "question": "생산불출 전 단계에서 자재 불출을 요청하는 메뉴가 있나요?",
+      "bodySha256": "a1eb7ea4f405ce92e6892a1b4a527b91bdc267d1fdfd3b9cec7740add322679d",
+      "observedAt": "2026-10-23T01:29:53.148Z",
+      "fullAnswerRead": true,
+      "artifact": ".artifacts/manual-confirmation-permission-20261023/supplemental-approval-faq.json"
+    }
+  ],
+  "confirmedContract": [
+    "Explicit separate CF001 confirmation authority is checked before original inventory status updates; returned failures prevent _updateCS/_update.",
+    "Original GetSlipConfirmProgram delegates to CheckAuthorityOnoffConfirmSlipAction; server rules are outside the cached client scope.",
+    "Purchase FAQ states purchase-entry import lists confirmed purchase orders and directs master/settings administrator to per-user slip status management type.",
+    "Production-only supplement describes ID + business exceptions, priority, requester types5/6 and approver types1–3; this is not a purchase-specific definition of all six types."
+  ],
+  "confirmedGap": [
+    "Missing user/business-specific confirmation policy in own permissions/settings/status transition. SelfSettingsUI lists 전표상태관리유형 but has no action and shows 미확인.",
+    "Own purchase import sourceOptions already filters C.active; unconfirmed PO exclusion exists statically, so no duplicate feature change or unchanged regression was run."
+  ],
+  "remaining": [
+    "Actual type1–6 table including initial confirmation, modification reset, manual confirm/unconfirm and affected business scope; do not infer purchase behavior from account etax or production examples.",
+    "Default and ID/business exception evaluation priority, master/settings-admin bypass and separate authorization scope, readonly editor apply/save/cancel behavior.",
+    "Own policy design must cover entry save, list transitions, convert/import, linked progress and legacy backups without silently changing existing users/documents; implementation only after contract evidence.",
+    "EC-HELP-REQUEST-007 and008 full online manual bodies remain unread. Original session last known login; no authentication guessing or main-row/settings writes."
+  ],
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 4,
+    "newOriginalScopes": 4,
+    "reusedOriginalScopes": 0,
+    "fullModuleCoverage": false,
+    "results": [
+      {
+        "name": "Original_ChangeStatus_onExecuteAsync",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 391310,
+        "end": 391638,
+        "lineStart": 8252,
+        "lineEnd": 8258,
+        "fragmentSha256": "54d0d11180a6fff14e95c82daf020a7cb5246551227f3679aebe75a530f32bdc",
+        "resultSha256": "c1d4b6345b0770f29af68a8ddef308e4ab9c8bad78c406a360e55d2124c26fce",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 341,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 49,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_ChangeStatus__checkAuthority",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 391643,
+        "end": 394333,
+        "lineStart": 8259,
+        "lineEnd": 8317,
+        "fragmentSha256": "ac802e4465a08652cc799f3c382230beb2ae568147c335803d232056a1cd415d",
+        "resultSha256": "b6604ee3e0c463eb433d0c3958795cdbe294016a5affd401c8eb4b7606fc371b",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2775,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 307,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_ChangeStatus__getConfirmAuthority",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 394338,
+        "end": 395077,
+        "lineStart": 8318,
+        "lineEnd": 8331,
+        "fragmentSha256": "04f0c9a1cc61ae5b8790b1f0da32037022c89cbd13bf7a702a3534d2f9a24dc2",
+        "resultSha256": "1cc0ad3a8da3a5d8642a0cba1693e1ba5a3eeb94d646768bb348b6ac07aa8943",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 752,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 81,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_ConfirmAuthorityBridge",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 4288543,
+        "end": 4289076,
+        "lineStart": 89497,
+        "lineEnd": 89507,
+        "fragmentSha256": "1a747628373a1954590ee0b05896f49ccc98ce07e5a089709a1ed09a12bcbdef",
+        "resultSha256": "e91e702598a2833bc2e8a06522712fce753915570436f4ec5e7f83a706f6a40e",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 533,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 51,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_permissions",
+        "category": "own",
+        "file": ".artifacts/releases/0.88.0-progress-option/dist/self-core.js",
+        "sourceSha256": "804d9a0f0f8acc7709cf653a03331b70cd67dea8e5ddb18b4776dde6fe521684",
+        "start": 221,
+        "end": 607,
+        "lineStart": 5,
+        "lineEnd": 5,
+        "fragmentSha256": "1f58d8e528bdc203a72c64da1792981de7973f8162623754655b20b4c311657c",
+        "resultSha256": "33dbb7c9f0871fab6e2e71e173afb245d74267b26bf6513558248c84d18fb2c1",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 560,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 45,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_writeAllowed",
+        "category": "own",
+        "file": ".artifacts/releases/0.88.0-progress-option/dist/inventory-ui.js",
+        "sourceSha256": "4e7edbaa10aa5c6d97669e5d840e23a7f89fc751fc2dba5bc4524d16c05cbce1",
+        "start": 409,
+        "end": 484,
+        "lineStart": 4,
+        "lineEnd": 4,
+        "fragmentSha256": "4bc8663761643e4b554a051d97af5619c1f1f16af3e599046db89c8e237ca6f3",
+        "resultSha256": "c8114d277650b8fea4d6b6416713512dddd0aa342dde531e5596ceb5dcc35e78",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 82,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 16,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_sourceOptions",
+        "category": "own",
+        "file": ".artifacts/releases/0.88.0-progress-option/dist/inventory-ui.js",
+        "sourceSha256": "4e7edbaa10aa5c6d97669e5d840e23a7f89fc751fc2dba5bc4524d16c05cbce1",
+        "start": 78266,
+        "end": 78438,
+        "lineStart": 338,
+        "lineEnd": 338,
+        "fragmentSha256": "32a8caf31a7f42d48aca5d5d4d7711a0c332e5173463b945d75ef87a6a893596",
+        "resultSha256": "afaaef02b1f1bebbafaacdc4a8803c7bbb2ce53dd42b2a85447ea332f91496cd",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 183,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 51,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Own_transition",
+        "category": "own",
+        "file": ".artifacts/releases/0.88.0-progress-option/dist/inventory-core.js",
+        "sourceSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+        "start": 47562,
+        "end": 50115,
+        "lineStart": 419,
+        "lineEnd": 432,
+        "fragmentSha256": "c9b83c5798dd9515399a2aadfffae4bf1785531411792f62aa7d7b66be7e1e36",
+        "resultSha256": "10933ab2e430a318cf5543d740895d4416f728ec38edd1c2c036410cc4bbe9ba",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 2876,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 530,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "operatingBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "managerStatusVerified": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json",
+    "priorPreservationIsNotNewCheck": true
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 86
+  },
+  "counters": {
+    "indexedManuals": 60,
+    "sourceBodiesReviewed": 30,
+    "officialRequirements": 35,
+    "done": 0
+  },
+  "done": false
+}
