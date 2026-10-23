@@ -145,7 +145,8 @@
     return result;
   }
   function applyPurchaseTaxHeader(result,source){
-    const types=['request','plan','purchaseorder','purchase'];if(!types.includes(result.type)||!types.includes(source.type))return;
+    const types=['request','plan','purchaseorder','purchase'];
+    if(!types.includes(result.type)||!(types.includes(source.type)||source.type==='pricerequest'&&result.type==='purchaseorder'))return;
     if(source.transactionType!==undefined){
       if(typeof source.transactionType!=='string'||source.transactionType.length>200)throw Error('원본 거래유형 코드를 확인하세요.');
       result.transactionType=source.transactionType;
