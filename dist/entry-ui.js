@@ -40,13 +40,35 @@
   }
   function application(ui,options,choice,run){
     const mode=select('기존 행 처리',[['append','기존 행에 추가'],['replace','기존 행 덮어쓰기']],'append'),apply=button('선택 적용(F8)',()=>applyRows(),'primary');apply.setAttribute('aria-label','선택 적용');apply.disabled=mode.disabled=!writable(options);let busy=false;
-    function applyRows(){if(busy||!ui.guard()||!ui.d.open)return;ui.error.textContent='';try{if(!choice.values().length)throw Error('불러올 행을 선택하세요.');const draft=options.getDraft(),replace=mode.value==='replace';if(replace&&(draft.lines||[]).some(row=>row.item)&&!root.confirm('작성 중인 품목 행을 선택한 자료로 덮어쓸까요?'))return;if(!ui.guard())return;const result=run(draft,replace);if(!ui.guard())return;busy=true;const accepted=options.onApply(result);if(accepted!==false)ui.close();}catch(error){ui.fail(error);}finally{busy=false;}}
+    const active=()=>ui.d.isConnected&&ui.d.open;
+    const reset=()=>{busy=false;ui.d.removeAttribute('aria-busy');if(active())apply.disabled=!writable(options);};
+    function applyRows(){
+      if(busy||!ui.guard()||!ui.d.open)return;ui.error.textContent='';let pending=false;
+      try{
+        if(!choice.values().length)throw Error('불러올 행을 선택하세요.');
+        const draft=options.getDraft(),draftRaw=JSON.stringify(draft),modeValue=mode.value,replace=modeValue==='replace';
+        if(replace&&(draft.lines||[]).some(row=>row.item)&&!root.confirm('작성 중인 품목 행을 선택한 자료로 덮어쓸까요?'))return;if(!ui.guard())return;
+        busy=true;apply.disabled=true;
+        const accept=(result,asyncResult=false)=>{if(!active()||!ui.guard())return;if(asyncResult&&(mode.value!==modeValue||JSON.stringify(options.getDraft())!==draftRaw))throw Error('확인 중 작성 내용 또는 기존 행 처리가 변경됐습니다. 현재 초안과 선택을 유지했습니다.');const accepted=options.onApply(result);if(accepted!==false)ui.close();};
+        const result=run(draft,replace);
+        if(result&&typeof result.then==='function'){
+          pending=true;ui.d.setAttribute('aria-busy','true');ui.error.textContent='최신 계정·매핑 설정을 확인 중입니다…';
+          Promise.resolve(result).then(value=>accept(value,true)).catch(error=>{if(active())ui.fail(error);}).finally(reset);
+        }else accept(result);
+      }catch(error){if(active())ui.fail(error);}finally{if(!pending)reset();}
+    }
     ui.d.addEventListener('keydown',event=>{if(event.key==='F8'){event.preventDefault();event.stopPropagation();applyRows();}});const actions=N('div',undefined,'inv-toolbar');actions.append(field('기존 행',mode),apply,button('취소',ui.close));ui.body.append(ui.error,actions);return {mode,apply};
   }
   function openDocuments(options={}){
     if(options.history===true)options.assertCurrent?.();
     const history=options.history===true,db=database(options),draft=options.getDraft(),historyTypes=history?E.historySourceTypes(draft.type):null,ui=dialog(history?'거래내역보기('+({pricerequest:'단가요청',purchaseorder:'발주',purchase:'구매'})[draft.type]+')':'전표 불러오기',options),filters=N('div',undefined,'inv-filters');
     if(history){const identity=()=>JSON.stringify([root.AuthUI?.state?.().user?.id||'',root.AuthUI?.state?.().user?.company?.code||'',root.AuthUI?.state?.().user?.roleId||'']),actor=identity(),sourceRaw=JSON.stringify(db),draftRaw=JSON.stringify(draft),baseGuard=ui.guard;ui.guard=()=>{if(!baseGuard())return false;try{if(identity()!==actor||root.AuthUI&&!root.AuthUI.can('inventory.read'))throw Error('계정·회사 또는 조회 권한이 변경됐습니다. 거래내역을 다시 여세요.');options.assertCurrent?.();if(JSON.stringify(database(options))!==sourceRaw||JSON.stringify(options.getDraft())!==draftRaw)throw Error('원본 자료 또는 작성 중인 전표가 변경됐습니다. 초안을 유지하고 거래내역을 다시 여세요.');return true;}catch(e){ui.fail(e);return false;}};const check=()=>{if(ui.d.open&&!ui.guard())ui.close();};root.addEventListener('focus',check);root.addEventListener('storage',check);document.addEventListener('visibilitychange',check);ui.d.addEventListener('close',()=>{root.removeEventListener('focus',check);root.removeEventListener('storage',check);document.removeEventListener('visibilitychange',check);});}
+    const mappingAdapter=!history&&draft.type==='request'?options.mappingAdapter:null;
+    if(mappingAdapter){
+      const draftRaw=JSON.stringify(draft),baseGuard=ui.guard;
+      ui.guard=()=>{if(!baseGuard())return false;try{mappingAdapter.assertCurrent();if(JSON.stringify(options.getDraft())!==draftRaw)throw Error('작성 중인 전표가 변경됐습니다. 현재 초안을 유지하고 불러오기를 다시 여세요.');return true;}catch(error){ui.fail(error);return false;}};
+      const check=()=>{if(ui.d.open)ui.guard();};root.addEventListener('focus',check);root.addEventListener('storage',check);document.addEventListener('visibilitychange',check);ui.d.addEventListener('close',()=>{root.removeEventListener('focus',check);root.removeEventListener('storage',check);document.removeEventListener('visibilitychange',check);});
+    }
     const saved=root.AuthUI?.settings?.().inventoryFeatures?.import||{},explicitMode=Object.hasOwn(options,'mode')&&options.mode!==undefined,initialMode=history?'copy':explicitMode?options.mode:saved.view==='remaining'?'linked':'copy';
     const planRequest=sourceType=>draft.type==='plan'&&sourceType==='request';let initialGrouping=history?'line':draft.type==='plan'?'document':saved.grouping==='item'?'item':'line';if(explicitMode&&initialMode==='linked'&&initialGrouping==='item')initialGrouping='line';
     const controls={mode:select('불러오기 방식',[['copy','조회화면 · 내용 복사'],['linked','미현황화면 · 잔량 연결']],initialGrouping==='item'?'copy':initialMode),grouping:select('집계조건',[...(draft.type==='plan'?[['document','전표별']]:[]),['line','라인별'],['item','품목별']],initialGrouping),matchName:input('품목범위 품목명',saved.matchName===true,'checkbox'),matchSpec:input('품목범위 규격',saved.matchSpec===true,'checkbox'),sourceType:select('원본 전표 종류',[['',history?'구매관리 전체':'전체 전표'],...(historyTypes||E.sourceTypes).map(type=>[type,C.types[type]])],options.sourceType||''),from:input('기간 시작','','date'),to:input('기간 종료','','date'),partner:select('원본 거래처',masterOptions(db,'partners'),''),warehouse:select('원본 창고',masterOptions(db,'warehouses'),''),query:input('전표 검색')};
@@ -73,7 +95,13 @@
       const switchToDocument=key==='sourceType'&&planRequest(control.value)&&controls.grouping.value!=='document';if(['mode','grouping','matchName','matchSpec'].includes(key)||switchToDocument){const changed=context();if(key==='mode'&&changed.mode==='linked'&&changed.grouping==='item'){control.value=lastContext.mode;ui.fail('품목별 집계는 잔량 계산을 사용할 수 없습니다. 라인별 집계를 선택하세요.');return;}if(choice.selected.size&&!root.confirm('불러오기 집계·조회 기준을 바꾸면 현재 선택을 해제합니다. 계속할까요?')){for(const [name,value]of Object.entries(lastContext)){if(controls[name].type==='checkbox')controls[name].checked=value;else controls[name].value=value;}return;}choice.clear();if(switchToDocument)controls.grouping.value='document';if(key==='grouping'&&changed.grouping==='item')controls.mode.value='copy';lastContext=context();}else if(key==='sourceType')lastContext=context();
       refresh();
     });
-    actions=application(ui,options,choice,(current,replace)=>{if(!valid||controls.grouping.value==='item'&&controls.mode.value==='linked')throw Error('조회 조건을 먼저 확인하세요.');const currentDb=database(options),selected=choice.values(),headers=selected.filter(row=>row.headerOnly);if(headers.length){if(headers.length!==1||selected.length!==1)throw Error('상단 정보만 적용할 발주서 한 건만 선택하세요.');return E.stagePurchaseHeader(currentDb,current,{documentId:headers[0].documentId});}const selections=selected.flatMap(row=>{if(row.lines){if(JSON.stringify(currentDb.documents.find(doc=>doc.id===row.documentId))!==row.sourceSnapshot)throw Error('원본 전표가 변경됐습니다. 다시 조회한 뒤 선택하세요.');return row.lines;}return [row];}).map(row=>({documentId:row.documentId,item:row.item,lineId:row.lineId,qty:row.qty,...(row.priceRequestBasis?{priceRequestBasis:row.priceRequestBasis}:{})}));return E.stageDocuments(currentDb,current,{history,mode:controls.mode.value,grouping:controls.grouping.value,matchName:controls.matchName.checked,matchSpec:controls.matchSpec.checked,selections,replace,adoptHeader:controls.mode.value==='linked'&&adoptHeader.checked});});refresh();ui.show();return ui.d;
+    actions=application(ui,options,choice,(current,replace)=>{if(!valid||controls.grouping.value==='item'&&controls.mode.value==='linked')throw Error('조회 조건을 먼저 확인하세요.');const currentDb=database(options),selected=choice.values(),headers=selected.filter(row=>row.headerOnly);if(headers.length){if(headers.length!==1||selected.length!==1)throw Error('상단 정보만 적용할 발주서 한 건만 선택하세요.');return E.stagePurchaseHeader(currentDb,current,{documentId:headers[0].documentId});}const selections=selected.flatMap(row=>{if(row.lines){if(JSON.stringify(currentDb.documents.find(doc=>doc.id===row.documentId))!==row.sourceSnapshot)throw Error('원본 전표가 변경됐습니다. 다시 조회한 뒤 선택하세요.');return row.lines;}return [row];}).map(row=>({documentId:row.documentId,item:row.item,lineId:row.lineId,qty:row.qty,...(row.priceRequestBasis?{priceRequestBasis:row.priceRequestBasis}:{})}));const stageOptions={history,mode:controls.mode.value,grouping:controls.grouping.value,matchName:controls.matchName.checked,matchSpec:controls.matchSpec.checked,selections,replace,adoptHeader:controls.mode.value==='linked'&&adoptHeader.checked};
+      if(mappingAdapter&&selections.some(selection=>currentDb.documents.find(doc=>doc.id===selection.documentId)?.type==='order')){
+        const selectionState=()=>JSON.stringify([context(),adoptHeader.checked,choice.values()]),openedSelection=selectionState();
+        const assertPicker=()=>{if(!ui.d.isConnected||!ui.d.open)throw Error('불러오기 창이 닫혔습니다.');if(!ui.guard())throw Error(ui.error.textContent||'현재 입력 화면과 계정·설정을 다시 확인하세요.');};
+        return mappingAdapter.prepare(assertPicker).then(mappingConfig=>{assertPicker();if(selectionState()!==openedSelection)throw Error('확인 중 선택 행·수량 또는 집계조건이 변경됐습니다. 현재 선택과 초안을 유지했습니다.');return E.stageDocuments(database(options),options.getDraft(),{...stageOptions,mappingConfig});});
+      }
+      return E.stageDocuments(currentDb,current,stageOptions);});refresh();ui.show();return ui.d;
   }
   function openStock(options={}){
     const kind=options.kind==='safety'?'safety':'stock',ui=dialog(kind==='safety'?'안전재고 불러오기':'재고 불러오기',options),db=database(options),draft=options.getDraft(),filters=N('div',undefined,'inv-filters');
