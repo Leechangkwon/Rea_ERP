@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## ADR 이력조회 snapshot 수명 · 0.88.1
+
+openDocumentHistory는 최초 세션/조회권한과 저장raw를 확인하고 owner host/route·role·raw를 캡처한다. 검색/필터/CSV 때 재검증하며 경계 실패는 캐시/표 제거 후 닫기, close는 storage listener 해제와 current 제거를 수행한다. 관련 cross-window storage 변경도 재검증한다. 필터 입력 오류는 같은 유효 경계에서만 마지막 성공 CSV를 유지한다. 코어/저장 schema/원본 감사 정책을 변경하지 않는다. 근거 `evidence/manual-history-audit-session-20261023.json`.
+
 ## 인쇄 정의와 호출자 보관 정책 분리 · 2026-10-23
 
 공개 setup builder는 서버 정의 요청이 주석 처리된 test_props다. Apply는 nullish 숫자0 보완·validator 뒤 부모에 record를 보내 닫으며 부모의 영구 저장 여부는 별도다. basic_tf 동기화·마진합+10/규격 검사·PrintHTMLProgram 전달은 단위/실제 구매 binding/renderer 계약을 완성하지 않는다. 회계 일회성 정책을 generic persistent page 설정에 적용하지 않는다. 근거 `evidence/manual-print-position-20261023.json`.

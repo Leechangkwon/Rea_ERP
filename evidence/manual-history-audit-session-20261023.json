@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "version": "0.88.1",
+  "sourceId": "EC-HELP-REQUEST-028",
+  "status": "own-audit-history-session-boundary-fixed-deployed-preservation-verified-full-manual-pending",
+  "exact028OfficialBodyRead": false,
+  "exact028IndexStatus": "index-only",
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "sourceCommit": "ba9c43056902596229a9ead015be2d01806bbf9a",
+  "releaseCommit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+  "releaseBranch": "release/0.88.1-history-session",
+  "isolatedCandidate": ".artifacts/validation/history-session-20261023",
+  "immutableRelease": ".artifacts/releases/0.88.1-history-session",
+  "scopeDistinction": "028 concerns audit/change history, existing0.40 list history and H detail. Version0.66/0.67 history line-copy import is a different workflow and was not retested as evidence for028.",
+  "rootCause": [
+    "openDocumentHistory read cached data and exported the last successful result without rechecking current account/company/read permission or parent/storage scope.",
+    "Saved callbacks could still export after the dialog closed or its parent detached; cross-window storage changes did not invalidate results."
+  ],
+  "implementation": [
+    "Validate current session, inventory.read, storage freshness and existing storage errors before opening.",
+    "Guard search, filter toggle and CSV with parent/route, account/company/role and opening storage snapshot.",
+    "On invalidation clear the saved result and displayed rows, close the dialog and reject delayed callbacks.",
+    "Relevant storage change/clear events revalidate and close stale history; close removes the listener and cached result.",
+    "Preserve normal read-only history search, last-success CSV on invalid criteria, focus/navigation handling, existing history schema and all business data."
+  ],
+  "checks": {
+    "preFixNewNodeFailed": 5,
+    "newNode": 5,
+    "focusedNodePassed": 23,
+    "rootNewNodePassed": 5,
+    "newActualShellBrowser": 2,
+    "viewports": [
+      390,
+      1280
+    ],
+    "screenshotsInspected": true,
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 129,
+    "buildPassed": true,
+    "releaseChecksPassed": true,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "initialBrowserEnvironmentFailure": "New worktree lacked existing browser shared-library link; linked existing .artifacts/browser-libs and browser checks passed. No package installation.",
+    "logs": {
+      "pre-fix-tests.log": "319a492a2edecc7e26fa56a37d705826ae4ec0223ba7804bd5d0df0d5482c60c",
+      "focused-tests.log": "d83a04a31a3d9f5501d63a21d629fc6b469210d1060d400653d3420d61924e35",
+      "root-focused-tests.log": "262aabe44e54ee6592bd4f143600db55873cafbfb54a0cf1e6ecb690c2a1eb54",
+      "browser-focused-libs-fixed.log": "0c5dd7336d2e66bcd1c175e196788704c7427ca79c33c9e2bcf5c355a90196fe",
+      "verify-local.log": "2f004e3679737622175749c6c66a8d136d2d995c707503e16169bada923c7242"
+    }
+  },
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-history-audit-20261023/rea/rea-summary.json",
+    "summarySha256": "17e0e730eca472d08053bf9cc2e0da36e0cd8b858de7cf55af844cba5371310d",
+    "newOwnScopes": 1,
+    "newOriginalScopes": 0,
+    "reusedOriginalScopes": 0,
+    "parseFailures": 0,
+    "mainCandidateScopeEqual": true,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false,
+    "historicalOriginalContracts": "Existing0.40 curated ES303M/H distinctions reviewed; missing retained original raw evidence was not claimed as fresh validated cache reuse."
+  },
+  "deployment": {
+    "version": "0.88.1",
+    "runtimeSession": 55270,
+    "linuxPid": 2540061,
+    "workerSha256": "6781dfb4aaa70019fa13cb5e21b815f1ec837ef758da913aae6ba5f7521111af",
+    "publicUrl": "https://rea.qaredi.com",
+    "pushedBeforeInstall": true,
+    "publicChecks": ".artifacts/manual-history-audit-20261023/public-deploy.json",
+    "publicStaticAssetsMatchedRelease": true,
+    "anonymousMailboxStatus": 401,
+    "publicHealthStatus": 404,
+    "internalHealthStatus": 200,
+    "backend": "supabase",
+    "existingSessionRetained": true,
+    "hostedHistoryOpenCloseWithoutWrite": true,
+    "hostedPermissionRevocationPerformed": false,
+    "physicalAndroidRetested": false,
+    "rollbackVersion": "0.88.0",
+    "rootWholeBuildPerformed": false,
+    "unreleasedVatOrMappingInstalled": false
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.1",
+      "beforeFileOrdinal": 14,
+      "afterFileOrdinal": 15,
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsEqual": true,
+      "existingSessionRetained": true,
+      "existingWorkTabs": 1,
+      "historyOpenCloseReadOnlyVerified": true,
+      "hostedPermissionRevocationOrExportPerformed": false,
+      "productionBusinessOrSettingsSaved": false
+    },
+    "serverAndMail": {
+      "version": "0.88.1",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "backupVerified": true,
+    "restored": false
+  },
+  "remainingGates": [
+    "Exact028 full body, base-code history and original H detail/authorization/retention/version scope remain unverified.",
+    "Official linked purchase-H FAQ returned404 in both web tool and browser; no body added or source requirement marked complete.",
+    "Own metadata history is not equivalent to original server audit/version history. Actor recording, detailed historical bodies and master-code audit are not added.",
+    "Permission changes were exercised only on synthetic localhost identities. Production account/role changes, history CSV export and business/settings saves were not performed."
+  ],
+  "unavailableOfficialFaq": {
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=purchase&page=1&record_sid=8717NUSC5A27MHI",
+    "title": "구매조회 화면의 H 버튼에서 최종 update만 표시되는데 작성자와 신규 작업 이력을 확인할 수 있나요?",
+    "browser404Verified": true,
+    "fullBodyRead": false
+  },
+  "community": {
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 102,
+    "posted": false,
+    "readback": false,
+    "repeatedAuthenticationRequests": 0
+  },
+  "counters": {
+    "indexed": 73,
+    "bodyReviewed": 43,
+    "officialRequirements": 42,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-030",
+  "deferredSourceId": "EC-HELP-REQUEST-029",
+  "done": false
+}

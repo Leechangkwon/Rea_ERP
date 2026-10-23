@@ -308,7 +308,14 @@
       "page": 2,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "latestBodyRecoveryAttempt": {
+        "date": "2026-10-23",
+        "bodyRecovered": false,
+        "evidence": "evidence/manual-history-audit-session-20261023.json",
+        "ownSessionBoundaryFixDeployed": "0.88.1",
+        "resumeWhen": "Exact028 body, base-code/H audit detail and original authorization/version/retention. History input-copy import is separate."
+      }
     },
     {
       "id": "EC-HELP-REQUEST-029",
@@ -316,7 +323,12 @@
       "page": 2,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "currentScopeDisposition": {
+        "status": "deferred-named-sales-scope-not-purchase-completion",
+        "reason": "Title explicitly names quotation/shipping-order/shipping. Purchase-first queue proceeds to030; this item remains unread and not complete.",
+        "evidence": "evidence/manual-history-audit-session-20261023.json"
+      }
     },
     {
       "id": "EC-HELP-REQUEST-030",

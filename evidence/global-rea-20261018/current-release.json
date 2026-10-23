@@ -1,6 +1,6 @@
 {
-  "version": "0.88.0",
-  "status": "partial-manual-parity-purchase-order-progress-settings-entry-deployed",
+  "version": "0.88.1",
+  "status": "partial-manual-parity-audit-history-session-guard-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -362,16 +362,21 @@
     "dueDateOfficialContractShipped087CorePassed": true,
     "dueDateActualShellNewBrowser": 2,
     "planSourceProgressOptionNewNode": 5,
-    "planSourceProgressOptionNewBrowser": 2
+    "planSourceProgressOptionNewBrowser": 2,
+    "auditHistorySessionNewNode": 5,
+    "auditHistorySessionFocusedNode": 23,
+    "auditHistorySessionNewBrowser": 2,
+    "auditHistorySessionFullBrowser": 129,
+    "auditHistorySessionVerifyLocalPassed": true
   },
-  "future_research": "원본 로그인/모아 도구 복구 응답 우선. 그 전028 기초코드/전표 이력을 기존0.40 및 구매3대상 이력 구현과 대조한다.027 기확보 본문·기존 재개 검사는 반복하지 않는다.026 정확한 본문/구매 경로 미확보이며 공통 filtered100 제한을 전역 ID 제한으로 확대하지 않는다. 기존 gate·root build/main VAT5 설치 금지 유지·전체완료false.",
+  "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-plan-source-status-20261023.json",
+    "reference": "evidence/manual-history-audit-session-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
-    "publicVersionVerified": "0.88.0",
+    "deployedSourceCommit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+    "publicVersionVerified": "0.88.1",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -621,7 +626,21 @@
     },
     "planSourceProgressOptionDeployed": true,
     "planSourceProgressOptionHostedReadonlyVerified": true,
-    "planSourceProgressOptionHostedSettingOrBusinessSaved": false
+    "planSourceProgressOptionHostedSettingOrBusinessSaved": false,
+    "auditHistorySessionBoundary": {
+      "version": "0.88.1",
+      "sourceCommit": "ba9c43056902596229a9ead015be2d01806bbf9a",
+      "releaseCommit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+      "runtimeSession": 55270,
+      "linuxPid": 2540061,
+      "workerSha256": "6781dfb4aaa70019fa13cb5e21b815f1ec837ef758da913aae6ba5f7521111af",
+      "deployed": true,
+      "existingSessionRetained": true,
+      "hostedOpenCloseWithoutWrite": true,
+      "syntheticRevocationExportBlocked": true,
+      "productionRoleChanged": false,
+      "preservationPassed": true
+    }
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -633,14 +652,15 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.0",
+      "productionVersion": "0.88.1",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "028 기초코드/전표 이력; 기존0.40·구매3대상 이력 근거 우선",
+      "nextIndependentManual": "030 불러온 전표 자동 종결;029 명시 판매 범위 보류(done아님)",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
-      "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json"
+      "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
+      "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -797,9 +817,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-028",
+      "sourceId": "EC-HELP-REQUEST-030",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "원본 로그인/모아 도구 복구 응답 우선. 그 전028 기초코드/전표 이력을 기존0.40 및 구매3대상 이력 구현과 대조한다.027 기확보 본문·기존 재개 검사는 반복하지 않는다.026 정확한 본문/구매 경로 미확보이며 공통 filtered100 제한을 전역 ID 제한으로 확대하지 않는다.",
+      "description": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1530,13 +1550,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-028",
-      "title": "기초 코드 및 전표의 이력을 확인하는 방법",
-      "context": "원본 로그인/모아 도구 복구 응답 우선. 그 전028 기초코드/전표 이력을 기존0.40 및 구매3대상 이력 구현과 대조한다.027 기확보 본문·기존 재개 검사는 반복하지 않는다.026 정확한 본문/구매 경로 미확보이며 공통 filtered100 제한을 전역 ID 제한으로 확대하지 않는다.",
-      "operatingVersion": "0.88.0",
-      "reopenEvidence": "evidence/manual-reopen-20261023.json",
+      "sourceId": "EC-HELP-REQUEST-030",
+      "title": "불러온 전표를 자동으로 종결 처리하는 방법",
+      "context": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다.",
+      "operatingVersion": "0.88.1",
+      "historyAuditEvidence": "evidence/manual-history-audit-session-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
-      "legacyGates": "Existing TC101P_01 editor/hosted acceptance and source/VAT/manual gates retained; no root build/install"
+      "legacyGates": "TC101P_01 editor/hosted acceptance retained. Mapping088 candidate must also integrate history guard source before future release. No root build/install."
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1762,7 +1782,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 101,
+      "pendingLocalUpdates": 102,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1840,7 +1860,10 @@
       "mappingNode": 40,
       "fullBrowser": 131,
       "verifyLocalPassed": true,
-      "communityPendingLocalUpdates": 95
+      "communityPendingLocalUpdates": 95,
+      "latestOperatingVersion": "0.88.1",
+      "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
+      "latestPatchIntegrated": false
     },
     "stampPrintResearch": {
       "candidate": "CAND-COM-STAMP-001",
@@ -1941,6 +1964,20 @@
       },
       "applicationChanges": 0,
       "productionDeployed": false,
+      "done": false
+    },
+    "auditHistorySessionBoundary": {
+      "evidence": "evidence/manual-history-audit-session-20261023.json",
+      "status": "own-audit-history-session-boundary-fixed-deployed-preservation-verified-full-manual-pending",
+      "sourceCommit": "ba9c43056902596229a9ead015be2d01806bbf9a",
+      "releaseCommit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+      "version": "0.88.1",
+      "productionDeployed": true,
+      "newNode": 5,
+      "newBrowser": 2,
+      "browserTotal": 129,
+      "preservationPassed": true,
+      "exact028BodyRead": false,
       "done": false
     }
   },
@@ -2464,6 +2501,15 @@
       "summary": ".artifacts/manual-reopen-20261023/rea/rea-summary.json",
       "newOriginalScopes": 3,
       "newOwnScopes": 0,
+      "reusedOriginalScopes": 0,
+      "coverage": "unknown",
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false
+    },
+    "auditHistorySessionBoundary": {
+      "reference": "evidence/manual-history-audit-session-20261023.json",
+      "newOwnScopes": 1,
+      "newOriginalScopes": 0,
       "reusedOriginalScopes": 0,
       "coverage": "unknown",
       "fullModuleCoverage": false,
