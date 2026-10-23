@@ -364,7 +364,7 @@
     "planSourceProgressOptionNewNode": 5,
     "planSourceProgressOptionNewBrowser": 2
   },
-  "future_research": "원본 로그인/모아 도구 복구 응답 우선. 그 전024 인쇄 여부 구분의 본문·조회/출력 이력·보관 계약을 확인한다.023 정확한 본문/편집기는 대기·기존 제목3범위와 검사는 변경 없음, 생산 타이틀/보호식별자는 구매 완료로 세지 않는다.022 실제 구매 정의/renderer·단위·보관, 매핑 편집기/운영 수락검증 등 기존 gate 유지. 같은 helper/회귀/인증 요청 반복·root build/main VAT5 설치 금지·전체완료false.",
+  "future_research": "원본 로그인/모아 도구 복구 응답 우선. 그 전 다음 미독026 종결 취소를 기존 종결/재개 구현·공식 본문과 대조한다.025/027 기확보 본문과 이미 통과한 회귀를 반복하지 않는다.024 표시 helper/인쇄 API 선언만으로 이력을 추정 저장하지 않는다. 원본 인쇄/주 입력행/설정 저장 금지·매핑 편집기/운영 수락검증 등 기존 gate·root 전체빌드/main VAT5 설치 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-plan-source-status-20261023.json",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "024 인쇄 여부 구분; 정확한 본문/조회·출력 이력 계약 우선, 원본 인쇄 실행 금지",
+      "nextIndependentManual": "026 전표 종결 취소;025/027 기확보 본문·기존 재개 구현 우선",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json"
     },
@@ -797,9 +797,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-024",
+      "sourceId": "EC-HELP-REQUEST-026",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전024 인쇄 여부 구분의 정확한 본문·조회/출력 이력·보관 계약을 대조한다. 인쇄를 조회 조작으로 실행하지 않는다. 같은 helper/통과회귀/인증 요청 반복 금지.",
+      "description": "원본 로그인/모아 도구 복구 응답 우선. 그 전 다음 미독026 종결 취소를 기존 종결/재개 구현·공식 본문과 대조한다.025/027 기확보 본문과 이미 통과한 회귀를 반복하지 않는다.024 표시 helper/인쇄 API 선언만으로 이력을 추정 저장하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1530,13 +1530,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-024",
-      "title": "전표의 인쇄 여부를 구분하는 방법",
-      "context": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전024 인쇄 여부 구분의 정확한 본문·조회/출력 이력·보관 계약을 대조한다. 인쇄를 조회 조작으로 실행하지 않는다. 같은 helper/통과회귀/인증 요청 반복 금지.",
+      "sourceId": "EC-HELP-REQUEST-026",
+      "title": "전표를 종결 취소 처리하는 방법",
+      "context": "원본 로그인/모아 도구 복구 응답 우선. 그 전 다음 미독026 종결 취소를 기존 종결/재개 구현·공식 본문과 대조한다.025/027 기확보 본문과 이미 통과한 회귀를 반복하지 않는다.024 표시 helper/인쇄 API 선언만으로 이력을 추정 저장하지 않는다.",
       "operatingVersion": "0.88.0",
-      "titleEvidence": "evidence/manual-print-title-20261023.json",
+      "printStatusEvidence": "evidence/manual-print-status-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
-      "legacyGates": "Existing gates including TC101P_01 editor/hosted acceptance retained; no root build/install"
+      "legacyGates": "TC101P_01 editor/hosted acceptance and earlier source/VAT/manual gates retained; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1762,7 +1762,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 99,
+      "pendingLocalUpdates": 100,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1906,6 +1906,19 @@
       "reusedOriginalScopes": 1,
       "newReaRuns": 0,
       "newOfficialRequirements": 0,
+      "applicationChanges": 0,
+      "productionDeployed": false,
+      "done": false
+    },
+    "printStatusResearch": {
+      "evidence": "evidence/manual-print-status-20261023.json",
+      "status": "static-display-and-route-candidate-exact-body-trigger-storage-permission-gated",
+      "exact024BodyRead": false,
+      "newOfficialBodies": 0,
+      "newOfficialRequirements": 0,
+      "newOriginalScopes": 4,
+      "coverage": "unknown",
+      "runtimeEquivalence": false,
       "applicationChanges": 0,
       "productionDeployed": false,
       "done": false
@@ -2094,6 +2107,14 @@
       "newPublicJavaScriptSources": 0,
       "supportingOfficialBodies": 2,
       "exact023BodyRead": false,
+      "originalExecuted": false,
+      "includedInHistoricalReaCorpusBaseline": false
+    },
+    "printStatus": {
+      "reference": "evidence/manual-print-status-20261023.json",
+      "newPublicSources": 0,
+      "newOfficialBodies": 0,
+      "existingManifestHashesVerified": true,
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
     }
@@ -2395,6 +2416,17 @@
       "newOriginalScopes": 0,
       "reusedOriginalScopes": 1,
       "newOwnScopes": 0,
+      "coverage": "unknown",
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false
+    },
+    "printStatus": {
+      "reference": "evidence/manual-print-status-20261023.json",
+      "summary": ".artifacts/manual-print-status-20261023/rea/rea-summary.json",
+      "newOriginalScopes": 4,
+      "newOwnScopes": 0,
+      "reusedOriginalScopes": 0,
+      "parseFailures": 0,
       "coverage": "unknown",
       "fullModuleCoverage": false,
       "runtimeEquivalence": false

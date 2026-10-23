@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-024",
+  "candidate": "CAND-COM-PRINTSTATUS-001",
+  "title": "전표 인쇄 여부의 표시·채널·이력 저장 계약 조사",
+  "status": "static-display-and-route-candidate-exact-body-trigger-storage-permission-gated",
+  "productionVersion": "0.88.0",
+  "exact024OfficialBodyRead": false,
+  "exact024IndexStatus": "index-only",
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-print-status-20261023/rea/rea-summary.json",
+    "summarySha256": "4352476d5f22a8657908aee5a8347eb0f2ec888ea4f66bdb162f4c863da2968f",
+    "analyzer": ".artifacts/manual-print-status-20261023/analyze.mjs",
+    "analyzerSha256": "3d6e78a255e5dacc24dc6fc45c206e1c847bd15d8823f808161fb7ec77da1af5",
+    "newOriginalScopes": 4,
+    "newOwnScopes": 0,
+    "reusedOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "sourceFindings": [
+    {
+      "scope": "print_info$tooltip_message",
+      "finding": "List tooltip first checks alias-key property availability and hides display value when unavailable. C-Portal menu selects external print information; other menus select internal information. Unknown/hidden information must not be labelled definitively unprinted.",
+      "limitations": "This display helper does not define permission rules, list filter options, original icons, or server history persistence."
+    },
+    {
+      "scope": "createPrintInfoMessage",
+      "finding": "Reads prefix/print_datetime and prefix/user. Missing datetime returns empty string. Otherwise datetime_timezone resolver formats timestamp and user is combined into tooltip text.",
+      "limitations": "No writer, browser cancellation policy, retention, first-versus-last print, counts, complete event log, or physical printer completion is proved."
+    },
+    {
+      "scope": "inventory_print_info_multi_user_action_list",
+      "finding": "Print information list action maps print to common$ISlipLinkUserAction. Treat clicking print information as an action route, not a safe read-only history popup.",
+      "limitations": "Descriptor alone does not establish which inventory menu uses it, runtime printing success or saved history."
+    },
+    {
+      "scope": "ISavePrintHistoryAction",
+      "finding": "Legacy common source declares ActionIdentifier for /api/app.common/action/SavePrintHistoryAction. Only static declaration was analyzed; no endpoint request was made.",
+      "limitations": "Declaration is not proof of a dispatched write, triggering event, payload, authorization, actual storage or physical output."
+    }
+  ],
+  "sourceProvenance": [
+    {
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "scope": "print_info$tooltip_message",
+      "fragmentSha256": "fbba8fa36b73f8cd09de52d5302628d4e52f7ec1e4e570f5548f0259611f465b",
+      "resultSha256": "fa4a994bdd0f0f923c3e7130d4b0253c0a1f6910a70671d6ce62e28d9f9c7d9c"
+    },
+    {
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "scope": "createPrintInfoMessage",
+      "fragmentSha256": "42a083db1b4fa1bce1650a926d83c299c0344063a697c9d99fa9f3a4c2bd5af2",
+      "resultSha256": "2ea65654450bcc25d82d8ed68d868f576dd70a116995b48ef3669df0a8fd4c4d"
+    },
+    {
+      "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app_shared/v56app_shared.b7aeed78.js",
+      "manifest": ".artifacts/manual-plan-custom-contract-20261022/source-manifest.json",
+      "sha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+      "scope": "inventory_print_info_multi_user_action_list",
+      "fragmentSha256": "b2c916eb3b8ebc52cc971a28f8d36cfd4bfb223412b659c32c6e65b35d8a3b42",
+      "resultSha256": "1790250cc16b991e81f651c3f2a3a22a202a4d8af8cde1931d11e7f7e61d920c"
+    },
+    {
+      "file": ".artifacts/manual-request-upload-research-20261022/ecount.usecase.common.5aeb9425.20.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv5/modules/ecount.usecase.common/ecount.usecase.common.5aeb9425.20.js",
+      "manifest": ".artifacts/manual-request-upload-research-20261022/v5-source-manifest.json",
+      "sha256": "d332ce68605d52158e38e9b6849961cf3bb45ffe34cd12494f1f164636d70736",
+      "scope": "ISavePrintHistoryAction",
+      "fragmentSha256": "52d862a14492612b251272272b761494bd0e0136560ba2c7306869c9ebd3dabf",
+      "resultSha256": "ac7d869d11d55a75093be988e5c2b082b254d3287163c01abbb9c59fcb6ab0f8"
+    }
+  ],
+  "ownOperatingComparison": {
+    "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "files": [
+      "dist/inventory-ui.js",
+      "dist/inventory-core.js",
+      "dist/form-core.js"
+    ],
+    "printPageLine": 166,
+    "selectedRequestPrintLine": 190,
+    "finding": "Current printPage and selected-request batch call window.print with temporary style/render handling; these paths do not create a durable printed-status record. Existing request print tests cover preview/print-stub and preservation, not original print-history parity. No status field or automatic afterprint history was added.",
+    "absenceScope": "Inspected operating print paths and named schema files only; not a full ERP absence claim.",
+    "freshHostedPrintOrHistoryAcceptance": false,
+    "unchangedRegressionRerun": false
+  },
+  "remainingGates": [
+    "Exact024 full body and actual readonly print-status column/filter or history view; original print/info action not executed.",
+    "Original trigger across preview, print dialog cancellation, PDF/export, failed/repeated and multi-slip print; internal/C-Portal channel and user/time permissions.",
+    "Server authority, payload, retention, existing-data migration/default unknown state, concurrent printing and preservation.",
+    "Physical output cannot be inferred from window.print return or afterprint. No unverified printed boolean was created."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsOrPrintWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "originalSession": {
+    "lastReadonlyObservedState": "login-required",
+    "evidence": "evidence/manual-print-title-20261023.json",
+    "freshLoginCheckThisTurn": false,
+    "repeatedLoginRequest": false
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "pidPresent": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "community": {
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 100,
+    "posted": false,
+    "readback": false,
+    "repeatedAuthenticationRequests": 0
+  },
+  "counters": {
+    "indexed": 73,
+    "bodyReviewed": 43,
+    "officialRequirements": 42,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-026",
+  "skippedAlreadyReviewed": [
+    "EC-HELP-REQUEST-025"
+  ],
+  "done": false
+}
