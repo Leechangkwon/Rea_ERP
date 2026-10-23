@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "candidate": "CAND-COM-TIMELINE-001",
+  "status": "exact-timeline-manual-and-loaded-source-unavailable-related-history-faq-scoped-separately",
+  "officialRequirementCreated": false,
+  "productionVersion": "0.88.0",
+  "releaseCommitInspected": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "sourceManifest": ".artifacts/manual-timeline-20261023/source-manifest.json",
+  "officialBody": {
+    "sourceId": "EC-FAQ-8717MBENSAP7M16",
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MBENSAP7M16&page=26",
+    "question": "사용자 권한의 변경 이력을 확인할 수 있나요?",
+    "observedAt": "2026-10-23T03:26:45.114Z",
+    "scopeLimit": "User permission setting H button latest-change timestamp/ID; no proof of timeline013 or purchase-document history equivalence",
+    "bodySha256": "142d906fb1e1f0bcd21d8e21f6c306c29c0057ce2afaa01152394851d54b8e34",
+    "fullAnswerRead": true,
+    "artifact": ".artifacts/manual-timeline-20261023/permission-history-faq.json"
+  },
+  "timelineBodyRecovered": false,
+  "relatedProductDiscovery": {
+    "url": "https://www.ecount.com/kr/ecount/product/erp_user-ids",
+    "scope": "General ID/login/document/file history overview only; not manual013 procedure",
+    "countedAsManualBody": false
+  },
+  "boundedSourceDiscovery": [
+    {
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "timelineMarkerHits": 0
+    },
+    {
+      "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+      "sha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+      "timelineMarkerHits": 0
+    },
+    {
+      "file": ".artifacts/manual-request-upload-settings-20261022/setup.9656efa9.js",
+      "sha256": "191dad2130c8012a567a4a677e5dd81b45c49aac375e943f0452d2863efe8151",
+      "timelineMarkerHits": 0
+    },
+    {
+      "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+      "sha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+      "timelineMarkerHits": 0
+    }
+  ],
+  "originalTimelineSourceFound": false,
+  "existingDocumentHistoryContractReference": "evidence/global-rea-20261018/document-history/purchasing-history-contract.json",
+  "existingOwnHistoryNotTimelineAcceptance": true,
+  "remaining": [
+    "Exact full manual013 and its actual read-only timeline entry/page, filters, realtime behavior, links, permissions, update scope and retention.",
+    "Actual loaded timeline asset or provenance-verified implementation, not unrelated common/purchase history helpers.",
+    "User-permission setting H latest-change view and purchase document history are separate contracts; the public FAQ does not establish a global timeline."
+  ],
+  "changes": {
+    "newOriginalReaScopes": 0,
+    "newOwnReaScopes": 0,
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "operatingBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "managerStatusVerified": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginRequestPending": true,
+    "moaConnectionRequestPending": true,
+    "repeatedRequestsThisRun": false,
+    "repeatedMcpHandshakeThisRun": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 90
+  },
+  "counters": {
+    "indexedManuals": 62,
+    "sourceBodiesReviewed": 32,
+    "officialRequirements": 36,
+    "done": 0
+  },
+  "done": false
+}

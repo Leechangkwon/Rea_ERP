@@ -1,7 +1,7 @@
 {
   "scope": "request context/manual index plus focused purchasing/closure bodies and4official public FAQ answers; not all ERP manuals",
-  "count": 61,
-  "bodyReviewed": 31,
+  "count": 62,
+  "bodyReviewed": 32,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -144,7 +144,14 @@
       "page": 1,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "latestBodyRecoveryAttempt": {
+        "date": "2026-10-23",
+        "bodyRecovered": false,
+        "exactSourceFoundInFourCachedBundles": false,
+        "relatedHistoryFaqNotEquivalent": "EC-FAQ-8717MBENSAP7M16",
+        "evidence": "evidence/manual-timeline-20261023.json"
+      }
     },
     {
       "id": "EC-HELP-REQUEST-014",
@@ -674,6 +681,19 @@
       "bodySha256": "3b6260d868cbcc52942bba69dad57ff101df25729d6e9986157fa850180f828e",
       "localArtifact": ".artifacts/manual-search-fields-20261023/official-faq.json",
       "scopeLimit": "Purchase list quick search; does not establish full request search-item manual005",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717MBENSAP7M16",
+      "title": "사용자 권한의 변경 이력을 확인할 수 있나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 전체26페이지 > 권한 변경 이력 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MBENSAP7M16&page=26",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "142d906fb1e1f0bcd21d8e21f6c306c29c0057ce2afaa01152394851d54b8e34",
+      "localArtifact": ".artifacts/manual-timeline-20261023/permission-history-faq.json",
+      "scopeLimit": "User permission setting H button latest-change timestamp/ID; no proof of timeline013 or purchase-document history equivalence",
       "originalBusinessOrSettingsWrites": false
     }
   ]

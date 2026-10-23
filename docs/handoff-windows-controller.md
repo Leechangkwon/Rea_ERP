@@ -1,5 +1,9 @@
 # Windows 주도 개발 인계 — 2026-10-19
 
+## 현재 인계 · 운영0.88.0, 타임라인013 대기
+
+013 원문/loaded asset은 미확보이고 관련 권한설정 H FAQ를 별도 기록했다. 앱/신규REA/회귀/배포0·운영PID2518059와workerSHA0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be 유지. 목록62/본문32/요구사항36/최종합격0·전체완료false다. 원본/모아 연결 완료 응답을 우선하고, 그 전 다음015 메일템플릿의 읽기전용 편집/미리보기 계약을 확인한다. 원본 설정저장/발송은 금지다. 상세 `evidence/manual-timeline-20261023.json`과 current-release.json의nextExecutableWork를 따른다.
+
 ## 전표 북마크 조사 · 저장 뒤 열기 구조와 모아 연결 진단 (운영0.88.0 유지)
 
 014 전표 북마크의 정확한 공식본문은 공개 검색에서 찾지 못했다. 새 원본8·실제0.88 release b903b56 자체2범위 REA6.4를 대조했다(파싱실패0·coverage unknown/truncatedfalse). 메뉴 즐겨찾기 NewBookmark와 선택 전표 SendSlipToInsideBookmark는 별개다. 전표는 선택 없음 차단, 목록 삭제상태 pass/fail 안내와 취소 분기, 일자/번호·업무/메뉴 키 변환을 거쳐 서버 action에 저장을 위임한다.

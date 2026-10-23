@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 이력 범위 대조
+
+[사용자 권한 변경 이력 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MBENSAP7M16&page=26)는 사용자등록 권한 설정의 H에서 최종 시간/아이디를 조회하는 본문이다. 타임라인013 본문은 미확보·index-only이며 관련FAQ로 대체하지 않는다. 목록62/본문32/요구사항36/최종합격0, 앱/새REA/회귀/배포0. 근거 `evidence/manual-timeline-20261023.json`, 다음 순서는 ROADMAP 첫 절을 따른다.
+
 ## 전표 북마크 조사 · 저장 뒤 열기 구조와 모아 연결 진단 (운영0.88.0 유지)
 
 014 전표 북마크의 정확한 공식본문은 공개 검색에서 찾지 못했다. 새 원본8·실제0.88 release b903b56 자체2범위 REA6.4를 대조했다(파싱실패0·coverage unknown/truncatedfalse). 메뉴 즐겨찾기 NewBookmark와 선택 전표 SendSlipToInsideBookmark는 별개다. 전표는 선택 없음 차단, 목록 삭제상태 pass/fail 안내와 취소 분기, 일자/번호·업무/메뉴 키 변환을 거쳐 서버 action에 저장을 위임한다.

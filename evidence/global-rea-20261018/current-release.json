@@ -626,7 +626,7 @@
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 36,
-    "sourceBodiesReviewed": 31,
+    "sourceBodiesReviewed": 32,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "타임라인013 미독 본문; 원본/모아 연결 완료 응답 우선"
+      "nextIndependentManual": "메일템플릿015 미독 본문; 원본/모아 연결 완료 응답 우선"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1519,13 +1519,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-013",
+      "sourceId": "EC-HELP-REQUEST-015",
       "requirement": null,
-      "title": "타임라인 작업이력의 미독 공식 본문과 조회·권한·보관 계약",
-      "context": "원본 로그인 완료 응답이 오면 My탭010/011을 먼저 저장 없이 관찰하고 모아 연결 완료면 기존문서 재조회→미반영 기록 append→실제 저장 재조회한다. 응답 전 독립 미독013 타임라인의 본문/읽기전용 코드와 현재 이력조회를 대조한다. 북마크 send는 저장이 먼저 발생하므로 조회용 버튼으로 조작하지 않는다. 같은 분석/회귀/인증 요청은 반복하지 않는다.",
+      "title": "ERP 발송 메일 템플릿의 미독 공식 본문과 편집·미리보기·보관 계약",
+      "context": "원본/모아 연결 완료 응답을 우선 처리한다. 응답 전 독립 미독015 메일템플릿의 공개 본문·보유 소스와 현재 템플릿을 대조하며 실제 발송/원본 설정 저장은 하지 않는다. 타임라인013은 실제 loaded asset/공식 본문 확보 때 재개한다. 불명확한 유사 이력 helper를 재분석하거나 통과회귀·인증 요청을 반복하지 않는다.",
       "operatingVersion": "0.88.0",
-      "bookmarkGateEvidence": "evidence/manual-voucher-bookmark-20261023.json",
-      "legacyGates": "myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
+      "timelineGateEvidence": "evidence/manual-timeline-20261023.json",
+      "legacyGates": "bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1743,6 +1743,17 @@
       "connected": false,
       "posted": false,
       "lastSavedReadbackVersion": "0.51.0"
+    },
+    "timelineResearch": {
+      "candidate": "CAND-COM-TIMELINE-001",
+      "status": "exact-timeline-manual-and-loaded-source-unavailable-related-history-faq-scoped-separately",
+      "evidence": "evidence/manual-timeline-20261023.json",
+      "relatedOfficialBodies": 1,
+      "timelineBodyReviewed": false,
+      "newOfficialRequirements": 0,
+      "newReaScopes": 0,
+      "implemented": false,
+      "done": false
     }
   },
   "preparedCandidate": {
