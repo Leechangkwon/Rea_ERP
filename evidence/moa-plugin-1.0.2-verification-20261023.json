@@ -20,7 +20,7 @@
     "result": "legacy API-token authentication rejected",
     "isModernMoaOAuthTest": false
   },
-  "modernMoaOAuthState": "unverified because no work-document tools are exposed",
+  "modernMoaOAuthState": "local-cli-reports-oauth-current-conversation-work-tools-unexposed",
   "existingDocumentRead": false,
   "existingDocumentUpdated": false,
   "credentialsReadOrChanged": false,
@@ -37,5 +37,25 @@
     "posted": false,
     "pendingLocalUpdates": 95
   },
-  "scope": "Installed package and current tool exposure verified; legacy whoami401 is not proof of modern Moa OAuth failure. No new-page workaround or repeated credential request."
+  "scope": "Installed package and current tool exposure verified; legacy whoami401 is not proof of modern Moa OAuth failure. No new-page workaround or repeated credential request.",
+  "latestLocalCliRecheck": {
+    "checkedAt": "2026-10-23T11:12:21.566050+00:00",
+    "configuredServer": "qaredi",
+    "url": "https://changkwon.mso.so/mcp",
+    "enabled": true,
+    "cliCommand": "codex mcp list --json",
+    "cliExitCode": 0,
+    "cliAuthStatus": "o_auth",
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "actualWorkDocumentReadAttempted": false,
+    "actualWorkDocumentReadVerified": false,
+    "approvedScopesIndependentlyVerified": false,
+    "tokenValidityIndependentlyVerified": false,
+    "credentialsReadOrChanged": false,
+    "authenticationRequestedAgain": false,
+    "conclusion": "The local CLI reports stored OAuth authentication. Current conversation exposes no work-document tools, so live document access and saving remain unverified; absence is not proof of OAuth failure.",
+    "artifact": ".artifacts/moa-plugin-1.0.2-20261023/auth-recheck-current.json",
+    "artifactSha256": "0e716f6b7a370d547d82743ab505a7f7e9e8fdb7b50383ee07f0c04b03e2dafc"
+  }
 }

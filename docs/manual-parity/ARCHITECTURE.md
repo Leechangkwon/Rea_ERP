@@ -702,3 +702,7 @@ FormOptions의 선택적 action은 발주서 input에서만 등록하며 양식 
 ## 일반 양식 mount 역할과 오류 작업영역 · 0.88.2
 
 FormOptions의 기존 계정/회사/read/DOM 경계에 mount 시점 roleId를 추가한다. 같은 controller의 remount는 역할과 generation을 함께 갱신하므로 새 화면은 정상 편집하고 기존 editor/picker callback은 계속 무효다. 계정/회사 identity를 remount로 재지정하지 않는다. 일반 편집 오류를 sticky action 영역에 두고 빈 오류는 접어 모바일에서 실패 이유와 저장 버튼이 함께 보이게 한다. schema/core/전표/양식 저장 계약은 변경하지 않았다. 실제 역할 전환·저장은 합성검증이며 원본031/공유·운영 설정 저장 전체 합격은 아니다. 근거 `evidence/manual-form-role-20261023.json`.
+
+## 인쇄 줄 수의 설정·생성기·빈행 경계 · 032 조사
+
+공개 row_count dlt는 List/Input를 건너뛰고 data_generator.page_count에 값을 전달한다. header/footer row count와 empty_line.is_remove/empty_line_data도 별도 전달이다. 이 값 전달을 실제 구매 설정 label/default/validation·데이터 생성/행수/페이지 계산으로 간주하지 않는다. 자체 저장양식에 임의 row cap/빈 행을 추가하지 않고 표시줄수와 머리글 대체줄수의 실제 계약을 확보한 뒤 독립 출력 metadata로 설계한다. 전표 schema/기존양식/계산/회귀는 변경하지 않았다. `evidence/manual-print-rows-20261023.json`.

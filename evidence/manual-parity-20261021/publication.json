@@ -1,7 +1,7 @@
 {
   "status": "design-published-progress-updates-pending",
   "destination": "https://changkwon.mso.so/community/p/b28ab4c5-eb66-4c33-98d5-784303e06838",
-  "mcp": "Legacy credential still 401; remote URL/invalid bearer env field repaired; no new OAuth grant",
+  "mcp": "Local qaredi CLI reports OAuth; current conversation work-document tools absent; no new document read/write/readback verified",
   "browser": "Authenticated existing private project; three documents saved and independently reread",
   "documents": [
     {
@@ -949,6 +949,19 @@
       "saveAttempted": false,
       "readbackVerified": false,
       "cumulativePendingLocalUpdates": 104
+    },
+    {
+      "date": "2026-10-23",
+      "baselineOperatingVersion": "0.88.2",
+      "milestone": "purchaseorder-print-display-row-and-header-replacement-row-contracts",
+      "status": "work-tools-unexposed-local-record-ready",
+      "localRecord": "docs/manual-parity/PROGRESS.md",
+      "evidence": "evidence/manual-print-rows-20261023.json",
+      "pendingBodyArtifact": ".artifacts/manual-print-rows-20261023/moa-pending-print-rows.html",
+      "productionDeployed": false,
+      "saveAttempted": false,
+      "readbackVerified": false,
+      "cumulativePendingLocalUpdates": 105
     }
   ],
   "lastVerifiedProgressVersion": "0.51.0",
@@ -957,6 +970,26 @@
     "mcp": "HTTP401",
     "browser": "login-required",
     "credentialBypass": false,
-    "mcpCheckedAt": "2026-10-21T15:38:20.321895+00:00"
+    "mcpCheckedAt": "2026-10-21T15:38:20.321895+00:00",
+    "latestLocalCliRecheck": {
+      "checkedAt": "2026-10-23T11:12:21.566050+00:00",
+      "configuredServer": "qaredi",
+      "url": "https://changkwon.mso.so/mcp",
+      "enabled": true,
+      "cliCommand": "codex mcp list --json",
+      "cliExitCode": 0,
+      "cliAuthStatus": "o_auth",
+      "pluginVersion": "1.0.2",
+      "requiredWorkToolsExposed": false,
+      "actualWorkDocumentReadAttempted": false,
+      "actualWorkDocumentReadVerified": false,
+      "approvedScopesIndependentlyVerified": false,
+      "tokenValidityIndependentlyVerified": false,
+      "credentialsReadOrChanged": false,
+      "authenticationRequestedAgain": false,
+      "conclusion": "The local CLI reports stored OAuth authentication. Current conversation exposes no work-document tools, so live document access and saving remain unverified; absence is not proof of OAuth failure.",
+      "artifact": ".artifacts/moa-plugin-1.0.2-20261023/auth-recheck-current.json",
+      "artifactSha256": "0e716f6b7a370d547d82743ab505a7f7e9e8fdb7b50383ee07f0c04b03e2dafc"
+    }
   }
 }

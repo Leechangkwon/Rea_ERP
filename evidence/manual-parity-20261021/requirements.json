@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 42,
+  "officialRequirementsDecomposed": 44,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2891,6 +2891,90 @@
         "evidence/manual-print-position-20261023.json"
       ],
       "hostedAcceptance": false,
+      "done": false
+    },
+    {
+      "id": "REQ-COM-PRINT-002",
+      "sourceId": "EC-FAQ-8717OOUAEOL7LUK",
+      "title": "발주서 인쇄 양식의 표시줄수 설정",
+      "procedure": [
+        "발주서조회 > 전표 우측 인쇄 > Option > 양식설정 > 양식명",
+        "정보(i) > 줄설정 > 표시줄수에20 등 원하는 수 입력 > 저장"
+      ],
+      "expected": [
+        "인쇄 양식의 정보(i) > 줄설정에서 표시줄수20 등 원하는 수를 명시 저장",
+        "저장한 표시줄수에 따라 페이지의 표시 줄 수 조정",
+        "기존 전표 품목·수량·금액과 다른 양식을 변경하지 않음"
+      ],
+      "status": "official-body-reviewed-setting-and-renderer-contract-gated",
+      "referenceBodyReviewed": true,
+      "sourceLocator": {
+        "id": "EC-FAQ-8717OOUAEOL7LUK",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OOUAEOL7LUK&page=1&category=purchase",
+        "question": "새로 만든 발주서 인쇄 양식에서 품목이 6줄 이상 표시되지 않고 두 번째 페이지로 넘어갑니다.",
+        "artifact": ".artifacts/manual-print-rows-20261023/8717OOUAEOL7LUK.json",
+        "artifactSha256": "54d1f0c90fec906dc3c4c9228eedb963d999750c6631ce62b730282cb6e24805",
+        "bodySha256": "e29aeb0b3c9d28a25302a2e39376665836067ea6237049f3324598aefa3aac6d",
+        "fullAnswerRead": true,
+        "bodyArtifact": ".artifacts/manual-print-rows-20261023/8717OOUAEOL7LUK.body.txt"
+      },
+      "role": "Official FAQ does not specify role/sharing exceptions; original and hosted permission/save acceptance pending",
+      "implementationEvidence": [],
+      "researchEvidence": [
+        "evidence/manual-print-rows-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "appChangeNeeded": true,
+      "implementationDeployed": false,
+      "hostedAcceptance": false,
+      "remaining": [
+        "Exact032 full manual and the current read-only purchase-order form info/line/header editor, including option labels and eligible form variants.",
+        "Actual purchase-order metadata definitions and saved-setting validation: positive/zero/blank/default/bounds/role/sharing, along with cancel/save and existing-form preservation.",
+        "Data-generator consumer and renderer behavior for multiline item names, header/footer/replacement rows, empty-line removal, subtotals/totals and A4/A5/multiple pages.",
+        "Configured setting save, PDF/page output and data/form preservation acceptance before implementing the supported subset; no business rows may be padded or altered."
+      ],
+      "done": false
+    },
+    {
+      "id": "REQ-COM-PRINT-003",
+      "sourceId": "EC-FAQ-8717MGQG93W7LTI",
+      "title": "발주서 인쇄 양식 머리글의 대체줄수 설정",
+      "procedure": [
+        "발주서조회 > 전표 우측 인쇄 > Option > 양식설정 > 양식명",
+        "정보(i) > 기본 - 양식형태 > 머리글 우측 설정 > 대체줄수 입력 > 저장"
+      ],
+      "expected": [
+        "정보(i) > 기본-양식형태 > 머리글 설정의 대체줄수를 명시 저장",
+        "페이지 끝까지 줄 수를 채우는 출력 조정",
+        "표시줄수와 별도 계약이며 업무 품목행을 추가하지 않음"
+      ],
+      "status": "official-body-reviewed-setting-and-renderer-contract-gated",
+      "referenceBodyReviewed": true,
+      "sourceLocator": {
+        "id": "EC-FAQ-8717MGQG93W7LTI",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MGQG93W7LTI&page=1&category=purchase",
+        "question": "발주서 인쇄 시 페이지의 줄 수를 끝까지 채워서 출력할 수 있나요?",
+        "artifact": ".artifacts/manual-print-rows-20261023/8717MGQG93W7LTI.json",
+        "artifactSha256": "e66d174217c7f7053199b5c32cb56c80288a685472998c8365ddd35b3ffabb9c",
+        "bodySha256": "760a2f07977d66df44439065408b6fda3adedb415e7be081a198d197e0c87c6d",
+        "fullAnswerRead": true,
+        "bodyArtifact": ".artifacts/manual-print-rows-20261023/8717MGQG93W7LTI.body.txt"
+      },
+      "role": "Official FAQ does not specify role/sharing exceptions; original and hosted permission/save acceptance pending",
+      "implementationEvidence": [],
+      "researchEvidence": [
+        "evidence/manual-print-rows-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "appChangeNeeded": true,
+      "implementationDeployed": false,
+      "hostedAcceptance": false,
+      "remaining": [
+        "Exact032 full manual and the current read-only purchase-order form info/line/header editor, including option labels and eligible form variants.",
+        "Actual purchase-order metadata definitions and saved-setting validation: positive/zero/blank/default/bounds/role/sharing, along with cancel/save and existing-form preservation.",
+        "Data-generator consumer and renderer behavior for multiline item names, header/footer/replacement rows, empty-line removal, subtotals/totals and A4/A5/multiple pages.",
+        "Configured setting save, PDF/page output and data/form preservation acceptance before implementing the supported subset; no business rows may be padded or altered."
+      ],
       "done": false
     }
   ]

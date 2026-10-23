@@ -1,7 +1,7 @@
 {
   "scope": "Request-context manual index plus separately scoped official public FAQ bodies; not all ERP manuals",
-  "count": 73,
-  "bodyReviewed": 43,
+  "count": 75,
+  "bodyReviewed": 45,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -136,7 +136,11 @@
       "page": 1,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "researchEvidence": [
+        "evidence/manual-print-rows-20261023.json"
+      ],
+      "researchStatus": "Two distinct purchase-order FAQ contracts recovered; exact032 full body/current setting metadata/renderer remain unverified"
     },
     {
       "id": "EC-HELP-REQUEST-012",
@@ -883,6 +887,32 @@
       "bodySha256": "c3e8212a757484720c7d563e1fae89444f0c0c222fbc335988afbd85e665368d",
       "localArtifact": ".artifacts/manual-print-title-20261023/7WCS3U8KA463Q87.body.txt",
       "scopeLimit": "Named production work-order print only; not exact023 or purchase title editing.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717OOUAEOL7LUK",
+      "title": "새로 만든 발주서 인쇄 양식에서 품목이 6줄 이상 표시되지 않고 두 번째 페이지로 넘어갑니다.",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 구매/발주 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OOUAEOL7LUK&page=1&category=purchase",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "e29aeb0b3c9d28a25302a2e39376665836067ea6237049f3324598aefa3aac6d",
+      "localArtifact": ".artifacts/manual-print-rows-20261023/8717OOUAEOL7LUK.body.txt",
+      "scopeLimit": "Named purchase-order display-row or header replacement-row setting only; not exact032 full body or original saved-setting/renderer acceptance.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717MGQG93W7LTI",
+      "title": "발주서 인쇄 시 페이지의 줄 수를 끝까지 채워서 출력할 수 있나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 구매/발주 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MGQG93W7LTI&page=1&category=purchase",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "760a2f07977d66df44439065408b6fda3adedb415e7be081a198d197e0c87c6d",
+      "localArtifact": ".artifacts/manual-print-rows-20261023/8717MGQG93W7LTI.body.txt",
+      "scopeLimit": "Named purchase-order display-row or header replacement-row setting only; not exact032 full body or original saved-setting/renderer acceptance.",
       "originalBusinessOrSettingsWrites": false
     }
   ]

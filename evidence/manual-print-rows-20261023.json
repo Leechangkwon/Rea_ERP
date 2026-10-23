@@ -1,0 +1,292 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-032",
+  "title": "발주서 표시줄수와 머리글 대체줄수의 별도 계약 확인",
+  "status": "official-faq-bodies-reviewed-menu-specific-setting-renderer-contract-gated",
+  "productionVersion": "0.88.2",
+  "operatingReleaseCommit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+  "exact032OfficialBodyRead": false,
+  "exact032IndexStatus": "index-only",
+  "newOfficialBodies": 2,
+  "newOfficialRequirements": 2,
+  "requirementIds": [
+    "REQ-COM-PRINT-002",
+    "REQ-COM-PRINT-003"
+  ],
+  "sourceManifest": ".artifacts/manual-print-rows-20261023/source-manifest.json",
+  "sourceManifestSha256": "b55b001ee99ee97e81624db29f9d08755e10832bb9d1e389304f6e6818e62383",
+  "supportingOfficialBodies": [
+    {
+      "id": "EC-FAQ-8717OOUAEOL7LUK",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OOUAEOL7LUK&page=1&category=purchase",
+      "question": "새로 만든 발주서 인쇄 양식에서 품목이 6줄 이상 표시되지 않고 두 번째 페이지로 넘어갑니다.",
+      "artifact": ".artifacts/manual-print-rows-20261023/8717OOUAEOL7LUK.json",
+      "artifactSha256": "54d1f0c90fec906dc3c4c9228eedb963d999750c6631ce62b730282cb6e24805",
+      "bodySha256": "e29aeb0b3c9d28a25302a2e39376665836067ea6237049f3324598aefa3aac6d",
+      "fullAnswerRead": true,
+      "bodyArtifact": ".artifacts/manual-print-rows-20261023/8717OOUAEOL7LUK.body.txt"
+    },
+    {
+      "id": "EC-FAQ-8717MGQG93W7LTI",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MGQG93W7LTI&page=1&category=purchase",
+      "question": "발주서 인쇄 시 페이지의 줄 수를 끝까지 채워서 출력할 수 있나요?",
+      "artifact": ".artifacts/manual-print-rows-20261023/8717MGQG93W7LTI.json",
+      "artifactSha256": "e66d174217c7f7053199b5c32cb56c80288a685472998c8365ddd35b3ffabb9c",
+      "bodySha256": "760a2f07977d66df44439065408b6fda3adedb415e7be081a198d197e0c87c6d",
+      "fullAnswerRead": true,
+      "bodyArtifact": ".artifacts/manual-print-rows-20261023/8717MGQG93W7LTI.body.txt"
+    }
+  ],
+  "officialContracts": [
+    {
+      "sourceId": "EC-FAQ-8717OOUAEOL7LUK",
+      "requirement": "REQ-COM-PRINT-002",
+      "scope": "Purchase-order print only; the named FAQ gives a possible reason for a six-line limit, not every cause of pagination.",
+      "procedure": [
+        "발주서조회 > 전표 우측 인쇄 > Option > 양식설정 > 양식명",
+        "정보(i) > 줄설정 > 표시줄수에20 등 원하는 수 입력 > 저장"
+      ],
+      "confirmed": "The saved display-row count controls the number of lines on a page. Bounds, default/blank behavior, logical versus multiline units and long text/layout interactions are not specified."
+    },
+    {
+      "sourceId": "EC-FAQ-8717MGQG93W7LTI",
+      "requirement": "REQ-COM-PRINT-003",
+      "scope": "Purchase-order print header form type; distinct control from display-row count.",
+      "procedure": [
+        "발주서조회 > 전표 우측 인쇄 > Option > 양식설정 > 양식명",
+        "정보(i) > 기본 - 양식형태 > 머리글 우측 설정 > 대체줄수 입력 > 저장"
+      ],
+      "confirmed": "The replacement-row count is used to adjust printing to fill the page. The exact padding/height formula, unit/default, footer interactions and eligible form types remain unverified."
+    }
+  ],
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-print-rows-20261023/rea/rea-summary.json",
+    "summarySha256": "02871576c6fbf04c905da2644f28160a47fee431f757605d63ad704eff98082b",
+    "analyzer": ".artifacts/manual-print-rows-20261023/analyze.mjs",
+    "analyzerSha256": "d4bb0ec5c4836e75ac5a435c79e715e5a7ffa4ec6830035b33a28c76563f1c5e",
+    "newOriginalScopes": 4,
+    "newOwnScopes": 0,
+    "reusedOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "sourceProvenance": [
+    {
+      "name": "row_count_dlt_feature_config",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 27152,
+      "lineEnd": 27162,
+      "fragmentSha256": "f34247a186858e0920c9bae1dfe32eb1a5b001175beb2d27a882e9d84e713150",
+      "resultSha256": "07e50bed682c191656022b0268ff05a99bf8f37a5f584dfaea0c754c47e0b1c9"
+    },
+    {
+      "name": "header_row_cnt_dlt_feature_config",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 27162,
+      "lineEnd": 27167,
+      "fragmentSha256": "1884bc8eca98d3b85bfde6cca5b8b608a45e52b5b8ac7ab3d35171dc289697ea",
+      "resultSha256": "f891ac6509b9fed8be3ef5add71ac218003992cdffdd3aea27c812fcabbdc1f8"
+    },
+    {
+      "name": "footer_row_cnt_dlt_feature_config",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 27167,
+      "lineEnd": 27172,
+      "fragmentSha256": "71af39b8e202a41687093fdb569dcbae2268c43d5f47777ca02f6eb1c1ea8188",
+      "resultSha256": "0dae757140f74dc2c5df98d5e052b1e0bdfc073b17b8c29982287c4c480f9aab"
+    },
+    {
+      "name": "remove_empty_line_dlt_feature_config",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 27243,
+      "lineEnd": 27252,
+      "fragmentSha256": "077b2383276d79cca01bf060d46037881ffb8bd5d5b83aba33213a2dbabb9645",
+      "resultSha256": "00fbeabf2636bdc7ccc4bfa39ad2c064ac1cd345456b36322c0889afa7b023f8"
+    }
+  ],
+  "staticFindings": [
+    {
+      "scope": "row_count_dlt_feature_config",
+      "finding": "Returns without assigning for List/Input menu types. Otherwise forwards row_count to data_generator.page_count. This does not prove the current purchase-order setting binding or whether the consumer counts logical items/physical lines/pages."
+    },
+    {
+      "scope": "header_row_cnt_dlt_feature_config",
+      "finding": "Forwards the attribute to data_generator.header_rows_per_page; the actual label mapping to header replacement-row count is unproven."
+    },
+    {
+      "scope": "footer_row_cnt_dlt_feature_config",
+      "finding": "Forwards the attribute to data_generator.footer_rows_per_page independently of header rows; not an observed footer-setting procedure."
+    },
+    {
+      "scope": "remove_empty_line_dlt_feature_config",
+      "finding": "Sets empty_line.is_remove and supplies an empty row model only when removal is explicitly false. It does not calculate a filler count or establish the replacement-row rule."
+    }
+  ],
+  "excludedMisinterpretations": [
+    "Generic input default_row_height or line_cnt/hide_tf is not purchase-order display-row-count evidence.",
+    "Lookup page.row_count and PDF entry total-row safety limits are not page print-row settings.",
+    "A metadata forwarding helper is not the actual data generator, stored default/validation grammar or renderer.",
+    "Do not infer one simple array chunk size or append blank business rows from these two different official controls."
+  ],
+  "ownOperatingComparison": {
+    "artifact": ".artifacts/manual-print-rows-20261023/operating-comparison.json",
+    "artifactSha256": "b1fe168cd297f19693395fb59254af3f57f3b06f953ac5becb59e70b359c1f83",
+    "unchangedSourceFiles": 2,
+    "unchangedTestFiles": 3,
+    "files": [
+      {
+        "file": "dist/form-core.js",
+        "versions": [
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69"
+          },
+          {
+            "commit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+            "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      },
+      {
+        "file": "dist/inventory-ui.js",
+        "versions": [
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "eda5c07650f90e269c3e5991c399f53f1666606392b9506a58a57e639621f91e"
+          },
+          {
+            "commit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+            "sha256": "eda5c07650f90e269c3e5991c399f53f1666606392b9506a58a57e639621f91e"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      },
+      {
+        "file": "tests/browser/request-print-fields.spec.cjs",
+        "versions": [
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "a550a93c5fbef2e6103b575f2e6cb52f8e06ed48a75f41c458991d63c4405a6d"
+          },
+          {
+            "commit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+            "sha256": "a550a93c5fbef2e6103b575f2e6cb52f8e06ed48a75f41c458991d63c4405a6d"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      },
+      {
+        "file": "tests/browser/request-print-batch.spec.cjs",
+        "versions": [
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "d58226eee0df0850ad844c17f27cfc144875c6a5187918b859d25fd0f2eeb206"
+          },
+          {
+            "commit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+            "sha256": "d58226eee0df0850ad844c17f27cfc144875c6a5187918b859d25fd0f2eeb206"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      },
+      {
+        "file": "tests/purchase-return-print.cjs",
+        "versions": [
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "da3bc1e25585cb61919b1dd0903d74cb559ba416120d64440bfce96175493d09"
+          },
+          {
+            "commit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+            "sha256": "da3bc1e25585cb61919b1dd0903d74cb559ba416120d64440bfce96175493d09"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      }
+    ],
+    "finding": "Operating0.88.2 has paper/orientation/margin/fontSize/showTotals and browser pagination. It has no explicit display-row or header replacement-row setting. Existing rendering prints stored rows and preserves amounts/forms; the same print helpers and prior tests were not rerun.",
+    "priorDeploymentAndPreservationEvidence": "evidence/manual-form-role-20261023.json",
+    "priorFullBrowserCount": 131,
+    "priorTestsAreFreshForThisRequirement": false
+  },
+  "remainingGates": [
+    "Exact032 full manual and the current read-only purchase-order form info/line/header editor, including option labels and eligible form variants.",
+    "Actual purchase-order metadata definitions and saved-setting validation: positive/zero/blank/default/bounds/role/sharing, along with cancel/save and existing-form preservation.",
+    "Data-generator consumer and renderer behavior for multiline item names, header/footer/replacement rows, empty-line removal, subtotals/totals and A4/A5/multiple pages.",
+    "Configured setting save, PDF/page output and data/form preservation acceptance before implementing the supported subset; no business rows may be padded or altered."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "originalSession": {
+    "freshReadonlyObservedState": "login-required",
+    "credentialsReadOrEntered": false,
+    "repeatedLoginRequest": false
+  },
+  "lookup": {
+    "exact032Recovered": false,
+    "publicSearchRelevantResults": 0,
+    "publicOfficialPurchaseFaqListUsed": true,
+    "relevantFullAnswersRead": 2,
+    "newPublicJavaScriptBundlesDownloaded": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2547127,
+    "pidPresent": true,
+    "workerSha256": "e575b6efacf384e95a8db68f4f489ab6c3d4c033022e053dca7079ba3a0920f0",
+    "serviceRestarted": false,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-form-role-20261023.json"
+  },
+  "community": {
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 105,
+    "posted": false,
+    "readback": false,
+    "repeatedAuthenticationRequests": 0,
+    "localBody": ".artifacts/manual-print-rows-20261023/moa-pending-print-rows.html",
+    "latestLocalCliAuthStatus": "o_auth",
+    "currentConversationToolAccessVerified": false,
+    "authenticationRecheckEvidence": "evidence/moa-plugin-1.0.2-verification-20261023.json"
+  },
+  "counters": {
+    "indexed": 75,
+    "bodyReviewed": 45,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-033",
+  "done": false
+}
