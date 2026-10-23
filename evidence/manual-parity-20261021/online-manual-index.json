@@ -1,7 +1,7 @@
 {
-  "scope": "request context/manual index plus focused purchasing/closure bodies and3official public FAQ answers; not all ERP manuals",
-  "count": 57,
-  "bodyReviewed": 27,
+  "scope": "request context/manual index plus focused purchasing/closure bodies and4official public FAQ answers; not all ERP manuals",
+  "count": 58,
+  "bodyReviewed": 28,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -74,7 +74,10 @@
       "page": 1,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "supplementalBodySources": [
+        "EC-FAQ-86HFOODLWUR27BB"
+      ]
     },
     {
       "id": "EC-HELP-REQUEST-008",
@@ -597,6 +600,18 @@
       "bodySha256": "1c55391cb6097cfa491c55162e09c5aafc4827d00fe28959ace70b0de22ca051",
       "localArtifact": ".artifacts/manual-request-number-20261023/official-faq.json",
       "scopeLimit": "Supplement to EC-HELP-REQUEST-006; its full online manual body remains unread; format grammar/server behavior unspecified"
+    },
+    {
+      "id": "EC-FAQ-86HFOODLWUR27BB",
+      "title": "발주계획에서 자료를 불러와 발주서를 작성하면 발주계획의 진행상태나 종결 여부가 자동으로 변경되지 않나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 구매/발주 > 3페이지",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86HFOODLWUR27BB&page=3&category=purchase",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "bae32edc2b51fbedd9ce4f4bf5d2721832a38ee78836e0e081eaa62234ac013e",
+      "localArtifact": ".artifacts/manual-plan-source-status-20261023/official-faq.json",
+      "scopeLimit": "Specific plan→PO automatic status setting; not a full read of EC-HELP-REQUEST-007 or partial/grouped plan completion rules"
     }
   ]
 }

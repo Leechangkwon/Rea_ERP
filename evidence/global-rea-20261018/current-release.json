@@ -619,8 +619,8 @@
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 33,
-    "sourceBodiesReviewed": 27,
+    "officialRequirements": 34,
+    "sourceBodiesReviewed": 28,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -1327,7 +1327,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 57,
+    "onlineManualIndexItems": 58,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1641,13 +1641,28 @@
       "newOriginalScopes": 5,
       "appChanged": false,
       "done": false,
-      "communityPendingLocalUpdates": 84
+      "communityPendingLocalUpdates": 84,
+      "editorEntryEvidence": "evidence/manual-plan-source-status-20261023.json",
+      "resumeWhen": "Actual request numbering metadata and repeat-code editor fields/options/save/cancel/roles. Do not repeat the already mapped generator/entry bridge."
     },
     "requestLogoBody": {
       "sourceId": "EC-HELP-REQUEST-004",
       "status": "body-unrecovered-current-public-sources",
       "reference": "evidence/manual-request-number-20261023.json",
       "done": false
+    },
+    "planSourceProgressOption": {
+      "requirement": "REQ-PUR-PLAN-005",
+      "reference": "evidence/manual-plan-source-status-20261023.json",
+      "status": "candidate-implemented-full-local-verified-deployment-pending",
+      "candidateVersion": "0.88.0",
+      "productionDeployed": false,
+      "newNode": 5,
+      "newBrowser": 2,
+      "fullBrowser": 127,
+      "verifyLocalPassed": true,
+      "done": false,
+      "communityPendingLocalUpdates": 85
     }
   },
   "preparedCandidate": {

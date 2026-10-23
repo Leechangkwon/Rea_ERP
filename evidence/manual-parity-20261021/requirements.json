@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 33,
+  "officialRequirementsDecomposed": 34,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2430,6 +2430,53 @@
       "productionVersion": "0.87.0",
       "appChangeNeeded": true,
       "legacyInternalIdReplacementAuthorized": false
+    },
+    {
+      "id": "REQ-PUR-PLAN-005",
+      "sourceId": "EC-FAQ-86HFOODLWUR27BB",
+      "title": "발주서입력 Option의 발주계획→발주서 진행상태 변경 설정",
+      "procedure": [
+        "발주서입력 > Option > 진행상태 변경 설정",
+        "발주계획 - 발주서 설정 > 기본값 변경 저장",
+        "이후 발주서 저장 시 불러온 계획 상태 자동 완료"
+      ],
+      "expected": [
+        "설정 저장 전 원계획과 부모 발주서/저장자료 유지",
+        "명시한 변경 설정을 저장한 뒤 발주서 저장 시 실제 연결된 계획행 완료 표시"
+      ],
+      "status": "candidate-implemented-full-local-verified-deployment-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-86HFOODLWUR27BB",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86HFOODLWUR27BB&page=3&category=purchase",
+        "question": "발주계획에서 자료를 불러와 발주서를 작성하면 발주계획의 진행상태나 종결 여부가 자동으로 변경되지 않나요?",
+        "bodySha256": "bae32edc2b51fbedd9ce4f4bf5d2721832a38ee78836e0e081eaa62234ac013e",
+        "fullAnswerRead": true,
+        "artifact": ".artifacts/manual-plan-source-status-20261023/official-faq.json"
+      },
+      "role": "Own config.write and inventory.read plus server CAS enforced; original company/role exceptions unverified",
+      "implementationEvidence": [
+        "dist/purchasing-progress-settings-ui.js",
+        "dist/self-settings-ui.js",
+        "dist/form-options.js",
+        "dist/inventory-ui.js",
+        "evidence/manual-plan-source-status-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/purchasing-progress-settings-ui.cjs",
+        "tests/browser/progress-option.spec.cjs"
+      ],
+      "remaining": [
+        "Existing plan model changes only actually allocated plan rows; this patch does not change plan container/other-line status, amounts or core schema. Official partial/multiline/grouped automatic-completion and company-specific permission contracts remain unverified.",
+        "Only the purchase-order entry shortcut is added; global editor and existing rule execution remain in use.",
+        "Original ERP settings/save/row editing was not performed. Hosted business and setting save acceptance are not claimed.",
+        "Commit/push, isolated release and hosted readonly/preservation verification pending"
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.87.0",
+      "candidateVersion": "0.88.0",
+      "appChangeNeeded": true
     }
   ]
 }

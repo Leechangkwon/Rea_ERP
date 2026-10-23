@@ -662,3 +662,7 @@ RequestUploadPolicyCore.resolve의 검토전용 version2는 {quantityUse,input:{
 ## 0.78.0 등록자료 snapshot과 상단 제안
 
 Input.snapshot은 employees/warehouses/projects의 code/name/disabled만 복사한다. 누락은 null미상, 명시된 잘못된 배열/레코드는 거부한다. Preview의 inspectHeaderReferences는 inv_s$pic/wh/pjt를 exact 코드/명칭 Map으로 조회해 references와 별도 proposals/명명된 issues를 반환하며 원문을 수정하지 않는다. headerReferenceFields는 snapshotKnown을 명시하고 ReviewUI는 안전한 textContent로 결과 요약/22열 원문상세를 렌더한다. 회사/등록자료 변경 guard는 기존 전체 raw snapshot 경계를 유지한다. DB/서버 schema와 전표저장에는 미연결이다. 근거 evidence/manual-request-upload-header-references-20261022.json.
+
+## 발주서 Option → 공유 진행상태 설정 편집기 · 0.88.0 후보
+
+FormOptions의 선택적 action은 발주서 input에서만 등록하며 양식 변경 권한과 config.write를 분리한다. PurchasingProgressSettingsUI는 연결된 부모 host/editor/route·draft/raw와 Auth identity/settings를 고정하고 기존 self state/action API의 revision CAS로 inventoryFeatures만 저장한다. SelfSettingsUI의 headless controller와 제한된 progressPairs를 재사용하고 누락 pair는 가상 변경안함 행으로 표시한다. 전용 controller는 닫기/메뉴 이동/editor 교체 때 폐기하며 지연 조회·stale save를 차단한다. 취소/설정 실패는 업무 localStorage에 쓰지 않고, 성공 후 서버 재조회로 확인한 허용 client 설정만 반영한다. 업무 core/schema와 계획행 단위 진행 동작은0.87 그대로다. evidence/manual-plan-source-status-20261023.json.
