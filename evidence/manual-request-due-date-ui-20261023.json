@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirements": [
+    "REQ-PUR-REQ-008",
+    "REQ-PUR-PLAN-004"
+  ],
+  "status": "existing-shipped-implementation-ui-verified-no-application-change-hosted-and-reference-acceptance-pending",
+  "productionVersion": "0.87.0",
+  "applicationBaseCommit": "3960e781eefe937481f2f5ea9882255b4027dc52",
+  "validationCheckout": ".artifacts/validation/request-due-date-ui-20261023",
+  "priorCoreEvidence": "evidence/manual-request-pdf-contract-20261023.json",
+  "officialBodiesReread": 0,
+  "newRequirementCount": 0,
+  "applicationChanged": false,
+  "browser": {
+    "command": "npx playwright test tests/browser/request-due-date-ui.spec.cjs",
+    "cwd": "/home/lck/projects/Rea_ERP/.artifacts/validation/request-due-date-ui-20261023",
+    "exitCode": 0,
+    "passed": 2,
+    "failed": 0,
+    "seconds": 5.9,
+    "widths": [
+      390,
+      1280
+    ],
+    "actualShell": true,
+    "synthetic": true,
+    "localOnly": true,
+    "test": "tests/browser/request-due-date-ui.spec.cjs",
+    "nonLocalNetworkAborted": true,
+    "nativePrintBlocked": true,
+    "artifacts": [
+      {
+        "file": ".artifacts/manual-request-due-date-ui-20261023/acceptance-1280.json",
+        "sha256": "69231b7d5433837f80e5b7ec1a06957b1c0fad4747deb3e1bbcae0f013dadc38"
+      },
+      {
+        "file": ".artifacts/manual-request-due-date-ui-20261023/acceptance-390.json",
+        "sha256": "42b1959cec0760a0e83fd3e8f463d4bb550ed5fa5d627aab9ca41e6072c88082"
+      },
+      {
+        "file": ".artifacts/manual-request-due-date-ui-20261023/plan-due-date-1280.png",
+        "sha256": "8b25c5371466b6b7740b7de34bfce7030bfc49297bcf1ce15a49dc9926b26a4f"
+      },
+      {
+        "file": ".artifacts/manual-request-due-date-ui-20261023/plan-due-date-390.png",
+        "sha256": "d80919476cbbc904b9be6f4d3a36c51848b9c8cbe7ac1a1e9e5bc7203092edb8"
+      },
+      {
+        "file": ".artifacts/manual-request-due-date-ui-20261023/request-due-search-1280.png",
+        "sha256": "3761cd78e635da3a952d7fed9d2878d9e717f755390750e2aa9b5dd08f394732"
+      },
+      {
+        "file": ".artifacts/manual-request-due-date-ui-20261023/request-due-search-390.png",
+        "sha256": "cb1d77a17f6f7f974d86b37c544c88ea6d946d47e6a6760d6d758f018bc16061"
+      }
+    ],
+    "visualReviewed": [
+      "plan-due-date-390.png",
+      "plan-due-date-1280.png",
+      "request-due-search-390.png"
+    ]
+  },
+  "verified": [
+    "Actual request input accepts a past due date, saves and survives reload while existing documents remain equal.",
+    "Actual plan input imports that request into staging without a storage write, permits own due-date edit and saves with sourceId retained.",
+    "Plan due date survives reload and separate detail edit/save/reload; original request object and settings/master data remain equal.",
+    "Closing an edited plan preserves persisted data exactly. Existing in-memory draft retention is preserved and reload reopens stored due date.",
+    "Five crossed transaction-date/due-date query combinations at each viewport select the correct requests; filtering does not write storage.",
+    "Synthetic inventory-read-only UI disables plan due-date edit and Save(F8); closing preserves storage exactly."
+  ],
+  "testHarnessCorrections": [
+    "Use observed accessible close label and existing draft-preservation confirmation/reload semantics.",
+    "Do not apply an invented44px button requirement to uniform42px mobile date inputs.",
+    "Use actual report host rather than a nonexistent nested report selector."
+  ],
+  "productDefectFound": false,
+  "coreTestsRepeated": false,
+  "fullRegressionRepeated": false,
+  "buildRepeated": false,
+  "deploymentRepeated": false,
+  "historicalFullReleaseBrowserCount": 125,
+  "newFocusedBrowserCountIsNotNewFullRegressionTotal": true,
+  "preservation": {
+    "syntheticRequestExact": true,
+    "syntheticSettingsAndMastersExact": true,
+    "productionBusinessOrSettingsOrMailWrites": false,
+    "productionWorkerSha256": "37f26c42722639590d52c6f340f317e3ecc244c7ca055d87708e36cab33467ab",
+    "sameRuntimePid": 2508011,
+    "runtimeSession": 60635,
+    "freshProductionBackupComparisonPerformed": false,
+    "priorOperatingPreservationEvidence": "evidence/manual-request-print-fields-20261023.json"
+  },
+  "unverified": [
+    "Original ERP account/role/company-specific exceptions and server behavior; last observed session required login.",
+    "Hosted authenticated data-bearing save/edit acceptance.",
+    "Physical Android device acceptance."
+  ],
+  "originalBusinessOrSettingsOrPrintOrSendPerformed": false,
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 83
+  },
+  "counters": {
+    "manualIndex": 56,
+    "bodiesReviewed": 26,
+    "requirements": 32,
+    "finalAcceptance": 0
+  },
+  "nextWork": "EC-HELP-REQUEST-004의 아직 읽지 않은 공식 본문을 먼저 확보해 로고 등록/전표 출력 적용/저장 범위를 대조한다. 원본 로그인 없이 본문을 확인할 수 없으면 공개 공식 FAQ로 근거를 보완하고 미확인 기능은 추정하지 않는다. 기존 납기일 core/UI·PDF gate 조사를 변화 없이 재반복하지 않는다.",
+  "done": false
+}

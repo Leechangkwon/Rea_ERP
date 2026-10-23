@@ -2322,29 +2322,33 @@
         "납기 초과만으로 전표 입력/저장을 제한하지 않음",
         "전표 일자/납기일자는 각각 보존하고 검색/출력에 사용"
       ],
-      "status": "official-body-reviewed-existing-core-verified-ui-hosted-pending",
+      "status": "official-body-reviewed-existing-core-and-actual-synthetic-ui-verified-hosted-reference-acceptance-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMCDD7E7MGA&page=14",
         "publisher": "이카운트 ERP",
         "fullAnswerRead": true
       },
-      "role": "Official FAQ does not describe role exceptions; UI/hosted permission acceptance pending",
+      "role": "Synthetic actual-shell inventory.read-only controls block edit/save; original role/company exceptions and hosted server permission acceptance unverified",
       "implementationEvidence": [
         "dist/inventory-core.js",
-        "evidence/manual-request-pdf-contract-20261023.json"
+        "evidence/manual-request-pdf-contract-20261023.json",
+        "evidence/manual-request-due-date-ui-20261023.json"
       ],
       "automatedEvidence": [
-        "tests/request-due-date-contract.cjs"
+        "tests/request-due-date-contract.cjs",
+        "tests/browser/request-due-date-ui.spec.cjs"
       ],
       "remaining": [
-        "actual plan input import/edit/save/reload and request original preservation in browser",
-        "date/due-date report filters and hosted permission/save acceptance"
+        "Original ERP account/role/company-specific exceptions and server behavior; last observed session required login.",
+        "Hosted authenticated data-bearing save/edit acceptance.",
+        "Physical Android device acceptance."
       ],
       "done": false,
       "hostedAcceptance": false,
       "productionVersion": "0.87.0",
-      "appChangeNeeded": false
+      "appChangeNeeded": false,
+      "syntheticUiAcceptance": true
     },
     {
       "id": "REQ-PUR-PLAN-004",
@@ -2360,29 +2364,33 @@
         "계획 수정으로 원 요청서 납기일자가 바뀌지 않음",
         "원 요청서 별도 수정이 계획의 납기일을 소급 변경하지 않는 자체 보존 범위 검증"
       ],
-      "status": "official-body-reviewed-existing-core-verified-ui-hosted-pending",
+      "status": "official-body-reviewed-existing-core-and-actual-synthetic-ui-verified-hosted-reference-acceptance-pending",
       "referenceVerified": true,
       "sourceLocator": {
         "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMB7BEB7MG1&page=14",
         "publisher": "이카운트 ERP",
         "fullAnswerRead": true
       },
-      "role": "Official FAQ does not describe role exceptions; UI/hosted permission acceptance pending",
+      "role": "Synthetic actual-shell inventory.read-only controls block edit/save; original role/company exceptions and hosted server permission acceptance unverified",
       "implementationEvidence": [
         "dist/inventory-core.js",
-        "evidence/manual-request-pdf-contract-20261023.json"
+        "evidence/manual-request-pdf-contract-20261023.json",
+        "evidence/manual-request-due-date-ui-20261023.json"
       ],
       "automatedEvidence": [
-        "tests/request-due-date-contract.cjs"
+        "tests/request-due-date-contract.cjs",
+        "tests/browser/request-due-date-ui.spec.cjs"
       ],
       "remaining": [
-        "actual plan input import/edit/save/reload and request original preservation in browser",
-        "date/due-date report filters and hosted permission/save acceptance"
+        "Original ERP account/role/company-specific exceptions and server behavior; last observed session required login.",
+        "Hosted authenticated data-bearing save/edit acceptance.",
+        "Physical Android device acceptance."
       ],
       "done": false,
       "hostedAcceptance": false,
       "productionVersion": "0.87.0",
-      "appChangeNeeded": false
+      "appChangeNeeded": false,
+      "syntheticUiAcceptance": true
     }
   ]
 }
