@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-036",
+  "requirementId": "REQ-PUR-FLOW-001",
+  "title": "0.88.6 발주계획 조회·검색·CSV의 거래처 우선순위 통일",
+  "version": "0.88.6",
+  "status": "deployed-plan-supplier-view-aligned-preservation-verified-original-acceptance-pending",
+  "sourceCommit": "7406171768bbccf327c47a67be9e92df5372ef77",
+  "releaseCommit": "b9ba0312960759c44cd820cfe7fb0ef57ea96a95",
+  "releaseBranch": "release/0.88.6-plan-supplier-view",
+  "releaseDirectory": ".artifacts/releases/0.88.6-plan-supplier-view",
+  "workerSha256": "4d43f3e112031d7cbb98175540568c4abc844c4e7fe7e0741dd5cfc2a1165483",
+  "pushed": true,
+  "verifyLocalExit": 0,
+  "previousReleaseEvidence": "evidence/manual-order-default-partner-20261023.json",
+  "previousWorkerSha256": "0707446f923f9a308f93272347deb1d8e75254e0b7f0e3c39efd7e19557c2754",
+  "rootCause": "Plan list/filter/CSV independently preferred the item default or omitted header partner, whereas generation already used line supplier -> saved document partner -> item supplier.",
+  "change": "복원된 과거 발주계획의 품목행 거래처가 비어 있고 전표 거래처V002와 현재 품목 기본 구매처V001이 다르면, 목록/검색/CSV는V001 또는 빈 값을 쓰고 발주서 생성은V002를 쓰던 불일치를 재현했다. 조회·검색·CSV도 생성과 같은 공통 purchaseSupplier를 사용하도록 고쳤다. 우선순위는 품목행→저장 전표→품목 기본 구매처이며 기존 저장 자료를 재작성하지 않는다.",
+  "scope": "matches and rowValues in dist/purchasing-plan-list-ui.js; common purchaseSupplier reused for three supplier lookups. No saved document rewrite.",
+  "schemaChanged": false,
+  "cssChanged": false,
+  "calculationFormulaChanged": false,
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "validation": {
+    "newNodeTests": 2,
+    "preFixNodeTotal": 16,
+    "preFixNodePassed": 14,
+    "preFixNodeFailed": 2,
+    "preFixBrowserFailed": 1,
+    "focusedNodePassed": 48,
+    "newBrowserTests": 1,
+    "focusedBrowserPassed": 1,
+    "viewports": [
+      390
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 136,
+    "fullNodeSuitePassed": true,
+    "initialFocusedFixtureCorrection": "Legacy fixture lacked dueDate required by existing order generation. Synthetic dueDate supplied; implementation unchanged after first fix.",
+    "logs": [
+      ".artifacts/manual-plan-supplier-view-20261023/pre-fix-tests.log",
+      ".artifacts/manual-plan-supplier-view-20261023/pre-fix-browser.log",
+      ".artifacts/manual-plan-supplier-view-20261023/focused-tests.log",
+      ".artifacts/manual-plan-supplier-view-20261023/focused-browser.log",
+      ".artifacts/manual-plan-supplier-view-20261023/verify-local.log"
+    ]
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 2,
+    "newOriginalScopes": 0,
+    "mainCandidateScopesEqual": true,
+    "scopes": [
+      {
+        "symbol": "matches",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/plan-supplier-view-20261023/dist/purchasing-plan-list-ui.js",
+        "sourceSha256": "d3a92f36f3813e9494f9babfe8a1cab61f28af8e12d8c6bb69d98918daf69722",
+        "fragmentSha256": "50f59863671fe0c53cec354717a448a799f43e0344511b3cf6bef606778574d0",
+        "lineStart": 27,
+        "lineEnd": 27
+      },
+      {
+        "symbol": "rowValues",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/plan-supplier-view-20261023/dist/purchasing-plan-list-ui.js",
+        "sourceSha256": "d3a92f36f3813e9494f9babfe8a1cab61f28af8e12d8c6bb69d98918daf69722",
+        "fragmentSha256": "cb9ccb1155461dfe14b83fcf62f245099c36ea02b0a51b49b7f844c0493dd4f9",
+        "lineStart": 29,
+        "lineEnd": 30
+      }
+    ],
+    "resultSha256": "3ea6e6e1d15e65b50bce6081b4f5a3d3d0571654b8fc7ea44ae6b5b19afaed69",
+    "statistics": {
+      "relevant_files": 2,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 2554,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 2,
+      "visited_ast_nodes": 685,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false
+  },
+  "sourceAndLockGuards": {
+    "changedFilesRootCandidateExact": true,
+    "dependencyLockOnlyTwoVersionFieldsChanged": true,
+    "initialFocusedFixtureFailure": "Legacy fixture lacked dueDate required by existing order generation. Synthetic dueDate supplied; implementation unchanged after first fix.",
+    "calculationFormulaChanged": false
+  },
+  "quantityResearch": {
+    "evidenceManifest": ".artifacts/manual-plan-minimum-unit-20261023/source-manifest.json",
+    "manifestSha256": "0d017c1dfa46223a8eccbc06098be011ce4cd6022e639c76806e084ca48ebc0b",
+    "sources": [
+      {
+        "file": ".artifacts/manual-plan-minimum-unit-20261023/product.html",
+        "url": "https://www.ecount.com/kr/ecount/product/purchasing_purchase-planning",
+        "sha256": "e0afe6643c1fa29ce61fb62bf905a1a79e7e3ccaffd81d89303c259641b801cb",
+        "bytes": 57730,
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "retrievedAt": "2026-10-23T13:26:12.421942+00:00",
+        "credentialsSent": false
+      },
+      {
+        "file": ".artifacts/manual-plan-minimum-unit-20261023/calculation-01.png",
+        "url": "https://www.ecount.com/kr/common/images/product/purchasing_purchase-planning/calculation-01.png?ver=2023102601",
+        "sha256": "3f649ca100354aad2692d80d3dadb0bda78c04e9778e94380464934f4f1959a6",
+        "bytes": 34057,
+        "status": 200,
+        "contentType": "image/png",
+        "retrievedAt": "2026-10-23T13:26:12.497077+00:00",
+        "credentialsSent": false
+      },
+      {
+        "file": ".artifacts/manual-plan-minimum-unit-20261023/management-01.png",
+        "url": "https://www.ecount.com/kr/common/images/product/purchasing_purchase-planning/management-01.png?ver=2023102601",
+        "sha256": "80f2e704587cd2d562914d6451a4ebabac2cae4d19e1662bef1e803a6be99dec",
+        "bytes": 79045,
+        "status": 200,
+        "contentType": "image/png",
+        "retrievedAt": "2026-10-23T13:26:12.580136+00:00",
+        "credentialsSent": false
+      }
+    ],
+    "supportingPublicPages": 1,
+    "supportingPublicImages": 2,
+    "screenshotsViewed": true,
+    "historicalScreenshotDisplayDate": "2023/06/02",
+    "observedScreen": "안전재고 이하 품목 검색",
+    "observedOptions": [
+      "전체",
+      "미판매",
+      "미입고",
+      "최소구매단위",
+      "미불출"
+    ],
+    "checkedOptionInScreenshot": "최소구매단위",
+    "distinction": "Safety-stock search options do not establish the saved-plan Qty popup arithmetic or default options.",
+    "quantitativeExampleFound": false,
+    "minimumClampVersusMultipleRoundingVerified": false,
+    "mixedVariableFormulaVerified": false,
+    "exactFormulaVerified": false,
+    "originalAuthenticatedPopupObserved": false,
+    "stockOnlyCandidateIntegrated": false,
+    "stockOnlyCandidateCanApply": false,
+    "newOfficialManualBodies": 0,
+    "newOfficialRequirements": 0,
+    "existingQuantityContract": "evidence/manual-plan-quantity-contract-20261021.json",
+    "existingStockOnlyCandidate": "evidence/manual-plan-quantity-stock-candidate-20261021.json"
+  },
+  "runtime": {
+    "version": "0.88.6",
+    "linuxPid": 2573379,
+    "runtimeSession": 70641,
+    "workerSha256": "4d43f3e112031d7cbb98175540568c4abc844c4e7fe7e0741dd5cfc2a1165483",
+    "localHealth": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "pollOrTerminateRuntimeSession": false
+  },
+  "hosted": {
+    "existingLoginRetained": true,
+    "workTabsRestored": 1,
+    "planListOpenCloseVerified": true,
+    "planRows": 0,
+    "legacySupplierDataBearingScenarioVerified": false,
+    "settingsOrBusinessWrites": 0,
+    "mailSent": 0,
+    "screenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/plan-supplier-0886-hosted.png",
+    "screenshot": ".artifacts/manual-plan-supplier-view-20261023/hosted-plan-list.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.6",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formExact": true,
+      "authenticatedSessionRetained": true,
+      "originalWorkTabsRestored": 1,
+      "hostedPlanListOpenCloseVerified": true,
+      "hostedPlanRows": 0,
+      "hostedLegacySupplierDatasetVerified": false,
+      "businessDataSaved": false,
+      "settingsSaved": false,
+      "mailSent": false,
+      "privateBefore": "/home/lck/.local/share/rea-erp/backups/plan-supplier-view-0.88.6-1792762456658/browser-inventory.json",
+      "postDownload": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-23 (25).json",
+      "screenshot": ".artifacts/manual-plan-supplier-view-20261023/hosted-plan-list.png"
+    },
+    "serverAndMail": {
+      "version": "0.88.6",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupReference": ".artifacts/manual-plan-supplier-view-20261023/predeploy-backup.json",
+    "publicChecks": 14,
+    "assetsMatchRelease": true,
+    "candidates": {
+      "oldDirtyFiles": 12,
+      "oldHeadStatusHashesExact": true,
+      "mapping088CleanUnchanged": true
+    }
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "work-tools-unexposed-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "cumulativePendingLocalUpdates": 110,
+    "lastVerifiedProgressVersion": "0.51.0",
+    "pendingBodyArtifact": ".artifacts/manual-plan-supplier-view-20261023/moa-pending-plan-supplier-view.html"
+  },
+  "remaining": [
+    "Legacy saved-header scenario is synthetic only; original and hosted business-save acceptance remain unproven.",
+    "Original minimum-unit and plan arithmetic remains unresolved after supplementary public product sources.",
+    "VAT5 input and difference-allocation contracts remain unproven; root VAT5 research not installed.",
+    "TC101P_01 field-editor contract remains gated; mapping088 needs six subsequent fixes before deployment.",
+    "Physical Android verification and full original/manual equivalence remain pending."
+  ],
+  "counters": {
+    "indexed": 77,
+    "bodyReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextWork": "최소구매단위·계획 수량산정의 수식은 원본/공식 수치 근거 대기로 유지한다. 새로 확인한 안전재고 검색의 선택항목을 계획 일괄 수량조정 수식으로 확대하지 않는다. 독립 진행은 기존 거래별 부가세 차액 조정의 거래유형별 입력·차액 배분 계약 대조로 이어간다. 이미 읽은 PDF/제품 소개와 stock-only helper·통과회귀를 변화 없이 반복하지 않는다.",
+  "done": false
+}

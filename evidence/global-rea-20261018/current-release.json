@@ -1,6 +1,6 @@
 {
-  "version": "0.88.5",
-  "status": "deployed-fresh-order-default-supplier-flow-preservation-verified-manual-parity-pending",
+  "version": "0.88.6",
+  "status": "deployed-plan-supplier-view-aligned-preservation-verified-manual-parity-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -94,7 +94,8 @@
     "Built-in request print displays six saved header fields and stored line supplier names. Saved custom/conditional print layouts preserved; no current item/header supplier fallback; guarded single preview and native mobile/print layout.",
     "Purchase-order input Option reuses existing plan→PO progress-rule editor with explicit section CAS, parent draft/raw preservation, scoped permissions and disposed-callback guards; existing linked plan-row core is unchanged.",
     "Selected request rows default an empty purchase-order header only when their resolved supplier is unique; explicit headers preserved; copy/linked/direct conversion tested without guessing mixed suppliers. evidence/manual-request-order-supplier-20261023.json",
-    "Fresh purchaseorder does not inherit the sales C001 customer default; request/confirmed-vendor inference can run without clearing it. Existing document/draft precedence preserved. evidence/manual-order-default-partner-20261023.json"
+    "Fresh purchaseorder does not inherit the sales C001 customer default; request/confirmed-vendor inference can run without clearing it. Existing document/draft precedence preserved. evidence/manual-order-default-partner-20261023.json",
+    "Plan list, supplier/quick search and CSV share generation supplier precedence: explicit line -> saved document -> item default, including restored legacy plans without row supplier. evidence/manual-plan-supplier-view-20261023.json"
   ],
   "checks": {
     "total": 998,
@@ -129,7 +130,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 135,
+    "currentReleaseBrowserSynthetic": 136,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -157,7 +158,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.88.5",
+    "currentReleaseFullRegressionVersion": "0.88.6",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -428,16 +429,41 @@
         ".artifacts/manual-order-default-partner-20261023/focused-browser.log",
         ".artifacts/manual-order-default-partner-20261023/verify-local.log"
       ]
+    },
+    "planSupplierView": {
+      "reference": "evidence/manual-plan-supplier-view-20261023.json",
+      "newNodeTests": 2,
+      "preFixNodeTotal": 16,
+      "preFixNodePassed": 14,
+      "preFixNodeFailed": 2,
+      "preFixBrowserFailed": 1,
+      "focusedNodePassed": 48,
+      "newBrowserTests": 1,
+      "focusedBrowserPassed": 1,
+      "viewports": [
+        390
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 136,
+      "fullNodeSuitePassed": true,
+      "initialFocusedFixtureCorrection": "Legacy fixture lacked dueDate required by existing order generation. Synthetic dueDate supplied; implementation unchanged after first fix.",
+      "logs": [
+        ".artifacts/manual-plan-supplier-view-20261023/pre-fix-tests.log",
+        ".artifacts/manual-plan-supplier-view-20261023/pre-fix-browser.log",
+        ".artifacts/manual-plan-supplier-view-20261023/focused-tests.log",
+        ".artifacts/manual-plan-supplier-view-20261023/focused-browser.log",
+        ".artifacts/manual-plan-supplier-view-20261023/verify-local.log"
+      ]
     }
   },
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-order-default-partner-20261023.json",
+    "reference": "evidence/manual-plan-supplier-view-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "385e14e7e80d105185eab5562106efc8ae7fef9e",
-    "publicVersionVerified": "0.88.5",
+    "deployedSourceCommit": "b9ba0312960759c44cd820cfe7fb0ef57ea96a95",
+    "publicVersionVerified": "0.88.6",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -496,20 +522,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.5",
+    "existingSessionRetainedVersion": "0.88.6",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.5",
+    "lastExactBrowserBackupComparisonVersion": "0.88.6",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.5",
+    "currentServerStateAndMailPreservedVersion": "0.88.6",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.5",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.6",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -745,6 +771,15 @@
       "hostedBusinessSaveVerified": false,
       "runtimePid": 2567539,
       "runtimeSession": 91918
+    },
+    "planSupplierView": {
+      "reference": "evidence/manual-plan-supplier-view-20261023.json",
+      "deployed": true,
+      "hostedPlanListReadonlyVerified": true,
+      "legacySupplierFlowSyntheticVerified": true,
+      "hostedDataBearingSaveVerified": false,
+      "runtimePid": 2573379,
+      "runtimeSession": 70641
     }
   },
   "manualParity": {
@@ -757,23 +792,24 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.5",
+      "productionVersion": "0.88.6",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "최소구매단위·발주계획 수량산정에서 미확인 계산 변수/반올림의 공식 본문 또는 실제 공개 정의를 우선 확보한다. 기존 stock-only 후보/통과 helper를 반복해 전체 계산식으로 확대하지 않고, 근거가 없으면 운영 통합을 보류한다.",
+      "nextIndependentManual": "최소구매단위·계획 수량산정의 수식은 원본/공식 수치 근거 대기로 유지한다. 새로 확인한 안전재고 검색의 선택항목을 계획 일괄 수량조정 수식으로 확대하지 않는다. 독립 진행은 기존 거래별 부가세 차액 조정의 거래유형별 입력·차액 배분 계약 대조로 이어간다. 이미 읽은 PDF/제품 소개와 stock-only helper·통과회귀를 변화 없이 반복하지 않는다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
       "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
       "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
       "latestRequestOrderSupplierSourceRequired": "a58c75444cbf069313f8c81bd398ec32a40152e6",
-      "latestFreshOrderDefaultSourceRequired": "6aac054175c32c66715b8741851a37217b07585f"
+      "latestFreshOrderDefaultSourceRequired": "6aac054175c32c66715b8741851a37217b07585f",
+      "latestPlanSupplierViewSourceRequired": "7406171768bbccf327c47a67be9e92df5372ef77"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "0.88.5-fresh-order-default-corrected-workflow-acceptance-pending",
+      "status": "0.88.6-plan-supplier-view-aligned-workflow-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
@@ -790,13 +826,13 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "최소구매단위·발주계획 수량산정에서 미확인 계산 변수/반올림의 공식 본문 또는 실제 공개 정의를 우선 확보한다. 기존 stock-only 후보/통과 helper를 반복해 전체 계산식으로 확대하지 않고, 근거가 없으면 운영 통합을 보류한다.",
+      "nextWork": "최소구매단위·계획 수량산정의 수식은 원본/공식 수치 근거 대기로 유지한다. 새로 확인한 안전재고 검색의 선택항목을 계획 일괄 수량조정 수식으로 확대하지 않는다. 독립 진행은 기존 거래별 부가세 차액 조정의 거래유형별 입력·차액 배분 계약 대조로 이어간다. 이미 읽은 PDF/제품 소개와 stock-only helper·통과회귀를 변화 없이 반복하지 않는다.",
       "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
-      "currentOperatingVersion": "0.88.5",
-      "latestEvidence": "evidence/manual-order-default-partner-20261023.json",
-      "latestSourceCommit": "6aac054175c32c66715b8741851a37217b07585f",
-      "latestReleaseCommit": "385e14e7e80d105185eab5562106efc8ae7fef9e"
+      "currentOperatingVersion": "0.88.6",
+      "latestEvidence": "evidence/manual-plan-supplier-view-20261023.json",
+      "latestSourceCommit": "7406171768bbccf327c47a67be9e92df5372ef77",
+      "latestReleaseCommit": "b9ba0312960759c44cd820cfe7fb0ef57ea96a95"
     },
     "independentResearch": {
       "requirement": "REQ-PUR-PLAN-001",
@@ -930,9 +966,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-036",
+      "sourceId": "EC-HELP-REQUEST-001",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "034의 공유 양식창 닫힘 경계는0.88.3으로 수정·합성/전체회귀·운영 열기닫기/보존 대조를 마쳤다. 정확한034 본문과 원본/운영 설정 저장 합격은 미완료다.035/036 본문은 기확보이므로 반복하지 않고 기존 구매5단계 차이표에서 실제 미완료 흐름·미확인 저장/수량/VAT·BOM/주문 연결 gate를 재정렬한다. 원본 로그인/매핑TC101P_01 편집기 및 후보 설치 gate는 유지하고 같은 양식/날짜 helper·통과회귀를 반복하지 않는다.",
+      "description": "최소구매단위·계획 수량산정의 수식은 원본/공식 수치 근거 대기로 유지한다. 새로 확인한 안전재고 검색의 선택항목을 계획 일괄 수량조정 수식으로 확대하지 않는다. 독립 진행은 기존 거래별 부가세 차액 조정의 거래유형별 입력·차액 배분 계약 대조로 이어간다. 이미 읽은 PDF/제품 소개와 stock-only helper·통과회귀를 변화 없이 반복하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -2152,6 +2188,24 @@
       "exact034BodyRead": false,
       "configuredSaveAcceptance": "synthetic-only",
       "done": false
+    },
+    "planSupplierView": {
+      "reference": "evidence/manual-plan-supplier-view-20261023.json",
+      "sourceCommit": "7406171768bbccf327c47a67be9e92df5372ef77",
+      "releaseCommit": "b9ba0312960759c44cd820cfe7fb0ef57ea96a95",
+      "deployedVersion": "0.88.6",
+      "localSyntheticFlowVerified": true,
+      "hostedDataBearingSaveVerified": false,
+      "done": false
+    },
+    "planMinimumUnitResearch": {
+      "reference": "evidence/manual-plan-supplier-view-20261023.json",
+      "supportingPublicPages": 1,
+      "supportingImages": 2,
+      "exactFormulaVerified": false,
+      "stockOnlyCandidateIntegrated": false,
+      "officialBodyCountIncrement": 0,
+      "done": false
     }
   },
   "preparedCandidate": {
@@ -2779,6 +2833,19 @@
       "parseFailures": 0,
       "coverage": "unknown",
       "mainCandidateInitializerEqual": true
+    },
+    "planSupplierView": {
+      "reference": "evidence/manual-plan-supplier-view-20261023.json",
+      "newOwnScopes": 2,
+      "newOriginalScopes": 0,
+      "scope": [
+        "matches",
+        "rowValues"
+      ],
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "mainCandidateScopesEqual": true,
+      "runtimeEquivalence": false
     }
   }
 }
