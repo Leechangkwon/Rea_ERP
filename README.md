@@ -1,6 +1,8 @@
 # 자동화 ERP · REA 재구성 검증
 
-현재 운영은 **0.59.1 / fc52ded** (원구매 복사반품의 음수 입력·저장·재조회)이며 분리후보만 설치했다. 근거 `evidence/manual-purchase-negative-return-20261022.json`와 `docs/release-workflow.md`. 직접 음수 구매/환불·원본 예외 합격은 남아 있으며 main VAT 연구 빌드 설치 금지.
+현재 운영은 **0.88.12 / 1dcafeb** (단가확정 발주의 명시 머리에서 거래유형·세율 보존)이다. 왜 변경했는가: 저장된 원본21/7.5%를 대상22/0%에 적용할 때 코드 누락으로 세액을 잃는 경로를 재현했기 때문이다. 관련Node78·브라우저9·전체 verify:local/브라우저146과 공개16검사·기존 계정/자료/양식/메일 보존을 확인했다. 운영에서는 단가요청 불러오기0행의 열기/취소만 확인했으며 업무 저장 합격은 합성자료 근거와 구분한다. 근거 [0.88.12](evidence/manual-price-order-tax-20261024.json), [현재 운영 절차](docs/release-workflow.md), [개발 경위·변경 이유](docs/development-records/README.md). root 전체빌드·미완료VAT5/매핑 설치 금지. 지속실행 세션46794는 poll/terminate하지 않는다.
+
+아래는 당시 운영/인계 기록이며 현재 상태는 최신 릴리스 근거를 우선한다. 과거 운영 **0.59.1 / fc52ded**는 원구매 복사반품의 음수 입력·저장·재조회 수정이었다. 근거 `evidence/manual-purchase-negative-return-20261022.json`. 직접 음수 구매/환불·원본 예외 합격은 당시에도 남아 있었다.
 
 과거 운영은 분리 릴리스0.53.6/a613d8c이며 신규 단가요청 다중 거래처·비교자료 동시 저장을 추가하고 기존 로그인·자료 보존을 확인했다. main에는 미완료VAT 연구가 있으므로 운영 재시작은 docs/release-workflow.md의 정확한 번들/manifest를 따른다.
 

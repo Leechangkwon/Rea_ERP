@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "date": "2026-10-24",
+  "sourceId": "LOCAL-PUR-CONFIRMED-REQUEST-TAX-HEADER-001",
+  "requirementId": "REQ-PUR-FLOW-001",
+  "title": "단가확정 발주의 명시 머리에서 거래유형·세율 보존",
+  "version": "0.88.12",
+  "status": "deployed-preservation-verified-manual-acceptance-pending",
+  "sourceCommit": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
+  "releaseCommit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+  "releaseBranch": "release/0.88.12-price-order-tax",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "previousReleaseEvidence": "evidence/manual-vat-convert-guard-20261024.json",
+  "previousWorkerSha256": "7ddc017bdf6fa12cbdb5422c535c17e5a5e6d426ef2b22a59ccee39f218a5121",
+  "rootCause": {
+    "module": "dist/entry-core.js",
+    "function": "applyPurchaseTaxHeader",
+    "missingSource": "pricerequest -> purchaseorder",
+    "before": "Explicit header adoption copied VAT rate but skipped transaction type, retaining destination22 from source21/7.5.",
+    "why": "Preserve stored source tax context alongside confirmed vendor price without formula changes or historical rewrites."
+  },
+  "change": {
+    "scope": "Only explicit pricerequest -> purchaseorder header adoption added to existing type/rate validation",
+    "legacyCodesPreserved": true,
+    "incompatibleLegacyType22NonzeroRejectedAtomically": true,
+    "missingSourceTypeCompatibleDestinationPreserved": true,
+    "headerNotAdoptedDestinationTaxPreserved": true,
+    "confirmedBasisSourceRowsPreserved": true,
+    "newQuotationTransactionTypeInput": false
+  },
+  "schemaChanged": false,
+  "cssChanged": false,
+  "calculationFormulaChanged": false,
+  "validation": {
+    "before": {
+      "nodeTests": 33,
+      "nodeFailed": 6,
+      "nodePassed": 27,
+      "newNodeTests": 7,
+      "browserFailed": 2,
+      "browserWidths": [
+        390,
+        1280
+      ],
+      "expectedType": "21",
+      "actualType": "22",
+      "browserLibrarySetupFailureSeparated": true
+    },
+    "after": {
+      "relatedNodePassed": 78,
+      "relatedBrowserPassed": 9,
+      "fullVerifyLocalExit": 0,
+      "fullBrowserPassed": 146,
+      "newNodeTests": 7,
+      "newBrowserTests": 2,
+      "versionMetadataBuildExit": 0,
+      "releaseFileChecks": 4,
+      "fullVerifyBeforeVersionOnlyMetadataBump": true
+    },
+    "syntheticStoredScenario": {
+      "confirmedPrice": 100,
+      "ordered": 4,
+      "received": 2,
+      "supply": 200,
+      "tax": 15,
+      "total": 215,
+      "requestRemaining": 6,
+      "orderRemaining": 2,
+      "savedAndBackupReloaded": true,
+      "originalRecordsComparisonsMastersFormsPreserved": true
+    },
+    "rawDirectory": ".artifacts/manual-price-order-tax-20261024"
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 2,
+    "newOriginalScopes": 0,
+    "mainCandidateScopesEqual": true,
+    "wholeEntryCoreEqual": false,
+    "scopes": [
+      {
+        "symbol": "applyPurchaseTaxHeader",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/price-order-tax-20261024/dist/entry-core.js",
+        "sourceSha256": "bf274499eb775c8f26ae42ebc5cc69bf17ab4af1250d8e21984366619c1c8a70",
+        "fragmentSha256": "f7093bbbaf524e65eef521acd37d80d1311e38df685add81c2a10e37c05401c5",
+        "lineStart": 146,
+        "lineEnd": 154
+      },
+      {
+        "symbol": "stageDocumentsHeaderAdoption",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/price-order-tax-20261024/dist/entry-core.js",
+        "sourceSha256": "bf274499eb775c8f26ae42ebc5cc69bf17ab4af1250d8e21984366619c1c8a70",
+        "fragmentSha256": "031b4a1cffd999e8a85861fbcd2dc1b2fd63f085d9bd85a888803b2e130119f9",
+        "lineStart": 182,
+        "lineEnd": 189
+      }
+    ],
+    "resultSha256": "f7e284e4c8bb0c908aa202f50f4d89e43ed170ca7346c5fd558aeed0b86f0d44",
+    "statistics": {
+      "relevant_files": 2,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 1643,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 2,
+      "visited_ast_nodes": 247,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false
+  },
+  "sourceAndLockGuards": {
+    "testedReleaseBase": "e4d01ab1b9f863f25a85da09c950cc142de675d4",
+    "rootBuildPerformed": false,
+    "unreleasedVat5Installed": false,
+    "mappingInstalled": false,
+    "dependencyLockOnlyTwoTopLevelVersionFieldsChanged": true,
+    "dirtyCandidateFilesPreserved": 12,
+    "rootCandidateTestsEqual": true
+  },
+  "originalBoundary": {
+    "newOriginalWrites": 0,
+    "newOriginalObservation": false,
+    "originalLoginRequiredGateRetained": true,
+    "newOfficialBodies": 0,
+    "newOfficialRequirements": 0,
+    "runtimeEquivalenceClaimed": false
+  },
+  "runtime": {
+    "version": "0.88.12",
+    "pid": 2611237,
+    "persistentSession": 46794,
+    "doNotPollOrTerminateSession": true,
+    "workerSha256": "0e1a5551b87a76c7784b76cd18d8d80916f520aeb165970cb5ed2f0ae006be8a",
+    "releaseDirectory": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.88.12-price-order-tax",
+    "rollbackVersion": "0.88.11"
+  },
+  "hosted": {
+    "publicChecks": 16,
+    "assetChecks": 13,
+    "localHealthBackend": "supabase",
+    "existingLoginRetained": true,
+    "workTabsRestored": 1,
+    "selectionRestored": 0,
+    "priceRequestImportOpenCancelVerified": true,
+    "operatingPriceRequestImportRows": 0,
+    "businessSaveVerified": false,
+    "businessSavesPerformed": 0,
+    "settingsSavesPerformed": 0,
+    "actualMailSends": 0,
+    "physicalAndroidVerified": false,
+    "screenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/rea-0.88.12-deployed.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.12",
+      "browserExactBytes": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "formsExact": true,
+      "documents": 8,
+      "dirtyCandidateFilesPreserved": 12,
+      "hostedSavePerformed": false,
+      "hostedMailSent": false,
+      "operatingComparisonRows": 0,
+      "existingLoginRetained": true,
+      "workTabsRestored": 1,
+      "selectionRestored": 0,
+      "hostedOpenCancelVerified": true
+    },
+    "remote": {
+      "rea_app_state": {
+        "beforeRevision": 30,
+        "afterRevision": 30,
+        "exactBodyAndRevisionEqual": true
+      },
+      "rea_gateway_state": {
+        "beforeRevision": 0,
+        "afterRevision": 0,
+        "exactBodyAndRevisionEqual": true
+      }
+    },
+    "runtimeConfigExact": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true,
+      "restorePreview": {
+        "verified": true,
+        "addMailboxes": 0,
+        "addMessages": 0,
+        "conflicts": 0,
+        "applied": false
+      }
+    },
+    "restored": false,
+    "predeployArtifact": ".artifacts/manual-price-order-tax-20261024/predeploy-backup.json",
+    "postdeployArtifact": ".artifacts/manual-price-order-tax-20261024/postdeploy-preservation.json"
+  },
+  "community": {
+    "lastVerifiedProgressVersion": "0.51.0",
+    "pendingLocalUpdates": 116,
+    "requiredWorkToolsExposed": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authenticationFailureInferred": false,
+    "developmentRecordSections": 16,
+    "previousDevelopmentRecordGitPushNowVerified": true
+  },
+  "remaining": [
+    "Selected transaction-VAT formula five conflicts and company numeric contract",
+    "Minimum purchase unit and quantity-adjustment contract",
+    "Legacy TC101P_01 editor and hosted acceptance",
+    "Unconfirmed/request-price supplier policy and original/hosted business acceptance"
+  ],
+  "counters": {
+    "indexedSources": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "allDone": false
+  },
+  "nextWork": "단가요청 비교확정의 미확정행·요청가확정과 거래처 지정 세부 계약을 기존 공식 본문/공개 코드부터 대조한다. 이미 합격한 확정가·거래처·명시 머리·부분수량 회귀를 변화 없이 반복하지 않는다. VAT5 입력식5충돌·최소구매단위·TC101P_01 매핑의 원본/운영 수락 gate는 유지한다.",
+  "done": false
+}

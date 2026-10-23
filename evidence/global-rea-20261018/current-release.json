@@ -1,6 +1,6 @@
 {
-  "version": "0.88.11",
-  "status": "deployed-legacy-vat-conversion-guard-verified-manual-parity-pending",
+  "version": "0.88.12",
+  "status": "deployed-confirmed-request-tax-header-preserved-manual-parity-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -100,7 +100,8 @@
     "Imported source-header VAT rate7.5 becomes a valid purchase-editor select option; explicit partial-receipt save/reload preserves source quantities, amounts and remaining balance. No transaction-VAT formula migration. evidence/manual-vat-import-rate-20261023.json",
     "Explicit purchasing header adoption preserves source transaction type and rate together; incompatible type22/nonzero rate is rejected atomically. Imported legacy code remains selectable. Partial receipt save/reload preserves quantities, amounts and remaining balance; no formula migration. evidence/manual-vat-header-type-20261023.json",
     "Plan generation groups by preserved transactionType as well as rate; previews display the code and registered name. Equal-type item merging remains available; incompatible one-document or legacy type22/nonzero-rate plans reject atomically. evidence/manual-plan-tax-context-20261024.json",
-    "Generic conversion to purchasing inputs rejects historical type22/nonzero VAT without changing source, draft quantities, settings, history or balances. Compatible conversions and exact-source return amounts remain supported; explicit source correction can then convert with its recorded rate. evidence/manual-vat-convert-guard-20261024.json"
+    "Generic conversion to purchasing inputs rejects historical type22/nonzero VAT without changing source, draft quantities, settings, history or balances. Compatible conversions and exact-source return amounts remain supported; explicit source correction can then convert with its recorded rate. evidence/manual-vat-convert-guard-20261024.json",
+    "Confirmed pricerequest explicit header adoption into purchaseorder preserves stored transaction type with VAT rate, legacy codes and confirmed basis; incompatible type22/nonzero pairs reject atomically. No new tax input or formula migration. evidence/manual-price-order-tax-20261024.json"
   ],
   "checks": {
     "total": 998,
@@ -654,11 +655,11 @@
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-vat-convert-guard-20261024.json",
+    "reference": "evidence/manual-price-order-tax-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "e4d01ab1b9f863f25a85da09c950cc142de675d4",
-    "publicVersionVerified": "0.88.11",
+    "deployedSourceCommit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+    "publicVersionVerified": "0.88.12",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -717,20 +718,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.11",
+    "existingSessionRetainedVersion": "0.88.12",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.11",
+    "lastExactBrowserBackupComparisonVersion": "0.88.12",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.11",
+    "currentServerStateAndMailPreservedVersion": "0.88.12",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.11",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.12",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1020,7 +1021,10 @@
       "hostedDataBearingSaveVerified": false,
       "runtimePid": 2603971,
       "runtimeSession": 8042
-    }
+    },
+    "confirmedRequestTaxHeaderDeployed": true,
+    "confirmedRequestTaxHeaderHostedOpenCancelVerified": true,
+    "confirmedRequestTaxHeaderHostedSaveVerified": false
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
@@ -1032,12 +1036,12 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.11",
+      "productionVersion": "0.88.12",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "다음은 단가요청의 비교확정→발주 생성에서 거래유형·세율 보존 경로를 대조하고 실제 결함만 작은 범위로 보완한다. 이미 수정한 명시 머리 적용·계획 일괄생성·일반 변환 회귀는 변화 없이 반복하지 않는다. 선택된 원본 거래별 차액 입력식5충돌·최소구매단위·TC101P_01/매핑 gate와 실제 업무 수락 미완료는 유지한다.",
+      "nextIndependentManual": "단가요청 비교확정의 미확정행·요청가확정과 거래처 지정 세부 계약을 기존 공식 본문/공개 코드부터 대조한다. 이미 합격한 확정가·거래처·명시 머리·부분수량 회귀를 변화 없이 반복하지 않는다. VAT5 입력식5충돌·최소구매단위·TC101P_01 매핑의 원본/운영 수락 gate는 유지한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1050,11 +1054,12 @@
       "latestImportedVatRateSourceRequired": "779307cd71c3b100b3e1a9c88a87d922bcc42a2d",
       "latestImportedVatHeaderTypeSourceRequired": "b58b7d311904bdff2c22103c3a9008037fa0ae86",
       "latestPlanTaxContextSourceRequired": "86bfa9132f72a74c728e0a58ee3ec7b59dd748eb",
-      "latestVatConvertGuardSourceRequired": "958d7ed09d785a1451b9f164e57594b6d6847d06"
+      "latestVatConvertGuardSourceRequired": "958d7ed09d785a1451b9f164e57594b6d6847d06",
+      "latestConfirmedRequestTaxHeaderSourceRequired": "d5ddec1da43c2a6a478a48ae97d2578f3e589007"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "0.88.11-vat-convert-guard-preserved-workflow-acceptance-pending",
+      "status": "0.88.12-confirmed-request-tax-header-preserved-workflow-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
@@ -1071,13 +1076,14 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "다음은 단가요청의 비교확정→발주 생성에서 거래유형·세율 보존 경로를 대조하고 실제 결함만 작은 범위로 보완한다. 이미 수정한 명시 머리 적용·계획 일괄생성·일반 변환 회귀는 변화 없이 반복하지 않는다. 선택된 원본 거래별 차액 입력식5충돌·최소구매단위·TC101P_01/매핑 gate와 실제 업무 수락 미완료는 유지한다.",
+      "nextWork": "단가요청 비교확정의 미확정행·요청가확정과 거래처 지정 세부 계약을 기존 공식 본문/공개 코드부터 대조한다. 이미 합격한 확정가·거래처·명시 머리·부분수량 회귀를 변화 없이 반복하지 않는다. VAT5 입력식5충돌·최소구매단위·TC101P_01 매핑의 원본/운영 수락 gate는 유지한다.",
       "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
-      "currentOperatingVersion": "0.88.11",
-      "latestEvidence": "evidence/manual-vat-convert-guard-20261024.json",
-      "latestSourceCommit": "958d7ed09d785a1451b9f164e57594b6d6847d06",
-      "latestReleaseCommit": "e4d01ab1b9f863f25a85da09c950cc142de675d4"
+      "currentOperatingVersion": "0.88.12",
+      "latestEvidence": "evidence/manual-price-order-tax-20261024.json",
+      "latestSourceCommit": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
+      "latestReleaseCommit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+      "latestHostedBusinessSaveAcceptancePending": true
     },
     "independentResearch": {
       "requirement": "REQ-PUR-PLAN-001",
@@ -2508,11 +2514,11 @@
     }
   },
   "preparedCandidate": {
-    "version": "0.87.0",
-    "commit": "3960e781eefe937481f2f5ea9882255b4027dc52",
-    "sourceCommit": "ad08cfa4c1619940ec27bf55933f7344bc596a15",
-    "manifest": ".artifacts/manual-request-print-fields-20261023/release-manifest.json",
-    "bundleSha256": "37f26c42722639590d52c6f340f317e3ecc244c7ca055d87708e36cab33467ab",
+    "version": "0.88.12",
+    "commit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+    "sourceCommit": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
+    "manifest": ".artifacts/manual-price-order-tax-20261024/release-manifest.json",
+    "bundleSha256": "0e1a5551b87a76c7784b76cd18d8d80916f520aeb165970cb5ed2f0ae006be8a",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -2557,7 +2563,8 @@
       "currency-registration-optional-rate-and-amount-precision",
       "request-inline-currency-registration-independent-dialog-bounded-master-write-parent-draft-and-dirty-state-preservation",
       "request-only-multiple-selected-print-preview-per-document-conditional-forms-named-pages-and-mobile-contained-tables",
-      "request-basic-print-six-headers-saved-supplier-custom-layout-preservation-and-single-preview-guards"
+      "request-basic-print-six-headers-saved-supplier-custom-layout-preservation-and-single-preview-guards",
+      "confirmed-request-explicit-tax-header-preservation"
     ],
     "supersedesCandidateCommit": "3d768fd320f19a06da86838c1855f2402989b249",
     "supersededCandidatePreserved": true,
