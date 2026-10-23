@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 35,
+  "officialRequirementsDecomposed": 36,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2526,6 +2526,58 @@
         "Own policy design must cover entry save, list transitions, convert/import, linked progress and legacy backups without silently changing existing users/documents; implementation only after contract evidence.",
         "EC-HELP-REQUEST-007 and008 full online manual bodies remain unread. Original session last known login; no authentication guessing or main-row/settings writes."
       ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.88.0",
+      "appChangeNeeded": true,
+      "productionDeployed": false
+    },
+    {
+      "id": "REQ-COM-SEARCH-001",
+      "sourceId": "EC-FAQ-86JR2FQBJVS73KN",
+      "title": "구매조회 퀵서치 Fn 검색기준 설정과 품명 검색",
+      "procedure": [
+        "구매조회 > 퀵서치 입력창 > Fn > 설정",
+        "검색기준 선택/명시 저장 후 품명 검색",
+        "Search(F3)의 품목 선택검색 유지"
+      ],
+      "expected": [
+        "검색 대상 기준을 설정하고 전표 JSON 전체 검색과 구분",
+        "구매/요청 고유 후보와 실제 적용 한도를 확인한 뒤 기존 조건/양식/계정·자료를 보존"
+      ],
+      "status": "confirmed-quick-search-settings-gap-conflicting-limit-and-business-metadata-gated",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-86JR2FQBJVS73KN",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86JR2FQBJVS73KN&page=3&category=purchase",
+        "question": "구매조회에서 품명으로 검색하는 항목이 없는데 어떻게 추가하나요?",
+        "bodySha256": "3b6260d868cbcc52942bba69dad57ff101df25729d6e9986157fa850180f828e",
+        "observedAt": "2026-10-23T01:55:20.776Z",
+        "fullAnswerRead": true,
+        "artifact": ".artifacts/manual-search-fields-20261023/official-faq.json"
+      },
+      "role": "Settings authorization and current company/business/user persistence require actual popup/server contract; not inferred from inventory.write",
+      "implementationEvidence": [
+        "evidence/manual-search-fields-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Readonly actual purchase/request Fn settings: complete candidates, current selection/defaults, grouping and applicable max count3 versus9.",
+        "Search matching semantics of configured slip targets versus basic-code picker and intersection with detailed search, paging, custom/linked fields.",
+        "Settings authorization, company/business/menu/user persistence scope, save revision/history and rebuild conflict handling.",
+        "Request search-item manual005 full body; public purchase quick-search FAQ is a separate source, not completion of005."
+      ],
+      "limitConflict": {
+        "publicFaqMaxCriteria": 3,
+        "cachedSetupCheckboxMaxCount": 9,
+        "cachedLocations": [
+          "setup.9656efa9.js:6542",
+          "setup.9656efa9.js:6726",
+          "setup.9656efa9.js:6857"
+        ],
+        "resolved": false,
+        "inference": "Possible documentation/product/menu/version scope difference; no verified cause. Neither number is installed as own policy."
+      },
       "done": false,
       "hostedAcceptance": false,
       "productionVersion": "0.88.0",

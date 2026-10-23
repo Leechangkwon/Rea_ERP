@@ -625,8 +625,8 @@
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 35,
-    "sourceBodiesReviewed": 30,
+    "officialRequirements": 36,
+    "sourceBodiesReviewed": 31,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "검색항목설정005의 미독 본문과 검색 설정 계약"
+      "nextIndependentManual": "My탭010 검색조건 즐겨찾기 미독 본문"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1519,13 +1519,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-005",
+      "sourceId": "EC-HELP-REQUEST-010",
       "requirement": null,
-      "title": "발주요청 검색항목설정의 미독 본문과 실제 검색 설정 계약",
-      "context": "확인 권한은 유형1–6/사용자·업무별 기본·예외·수정시상태 계약 확보 전 보류. 독립 미독005 검색항목설정 본문/공개 FAQ를 확인하고 저장된 조회 양식/검색조건과 대조한다. 원본 로그인 제한 시 공개 공식 자료를 사용하며 미확인 위치/동작을 추정하지 않는다.",
+      "title": "My탭 검색조건 즐겨찾기의 미독 공식 본문과 저장·보존 계약",
+      "context": "005/퀵서치는 실제 업무별 후보와 한도3/9 충돌·설정권한/보관 범위가 확인될 때 재개한다. 독립 미독010 My탭 검색조건 즐겨찾기를 공개 공식자료와 현재 검색/양식 구현으로 대조한다. 이미 분석한 quick-search helper/회귀를 변화 없이 반복하지 않는다.",
       "operatingVersion": "0.88.0",
-      "confirmationGateEvidence": "evidence/manual-confirmation-permission-20261023.json",
-      "legacyGates": "번호/로고/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
+      "quickSearchGateEvidence": "evidence/manual-search-fields-20261023.json",
+      "legacyGates": "confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1685,6 +1685,28 @@
       "implemented": false,
       "done": false,
       "resumeWhen": "Actual type1–6 table including initial confirmation, modification reset, manual confirm/unconfirm and affected business scope; do not infer purchase behavior from account etax or production examples. Default and ID/business exception evaluation priority, master/settings-admin bypass and separate authorization scope, readonly editor apply/save/cancel behavior."
+    },
+    "quickSearchCriteriaResearch": {
+      "requirement": "REQ-COM-SEARCH-001",
+      "status": "confirmed-quick-search-settings-gap-conflicting-limit-and-business-metadata-gated",
+      "evidence": "evidence/manual-search-fields-20261023.json",
+      "newOfficialBodies": 1,
+      "newOriginalScopes": 7,
+      "newOwnScopes": 3,
+      "limitConflict": {
+        "publicFaqMaxCriteria": 3,
+        "cachedSetupCheckboxMaxCount": 9,
+        "cachedLocations": [
+          "setup.9656efa9.js:6542",
+          "setup.9656efa9.js:6726",
+          "setup.9656efa9.js:6857"
+        ],
+        "resolved": false,
+        "inference": "Possible documentation/product/menu/version scope difference; no verified cause. Neither number is installed as own policy."
+      },
+      "implemented": false,
+      "done": false,
+      "resumeWhen": "Readonly actual purchase/request Fn settings: complete candidates, current selection/defaults, grouping and applicable max count3 versus9. Settings authorization, company/business/menu/user persistence scope, save revision/history and rebuild conflict handling."
     }
   },
   "preparedCandidate": {

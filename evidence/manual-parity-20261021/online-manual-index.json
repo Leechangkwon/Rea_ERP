@@ -1,7 +1,7 @@
 {
   "scope": "request context/manual index plus focused purchasing/closure bodies and4official public FAQ answers; not all ERP manuals",
-  "count": 60,
-  "bodyReviewed": 30,
+  "count": 61,
+  "bodyReviewed": 31,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -55,7 +55,15 @@
       "page": 1,
       "status": "index-only",
       "sourcePath": "재고 I > 구매관리 > 발주요청조회 > 도움말 > 온라인매뉴얼",
-      "observedDate": "2026-10-21"
+      "observedDate": "2026-10-21",
+      "latestBodyRecoveryAttempt": {
+        "date": "2026-10-23",
+        "bodyRecovered": false,
+        "publicSearch": "No exact official body found",
+        "originalSession": "login-required-checked-this-run",
+        "supplementalBodySource": "EC-FAQ-86JR2FQBJVS73KN",
+        "evidence": "evidence/manual-search-fields-20261023.json"
+      }
     },
     {
       "id": "EC-HELP-REQUEST-006",
@@ -639,6 +647,19 @@
       "bodySha256": "a1eb7ea4f405ce92e6892a1b4a527b91bdc267d1fdfd3b9cec7740add322679d",
       "localArtifact": ".artifacts/manual-confirmation-permission-20261023/supplemental-approval-faq.json",
       "scopeLimit": "Production material issue example; no assumption of purchase-specific default/reset/exception semantics",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-86JR2FQBJVS73KN",
+      "title": "구매조회에서 품명으로 검색하는 항목이 없는데 어떻게 추가하나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > 구매/발주 > 3페이지 > 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=86JR2FQBJVS73KN&page=3&category=purchase",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "3b6260d868cbcc52942bba69dad57ff101df25729d6e9986157fa850180f828e",
+      "localArtifact": ".artifacts/manual-search-fields-20261023/official-faq.json",
+      "scopeLimit": "Purchase list quick search; does not establish full request search-item manual005",
       "originalBusinessOrSettingsWrites": false
     }
   ]
