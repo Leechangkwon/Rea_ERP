@@ -1,6 +1,6 @@
 {
-  "version": "0.88.3",
-  "status": "deployed-closed-form-actions-blocked-preservation-verified-manual-parity-pending",
+  "version": "0.88.4",
+  "status": "deployed-direct-request-order-supplier-preservation-verified-manual-parity-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -92,7 +92,8 @@
     "Request-only currency inline registration restores old selection on cancel, selects successful new master, guards parent lifecycle and bounded own CAS advancement; separate parent save, existing KRW totals unchanged",
     "Request bottom print accepts2+ selected current-query requests with saved per-document conditional forms, named paper/orientation/margins and explicit guarded native printing; single print paths retained, hosted multi-request and original approval exclusions incomplete",
     "Built-in request print displays six saved header fields and stored line supplier names. Saved custom/conditional print layouts preserved; no current item/header supplier fallback; guarded single preview and native mobile/print layout.",
-    "Purchase-order input Option reuses existing plan→PO progress-rule editor with explicit section CAS, parent draft/raw preservation, scoped permissions and disposed-callback guards; existing linked plan-row core is unchanged."
+    "Purchase-order input Option reuses existing plan→PO progress-rule editor with explicit section CAS, parent draft/raw preservation, scoped permissions and disposed-callback guards; existing linked plan-row core is unchanged.",
+    "Selected request rows default an empty purchase-order header only when their resolved supplier is unique; explicit headers preserved; copy/linked/direct conversion tested without guessing mixed suppliers. evidence/manual-request-order-supplier-20261023.json"
   ],
   "checks": {
     "total": 998,
@@ -127,7 +128,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 131,
+    "currentReleaseBrowserSynthetic": 135,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -155,7 +156,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.88.2",
+    "currentReleaseFullRegressionVersion": "0.88.4",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -372,16 +373,41 @@
     "ordinaryFormRoleFocusedNodeTotal": 63,
     "ordinaryFormRoleNewBrowser": 2,
     "ordinaryFormRoleFullBrowser": 131,
-    "ordinaryFormRoleVerifyLocalPassed": true
+    "ordinaryFormRoleVerifyLocalPassed": true,
+    "directRequestOrderSupplier": {
+      "reference": "evidence/manual-request-order-supplier-20261023.json",
+      "focusedNodePassed": 48,
+      "newNodeTests": 6,
+      "preFixNodeFailed": 4,
+      "preFixNodePassed": 2,
+      "preFixNativeBrowserFailed": 1,
+      "preFixBrowserSetupCorrection": "Initial browser fixture retained the existing C001 default. The fixture explicitly cleared its header to reproduce the empty-header defect; corrected pre-fix Chromium then failed with an empty header. No implementation change before either reproduction.",
+      "newBrowserTests": 2,
+      "viewports": [
+        390,
+        1280
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 135,
+      "fullNodeSuitePassed": true,
+      "releaseBuildPassed": true,
+      "logs": [
+        ".artifacts/manual-request-order-supplier-20261023/pre-fix-tests.log",
+        ".artifacts/manual-request-order-supplier-20261023/pre-fix-browser-empty-header.log",
+        ".artifacts/manual-request-order-supplier-20261023/focused-tests.log",
+        ".artifacts/manual-request-order-supplier-20261023/focused-browser.log",
+        ".artifacts/manual-request-order-supplier-20261023/verify-local.log"
+      ]
+    }
   },
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-list-form-close-20261023.json",
+    "reference": "evidence/manual-request-order-supplier-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "031afde042eb285e817584475429a6eda8fd59b5",
-    "publicVersionVerified": "0.88.3",
+    "deployedSourceCommit": "8ce1113d17c73b7996eb89b3f5d372b254cab4b5",
+    "publicVersionVerified": "0.88.4",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -440,20 +466,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.3",
+    "existingSessionRetainedVersion": "0.88.4",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.3",
+    "lastExactBrowserBackupComparisonVersion": "0.88.4",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.3",
+    "currentServerStateAndMailPreservedVersion": "0.88.4",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.3",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.4",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -672,6 +698,14 @@
       "syntheticClosedActionSaveDefaultDeleteRejected": true,
       "productionSettingWrites": false,
       "preservationPassed": true
+    },
+    "directRequestOrderSupplier": {
+      "reference": "evidence/manual-request-order-supplier-20261023.json",
+      "deployed": true,
+      "syntheticSaveReloadVerified": true,
+      "hostedSaveVerified": false,
+      "runtimePid": 2561655,
+      "runtimeSession": 88108
     }
   },
   "manualParity": {
@@ -684,21 +718,22 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.3",
+      "productionVersion": "0.88.4",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "기확보035/036 재열람 없이 구매5단계 차이표 미완료 gate 재정렬",
+      "nextIndependentManual": "단가요청 비교확정 → 부분 발주 → 부분 구매 연결에서 선택 거래처·원본 품목행·잔량 보존을 현재 운영 코드와 대조한다. 이미 통과한 단일 helper/회귀는 변경이나 재현 결함 없이 반복하지 않는다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
       "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
-      "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc"
+      "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
+      "latestRequestOrderSupplierSourceRequired": "a58c75444cbf069313f8c81bd398ec32a40152e6"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "deployed-preservation-verified-hosted-write-and-full-manual-acceptance-pending",
+      "status": "0.88.4-direct-request-supplier-deployed-workflow-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
@@ -715,9 +750,13 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "Current workflow and roadmap front matter supersede this historical candidate entry.",
+      "nextWork": "단가요청 비교확정 → 부분 발주 → 부분 구매 연결에서 선택 거래처·원본 품목행·잔량 보존을 현재 운영 코드와 대조한다. 이미 통과한 단일 helper/회귀는 변경이나 재현 결함 없이 반복하지 않는다.",
       "authenticatedAcceptancePending": false,
-      "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json"
+      "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
+      "currentOperatingVersion": "0.88.4",
+      "latestEvidence": "evidence/manual-request-order-supplier-20261023.json",
+      "latestSourceCommit": "a58c75444cbf069313f8c81bd398ec32a40152e6",
+      "latestReleaseCommit": "8ce1113d17c73b7996eb89b3f5d372b254cab4b5"
     },
     "independentResearch": {
       "requirement": "REQ-PUR-PLAN-001",
@@ -2682,6 +2721,15 @@
       "newOriginalScopes": 0,
       "parseFailures": 0,
       "coverage": "unknown"
+    },
+    "directRequestOrderSupplier": {
+      "reference": "evidence/manual-request-order-supplier-20261023.json",
+      "newOwnScopes": 2,
+      "newOriginalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "mainCandidateWholeScopeEqual": false,
+      "unshippedRootVatPreserved": true
     }
   }
 }

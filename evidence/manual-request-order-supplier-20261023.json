@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-036",
+  "requirementId": "REQ-PUR-FLOW-001",
+  "title": "0.88.4 요청 직접 발주의 품목 구매처 자동 반영",
+  "status": "deployed-direct-request-supplier-inheritance-preservation-verified-full-workflow-acceptance-pending",
+  "version": "0.88.4",
+  "sourceCommit": "a58c75444cbf069313f8c81bd398ec32a40152e6",
+  "releaseCommit": "8ce1113d17c73b7996eb89b3f5d372b254cab4b5",
+  "releaseBranch": "release/0.88.4-request-order-supplier",
+  "releaseDirectory": ".artifacts/releases/0.88.4-request-order-supplier",
+  "workerSha256": "fcba38981cc8f75bc9759ae817f2de33abde8c4768eacd776d5ee236669c5bf9",
+  "pushed": true,
+  "verifyLocalExit": 0,
+  "previousWorkerSha256": "540c1fb2944e8c242e20825f63f5c9e27343f280ea1caedca2f0bf400d345197",
+  "previousReleaseEvidence": "evidence/manual-list-form-close-20261023.json",
+  "change": "발주요청에서 발주서로 바로 불러올 때 선택 품목행의 구매처가 한 곳이어도 빈 발주서 거래처가 채워지지 않아 저장이 막히던 결함을 재현했다. 발주계획에만 있던 구매처 기본 반영을 요청 직접 경로에도 적용했다. 명시한 발주서 거래처는 유지하고 복수/미지정 구매처는 임의 선택하지 않는다. 업무 schema와 저장된 과거 전표는 변경하지 않았다.",
+  "scope": [
+    "InventoryCore.convert request→purchaseorder sole-supplier fallback",
+    "EntryCore.stageDocuments copy/linked selected request rows → empty order header",
+    "No schema, business-record migration, CSS, quantity rounding or VAT5 change"
+  ],
+  "referenceBasis": [
+    "Previously reviewed EC-HELP-REQUEST-036 optional purchase stages",
+    "User requested item registered-supplier defaults and explicit manual overrides",
+    "Existing operating plan→purchaseorder sole-supplier policy"
+  ],
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "validation": {
+    "focusedNodePassed": 48,
+    "newNodeTests": 6,
+    "preFixNodeFailed": 4,
+    "preFixNodePassed": 2,
+    "preFixNativeBrowserFailed": 1,
+    "preFixBrowserSetupCorrection": "Initial browser fixture retained the existing C001 default. The fixture explicitly cleared its header to reproduce the empty-header defect; corrected pre-fix Chromium then failed with an empty header. No implementation change before either reproduction.",
+    "newBrowserTests": 2,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 135,
+    "fullNodeSuitePassed": true,
+    "releaseBuildPassed": true,
+    "logs": [
+      ".artifacts/manual-request-order-supplier-20261023/pre-fix-tests.log",
+      ".artifacts/manual-request-order-supplier-20261023/pre-fix-browser-empty-header.log",
+      ".artifacts/manual-request-order-supplier-20261023/focused-tests.log",
+      ".artifacts/manual-request-order-supplier-20261023/focused-browser.log",
+      ".artifacts/manual-request-order-supplier-20261023/verify-local.log"
+    ]
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 2,
+    "newOriginalScopes": 0,
+    "reusedOriginalScopes": 0,
+    "mainCandidateScopeEqual": false,
+    "mainSourceSha256": null,
+    "file": [
+      "/home/lck/projects/Rea_ERP/.artifacts/validation/request-order-supplier-20261023/dist/inventory-core.js",
+      "/home/lck/projects/Rea_ERP/.artifacts/validation/request-order-supplier-20261023/dist/entry-core.js"
+    ],
+    "sourceSha256": [
+      "432e054bdd0f98d16dadf1211dc0ace63ead35facf163ec49e40ac814fc974d1",
+      "5a58a5a751096710737fd58581aa6fd88e5007def6448d415995db6ab986be51"
+    ],
+    "scopes": [
+      {
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/request-order-supplier-20261023/dist/inventory-core.js",
+        "sourceSha256": "432e054bdd0f98d16dadf1211dc0ace63ead35facf163ec49e40ac814fc974d1",
+        "fragmentSha256": "db3a01d57b4193c73fcdf393246d988b2e481c43b6c09e02d3fdc60de959159a",
+        "start": 44831,
+        "end": 47579,
+        "lineStart": 393,
+        "lineEnd": 418,
+        "mainScopeEqual": false
+      },
+      {
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/request-order-supplier-20261023/dist/entry-core.js",
+        "sourceSha256": "5a58a5a751096710737fd58581aa6fd88e5007def6448d415995db6ab986be51",
+        "fragmentSha256": "7440a5dd5c63b9628cd791300d547a8d13fb5cf686183fa105edd92f28d23cdf",
+        "start": 15101,
+        "end": 23016,
+        "lineStart": 159,
+        "lineEnd": 224,
+        "mainScopeEqual": false
+      }
+    ],
+    "resultSha256": "e86bd8e9e1367e79c9980334bcc0e6f8f46900e70fb8cf68ba679426da04d5bf",
+    "statistics": {
+      "relevant_files": 2,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 11755,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 2,
+      "visited_ast_nodes": 2348,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false,
+    "externalBindingsUnresolved": true
+  },
+  "rootScopeDifference": "Root convert includes unshipped VAT research. Whole function hash is deliberately not claimed equal; both source trees received only the scoped supplier predicate changes. Candidate is based on immutable0.88.3, never the root build.",
+  "runtime": {
+    "version": "0.88.4",
+    "linuxPid": 2561655,
+    "runtimeSession": 88108,
+    "workerSha256": "fcba38981cc8f75bc9759ae817f2de33abde8c4768eacd776d5ee236669c5bf9",
+    "localHealth": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "pollOrTerminateRuntimeSession": false
+  },
+  "hosted": {
+    "existingLoginRetained": true,
+    "workTabs": 1,
+    "publicVersion": "0.88.4",
+    "newWorkflowBusinessSaveVerified": false,
+    "settingsOrBusinessWrites": 0,
+    "mailSent": 0,
+    "screenshot": ".artifacts/manual-request-order-supplier-20261023/hosted-release.png",
+    "screenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/request-order-0884-hosted.png",
+    "syntheticScreenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/request-order-0884-synthetic.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.4",
+      "exactBytesEqual": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "existingLoginRetained": true,
+      "workTabsRetained": 1,
+      "hostedBusinessSavePerformed": false,
+      "hostedSettingsSavePerformed": false,
+      "syntheticWorkflowVerified": true
+    },
+    "serverAndMail": {
+      "version": "0.88.4",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupReference": ".artifacts/manual-request-order-supplier-20261023/predeploy-backup.json",
+    "publicChecks": 13,
+    "assetsMatchRelease": true,
+    "restorationApplied": false,
+    "candidates": {
+      "oldDirtyFileCount": 12,
+      "oldHeadStatusHashesExact": true,
+      "mapping088HeadCleanPreserved": true,
+      "dependencyLockOnlyTwoVersionFieldsChanged": true,
+      "newTestFilesRootCandidateEqual": true
+    }
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "work-tools-unexposed-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "cumulativePendingLocalUpdates": 108,
+    "lastVerifiedProgressVersion": "0.51.0",
+    "pendingBodyArtifact": ".artifacts/manual-request-order-supplier-20261023/moa-pending-request-order-supplier.html"
+  },
+  "remaining": [
+    "Original full optional-stage procedures, permission/save/preservation and real hosted business acceptance are unproven.",
+    "Explicit order header remains authoritative; mixed/missing suppliers are not guessed or automatically split.",
+    "Minimum purchase-unit and plan-quantity formulas, transaction-VAT5 and TC101P_01 mapping remain gated.",
+    "Mapping088 candidate must integrate history/role/form-close and this supplier fix before any release."
+  ],
+  "counters": {
+    "indexed": 77,
+    "bodyReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextWork": "단가요청 비교확정 → 부분 발주 → 부분 구매 연결에서 선택 거래처·원본 품목행·잔량 보존을 현재 운영 코드와 대조한다. 이미 통과한 단일 helper/회귀는 변경이나 재현 결함 없이 반복하지 않는다.",
+  "done": false
+}
