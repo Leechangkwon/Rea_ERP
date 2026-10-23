@@ -90,17 +90,24 @@
     document.getElementById('inventory-dialog')?.remove();const d=N('dialog',undefined,'inv-dialog');d.id='inventory-dialog';d.setAttribute('aria-label',title);const header=N('div',undefined,'inv-modal-head');header.append(N('h2',title),button('×',()=>d.close()));d.append(header);const body=N('div',undefined,'inv-modal-body');d.append(body);document.body.append(d);build(body,d);d.addEventListener('close',()=>d.remove());d.showModal();return d;
   }
   function openDocumentHistory(type){
-    documentHistoryDialog?.close();const focus=document.activeElement,today=C.today();
+    documentHistoryDialog?.close();
+    try{assertReturnSession();assertStorageCurrent();if(storageError)throw Error(storageError);}catch(e){ctx.toast(e.message);return null;}
+    const focus=document.activeElement,today=C.today(),ownerHost=host,ownerRoute=route.id,sourceRaw=dbSourceRaw,ownerRole=String(AuthUI.state()?.user?.roleId||'');let ended=false;
+    const assertCurrent=()=>{assertReturnSession();assertStorageCurrent();if(storageError)throw Error(storageError);if(ended||host!==ownerHost||!ownerHost.isConnected||route.id!==ownerRoute||dbSourceRaw!==sourceRaw||String(AuthUI.state()?.user?.roleId||'')!==ownerRole)throw Error('이력 조회 화면이나 계정 권한이 변경됐습니다. 화면을 다시 열어주세요.');};
     const d=modal(C.types[type]+' 이력조회',(box,dialog)=>{
       const filters=N('div',undefined,'inv-grid'),controls={from:input('이력 작업 시작일',today.slice(0,7)+'-01','date'),to:input('이력 작업 종료일',today,'date'),documentFrom:input('이력 전표 시작일','','date'),documentTo:input('이력 전표 종료일','','date'),partner:input('이력 거래처코드'),item:input('이력 품목코드'),warehouse:input('이력 창고코드'),project:input('이력 프로젝트코드'),employee:input('이력 담당자코드'),action:select('이력 행위',C.historyActions.map(x=>[x,x]),'','전체'),query:input('이력 검색어'),latest:input('최종이력만 검색',false,'checkbox')};controls.latest.checked=type!=='request';
       const labels={from:'작업일자부터',to:'작업일자까지',documentFrom:'전표일자부터',documentTo:'전표일자까지',partner:'거래처코드',item:'품목코드',warehouse:'창고코드',project:'프로젝트코드',employee:'담당자코드',action:'행위',query:'검색어',latest:'최종이력만 검색'};
       for(const [key,x]of Object.entries(controls))if(key!=='latest'||type!=='request')filters.append(field(labels[key],x));filters.hidden=true;
       const info=note('이후 성공한 구매 전표 변경부터 최신 200건을 보관합니다. 기존 로그·과거 이력·작업자·출력/발송 기록은 복원하지 않습니다. 자료는 현재 브라우저 업무 영역이며 서버 API 자료와 별도입니다. 발주서·구매의 최종이력은 보관된 전표별 마지막 기록을 먼저 고른 뒤 조건으로 검색합니다. 요청은 보관된 전체 기록을 검색합니다.');
       const status=note(''),error=N('p',undefined,'inv-note'),output=N('div');error.setAttribute('role','alert');let current;
+      const release=()=>{ended=true;current=null;output.replaceChildren();window.removeEventListener('storage',onStorage);};
+      const ensureCurrent=()=>{try{if(!dialog.isConnected)throw Error('닫힌 이력 조회 화면입니다. 다시 열어주세요.');assertCurrent();return true;}catch(e){release();status.textContent='';error.textContent=e.message;ctx.toast(e.message);if(dialog.isConnected)dialog.close();return false;}};
+      const onStorage=e=>{if((!e.storageArea||e.storageArea===localStorage)&&(e.key===storageKey||e.key===null))ensureCurrent();};
+      window.addEventListener('storage',onStorage);dialog.addEventListener('close',release,{once:true});
       const values=()=>Object.fromEntries(Object.entries(controls).map(([k,x])=>[k,x.type==='checkbox'?x.checked:x.value.trim()]));
-      const search=()=>{try{const next=C.documentHistory(db,type,values());current=next;error.textContent='';status.textContent='작업일자 '+next.filter.from+' ~ '+next.filter.to+' · '+next.records.length+'건 · 기록 시작 '+(next.startedAt||'기록 없음')+' · 이력 상세 미지원';output.replaceChildren(table(next.columns,next.rows,undefined,{plain:true}));return true;}catch(e){error.textContent=e.message;ctx.toast(e.message);return false;}};
-      const toggle=button('Search(F3)',()=>{filters.hidden=!filters.hidden;toggle.setAttribute('aria-expanded',String(!filters.hidden));if(!filters.hidden)controls.from.focus();});toggle.setAttribute('aria-expanded','false');
-      const exportButton=button('Excel (CSV)',()=>{if(current)csv(C.types[type]+' 이력',current.columns,current.rows,{plain:true});});
+      const search=()=>{if(!ensureCurrent())return false;try{const next=C.documentHistory(db,type,values());current=next;error.textContent='';status.textContent='작업일자 '+next.filter.from+' ~ '+next.filter.to+' · '+next.records.length+'건 · 기록 시작 '+(next.startedAt||'기록 없음')+' · 이력 상세 미지원';output.replaceChildren(table(next.columns,next.rows,undefined,{plain:true}));return true;}catch(e){error.textContent=e.message;ctx.toast(e.message);return false;}};
+      const toggle=button('Search(F3)',()=>{if(!ensureCurrent())return;filters.hidden=!filters.hidden;toggle.setAttribute('aria-expanded',String(!filters.hidden));if(!filters.hidden)controls.from.focus();});toggle.setAttribute('aria-expanded','false');
+      const exportButton=button('Excel (CSV)',()=>{if(ensureCurrent()&&current)csv(C.types[type]+' 이력',current.columns,current.rows,{plain:true});});
       box.append(info,toolbar(toggle),filters,toolbar(button('검색(F8)',search),exportButton,button('닫기',()=>dialog.close())),error,status,output);search();
       dialog.addEventListener('keydown',e=>{if(e.key==='F3'||e.key==='F8'||e.key==='Escape'){e.preventDefault();e.stopPropagation();if(e.key==='F3')toggle.click();else if(e.key==='F8')search();else dialog.close();}});dialog.addEventListener('cancel',e=>{e.preventDefault();dialog.close();});
     });
