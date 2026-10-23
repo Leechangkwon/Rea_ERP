@@ -1,0 +1,15 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),{JSDOM}=require('jsdom'),C=require('../dist/inventory-core.js'),F=require('../dist/form-core.js');
+function fixture(){
+ const dom=new JSDOM('<main id="target"></main>',{url:'https://synthetic.test',runScripts:'outside-only'}),w=dom.window,d=w.document,key='doc:request';let db=C.seed(),saves=0;
+ for(const id of ['normal','special'])db=C.command(db,'formSave',{key,context:'print',form:{id,name:id,fields:[F.field('memo','적요')],page:{...F.pageDefaults}}}).db;
+ db=C.command(db,'formActivate',{key,context:'print',id:'normal'}).db;
+ const user={id:'owner',loginId:'same-user',company:{code:'SYNTH'},roleId:'admin'};
+ w.AuthUI={state:()=>({user}),can:()=>true};w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;const dialog=this;queueMicrotask(()=>dialog.dispatchEvent(new w.Event('close')));};
+ for(const file of ['form-core.js','inventory-core.js','form-options.js'])w.eval(fs.readFileSync('dist/'+file,'utf8'));
+ const api=w.FormOptions.create({key,store:()=>db.settings.customization,commit:(op,payload)=>{db=w.InventoryCore.command(db,op,payload).db;saves++;return true;},repaint:()=>{}}),host=d.getElementById('target');api.register('print','인쇄 양식',[w.FormCore.field('memo','적요')]);api.mount(host,'print');
+ const dialog=()=>d.getElementById('form-options-dialog'),control=name=>{const node=[...d.querySelectorAll('[aria-label]')].find(n=>n.getAttribute('aria-label')===name);assert.ok(node,name);return node;},button=name=>{const node=[...dialog().querySelectorAll('button')].find(n=>n.textContent===name);assert.ok(node,name);return node;};
+ return {w,d,api,host,user,dialog,control,button,raw:()=>JSON.stringify(db),saves:()=>saves,close:()=>w.close()};
+}
+for(const action of ['양식 저장·적용','기본 양식 적용','선택 양식 삭제'])test('closed ordinary form rejects '+action+' before the native close event removes its DOM',()=>{const f=fixture();try{f.api.edit('print');f.control('양식명').value='cancelled unsaved';const actionButton=f.button(action),closed=f.dialog(),before=f.raw();closed.close();assert.equal(closed.open,false);assert.equal(closed.isConnected,true);actionButton.click();assert.equal(f.saves(),0);assert.equal(f.raw(),before);}finally{f.close();}});
+test('fresh form reopened after close still saves once and preserves unrelated records',()=>{const f=fixture();try{f.api.edit('print');f.dialog().close();f.api.edit('print');f.control('양식명').value='fresh form';const before=JSON.parse(f.raw());f.button('양식 저장·적용').click();assert.equal(f.saves(),1);const after=JSON.parse(f.raw());assert.equal(after.settings.customization.screens['doc:request'].forms.find(x=>x.id==='normal').name,'fresh form');assert.deepEqual(after.documents,before.documents);assert.deepEqual(after.masters,before.masters);assert.deepEqual(after.settings.customization.screens['doc:request'].forms.find(x=>x.id==='special'),before.settings.customization.screens['doc:request'].forms.find(x=>x.id==='special'));}finally{f.close();}});
