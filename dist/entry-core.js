@@ -143,6 +143,14 @@
     }
     return result;
   }
+  function applyPurchaseTaxHeader(result,source){
+    const types=['request','plan','purchaseorder','purchase'];if(!types.includes(result.type)||!types.includes(source.type))return;
+    if(source.transactionType!==undefined){
+      if(typeof source.transactionType!=='string'||source.transactionType.length>200)throw Error('원본 거래유형 코드를 확인하세요.');
+      result.transactionType=source.transactionType;
+    }
+    if(result.transactionType==='22'&&Number(result.vatRate??10)!==0)throw Error('거래유형과 부가세율을 함께 적용할 수 없습니다. 원본 머리 항목을 확인하세요.');
+  }
   function stagePurchaseHeader(db,draft,{documentId}={}){
     if(!draft||draft.type!=='purchase'||draft.id||draft.sourceId||(draft.lines||[]).some(line=>line.item))throw Error('상단 정보만 불러오기는 빈 신규 구매전표에서 사용하세요.');
     const source=sourceRecord(db,documentId);
@@ -153,7 +161,7 @@
     const custom=purchaseCustom(db,source,draft,'input',source.custom,draft.custom);if(Object.keys(custom).length)result.custom=custom;
     for(const [field,key] of [['partner','partners'],['employee','employees'],['project','projects'],['currency','currencies']])if(source[field])enabled(db,key,source[field]);
     for(const field of ['partner','warehouse','employee','project','currency','vatRate'])if(Object.hasOwn(source,field))result[field]=copy(source[field]);
-    result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
+    applyPurchaseTaxHeader(result,source);result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
     return result;
   }
   function stageDocuments(db,draft,options={}){
@@ -176,7 +184,7 @@
       const source=sources.get(ids[0]);for(const field of ['partner','warehouse','employee','project','currency','vatRate'])if(Object.hasOwn(source,field)&&!(mode==='linked'&&(source.type==='transfer'&&result.type==='sale'||quotedSource(db,source,result.type))&&field==='partner'))result[field]=copy(source[field]);
       if(mode==='linked')result.warehouse=C.linkedWarehouse(source,result.type);
       // An explicit default also overrides an earlier editor header when the source has no policy.
-      result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
+      applyPurchaseTaxHeader(result,source);result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
     }
     const source=sources.get(ids[0]);
     if(result.type==='purchaseorder'&&!result.partner&&[...sources.values()].every(d=>['request','plan'].includes(d.type))){const suppliers=selections.map(selection=>{const d=sources.get(selection.documentId),line=d.lines.find(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));return C.purchaseSupplier(db,line,d);});if(suppliers.every(Boolean)&&new Set(suppliers).size===1)result.partner=suppliers[0];}
