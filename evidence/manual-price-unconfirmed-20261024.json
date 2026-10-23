@@ -1,0 +1,307 @@
+{
+  "version": "0.88.13",
+  "status": "deployed-readonly-and-preservation-verified-manual-acceptance-pending",
+  "baselineProductionCommit": "1dcafeb63d4038a5232a163d6ef5bb7b838235af",
+  "reference": {
+    "observedAt": "2026-10-23T17:13:05.192654+00:00",
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=purchase&page=17&record_sid=7WCM4INM9P41GA4",
+    "title": "단가요청서가 있는데 발주서 입력 시 불러와지지 않습니다. 왜 이런가요?",
+    "visibleBody": "official-faq.txt",
+    "bodySha256": "d024bae62b579a645d416d9dee90bb459695e53aa75990c83daa417d2470c68f",
+    "screenshot": "official-faq.png",
+    "screenshotSha256": "f7a61a62833153071a379c693eb0ce040ee82a3b9509ef203e75b9a86196403b",
+    "observedContract": "Explicit confirmation/save before purchase-order price-request import.",
+    "boundedImplementationInference": "Reject ready comparison records with zero saved selections. Not proof of per-line behavior in partly confirmed records or supplier assignment for request-price selections.",
+    "originalErpWrites": false
+  },
+  "changes": [
+    "No-confirmation comparison records are excluded from order candidates and rejected by staging, conversion and first-save validation.",
+    "Explicit request-price confirmation remains usable; supplier is user chosen.",
+    "Legacy comparison-absent sources, partly confirmed behavior and saved orders retain existing preservation policies."
+  ],
+  "validation": {
+    "beforeNode": {
+      "total": 39,
+      "passed": 35,
+      "failed": 4
+    },
+    "beforeBrowser": {
+      "total": 2,
+      "failed": 2,
+      "widths": [
+        390,
+        1280
+      ]
+    },
+    "relatedNodePassed": 39,
+    "relatedBrowserPassed": 5,
+    "newNodeTests": 6,
+    "newBrowserTests": 2,
+    "fullRegressionPassed": true,
+    "fullBrowserPassed": 148,
+    "versionOnlyBumpAfterFullRegression": true,
+    "releaseChecks": 4,
+    "logs": {
+      "before-node.log": "6e7ded4fcbe2d518f9029b07013b57fa5276ee0cf1c03f4a09953c6f3731fc42",
+      "before-browser.log": "0943d2a335529ef543820f59707445ee32796034e689465c4208f9714d99fa18",
+      "after-node.log": "349f774b4bd5e5116cf618d8f0536744ecd7fc4044f30d499c706a501df61aa6",
+      "after-browser.log": "0f50c291058a34adb7947dea8ff0c6d288c5608d85bb1e5d94191030b0951af0",
+      "verify-local.log": "000e38aeea155d4b574a33a227c51fe74608a23f4ee40f78cc8795e0291d2315"
+    }
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 1,
+    "newOriginalScopes": 0,
+    "mainCandidateScopesEqual": true,
+    "wholeEntryCoreEqual": false,
+    "scopes": [
+      {
+        "symbol": "orderLines",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/price-unconfirmed-20261024/dist/price-request-core.js",
+        "sourceSha256": "b8482bdea4a56e07d2560bc5b91193c17411d069b1ab160a89e552d030a79025",
+        "fragmentSha256": "269e84816dd41f07868246525f936863e892bf45a0534b976b880f366197f3ec",
+        "lineStart": 202,
+        "lineEnd": 217
+      }
+    ],
+    "resultSha256": "4d104e1e8751d9be5e09a8e89e3f8e3e5cef057bd6480a1b742a591464d94dca",
+    "statistics": {
+      "relevant_files": 1,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 1542,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 1,
+      "visited_ast_nodes": 294,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false,
+    "wholePriceRequestCoreEqual": true
+  },
+  "originalStaticContext": {
+    "source": ".artifacts/manual-price-request-20261021/rea-final/rea-summary.json",
+    "cacheVerified": true,
+    "unchangedOriginalScope": {
+      "name": "_convertUrl",
+      "category": "original",
+      "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+      "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+      "start": 704352,
+      "end": 705685,
+      "lineStart": 14389,
+      "lineEnd": 14424,
+      "fragmentSha256": "40655d3fff0218135de55ce97b880d2c59fdfd06a2c163c66f2d2da2a78752fb",
+      "resultSha256": "f5d7b99e60ccc735a7f00425460352040ec1844af4ce34cdaefa6c5becd91613",
+      "statistics": {
+        "relevant_files": 1,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 1391,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 1,
+        "visited_ast_nodes": 62,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "bindingsOutsideScopeUnresolved": true,
+      "runtimeEquivalence": false
+    },
+    "newOriginalScopes": 0,
+    "newOriginalDownloaded": false,
+    "originalRuntimeExecuted": false,
+    "note": "Routing context only; not comparison UI placement, supplier reply, permission, or confirmed-price storage proof.",
+    "verifiedAt": "2026-10-23T17:11:24.942Z"
+  },
+  "productionDeployed": true,
+  "productionBusinessWrites": false,
+  "originalBusinessWrites": false,
+  "manualDone": 0,
+  "communityPublished": false,
+  "limitations": [
+    "Original partially confirmed-row import visibility and first save are unverified.",
+    "Original supplier assignment for requested-price confirmation is unverified.",
+    "Existing no-comparison legacy behavior deliberately preserved pending contract.",
+    "No original business writes or authenticated production quote save acceptance.",
+    "Moa work-document tools absent; authentication not inferred."
+  ],
+  "sourceCommit": "22536b8363f421955d45732991f2dc27b8220eeb",
+  "releaseCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+  "workerSha256": "dcd54b6c3885a498f979d6c8e5e8bd10b86e53791e138cd34e8f39b5ec2327db",
+  "runtime": {
+    "pid": 2617676,
+    "persistentExecSession": 78012,
+    "neverPollOrTerminateExecSession": true
+  },
+  "deployment": {
+    "version": "0.88.13",
+    "sourceCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/purchasing-progress-settings-ui.js",
+        "status": 200,
+        "sha256": "915320106f73c92ecf8946bbff40b6e569b88826ac335b30aa6d180ad4387571",
+        "equalsLocal": true
+      },
+      {
+        "path": "/self-settings-ui.js",
+        "status": 200,
+        "sha256": "287ea8bc7529365f29115346e807d48c7097d36e32efc135202e997b97e21b51",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-core.js",
+        "status": 200,
+        "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.js",
+        "status": 200,
+        "sha256": "c928a81f674347eadddc2646efe63a50b2fdece285ccc3e561da59a0a47f6c3b",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.css",
+        "status": 200,
+        "sha256": "0efd905def4977deca1c4a6bb48ad84454b2de9a613ea32642b205375188bad6",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "766812d29dd0708ee745b7434dc9af35c1b1e89efca98390042dfb1a9454a821",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api-manual-data.js",
+        "status": 200,
+        "sha256": "f246cd34900a06cf2a72a05638cf996df21c241ea956af069f85826a64818b1e",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory.css",
+        "status": 200,
+        "sha256": "e851910059b3a2135dd6c8f399504164d502ff8cf7241f87c632045759aa4812",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "9fe74fd7c4df2a30e273fbdb19919501b48a59b796863caf24b82e3d46e91281",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-core.js",
+        "status": 200,
+        "sha256": "bf274499eb775c8f26ae42ebc5cc69bf17ab4af1250d8e21984366619c1c8a70",
+        "equalsLocal": true
+      },
+      {
+        "path": "/price-request-core.js",
+        "status": 200,
+        "sha256": "b8482bdea4a56e07d2560bc5b91193c17411d069b1ab160a89e552d030a79025",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchase-plan-core.js",
+        "status": 200,
+        "sha256": "1c0850c08d876fca11c33be154dc57b09a59cce7a46a7f829144f1023a891adf",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchase-plan-ui.js",
+        "status": 200,
+        "sha256": "ebf1bb53df211ab0793f38e6d6e8e43fc36b1ce039e1d4dbd96b28a8a74e1355",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchasing-plan-list-ui.js",
+        "status": 200,
+        "sha256": "d3a92f36f3813e9494f9babfe8a1cab61f28af8e12d8c6bb69d98918daf69722",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      }
+    ]
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.13",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "comparisonRecords": 0,
+      "authenticatedSessionRetained": true,
+      "workTabs": 1,
+      "selectedDocuments": 0,
+      "readonlyFlow": "purchase-order input > price-request picker (0 rows) > cancel > close added worktab; original request tab/menu collapse restored",
+      "businessSaved": false,
+      "settingsSaved": false,
+      "actualSend": false
+    },
+    "serverAndMail": {
+      "version": "0.88.13",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "oldDirtyMappingFiles": 12,
+    "oldDirtyMappingExactPreserved": true
+  },
+  "releaseManifest": ".artifacts/manual-price-unconfirmed-20261024/release-manifest.json",
+  "manualCounts": {
+    "indexed": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "newOfficialFaq": 1,
+    "allDone": false
+  },
+  "nextWork": "부분 확정 단가요청의 미확정행 노출·불러오기와 요청가 확정 행의 거래처 지정 계약을 공식 근거로 좁혀 확인한다. 확정0개 차단과 이미 합격한 저장 회귀는 변화 없이 반복하지 않는다. VAT5 5충돌·최소구매단위·TC101P_01 원본/운영 수락 gate 유지."
+}
