@@ -673,7 +673,16 @@
     },
     "listTabPaginationNewNode": 3,
     "listTabPaginationRelatedNode": 40,
-    "listTabPaginationNewBrowser": 2
+    "listTabPaginationNewBrowser": 2,
+    "inputRouteContractResearch": {
+      "reference": "evidence/manual-input-route-20261024.json",
+      "reaParseFailures": 0,
+      "syntheticScenarios": 3,
+      "envCheckPassed": true,
+      "fullApplicationRegressionRerun": false,
+      "productionWorkerUnchanged": true,
+      "reusedPriorOriginalScopes": 4
+    }
   },
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
@@ -1066,7 +1075,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "012의 실제 V5 메뉴 metadata·원문·권한/취소/저장 보존은 새 근거 확보 시 재개한다. 다음 독립 항목016 입력경로 검색의 공개 코드와 현재 전표 출처 정보를 대조한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
+      "nextIndependentManual": "016의 기존 요구사항 REQ-COM-INPUTPATH-001과 inventory V3 분석을 재사용한다. 실제 구매 메뉴의 data_input_type_search 값·선택/기본/복수/미선택 의미·생성 기록/편집 보존/권한 근거 확보 시 재개한다. 다음 독립017은 기존 조사부터 검색한 뒤 거래처·품목 조회 누락을 등록 사용상태·검색 조건/권한·양식으로 분리 대조한다.012·부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1085,7 +1094,8 @@
       "listTabContractResearchEvidence": "evidence/manual-price-partial-contract-20261024.json",
       "listTabSettingsResearchEvidence": "evidence/manual-list-tab-settings-20261024.json",
       "latestStatusTabPaginationSourceRequired": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
-      "listTabQueryEvidence": "evidence/manual-list-tab-pagination-20261024.json"
+      "listTabQueryEvidence": "evidence/manual-list-tab-pagination-20261024.json",
+      "inputRouteResearchEvidence": "evidence/manual-input-route-20261024.json"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1106,7 +1116,7 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "012의 실제 V5 메뉴 metadata·원문·권한/취소/저장 보존은 새 근거 확보 시 재개한다. 다음 독립 항목016 입력경로 검색의 공개 코드와 현재 전표 출처 정보를 대조한다. 부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
+      "nextWork": "016의 기존 요구사항 REQ-COM-INPUTPATH-001과 inventory V3 분석을 재사용한다. 실제 구매 메뉴의 data_input_type_search 값·선택/기본/복수/미선택 의미·생성 기록/편집 보존/권한 근거 확보 시 재개한다. 다음 독립017은 기존 조사부터 검색한 뒤 거래처·품목 조회 누락을 등록 사용상태·검색 조건/권한·양식으로 분리 대조한다.012·부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
       "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
       "currentOperatingVersion": "0.88.14",
@@ -2610,6 +2620,25 @@
       "setupSaveIntegrated": false,
       "hostedMultiPageAcceptance": false,
       "done": false
+    },
+    "inputRouteResearch": {
+      "reference": "evidence/manual-input-route-20261024.json",
+      "sourceId": "EC-HELP-REQUEST-016",
+      "exactBodyRecovered": false,
+      "officialSupplementalBodies": 1,
+      "originalScopes": 4,
+      "ownDeployedScopes": 3,
+      "syntheticScenarios": 3,
+      "purchaseMenuMetadataVerified": false,
+      "legacyBackfillAllowed": false,
+      "appIntegrated": false,
+      "canApply": false,
+      "done": false,
+      "priorEvidence": "evidence/manual-input-path-20261023.json",
+      "reobservedOfficialBodies": 1,
+      "reusedOriginalScopes": 4,
+      "existingInventoryProjectionVerified": true,
+      "actualSelectionResourceVerified": false
     }
   },
   "preparedCandidate": {
@@ -2852,6 +2881,22 @@
       "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFH194A353QE7&page=551",
       "bodySha256": "bcb5fd79936e05958e4728c19831caf88bd758d04e1cb5da0ca9d1c845f72165",
       "originalPartialContractVerified": false
+    },
+    "inputRouteFaqs": {
+      "reference": "evidence/manual-input-route-20261024.json",
+      "sourceIds": [
+        "EC-FAQ-86JR58OQHOB73I6",
+        "EC-FAQ-8717L1QBF627LVT"
+      ],
+      "urls": [
+        "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86JR58OQHOB73I6",
+        "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717L1QBF627LVT&page=4&category=groupware"
+      ],
+      "purchaseRouteContractVerified": false,
+      "exact016Body": false,
+      "newBodies": 1,
+      "reobservedBodies": 1,
+      "priorEvidence": "evidence/manual-input-path-20261023.json"
     }
   },
   "additional_REA_scope_evidence": {
@@ -3382,6 +3427,16 @@
       "coverage": "unknown",
       "truncated": false,
       "originalExecuted": false
+    },
+    "inputRouteAndLineage": {
+      "reference": "evidence/manual-input-route-20261024.json",
+      "originalScopes": 4,
+      "ownScopes": 3,
+      "newOriginalBodies": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "originalExecuted": false,
+      "reusedPriorOriginalScopes": 4
     }
   }
 }

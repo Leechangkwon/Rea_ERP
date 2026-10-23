@@ -27,3 +27,7 @@
 실제 계약·계정/권한·실패 복구·멱등성·장비 출력과 보존을 확인한다. 합성/localhost 검증과 실제 API/기기 검증을 나눈다. **왜:** 외부 시스템을 호출하지 않은 검사를 송신·호환·기기 합격으로 표시할 수 없기 때문이다.
 
 근거: [P9 로드맵](../manual-parity/ROADMAP.md), [API 계약](../api-contract.md), [업로드 진행 기록](../manual-parity/PROGRESS.md), [최초 배치 수정](../plan-purchasing-supplier-layout-20261022.md), [태블릿 재수정](../plan-uiux-tablet-repair-20261022.md).
+
+## 2026-10-24 입력경로 근거 갱신
+
+입력경로016: 새 게시판 OAPI FAQ는 API 생성 경로를 설명한다. 기존 생산 FAQ와 재고 V3 INFLOW 투영은 재사용하고 actual resource/기록 계약 gate를 유지한다. 왜 업로드 검증을 완화하지 않는가: 공개 pre-executor의 B/E/A skip이 서버 전체 검증 부재를 뜻하지 않기 때문이다. 근거 [입력경로 조사](../../evidence/manual-input-route-20261024.json).

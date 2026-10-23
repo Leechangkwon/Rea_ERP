@@ -1,0 +1,353 @@
+{
+  "date": "2026-10-24",
+  "status": "input-route-and-document-linkage-contract-research-no-runtime-change",
+  "operatingVersion": "0.88.14",
+  "operatingSourceCommit": "ed72b2980dd4ac83c2b11e1d2e7df06285976646",
+  "operatingReleaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+  "sourceCommit": "4482f7e02e8103b6a19a8025ad5374d9d5d0142d",
+  "sourcePushed": true,
+  "researchOnly": true,
+  "sourceId": "EC-HELP-REQUEST-016",
+  "exactManualBodyRecovered": false,
+  "newOfficialSupplementalBodies": 1,
+  "officialSources": [
+    {
+      "id": "EC-FAQ-86JR58OQHOB73I6",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=production&page=2&record_sid=86JR58OQHOB73I6",
+      "question": "생산입고에서 웹자료올리기로 자료를 등록하면 작업지시서별진행현황에 기록이 반영되지 않습니다. 어떻게 해야 하나요?",
+      "htmlArtifact": ".artifacts/manual-input-route-20261024/production-faq.html",
+      "htmlSha256": "bcfb8cb405ce692aa2e67ad1f5cd79e431de5d835042f71e76f3b27e7dc2e0a2",
+      "visibleAnswerSha256": "583878f47b20e50ba57c74dad7bb0d12c70d0f27d24db9270e16a9c320345ba0",
+      "visibleBodyObserved": true,
+      "originalWrites": false,
+      "scope": "Production receiving only; separates upload route filtering from source work-order linkage fields.",
+      "exact016Body": false,
+      "newSource": false,
+      "previouslyReviewedEvidence": "evidence/manual-input-path-20261023.json",
+      "previousAnswerExactEqual": true
+    },
+    {
+      "id": "EC-FAQ-8717L1QBF627LVT",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717L1QBF627LVT&page=4&category=groupware",
+      "question": "게시판 검색 항목 중 입력경로 - OAPI는 무엇을 의미하나요?",
+      "htmlArtifact": ".artifacts/manual-input-route-20261024/oapi-faq.html",
+      "htmlSha256": "b13202c6760cc0e427d54c649ba08f9deeccc60106e208a382b554584bde54c1",
+      "visibleAnswerSha256": "d1b1ccbd6d48ba3f6d257ad3027c4ac22c152421fd0e20888955b8f1d2467381",
+      "visibleBodyObserved": true,
+      "originalWrites": false,
+      "scope": "Board only; OAPI is used for API-created posts; no purchase code mapping is established.",
+      "exact016Body": false,
+      "newSource": true
+    }
+  ],
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 4,
+    "newOwnScopes": 3,
+    "originalSources": [
+      {
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+        "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "bytes": 5268253,
+        "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json"
+      }
+    ],
+    "scopes": [
+      {
+        "category": "original",
+        "symbol": "CheckValidRowProgram",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 109131,
+        "end": 113940,
+        "lineStart": 2593,
+        "lineEnd": 2695,
+        "fragmentSha256": "378c0a7ad93748d249e94e09d276bfe80b555848c6ef7606c3e0d6adc94c1ba2",
+        "inputFile": "original-CheckValidRowProgram.js",
+        "inputSha256": "9b149bd83b56725a993ada710b9b62df8bfa3b399f6d39fccf2ba64e6e9c4a53",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "SlipDetailRowFilterAttrProgram",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 119360,
+        "end": 122729,
+        "lineStart": 2794,
+        "lineEnd": 2860,
+        "fragmentSha256": "74a62795f1a3db727e3748ca26e6a73b7f4f1f7cd039708c3b5922184762c5d3",
+        "inputFile": "original-SlipDetailRowFilterAttrProgram.js",
+        "inputSha256": "3ab35b7db2510cd1ae5e7a155b45f86e28afc5ce909329c43ffdfe583a9a09af",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "CheckDataUploadProgram",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 132857,
+        "end": 136605,
+        "lineStart": 3047,
+        "lineEnd": 3125,
+        "fragmentSha256": "eb1cf8f89de78fe8ad17562500b565bb15719d89b44c100e3b1e790df2741493",
+        "inputFile": "original-CheckDataUploadProgram.js",
+        "inputSha256": "d467507bd314f5282bd25e1e5eb1e76500ed9db7ba82d4f8c01c3741646ded28",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "original",
+        "symbol": "ConvertSearchConditionV3AccountProgram",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 4080375,
+        "end": 4092623,
+        "lineStart": 85558,
+        "lineEnd": 85768,
+        "fragmentSha256": "397f6dba4b5d8765449d58d4b2369965b37feb7fdc1004a817a47f469a298a20",
+        "inputFile": "original-ConvertSearchConditionV3AccountProgram.js",
+        "inputSha256": "d774a36be30e9be045c88ab1bf7da60e47b655c557267fbe82bb8b24514bcbab",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "saveDoc",
+        "file": ".artifacts/releases/0.88.14-list-tab-page/dist/inventory-core.js",
+        "sourceSha256": "9fe74fd7c4df2a30e273fbdb19919501b48a59b796863caf24b82e3d46e91281",
+        "start": 39052,
+        "end": 44828,
+        "lineStart": 352,
+        "lineEnd": 392,
+        "fragmentSha256": "2cd07601b80fee0c22d12e9195c3b9b298b30f7ec6378944bf2b4ce833415344",
+        "inputFile": "own-saveDoc.js",
+        "inputSha256": "113e3f111cb6ae60447310e7605a1ce4c08571a47e380c6ce96eca52b830ee06",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "stageDocuments",
+        "file": ".artifacts/releases/0.88.14-list-tab-page/dist/entry-core.js",
+        "sourceSha256": "bf274499eb775c8f26ae42ebc5cc69bf17ab4af1250d8e21984366619c1c8a70",
+        "start": 15745,
+        "end": 23698,
+        "lineStart": 168,
+        "lineEnd": 233,
+        "fragmentSha256": "8fdc846928bc0df5afea39ce312beb1f279f5799d5d471a64580f18aa4c78775",
+        "inputFile": "own-stageDocuments.js",
+        "inputSha256": "18a9c58d97a9100a8454b764c7746bfe3f2487b0de87b38b201c41c7a88de87d",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "docFilters",
+        "file": ".artifacts/releases/0.88.14-list-tab-page/dist/inventory-ui.js",
+        "sourceSha256": "8898ee49ba1c18978393169e3d691283936b123874f831b1af11f0e3c9e44520",
+        "start": 53171,
+        "end": 55916,
+        "lineStart": 276,
+        "lineEnd": 284,
+        "fragmentSha256": "c0b41a84ec2a25be967cbd8309f9bf7077bed335042aade3ee99255a43f8c04a",
+        "inputFile": "own-docFilters.js",
+        "inputSha256": "abe50e73e0f3337363a6f9ab8867a653cde1119027932967daccef2ac752be03",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "7e70513add2157813e100a34cc7e527acc24c0bccdd15211408e25540ccd7951",
+    "statistics": {
+      "relevant_files": 7,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 43400,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 7,
+      "visited_ast_nodes": 6286,
+      "findings": 4,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "inactiveInventoryField": {
+    "source": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+    "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+    "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/inventory/inventory.d50be26e.js",
+    "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+    "lineStart": 26353,
+    "lineEnd": 26370,
+    "fragmentSha256": "20c5e0b87c680edd32732b382230d6dd527f0f0f782143b48372705bcdccfa8d",
+    "insideHtmlComment": true,
+    "commentMentionsUnsupportedFieldOptionConverter": true,
+    "activeControlOrActualMenuProven": false
+  },
+  "findings": [
+    {
+      "scope": "previously established inventory projection, revalidated rather than reanalyzed",
+      "fact": "ConvertSearchConditionV3Program forwards inv_s$data_input_type as INFLOW. The shared render-items resolver refers to the separately supplied data_input_type_search resource and checkbox/all metadata. CtxRuntimeBase current context defaults to I/Web, which is not proof of historical document origin.",
+      "originalScopesReused": 4,
+      "remainingGate": "Actual resource values, menu availability/default/empty/all semantics, creation assignment and preservation on edit, server filter/permission/persistence."
+    },
+    {
+      "scope": "retained common upload guards",
+      "fact": "CheckValidRowProgram/SlipDetailRowFilterAttrProgram/CheckDataUploadProgram distinguish EN_DATA_INPUT_TYPE B(DataUpLoad), E(DataUploadExcel), A(Api). These are flow contexts, not a complete enum or purchase search-option mapping.",
+      "policy": "Do not copy original upload/API validation skip into the independent application."
+    },
+    {
+      "scope": "account query bridge only",
+      "fact": "ConvertSearchConditionV3AccountProgram gets the data_input_type refer-type value, concatenates selected values with U+222C, and sends INFLOW.",
+      "purchaseEquivalentProven": false
+    },
+    {
+      "scope": "retained inventory search layout string",
+      "fact": "The observed inv_s$data_input_type field block is inside an HTML comment referring to an unsupported option converter. It does not prove a rendered purchase search control."
+    },
+    {
+      "scope": "own deployed 0.88.14",
+      "fact": "docFilters has no input-route selector. saveDoc clones the input and preserves quantity-link/source semantics. stageDocuments(copy) can produce a document without sourceId, as can a direct document command. sourceId is not an input-channel indicator."
+    },
+    {
+      "scope": "own web upload review",
+      "fact": "The deployed request upload UI is a review-only flow and does not save business documents. It cannot provide saved upload-origin fixtures or original channel defaults."
+    }
+  ],
+  "syntheticProof": {
+    "operatingVersion": "0.88.14",
+    "scenarios": [
+      "document-command",
+      "content-copy-stage",
+      "linked-convert-command"
+    ],
+    "scenariosPassed": 3,
+    "commandInputsUnchanged": true,
+    "copyHasNoQuantityLink": true,
+    "linkedHasSourceId": true,
+    "recordedInputRouteAbsentInAllThree": true,
+    "inputChannelNotInferred": true,
+    "originalExecuted": false,
+    "operatingOrStorageWrites": false,
+    "meaning": "Own isolated objects only: sourceId expresses quantity linkage, and absence of sourceId cannot distinguish direct entry from copied content. These objects do not establish original input-route categories or menu defaults."
+  },
+  "validation": {
+    "envCheckPassed": true,
+    "boundedOriginalScopes": 4,
+    "boundedDeployedOwnScopes": 3,
+    "reaParseFailures": 0,
+    "newApplicationTests": 0,
+    "newBrowserTests": 0,
+    "fullApplicationRegressionRerun": false,
+    "reason": "No executable application or schema/CSS/package change. New analysis scopes and an isolated three-scenario proof were verified; previous production browser150 remains historical evidence.",
+    "syntheticProofScriptSha256": "c912f8316f5f2b81f683b6dd4c1a8f9b4ef66be43c262a9a3cf14ba075941422",
+    "syntheticProofResultSha256": "cd7437b5f0f94687b20d1a4d289c05669ee409254c5001428698b572330871cf",
+    "officialBodyObservationSha256": "2614bbb35da65d7afb2590176a43eb1b58664a2239dec81bb37966ca72bc4d18",
+    "envLogSha256": "38d72bf3e7a340a3df1b6a6d700ad2afe90f91cc38cde7e1eb467b530c784ffb",
+    "previousProductionFaqBodyExactEqual": true,
+    "reusedPriorOriginalScopes": 4
+  },
+  "sourceAvailability": {
+    "boundedRetainedManifestJavaScriptFilesSearched": 17,
+    "entireCorpusAudit": false,
+    "newOriginalJsBodies": 0,
+    "publicOriginalJsExecuted": false,
+    "initialBoundedSearchOnlyArrayStyleManifests": true,
+    "priorDictionaryManifestAndItsScopesSeparatelyVerified": true
+  },
+  "preservation": {
+    "workerSha256": "6d245a902ea3c2d70d651e220f5f71cc285fa949db6947534dc680fb9e1d3690",
+    "workerUnchanged": true,
+    "runtimePid": 2626249,
+    "persistentExecSessionNeverPoll": 21557,
+    "dirtyMappingFilesExactPreserved": 12,
+    "appOrSettingsOrBusinessOrMailWrites": false,
+    "serverDataReadbackRepeatedThisRun": false,
+    "priorPreservationEvidence": "evidence/manual-list-tab-pagination-20261024.json"
+  },
+  "limitations": [
+    "Exact016 manual body, actual purchase menu labels/code/default/empty/multiple semantics are unverified.",
+    "The inventory V3 client field projection was already established in prior evidence; its server filtering/storage/permission and actual purchase selection-resource contract remain unverified.",
+    "Original account bridge and board FAQ are different business scopes and cannot be applied to purchase by name similarity.",
+    "Existing documents cannot be backfilled as direct entry based on missing sourceId, and linked documents cannot be classified as API/upload solely from linkage.",
+    "Original session remains login-required as previously observed; no repeated login or auth bypass attempt."
+  ],
+  "appIntegrated": false,
+  "canApply": false,
+  "deploymentAttempted": false,
+  "productionDeployed": false,
+  "originalBusinessWrites": false,
+  "originalApiCalls": false,
+  "manualCounts": {
+    "indexed": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "allDone": false
+  },
+  "moa": {
+    "workDocumentToolsExposed": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "pendingLocalUpdates": 121,
+    "authenticationFailureInferred": false
+  },
+  "nextWork": "016의 기존 요구사항 REQ-COM-INPUTPATH-001과 inventory V3 분석을 재사용한다. 실제 구매 메뉴의 data_input_type_search 값·선택/기본/복수/미선택 의미·생성 기록/편집 보존/권한 근거 확보 시 재개한다. 다음 독립017은 기존 조사부터 검색한 뒤 거래처·품목 조회 누락을 등록 사용상태·검색 조건/권한·양식으로 분리 대조한다.012·부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.",
+  "reobservedOfficialBodies": 1,
+  "priorEvidence": "evidence/manual-input-path-20261023.json",
+  "reusedPriorAnalysis": {
+    "reaVersion": "6.4.0",
+    "reusedPriorOriginalScopes": 4,
+    "originalExecuted": false,
+    "reanalyzed": false,
+    "checks": [
+      {
+        "name": "Original_data_input_type_render_items",
+        "sourceFile": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "inputSha256": "d0ddbf32c2070ec33e872b5abbd72f7055619f3b38aed0c65db7f3bf26417f98",
+        "resultSha256": "80bfb3541cb3641e3f1168935db14fbc967e6bcec56e1bfc6cb4d3d22cf82760",
+        "coverage": "unknown",
+        "truncated": false
+      },
+      {
+        "name": "Original_data_input_type_multi_user_action",
+        "sourceFile": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "inputSha256": "f5c9744a6ded693d9ed4ae644ce5ebc366d101842413c6c47f52552776028b7a",
+        "resultSha256": "336bb33fb9cf6a8c9762204f0e38aacb4f74ced16111f12342abe712ecfd4375",
+        "coverage": "unknown",
+        "truncated": false
+      },
+      {
+        "name": "Original_input_type_default_context",
+        "sourceFile": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "inputSha256": "37d3c81f357cd1fbd1269828290415df8b10ed42088acfdb903ec4ec4d192b83",
+        "resultSha256": "41abb523e3cf3e5f40b62659bbd335dbe123fba932c107b041da5c6e9c55da0b",
+        "coverage": "unknown",
+        "truncated": false
+      },
+      {
+        "name": "Original_inventory_search_inflow",
+        "sourceFile": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "inputSha256": "4eca1165c6b1c495f698224485a6c2bdd81eb5abe630995573e460ed6e42d73c",
+        "resultSha256": "348200ddacdf7cd310f7dd4d0e868371867e397d41f1ecc9658bcdca74391877",
+        "coverage": "unknown",
+        "truncated": false
+      }
+    ],
+    "reference": "evidence/manual-input-path-20261023.json",
+    "manifest": ".artifacts/manual-input-path-20261023/source-manifest.json",
+    "verificationArtifact": ".artifacts/manual-input-route-20261024/reused-prior-scopes.json",
+    "verificationSha256": "279f7e3a8ea7737119625c6aa13a37079b94f63fd56088ecfbb3322e04f33ed9"
+  }
+}

@@ -1,6 +1,18 @@
 # 구매실 매뉴얼 기반 재현
 
-## 현재 인계 · 운영0.88.14 상태 탭 페이지 초기화
+## 현재 인계 · 입력경로016 근거 분리·운영0.88.14 유지
+
+입력경로016의 기존 요구사항 REQ-COM-INPUTPATH-001/evidence/manual-input-path-20261023.json을 현재0.88.14 기준으로 연결했다. 생산입고 FAQ는 이전 본문과 byte동일한 재관찰이며 새 근거는 게시판 OAPI FAQ1개다. 왜 정정했는가: 인계의016 큐가 기존 조사를 연결하지 않아 이미 확인한 자료를 신규로 세거나 더 약한 회계용 분석으로 대체할 수 있었기 때문이다. 새 요구사항/정확한016 본문은 추가하지 않는다.
+
+기존 원본4범위의 source/input/result 해시와 REA6.4 schema를 재검증하고 분석을 재실행하지 않았다. inventory ConvertSearchConditionV3Program의 inv_s$data_input_type→INFLOW 투영, 별도 data_input_type_search resource 공급·checkbox/all metadata, 현재 context I/Web 기본값은 이미 알려진 사실이다. 실제 resource 값/구매 메뉴 기본·복수/미선택·기록/편집 보존·권한·서버 필터는 계속 미확인이다. 이번 회계 bridge 분석과 주석 XML을 이 inventory 근거의 대체로 쓰지 않으며 I/Web을 과거 전표의 기본 분류로 백필하지 않는다.
+
+추가 원본4/운영자체3 REA범위 파싱실패0·coverage unknown·truncatedfalse, env검사와 고립 메모리3경로 확인을 마쳤다. 직접 작성과 내용 복사에는 sourceId가 없고 잔량 연결에는 생기며 세 객체에 입력경로 기록은 없다. 왜 필터/백필을 연결하지 않았는가: 수량 연결과 생성 채널은 별개이기 때문이다. 원본 B/E/A의 업로드/API 분기를 자체 검토의 필수/등록자료 검증 완화로 옮기지 않는다. 현재 웹자료올리기는 저장 없는 검토 경로다.
+
+앱·schema/CSS/package/운영 worker 변경·root전체빌드·새배포·업무/설정/메일 쓰기0, 운영0.88.14/PID2626249/지속세션21557 poll/terminate 금지다. dirty매핑12파일 exact보존. 직전150브라우저·계정/자료/양식/메일 보존 근거는 evidence/manual-list-tab-pagination-20261024.json이며 이번에 반복하지 않았다.016 index-only·누계77/47/44/0·전체완료false·모아121갱신 로컬대기. 근거 evidence/manual-input-route-20261024.json.
+
+다음: 016의 기존 요구사항 REQ-COM-INPUTPATH-001과 inventory V3 분석을 재사용한다. 실제 구매 메뉴의 data_input_type_search 값·선택/기본/복수/미선택 의미·생성 기록/편집 보존/권한 근거 확보 시 재개한다. 다음 독립017은 기존 조사부터 검색한 뒤 거래처·품목 조회 누락을 등록 사용상태·검색 조건/권한·양식으로 분리 대조한다.012·부분 확정·VAT5 5충돌·최소구매단위·TC101P_01 gate 유지.
+
+## 이전 인계 · 운영0.88.14 상태 탭 페이지 초기화
 
 발주요청·발주서·구매 조회에서 상태 탭을 누르면 이전 페이지가 남아 새 결과의 첫 행을 건너뛰는 결함을 수정했다. 공개 inventory의 PROGRESS_STATUS resolver는 첫 페이지로 초기화하고 확인값/진행상태를 복사한다. 현재 공통 requestList의 탭 클릭만 refresh(0)으로 변경했다. 왜: 서로 다른 결과 집합을 이전 페이지부터 보여 자료가 누락된 것처럼 보이는 혼란을 막기 위해서다. 적용 검색·미적용 초안·선택 전표·양식·정렬·업무자료를 보존한다.
 
