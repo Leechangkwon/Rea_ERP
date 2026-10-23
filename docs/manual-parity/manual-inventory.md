@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 인쇄 수량021의 기존 구현 부분
+
+[수량 소수점 표시 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCAVDW4ER861C&page=2&category=erp) 본문1개를 읽었다. 판매 인쇄의 가능한 표시설정 원인이며021 전체본문을 대체하지 않는다. 운영0.88의 기존 숫자표시4함수·검사와 원본REA3범위 근거를 재검증/재사용했다. 재구현/새검사/회귀/배포0, 목록70/본문40/요구사항41/최종합격0. 근거 `evidence/manual-print-quantity-20261023.json`.
+
 ## 2026-10-23 인쇄 기본값020와 별도 축소사용
 
 [판매현황 조건양식 기본값 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=1&record_sid=87VCB56AMIE85LB)와 [발주서 양식별 축소사용 기본값 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=2&record_sid=87VCAUCU7PI85T6) 본문2개를 읽었다. 전자는 판매현황 사례이며 후자는 발주서에도 명시 적용된다.020 정확한 본문은 index-only로 유지한다. 새REQ-COM-PRINT-001은 구현/renderer·권한/보관 확인 대기다. 원본REA3범위의 현재 전표 선택을 영구 기본값 저장으로 세지 않는다. 목록69/본문39/요구사항41/최종합격0. 근거 `evidence/manual-default-print-form-20261023.json`.

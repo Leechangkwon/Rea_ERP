@@ -364,7 +364,7 @@
     "planSourceProgressOptionNewNode": 5,
     "planSourceProgressOptionNewBrowser": 2
   },
-  "future_research": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전021 인쇄 수량 본문을 기존 숫자표시 요구사항·실제0.88/기존 검사 근거와 대조하며 같은 formatter/통과회귀를 반복하지 않는다.020 영구 기본값과 현재 인쇄창 양식 선택·양식별 축소사용을 분리했다. 축소사용은 공식FAQ로 새REQ-COM-PRINT-001을 등록했으나 renderer/default/권한·보관 계약 확보 전 CSS scale이나 schema 변경을 추정 설치하지 않는다. 매핑0.88 후보는 이미 검증/push했으며 TC101P_01/운영 수락검증 대기·미배포다. 운영0.88 유지·root build/main VAT5 설치 금지·전체완료false.",
+  "future_research": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전022 인쇄 시작위치 본문을 기존 용지/여백·실제0.88 출력 근거와 대조한다.021 수량 소수점 표시 부분은 운영0.88의 기존0.76 함수4개와 검사 근거로 대조해 재구현/재검사를 생략했다. 정확한021 전체본문/운영 양식저장 합격은 아니다. 기본 인쇄양식/축소사용·기존 gate와 매핑 TC101P_01/운영 수락검증 대기를 유지한다. 같은 formatter/회귀 반복·root build/main VAT5 설치 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-plan-source-status-20261023.json",
@@ -626,7 +626,7 @@
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
     "officialRequirements": 41,
-    "sourceBodiesReviewed": 39,
+    "sourceBodiesReviewed": 40,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "021 전표 인쇄 수량 확인; 기존 숫자표시 근거와 먼저 대조, 원본 로그인/모아 업무문서 도구 복구 응답 우선",
+      "nextIndependentManual": "022 전표 인쇄 시작위치; 기존 용지/여백 근거 우선, 원본 로그인/모아 도구 복구 응답 우선",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json"
     },
@@ -1335,7 +1335,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 69,
+    "onlineManualIndexItems": 70,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1530,10 +1530,11 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-021",
-      "title": "전표인쇄 시 수량이 이상하게 나오는 경우 확인할 사항",
-      "context": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전021 정확한 본문과 기존 숫자표시 요구사항·0.76 이후 구현/검사 근거를 먼저 대조한다. 같은 숫자 formatter/통과 회귀를 반복하지 않고 새 원본근거·실제 차이가 있을 때만 구현/검사한다.020 현재 선택과 영구 기본값, 새 축소사용은 별도 계약이며 임의 CSS scale/기본값 저장 의미 변경 금지.",
+      "sourceId": "EC-HELP-REQUEST-022",
+      "title": "전표 인쇄 시 인쇄가 시작되는 위치를 설정하는 방법",
+      "context": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전022 정확한 본문과 기존 페이지/여백·실제0.88 인쇄 근거를 먼저 대조한다. 인쇄 시작위치·양식 내부 셀/전자서명 위치·브라우저 프린터 여백을 혼동하지 않는다.021 소수점 표시 부분은 기존 구현/검사 근거를 재사용했으며 같은 formatter/회귀를 반복하지 않는다.",
       "operatingVersion": "0.88.0",
+      "quantityEvidence": "evidence/manual-print-quantity-20261023.json",
       "defaultPrintGateEvidence": "evidence/manual-default-print-form-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "legacyGates": "TC101P_01 editor/hosted acceptance; masterPermissions/inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/stamp/tableline/default-print/shrink contracts retained; no root build/install"
@@ -1762,7 +1763,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 96,
+      "pendingLocalUpdates": 97,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1867,6 +1868,21 @@
       "applicationChanged": false,
       "done": false,
       "communityPendingLocalUpdates": 96
+    },
+    "printQuantityResearch": {
+      "candidate": "CAND-COM-PRINTQTY-001",
+      "status": "related-sales-quantity-display-subset-already-implemented-exact021-and-hosted-save-pending",
+      "evidence": "evidence/manual-print-quantity-20261023.json",
+      "exact021BodyRead": false,
+      "newOfficialBodies": 1,
+      "newOfficialRequirements": 0,
+      "existingNumericFunctionsUnchangedSince076": true,
+      "newReaScopes": 0,
+      "reusedOriginalScopes": 3,
+      "applicationChanged": false,
+      "unchangedRegressionReruns": 0,
+      "done": false,
+      "communityPendingLocalUpdates": 97
     }
   },
   "preparedCandidate": {
@@ -2032,6 +2048,13 @@
       "sourceManifest": ".artifacts/manual-default-print-form-20261023/source-manifest.json",
       "newOfficialBodies": 2,
       "newPublicSourceBundles": 0,
+      "originalExecuted": false
+    },
+    "printQuantity": {
+      "reference": "evidence/manual-print-quantity-20261023.json",
+      "newOfficialBodies": 1,
+      "newPublicSourceBundles": 0,
+      "existingOriginalCacheReverified": true,
       "originalExecuted": false
     }
   },

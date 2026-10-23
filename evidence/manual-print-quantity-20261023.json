@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-021",
+  "candidate": "CAND-COM-PRINTQTY-001",
+  "title": "전표인쇄 시 수량이 이상하게 나오는 경우 확인할 사항",
+  "status": "related-sales-quantity-display-subset-already-implemented-exact021-and-hosted-save-pending",
+  "productionVersion": "0.88.0",
+  "exact021OfficialBodyRead": false,
+  "exact021IndexStatus": "index-only",
+  "officialBody": {
+    "id": "EC-FAQ-87VCAVDW4ER861C",
+    "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCAVDW4ER861C&page=2&category=erp",
+    "title": "수량을 인쇄하면 1.5로 입력한 수량이 2로 표시되는 원인은 무엇인가요?",
+    "fullBodyRead": true,
+    "bodyArtifact": ".artifacts/manual-print-quantity-20261023/quantity-faq.body.txt",
+    "bodySha256": "a60d28842f2b10203b997d5441153e0d2dd28fd8053becaff8d23755f98380e5",
+    "htmlArtifact": ".artifacts/manual-print-quantity-20261023/quantity-faq.html",
+    "htmlSha256": "2414ed12278d432dfc0d2e45bcf466022e3e2b74adcf5597868b2658e2adc1fc",
+    "settingsSaved": false
+  },
+  "newOfficialBodies": 1,
+  "newOfficialRequirements": 0,
+  "existingRequirements": [
+    "REQ-COM-FORMS-001",
+    "REQ-PUR-OUTPUT-001"
+  ],
+  "scope": "Official FAQ describes a possible sales-print quantity decimal display cause, not all causes or exact021 purchase/request manual. Existing own request print subset is separately evidenced.",
+  "officialProcedureSummary": [
+    "Open a sales voucher print preview and its form settings.",
+    "For the quantity field choose explicit display decimal places, explicitly apply/save, and recheck the same form output."
+  ],
+  "findings": [
+    "FAQ describes missing decimal display settings as a possible reason for1.5 being shown rounded as2; it does not say every quantity discrepancy has that cause.",
+    "Operating0.88 numericFormat/displayDigits/formatNumber/printTable function fragments are byte-equal to the shipped0.76 display implementation despite unrelated source-file additions.",
+    "Existing tests already cover independent selected print precision, raw document preservation, save/reload and CSV separation; no new test or repeat application regression was needed.",
+    "Changing display precision must not mutate saved quantities, calculations, inventory, CSV or upload business precision.",
+    "Exact021 full body, original print field rounding/zero/separator/permission/storage semantics and actual hosted form save remain unverified."
+  ],
+  "ownSources": [
+    {
+      "file": "dist/form-core.js",
+      "artifact": ".artifacts/manual-print-quantity-20261023/shipped-source/dist/form-core.js",
+      "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+      "unchangedSince076": false
+    },
+    {
+      "file": "dist/form-options.js",
+      "artifact": ".artifacts/manual-print-quantity-20261023/shipped-source/dist/form-options.js",
+      "sha256": "382385de477b708dc374b21fa5bccf042a09ab604aa4aa4734e1d53f91cd018b",
+      "unchangedSince076": false
+    },
+    {
+      "file": "dist/self-core.js",
+      "artifact": ".artifacts/manual-print-quantity-20261023/shipped-source/dist/self-core.js",
+      "sha256": "804d9a0f0f8acc7709cf653a03331b70cd67dea8e5ddb18b4776dde6fe521684",
+      "unchangedSince076": false
+    },
+    {
+      "file": "tests/form-numeric-display.cjs",
+      "artifact": ".artifacts/manual-print-quantity-20261023/shipped-source/tests/form-numeric-display.cjs",
+      "sha256": "19c1e45fdf62f7b600d82dce8538457b60479f438617c96e9348b3613ab9dd77",
+      "unchangedSince076": false
+    },
+    {
+      "file": "tests/browser/form-numeric-display.spec.cjs",
+      "artifact": ".artifacts/manual-print-quantity-20261023/shipped-source/tests/browser/form-numeric-display.spec.cjs",
+      "sha256": "9691c267cbb497debcd4593c897ca4655acb196b6e3fa0f1fb4be605fcd8fdbd",
+      "unchangedSince076": true
+    }
+  ],
+  "existingEvidenceAudit": ".artifacts/manual-print-quantity-20261023/existing-evidence-audit.json",
+  "existingImplementationEvidence": "evidence/manual-form-numeric-display-20261022.json",
+  "existingTestEvidence": {
+    "files": [
+      "tests/form-numeric-display.cjs",
+      "tests/browser/form-numeric-display.spec.cjs"
+    ],
+    "specificCase": "print precision follows the selected print form independently from list and preserves numeric sources",
+    "original076Checks": {
+      "newNodeTestsThen": 12,
+      "fullBrowserThen": 102,
+      "version": "0.76.0"
+    },
+    "operating088FullVerification": "evidence/manual-plan-source-status-20261023.json",
+    "rerunThisTurn": false,
+    "newTestCasesThisTurn": 0,
+    "historicalChecksAreNotNewHostedAcceptance": true
+  },
+  "rea": {
+    "version": "6.4.0",
+    "newScopes": 0,
+    "reusedOriginalScopes": 3,
+    "cacheAudit": ".artifacts/manual-print-quantity-20261023/existing-evidence-audit.json",
+    "inputConfigurationToolVersionManifestResultHashesAndEvidenceValidated": true,
+    "coverage": "unknown",
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false
+  },
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "pidPresent": true,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "workerUnchanged": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginResponsePending": true,
+    "moaWorkToolsExposed": false,
+    "sameLoginOrTokenReissueRequested": false,
+    "moaDiagnosticEvidence": "evidence/moa-plugin-1.0.2-verification-20261023.json"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 97,
+    "sameAuthenticationProbeRepeated": false
+  },
+  "counters": {
+    "indexedManuals": 70,
+    "sourceBodiesReviewed": 40,
+    "officialRequirements": 41,
+    "finalAcceptance": 0
+  },
+  "done": false
+}
