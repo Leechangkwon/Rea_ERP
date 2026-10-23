@@ -356,7 +356,9 @@
     },
     "requestPrintFieldsNewNode": 8,
     "requestPrintFieldsRelatedNode": 26,
-    "requestPrintFieldsNewBrowser": 2
+    "requestPrintFieldsNewBrowser": 2,
+    "dueDateOfficialContractNewNode": 2,
+    "dueDateOfficialContractShipped087CorePassed": true
   },
   "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.82.0 유지, 전체완료 false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
@@ -616,8 +618,8 @@
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 30,
-    "sourceBodiesReviewed": 24,
+    "officialRequirements": 32,
+    "sourceBodiesReviewed": 26,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -629,7 +631,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "EC-VID-13914 request print PDF button/action and output contract"
+      "nextIndependentManual": "발주요청 불러오기 뒤 발주계획 납기일 수정·원전표 보존 UI 대조"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -786,9 +788,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "requirement": "REQ-PUR-REQ-007",
+      "requirement": "REQ-PUR-PLAN-004",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "Inspect official request print preview PDF button output-type/file-name/action contract before connecting a local-only download. No original print/send, no repeated completed currency helper or unchanged regression.",
+      "description": "Check existing coverage then verify the actual synthetic plan-input UI import → independently edit due date → save/reload → original request unchanged and request report independent transaction-date/due-date filters. Add only missing checks or confirmed repairs; keep PDF/currency/BODY/upload/TC101P_01 gates.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1324,7 +1326,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 54,
+    "onlineManualIndexItems": 56,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1510,12 +1512,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-VID-13914",
-      "requirement": "REQ-PUR-REQ-007",
-      "title": "발주요청 인쇄창 PDF 출력형식·파일명/액션 계약 대조",
-      "url": "https://www.youtube.com/watch?v=6eQxoh6CKic&t=207s",
-      "context": "Inspect official request print preview PDF button output-type/file-name/action contract before connecting a local-only download. No original print/send, no repeated completed currency helper or unchanged regression.",
+      "sourceId": "EC-FAQ-8717OMB7BEB7MG1",
+      "requirement": "REQ-PUR-PLAN-004",
+      "title": "발주요청 불러오기 뒤 발주계획 납기일 수정·원전표 보존 UI 대조",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMB7BEB7MG1&page=14",
+      "context": "Check existing coverage then verify the actual synthetic plan-input UI import → independently edit due date → save/reload → original request unchanged and request report independent transaction-date/due-date filters. Add only missing checks or confirmed repairs; keep PDF/currency/BODY/upload/TC101P_01 gates.",
       "operatingVersion": "0.87.0",
+      "pdfGateEvidence": "evidence/manual-request-pdf-contract-20261023.json",
       "currencyGateEvidence": "evidence/manual-request-currency-consumers-20261023.json",
       "legacyMappingEditor": "TC101P_01 remains gated; unshipped mapping requires rebase on0.87.0."
     },
@@ -1599,6 +1602,31 @@
       "physicalPrinterOrAndroidVerified": false,
       "preservationPassed": true,
       "communityPendingLocalUpdates": 81,
+      "done": false
+    },
+    "requestPdfContractResearch": {
+      "reference": "evidence/manual-request-pdf-contract-20261023.json",
+      "status": "entry-preparation-permission-mapped-downloader-module-gated",
+      "newOriginalScopes": 7,
+      "newOwnScopes": 0,
+      "appChanged": false,
+      "newDownloads": 0,
+      "originalSessionLoginRequired": true,
+      "resumeWhen": "Verified loaded print$DownloadPdfProgram asset/body or official readonly PDF download result/procedure. Do not guess URL or equate security-history title with filename.",
+      "done": false,
+      "communityPendingLocalUpdates": 82
+    },
+    "dueDateManualContract": {
+      "reference": "evidence/manual-request-pdf-contract-20261023.json",
+      "requirements": [
+        "REQ-PUR-REQ-008",
+        "REQ-PUR-PLAN-004"
+      ],
+      "officialFaqFullBodies": 2,
+      "newUniqueNodeTests": 2,
+      "rootAndShipped087CorePassed": true,
+      "appChanged": false,
+      "browserAndHostedAcceptance": false,
       "done": false
     }
   },
@@ -1743,6 +1771,15 @@
       "quality": "1080p",
       "fullBodyReviewed": false,
       "newOriginalDownloads": 0
+    },
+    "dueDateOfficialFaq": {
+      "reference": "evidence/manual-request-pdf-contract-20261023.json",
+      "newFaqFullBodies": 2,
+      "sourceIds": [
+        "EC-FAQ-8717OMCDD7E7MGA",
+        "EC-FAQ-8717OMB7BEB7MG1"
+      ],
+      "noOriginalBusinessWrites": true
     }
   },
   "additional_REA_scope_evidence": {
@@ -2003,6 +2040,18 @@
       "fullModuleCoverage": false,
       "runtimeEquivalence": false,
       "summary": ".artifacts/manual-request-print-fields-20261023/rea/rea-summary.json"
+    },
+    "requestPdfContract": {
+      "reference": "evidence/manual-request-pdf-contract-20261023.json",
+      "version": "6.4.0",
+      "newOriginalScopes": 7,
+      "newOwnScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "runtimeEquivalence": false,
+      "fullModuleCoverage": false,
+      "summary": ".artifacts/manual-request-pdf-contract-20261023/rea/rea-summary.json"
     }
   }
 }

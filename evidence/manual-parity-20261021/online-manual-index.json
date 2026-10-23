@@ -1,7 +1,7 @@
 {
-  "scope": "request context index plus focused purchasing/closure bodies; not all ERP manuals",
-  "count": 54,
-  "bodyReviewed": 24,
+  "scope": "request context/manual index plus focused purchasing/closure bodies and2official public FAQ answers; not all ERP manuals",
+  "count": 56,
+  "bodyReviewed": 26,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -551,6 +551,30 @@
       "textBodyAvailable": false,
       "videoReviewed": false,
       "transcriptStatus": "connector returned Unexpected response type; no retry or body-completion claim",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717OMCDD7E7MGA",
+      "title": "발주요청입력 시 납기일자를 초과하면 전표 입력이 제한되나요?",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMCDD7E7MGA&page=14",
+      "status": "body-reviewed",
+      "sourcePath": "ECOUNT public FAQ > 구매/발주 > question detail",
+      "observedDate": "2026-10-23",
+      "bodySha256": "18765d3a1f955675ecdfdf5d5348a18c8a79ca1f5652f949870f6a314b36cff4",
+      "localArtifact": ".artifacts/manual-request-pdf-contract-20261023/independent-due-date-faq.json",
+      "fullAnswerRead": true,
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-8717OMB7BEB7MG1",
+      "title": "발주계획입력에서 발주요청을 불러온 다음 납기일자를 수정할 수 있나요?",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMB7BEB7MG1&page=14",
+      "status": "body-reviewed",
+      "sourcePath": "ECOUNT public FAQ > 구매/발주 > question detail",
+      "observedDate": "2026-10-23",
+      "bodySha256": "6f8f342d395d1228aca8605ac3dba5fd5015f73043d795126c65bf5308f6148a",
+      "localArtifact": ".artifacts/manual-request-pdf-contract-20261023/independent-due-date-faq.json",
+      "fullAnswerRead": true,
       "originalBusinessOrSettingsWrites": false
     }
   ]

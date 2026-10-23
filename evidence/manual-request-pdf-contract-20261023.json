@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-PUR-REQ-007",
+  "status": "pdf-entry-preparation-permission-contract-mapped-downloader-gated-existing-deadline-rules-verified",
+  "productionVersion": "0.87.0",
+  "sourceManifest": ".artifacts/manual-request-pdf-contract-20261023/source-manifest.json",
+  "newContractFindings": [
+    "Shared pdf_user_action_slip dispatches common$IDownloadSlipPdfUserAction, distinct from generic pdf_user_action. This descriptor alone does not prove every request UI button binding.",
+    "Slip PDF action collects route data_sids into SecurityHisrotyInfo, chooses slip grid model, awaits inventory$SetSlipPrintPageViewProgram and inventory$ApplyAllSlipPrintViewProgram, then dispatches common$IDownloadPdfUserAction.",
+    "SetSlipPrintPageViewProgram waits for rendering, caches templates and source bundles for all target slips; selection bundles are grouped by current template. ApplyAll builds each document, assembles all pages without current_page, mounts offscreen document identity for target IDs and can reuse a matching alive mount.",
+    "Common PDF requires v3 menu metadata/menu type/grid model, validates current runtime page and row counts, invokes AddGridAllRow, and forwards non-basic template margins/paper/dimensions/orientation/reduce settings. 50 or more pages OR2000 or more rows are rejected in this common entry validator. This is a source contract, not own runtime acceptance.",
+    "Print orientation H maps to L, otherwise P; size codes20 and1..6 map toA4,21A5,22B5,23Letter,Ucustom,7Auto. Default-basic settings are not overwritten by the non-basic branch.",
+    "DownloadPdfProgram receives EditMode18/ProgramId/GbTypeY/PFlag9/IsFromEdmsfalse/SecurityHisrotyInfo plus printSetupOption and customization screen type. No actual permission server response was invoked.",
+    "FileSecurityTitleInfoProgram builds a security-history description from menu/template and date range; this is not evidence of the downloaded filename. Actual binary/filename/download/error/timeout behavior remains in absent print$DownloadPdfProgram."
+  ],
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 0,
+    "newOriginalScopes": 7,
+    "reusedOriginalScopes": 0,
+    "fullModuleCoverage": false,
+    "results": [
+      {
+        "name": "Original_SlipPdfBinding",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "start": 1528591,
+        "end": 1528700,
+        "lineStart": 32296,
+        "lineEnd": 32300,
+        "fragmentSha256": "11bd48c3ae95a5cdd79c708617c24429ffdbc86260a949a3cfba72f35ad6d4a4",
+        "resultSha256": "b12cd830314ba8c9e858142e4c3548a7ce601f85470d9c083a9e831d9c741ba5",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 116,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 12,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_DownloadSlipPdfUserAction",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 2343851,
+        "end": 2345034,
+        "lineStart": 50666,
+        "lineEnd": 50683,
+        "fragmentSha256": "0cc2ae621dbdd17740e5d0d9920e6bd873ec31682b5d69afda54f2b185c936b3",
+        "resultSha256": "ab4daec4bf6dadd7fbc9fa38cc1135c80188d67a06e154e637b66fd4cc7048b8",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1241,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 125,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_DownloadPdfUserAction",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 2336037,
+        "end": 2342429,
+        "lineStart": 50512,
+        "lineEnd": 50645,
+        "fragmentSha256": "f40ca435b37a2bdcd8df192ca5af8e57d30917388e27f0a8058a1622a638b3c7",
+        "resultSha256": "07fb76444488a78a2025a8b23a140dff1eda08f2278bcb0fe43f1f74b495a33a",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 6564,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 578,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_FileSecurityTitleInfoProgram",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 4211446,
+        "end": 4214650,
+        "lineStart": 88001,
+        "lineEnd": 88054,
+        "fragmentSha256": "a5ffbdd8a9a5da09de1cbc5c3fcfbfcc20d71fe8d3e115c4c7d93c083e3f67da",
+        "resultSha256": "91643874b7666c0e8695b69316db7b8f16b3920444c57cab1de87a7a1933e2d7",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3204,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 338,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_PdfCustomizationScreenType",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 2342719,
+        "end": 2343230,
+        "lineStart": 50652,
+        "lineEnd": 50660,
+        "fragmentSha256": "61eae35b0a0779dbdcf07212ec63f82f648c52caf7d8034fb690582d0a321ec0",
+        "resultSha256": "8f439f8890ad5a59af986f8f0929cff5fd9a8223efbdd3719cacb580f81dbfdf",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 511,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 51,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_SetSlipPrintPageViewProgram",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 551586,
+        "end": 556772,
+        "lineStart": 11405,
+        "lineEnd": 11507,
+        "fragmentSha256": "0a6092282f51256c8baadd56e3546df788e346452b25d1debb7ddd673c25fd35",
+        "resultSha256": "5ac1d34937bd971ba0be861109ce5fb7ba00e593f989fc79448adb140d7e9275",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 5334,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 498,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_ApplyAllSlipPrintViewProgram",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/inventory.js",
+        "sourceSha256": "67fb4fe65eeb56cd14c8b699ecc4eebb9ee9402c7bea0706975fe10691508c35",
+        "start": 523091,
+        "end": 526109,
+        "lineStart": 10786,
+        "lineEnd": 10848,
+        "fragmentSha256": "de658495572d8abf9b2a9a0ce21e7e61888f8311ebb974c227a0ace2ccab218d",
+        "resultSha256": "66641d2ddd4b910792e3fa27d86a7990177ef7b95697c32acacc9088031d1247",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3553,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 269,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "independentManualFindings": {
+    "fullOfficialFaqBodiesRead": 2,
+    "records": [
+      {
+        "sourceId": "EC-FAQ-8717OMCDD7E7MGA",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMCDD7E7MGA&page=14",
+        "bodySha256": "18765d3a1f955675ecdfdf5d5348a18c8a79ca1f5652f949870f6a314b36cff4",
+        "fullAnswerRead": true
+      },
+      {
+        "sourceId": "EC-FAQ-8717OMB7BEB7MG1",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMB7BEB7MG1&page=14",
+        "bodySha256": "6f8f342d395d1228aca8605ac3dba5fd5015f73043d795126c65bf5308f6148a",
+        "fullAnswerRead": true
+      }
+    ],
+    "newUniqueNodeTests": 2,
+    "rootCorePassed": true,
+    "shipped087CorePassed": true,
+    "log": ".artifacts/manual-request-pdf-contract-20261023/operating-core-due-date-tests.log",
+    "verified": [
+      "Expired due date does not block creating/updating request or PO records; date survives backup reload.",
+      "A linked plan due-date edit changes the plan only. A later explicit source-request edit changes that source only; linked plan and backup retain their own dates."
+    ],
+    "uiAndHostedAcceptance": false,
+    "sourcePermissionsUnspecified": true
+  },
+  "applicationChanged": false,
+  "testsAdded": [
+    "tests/request-due-date-contract.cjs"
+  ],
+  "testsRepeatedWithoutChange": false,
+  "fullRegressionRepeated": false,
+  "buildRepeated": false,
+  "deploymentRepeated": false,
+  "productionBundleHashUnchanged": "37f26c42722639590d52c6f340f317e3ecc244c7ca055d87708e36cab33467ab",
+  "runtimeSession": 60635,
+  "linuxPid": 2508011,
+  "businessDataOrSettingsWritten": false,
+  "originalSessionLoginRequired": true,
+  "originalRowOrSettingsOrPrintOrSendPerformed": false,
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 82
+  },
+  "counters": {
+    "manualIndex": 56,
+    "bodiesReviewed": 26,
+    "requirements": 32,
+    "finalAcceptance": 0
+  },
+  "gates": [
+    "Read actual print$DownloadPdfProgram/loaded asset URL or verified official download procedure/result; do not guess resource URLs, wire existing PO mail PDF endpoint, call print export equivalent, or implement security-history name as filename.",
+    "Original ERP remains login; no password guessing/auth bypass/business edits."
+  ],
+  "nextWork": "Check existing coverage then verify the actual synthetic plan-input UI import → independently edit due date → save/reload → original request unchanged and request report independent transaction-date/due-date filters. Add only missing checks or confirmed repairs; keep PDF/currency/BODY/upload/TC101P_01 gates.",
+  "done": false
+}

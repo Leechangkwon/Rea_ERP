@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 30,
+  "officialRequirementsDecomposed": 32,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2309,6 +2309,80 @@
         "hostedSingleReadonlyPreviewVerified": true,
         "preservationPassed": true
       }
+    },
+    {
+      "id": "REQ-PUR-REQ-008",
+      "sourceId": "EC-FAQ-8717OMCDD7E7MGA",
+      "title": "발주요청입력 시 납기일자를 초과하면 전표 입력이 제한되나요?",
+      "procedure": [
+        "발주요청입력에서 납기일자를 지난 날짜로 지정",
+        "전표 입력/저장 후 재조회와 현황 날짜 검색"
+      ],
+      "expected": [
+        "납기 초과만으로 전표 입력/저장을 제한하지 않음",
+        "전표 일자/납기일자는 각각 보존하고 검색/출력에 사용"
+      ],
+      "status": "official-body-reviewed-existing-core-verified-ui-hosted-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMCDD7E7MGA&page=14",
+        "publisher": "이카운트 ERP",
+        "fullAnswerRead": true
+      },
+      "role": "Official FAQ does not describe role exceptions; UI/hosted permission acceptance pending",
+      "implementationEvidence": [
+        "dist/inventory-core.js",
+        "evidence/manual-request-pdf-contract-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/request-due-date-contract.cjs"
+      ],
+      "remaining": [
+        "actual plan input import/edit/save/reload and request original preservation in browser",
+        "date/due-date report filters and hosted permission/save acceptance"
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.87.0",
+      "appChangeNeeded": false
+    },
+    {
+      "id": "REQ-PUR-PLAN-004",
+      "sourceId": "EC-FAQ-8717OMB7BEB7MG1",
+      "title": "발주계획입력에서 발주요청을 불러온 다음 납기일자를 수정할 수 있나요?",
+      "procedure": [
+        "발주계획입력에서 발주요청 불러오기",
+        "계획 납기일자를 수정하고 계획 저장",
+        "원 요청서의 납기일자는 별도로 확인/수정"
+      ],
+      "expected": [
+        "계획 납기일자 수정 가능",
+        "계획 수정으로 원 요청서 납기일자가 바뀌지 않음",
+        "원 요청서 별도 수정이 계획의 납기일을 소급 변경하지 않는 자체 보존 범위 검증"
+      ],
+      "status": "official-body-reviewed-existing-core-verified-ui-hosted-pending",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717OMB7BEB7MG1&page=14",
+        "publisher": "이카운트 ERP",
+        "fullAnswerRead": true
+      },
+      "role": "Official FAQ does not describe role exceptions; UI/hosted permission acceptance pending",
+      "implementationEvidence": [
+        "dist/inventory-core.js",
+        "evidence/manual-request-pdf-contract-20261023.json"
+      ],
+      "automatedEvidence": [
+        "tests/request-due-date-contract.cjs"
+      ],
+      "remaining": [
+        "actual plan input import/edit/save/reload and request original preservation in browser",
+        "date/due-date report filters and hosted permission/save acceptance"
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.87.0",
+      "appChangeNeeded": false
     }
   ]
 }
