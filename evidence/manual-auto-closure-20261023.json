@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-030",
+  "title": "불러온 전표 자동 종결: 변경/자동변경 모드와 기존 적용 계약 대조",
+  "status": "mode-distinction-confirmed-exact030-body-and-save-calculation-gated",
+  "productionVersion": "0.88.1",
+  "operatingReleaseCommit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+  "exact030OfficialBodyRead": false,
+  "exact030IndexStatus": "index-only",
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "supportingBodies": [
+    {
+      "id": "EC-HELP-REQUEST-027",
+      "artifact": ".artifacts/manual-purchase-flow-20261021/closure-method-help-body.ax.txt",
+      "artifactSha256": "06a9bff12537eea982486bef60d19d7c682f9fa0e75d7b81cf2b988e26638a72",
+      "newlyFetched": false,
+      "scope": "Orders loaded into sales: configured automatic change completes the order when remaining quantity becomes zero; multiple orders may be selected individually. Request/plan/price-request closure location exceptions are stated separately."
+    },
+    {
+      "id": "EC-FAQ-86HFOODLWUR27BB",
+      "artifact": ".artifacts/manual-plan-source-status-20261023/official-faq.json",
+      "artifactSha256": "9b557fc3705d11e9acbf653b97e641e73db7e13f0835dcfb56dc9c73db383456",
+      "previousRecordedBodySha256": "bae32edc2b51fbedd9ce4f4bf5d2721832a38ee78836e0e081eaa62234ac013e",
+      "newlyFetched": false,
+      "scope": "Plan to purchase order: Option progress setting, default change and explicit save; subsequent PO save completes the loaded plan. The FAQ does not state the full partial/grouped quantity algorithm."
+    }
+  ],
+  "sourceFindings": [
+    {
+      "scope": "InitializeProgressStatusIconButtonUserAction",
+      "finding": "Uses a separate from-slip state model, sets visibility/state/layer handlers and supplies its fragment component. Presence of the handler alone does not prove a particular purchase menu uses it."
+    },
+    {
+      "scope": "initButtonState",
+      "finding": "Checks finish_tf in both state_code_list and state_code_auto_list, updates target_slip_flag and refreshes the layer on mode-specific state-code changes. It is UI-state subscription logic, not a remaining-quantity or completion save calculator."
+    },
+    {
+      "scope": "dmc_subscribe_handler",
+      "finding": "Also treats change and automatic-change state lists independently and hides the flag if neither has a selected finish state. This is the initial model handler, not evidence that every imported document is completed."
+    },
+    {
+      "scope": "setProgressStatusButton",
+      "finding": "After import, initializes and replaces from_progress_status with the transform result. Actual selected per-source state/options are supplied by that result; this helper does not calculate quantity exhaustion or persist closure."
+    }
+  ],
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-auto-closure-20261023/rea/rea-summary.json",
+    "summarySha256": "b97a316d88c1acafd91334c8f369a1c2cd66b8ba6a0562c86d8c2ddfce61fd3e",
+    "analyzer": ".artifacts/manual-auto-closure-20261023/analyze.mjs",
+    "analyzerSha256": "b945d32cb4b3e762fa40bc695d4875a0d6a7e2ffa3b04fb8a31fe7d2279add79",
+    "newOriginalScopes": 4,
+    "newOwnScopes": 0,
+    "reusedOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "sourceProvenance": [
+    {
+      "name": "InitializeProgressStatusIconButtonUserAction",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 56952,
+      "lineEnd": 56979,
+      "fragmentSha256": "1dcac199b80d98b5d4569d421fe236bca80ae260933393b4e6a4a3bc69ecfc85",
+      "resultSha256": "282ef824b69ffa52c75af95fcdf6efe24d885cd8b3c5805e503927741bf3ff49"
+    },
+    {
+      "name": "initButtonState",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 56983,
+      "lineEnd": 57019,
+      "fragmentSha256": "0bf3040a0543846460daea90f1f7c64ae128103352848c8fe3a3965c3051312d",
+      "resultSha256": "e904fb92f79772252a7a491cd8c8221645322a1c6bafc490aca02b8ba42fa76c"
+    },
+    {
+      "name": "dmc_subscribe_handler",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 57020,
+      "lineEnd": 57047,
+      "fragmentSha256": "1dff26704ba08b1af41b4b7e2d74ab9a6b8b17ded424726cb155839a1421f335",
+      "resultSha256": "d39a3ed82de1ffd8dfa3449c40d03fb11ad5d39e1b148e20420d57bfc41f60b7"
+    },
+    {
+      "name": "setProgressStatusButton",
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "sourceUrl": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "sourceManifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "lineStart": 8288,
+      "lineEnd": 8305,
+      "fragmentSha256": "7f2a50d8021adbae55d94fc3852b9473c81a678075c49e3bcc32e5378debfc09",
+      "resultSha256": "d70fc3508012b9a43627742ac76ba5f272bd7c3f98e7bcf9a4b3f335da477afc"
+    }
+  ],
+  "ownOperatingComparison": {
+    "artifact": ".artifacts/manual-auto-closure-20261023/operating-comparison.json",
+    "artifactSha256": "15c41ba0556c0e244cb76685b2ea9b9857835b1f77e83bb5cf3d0a505031738a",
+    "ranges": [
+      {
+        "file": "dist/inventory-core.js",
+        "scope": "function applyLinkedProgressRules(",
+        "versions": [
+          {
+            "commit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+            "sourceSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+            "lineStart": 618,
+            "lineEnd": 633,
+            "fragmentSha256": "1d35ef9c3d7e0604833e7145472a0a92b2430480bfb030a180a1f2d169fab902"
+          },
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sourceSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+            "lineStart": 618,
+            "lineEnd": 633,
+            "fragmentSha256": "1d35ef9c3d7e0604833e7145472a0a92b2430480bfb030a180a1f2d169fab902"
+          }
+        ],
+        "unchanged": true
+      },
+      {
+        "file": "dist/self-settings-ui.js",
+        "scope": "function progressList(",
+        "versions": [
+          {
+            "commit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+            "sourceSha256": "287ea8bc7529365f29115346e807d48c7097d36e32efc135202e997b97e21b51",
+            "lineStart": 37,
+            "lineEnd": 38,
+            "fragmentSha256": "5ef7ddcca8980dee8aed784f6d994a037d5d5d8eb9bb92eff8cf65ff56647ce6"
+          },
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sourceSha256": "287ea8bc7529365f29115346e807d48c7097d36e32efc135202e997b97e21b51",
+            "lineStart": 37,
+            "lineEnd": 38,
+            "fragmentSha256": "5ef7ddcca8980dee8aed784f6d994a037d5d5d8eb9bb92eff8cf65ff56647ce6"
+          }
+        ],
+        "unchanged": true
+      }
+    ],
+    "unchangedTests": [
+      {
+        "file": "tests/purchase-receipt-closure.cjs",
+        "versions": [
+          {
+            "commit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
+            "sha256": "d2ff9b08025fbf7b8d5d260bdc16f94c2f14af38256c08de2f56bc3700235f40"
+          },
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "d2ff9b08025fbf7b8d5d260bdc16f94c2f14af38256c08de2f56bc3700235f40"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      },
+      {
+        "file": "tests/browser/progress-option.spec.cjs",
+        "versions": [
+          {
+            "commit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+            "sha256": "a4ff789336cd92621176a7d4d22affe3063022c0112dbfbcae1f43edb436c7ea"
+          },
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "a4ff789336cd92621176a7d4d22affe3063022c0112dbfbcae1f43edb436c7ea"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      },
+      {
+        "file": "tests/purchasing-progress-settings-ui.cjs",
+        "versions": [
+          {
+            "commit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+            "sha256": "3a25052b162584afeebc50a4e896ee48ed6f422c7ef95cba25e18097e7722ddc"
+          },
+          {
+            "commit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+            "sha256": "3a25052b162584afeebc50a4e896ee48ed6f422c7ef95cba25e18097e7722ddc"
+          }
+        ],
+        "unchanged": true,
+        "rerun": false
+      }
+    ],
+    "findings": [
+      "The current rule stores only from/to/enabled/progress. Its editor offers change-disabled/change plus ongoing/complete; no independent automatic mode or per-imported-document override is represented.",
+      "applyLinkedProgressRules runs only on active linked saved children after document/convert/purchasePlanGenerate, gathers actual allocations and applies an enabled rule. Plans use allocated row selections; other sources use document transition. It does not implement a general remaining-zero auto mode.",
+      "Closed-PO protection precedes linked rules and closed-period protection follows them in the cloned command transaction. Existing tests already cover normal configured completion, explicit reopening and rejection of late reopening; these unchanged tests were not rerun.",
+      "The existing plan-to-PO change rule is not reclassified as remaining-zero automatic change from the sales-order example. No global closure policy or stored setting is migrated."
+    ]
+  },
+  "candidateGap": {
+    "id": "CAND-COM-AUTOCLOSE-001",
+    "status": "distinct-original-modes-confirmed-menu-specific-save-contract-gated",
+    "confirmed": "Original UI state has separate ordinary/automatic code lists; current settings have only enabled plus target progress. Current implementation cannot represent the full general automatic-change/per-source contract.",
+    "implemented": false,
+    "remainingGates": [
+      "Exact030 full body and current readonly menu-specific mode/options, especially purchase-order to receipt versus plan to PO.",
+      "Actual transform result and automatic calculator/save payload: partial/zero/exhausted/multiple-source cases, source line versus whole document and per-document override.",
+      "Default changes versus explicit per-save choices, rights/confirmation/month close, cancellation and concurrent-save behavior.",
+      "Hosted configured-setting and business-save acceptance plus data/form preservation for any future implementation."
+    ],
+    "doNotInfer": "Do not add a global remaining-zero rule or alter existing configured plan-row completion from the sales-order example or this UI subscription alone."
+  },
+  "originalSession": {
+    "freshReadonlyObservedState": "login-required",
+    "credentialsReadOrEntered": false,
+    "repeatedLoginRequest": false,
+    "originalBusinessOrSettingsWrites": 0
+  },
+  "publicLookup": {
+    "exact030Recovered": false,
+    "searchRelevantResults": 0,
+    "knownFaqWebOpen": "tool-inaccessible",
+    "newSourceBundlesDownloaded": 0
+  },
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2540061,
+    "pidPresent": true,
+    "workerSha256": "6781dfb4aaa70019fa13cb5e21b815f1ec837ef758da913aae6ba5f7521111af",
+    "serviceRestarted": false,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-history-audit-session-20261023.json"
+  },
+  "community": {
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 103,
+    "posted": false,
+    "readback": false,
+    "repeatedAuthenticationRequests": 0
+  },
+  "counters": {
+    "indexed": 73,
+    "bodyReviewed": 43,
+    "officialRequirements": 42,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-031",
+  "done": false
+}

@@ -1555,13 +1555,21 @@
       "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
       "hostedReadOnlyVerified": true,
       "researchEvidence": [
-        "evidence/manual-reopen-20261023.json"
+        "evidence/manual-reopen-20261023.json",
+        "evidence/manual-auto-closure-20261023.json"
       ],
       "exactReopenManualBodyReviewed": false,
       "bulkProgressCandidate": {
         "id": "CAND-COM-PROGRESSBATCH-001",
         "evidence": "evidence/manual-reopen-20261023.json",
         "actualPurchaseBindingVerified": false,
+        "implemented": false
+      },
+      "automaticClosureCandidate": {
+        "id": "CAND-COM-AUTOCLOSE-001",
+        "evidence": "evidence/manual-auto-closure-20261023.json",
+        "exact030BodyReviewed": false,
+        "saveCalculationAndPurchaseBindingVerified": false,
         "implemented": false
       }
     },

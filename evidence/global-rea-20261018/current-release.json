@@ -657,7 +657,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "030 불러온 전표 자동 종결;029 명시 판매 범위 보류(done아님)",
+      "nextIndependentManual": "031 재고 전표 양식설정;030 실제 자동변경 계산/저장 계약 대기(done아님)",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a"
@@ -817,9 +817,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-030",
+      "sourceId": "EC-HELP-REQUEST-031",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다.",
+      "description": "030는 변경/자동변경 상태 목록의 분리를 확인했지만 정확한 본문·실제 구매 계산/저장 계약이 없어 CAND-COM-AUTOCLOSE-001로 대기한다. 기존0.88 계획행 변경과 판매 주문 잔량0 자동변경을 혼동하지 않는다. 다음031 재고 전표 양식설정은 기존 설정/출력 구현·검사와 대조하며 같은 helper/통과회귀를 반복하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1550,13 +1550,14 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-030",
-      "title": "불러온 전표를 자동으로 종결 처리하는 방법",
-      "context": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다.",
+      "sourceId": "EC-HELP-REQUEST-031",
+      "title": "재고 전표 양식설정 방법",
+      "context": "030는 변경/자동변경 상태 목록의 분리를 확인했지만 정확한 본문·실제 구매 계산/저장 계약이 없어 CAND-COM-AUTOCLOSE-001로 대기한다. 기존0.88 계획행 변경과 판매 주문 잔량0 자동변경을 혼동하지 않는다. 다음031 재고 전표 양식설정은 기존 설정/출력 구현·검사와 대조하며 같은 helper/통과회귀를 반복하지 않는다.",
       "operatingVersion": "0.88.1",
       "historyAuditEvidence": "evidence/manual-history-audit-session-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
-      "legacyGates": "TC101P_01 editor/hosted acceptance retained. Mapping088 candidate must also integrate history guard source before future release. No root build/install."
+      "legacyGates": "TC101P_01 editor/hosted acceptance retained. Mapping088 candidate must also integrate history guard source before future release. No root build/install.",
+      "automaticClosureEvidence": "evidence/manual-auto-closure-20261023.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1782,7 +1783,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 102,
+      "pendingLocalUpdates": 103,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1978,6 +1979,14 @@
       "browserTotal": 129,
       "preservationPassed": true,
       "exact028BodyRead": false,
+      "done": false
+    },
+    "automaticClosureResearch": {
+      "sourceId": "EC-HELP-REQUEST-030",
+      "evidence": "evidence/manual-auto-closure-20261023.json",
+      "exactBodyReviewed": false,
+      "candidateId": "CAND-COM-AUTOCLOSE-001",
+      "appChanges": 0,
       "done": false
     }
   },
@@ -2180,6 +2189,14 @@
       "newPublicSources": 0,
       "newOfficialBodies": 0,
       "existingSourceAndBodyHashesVerified": true,
+      "originalExecuted": false,
+      "includedInHistoricalReaCorpusBaseline": false
+    },
+    "automaticClosure": {
+      "reference": "evidence/manual-auto-closure-20261023.json",
+      "newPublicSources": 0,
+      "newOfficialBodies": 0,
+      "existingManifestAnd027BodyHashesVerified": true,
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
     }
@@ -2512,6 +2529,18 @@
       "newOriginalScopes": 0,
       "reusedOriginalScopes": 0,
       "coverage": "unknown",
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false
+    },
+    "automaticClosure": {
+      "reference": "evidence/manual-auto-closure-20261023.json",
+      "summary": ".artifacts/manual-auto-closure-20261023/rea/rea-summary.json",
+      "newOriginalScopes": 4,
+      "newOwnScopes": 0,
+      "reusedOriginalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
       "fullModuleCoverage": false,
       "runtimeEquivalence": false
     }

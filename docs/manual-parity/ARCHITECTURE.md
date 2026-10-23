@@ -694,3 +694,7 @@ Input.snapshot은 employees/warehouses/projects의 code/name/disabled만 복사�
 ## 발주서 Option → 공유 진행상태 설정 편집기 · 0.88.0
 
 FormOptions의 선택적 action은 발주서 input에서만 등록하며 양식 변경 권한과 config.write를 분리한다. PurchasingProgressSettingsUI는 연결된 부모 host/editor/route·draft/raw와 Auth identity/settings를 고정하고 기존 self state/action API의 revision CAS로 inventoryFeatures만 저장한다. SelfSettingsUI의 headless controller와 제한된 progressPairs를 재사용하고 누락 pair는 가상 변경안함 행으로 표시한다. 전용 controller는 닫기/메뉴 이동/editor 교체 때 폐기하며 지연 조회·stale save를 차단한다. 취소/설정 실패는 업무 localStorage에 쓰지 않고, 성공 후 서버 재조회로 확인한 허용 client 설정만 반영한다. 업무 core/schema와 계획행 단위 진행 동작은0.87 그대로다. evidence/manual-plan-source-status-20261023.json.
+
+## 자동 종결 모드와 진행상태 표시 모델 경계 · 030 조사
+
+기확보 common 공개코드의 state_code_list/state_code_auto_list는 별도 선택 상태이며, 불러오기 helper는 변환 결과를 from_progress_status 모델에 전달한다. UI 구독/표시를 잔량 계산·서버 종결 저장으로 보지 않는다. 자체 enabled/progress 규칙과 실제 계획행 진행 변경은 보존한다. CAND-COM-AUTOCLOSE-001의 정확한 메뉴별 자동조건/전표별 선택·저장/권한 계약 전 전역 잔량0 규칙이나 설정 이관을 추가하지 않는다. 앱 변경0, 근거 `evidence/manual-auto-closure-20261023.json`.
