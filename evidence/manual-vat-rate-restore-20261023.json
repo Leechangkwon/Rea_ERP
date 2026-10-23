@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-001",
+  "requirementId": "REQ-COM-TAX-001",
+  "title": "0.88.7 영세 전표 재진입 후 회사 기본 세율 복원",
+  "version": "0.88.7",
+  "status": "deployed-local-vat-rate-restoration-verified-original-transaction-formula-pending",
+  "sourceCommit": "fc2ce93377366de567b0ccdfcf846f0cc594fa31",
+  "releaseCommit": "5a13b1759bd9182d3d742ee2e72269e3bf981a41",
+  "releaseBranch": "release/0.88.7-vat-rate-restore",
+  "releaseDirectory": ".artifacts/releases/0.88.7-vat-rate-restore",
+  "workerSha256": "c169d67e5a9b45c84e1479f0e15f8b842b28d27fdf320499af404884b3957a82",
+  "pushed": true,
+  "verifyLocalExit": 0,
+  "previousReleaseEvidence": "evidence/manual-plan-supplier-view-20261023.json",
+  "previousWorkerSha256": "4d43f3e112031d7cbb98175540568c4abc844c4e7fe7e0741dd5cfc2a1165483",
+  "rootCause": "On reopened zero-rate voucher, existing handler restored policy defaults.vatRate but select options contained only saved rate0 and10. Assigning7 or7.5 emptied the select and numeric conversion saved0.",
+  "change": "회사 기본 세율이7%/7.5%일 때 저장된 거래유형22 전표를 다시 열어21로 바꾸면, 세율 선택창에 기본값이 없어 빈 값→0%로 저장되던 결함을 재현했다. 복원에 사용할 기존 기본 세율을 선택항목과 전환 처리에서 함께 사용한다. 요청·계획·발주서·구매의 명시 저장 때만 반영하며 기존 전표/설정은 자동 재작성하지 않는다.",
+  "scope": "inventory-ui docEditor restoredTaxableRate/fields declaration and transaction-type change handler; use same captured existing rate in options and handler.",
+  "schemaChanged": false,
+  "cssChanged": false,
+  "calculationFormulaChanged": false,
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "validation": {
+    "newNodeTests": 4,
+    "preFixNodeFailed": 4,
+    "preFixBrowserFailed": 2,
+    "focusedNodePassed": 44,
+    "newBrowserTests": 2,
+    "focusedBrowserPassed": 2,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 138,
+    "fullNodeSuitePassed": true,
+    "syntheticExample": {
+      "rate": 7.5,
+      "qty": 2,
+      "price": 100,
+      "supply": 200,
+      "tax": 15,
+      "total": 215
+    },
+    "logs": [
+      ".artifacts/manual-vat-rate-restore-20261023/pre-fix-node.log",
+      ".artifacts/manual-vat-rate-restore-20261023/pre-fix-browser.log",
+      ".artifacts/manual-vat-rate-restore-20261023/focused-node.log",
+      ".artifacts/manual-vat-rate-restore-20261023/focused-browser.log",
+      ".artifacts/manual-vat-rate-restore-20261023/verify-local.log"
+    ]
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 3,
+    "newOriginalScopes": 0,
+    "mainCandidateScopesEqual": true,
+    "wholeInventoryUiEqual": false,
+    "reason": "Root contains unshipped VAT5 integration; only changed declarations/handler must equal isolated candidate.",
+    "scopes": [
+      {
+        "symbol": "restoredTaxableRate",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/vat-rate-restore-20261023/dist/inventory-ui.js",
+        "sourceSha256": "1b76944d5f31931b7ecdb726c390da051c945ef39bfdbe398d8d7e51b34e4108",
+        "lineStart": 292,
+        "lineEnd": 292,
+        "fragmentSha256": "a09311ae90ddc38c1130f72ba52c7c85aeafab34aa93ea4f676c6efb3dc3bf5e"
+      },
+      {
+        "symbol": "fields",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/vat-rate-restore-20261023/dist/inventory-ui.js",
+        "sourceSha256": "1b76944d5f31931b7ecdb726c390da051c945ef39bfdbe398d8d7e51b34e4108",
+        "lineStart": 293,
+        "lineEnd": 293,
+        "fragmentSha256": "22ac6b18a9ffeb043d3df96ed7fa7502741e732f06b0cf724c6e5248b2dcfe7c"
+      },
+      {
+        "symbol": "transactionTypeVatRestoreHandler",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/vat-rate-restore-20261023/dist/inventory-ui.js",
+        "sourceSha256": "1b76944d5f31931b7ecdb726c390da051c945ef39bfdbe398d8d7e51b34e4108",
+        "lineStart": 426,
+        "lineEnd": 426,
+        "fragmentSha256": "1cdf8ec8fffbf1704ecca5a525b996cb1e192e7d1dd86690302cda098d618714"
+      }
+    ],
+    "resultSha256": "fdfd19cf0234bbb754b6af0dfe606c5f7b578b6893241363878764aac711ae1c",
+    "statistics": {
+      "relevant_files": 3,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 1526,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 3,
+      "visited_ast_nodes": 282,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false
+  },
+  "sourceAndLockGuards": {
+    "changedScopesRootCandidateExact": true,
+    "wholeInventoryUiRootCandidateEqual": false,
+    "wholeFileDifferenceReason": "Root contains unshipped VAT5; whole-file guard rejected equality before source commit. Changed scope equality confirmed by pinned REA helper.",
+    "dependencyLockOnlyTwoVersionFieldsChanged": true,
+    "calculationFormulaChanged": false,
+    "vatFiveCasesAndResearchBytesUnchanged": true,
+    "initialBrowserEnvironmentError": "Candidate initially lacked symlink to pre-existing browser-libs. No package reinstall; pre-fix browser rerun then reproduced empty rate in both viewports."
+  },
+  "originalBoundary": {
+    "existingEvidence": [
+      "evidence/manual-vat-decimal-20261021.json",
+      "evidence/manual-vat-groups-20261021.json",
+      "evidence/manual-vat-resolver-20261021.json"
+    ],
+    "knownPriorityFunctionHash": "64749c085e2ea72b0e051f07988ccc204fda95d872ec612bf829785e1d2d515a",
+    "newOriginalScopes": 0,
+    "newPublicBodies": 0,
+    "originalAuthenticatedSession": "login-required-from-prior-observation-not-retried",
+    "originalBusinessWrites": false,
+    "actualSelectedFormulaVerified": false,
+    "fixedCasesPreserved": 7,
+    "conflictsUnchanged": 5,
+    "strictParityRerun": false,
+    "originalParityPassed": false,
+    "sourceBranchNotes": [
+      "Priority depends on explicit transaction flagN, item flagY, warehouse flagY, then sourceData.sc_inventory.vat.out_rate nullish fallback11. This is source behavior, not a mandate to set app tax default11.",
+      "Current tenant/input formula and selected attributes remain unobserved; no rate resolution or foreign-currency arithmetic installed."
+    ]
+  },
+  "runtime": {
+    "version": "0.88.7",
+    "linuxPid": 2579603,
+    "runtimeSession": 24715,
+    "workerSha256": "c169d67e5a9b45c84e1479f0e15f8b842b28d27fdf320499af404884b3957a82",
+    "localHealth": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "pollOrTerminateRuntimeSession": false
+  },
+  "hosted": {
+    "existingLoginRetained": true,
+    "workTabsRestored": 1,
+    "purchaseEditorOpenCloseVerified": true,
+    "nonstandardRateDataBearingSaveVerified": false,
+    "settingsOrBusinessWrites": 0,
+    "mailSent": 0,
+    "screenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/vat-rate-0887-hosted.png",
+    "screenshot": ".artifacts/manual-vat-rate-restore-20261023/hosted-purchase-editor.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.7",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "formExact": true,
+      "authenticatedSessionRetained": true,
+      "originalWorkTabsRestored": 1,
+      "hostedPurchaseEditorOpenCloseVerified": true,
+      "hostedLocalRateObserved": 10,
+      "hostedNonstandardRateSaveVerified": false,
+      "businessDataSaved": false,
+      "settingsSaved": false,
+      "mailSent": false,
+      "privateBefore": "/home/lck/.local/share/rea-erp/backups/vat-rate-restore-0.88.7-1792764210618/browser-inventory.json",
+      "postDownload": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-23 (27).json",
+      "screenshot": ".artifacts/manual-vat-rate-restore-20261023/hosted-purchase-editor.png"
+    },
+    "serverAndMail": {
+      "version": "0.88.7",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupReference": ".artifacts/manual-vat-rate-restore-20261023/predeploy-backup.json",
+    "publicChecks": 14,
+    "assetsMatchRelease": true,
+    "candidates": {
+      "oldDirtyFiles": 12,
+      "oldHeadStatusHashesExact": true,
+      "mapping088CleanUnchanged": true
+    }
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "work-tools-unexposed-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "cumulativePendingLocalUpdates": 111,
+    "lastVerifiedProgressVersion": "0.51.0",
+    "pendingBodyArtifact": ".artifacts/manual-vat-rate-restore-20261023/moa-pending-vat-rate-restore.html"
+  },
+  "remaining": [
+    "Nonstandard rate data-bearing saves verified only in synthetic localhost, not original/hosted business acceptance.",
+    "Five fixed transaction-VAT calculation conflicts and actual selected input/tenant formats remain unresolved.",
+    "Minimum purchase unit and legacy mapping editor contracts remain gated.",
+    "Mapping088 requires seven subsequent source fixes before deployment.",
+    "Physical Android and full manual equivalence remain pending."
+  ],
+  "counters": {
+    "indexed": 77,
+    "bodyReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextWork": "거래별 차액의5개 충돌은 선택된 입력 속성/참조/trigger/import본문·회사 숫자 포맷 근거 대기로 유지한다. 이미 분석한 세율우선순위 함수/Decimal/그룹 helper를 반복 실행해 합격으로 바꾸지 않는다. 기존 구매 입력·변환에서 명시한 거래유형과 세율/금액의 보존을 우선 대조하고 실제 재현된 결함만 작은 단위로 수정한다. 최소구매단위·TC101P_01의 원본 근거 gate와 미완료 매핑 후보 보존은 유지한다.",
+  "done": false
+}
