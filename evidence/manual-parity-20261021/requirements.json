@@ -2132,7 +2132,8 @@
       "implementationEvidence": [
         "evidence/manual-entry-required-guidance-20261022.json",
         "evidence/manual-request-field-catalog-20261022.json",
-        "evidence/manual-request-input-order-20261022.json"
+        "evidence/manual-request-input-order-20261022.json",
+        "evidence/manual-form-role-20261023.json"
       ],
       "hostedReadOnlyPartial": true,
       "hostedAcceptance": false,
@@ -2145,6 +2146,14 @@
         "status": "body-request-specific-fields-login-required",
         "resumeOnlyOn": "Actual separated BODY settings or new source carrying request-specific field/bundle definitions",
         "genericBundleConsumerAnalysisComplete": true,
+        "wholeRequirementDone": false
+      },
+      "ordinaryFormRoleBoundary": {
+        "evidence": "evidence/manual-form-role-20261023.json",
+        "version": "0.88.2",
+        "deployed": true,
+        "configuredRoleChangeAndSaveAcceptance": "synthetic-only",
+        "exact031BodyRead": false,
         "wholeRequirementDone": false
       }
     },

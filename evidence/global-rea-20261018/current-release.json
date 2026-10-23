@@ -1,6 +1,6 @@
 {
-  "version": "0.88.1",
-  "status": "partial-manual-parity-audit-history-session-guard-deployed",
+  "version": "0.88.2",
+  "status": "partial-manual-parity-ordinary-form-role-boundary-and-feedback-deployed",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -127,7 +127,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 127,
+    "currentReleaseBrowserSynthetic": 131,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -155,7 +155,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.88.0",
+    "currentReleaseFullRegressionVersion": "0.88.2",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -367,16 +367,21 @@
     "auditHistorySessionFocusedNode": 23,
     "auditHistorySessionNewBrowser": 2,
     "auditHistorySessionFullBrowser": 129,
-    "auditHistorySessionVerifyLocalPassed": true
+    "auditHistorySessionVerifyLocalPassed": true,
+    "ordinaryFormRoleNewNode": 6,
+    "ordinaryFormRoleFocusedNodeTotal": 63,
+    "ordinaryFormRoleNewBrowser": 2,
+    "ordinaryFormRoleFullBrowser": 131,
+    "ordinaryFormRoleVerifyLocalPassed": true
   },
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-history-audit-session-20261023.json",
+    "reference": "evidence/manual-form-role-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "6cb3557f8387ebf216b89cdb66728665a23389e3",
-    "publicVersionVerified": "0.88.1",
+    "deployedSourceCommit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+    "publicVersionVerified": "0.88.2",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -435,20 +440,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.0",
+    "existingSessionRetainedVersion": "0.88.2",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.0",
+    "lastExactBrowserBackupComparisonVersion": "0.88.2",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.0",
+    "currentServerStateAndMailPreservedVersion": "0.88.2",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.2",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -640,6 +645,19 @@
       "syntheticRevocationExportBlocked": true,
       "productionRoleChanged": false,
       "preservationPassed": true
+    },
+    "ordinaryFormRoleBoundary": {
+      "version": "0.88.2",
+      "reference": "evidence/manual-form-role-20261023.json",
+      "sourceCommit": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
+      "releaseCommit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+      "existingSessionRetained": true,
+      "hostedFormOpenCloseWithoutSave": true,
+      "hostedRoleChangeOrConfiguredSaveVerified": false,
+      "preservationPassed": true,
+      "runtimeSession": 49427,
+      "linuxPid": 2547127,
+      "workerSha256": "e575b6efacf384e95a8db68f4f489ab6c3d4c033022e053dca7079ba3a0920f0"
     }
   },
   "manualParity": {
@@ -652,15 +670,16 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.1",
+      "productionVersion": "0.88.2",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "031 재고 전표 양식설정;030 실제 자동변경 계산/저장 계약 대기(done아님)",
+      "nextIndependentManual": "032 한 페이지 인쇄 줄 수;031 전체 본문/원본 설정·운영 저장 합격 대기(done아님)",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
-      "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a"
+      "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
+      "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -817,9 +836,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-031",
+      "sourceId": "EC-HELP-REQUEST-032",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "030는 변경/자동변경 상태 목록의 분리를 확인했지만 정확한 본문·실제 구매 계산/저장 계약이 없어 CAND-COM-AUTOCLOSE-001로 대기한다. 기존0.88 계획행 변경과 판매 주문 잔량0 자동변경을 혼동하지 않는다. 다음031 재고 전표 양식설정은 기존 설정/출력 구현·검사와 대조하며 같은 helper/통과회귀를 반복하지 않는다.",
+      "description": "031 일반 양식의 이전 권한그룹 저장/적용·삭제와 모바일 오류 가림을0.88.2로 수정·배포·보존 확인했다. 정확한031 본문/회사공유·원본 저장 합격은 미완료다. 다음032 한 페이지 인쇄 줄 수는 기존 용지/글자크기/페이지·양식 구현과 구분해 대조한다. 기존 gate·root 전체빌드/변화 없는 회귀 반복 금지 유지.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1550,14 +1569,15 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-031",
-      "title": "재고 전표 양식설정 방법",
-      "context": "030는 변경/자동변경 상태 목록의 분리를 확인했지만 정확한 본문·실제 구매 계산/저장 계약이 없어 CAND-COM-AUTOCLOSE-001로 대기한다. 기존0.88 계획행 변경과 판매 주문 잔량0 자동변경을 혼동하지 않는다. 다음031 재고 전표 양식설정은 기존 설정/출력 구현·검사와 대조하며 같은 helper/통과회귀를 반복하지 않는다.",
-      "operatingVersion": "0.88.1",
+      "sourceId": "EC-HELP-REQUEST-032",
+      "title": "한 페이지에 인쇄되는 줄 수를 설정하는 방법",
+      "context": "031 일반 양식의 이전 권한그룹 저장/적용·삭제와 모바일 오류 가림을0.88.2로 수정·배포·보존 확인했다. 정확한031 본문/회사공유·원본 저장 합격은 미완료다. 다음032 한 페이지 인쇄 줄 수는 기존 용지/글자크기/페이지·양식 구현과 구분해 대조한다. 기존 gate·root 전체빌드/변화 없는 회귀 반복 금지 유지.",
+      "operatingVersion": "0.88.2",
       "historyAuditEvidence": "evidence/manual-history-audit-session-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "legacyGates": "TC101P_01 editor/hosted acceptance retained. Mapping088 candidate must also integrate history guard source before future release. No root build/install.",
-      "automaticClosureEvidence": "evidence/manual-auto-closure-20261023.json"
+      "automaticClosureEvidence": "evidence/manual-auto-closure-20261023.json",
+      "ordinaryFormRoleEvidence": "evidence/manual-form-role-20261023.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1783,7 +1803,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 103,
+      "pendingLocalUpdates": 104,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1864,7 +1884,8 @@
       "communityPendingLocalUpdates": 95,
       "latestOperatingVersion": "0.88.1",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
-      "latestPatchIntegrated": false
+      "latestPatchIntegrated": false,
+      "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0"
     },
     "stampPrintResearch": {
       "candidate": "CAND-COM-STAMP-001",
@@ -1987,6 +2008,15 @@
       "exactBodyReviewed": false,
       "candidateId": "CAND-COM-AUTOCLOSE-001",
       "appChanges": 0,
+      "done": false
+    },
+    "ordinaryFormRoleBoundary": {
+      "sourceId": "EC-HELP-REQUEST-031",
+      "requirement": "REQ-COM-FORMS-002",
+      "reference": "evidence/manual-form-role-20261023.json",
+      "deployed": true,
+      "exact031BodyRead": false,
+      "configuredRoleChangeSaveAcceptance": "synthetic-only",
       "done": false
     }
   },
@@ -2537,6 +2567,18 @@
       "summary": ".artifacts/manual-auto-closure-20261023/rea/rea-summary.json",
       "newOriginalScopes": 4,
       "newOwnScopes": 0,
+      "reusedOriginalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false
+    },
+    "ordinaryFormRoleBoundary": {
+      "reference": "evidence/manual-form-role-20261023.json",
+      "summary": ".artifacts/manual-form-role-20261023/rea/rea-summary.json",
+      "newOwnScopes": 1,
+      "newOriginalScopes": 0,
       "reusedOriginalScopes": 0,
       "parseFailures": 0,
       "coverage": "unknown",

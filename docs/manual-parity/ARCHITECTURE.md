@@ -698,3 +698,7 @@ FormOptions의 선택적 action은 발주서 input에서만 등록하며 양식 
 ## 자동 종결 모드와 진행상태 표시 모델 경계 · 030 조사
 
 기확보 common 공개코드의 state_code_list/state_code_auto_list는 별도 선택 상태이며, 불러오기 helper는 변환 결과를 from_progress_status 모델에 전달한다. UI 구독/표시를 잔량 계산·서버 종결 저장으로 보지 않는다. 자체 enabled/progress 규칙과 실제 계획행 진행 변경은 보존한다. CAND-COM-AUTOCLOSE-001의 정확한 메뉴별 자동조건/전표별 선택·저장/권한 계약 전 전역 잔량0 규칙이나 설정 이관을 추가하지 않는다. 앱 변경0, 근거 `evidence/manual-auto-closure-20261023.json`.
+
+## 일반 양식 mount 역할과 오류 작업영역 · 0.88.2
+
+FormOptions의 기존 계정/회사/read/DOM 경계에 mount 시점 roleId를 추가한다. 같은 controller의 remount는 역할과 generation을 함께 갱신하므로 새 화면은 정상 편집하고 기존 editor/picker callback은 계속 무효다. 계정/회사 identity를 remount로 재지정하지 않는다. 일반 편집 오류를 sticky action 영역에 두고 빈 오류는 접어 모바일에서 실패 이유와 저장 버튼이 함께 보이게 한다. schema/core/전표/양식 저장 계약은 변경하지 않았다. 실제 역할 전환·저장은 합성검증이며 원본031/공유·운영 설정 저장 전체 합격은 아니다. 근거 `evidence/manual-form-role-20261023.json`.

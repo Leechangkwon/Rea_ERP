@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-031",
+  "requirement": "REQ-COM-FORMS-002",
+  "title": "일반 양식 편집·선택의 권한그룹 경계와 모바일 오류 피드백",
+  "status": "deployed-own-policy-boundary-and-feedback-full031-manual-pending",
+  "productionVersion": "0.88.2",
+  "sourceCommit": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
+  "releaseCommit": "699203fbf0af6511a7839429c888d40b1650d4fb",
+  "baseOperatingRelease": "6cb3557f8387ebf216b89cdb66728665a23389e3",
+  "branch": "release/0.88.2-form-role",
+  "exact031OfficialBodyRead": false,
+  "exact031IndexStatus": "index-only",
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "basis": {
+    "existingPlan": "docs/plan-conditional-forms-20261022.md",
+    "existingRoleRequirement": "REQ-COM-FORMS-001",
+    "classification": "Confirmed own-app stale-context and feedback defects; not a newly recovered original031 procedure or original role-policy equivalence"
+  },
+  "confirmedDefects": [
+    "Same user/company with a changed authenticated role but retained inventory.write could save, activate default or delete from an ordinary form editor opened under the previous role.",
+    "The previous mounted form picker could activate a saved form after role change; opening a new editor from that stale mount was also allowed.",
+    "On390px the validation alert had viewport ratio0 while sticky actions remained visible, making a rejected save appear unresponsive. The primary hover rule also made white text difficult to read on a pale background."
+  ],
+  "implemented": [
+    "Compare the authenticated role with the role captured at mount in the shared current-context guard, in addition to existing account/company/read and DOM checks.",
+    "Remount captures the current role and increments the existing generation. The new screen can edit normally; old editor and picker callbacks remain invalid by their existing generation checks.",
+    "Keep the complete unsaved form draft and stored data on rejection. No business or form-schema migration is added.",
+    "Place ordinary editor errors in the sticky action area, collapse an empty alert, wrap long messages and retain44px mobile controls. Provide a dark primary hover background; actual browser contrast must be at least4.5:1."
+  ],
+  "checks": {
+    "newNode": 6,
+    "preFixNodeFailed": 5,
+    "preFixNodePassed": 1,
+    "focusedNodeTotal": 63,
+    "rootNewNodePassed": 6,
+    "newActualShellBrowser": 2,
+    "widths": [
+      390,
+      1280
+    ],
+    "mobileAlertBeforeFix": "viewport ratio0;390 failed and1280 passed",
+    "mobileAlertAfterFixVisible": true,
+    "primaryHoveredTextContrastMinimum": 4.5,
+    "mobileButton44AndNoOuterOverflow": true,
+    "visual390And1280Reviewed": true,
+    "fullBrowser": 131,
+    "verifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/validation/form-role-20261023",
+      "exitCode": 0,
+      "elapsedSeconds": 220.31,
+      "log": ".artifacts/manual-form-role-20261023/verify-local.log"
+    },
+    "tools": 7,
+    "release": 4,
+    "environment": true,
+    "build": true,
+    "coreUnchangedFrom0881": true,
+    "lockOnlyTopLevelVersionsChanged": true,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "physicalAndroid": false
+  },
+  "testArtifacts": {
+    "preFix": ".artifacts/manual-form-role-20261023/pre-fix-tests.log",
+    "focused": ".artifacts/manual-form-role-20261023/focused-tests.log",
+    "rootFocused": ".artifacts/manual-form-role-20261023/root-focused-tests.log",
+    "initialBrowser": ".artifacts/manual-form-role-20261023/browser-focused.log",
+    "hiddenAlertFailure": ".artifacts/manual-form-role-20261023/hidden-alert-reproduction.log",
+    "finalFocusedBrowser": ".artifacts/manual-form-role-20261023/browser-final-focused.log",
+    "finalVerify": ".artifacts/manual-form-role-20261023/verify-local.log",
+    "sourceReview": ".artifacts/manual-form-role-20261023/source-review.json",
+    "newNodeFile": "tests/form-role-boundary.cjs",
+    "newBrowserFile": "tests/browser/form-role-boundary.spec.cjs"
+  },
+  "harnessCorrection": "Initial result wrapper expected TAP output, but Node emitted spec output. The log still proves5 failed boundary cases and1 passing remount case; subsequent Node runs use explicit TAP.",
+  "rea": {
+    "version": "6.4.0",
+    "newOwnScopes": 1,
+    "newOriginalScopes": 0,
+    "reusedOriginalScopes": 0,
+    "scope": "FormOptions.create",
+    "summary": ".artifacts/manual-form-role-20261023/rea/rea-summary.json",
+    "summarySha256": "face18af211ab6705af34661419652f609619753435154d87708929ac7f291fa",
+    "analyzer": ".artifacts/manual-form-role-20261023/analyze.mjs",
+    "sourceSha256": "6920e1e0229a8168cffddc66e32c7a7e70cc9030c111b502370a24219b47c5bd",
+    "fragmentSha256": "9eef064b725d044cbaeb78240ea82c30fca26b3d2a8b91ad8e7a539a0be88632",
+    "resultSha256": "2cf91789656f64b387340aeb34af55857c1771b7b87113fc0d3ec90c675447d3",
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false,
+    "mainCandidateScopeEqual": true
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "releasePath": ".artifacts/releases/0.88.2-form-role",
+    "validatedCheckout": ".artifacts/validation/form-role-20261023",
+    "workerSha256": "e575b6efacf384e95a8db68f4f489ab6c3d4c033022e053dca7079ba3a0920f0",
+    "linuxPid": 2547127,
+    "persistentExecSession": 49427,
+    "doNotPollOrTerminateRuntimeSession": true,
+    "pushedBeforeInstall": true,
+    "publicVersionVerified": "0.88.2",
+    "publicChecks": 12,
+    "publicStaticHashesMatchImmutableRelease": true,
+    "anonymousMailStatus": 401,
+    "publicHealthStatus": 404,
+    "localHealthStatus": 200,
+    "backend": "supabase",
+    "rootBuildPerformed": false,
+    "rootUnshippedVatOrMappingInstalled": false,
+    "rollbackVersion": "0.88.1",
+    "rollbackWorkerSha256": "6781dfb4aaa70019fa13cb5e21b815f1ec837ef758da913aae6ba5f7521111af"
+  },
+  "preservation": {
+    "predeployBackup": ".artifacts/manual-form-role-20261023/predeploy-backup.json",
+    "browser": {
+      "version": "0.88.2",
+      "freshBeforeAndAfterBackups": true,
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsEqual": true,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "loggedSessionRetained": true,
+      "workTabsRetained": 1,
+      "formSettingsOpenedAndClosedWithoutSave": true,
+      "operatingRoleChangeOrSettingsSavePerformed": false,
+      "operatingBusinessWritePerformed": false,
+      "backupRestored": false
+    },
+    "serverConfigMail": {
+      "version": "0.88.2",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "serverBackupRevisions": {
+      "rea_app_state": 30,
+      "rea_gateway_state": 0
+    },
+    "privateBackupMode": "0700",
+    "privateFileMode": "0600",
+    "noRestoreApplied": true,
+    "freshComparison": true
+  },
+  "hostedAcceptance": {
+    "existingSessionRetained": true,
+    "workTabsRetained": 1,
+    "requestListOneRecordRetained": true,
+    "ordinaryFormEditorOpenedAndClosedWithoutSave": true,
+    "hostedScreenshot": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/form-role-0882-hosted.png",
+    "roleChangedInProduction": false,
+    "settingsSavedInProduction": false,
+    "businessSavedInProduction": false,
+    "mailSent": false,
+    "configuredRoleChangeSaveAcceptance": "synthetic only; not performed against production accounts"
+  },
+  "sourceAndServiceBoundaries": {
+    "originalSession": "login-required, readonly observed",
+    "originalBusinessSettingsWrites": 0,
+    "originalMainRowOperations": 0,
+    "newOriginalDownloads": 0,
+    "existingDirtyMappingCandidateMustRemainPreserved": true,
+    "mapping088CandidateNeedsBothLaterSourceGuardsBeforeAnyFutureDeployment": [
+      "ba9c43056902596229a9ead015be2d01806bbf9a",
+      "1ab248a19a7c6763b98513e4a020edd3ca8c75e0"
+    ]
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 104,
+    "posted": false,
+    "readbackVerified": false,
+    "repeatedAuthenticationRequests": 0,
+    "localBody": ".artifacts/manual-form-role-20261023/moa-pending-form-role.html"
+  },
+  "remainingGates": [
+    "Exact031 full body/current original form editor procedure, menu limits/sharing/role/save/preservation and operating acceptance remain incomplete.",
+    "This repair does not establish full031 parity, add unobserved form options, change existing form schema or enable blocked upload/VAT/mapping candidates.",
+    "Original automatic closure030 and mapping TC101P_01 editor/hosted save gates remain retained."
+  ],
+  "counters": {
+    "indexed": 73,
+    "bodyReviewed": 43,
+    "officialRequirements": 42,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-032",
+  "done": false
+}
