@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 인쇄 기본값020와 별도 축소사용
+
+[판매현황 조건양식 기본값 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=1&record_sid=87VCB56AMIE85LB)와 [발주서 양식별 축소사용 기본값 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=2&record_sid=87VCAUCU7PI85T6) 본문2개를 읽었다. 전자는 판매현황 사례이며 후자는 발주서에도 명시 적용된다.020 정확한 본문은 index-only로 유지한다. 새REQ-COM-PRINT-001은 구현/renderer·권한/보관 확인 대기다. 원본REA3범위의 현재 전표 선택을 영구 기본값 저장으로 세지 않는다. 목록69/본문39/요구사항41/최종합격0. 근거 `evidence/manual-default-print-form-20261023.json`.
+
 ## 2026-10-23 도장 인쇄019와 매핑 호환 통합의 구분
 
 019 정확한 본문/편집기·업로드/권한은 미확보·index-only다. 원본3범위의 사업장 sign/logo URL 치환은 도장 전체 계약이 아니며 본문/공식요구사항 추가0이다. 별도 매핑0.88 호환 후보 bbe1144는40 Node/131 브라우저/verify:local 통과 후 push했지만 편집기·운영 수락검증 전 미배포다. 목록67/본문37/요구사항40/최종합격0 유지. 근거 `evidence/manual-stamp-print-20261023.json`, `evidence/manual-mapping-088-rebase-20261023.json`. 다음 순서는 ROADMAP 첫 절을 따른다.

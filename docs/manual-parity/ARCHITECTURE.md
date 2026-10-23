@@ -1,5 +1,9 @@
 # REA ERP 매뉴얼 동등성 아키텍처
 
+## 현재 인쇄창 선택과 저장된 기본값 분리 · 2026-10-23
+
+공개 common 전표 change action은 page runtime의 전표별 선택과 page state/preserve reload를 갱신한다. 유효 이전 양식/default_template reader는 별도이며 영구 writer·실제 구매 resolver 계약은 미확인이다. 자체 formActivate의 저장과 조건양식 우선순위를 이 runtime 선택과 동일하다고 세지 않는다. 양식별 축소사용은 별도 공식요구사항이며 renderer/default/권한·보관 계약 전 기존 page schema/저장 의미를 변경하지 않는다. 앱 변경0, 근거 `evidence/manual-default-print-form-20261023.json`.
+
 ## 전표 북마크와 메뉴 즐겨찾기 분리 · 2026-10-23
 
 원본 SendSlipToInsideBookmark는 선택 전표의 키를 서버 action에 보낸 뒤 선택적으로 북마크 목록을 연다. 열기 확인창을 사전 저장승인이나 조회 전용으로 해석하지 않는다. 자체 메뉴ID favorites와 전표 북마크는 다른 저장 도메인이며, 서버/목록·중복/한도·보관/권한 계약 확인 전 schema/UI를 추가하지 않는다. CAND-COM-BOOKMARK-001 조사 후보이고 공식본문/요구사항/앱/배포 추가0이다. 근거 evidence/manual-voucher-bookmark-20261023.json.

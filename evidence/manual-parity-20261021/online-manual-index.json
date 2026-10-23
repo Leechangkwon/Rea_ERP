@@ -1,7 +1,7 @@
 {
   "scope": "Request-context manual index plus separately scoped official public FAQ bodies; not all ERP manuals",
-  "count": 67,
-  "bodyReviewed": 37,
+  "count": 69,
+  "bodyReviewed": 39,
   "items": [
     {
       "id": "EC-HELP-REQUEST-001",
@@ -759,6 +759,32 @@
       "bodySha256": "1aa24c11c1c276ddbaaaf628a65aea78bc58ad5b8083c785b4605e31d77c8059",
       "localArtifact": ".artifacts/manual-master-lookup-20261023/item-permission-faq.json",
       "scopeLimit": "User allowed-item hierarchical-group membership affects sales voucher visibility. Full mixed-item, warehouse/customer intersections and purchase/request applicability are not specified.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-87VCB56AMIE85LB",
+      "title": "판매현황 검색 시 여러 양식 중 특정 양식을 기본 양식으로 고정할 수 있나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > ERP 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=1&record_sid=87VCB56AMIE85LB",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "f9ea352885e80bad8d7133e442ed37b73f2d702cb655d4b2a6ebfd8a9e4f7118",
+      "localArtifact": ".artifacts/manual-default-print-form-20261023/87VCB56AMIE85LB.body.txt",
+      "scopeLimit": "Sales-status conditional default example only; not exact020 purchase print-default contract.",
+      "originalBusinessOrSettingsWrites": false
+    },
+    {
+      "id": "EC-FAQ-87VCAUCU7PI85T6",
+      "title": "거래명세서나 발주서 인쇄 시 축소사용에 체크해도 다음 인쇄 시 원래대로 돌아가는데 고정할 수 있나요?",
+      "status": "body-reviewed",
+      "sourcePath": "공개 공식FAQ > ERP 상세",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=2&record_sid=87VCAUCU7PI85T6",
+      "observedDate": "2026-10-23",
+      "fullAnswerRead": true,
+      "bodySha256": "89158a4b0f330aa24b09f136476c42bda8ec520aea0c1b3fec737992e6b9fc4c",
+      "localArtifact": ".artifacts/manual-default-print-form-20261023/87VCAUCU7PI85T6.body.txt",
+      "scopeLimit": "Per-form shrink default explicitly also applies to purchase-order print; renderer/permissions/storage scope remains unverified.",
       "originalBusinessOrSettingsWrites": false
     }
   ]

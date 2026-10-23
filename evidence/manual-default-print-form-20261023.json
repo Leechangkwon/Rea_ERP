@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-020",
+  "candidate": "CAND-COM-PRINTDEFAULT-001",
+  "title": "전표 인쇄 시 기본으로 출력되는 양식을 변경하는 방법",
+  "status": "exact020-default-persistence-and-permission-contract-gated-current-selection-distinguished",
+  "productionVersion": "0.88.0",
+  "sourceManifest": ".artifacts/manual-default-print-form-20261023/source-manifest.json",
+  "exact020OfficialBodyRead": false,
+  "exact020IndexStatus": "index-only",
+  "officialBodies": [
+    {
+      "id": "EC-FAQ-87VCB56AMIE85LB",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=1&record_sid=87VCB56AMIE85LB",
+      "title": "판매현황 검색 시 여러 양식 중 특정 양식을 기본 양식으로 고정할 수 있나요?",
+      "bodyArtifact": ".artifacts/manual-default-print-form-20261023/87VCB56AMIE85LB.body.txt",
+      "bodySha256": "f9ea352885e80bad8d7133e442ed37b73f2d702cb655d4b2a6ebfd8a9e4f7118",
+      "htmlArtifact": ".artifacts/manual-default-print-form-20261023/87VCB56AMIE85LB.html",
+      "htmlSha256": "90a669d2c14c09e1b1b761a0f00e13cad7bad9c8e827340db5c080515a1b4c6f",
+      "fullBodyRead": true,
+      "originalSettingsSaved": false
+    },
+    {
+      "id": "EC-FAQ-87VCAUCU7PI85T6",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?category=erp&page=2&record_sid=87VCAUCU7PI85T6",
+      "title": "거래명세서나 발주서 인쇄 시 축소사용에 체크해도 다음 인쇄 시 원래대로 돌아가는데 고정할 수 있나요?",
+      "bodyArtifact": ".artifacts/manual-default-print-form-20261023/87VCAUCU7PI85T6.body.txt",
+      "bodySha256": "89158a4b0f330aa24b09f136476c42bda8ec520aea0c1b3fec737992e6b9fc4c",
+      "htmlArtifact": ".artifacts/manual-default-print-form-20261023/87VCAUCU7PI85T6.html",
+      "htmlSha256": "e759238e1aefcad9fb6fd956ff3485cc06bd554f8d73bf6172eca0f983c55665",
+      "fullBodyRead": true,
+      "originalSettingsSaved": false
+    }
+  ],
+  "newOfficialBodies": 2,
+  "newOfficialRequirements": 1,
+  "newRequirement": "REQ-COM-PRINT-001",
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 0,
+    "newOriginalScopes": 3,
+    "reusedOriginalScopes": 0,
+    "fullModuleCoverage": false,
+    "results": [
+      {
+        "name": "Original_ChangeTemplateUserAction",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 2793113,
+        "end": 2796547,
+        "lineStart": 59330,
+        "lineEnd": 59392,
+        "fragmentSha256": "f020a732521a575213199da5db23ee0deeb5dd5731eb0452ec76c92a3766e7a3",
+        "resultSha256": "dc5259dd302544bb19fdf2c6b1c9271c58a2286dcca92ec32e99e454b8387b19",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 3691,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 295,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_template_list_current_template",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "start": 35406,
+        "end": 36199,
+        "lineStart": 918,
+        "lineEnd": 931,
+        "fragmentSha256": "39ebc5fcf581cfd15d1d2a7bfa9e4db6686667d8fa2f23c0a3fd75a6a44f5712",
+        "resultSha256": "80eb0f725f987bf62b8385b9c8bfcecf4559da86a98ee7036543b404afc16e57",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 800,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 104,
+          "findings": 1,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_applied_template_multi_user_action_slip",
+        "category": "original",
+        "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+        "sourceSha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+        "start": 157737,
+        "end": 158100,
+        "lineStart": 4054,
+        "lineEnd": 4066,
+        "fragmentSha256": "2f22c20c5cc86dd98b469088f5bc30cfb79fab5c3f7b5e491f79fd80f1e4c0c3",
+        "resultSha256": "1479dcdfda1409fce37078306456e4fe4df8b4dd24ca0e13d72d725f92bec6cc",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 370,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 27,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "sourceFindings": [
+    "The public slip applied-template action binding points change to common$IChangeTemplateUserAction; it is not the configuration create/modify handler.",
+    "ChangeTemplateUserAction records per-slip template changes in page runtime and current template in page state, then reloads with preserved template. For by_slip and multiple data_sids it confirms all/current; the cancel branch applies only current instead of cancelling all selection changes. This does not prove the complete resolver or persistent-default server behavior.",
+    "The shared current-template reader validates a previous template_set_sid against the template_list and otherwise reads default_template from menu metadata for tenant/business/menu/type. The writer and precedence between company/user/menu defaults remain outside this scope.",
+    "The sales-status FAQ uses conditional-form exception true-result and optional ID/device conditions for next entry default. This example is not the exact020 purchase print-default manual.",
+    "A separate official FAQ explicitly supports per-form shrink default for purchase-order printing through detailed print settings; operating own page options lack that setting."
+  ],
+  "ownOperatingComparison": {
+    "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "sources": [
+      {
+        "file": "dist/form-core.js",
+        "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+        "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+        "artifact": ".artifacts/manual-default-print-form-20261023/shipped-source/dist/form-core.js"
+      },
+      {
+        "file": "dist/form-options.js",
+        "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+        "sha256": "382385de477b708dc374b21fa5bccf042a09ab604aa4aa4734e1d53f91cd018b",
+        "artifact": ".artifacts/manual-default-print-form-20261023/shipped-source/dist/form-options.js"
+      },
+      {
+        "file": "dist/inventory-ui.js",
+        "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+        "sha256": "4e7edbaa10aa5c6d97669e5d840e23a7f89fc751fc2dba5bc4524d16c05cbce1",
+        "artifact": ".artifacts/manual-default-print-form-20261023/shipped-source/dist/inventory-ui.js"
+      }
+    ],
+    "existingBehavior": [
+      "FormCore.effective chooses first matched valid conditional form, then active context, then builtin default.",
+      "FormOptions picker explicitly commits formActivate; formSave also sets active context. These are persistent customization paths in own app, not the public page-runtime override.",
+      "Own form page metadata currently contains title/company/footer/paper/orientation/margin/fontSize/showTotals; there is no explicit per-form shrink-use selector or policy.",
+      "Own print table percentage widths and browser print are not proof of the documented per-form shrink default semantics."
+    ],
+    "implementationChanged": false,
+    "existingChecksRerun": false
+  },
+  "remainingGates": [
+    "Exact020 procedure/default selection control, persistence writers, company/user/menu permission/storage and cancel/restore behavior.",
+    "Actual purchase print context binding/resolver and precedence for manual override, conditional form and persistent default; do not infer full behavior from shared helper alone.",
+    "Shrink setting data attribute/enum/default, width/height/pages/scale semantics and actual supported output renderer. Do not map this to arbitrary CSS scale, browser fit or page width."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pidPresent": true,
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "workerUnchanged": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginResponseStillPending": true,
+    "newMoaWorkToolsExposed": false,
+    "connectionConfirmed": false,
+    "sameLoginOrTokenReissueRequested": false,
+    "moaDiagnosticEvidence": "evidence/moa-plugin-1.0.2-verification-20261023.json"
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 96,
+    "sameAuthenticationProbeRepeated": false
+  },
+  "counters": {
+    "indexedManuals": 69,
+    "sourceBodiesReviewed": 39,
+    "officialRequirements": 41,
+    "finalAcceptance": 0
+  },
+  "done": false
+}

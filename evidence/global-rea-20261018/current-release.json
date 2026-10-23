@@ -364,7 +364,7 @@
     "planSourceProgressOptionNewNode": 5,
     "planSourceProgressOptionNewBrowser": 2
   },
-  "future_research": "매핑0.88 호환 이식·40 Node/131 browser/verify:local은 별도 candidate 브랜치에서 통과했다. TC101P_01 필드 편집기와 설정→불러오기→운영 저장 계약이 남아 배포하지 않는다. 원본 로그인/모아1.0.2 업무문서 도구 노출 회복 응답 우선, 그 전020 전표 기본 인쇄양식 본문·기본값/보관범위를 확인한다.019 이미지 치환만으로 도장 전체 동등성을 선언하지 않는다. 같은 통과 회귀/인증 요청 반복, root build/main VAT5 설치 금지. 운영0.88.0·전체완료false 유지.",
+  "future_research": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전021 인쇄 수량 본문을 기존 숫자표시 요구사항·실제0.88/기존 검사 근거와 대조하며 같은 formatter/통과회귀를 반복하지 않는다.020 영구 기본값과 현재 인쇄창 양식 선택·양식별 축소사용을 분리했다. 축소사용은 공식FAQ로 새REQ-COM-PRINT-001을 등록했으나 renderer/default/권한·보관 계약 확보 전 CSS scale이나 schema 변경을 추정 설치하지 않는다. 매핑0.88 후보는 이미 검증/push했으며 TC101P_01/운영 수락검증 대기·미배포다. 운영0.88 유지·root build/main VAT5 설치 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-plan-source-status-20261023.json",
@@ -625,8 +625,8 @@
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 40,
-    "sourceBodiesReviewed": 37,
+    "officialRequirements": 41,
+    "sourceBodiesReviewed": 39,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "020 전표 기본 인쇄양식; 원본 로그인/모아 업무문서 도구 복구 응답 우선",
+      "nextIndependentManual": "021 전표 인쇄 수량 확인; 기존 숫자표시 근거와 먼저 대조, 원본 로그인/모아 업무문서 도구 복구 응답 우선",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json"
     },
@@ -1335,7 +1335,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 67,
+    "onlineManualIndexItems": 69,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1530,13 +1530,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-020",
-      "title": "전표 인쇄 시 기본으로 출력되는 양식을 변경하는 방법",
-      "context": "원본 로그인 또는 모아 업무문서 도구 복구 응답 우선. 그 전020의 정확한 본문·기본 양식 선택과 회사/사용자/메뉴별 저장범위를 실제0.88과 대조한다.019는 이미지 치환3범위만 확인했으며 전체본문/편집기/업로드/권한 계약 미확보다. 매핑0.88 호환 이식·전체 검사는 완료됐으며 같은 통과 회귀를 반복하지 않는다. TC101P_01 편집기/운영 수락검증 전 해당 후보 배포 금지.",
+      "sourceId": "EC-HELP-REQUEST-021",
+      "title": "전표인쇄 시 수량이 이상하게 나오는 경우 확인할 사항",
+      "context": "원본 로그인/모아 업무문서 도구 복구 응답 우선. 그 전021 정확한 본문과 기존 숫자표시 요구사항·0.76 이후 구현/검사 근거를 먼저 대조한다. 같은 숫자 formatter/통과 회귀를 반복하지 않고 새 원본근거·실제 차이가 있을 때만 구현/검사한다.020 현재 선택과 영구 기본값, 새 축소사용은 별도 계약이며 임의 CSS scale/기본값 저장 의미 변경 금지.",
       "operatingVersion": "0.88.0",
-      "stampGateEvidence": "evidence/manual-stamp-print-20261023.json",
+      "defaultPrintGateEvidence": "evidence/manual-default-print-form-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
-      "legacyGates": "masterPermissions/inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping0.88 rebase completed, editor/hosted acceptance pending; no root build/install"
+      "legacyGates": "TC101P_01 editor/hosted acceptance; masterPermissions/inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/stamp/tableline/default-print/shrink contracts retained; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1762,7 +1762,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 95,
+      "pendingLocalUpdates": 96,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1853,6 +1853,20 @@
       "implemented": false,
       "done": false,
       "communityPendingLocalUpdates": 95
+    },
+    "defaultPrintFormResearch": {
+      "candidate": "CAND-COM-PRINTDEFAULT-001",
+      "status": "exact020-default-persistence-and-permission-contract-gated-current-selection-distinguished",
+      "evidence": "evidence/manual-default-print-form-20261023.json",
+      "exact020BodyRead": false,
+      "newOfficialBodies": 2,
+      "newOfficialRequirements": 1,
+      "newRequirement": "REQ-COM-PRINT-001",
+      "newFocusedOriginalScopes": 3,
+      "coverage": "unknown",
+      "applicationChanged": false,
+      "done": false,
+      "communityPendingLocalUpdates": 96
     }
   },
   "preparedCandidate": {
@@ -2011,6 +2025,13 @@
       "reference": "evidence/manual-stamp-print-20261023.json",
       "sourceManifest": ".artifacts/manual-stamp-print-20261023/source-manifest.json",
       "newPublicSources": 0,
+      "originalExecuted": false
+    },
+    "defaultPrintForm": {
+      "reference": "evidence/manual-default-print-form-20261023.json",
+      "sourceManifest": ".artifacts/manual-default-print-form-20261023/source-manifest.json",
+      "newOfficialBodies": 2,
+      "newPublicSourceBundles": 0,
       "originalExecuted": false
     }
   },
@@ -2287,6 +2308,13 @@
     },
     "stampPrint": {
       "reference": "evidence/manual-stamp-print-20261023.json",
+      "newOriginalScopes": 3,
+      "newOwnScopes": 0,
+      "coverage": "unknown",
+      "fullModuleCoverage": false
+    },
+    "defaultPrintForm": {
+      "reference": "evidence/manual-default-print-form-20261023.json",
       "newOriginalScopes": 3,
       "newOwnScopes": 0,
       "coverage": "unknown",
