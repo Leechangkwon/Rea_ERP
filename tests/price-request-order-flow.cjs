@@ -147,10 +147,43 @@ test('large precision that cannot roundtrip is rejected before applying or creat
   rejectsUnchanged(db,()=>C.command(db,'convert',{id,type:'purchaseorder'}),/정밀도/);assert.equal(Q.view(db,id,C).rows[0].confirmed.price,'999999999999.9999999999');
 });
 
-test('request-price or unconfirmed rows retain an explicitly chosen order supplier without inventing one',()=>{
-  for(const selected of [false,true]){let {db,id}=fixture();if(selected)db=edit(db,id,'select',{lineKey:'row:0',source:'request',vendorCode:null});const value=stage(db,id,{partner:'V002',qty:2,adoptHeader:true});
-    assert.equal(value.partner,'V002');assert.equal(value.lines[0].price,'50000');assert.equal(value.lines[0].priceRequestBasis.vendorCode,null);assert.equal(value.lines[0].priceRequestBasis.source,selected?'request':null);assert.equal(C.command(db,'document',value).result.partner,'V002');
-  }
+test('explicit request-price confirmation retains the chosen order supplier without inventing one',()=>{
+  let {db,id}=fixture();db=edit(db,id,'select',{lineKey:'row:0',source:'request',vendorCode:null});const value=stage(db,id,{partner:'V002',qty:2,adoptHeader:true});
+  assert.equal(value.partner,'V002');assert.equal(value.lines[0].price,'50000');assert.equal(value.lines[0].priceRequestBasis.vendorCode,null);assert.equal(value.lines[0].priceRequestBasis.source,'request');assert.equal(C.command(db,'document',value).result.partner,'V002');
+});
+
+for(const mode of ['linked','copy'])test('no confirmed prices excludes a comparison request and rejects raw '+mode+' staging atomically',()=>{
+  const {db,id}=fixture(),input=draft('V002'),before=copy(input);
+  assert.equal(candidates(db,{mode}).some(row=>row.id===id),false);
+  rejectsUnchanged(db,()=>E.stageDocuments(db,input,{mode,selections:[{documentId:id,item:'M001',qty:2}]}),/단가.*확정/);
+  assert.deepEqual(input,before);
+});
+
+test('no confirmed prices rejects direct conversion and a manufactured first-save basis',()=>{
+  const {db,id}=fixture(),source=doc(db,id),line=source.lines[0],basis={documentId:id,revision:0,lineKey:'row:0',item:line.item,source:null,vendorCode:null,price:'50000'};
+  rejectsUnchanged(db,()=>C.command(db,'convert',{id,type:'purchaseorder',partner:'V002'}),/단가.*확정/);
+  rejectsUnchanged(db,()=>C.command(db,'document',{...draft('V002'),sourceId:id,lines:[{...line,qty:2,priceRequestBasis:basis}]}),/단가.*확정/);
+});
+
+test('clearing the last confirmation invalidates selected candidates and staged first saves',()=>{
+  let {db,id}=fixture();db=confirm(db,id);const selected=selections(candidates(db)[0],2),value=stage(db,id,{qty:2}),before=copy(value);
+  db=edit(db,id,'clear-selection',{lineKey:'row:0'});
+  assert.equal(candidates(db).length,0);
+  rejectsUnchanged(db,()=>E.stageDocuments(db,draft(),{mode:'linked',selections:selected}),/단가.*확정/);
+  rejectsUnchanged(db,()=>C.command(db,'document',value),/단가.*확정/);
+  assert.deepEqual(value,before);
+});
+
+test('saved orders remain editable and restorable after every confirmation is cleared',()=>{
+  let {db,id}=fixture();db=confirm(db,id);const out=C.command(db,'document',stage(db,id,{qty:2}));db=edit(out.db,id,'clear-selection',{lineKey:'row:0'});
+  const saved=copy(out.result),kept=preservation(db),edited=C.command(db,'document',{...saved,memo:'retained after clearing'});
+  assert.deepEqual(edited.result.lines,saved.lines);assert.deepEqual(preservation(edited.db),kept);assert.doesNotThrow(()=>C.validateBackup(copy(edited.db)));
+});
+
+test('partly confirmed requests keep their existing unconfirmed-row supplier policy',()=>{
+  let {db,id}=fixture({lines:[{lineId:'A',item:'M001',qty:5,price:50000},{lineId:'B',item:'M001',qty:7,price:40000}]});db=edit(db,id,'select',{lineKey:'id:A',source:'request',vendorCode:null});
+  const row=candidates(db)[0].lines.find(line=>line.lineId==='B'),value=stage(db,id,{partner:'V002',selected:selections({id,lines:[row]},2)});
+  assert.equal(value.partner,'V002');assert.equal(value.lines[0].priceRequestBasis.source,null);assert.equal(C.command(db,'document',value).result.partner,'V002');
 });
 
 test('saved basis cannot be stripped or altered; malformed backup is rejected without touching input',()=>{
