@@ -1340,11 +1340,15 @@
       "purchaseReceivingWarehouseEvidence": "evidence/manual-purchase-receiving-warehouse-20261021.json",
       "localPurchaseReceivingWarehouseVerified": true,
       "purchaseOrderWarehouseEqualityCorrection": "Official inventory textbook physical page 18 permits selecting actual receiving warehouse after loading purchase order. Prior equality guard is corrected only for purchaseorder -> purchase. Inspection/rack warehouse changes remain guarded for preservation.",
-      "currentOperatingVersion": "0.88.4",
+      "currentOperatingVersion": "0.88.5",
       "currentWorkflowGapTable": "docs/plan-manual-purchase-gaps-20261021.md",
       "requestOrderSupplierEvidence": "evidence/manual-request-order-supplier-20261023.json",
       "localRequestOrderSupplierVerified": true,
-      "requestOrderSupplierHostedSaveVerified": false
+      "requestOrderSupplierHostedSaveVerified": false,
+      "comparisonPartialFlowEvidence": "evidence/manual-order-default-partner-20261023.json",
+      "localComparisonPartialFlowVerified": true,
+      "freshOrderBlankHeaderHostedVerified": true,
+      "comparisonPartialFlowHostedSaveVerified": false
     },
     {
       "id": "REQ-PUR-PLAN-001",

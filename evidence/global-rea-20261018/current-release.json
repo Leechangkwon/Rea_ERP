@@ -1,6 +1,6 @@
 {
-  "version": "0.88.4",
-  "status": "deployed-direct-request-order-supplier-preservation-verified-manual-parity-pending",
+  "version": "0.88.5",
+  "status": "deployed-fresh-order-default-supplier-flow-preservation-verified-manual-parity-pending",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -93,7 +93,8 @@
     "Request bottom print accepts2+ selected current-query requests with saved per-document conditional forms, named paper/orientation/margins and explicit guarded native printing; single print paths retained, hosted multi-request and original approval exclusions incomplete",
     "Built-in request print displays six saved header fields and stored line supplier names. Saved custom/conditional print layouts preserved; no current item/header supplier fallback; guarded single preview and native mobile/print layout.",
     "Purchase-order input Option reuses existing plan→PO progress-rule editor with explicit section CAS, parent draft/raw preservation, scoped permissions and disposed-callback guards; existing linked plan-row core is unchanged.",
-    "Selected request rows default an empty purchase-order header only when their resolved supplier is unique; explicit headers preserved; copy/linked/direct conversion tested without guessing mixed suppliers. evidence/manual-request-order-supplier-20261023.json"
+    "Selected request rows default an empty purchase-order header only when their resolved supplier is unique; explicit headers preserved; copy/linked/direct conversion tested without guessing mixed suppliers. evidence/manual-request-order-supplier-20261023.json",
+    "Fresh purchaseorder does not inherit the sales C001 customer default; request/confirmed-vendor inference can run without clearing it. Existing document/draft precedence preserved. evidence/manual-order-default-partner-20261023.json"
   ],
   "checks": {
     "total": 998,
@@ -156,7 +157,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.88.4",
+    "currentReleaseFullRegressionVersion": "0.88.5",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -398,16 +399,45 @@
         ".artifacts/manual-request-order-supplier-20261023/focused-browser.log",
         ".artifacts/manual-request-order-supplier-20261023/verify-local.log"
       ]
+    },
+    "freshOrderDefaultPartner": {
+      "reference": "evidence/manual-order-default-partner-20261023.json",
+      "updatedExistingBrowserScenarios": 3,
+      "newDuplicateTests": 0,
+      "preFixBrowserFailed": 3,
+      "focusedBrowserPassed": 3,
+      "requestViewports": [
+        390,
+        1280
+      ],
+      "comparisonVendor": "V002",
+      "comparisonFlowResult": {
+        "requestQty": 100,
+        "orderQty": 40,
+        "receivedQty": 10,
+        "requestRemaining": 60,
+        "orderRemaining": 30,
+        "stock": 10,
+        "payable": 275000
+      },
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 135,
+      "fullNodeSuitePassed": true,
+      "logs": [
+        ".artifacts/manual-order-default-partner-20261023/pre-fix-browser.log",
+        ".artifacts/manual-order-default-partner-20261023/focused-browser.log",
+        ".artifacts/manual-order-default-partner-20261023/verify-local.log"
+      ]
     }
   },
   "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-request-order-supplier-20261023.json",
+    "reference": "evidence/manual-order-default-partner-20261023.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "8ce1113d17c73b7996eb89b3f5d372b254cab4b5",
-    "publicVersionVerified": "0.88.4",
+    "deployedSourceCommit": "385e14e7e80d105185eab5562106efc8ae7fef9e",
+    "publicVersionVerified": "0.88.5",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -466,20 +496,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.4",
+    "existingSessionRetainedVersion": "0.88.5",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.4",
+    "lastExactBrowserBackupComparisonVersion": "0.88.5",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.4",
+    "currentServerStateAndMailPreservedVersion": "0.88.5",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.4",
+    "currentAuthenticatedSessionVerificationVersion": "0.88.5",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -706,6 +736,15 @@
       "hostedSaveVerified": false,
       "runtimePid": 2561655,
       "runtimeSession": 88108
+    },
+    "freshOrderDefaultPartner": {
+      "reference": "evidence/manual-order-default-partner-20261023.json",
+      "deployed": true,
+      "freshBlankHeaderHostedReadonlyVerified": true,
+      "confirmedV002PartialFlowSyntheticVerified": true,
+      "hostedBusinessSaveVerified": false,
+      "runtimePid": 2567539,
+      "runtimeSession": 91918
     }
   },
   "manualParity": {
@@ -718,22 +757,23 @@
       "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.4",
+      "productionVersion": "0.88.5",
       "done": false,
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "단가요청 비교확정 → 부분 발주 → 부분 구매 연결에서 선택 거래처·원본 품목행·잔량 보존을 현재 운영 코드와 대조한다. 이미 통과한 단일 helper/회귀는 변경이나 재현 결함 없이 반복하지 않는다.",
+      "nextIndependentManual": "최소구매단위·발주계획 수량산정에서 미확인 계산 변수/반올림의 공식 본문 또는 실제 공개 정의를 우선 확보한다. 기존 stock-only 후보/통과 helper를 반복해 전체 계산식으로 확대하지 않고, 근거가 없으면 운영 통합을 보류한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
       "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
       "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
-      "latestRequestOrderSupplierSourceRequired": "a58c75444cbf069313f8c81bd398ec32a40152e6"
+      "latestRequestOrderSupplierSourceRequired": "a58c75444cbf069313f8c81bd398ec32a40152e6",
+      "latestFreshOrderDefaultSourceRequired": "6aac054175c32c66715b8741851a37217b07585f"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
-      "status": "0.88.4-direct-request-supplier-deployed-workflow-acceptance-pending",
+      "status": "0.88.5-fresh-order-default-corrected-workflow-acceptance-pending",
       "sourceCommit": "59b2c4f73d67b706cb8d1370bfbe8134104e8905",
       "plan": "docs/plan-manual-purchase-gaps-20261021.md",
       "evidence": "evidence/manual-plan-allocation-preservation-20261021.json",
@@ -750,13 +790,13 @@
       "priorCandidateCommit": "479b4aee7133f3409e376607a5c60e586c915138",
       "sourceLineageNodeTests": 6,
       "newGroupedAllocationNodeTests": 12,
-      "nextWork": "단가요청 비교확정 → 부분 발주 → 부분 구매 연결에서 선택 거래처·원본 품목행·잔량 보존을 현재 운영 코드와 대조한다. 이미 통과한 단일 helper/회귀는 변경이나 재현 결함 없이 반복하지 않는다.",
+      "nextWork": "최소구매단위·발주계획 수량산정에서 미확인 계산 변수/반올림의 공식 본문 또는 실제 공개 정의를 우선 확보한다. 기존 stock-only 후보/통과 helper를 반복해 전체 계산식으로 확대하지 않고, 근거가 없으면 운영 통합을 보류한다.",
       "authenticatedAcceptancePending": false,
       "deploymentEvidence": "evidence/deployment-purchase-links-0531-20261021.json",
-      "currentOperatingVersion": "0.88.4",
-      "latestEvidence": "evidence/manual-request-order-supplier-20261023.json",
-      "latestSourceCommit": "a58c75444cbf069313f8c81bd398ec32a40152e6",
-      "latestReleaseCommit": "8ce1113d17c73b7996eb89b3f5d372b254cab4b5"
+      "currentOperatingVersion": "0.88.5",
+      "latestEvidence": "evidence/manual-order-default-partner-20261023.json",
+      "latestSourceCommit": "6aac054175c32c66715b8741851a37217b07585f",
+      "latestReleaseCommit": "385e14e7e80d105185eab5562106efc8ae7fef9e"
     },
     "independentResearch": {
       "requirement": "REQ-PUR-PLAN-001",
@@ -2730,6 +2770,15 @@
       "coverage": "unknown",
       "mainCandidateWholeScopeEqual": false,
       "unshippedRootVatPreserved": true
+    },
+    "freshOrderDefaultPartner": {
+      "reference": "evidence/manual-order-default-partner-20261023.json",
+      "newOwnScopes": 1,
+      "newOriginalScopes": 0,
+      "scope": "fresh/initial declaration only",
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "mainCandidateInitializerEqual": true
     }
   }
 }

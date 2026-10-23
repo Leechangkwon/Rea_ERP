@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-036",
+  "requirementId": "REQ-PUR-FLOW-001",
+  "title": "0.88.5 새 발주서의 잘못된 고객 거래처 기본값 제거",
+  "version": "0.88.5",
+  "status": "deployed-fresh-order-customer-default-corrected-preservation-verified-original-acceptance-pending",
+  "sourceCommit": "6aac054175c32c66715b8741851a37217b07585f",
+  "releaseCommit": "385e14e7e80d105185eab5562106efc8ae7fef9e",
+  "releaseBranch": "release/0.88.5-order-default-partner",
+  "releaseDirectory": ".artifacts/releases/0.88.5-order-default-partner",
+  "workerSha256": "0707446f923f9a308f93272347deb1d8e75254e0b7f0e3c39efd7e19557c2754",
+  "pushed": true,
+  "verifyLocalExit": 0,
+  "previousWorkerSha256": "fcba38981cc8f75bc9759ae817f2de33abde8c4768eacd776d5ee236669c5bf9",
+  "previousReleaseEvidence": "evidence/manual-request-order-supplier-20261023.json",
+  "rootCause": "/sale|quote|order|shipment/.test(purchaseorder) matched order and prefilled C001, blocking sole supplier and confirmed vendor inference.",
+  "change": "새 발주서 purchaseorder가 영업전표 정규식의 order에 포함돼 고객C001을 미리 채우던 원인을 확인했다. 새 발주서는 거래처 빈 값으로 시작해 요청 품목 구매처 또는 단가 비교 확정 구매처가 반영된다. 기존 전표·transient/탭 초안·명시한 거래처와 입력양식 설정은 재작성하지 않았다.",
+  "scope": "Only fresh purchaseorder fallback partner; transient/existing/drafts precedence unchanged. Form configuration remains handled by existing code.",
+  "schemaChanged": false,
+  "cssChanged": false,
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "validation": {
+    "updatedExistingBrowserScenarios": 3,
+    "newDuplicateTests": 0,
+    "preFixBrowserFailed": 3,
+    "focusedBrowserPassed": 3,
+    "requestViewports": [
+      390,
+      1280
+    ],
+    "comparisonVendor": "V002",
+    "comparisonFlowResult": {
+      "requestQty": 100,
+      "orderQty": 40,
+      "receivedQty": 10,
+      "requestRemaining": 60,
+      "orderRemaining": 30,
+      "stock": 10,
+      "payable": 275000
+    },
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 135,
+    "fullNodeSuitePassed": true,
+    "logs": [
+      ".artifacts/manual-order-default-partner-20261023/pre-fix-browser.log",
+      ".artifacts/manual-order-default-partner-20261023/focused-browser.log",
+      ".artifacts/manual-order-default-partner-20261023/verify-local.log"
+    ]
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "scope": "docEditor fresh/initial variable declaration only",
+    "newOwnScopes": 1,
+    "newOriginalScopes": 0,
+    "mainCandidateInitializerEqual": true,
+    "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/order-default-partner-20261023/dist/inventory-ui.js",
+    "sourceSha256": "0f4f90103e4950ed874c0b21c80900ccbcf42aa586fb110567431248e49a49c8",
+    "fragmentSha256": "21bd8568c029cf0501dfd8a2b47ac2b5e7671ca0ea3d1df54bc673bcff9c47de",
+    "lineStart": 290,
+    "lineEnd": 290,
+    "resultSha256": "efeae1a6dd75a008765e24ad63356e66cd507587fbee689d657b4969e3a76115",
+    "statistics": {
+      "relevant_files": 1,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 836,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 1,
+      "visited_ast_nodes": 220,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false
+  },
+  "runtime": {
+    "version": "0.88.5",
+    "linuxPid": 2567539,
+    "runtimeSession": 91918,
+    "workerSha256": "0707446f923f9a308f93272347deb1d8e75254e0b7f0e3c39efd7e19557c2754",
+    "localHealth": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "pollOrTerminateRuntimeSession": false
+  },
+  "hosted": {
+    "existingLoginRetained": true,
+    "workTabsRestored": 1,
+    "freshOrderPartnerBlankVerified": true,
+    "sourceImportOrBusinessSaveVerified": false,
+    "settingsOrBusinessWrites": 0,
+    "mailSent": 0,
+    "screenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/order-default-0885-hosted.png",
+    "screenshot": ".artifacts/manual-order-default-partner-20261023/hosted-fresh-order.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.5",
+      "exactBytesEqual": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "existingLoginRetained": true,
+      "workTabsRestored": 1,
+      "freshOrderPartnerBlankHostedVerified": true,
+      "hostedBusinessSavePerformed": false,
+      "hostedSettingsSavePerformed": false,
+      "originalErpTouched": false
+    },
+    "serverAndMail": {
+      "version": "0.88.5",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupReference": ".artifacts/manual-order-default-partner-20261023/predeploy-backup.json",
+    "publicChecks": 13,
+    "assetsMatchRelease": true,
+    "candidates": {
+      "oldDirtyFiles": 12,
+      "oldHeadStatusHashesExact": true,
+      "mapping088CleanUnchanged": true,
+      "dependenciesPreserved": true,
+      "updatedBrowserTestsRootCandidateEqual": true
+    }
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "work-tools-unexposed-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "cumulativePendingLocalUpdates": 109,
+    "lastVerifiedProgressVersion": "0.51.0",
+    "pendingBodyArtifact": ".artifacts/manual-order-default-partner-20261023/moa-pending-order-default-partner.html"
+  },
+  "remaining": [
+    "Confirmed vendor and partial quantity saves are synthetic only; original and real hosted business-save acceptance remain unproven.",
+    "Original minimum purchase-unit, plan-quantity calculation, VAT5 and TC101P_01 field-editor contracts remain gated.",
+    "Existing saved headers and pending drafts are not automatically rewritten.",
+    "Mapping088 must incorporate this fresh-order initializer and four prior fixes before release."
+  ],
+  "counters": {
+    "indexed": 77,
+    "bodyReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextWork": "최소구매단위·발주계획 수량산정에서 미확인 계산 변수/반올림의 공식 본문 또는 실제 공개 정의를 우선 확보한다. 기존 stock-only 후보/통과 helper를 반복해 전체 계산식으로 확대하지 않고, 근거가 없으면 운영 통합을 보류한다.",
+  "done": false
+}
