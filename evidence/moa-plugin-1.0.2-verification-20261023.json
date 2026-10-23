@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-23",
+  "plugin": "moa-community-records",
+  "packageVersion": "1.0.2",
+  "packageAndSkillAvailable": true,
+  "declaredServer": {
+    "name": "moa",
+    "type": "streamable-http",
+    "url": "https://changkwon.mso.so/mcp"
+  },
+  "currentConversationWorkTools": {
+    "qaredi_list_work_projects": false,
+    "qaredi_list_work_documents": false,
+    "qaredi_read_work_document": false,
+    "qaredi_update_work_document": false
+  },
+  "legacyQaredi2": {
+    "whoamiAttempted": true,
+    "httpStatus": 401,
+    "result": "legacy API-token authentication rejected",
+    "isModernMoaOAuthTest": false
+  },
+  "modernMoaOAuthState": "unverified because no work-document tools are exposed",
+  "existingDocumentRead": false,
+  "existingDocumentUpdated": false,
+  "credentialsReadOrChanged": false,
+  "tokenReissueRequested": false,
+  "resourceServerNameAssumed": false,
+  "serverFailureOrModernTokenExpiryConcluded": false,
+  "schema": 1,
+  "skillSha256": "4fc1e98552e2d1c279237719f3e66d2cd261283c96bb7b46bc4f8d7e92bfd5f7",
+  "artifact": ".artifacts/moa-plugin-1.0.2-20261023/verification.json",
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 95
+  },
+  "scope": "Installed package and current tool exposure verified; legacy whoami401 is not proof of modern Moa OAuth failure. No new-page workaround or repeated credential request."
+}

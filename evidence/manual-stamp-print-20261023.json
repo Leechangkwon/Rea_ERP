@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-019",
+  "title": "도장이 인쇄되지 않을 경우 확인사항",
+  "candidate": "CAND-COM-STAMP-001",
+  "status": "exact-manual-editor-upload-and-permission-contract-gated-image-substitution-only",
+  "productionVersion": "0.88.0",
+  "sourceManifest": ".artifacts/manual-stamp-print-20261023/source-manifest.json",
+  "exactOfficialBodyRead": false,
+  "indexStatus": "index-only",
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "rea": {
+    "reaVersion": "6.4.0",
+    "originalExecuted": false,
+    "originalServerRuntimeEquivalence": false,
+    "newOwnScopes": 0,
+    "newOriginalScopes": 3,
+    "reusedOriginalScopes": 0,
+    "fullModuleCoverage": false,
+    "results": [
+      {
+        "name": "Original_updateCodeReplaceAttrImages",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 406336,
+        "end": 407691,
+        "lineStart": 8857,
+        "lineEnd": 8887,
+        "fragmentSha256": "52a53a08d5ca2c6b05a68de328f334a2858cfaca2167cf79c2a122567c162e19",
+        "resultSha256": "052d0283d75544247d64270604c71233eb1abbf2cb66cc122ec793731185eb0e",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 1453,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 162,
+          "findings": 2,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_extractOtherEstablishmentBusinessNo",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 407829,
+        "end": 408403,
+        "lineStart": 8892,
+        "lineEnd": 8906,
+        "fragmentSha256": "6e4c20d3e019a6bf493e704c1c93cb311d6572ba09e1c332232a36e7ae092806",
+        "resultSha256": "f177cf38dd335ab354307a496dc93767dab2496aa2efc972206de82cd7b0b80c",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 574,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 82,
+          "findings": 0,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "name": "Original_ReplaceCode_image_call",
+        "category": "original",
+        "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+        "sourceSha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+        "start": 4350665,
+        "end": 4359996,
+        "lineStart": 90710,
+        "lineEnd": 90881,
+        "fragmentSha256": "1046149f0aa29429f3fdd35b914432fa177a6a2b4a1f89f8d44e1e5fa27e76af",
+        "resultSha256": "edae17ed9ca2a47d95dcd9b0de1cea9dc899cfa28b0c0282da7cc9a9980af8cd",
+        "statistics": {
+          "relevant_files": 1,
+          "nested_asar_containers": 0,
+          "text_bytes_read": 10224,
+          "invalid_utf8_files": 0,
+          "parsed_javascript_files": 1,
+          "visited_ast_nodes": 796,
+          "findings": 1,
+          "modules": 0,
+          "parse_failures": 0
+        },
+        "coverage": "unknown",
+        "truncated": false,
+        "runtimeEquivalence": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ]
+  },
+  "findings": [
+    "Code replacement reads tenant HQ sign/logo URLs; a distinct nonempty establishment business number can query branch images. Replacement uses nullish fallback branch direct image, branch nested images, then HQ URL. Empty string is not equivalent to missing/null and can skip replacement.",
+    "The function replaces existing HQ URLs or /MemberInfo/Logo/00000_sign.gif and _logo.gif placeholders. It does not create an absent image element.",
+    "Business-number extraction reads warehouse relation or flattened warehouse/customer fields; missing or same-HQ business number returns undefined.",
+    "ReplaceCodeProgram calls this image substitution after text processing only when platform is not excel; this scope does not establish all Excel stamp behavior.",
+    "Operating b903b56 own form options and text PDF implementation do not expose an explicit stamp/logo image registration/printing path. This bounded comparison does not define the original editor/upload contract."
+  ],
+  "unknown": [
+    "Exact019 official procedure and actual print/template UI.",
+    "Registration/upload/format/size/permissions and company/site ownership settings.",
+    "Complete renderer/output/Excel/server and stored image preservation rules."
+  ],
+  "boundaries": {
+    "originalExecuted": false,
+    "fullModuleCoverage": false,
+    "originalServerEquivalence": false,
+    "applicationChangedForStamp": false,
+    "stampCreatedOrUploaded": false,
+    "originalSettingsSaved": false,
+    "physicalPrintPerformed": false,
+    "productionDataWritten": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 95
+  },
+  "counters": {
+    "indexedManuals": 67,
+    "sourceBodiesReviewed": 37,
+    "officialRequirements": 40,
+    "finalAcceptance": 0
+  },
+  "done": false
+}

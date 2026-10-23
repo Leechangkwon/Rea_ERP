@@ -1800,7 +1800,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "authenticated-ui-candidate-passed-legacy-field-editor-evidence-gated-not-deployed",
+      "status": "088-compatibility-candidate-passed-editor-and-hosted-acceptance-gated-not-deployed",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1816,7 +1816,8 @@
         "evidence/manual-mapping-import-core-20261023.json",
         "dist/inventory-ui.js",
         "dist/entry-ui.js",
-        "evidence/manual-mapping-import-ui-20261023.json"
+        "evidence/manual-mapping-import-ui-20261023.json",
+        "evidence/manual-mapping-088-rebase-20261023.json"
       ],
       "automatedEvidence": [
         "tests/mapping-field-storage.cjs",
@@ -1884,6 +1885,23 @@
         "modernDeriveEquivalent": false,
         "newOriginalScopes": 6,
         "done": false
+      },
+      "compatibilityCandidate": {
+        "status": "088-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
+        "baseReleaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+        "sourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
+        "branch": "candidate/mapping-088-rebase-20261023",
+        "isolatedSource": ".artifacts/validation/mapping-088-rebase-20261023",
+        "isRelease": false,
+        "deployed": false,
+        "fieldEditorEnabled": false,
+        "done": false,
+        "evidence": "evidence/manual-mapping-088-rebase-20261023.json",
+        "baseVersion": "0.88.0",
+        "mappingNode": 40,
+        "fullBrowser": 131,
+        "verifyLocalPassed": true,
+        "communityPendingLocalUpdates": 95
       }
     },
     {

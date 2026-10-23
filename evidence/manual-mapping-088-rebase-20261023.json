@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "requirement": "REQ-COM-MAPPING-001",
+  "status": "088-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
+  "productionVersion": "0.88.0",
+  "baseReleaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "sourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
+  "branch": "candidate/mapping-088-rebase-20261023",
+  "isolatedSource": ".artifacts/validation/mapping-088-rebase-20261023",
+  "isRelease": false,
+  "deployed": false,
+  "fieldEditorEnabled": false,
+  "originalImplementationCommits": [
+    "2d5ed1a9d1982029366d651ae8a89e579a7a36bb",
+    "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
+    "878a0096e1968a33ec141cea7f4d69a0e13c7c8f"
+  ],
+  "previousEvidence": [
+    "evidence/manual-mapping-field-storage-20261023.json",
+    "evidence/manual-mapping-import-core-20261023.json",
+    "evidence/manual-mapping-import-ui-20261023.json",
+    "evidence/manual-mapping-editor-research-20261023.json"
+  ],
+  "implementedThisRun": [
+    "Port existing fieldLinks-v1 storage/core/authenticated import consumer into an isolated worktree based on the exact operating0.88 release.",
+    "Resolve index.html conflict retaining operating progress-settings script and adding MappingCore only; exclude unshipped transaction VAT scripts.",
+    "Resolve inventory-ui applyDraft conflict retaining current currency synchronization and adding mapping adapter identity/company/role/route/draft/storage/form guards.",
+    "Add test:mapping to the candidate default test chain; no dependency changes and no new test cases."
+  ],
+  "supportedSubset": "Existing optional order-to-request copy/line primitive matching; text/number/date/checkbox and same input/lines context only. Empty source skips,0/false explicit, conflicting nonblank/default rejected, no casts/truncation. Existing permission/revision/lifecycle guards and explicit voucher save remain.",
+  "checks": {
+    "mappingNode": 40,
+    "newTestCases": 0,
+    "fullBrowser": 131,
+    "widths": [
+      390,
+      1280
+    ],
+    "screenshotsVisuallyReviewed": true,
+    "verifyLocal": {
+      "command": "npm run verify:local",
+      "exitCode": 0,
+      "elapsedSeconds": 223.91
+    },
+    "focusedLog": ".artifacts/manual-mapping-088-rebase-20261023/focused-tests.log",
+    "fullLog": ".artifacts/manual-mapping-088-rebase-20261023/verify-local.log",
+    "testScope": "Existing and ported tests on a changed0.88 compatibility candidate; localhost synthetic data only, not production or original accounts.",
+    "fullVerifyIncludes": [
+      "env:check",
+      "test:tools",
+      "npm test including test:mapping",
+      "check-release",
+      "isolated build",
+      "full test:browser"
+    ]
+  },
+  "preservationBoundaries": {
+    "old082DirtyCandidateUnchanged": true,
+    "operatingWorkerUnchanged": true,
+    "latestInventoryFormItemProgressPlanCoreAndLockPreserved": true,
+    "currencySyncRetained": true,
+    "unshippedVatExcluded": true,
+    "mainResearchTreeUnchanged": true
+  },
+  "oldCandidate": {
+    "path": ".artifacts/validation/mapping-field-storage-20261023",
+    "head": "138ad506761bc0b732f4475ccc8b7594a6779270",
+    "dirtyStatusAndSourceHashesPreserved": true,
+    "snapshot": ".artifacts/manual-mapping-088-rebase-20261023/old-candidate-preserved.json"
+  },
+  "runtimeContinuity": {
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "workerChanged": false,
+    "runtimeRestarted": false,
+    "rootBuilt": false,
+    "freshBusinessBackupComparison": false,
+    "priorProductionPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "screenshots": {
+    "saved390": ".artifacts/validation/mapping-088-rebase-20261023/.artifacts/manual-mapping-import-ui-20261023/saved-390.png",
+    "picker1280": ".artifacts/validation/mapping-088-rebase-20261023/.artifacts/manual-mapping-import-ui-20261023/picker-1280.png"
+  },
+  "remainingGates": [
+    "Read-only original legacy TC101P_01 field editor and loaded asset: target/source metadata, selection/remove/apply/save/cancel, permission and preservation contract.",
+    "Configured editor-to-import-to-business-save hosted acceptance and original default/blank/merge/server equivalence remain unverified.",
+    "Do not install the compatibility candidate or root research build while these gates remain."
+  ],
+  "writes": {
+    "originalBusinessOrSettings": 0,
+    "productionBusinessOrSettingsOrMail": 0,
+    "productionDeployment": 0
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 95
+  },
+  "moaVerification": "evidence/moa-plugin-1.0.2-verification-20261023.json",
+  "counters": {
+    "indexedManuals": 67,
+    "sourceBodiesReviewed": 37,
+    "officialRequirements": 40,
+    "finalAcceptance": 0
+  },
+  "done": false
+}

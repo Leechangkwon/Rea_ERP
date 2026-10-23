@@ -364,7 +364,7 @@
     "planSourceProgressOptionNewNode": 5,
     "planSourceProgressOptionNewBrowser": 2
   },
-  "future_research": "REQ-COM-MAPPING-001: 매핑설정 전용 편집기의 진입/목표필드 클릭/원본후보 metadata와 저장규칙·권한·취소 계약을 기존 매뉴얼 및 아직 분석하지 않은 해당 편집기 공개 코드에서 좁힌다. 원본 세션 복구 시 분리 설정창만 읽으며 저장/적용/주입력행을 조작하지 않는다. 로그인 없이 못 보는 계약은 미확인으로 남기고 메뉴 pair copier/이번 적용기/통과 회귀를 재반복하지 않는다. 필드편집기와 설정→불러오기 전체 운영 수락검증 전에는 해당 후보를 배포하지 않는다. BODY/업로드는 기존 재개조건을 유지하고 main VAT5 설치 금지, 운영0.88.0 유지, 전체완료 false.",
+  "future_research": "매핑0.88 호환 이식·40 Node/131 browser/verify:local은 별도 candidate 브랜치에서 통과했다. TC101P_01 필드 편집기와 설정→불러오기→운영 저장 계약이 남아 배포하지 않는다. 원본 로그인/모아1.0.2 업무문서 도구 노출 회복 응답 우선, 그 전020 전표 기본 인쇄양식 본문·기본값/보관범위를 확인한다.019 이미지 치환만으로 도장 전체 동등성을 선언하지 않는다. 같은 통과 회귀/인증 요청 반복, root build/main VAT5 설치 금지. 운영0.88.0·전체완료false 유지.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-plan-source-status-20261023.json",
@@ -630,15 +630,17 @@
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
-      "status": "legacy-field-editor-evidence-gated-authenticated-import-consumer-already-implemented",
+      "status": "088-compatible-import-candidate-pushed-legacy-field-editor-and-hosted-acceptance-gated",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
       "productionVersion": "0.88.0",
       "done": false,
-      "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
+      "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "도장 인쇄 누락019; 원본 로그인/모아 서버 복구 응답 우선"
+      "nextIndependentManual": "020 전표 기본 인쇄양식; 원본 로그인/모아 업무문서 도구 복구 응답 우선",
+      "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
+      "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1447,7 +1449,10 @@
       "done": false,
       "sourceCommit": "2d5ed1a9d1982029366d651ae8a89e579a7a36bb",
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.86.0"
+      "releaseRequiresRebaseOn": null,
+      "compatibilityVerifiedOn": "0.88.0",
+      "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
+      "compatibilitySourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612"
     },
     "mappingImportCoreCandidate": {
       "sourceCommit": "915c83c1b12b2e95aa59f9305361cc5b5a93b99b",
@@ -1465,7 +1470,10 @@
       "communityPendingLocalUpdates": 73,
       "done": false,
       "supersededBy": "evidence/manual-mapping-import-ui-20261023.json",
-      "releaseRequiresRebaseOn": "0.86.0"
+      "releaseRequiresRebaseOn": null,
+      "compatibilityVerifiedOn": "0.88.0",
+      "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
+      "compatibilitySourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612"
     },
     "mappingAuthenticatedUiCandidate": {
       "sourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
@@ -1486,7 +1494,10 @@
       "authenticatedUiConsumerConnected": true,
       "communityPendingLocalUpdates": 74,
       "done": false,
-      "releaseRequiresRebaseOn": "0.86.0"
+      "releaseRequiresRebaseOn": null,
+      "compatibilityVerifiedOn": "0.88.0",
+      "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
+      "compatibilitySourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612"
     },
     "mappingEditorResearch": {
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
@@ -1519,12 +1530,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-019",
-      "title": "도장이 인쇄되지 않을 때의 공식본문·표시/양식/권한 조건 대조",
-      "context": "원본 로그인 또는 모아 서버 복구 완료 응답 우선. 모아 점검 프롬프트는 사용자에게 작성해 제공했으며 서버 전달/수정/재연결 완료로 취급하지 않는다. 그 전019 도장 인쇄 누락의 공식본문·실제0.88 인쇄를 대조한다.018의 표 테두리/절취선 후보는 정확한 본문·편집/렌더러 계약 확보 때 재개하며 임의 border:none CSS나 기존 양식 변경은 하지 않는다. 같은 helper/통과회귀/연결 요청을 반복하지 않는다.",
+      "sourceId": "EC-HELP-REQUEST-020",
+      "title": "전표 인쇄 시 기본으로 출력되는 양식을 변경하는 방법",
+      "context": "원본 로그인 또는 모아 업무문서 도구 복구 응답 우선. 그 전020의 정확한 본문·기본 양식 선택과 회사/사용자/메뉴별 저장범위를 실제0.88과 대조한다.019는 이미지 치환3범위만 확인했으며 전체본문/편집기/업로드/권한 계약 미확보다. 매핑0.88 호환 이식·전체 검사는 완료됐으며 같은 통과 회귀를 반복하지 않는다. TC101P_01 편집기/운영 수락검증 전 해당 후보 배포 금지.",
       "operatingVersion": "0.88.0",
-      "tableLineGateEvidence": "evidence/manual-table-lines-20261023.json",
-      "legacyGates": "masterPermissions/inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
+      "stampGateEvidence": "evidence/manual-stamp-print-20261023.json",
+      "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
+      "legacyGates": "masterPermissions/inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping0.88 rebase completed, editor/hosted acceptance pending; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1733,7 +1745,7 @@
       "sourceActionWritesBeforeOptionalOpen": true
     },
     "moaConnectionDiagnostic": {
-      "evidence": "evidence/manual-voucher-bookmark-20261023.json",
+      "evidence": "evidence/moa-plugin-1.0.2-verification-20261023.json",
       "cachedPluginPackagePresent": true,
       "requiredWorkToolsExposed": false,
       "unauthenticatedMcpInitializeStatus": 401,
@@ -1745,7 +1757,14 @@
       "serverRepairPromptProvidedToUser": true,
       "serverRepairConfirmed": false,
       "connectionConfirmed": false,
-      "promptSentToAnotherChatOrServer": false
+      "promptSentToAnotherChatOrServer": false,
+      "packageVersion": "1.0.2",
+      "legacyWhoamiStatus": 401,
+      "legacyWhoamiIsModernOAuthTest": false,
+      "modernMoaOAuthState": "unverified: work-document tools absent",
+      "pendingLocalUpdates": 95,
+      "credentialsReadOrChanged": false,
+      "tokenReissueRequested": false
     },
     "timelineResearch": {
       "candidate": "CAND-COM-TIMELINE-001",
@@ -1805,6 +1824,35 @@
       "implemented": false,
       "done": false,
       "communityPendingLocalUpdates": 94
+    },
+    "mapping088CompatibilityCandidate": {
+      "status": "088-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
+      "baseReleaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+      "sourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
+      "branch": "candidate/mapping-088-rebase-20261023",
+      "isolatedSource": ".artifacts/validation/mapping-088-rebase-20261023",
+      "isRelease": false,
+      "deployed": false,
+      "fieldEditorEnabled": false,
+      "done": false,
+      "evidence": "evidence/manual-mapping-088-rebase-20261023.json",
+      "baseVersion": "0.88.0",
+      "mappingNode": 40,
+      "fullBrowser": 131,
+      "verifyLocalPassed": true,
+      "communityPendingLocalUpdates": 95
+    },
+    "stampPrintResearch": {
+      "candidate": "CAND-COM-STAMP-001",
+      "status": "exact-manual-editor-upload-and-permission-contract-gated-image-substitution-only",
+      "evidence": "evidence/manual-stamp-print-20261023.json",
+      "newOfficialBodies": 0,
+      "newOfficialRequirements": 0,
+      "newFocusedOriginalScopes": 3,
+      "coverage": "unknown",
+      "implemented": false,
+      "done": false,
+      "communityPendingLocalUpdates": 95
     }
   },
   "preparedCandidate": {
@@ -1958,7 +2006,13 @@
       ],
       "noOriginalBusinessWrites": true
     },
-    "planSourceProgressOption": "evidence/manual-plan-source-status-20261023.json"
+    "planSourceProgressOption": "evidence/manual-plan-source-status-20261023.json",
+    "stampPrint": {
+      "reference": "evidence/manual-stamp-print-20261023.json",
+      "sourceManifest": ".artifacts/manual-stamp-print-20261023/source-manifest.json",
+      "newPublicSources": 0,
+      "originalExecuted": false
+    }
   },
   "additional_REA_scope_evidence": {
     "reference": "../manual-request-upload-candidate-20261022.json",
@@ -2230,6 +2284,13 @@
       "runtimeEquivalence": false,
       "fullModuleCoverage": false,
       "summary": ".artifacts/manual-request-pdf-contract-20261023/rea/rea-summary.json"
+    },
+    "stampPrint": {
+      "reference": "evidence/manual-stamp-print-20261023.json",
+      "newOriginalScopes": 3,
+      "newOwnScopes": 0,
+      "coverage": "unknown",
+      "fullModuleCoverage": false
     }
   }
 }
