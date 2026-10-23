@@ -5,7 +5,7 @@ for(const width of [390,1280])test(`request rows → direct order defaults suppl
  await page.goto('/');await expect(page.getByLabel('발주요청 빠른검색')).toBeVisible();
  const baseline=await page.evaluate(()=>{const C=InventoryCore,db=C.seed();db.documents=[];C.master(db,'items','M001').supplier='V001';const out=C.command(db,'document',{type:'request',date:C.today(),warehouse:'W001',lines:[{lineId:'R1',item:'M001',qty:5,price:100}]});InventoryUI.replace(out.db);return {db:out.db,request:out.result};});
  await page.locator('#routes').getByRole('button',{name:'발주서입력',exact:true}).click();
- await page.getByLabel('거래처',{exact:true}).selectOption('');
+ await expect(page.getByLabel('거래처',{exact:true})).toHaveValue('');
  await page.getByRole('button',{name:'전표 불러오기',exact:true}).click();const importer=page.locator('#entry-helper-dialog');
  await importer.getByLabel('원본 전표 종류',{exact:true}).selectOption('request');await importer.getByLabel('불러오기 방식',{exact:true}).selectOption('linked');
  await importer.getByLabel('전표 검색',{exact:true}).fill(baseline.request.id);await importer.getByLabel('행 선택 '+baseline.request.id+'|R1',{exact:true}).check();
