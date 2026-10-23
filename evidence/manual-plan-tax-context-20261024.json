@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "date": "2026-10-24",
+  "sourceId": "EC-HELP-REQUEST-036",
+  "requirementId": "REQ-COM-TAX-001",
+  "title": "0.88.10 발주계획 일괄생성의 거래유형 보존",
+  "version": "0.88.10",
+  "status": "deployed-plan-generation-transaction-type-preserved-workflow-acceptance-pending",
+  "sourceCommit": "86bfa9132f72a74c728e0a58ee3ec7b59dd748eb",
+  "releaseCommit": "ac32f22f6ca608ad4568599f5ca39536e840af75",
+  "releaseBranch": "release/0.88.10-plan-tax-context",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "previousReleaseEvidence": "evidence/manual-vat-header-type-20261023.json",
+  "previousWorkerSha256": "d6c2d63841ef2b7ecb837ab9c62e654af96f817fbafaa31e0fb33f86c5c435db",
+  "rootCause": "PurchasePlanCore.header omitted transactionType from preserved context. Equal-rate sources with different codes collapsed into one group; generated orders lost the code.",
+  "change": "발주계획 일괄생성의 머리 항목에서 거래유형이 빠져 같은 세율의 다른 코드가 한 발주서로 합쳐지고 생성 발주서의 코드가 사라지던 결함을 재현했다. 거래유형을 원본 머리 항목과 묶음 기준에 포함하고 생성 미리보기에 코드·이름을 표시한다. 같은 코드는 기존 품목 합산을 유지한다. 한 장 생성에서 서로 다른 코드와 과거22/비영세율 조합은 저장 전에 거절하며 원본과 초안을 보존한다.",
+  "scope": "PurchasePlanCore.header and single-document compatibility message; PurchasePlanUI grouping description and preview context. No schema or VAT formula change.",
+  "schemaChanged": false,
+  "cssChanged": false,
+  "calculationFormulaChanged": false,
+  "validation": {
+    "newNodeTests": 4,
+    "strengthenedExistingNodeTests": 1,
+    "preFixNodeTotal": 32,
+    "preFixNodePassed": 27,
+    "preFixNodeFailed": 5,
+    "preFixBrowserFailed": 2,
+    "focusedNodePassed": 65,
+    "newBrowserTests": 2,
+    "focusedBrowserPassed": 5,
+    "viewports": [
+      390,
+      864,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 142,
+    "fullNodeSuitePassed": true,
+    "syntheticExample": {
+      "codes": [
+        "21",
+        "LEGACY-RATE"
+      ],
+      "rate": 7.5,
+      "eachSourceQty": 3,
+      "eachOrderQty": 2,
+      "eachRemainingQty": 1,
+      "purchaseSupply": 400,
+      "purchaseTax": 30,
+      "purchaseTotal": 430,
+      "stock": 4,
+      "payable": 430
+    },
+    "logs": [
+      ".artifacts/manual-plan-tax-context-20261024/prefixed-node.log",
+      ".artifacts/manual-plan-tax-context-20261024/prefixed-browser.log",
+      ".artifacts/manual-plan-tax-context-20261024/focused-node.log",
+      ".artifacts/manual-plan-tax-context-20261024/focused-browser.log",
+      ".artifacts/manual-plan-tax-context-20261024/verify-local.log"
+    ]
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOwnScopes": 4,
+    "newOriginalScopes": 0,
+    "mainCandidateScopesEqual": true,
+    "wholeInventoryUiEqual": false,
+    "wholePurchasePlanModulesEqual": true,
+    "scopes": [
+      {
+        "symbol": "header",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/plan-tax-context-20261024/dist/purchase-plan-core.js",
+        "sourceSha256": "1c0850c08d876fca11c33be154dc57b09a59cce7a46a7f829144f1023a891adf",
+        "fragmentSha256": "715e48963eee1a5236f6d9e97fed9752366b5b26a093ae23f1081d93fa3fed5c",
+        "lineStart": 18,
+        "lineEnd": 23
+      },
+      {
+        "symbol": "preview",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/plan-tax-context-20261024/dist/purchase-plan-core.js",
+        "sourceSha256": "1c0850c08d876fca11c33be154dc57b09a59cce7a46a7f829144f1023a891adf",
+        "fragmentSha256": "6ee8354b130236e3e61df6c66bf192c6258d95e0db7c1aae0842c6ebcc43bc3b",
+        "lineStart": 24,
+        "lineEnd": 69
+      },
+      {
+        "symbol": "mode",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/plan-tax-context-20261024/dist/purchase-plan-ui.js",
+        "sourceSha256": "ebf1bb53df211ab0793f38e6d6e8e43fc36b1ce039e1d4dbd96b28a8a74e1355",
+        "fragmentSha256": "348772cf651cb8fd7ca9900f607534e1443f96d69475976b97a1b3c9c49350e0",
+        "lineStart": 36,
+        "lineEnd": 36
+      },
+      {
+        "symbol": "renderPreview",
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/validation/plan-tax-context-20261024/dist/purchase-plan-ui.js",
+        "sourceSha256": "ebf1bb53df211ab0793f38e6d6e8e43fc36b1ce039e1d4dbd96b28a8a74e1355",
+        "fragmentSha256": "c3d2b83305905b4f3d5ede3611a36f7da95aa0486630eb3d8f3acb6ced2f13fb",
+        "lineStart": 50,
+        "lineEnd": 63
+      }
+    ],
+    "resultSha256": "7cd850df10d1dab87eede80392cf9d2b81a48397197036d0a8304973b3122748",
+    "statistics": {
+      "relevant_files": 4,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 11087,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 4,
+      "visited_ast_nodes": 2114,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false,
+    "originalExecuted": false
+  },
+  "sourceAndLockGuards": {
+    "rootHeadBefore": "7ae0038c42a8fdf32eb762deb4525c238b83a157",
+    "changedModulesAndTestsByteExact": true,
+    "wholePurchasePlanModulesEqual": true,
+    "lockChangesOnlyTopAndRootVersion": true,
+    "rootUnreleasedVatAndMappingPreserved": true,
+    "rootBuilt": false,
+    "oldDirtyCandidateExact": true,
+    "oldDirtyFileCount": 12
+  },
+  "originalBoundary": {
+    "newOriginalScopes": 0,
+    "newPublicBodies": 0,
+    "originalSession": "login-required-from-prior-observation-not-retried",
+    "originalBusinessWrites": false,
+    "actualSelectedFormulaVerified": false,
+    "fixedCasesPreserved": 7,
+    "conflictsUnchanged": 5,
+    "originalParityPassed": false
+  },
+  "runtime": {
+    "version": "0.88.10",
+    "linuxPid": 2598033,
+    "runtimeSession": 99823,
+    "workerSha256": "305bad3fb11005fe03b3888df08f7d280ad12154c883a5fd7d2c618d1e33a6f8",
+    "backend": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "manager": "/home/lck/.local/bin/rea-erp-dev",
+    "sessionMustNotBePolledOrTerminated": true
+  },
+  "hosted": {
+    "existingLoginRetained": true,
+    "workTabsRestored": 1,
+    "planListOpenCloseVerified": true,
+    "generationRequiresSelectionGuardVerified": true,
+    "generationDialogOpenVerified": false,
+    "planRows": 0,
+    "dataBearingSaveVerified": false,
+    "settingsOrBusinessWrites": 0,
+    "mailSent": 0,
+    "screenshotWindows": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/.artifacts/plan-tax-08810-hosted.png",
+    "screenshot": ".artifacts/manual-plan-tax-context-20261024/hosted-plan-list.png"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.88.10",
+      "exactBytesEqual": true,
+      "beforeSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "afterSha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "formSha256": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "beforeFile": "ecount-inventory-2026-10-24 (2).json",
+      "afterFile": "ecount-inventory-2026-10-24 (3).json",
+      "hostedDataBearingSaveVerified": false,
+      "hostedPlanListOpenCloseVerified": true,
+      "hostedGenerationRequiresSelectionGuardVerified": true,
+      "hostedGenerationDialogOpenVerified": false,
+      "hostedPlanRows": 0,
+      "existingLoginRetained": true,
+      "workTabsRestored": 1
+    },
+    "serverAndMail": {
+      "version": "0.88.10",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 30,
+          "afterRevision": 30,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "privateBackupReference": ".artifacts/manual-plan-tax-context-20261024/predeploy-backup.json",
+    "publicChecks": 16,
+    "assetsMatchRelease": true,
+    "candidates": {
+      "oldDirtyHead": "138ad506761bc0b732f4475ccc8b7594a6779270",
+      "oldDirtyFiles": 12,
+      "exactHeadStatusAndHashesPreserved": true,
+      "mapping088Head": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
+      "mapping088Clean": true,
+      "mappingInstalled": false
+    }
+  },
+  "community": {
+    "destination": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "status": "work-tools-unexposed-local-record-ready",
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "cumulativePendingLocalUpdates": 114,
+    "lastVerifiedProgressVersion": "0.51.0",
+    "pendingBodyArtifact": ".artifacts/manual-plan-tax-context-20261024/moa-pending-plan-tax-context.html"
+  },
+  "remaining": [
+    "Original selected transaction-VAT calculation contract and five fixed conflicts remain unresolved.",
+    "Generic convert of historical type22 with nonzero VAT requires separate safety review; no automatic migration.",
+    "Production data-bearing plan generation, physical Android and full manual acceptance remain pending.",
+    "Legacy mapping candidate requires ten subsequent source fixes before deployment and original/production acceptance."
+  ],
+  "counters": {
+    "indexed": 77,
+    "bodyReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "nextWork": "다음은 일반 convert의 과거22/비영세율 신규 변환에서 원본 금액과 새 전표 금액이 달라지는지 먼저 재현하고 안전하게 거절할 범위를 검토한다. 코드 없는 원본의 유지/해제나 거래별 차액5충돌·선택된 원본 입력식은 추정하지 않는다. 최소구매단위·TC101P_01/매핑 gate를 유지하고 이미 확보한 helper와 변화 없는 통과회귀를 반복하지 않는다.",
+  "done": false
+}
