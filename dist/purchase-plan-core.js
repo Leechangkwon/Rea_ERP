@@ -15,7 +15,12 @@
      return {key:d.id+'|'+(line.lineId||line.item),...(line.lineId?{lineId:line.lineId}:{}),documentId:d.id,date:d.date,item:line.item,name:item?.name||line.item,spec:item?.spec||'',unit:item?.unit||'',dueDate:original.dueDate||d.dueDate||'',warehouse:d.warehouse,supplier,supplierName:partner?.name||'',supplierValid:!!partner&&!partner.disabled,disabled:!item||item.disabled||!C.master(db,'warehouses',d.warehouse)||C.master(db,'warehouses',d.warehouse).disabled,originalQty:original.qty,processedQty:qty(original.qty-line.qty),qty:line.qty,price:line.price||0,discount:line.discount||0,memo:line.memo||''};
    })).filter(row=>!query||[row.documentId,row.item,row.name,row.spec,row.supplierName].some(v=>String(v).toLocaleLowerCase('ko-KR').includes(query))).sort((a,b)=>a.date.localeCompare(b.date)||a.documentId.localeCompare(b.documentId)||a.item.localeCompare(b.item,'ko-KR',{numeric:true}));
  }
- function header(source){const result={warehouse:source.warehouse,vatRate:source.vatRate??10};for(const field of ['employee','project','currency','taxRounding','supplyRounding','custom'])if(source[field]!==undefined)result[field]=clone(source[field]);return result;}
+ function header(source){
+   if(source.transactionType!==undefined&&(typeof source.transactionType!=='string'||source.transactionType.length>200))throw Error('원본 거래유형 코드를 확인하세요.');
+   const result={warehouse:source.warehouse,vatRate:source.vatRate??10};for(const field of ['employee','project','currency','transactionType','taxRounding','supplyRounding','custom'])if(source[field]!==undefined)result[field]=clone(source[field]);
+   if(result.transactionType==='22'&&Number(result.vatRate)!==0)throw Error('원본 거래유형과 부가세율을 함께 적용할 수 없습니다. 원본 계획의 머리 항목을 확인하세요.');
+   return result;
+ }
  function preview(db,input={}){
    const request=clone(input),grouping=request.grouping||'supplier-date-line';if(!modes.some(([key])=>key===grouping))throw Error('정리 방식을 선택하세요.');
    const generationDate=date(request.date||C.today(),'생성일');if(request.dueDate)date(request.dueDate,'납기일');
@@ -45,7 +50,7 @@
      const context=stable(row.header),key=stable([policy.splitSupplier?row.supplier:request.partner,policy.splitDueDate?row.dueDate:'',context]);
      if(!groups.has(key))groups.set(key,{key,partner:row.supplier,context,header:row.header,rows:[]});groups.get(key).rows.push(row);
    }
-   if(!policy.splitSupplier&&!policy.splitDueDate&&groups.size>1)issues.push(issue('header','1장 생성은 창고·통화·부가세율·담당자·프로젝트·추가 머리 항목이 같아야 합니다. 다른 조건은 나누어 선택하세요.'));
+   if(!policy.splitSupplier&&!policy.splitDueDate&&groups.size>1)issues.push(issue('header','1장 생성은 창고·통화·거래유형·부가세율·담당자·프로젝트·추가 머리 항목이 같아야 합니다. 다른 조건은 나누어 선택하세요.'));
    const documents=[];
    for(const group of groups.values()){
      const lines=[];for(const row of group.rows){const line=row.line,existing=policy.mergeItems?lines.find(l=>l.item===line.item):null;
