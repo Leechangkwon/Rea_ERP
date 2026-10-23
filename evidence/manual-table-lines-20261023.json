@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-018",
+  "candidate": "CAND-COM-TABLELINE-001",
+  "status": "exact-manual-and-editor-gated-table-border-and-copy-cutline-distinguished",
+  "officialRequirementCreated": false,
+  "productionVersion": "0.88.0",
+  "releaseCommitInspected": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "sourceManifest": ".artifacts/manual-table-lines-20261023/source-manifest.json",
+  "fullManual018Reviewed": false,
+  "boundedPublicDiscovery": {
+    "exactRelevantBodyRecovered": false,
+    "newOfficialBodies": 0,
+    "unrelatedSearchResultsCounted": false
+  },
+  "rea": {
+    "version": "6.4.0",
+    "newFocusedOriginalScopes": 2,
+    "newOriginalCorpusFiles": 0,
+    "newOwnScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "originalStaticFindings": [
+    {
+      "scope": "layout$grid$$border_style",
+      "lines": [
+        41319,
+        41321
+      ],
+      "observed": "Passes supplied attr_value to grid border_style. Does not define editor fields or the final rendering behavior.",
+      "notEstablished": "Whether this is the setting targeted by manual018; whether it applies to input, view, print, inter-table or cell lines."
+    },
+    {
+      "scope": "print_dlt_feature_config",
+      "lines": [
+        27429,
+        27466
+      ],
+      "observed": "Copies per voucher and one/two per page are separate; two-per-page supplies second margin and cutline height. Single-page mode returns before cutline configuration.",
+      "notEstablished": "Exact manual018 mapping; zero/blank semantics, UI labels/options, final renderer and persistence."
+    }
+  ],
+  "ownCurrentBehavior": {
+    "printPage": "Current form page settings and printTable field widths/alignment do not provide an explicit inter-table-line toggle.",
+    "noBlindCssChange": true,
+    "sourceComparisonUsesShippedRelease": true,
+    "existingFormsRewritten": false
+  },
+  "remaining": [
+    "Exact full manual018 and read-only actual editor/preview: identify input/view/print scope and the intended line before adding CSS or schema.",
+    "Actual setting key, allowed values/defaults, table-versus-cell-versus-copy-cutline scope and renderer, including single/two-copy and batch behavior.",
+    "Company/user/form storage, editing permission, save/apply/cancel and revision rules; preserve existing customized forms and print output.",
+    "Synthetic persistence/preview/backup roundtrip and hosted readonly acceptance after a confirmed implementation. No original settings save or business send."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "operatingBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "managerStatusVerified": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginRequestPending": true,
+    "moaConnectionConfirmed": false,
+    "moaServerRepairPromptProvidedToUser": true,
+    "moaPromptSentToAnotherChatOrServer": false,
+    "moaServerRepairAwaited": true,
+    "repeatedConnectionRequestsThisRun": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 94
+  },
+  "counters": {
+    "indexedManuals": 67,
+    "sourceBodiesReviewed": 37,
+    "officialRequirements": 40,
+    "done": 0
+  },
+  "done": false
+}

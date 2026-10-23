@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 표 사이 줄018 확인 대기
+
+018 정확한 공식본문은 미확보·index-only다. grid border_style 전달과 2건 인쇄 절취선의 별도 후보를 구분했으며 어느 것도018 전체 계약으로 대체하지 않는다. 새 공식본문/요구사항0, 목록67/본문37/요구사항40/최종합격0 유지. 근거 `evidence/manual-table-lines-20261023.json`.
+
 ## 2026-10-23 등록코드 검색누락의 별도 원인
 
 [간편재고조정의 재고0 포함](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MG81E617MQP&page=26)과 [허용품목 계층그룹 권한](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MN2J1NJ7LVN&page=1&category=inventory) 본문을 읽었다. 조정/설정 저장·권한 변경0이며017 전체본문을 대체하지 않는다. 목록67/본문37/요구사항40/최종합격0. 근거 `evidence/manual-master-lookup-20261023.json`.

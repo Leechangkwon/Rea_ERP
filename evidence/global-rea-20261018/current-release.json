@@ -638,7 +638,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "재고전표 표 사이 줄 숨김018; 원본/모아 연결 응답 우선"
+      "nextIndependentManual": "도장 인쇄 누락019; 원본 로그인/모아 서버 복구 응답 우선"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -795,9 +795,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-018",
+      "sourceId": "EC-HELP-REQUEST-019",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "원본/모아 연결 응답 우선. 응답 전018의 공개 본문과 실제0.88 양식/인쇄를 대조한다.017은 실제 허용품목/거래처/창고 권한의 우선순위·혼합전표/서버 계약 확보 후 재개한다. 기존 사용중단 picker·재고0 helper/통과회귀·인증 요청을 반복하지 않고 권한을 임의 변경하지 않는다.",
+      "description": "원본 로그인 또는 모아 서버 복구 완료 응답 우선. 모아 점검 프롬프트는 사용자에게 작성해 제공했으며 서버 전달/수정/재연결 완료로 취급하지 않는다. 그 전019 도장 인쇄 누락의 공식본문·실제0.88 인쇄를 대조한다.018의 표 테두리/절취선 후보는 정확한 본문·편집/렌더러 계약 확보 때 재개하며 임의 border:none CSS나 기존 양식 변경은 하지 않는다. 같은 helper/통과회귀/연결 요청을 반복하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1519,12 +1519,12 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-018",
-      "title": "재고전표 표 사이 줄 숨김의 공식본문·양식 옵션 계약",
-      "context": "원본/모아 연결 응답 우선. 응답 전018의 공개 본문과 실제0.88 양식/인쇄를 대조한다.017은 실제 허용품목/거래처/창고 권한의 우선순위·혼합전표/서버 계약 확보 후 재개한다. 기존 사용중단 picker·재고0 helper/통과회귀·인증 요청을 반복하지 않고 권한을 임의 변경하지 않는다.",
+      "sourceId": "EC-HELP-REQUEST-019",
+      "title": "도장이 인쇄되지 않을 때의 공식본문·표시/양식/권한 조건 대조",
+      "context": "원본 로그인 또는 모아 서버 복구 완료 응답 우선. 모아 점검 프롬프트는 사용자에게 작성해 제공했으며 서버 전달/수정/재연결 완료로 취급하지 않는다. 그 전019 도장 인쇄 누락의 공식본문·실제0.88 인쇄를 대조한다.018의 표 테두리/절취선 후보는 정확한 본문·편집/렌더러 계약 확보 때 재개하며 임의 border:none CSS나 기존 양식 변경은 하지 않는다. 같은 helper/통과회귀/연결 요청을 반복하지 않는다.",
       "operatingVersion": "0.88.0",
-      "masterLookupGateEvidence": "evidence/manual-master-lookup-20261023.json",
-      "legacyGates": "inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
+      "tableLineGateEvidence": "evidence/manual-table-lines-20261023.json",
+      "legacyGates": "masterPermissions/inputPath/mailTemplate/bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1741,7 +1741,11 @@
       "userConnectionRequested": true,
       "connected": false,
       "posted": false,
-      "lastSavedReadbackVersion": "0.51.0"
+      "lastSavedReadbackVersion": "0.51.0",
+      "serverRepairPromptProvidedToUser": true,
+      "serverRepairConfirmed": false,
+      "connectionConfirmed": false,
+      "promptSentToAnotherChatOrServer": false
     },
     "timelineResearch": {
       "candidate": "CAND-COM-TIMELINE-001",
@@ -1789,6 +1793,18 @@
       "implemented": false,
       "done": false,
       "communityPendingLocalUpdates": 93
+    },
+    "tableLineResearch": {
+      "candidate": "CAND-COM-TABLELINE-001",
+      "status": "exact-manual-and-editor-gated-table-border-and-copy-cutline-distinguished",
+      "evidence": "evidence/manual-table-lines-20261023.json",
+      "newOfficialBodies": 0,
+      "newOfficialRequirements": 0,
+      "newFocusedOriginalScopes": 2,
+      "coverage": "unknown",
+      "implemented": false,
+      "done": false,
+      "communityPendingLocalUpdates": 94
     }
   },
   "preparedCandidate": {
