@@ -410,7 +410,7 @@
     if(type==='transfer')header.targetWarehouse=targetWarehouse||src.targetWarehouse||'';
     if(warehouse!==undefined){if(!linkedWarehouseMatches(src,type,warehouse))throw Error('원본 전표의 처리 창고와 다릅니다.');header.warehouse=warehouse;}
     if(partner!==undefined)header.partner=partner;
-    if(src.type==='plan'&&type==='purchaseorder'&&!header.partner){const suppliers=lines.map(l=>purchaseSupplier(db,l,src));if(suppliers.every(Boolean)&&new Set(suppliers).size===1)header.partner=suppliers[0];}
+    if(['request','plan'].includes(src.type)&&type==='purchaseorder'&&!header.partner){const suppliers=lines.map(l=>purchaseSupplier(db,l,src));if(suppliers.every(Boolean)&&new Set(suppliers).size===1)header.partner=suppliers[0];}
     if(type==='purchasereturn')header.settlementMode=settlementMode;
     else if(type==='exchangereceipt')header.settlementMode='exchange';
     else delete header.settlementMode;

@@ -179,7 +179,7 @@
       result.taxRounding=C.taxRounding(source.taxRounding);result.supplyRounding=C.supplyRounding(source.supplyRounding);
     }
     const source=sources.get(ids[0]);
-    if(result.type==='purchaseorder'&&!result.partner&&[...sources.values()].every(d=>d.type==='plan')){const suppliers=selections.map(selection=>{const d=sources.get(selection.documentId),line=d.lines.find(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));return C.purchaseSupplier(db,line,d);});if(suppliers.every(Boolean)&&new Set(suppliers).size===1)result.partner=suppliers[0];}
+    if(result.type==='purchaseorder'&&!result.partner&&[...sources.values()].every(d=>['request','plan'].includes(d.type))){const suppliers=selections.map(selection=>{const d=sources.get(selection.documentId),line=d.lines.find(l=>l.item===selection.item&&(!selection.lineId||l.lineId===selection.lineId));return C.purchaseSupplier(db,line,d);});if(suppliers.every(Boolean)&&new Set(suppliers).size===1)result.partner=suppliers[0];}
     if(!history&&result.type==='purchase')for(const origin of sources.values())if(origin.type==='purchaseorder'){const custom=purchaseCustom(db,origin,draft,'input',origin.custom,result.custom);if(Object.keys(custom).length)result.custom=custom;}
     if(mode==='linked'){
       if(!C.nextTypes[source.type]?.includes(result.type))throw Error('이 전표 종류는 잔량을 연결할 수 없습니다.');
