@@ -1940,7 +1940,7 @@
       "expected": [
         "연결한 원본 메뉴의 저장값을 지정한 목표항목으로 가져온다"
       ],
-      "status": "088-compatibility-candidate-passed-editor-and-hosted-acceptance-gated-not-deployed",
+      "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "referenceVerified": true,
       "sourceLocator": {
         "artifact": ".artifacts/manual-negative-purchase-20261021/mapping-help-body.ax.txt",
@@ -1957,7 +1957,8 @@
         "dist/inventory-ui.js",
         "dist/entry-ui.js",
         "evidence/manual-mapping-import-ui-20261023.json",
-        "evidence/manual-mapping-088-rebase-20261023.json"
+        "evidence/manual-mapping-088-rebase-20261023.json",
+        "evidence/manual-mapping-08814-integration-20261024.json"
       ],
       "automatedEvidence": [
         "tests/mapping-field-storage.cjs",
@@ -2042,6 +2043,43 @@
         "fullBrowser": 131,
         "verifyLocalPassed": true,
         "communityPendingLocalUpdates": 95
+      },
+      "integrationCandidate": {
+        "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
+        "baseReleaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+        "sourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+        "branch": "candidate/mapping-08814-integration-20261024",
+        "isolatedSource": ".artifacts/validation/mapping-088-rebase-20261023",
+        "baseVersion": "0.88.14",
+        "isRelease": false,
+        "deployed": false,
+        "fieldEditorEnabled": false,
+        "done": false,
+        "evidence": "evidence/manual-mapping-08814-integration-20261024.json",
+        "mappingNode": 41,
+        "relatedNode": 83,
+        "fullBrowser": 156,
+        "newNode": 1,
+        "newBrowser": 2,
+        "verifyLocalPassed": true,
+        "latestPatchIntegrated": true,
+        "integratedSourceCorrections": {
+          "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
+          "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
+          "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
+          "latestRequestOrderSupplierSourceRequired": "a58c75444cbf069313f8c81bd398ec32a40152e6",
+          "latestFreshOrderDefaultSourceRequired": "6aac054175c32c66715b8741851a37217b07585f",
+          "latestPlanSupplierViewSourceRequired": "7406171768bbccf327c47a67be9e92df5372ef77",
+          "latestVatRateRestorationSourceRequired": "fc2ce93377366de567b0ccdfcf846f0cc594fa31",
+          "latestImportedVatRateSourceRequired": "779307cd71c3b100b3e1a9c88a87d922bcc42a2d",
+          "latestImportedVatHeaderTypeSourceRequired": "b58b7d311904bdff2c22103c3a9008037fa0ae86",
+          "latestPlanTaxContextSourceRequired": "86bfa9132f72a74c728e0a58ee3ec7b59dd748eb",
+          "latestVatConvertGuardSourceRequired": "958d7ed09d785a1451b9f164e57594b6d6847d06",
+          "latestConfirmedRequestTaxHeaderSourceRequired": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
+          "latestPriceRequestConfirmationSourceRequired": "22536b8363f421955d45732991f2dc27b8220eeb",
+          "latestStatusTabPaginationSourceRequired": "ed72b2980dd4ac83c2b11e1d2e7df06285976646"
+        },
+        "communityPendingLocalUpdates": 122
       }
     },
     {

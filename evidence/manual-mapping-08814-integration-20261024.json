@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "date": "2026-10-24",
+  "requirement": "REQ-COM-MAPPING-001",
+  "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
+  "productionVersion": "0.88.14",
+  "productionReleaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+  "previousCandidateCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
+  "candidate": {
+    "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
+    "baseReleaseCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+    "sourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "branch": "candidate/mapping-08814-integration-20261024",
+    "isolatedSource": ".artifacts/validation/mapping-088-rebase-20261023",
+    "baseVersion": "0.88.14",
+    "isRelease": false,
+    "deployed": false,
+    "fieldEditorEnabled": false,
+    "done": false,
+    "evidence": "evidence/manual-mapping-08814-integration-20261024.json",
+    "mappingNode": 41,
+    "relatedNode": 83,
+    "fullBrowser": 156,
+    "newNode": 1,
+    "newBrowser": 2,
+    "verifyLocalPassed": true,
+    "latestPatchIntegrated": true,
+    "integratedSourceCorrections": {
+      "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
+      "latestFormRoleBoundarySourceRequired": "1ab248a19a7c6763b98513e4a020edd3ca8c75e0",
+      "latestFormCloseBoundarySourceRequired": "3c826d641cf133997f5f1d76e3e9a4c1880bc6cc",
+      "latestRequestOrderSupplierSourceRequired": "a58c75444cbf069313f8c81bd398ec32a40152e6",
+      "latestFreshOrderDefaultSourceRequired": "6aac054175c32c66715b8741851a37217b07585f",
+      "latestPlanSupplierViewSourceRequired": "7406171768bbccf327c47a67be9e92df5372ef77",
+      "latestVatRateRestorationSourceRequired": "fc2ce93377366de567b0ccdfcf846f0cc594fa31",
+      "latestImportedVatRateSourceRequired": "779307cd71c3b100b3e1a9c88a87d922bcc42a2d",
+      "latestImportedVatHeaderTypeSourceRequired": "b58b7d311904bdff2c22103c3a9008037fa0ae86",
+      "latestPlanTaxContextSourceRequired": "86bfa9132f72a74c728e0a58ee3ec7b59dd748eb",
+      "latestVatConvertGuardSourceRequired": "958d7ed09d785a1451b9f164e57594b6d6847d06",
+      "latestConfirmedRequestTaxHeaderSourceRequired": "d5ddec1da43c2a6a478a48ae97d2578f3e589007",
+      "latestPriceRequestConfirmationSourceRequired": "22536b8363f421955d45732991f2dc27b8220eeb",
+      "latestStatusTabPaginationSourceRequired": "ed72b2980dd4ac83c2b11e1d2e7df06285976646"
+    },
+    "communityPendingLocalUpdates": 122
+  },
+  "why": "The prepared mapping candidate lacked fourteen subsequently deployed fixes. Merge the exact operating release into the isolated candidate so a future mapping release cannot regress history/role/modal lifecycle, supplier, tax, confirmation or first-page behavior. Do not repeat already-recorded manual017 research.",
+  "conflictsResolved": [
+    "inventory-ui: retain exact operating applyDraft with nonstandard VAT and legacy transaction options, plus exact prior requestMappingAdapter and helper wiring",
+    "package: retain complete operating test command and append mapping suite",
+    "release-validation: regenerate for the combined candidate instead of combining stale hashes"
+  ],
+  "scope": {
+    "changedPathsAgainstProduction": 12,
+    "productionDistFilesCompared": 70,
+    "productionDistFilesExactUnchanged": 65,
+    "mappingPortDistDifferences": [
+      "dist/entry-core.js",
+      "dist/entry-ui.js",
+      "dist/index.html",
+      "dist/inventory-ui.js",
+      "dist/self-core.js"
+    ],
+    "newRuntimeModule": "dist/mapping-core.js",
+    "unshippedRootVatCopied": false,
+    "newOriginalManualBodies": 0
+  },
+  "checks": {
+    "relatedNode": 83,
+    "mappingNode": 41,
+    "newNode": 1,
+    "newBrowser": 2,
+    "fullBrowser": 156,
+    "browserWidths": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "tools": 7,
+    "verifyLocalLog": ".artifacts/manual-mapping-08814-integration-20261024/verify-local.log",
+    "verifyLocalLogSha256": "74dbdff3547d155a2c4e9e3a461c4fe6cfee3204f6b2ce35ecae175f3f620814",
+    "screenshotsVisuallyReviewed": true,
+    "operatingApplyDraftExactPreserved": true,
+    "priorMappingAdapterExactPreserved": true
+  },
+  "rea": {
+    "version": "6.4.0",
+    "originalScopes": 0,
+    "ownScopes": 3,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "summary": ".artifacts/manual-mapping-08814-integration-20261024/rea/rea-summary.json",
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "oldDirtyCandidateFilesExact": 12,
+    "oldDirtyCandidateSnapshot": ".artifacts/manual-mapping-088-rebase-20261023/old-candidate-preserved.json",
+    "productionWorkerSha256": "6d245a902ea3c2d70d651e220f5f71cc285fa949db6947534dc680fb9e1d3690",
+    "productionWorkerUnchanged": true,
+    "productionPid": 2626249,
+    "productionSessionId": 21557,
+    "runtimeRestarted": false,
+    "rootBuilt": false,
+    "freshBusinessBackupComparison": false,
+    "lastDeploymentPreservationEvidence": "evidence/manual-list-tab-pagination-20261024.json",
+    "integrationComparison": ".artifacts/manual-mapping-08814-integration-20261024/integration-preservation.json"
+  },
+  "manualQueueReconciliation": {
+    "sourceId": "EC-HELP-REQUEST-017",
+    "existingEvidence": "evidence/manual-master-lookup-20261023.json",
+    "existingRequirement": "REQ-COM-CODEAUTH-001",
+    "newSourceBodyReviewed": false,
+    "status": "index-only",
+    "why": "Prior research already distinguishes zero-stock adjustment, allowed-item group visibility and inactive-code pickers. A generic picker toggle is not proof that every purchasing filter passes inactiveChoices. Purchase ACL/server/default semantics remain unverified. Reconnect history instead of reimplementing or recounting it."
+  },
+  "remainingGates": [
+    "Original legacy TC101P_01 selection/remove/apply/cancel/save, source/target metadata and authorization contract. Modern derive modes are not a substitute.",
+    "Configured field-editor to import to business-save acceptance in the actual operating environment; localhost synthetic saves are separate.",
+    "Do not install this candidate or unshipped root VAT research while original/hosted acceptance gates remain."
+  ],
+  "nextWork": "매핑 후보에 운영0.88.14 후속14수정을 통합·검증·push했다. 원본 legacy TC101P_01 항목 연결 편집기/공개 정의와 설정→불러오기→운영저장 수락 근거를 확보할 때 재개한다. 017은 기존 master-lookup/CODEAUTH 조사이며 정확한본문·구매 권한/서버 계약 대기다. 016·012·018~034의 기존 근거를 먼저 재사용하고 새 근거 없는 동일 분석/회귀/보고를 반복하지 않는다. 부분확정·VAT5 5충돌·최소구매단위 gate 유지; 후보 설치·root전체빌드 금지.",
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "saveAttempted": false,
+    "readbackVerified": false,
+    "authenticationFailureInferred": false,
+    "pendingLocalUpdates": 122
+  },
+  "changes": {
+    "candidateIntegration": true,
+    "productionDeployment": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "originalPermissionChanges": 0,
+    "rootApplicationChanges": 0
+  },
+  "counters": {
+    "indexedManuals": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "finalAcceptance": 0
+  },
+  "done": false
+}
