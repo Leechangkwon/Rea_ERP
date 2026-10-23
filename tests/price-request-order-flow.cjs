@@ -7,10 +7,10 @@ const Q = require('../dist/price-request-core.js');
 const copy = value => JSON.parse(JSON.stringify(value));
 const doc = (db, id) => db.documents.find(row => row.id === id);
 const draft = (partner = '') => ({type:'purchaseorder', date:'2026-10-21', warehouse:'W001', partner, status:'진행', vatRate:10, lines:[]});
-function fixture({lines=[{item:'M001', qty:10, price:50000}], legacy=false, partner='V001'}={}) {
+function fixture({lines=[{item:'M001', qty:10, price:50000}], legacy=false, partner='V001',vatRate=10,transactionType}={}) {
   let db=C.seed();
   db=C.command(db,'master',{key:'partners',record:{code:'V002',name:'Second supplier',kind:'매입'}}).db;
-  const document={type:'pricerequest',date:'2026-10-21',warehouse:'W001',partner:legacy?partner:'',status:'진행',vatRate:10,memo:'preserved request',custom:{origin:'keep'},lines};
+  const document={type:'pricerequest',date:'2026-10-21',warehouse:'W001',partner:legacy?partner:'',status:'진행',vatRate,...(transactionType!==undefined?{transactionType}:{}),memo:'preserved request',custom:{origin:'keep'},lines};
   const out=legacy?C.command(db,'document',document):C.command(db,'priceRequestCreate',{document,vendorCodes:['V001','V002']});
   return {db:out.db,id:out.result.id};
 }
@@ -201,4 +201,48 @@ for(const [key,from,to] of [['items','M001','M-RENAMED'],['partners','V002','V-R
   // A safe explicit refusal is permitted; a successful rename must remain reloadable and editable.
   const restored=C.validateBackup(copy(renamed.db));const edited=C.command(restored,'document',{...doc(restored,orderId),memo:'after a successful code rename'});
   assert.equal(edited.result.lines[0].price,25000);assert.equal(edited.result.lines[0].qty,2);assert.deepEqual(db,before);
+});
+
+for(const [transactionType,vatRate] of [['21',7.5],['22',0],['LEGACY-TAX',7.5]])test(`explicit confirmed-request header preserves ${transactionType}/${vatRate} in linked and copy orders`,()=>{
+  let {db,id}=fixture({transactionType,vatRate});db=confirm(db,id,{price:'100'});const before=copy(db);
+  for(const mode of ['linked','copy']){
+    const target={...draft(),transactionType:transactionType==='22'?'21':'22',vatRate:transactionType==='22'?10:0},targetBefore=copy(target);
+    const value=E.stageDocuments(db,target,{mode,selections:selections(candidates(db,{mode})[0],4),adoptHeader:true});
+    assert.equal(value.transactionType,transactionType);assert.equal(value.vatRate,vatRate);assert.equal(value.partner,'V002');
+    const out=C.command(db,'document',value),saved=doc(C.validateBackup(copy(out.db)),out.result.id);
+    assert.equal(saved.transactionType,transactionType);assert.equal(saved.vatRate,vatRate);assert.equal(saved.lines[0].price,100);assert.equal(saved.lines[0].tax,vatRate?30:0);
+    assert.equal(saved.sourceId,mode==='linked'?id:undefined);assert.equal(C.remaining(out.db,doc(out.db,id),'purchaseorder')[0].qty,mode==='linked'?6:10);
+    assert.deepEqual(db,before);assert.deepEqual(target,targetBefore);assert.deepEqual(preservation(out.db),preservation(db));
+  }
+});
+
+test('confirmed-request header rejects a legacy zero-type/nonzero-rate pair before changing the draft or comparison',()=>{
+  let {db,id}=fixture({transactionType:'22',vatRate:7.5});db=confirm(db,id);const target=draft(),before=copy(target),selected=selections(candidates(db)[0],2);
+  rejectsUnchanged(db,()=>E.stageDocuments(db,target,{mode:'linked',selections:selected,adoptHeader:true}),/거래유형.*부가세율/);assert.deepEqual(target,before);
+});
+
+test('confirmed-request header without a type retains a compatible destination but rejects a zero-type/nonzero-rate mismatch',()=>{
+  let {db,id}=fixture({vatRate:7.5});db=confirm(db,id);const selected=selections(candidates(db)[0],2),before=copy(db);
+  const compatible=E.stageDocuments(db,{...draft(),transactionType:'21'},{mode:'linked',selections:selected,adoptHeader:true});
+  assert.equal(compatible.transactionType,'21');assert.equal(compatible.vatRate,7.5);assert.equal(C.command(db,'document',compatible).result.vatRate,7.5);
+  const target={...draft(),transactionType:'22',vatRate:0},targetBefore=copy(target);
+  rejectsUnchanged(db,()=>E.stageDocuments(db,target,{mode:'linked',selections:selected,adoptHeader:true}),/거래유형.*부가세율/);assert.deepEqual(target,targetBefore);assert.deepEqual(db,before);
+});
+
+test('copying a confirmed price without header adoption preserves the explicitly chosen destination tax context',()=>{
+  let {db,id}=fixture({transactionType:'21',vatRate:7.5});db=confirm(db,id,{price:'100'});const target={...draft(),transactionType:'22',vatRate:0},before=copy(db);
+  const value=E.stageDocuments(db,target,{mode:'copy',selections:selections(candidates(db,{mode:'copy'})[0],2),adoptHeader:false});
+  const saved=C.command(db,'document',value).result;assert.equal(saved.transactionType,'22');assert.equal(saved.vatRate,0);assert.equal(saved.lines[0].price,100);assert.equal(saved.lines[0].tax,0);assert.deepEqual(db,before);
+});
+
+test('confirmed header adoption matches direct conversion and preserves tax, source rows and both partial balances after reload',()=>{
+  let {db,id}=fixture({transactionType:'21',vatRate:7.5,lines:[{lineId:'QUOTE-TAX',item:'M001',qty:10,price:50000}]});db=confirm(db,id,{price:'100'});const before=copy(db),kept=preservation(db);
+  const direct=C.command(db,'convert',{id,type:'purchaseorder',quantities:{'QUOTE-TAX':4}}).result;
+  const value=E.stageDocuments(db,{...draft(),transactionType:'22',vatRate:0},{mode:'linked',selections:selections(candidates(db)[0],4),adoptHeader:true});
+  let out=C.command(db,'document',value);db=C.validateBackup(copy(out.db));const orderId=out.result.id,order=doc(db,orderId);
+  for(const key of ['transactionType','vatRate','partner'])assert.equal(order[key],direct[key]);
+  assert.equal(order.lines[0].sourceLineId,'QUOTE-TAX');assert.equal(order.lines[0].priceRequestBasis.price,'100');
+  out=C.command(db,'convert',{id:orderId,type:'purchase',quantities:{'QUOTE-TAX':2}});db=C.validateBackup(copy(out.db));
+  assert.equal(out.result.transactionType,'21');assert.equal(out.result.vatRate,7.5);assert.equal(out.result.lines[0].supply,200);assert.equal(out.result.lines[0].tax,15);assert.equal(out.result.lines[0].total,215);
+  assert.equal(C.remaining(db,doc(db,id),'purchaseorder')[0].qty,6);assert.equal(C.remaining(db,doc(db,orderId),'purchase')[0].qty,2);assert.deepEqual(doc(db,id),doc(before,id));assert.deepEqual(preservation(db),kept);
 });
