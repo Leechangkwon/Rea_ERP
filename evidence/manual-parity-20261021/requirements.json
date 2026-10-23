@@ -1553,7 +1553,17 @@
       "done": false,
       "deploymentVersion": "0.55.0",
       "deploymentEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
-      "hostedReadOnlyVerified": true
+      "hostedReadOnlyVerified": true,
+      "researchEvidence": [
+        "evidence/manual-reopen-20261023.json"
+      ],
+      "exactReopenManualBodyReviewed": false,
+      "bulkProgressCandidate": {
+        "id": "CAND-COM-PROGRESSBATCH-001",
+        "evidence": "evidence/manual-reopen-20261023.json",
+        "actualPurchaseBindingVerified": false,
+        "implemented": false
+      }
     },
     {
       "id": "REQ-PUR-IMPORT-001",

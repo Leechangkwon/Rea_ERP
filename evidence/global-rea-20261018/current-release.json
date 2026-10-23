@@ -364,7 +364,7 @@
     "planSourceProgressOptionNewNode": 5,
     "planSourceProgressOptionNewBrowser": 2
   },
-  "future_research": "원본 로그인/모아 도구 복구 응답 우선. 그 전 다음 미독026 종결 취소를 기존 종결/재개 구현·공식 본문과 대조한다.025/027 기확보 본문과 이미 통과한 회귀를 반복하지 않는다.024 표시 helper/인쇄 API 선언만으로 이력을 추정 저장하지 않는다. 원본 인쇄/주 입력행/설정 저장 금지·매핑 편집기/운영 수락검증 등 기존 gate·root 전체빌드/main VAT5 설치 금지 유지·전체완료false.",
+  "future_research": "원본 로그인/모아 도구 복구 응답 우선. 그 전028 기초코드/전표 이력을 기존0.40 및 구매3대상 이력 구현과 대조한다.027 기확보 본문·기존 재개 검사는 반복하지 않는다.026 정확한 본문/구매 경로 미확보이며 공통 filtered100 제한을 전역 ID 제한으로 확대하지 않는다. 기존 gate·root build/main VAT5 설치 금지 유지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
     "reference": "evidence/manual-plan-source-status-20261023.json",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "bbe1144df0626b62aec6c48d4b444cfa690fc612",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "026 전표 종결 취소;025/027 기확보 본문·기존 재개 구현 우선",
+      "nextIndependentManual": "028 기초코드/전표 이력; 기존0.40·구매3대상 이력 근거 우선",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json"
     },
@@ -797,9 +797,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-026",
+      "sourceId": "EC-HELP-REQUEST-028",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "원본 로그인/모아 도구 복구 응답 우선. 그 전 다음 미독026 종결 취소를 기존 종결/재개 구현·공식 본문과 대조한다.025/027 기확보 본문과 이미 통과한 회귀를 반복하지 않는다.024 표시 helper/인쇄 API 선언만으로 이력을 추정 저장하지 않는다.",
+      "description": "원본 로그인/모아 도구 복구 응답 우선. 그 전028 기초코드/전표 이력을 기존0.40 및 구매3대상 이력 구현과 대조한다.027 기확보 본문·기존 재개 검사는 반복하지 않는다.026 정확한 본문/구매 경로 미확보이며 공통 filtered100 제한을 전역 ID 제한으로 확대하지 않는다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1530,13 +1530,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-026",
-      "title": "전표를 종결 취소 처리하는 방법",
-      "context": "원본 로그인/모아 도구 복구 응답 우선. 그 전 다음 미독026 종결 취소를 기존 종결/재개 구현·공식 본문과 대조한다.025/027 기확보 본문과 이미 통과한 회귀를 반복하지 않는다.024 표시 helper/인쇄 API 선언만으로 이력을 추정 저장하지 않는다.",
+      "sourceId": "EC-HELP-REQUEST-028",
+      "title": "기초 코드 및 전표의 이력을 확인하는 방법",
+      "context": "원본 로그인/모아 도구 복구 응답 우선. 그 전028 기초코드/전표 이력을 기존0.40 및 구매3대상 이력 구현과 대조한다.027 기확보 본문·기존 재개 검사는 반복하지 않는다.026 정확한 본문/구매 경로 미확보이며 공통 filtered100 제한을 전역 ID 제한으로 확대하지 않는다.",
       "operatingVersion": "0.88.0",
-      "printStatusEvidence": "evidence/manual-print-status-20261023.json",
+      "reopenEvidence": "evidence/manual-reopen-20261023.json",
       "mappingCompatibilityEvidence": "evidence/manual-mapping-088-rebase-20261023.json",
-      "legacyGates": "TC101P_01 editor/hosted acceptance and earlier source/VAT/manual gates retained; no root build/install"
+      "legacyGates": "Existing TC101P_01 editor/hosted acceptance and source/VAT/manual gates retained; no root build/install"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -1762,7 +1762,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "unverified: work-document tools absent",
-      "pendingLocalUpdates": 100,
+      "pendingLocalUpdates": 101,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false
     },
@@ -1919,6 +1919,26 @@
       "newOriginalScopes": 4,
       "coverage": "unknown",
       "runtimeEquivalence": false,
+      "applicationChanges": 0,
+      "productionDeployed": false,
+      "done": false
+    },
+    "closureReopenResearch": {
+      "evidence": "evidence/manual-reopen-20261023.json",
+      "status": "existing-reopen-preserved-exact026-body-and-original-menu-binding-gated",
+      "exact026BodyRead": false,
+      "newOfficialBodies": 0,
+      "newOfficialRequirements": 0,
+      "newOriginalScopes": 3,
+      "unchangedPriorTest": true,
+      "bulkProgressCandidate": {
+        "id": "CAND-COM-PROGRESSBATCH-001",
+        "status": "static-path-difference-menu-binding-and-filter-contract-gated",
+        "originalCommonFilteredSlipLimit": 100,
+        "ownGenericTransitionMaxIds": 500,
+        "implemented": false,
+        "reason": "Do not apply global100 raw-ID limit from this post-filter common action without proving actual purchase/request binding and eligibility rules. Preserve other own transition/accounting routes."
+      },
       "applicationChanges": 0,
       "productionDeployed": false,
       "done": false
@@ -2115,6 +2135,14 @@
       "newPublicSources": 0,
       "newOfficialBodies": 0,
       "existingManifestHashesVerified": true,
+      "originalExecuted": false,
+      "includedInHistoricalReaCorpusBaseline": false
+    },
+    "closureReopen": {
+      "reference": "evidence/manual-reopen-20261023.json",
+      "newPublicSources": 0,
+      "newOfficialBodies": 0,
+      "existingSourceAndBodyHashesVerified": true,
       "originalExecuted": false,
       "includedInHistoricalReaCorpusBaseline": false
     }
@@ -2427,6 +2455,16 @@
       "newOwnScopes": 0,
       "reusedOriginalScopes": 0,
       "parseFailures": 0,
+      "coverage": "unknown",
+      "fullModuleCoverage": false,
+      "runtimeEquivalence": false
+    },
+    "closureReopen": {
+      "reference": "evidence/manual-reopen-20261023.json",
+      "summary": ".artifacts/manual-reopen-20261023/rea/rea-summary.json",
+      "newOriginalScopes": 3,
+      "newOwnScopes": 0,
+      "reusedOriginalScopes": 0,
       "coverage": "unknown",
       "fullModuleCoverage": false,
       "runtimeEquivalence": false

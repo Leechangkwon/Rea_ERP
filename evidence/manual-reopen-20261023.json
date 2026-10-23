@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "sourceId": "EC-HELP-REQUEST-026",
+  "requirement": "REQ-PUR-RECEIPT-003",
+  "title": "종결 취소 기존 재개 구현과 공통 목록 상태변경 경계 대조",
+  "status": "existing-reopen-preserved-exact026-body-and-original-menu-binding-gated",
+  "productionVersion": "0.88.0",
+  "exact026OfficialBodyRead": false,
+  "exact026IndexStatus": "index-only",
+  "previouslyReadSupportingBodies": [
+    {
+      "id": "EC-HELP-REQUEST-025",
+      "title": "전표 종결의 의미와 사용 방법",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-help-body.ax.txt",
+      "bodySha256": "cc9868621f4604bae52b7d8725f7247459bf4a610994312b3fb9b56a855361e9"
+    },
+    {
+      "id": "EC-HELP-REQUEST-027",
+      "title": "전표를 종결 처리하는 방법",
+      "localArtifact": ".artifacts/manual-purchase-flow-20261021/closure-method-help-body.ax.txt",
+      "bodySha256": "06a9bff12537eea982486bef60d19d7c682f9fa0e75d7b81cf2b988e26638a72"
+    }
+  ],
+  "newOfficialBodies": 0,
+  "newOfficialRequirements": 0,
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-reopen-20261023/rea/rea-summary.json",
+    "summarySha256": "be8b88a50c210b3b23d7a7a7e8af8ac7b22652c5b4564313f8ca1eefbdea486f",
+    "analyzer": ".artifacts/manual-reopen-20261023/analyze.mjs",
+    "analyzerSha256": "25634632184eb92b768431bf174f8b8a8d6fe1c0750127f5cee83856e630d84b",
+    "newOriginalScopes": 3,
+    "newOwnScopes": 0,
+    "reusedOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "sourceFindings": [
+    {
+      "scope": "progress_status_multi_user_action_list",
+      "finding": "List descriptor select points to common$IModifyProgressStatusListUserAction. Its aliases include search/status-search; exact active purchase/request bindings and permission remain unobserved."
+    },
+    {
+      "scope": "ModifyProgressStatusListUserAction",
+      "finding": "Assigns target menu/bizz context, initializes action_mode STATUS_CHANGE, filters data and checks filtered slips length greater than100 before update. Filter keys use date-number; update/redraw delegate to separate programs. This is a post-filter limit, not raw selection size.",
+      "limitations": "Actual current purchase/request route, eligibility/excluded-item policies, storage, confirmation prompt, server validation and transaction atomicity not proved by this class alone."
+    },
+    {
+      "scope": "progress_status_multi_user_action",
+      "finding": "Order-management descriptor complete and cancel_complete use the same step action with progress C/P and finish_type edit.",
+      "limitations": "Order-management step completion is distinct from purchase voucher closure; do not substitute this payload for exact026 purchase reopening."
+    }
+  ],
+  "sourceProvenance": [
+    {
+      "file": ".artifacts/manual-vat-decimal-20261021/common.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/common/common.6d626cf4.js",
+      "manifest": ".artifacts/manual-vat-decimal-20261021/source-manifest.json",
+      "sha256": "c794cd2a1550ba8daa2d1f35f9a50f2df57e4fa10a423180fa5275982e05bccd",
+      "scope": "ModifyProgressStatusListUserAction",
+      "fragmentSha256": "36ea1cc48f332c248211320d64961a220125c097f5e70626af055eed8ba08f46",
+      "resultSha256": "785b4e2dc678547f39ae0ac597ce8a8662702c7617409d734b4046f5e0eaa60d"
+    },
+    {
+      "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app_shared/v56app_shared.b7aeed78.js",
+      "manifest": ".artifacts/manual-plan-custom-contract-20261022/source-manifest.json",
+      "sha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+      "scope": "progress_status_multi_user_action_list",
+      "fragmentSha256": "9cb9d33b2155db0844729d381f61ec8152b4f4b20605ed33e8950b24dbecb79f",
+      "resultSha256": "a994f72c1c449f4baf44476e4634ac0a0ba90a89fe5c9661217f64610c1f0f4e"
+    },
+    {
+      "file": ".artifacts/manual-plan-custom-contract-20261022/v56app_shared.b7aeed78.js",
+      "url": "https://resource.ecount.com/ec5/static/freq/ecountv56/modules/v56app_shared/v56app_shared.b7aeed78.js",
+      "manifest": ".artifacts/manual-plan-custom-contract-20261022/source-manifest.json",
+      "sha256": "a849620358d10cce25977c38fe7b3a7a924ce1415fd7297c706bac6478f424ef",
+      "scope": "progress_status_multi_user_action",
+      "fragmentSha256": "fb9d6c725dc1a407eab7c2c3d82b629ac1ac098c57a7269492d111722ad93a29",
+      "resultSha256": "aaf4040781f683277f635b66a56ef97896a2d0a5356415c03bd94a685a692f01"
+    }
+  ],
+  "ownOperatingComparison": {
+    "releaseCommit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+    "core": "dist/inventory-core.js",
+    "coreSha256": "2745753574571c4b379232932f81075d4bf80cd4edb23e51f6a1ace198837dce",
+    "transitionLine": 419,
+    "ui": "dist/inventory-ui.js",
+    "uiProgressDialogLine": 456,
+    "finding": "Current explicit transition supports progress complete to ongoing, retains existing inventory/accounting side-effects and enforces accounted/cancelled/held constraints. Purchase list dialog exposes ongoing as explicit progress choice with identity/storage/selected-document snapshot checks.",
+    "priorAcceptanceEvidence": "evidence/manual-purchase-receipt-closure-20261021.json",
+    "unchangedPriorTest": {
+      "file": "tests/purchase-receipt-closure.cjs",
+      "versions": [
+        {
+          "commit": "0ae0af0a65842bfb6723e1a18266c9633527b289",
+          "sha256": "d2ff9b08025fbf7b8d5d260bdc16f94c2f14af38256c08de2f56bc3700235f40"
+        },
+        {
+          "commit": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+          "sha256": "d2ff9b08025fbf7b8d5d260bdc16f94c2f14af38256c08de2f56bc3700235f40"
+        }
+      ],
+      "rerun": false
+    },
+    "priorSyntheticScenario": "Partial receipt4 of10, closure blocks late/new receipt, explicit reopen then receipt6, remaining0, stock10, payable1100 and forms preserved. Prior test source is unchanged, not a fresh business verification.",
+    "fullOriginalReopenParity": false,
+    "freshHostedReopenSave": false
+  },
+  "candidateGap": {
+    "id": "CAND-COM-PROGRESSBATCH-001",
+    "status": "static-path-difference-menu-binding-and-filter-contract-gated",
+    "originalCommonFilteredSlipLimit": 100,
+    "ownGenericTransitionMaxIds": 500,
+    "implemented": false,
+    "reason": "Do not apply global100 raw-ID limit from this post-filter common action without proving actual purchase/request binding and eligibility rules. Preserve other own transition/accounting routes."
+  },
+  "remainingGates": [
+    "Exact026 full body and readonly current original purchase/request reopen UI;025 general reopen statement is supporting evidence only.",
+    "Concrete confirmation/progress states, role exceptions, bulk filter/limit/menu applicability, concurrent selected data and storage behavior.",
+    "Existing linked receipt modification and auto-progress exceptions are own policy, not original server proof.",
+    "Hosted configured reopen save and scenario preservation acceptance remain incomplete."
+  ],
+  "changes": {
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "productionBusinessOrSettingsOrMailWrites": 0
+  },
+  "originalSession": {
+    "freshReadonlyObservedState": "login-required",
+    "credentialsReadOrEntered": false,
+    "repeatedLoginRequest": false
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "pidPresent": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "community": {
+    "pluginVersion": "1.0.2",
+    "requiredWorkToolsExposed": false,
+    "lastActualSavedReadbackVersion": "0.51.0",
+    "pendingLocalUpdates": 101,
+    "posted": false,
+    "readback": false,
+    "repeatedAuthenticationRequests": 0
+  },
+  "counters": {
+    "indexed": 73,
+    "bodyReviewed": 43,
+    "officialRequirements": 42,
+    "finalAcceptance": 0
+  },
+  "nextSourceId": "EC-HELP-REQUEST-028",
+  "skippedAlreadyReviewed": [
+    "EC-HELP-REQUEST-027"
+  ],
+  "done": false
+}
