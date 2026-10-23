@@ -625,8 +625,8 @@
   },
   "manualParity": {
     "requirementsReference": "../manual-parity-20261021/requirements.json",
-    "officialRequirements": 36,
-    "sourceBodiesReviewed": 32,
+    "officialRequirements": 38,
+    "sourceBodiesReviewed": 34,
     "done": 0,
     "nextWork": {
       "requirement": "REQ-COM-MAPPING-001",
@@ -638,7 +638,7 @@
       "candidateSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "메일템플릿015 미독 본문; 원본/모아 연결 완료 응답 우선"
+      "nextIndependentManual": "입력경로별 전표검색016; 원본/모아 연결 완료 응답 우선"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -795,9 +795,9 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-007",
+      "sourceId": "EC-HELP-REQUEST-016",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "전표상태구분007의 미독 본문과 발주서 미확인→확인 전환 제한에 관한 공개 공식FAQ를 대조한다. 이번 설정경로/이미 통과한 helper·회귀를 변화 없이 반복하지 않는다. 번호/로고/PDF/통화/BODY/업로드/TC101P_01는 새 원본 근거가 확보될 때 재개한다.",
+      "description": "원본/모아 연결 완료 응답을 우선 처리한다. 응답 전016의 공개 본문·보유 소스와 실제0.88 구현을 대조한다. 같은 mail/MyTab/history helper 및 통과회귀·인증 요청은 반복하지 않는다. 메일은 기본문구 유형과 수신화면 양식의 실제 편집·권한·보관 계약 확보 후 재개한다.",
       "done": false
     },
     "priceRequestComparisonView": {
@@ -1333,7 +1333,7 @@
       "newTextBodies": 2,
       "done": false
     },
-    "onlineManualIndexItems": 58,
+    "onlineManualIndexItems": 64,
     "uploadSaveRuleSettings": {
       "version": "0.79.0",
       "sourceCommit": "ed372dac43bae8cdf16e24f77240bbd8f741846d",
@@ -1519,12 +1519,11 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "EC-HELP-REQUEST-015",
-      "requirement": null,
-      "title": "ERP 발송 메일 템플릿의 미독 공식 본문과 편집·미리보기·보관 계약",
-      "context": "원본/모아 연결 완료 응답을 우선 처리한다. 응답 전 독립 미독015 메일템플릿의 공개 본문·보유 소스와 현재 템플릿을 대조하며 실제 발송/원본 설정 저장은 하지 않는다. 타임라인013은 실제 loaded asset/공식 본문 확보 때 재개한다. 불명확한 유사 이력 helper를 재분석하거나 통과회귀·인증 요청을 반복하지 않는다.",
+      "sourceId": "EC-HELP-REQUEST-016",
+      "title": "입력경로를 구분한 전표 검색의 미독 공식 본문과 실제 저장·필터 계약",
+      "context": "원본/모아 연결 완료 응답을 우선 처리한다. 응답 전016의 공개 본문·보유 소스와 실제0.88 구현을 대조한다. 같은 mail/MyTab/history helper 및 통과회귀·인증 요청은 반복하지 않는다. 메일은 기본문구 유형과 수신화면 양식의 실제 편집·권한·보관 계약 확보 후 재개한다.",
       "operatingVersion": "0.88.0",
-      "timelineGateEvidence": "evidence/manual-timeline-20261023.json",
+      "mailTemplateGateEvidence": "evidence/manual-mail-template-20261023.json",
       "legacyGates": "bookmark/myTab/quickSearch/confirmation/number/logo/PDF/currency/BODY/upload/TC101P_01 retained; mapping requires rebase on0.88; no root build/install"
     },
     "currencyRegistration": {
@@ -1754,6 +1753,20 @@
       "newReaScopes": 0,
       "implemented": false,
       "done": false
+    },
+    "mailTemplateResearch": {
+      "requirements": [
+        "REQ-COM-MAIL-001",
+        "REQ-COM-MAIL-002"
+      ],
+      "status": "two-distinct-mail-template-gaps-confirmed-editor-contracts-gated",
+      "evidence": "evidence/manual-mail-template-20261023.json",
+      "newOfficialBodies": 2,
+      "newOfficialRequirements": 2,
+      "newReaScopes": 0,
+      "implemented": false,
+      "done": false,
+      "communityPendingLocalUpdates": 91
     }
   },
   "preparedCandidate": {

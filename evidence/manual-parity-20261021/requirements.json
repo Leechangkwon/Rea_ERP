@@ -2,7 +2,7 @@
   "schema": 1,
   "baselineVersion": "0.1",
   "status": "discovery-open",
-  "officialRequirementsDecomposed": 36,
+  "officialRequirementsDecomposed": 38,
   "legacyCandidates": [
     {
       "id": "LOCAL-MAN-PUR-01",
@@ -2578,6 +2578,87 @@
         "resolved": false,
         "inference": "Possible documentation/product/menu/version scope difference; no verified cause. Neither number is installed as own policy."
       },
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.88.0",
+      "appChangeNeeded": true,
+      "productionDeployed": false
+    },
+    {
+      "id": "REQ-COM-MAIL-001",
+      "sourceId": "EC-FAQ-87VCB58J7DV85LL",
+      "title": "메뉴·유형별 발신 기본문구 설정",
+      "procedure": [
+        "판매조회 > 전표 선택 > Email > Option > 발신기본값설정",
+        "유형명 > 기본값 설정 > 메일추가내용 편집 > 적용"
+      ],
+      "expected": [
+        "메뉴별 적용 유형을 구분하고 재사용 문구를 편집한다.",
+        "건별 메일 초안 편집과 기본값 저장을 구분하고 기존 메일·전표를 보존한다."
+      ],
+      "status": "confirmed-gap-original-editor-persistence-and-permission-contract-gated",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-87VCB58J7DV85LL",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCB58J7DV85LL&page=1&category=erp",
+        "question": "메일 발송 시 설정한 메일추가내용 고정멘트를 변경하려면 어떻게 해야 하나요?",
+        "bodySha256": "242571f904c6099970dbed0e8d55f0f70727c198781020e8a2de2c23103362a1",
+        "observedAt": "2026-10-23T03:58:09.851Z",
+        "artifact": ".artifacts/manual-mail-template-20261023/official-faq.json"
+      },
+      "role": "Actual settings authorization unverified; do not infer from mail.send/mail.write",
+      "implementationEvidence": [
+        "evidence/manual-mail-template-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Actual read-only Email Option menus and editors: complete type list, current menu-to-type mapping, named form fields, builtin layout choices and preview/apply/cancel behavior.",
+        "Company/user/menu storage scope, settings authorization, revision/conflict behavior, default selection, rename/remove and retention rules.",
+        "Actual loaded mail-default and recipient-template modules; cache absence does not justify invented schemas or template HTML.",
+        "Exact full manual015 is still index-only; these two public FAQ bodies are separately scoped sources.",
+        "No original/production settings save or mail send; synthetic save/preview/preservation and production read-only acceptance remain pending."
+      ],
+      "done": false,
+      "hostedAcceptance": false,
+      "productionVersion": "0.88.0",
+      "appChangeNeeded": true,
+      "productionDeployed": false
+    },
+    {
+      "id": "REQ-COM-MAIL-002",
+      "sourceId": "EC-FAQ-7WCFLMSVP831G99",
+      "title": "메일 수신화면의 이름 있는 양식·템플릿 설정",
+      "procedure": [
+        "이메일 전송창 > Option > 메일수신화면 양식설정",
+        "신규 > 양식명 > 저장",
+        "오른쪽 양식설정·왼쪽 템플릿 선택 후 양식 저장"
+      ],
+      "expected": [
+        "이름 있는 수신화면 양식과 템플릿을 선택해 수신 화면에 적용한다.",
+        "일반 본문 수정 및 PDF 첨부와 수신화면 양식을 별도 기능으로 관리한다."
+      ],
+      "status": "confirmed-gap-original-editor-persistence-and-permission-contract-gated",
+      "referenceVerified": true,
+      "sourceLocator": {
+        "sourceId": "EC-FAQ-7WCFLMSVP831G99",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFLMSVP831G99&page=549",
+        "question": "메일수신화면 양식설정으로 거래처 메일 템플릿 변경 가능",
+        "bodySha256": "6258ed80c48c9ca788d7961bf3fe560474db2bd12bed032386f475b7dfb729b4",
+        "observedAt": "2026-10-23T03:59:14.086Z",
+        "artifact": ".artifacts/manual-mail-template-20261023/receive-template-faq.json"
+      },
+      "role": "Actual settings authorization unverified; do not infer from mail.send/mail.write",
+      "implementationEvidence": [
+        "evidence/manual-mail-template-20261023.json"
+      ],
+      "automatedEvidence": [],
+      "remaining": [
+        "Actual read-only Email Option menus and editors: complete type list, current menu-to-type mapping, named form fields, builtin layout choices and preview/apply/cancel behavior.",
+        "Company/user/menu storage scope, settings authorization, revision/conflict behavior, default selection, rename/remove and retention rules.",
+        "Actual loaded mail-default and recipient-template modules; cache absence does not justify invented schemas or template HTML.",
+        "Exact full manual015 is still index-only; these two public FAQ bodies are separately scoped sources.",
+        "No original/production settings save or mail send; synthetic save/preview/preservation and production read-only acceptance remain pending."
+      ],
       "done": false,
       "hostedAcceptance": false,
       "productionVersion": "0.88.0",

@@ -1,5 +1,9 @@
 # 이카운트 매뉴얼 조사대장
 
+## 2026-10-23 메일 템플릿 범위 구분
+
+[발신 기본문구 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCB58J7DV85LL&page=1&category=erp)와 [메일 수신화면 양식 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFLMSVP831G99&page=549)를 별도 본문으로 읽었다. 유형별 고정문구와 이름 있는 수신화면 양식은 별도 요구사항이며015 전체매뉴얼을 읽었다고 세지 않는다. 목록64/본문34/요구사항38/최종합격0, 신규REA/앱/회귀/배포0. 근거 `evidence/manual-mail-template-20261023.json`.
+
 ## 2026-10-23 이력 범위 대조
 
 [사용자 권한 변경 이력 FAQ](https://www.ecount.com/kr/ecount/service/faq-view?record_sid=8717MBENSAP7M16&page=26)는 사용자등록 권한 설정의 H에서 최종 시간/아이디를 조회하는 본문이다. 타임라인013 본문은 미확보·index-only이며 관련FAQ로 대체하지 않는다. 목록62/본문32/요구사항36/최종합격0, 앱/새REA/회귀/배포0. 근거 `evidence/manual-timeline-20261023.json`, 다음 순서는 ROADMAP 첫 절을 따른다.

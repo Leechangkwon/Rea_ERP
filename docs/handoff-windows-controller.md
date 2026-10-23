@@ -1,8 +1,8 @@
 # Windows 주도 개발 인계 — 2026-10-19
 
-## 현재 인계 · 운영0.88.0, 타임라인013 대기
+## 현재 인계 · 운영0.88.0, 메일 편집기 대기·다음016
 
-013 원문/loaded asset은 미확보이고 관련 권한설정 H FAQ를 별도 기록했다. 앱/신규REA/회귀/배포0·운영PID2518059와workerSHA0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be 유지. 목록62/본문32/요구사항36/최종합격0·전체완료false다. 원본/모아 연결 완료 응답을 우선하고, 그 전 다음015 메일템플릿의 읽기전용 편집/미리보기 계약을 확인한다. 원본 설정저장/발송은 금지다. 상세 `evidence/manual-timeline-20261023.json`과 current-release.json의nextExecutableWork를 따른다.
+메일 관련 공식FAQ2본문에서 기본문구 유형과 수신화면 양식의 별도 차이를 확인했다. 실제 편집/미리보기·권한·보관 계약은 미확보이므로 앱/신규REA/회귀/배포0·운영PID2518059와workerSHA0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be 유지다. 목록64/본문34/요구사항38/최종합격0·전체완료false다. 원본/모아 연결 응답 우선, 그 전016 입력경로별 전표검색을 확인한다. 모아 마지막실제저장/재조회0.51.0·91갱신 로컬대기. 상세 `evidence/manual-mail-template-20261023.json`과 current-release.json의nextExecutableWork를 따른다. 원본 설정저장/발송·root전체빌드는 금지다.
 
 ## 전표 북마크 조사 · 저장 뒤 열기 구조와 모아 연결 진단 (운영0.88.0 유지)
 

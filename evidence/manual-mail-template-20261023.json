@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "status": "two-distinct-mail-template-gaps-confirmed-editor-contracts-gated",
+  "requirements": [
+    "REQ-COM-MAIL-001",
+    "REQ-COM-MAIL-002"
+  ],
+  "productionVersion": "0.88.0",
+  "releaseCommitInspected": "b903b56d40f7705aa6ce11e941ed74cbd107bb01",
+  "sourceManifest": ".artifacts/manual-mail-template-20261023/source-manifest.json",
+  "officialBodies": [
+    {
+      "sourceId": "EC-FAQ-87VCB58J7DV85LL",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=87VCB58J7DV85LL&page=1&category=erp",
+      "question": "메일 발송 시 설정한 메일추가내용 고정멘트를 변경하려면 어떻게 해야 하나요?",
+      "observedAt": "2026-10-23T03:58:09.851Z",
+      "scopeLimit": "Menu/type-specific extra-body default text; sales example, actual purchase type mapping unverified",
+      "bodySha256": "242571f904c6099970dbed0e8d55f0f70727c198781020e8a2de2c23103362a1",
+      "artifact": ".artifacts/manual-mail-template-20261023/official-faq.json",
+      "fullAnswerRead": true
+    },
+    {
+      "sourceId": "EC-FAQ-7WCFLMSVP831G99",
+      "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCFLMSVP831G99&page=549",
+      "question": "메일수신화면 양식설정으로 거래처 메일 템플릿 변경 가능",
+      "observedAt": "2026-10-23T03:59:14.086Z",
+      "scopeLimit": "Recipient-screen named form/layout/template; not equivalent to editable plain-text body or PDF attachment",
+      "bodySha256": "6258ed80c48c9ca788d7961bf3fe560474db2bd12bed032386f475b7dfb729b4",
+      "artifact": ".artifacts/manual-mail-template-20261023/receive-template-faq.json",
+      "fullAnswerRead": true
+    }
+  ],
+  "fullManual015Reviewed": false,
+  "ownCurrentBehavior": {
+    "bodyDefault": "PurchaseMailCore.fromDocuments uses fixed greeting; compose allows editing this message only",
+    "preview": "PurchaseMailUI final recipient/subject/body/attachment review is existing behavior, not a reusable template editor",
+    "draftStorage": "Webmail explicit draft save stores message body and purchase snapshot with revision checks; not menu/type defaults",
+    "gmailRendering": "Gmail transport uses text:message.body and PDF attachments; no recipient-template selector in inspected UI",
+    "rootMailCoreDiffersFromShipped": true,
+    "comparisonUsesShippedRelease": true
+  },
+  "remaining": [
+    "Actual read-only Email Option menus and editors: complete type list, current menu-to-type mapping, named form fields, builtin layout choices and preview/apply/cancel behavior.",
+    "Company/user/menu storage scope, settings authorization, revision/conflict behavior, default selection, rename/remove and retention rules.",
+    "Actual loaded mail-default and recipient-template modules; cache absence does not justify invented schemas or template HTML.",
+    "Exact full manual015 is still index-only; these two public FAQ bodies are separately scoped sources.",
+    "No original/production settings save or mail send; synthetic save/preview/preservation and production read-only acceptance remain pending."
+  ],
+  "changes": {
+    "newOriginalReaScopes": 0,
+    "newOwnReaScopes": 0,
+    "application": 0,
+    "newAutomatedTests": 0,
+    "unchangedRegressionReruns": 0,
+    "builds": 0,
+    "deployments": 0,
+    "originalBusinessOrSettingsWrites": 0,
+    "operatingBusinessOrSettingsOrMailWrites": 0
+  },
+  "runtimeContinuity": {
+    "pid": 2518059,
+    "workerSha256": "0dae7d5af2ad1e7eb3895b7fc0456f852e5625c25cb6e5f2ac7d55b72ccf65be",
+    "managerStatusVerified": true,
+    "freshBusinessBackupComparison": false,
+    "priorPreservationEvidence": "evidence/manual-plan-source-status-20261023.json"
+  },
+  "externalGates": {
+    "originalLoginRequestPending": true,
+    "moaConnectionRequestPending": true,
+    "repeatedRequestsThisRun": false
+  },
+  "community": {
+    "url": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+    "requiredWorkDocumentToolsAvailable": false,
+    "lastSavedReadbackVersion": "0.51.0",
+    "posted": false,
+    "pendingLocalUpdates": 91
+  },
+  "counters": {
+    "indexedManuals": 64,
+    "sourceBodiesReviewed": 34,
+    "officialRequirements": 38,
+    "done": 0
+  },
+  "done": false
+}
