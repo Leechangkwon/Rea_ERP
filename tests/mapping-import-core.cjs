@@ -88,6 +88,15 @@ test('saved request and backup keep mapped customs quantity price tax settings a
  assert.deepEqual(restored.documents[0],source);assert.deepEqual(restored.settings,settings);assert.equal(C.stock(restored,'M001','W001'),initialStock);assert.equal(request.lines[0].importedFrom[0].documentId,source.id);
 });
 
+test('mapped order rows retain the target nonstandard tax header without adopting the source rate',()=>{
+ const x=fixture();Object.assign(x.draft,{transactionType:'21',vatRate:7.5});const before=JSON.stringify(x);
+ const out=stage(x,{selections:[{documentId:x.source.id,item:'M001',qty:2}]}),saved=C.command(x.db,'document',out),restored=C.validateBackup(C.clone(saved.db)),request=restored.documents.at(-1);
+ assert.equal(request.transactionType,'21');assert.equal(request.vatRate,7.5);assert.equal(x.source.vatRate,10);
+ assert.deepEqual([request.lines[0].qty,request.lines[0].supply,request.lines[0].tax,request.lines[0].total],[2,200,15,215]);
+ assert.equal(request.custom.x_header,x.source.memo);assert.equal(request.lines[0].custom.x_target,'LOT-A');assert.equal(JSON.stringify(x),before);
+ assert.deepEqual(restored.documents[0],x.source);assert.deepEqual(restored.settings,x.db.settings);assert.equal(C.stock(restored,'M001','W001'),C.stock(x.db,'M001','W001'));
+});
+
 test('review proposals stay separate from the source incoming rows and unsaved draft',()=>{
  const x=fixture(),selection=[{documentId:x.source.id,item:'M001',qty:2.5}],baseline=stage(x,{mappingConfig:undefined}),incoming=C.clone(baseline.lines),before=JSON.stringify({x,incoming});
  const reviewed=M.stage(x.db,x.draft,incoming,selection,config(),{mode:'copy',grouping:'line'});
