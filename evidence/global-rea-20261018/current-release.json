@@ -1,6 +1,6 @@
 {
-  "version": "0.89.18",
-  "status": "deployed-partner-list-search",
+  "version": "0.89.19",
+  "status": "deployed-item-list-search",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -122,7 +122,8 @@
     "Item custom field validation preserves original rules and error order while annotating the failing field ID so hidden required controls can be revealed/focused after draft resume without changing saved form visibility. evidence/manual-item-required-focus-20261024.json",
     "Item calculation errors identify the innermost failing output and offer guarded navigation to editable inputs and form settings without changing successful results, persistent visibility or storage. evidence/manual-item-formula-guidance-20261024.json",
     "Partner calculation errors show inline labels and guarded links to editable inputs and existing settings; text strings, cached values, storage and persistent visibility remain unchanged. evidence/manual-partner-formula-guidance-20261024.json",
-    "Partner search includes visible list-only calculations and shared formatted values while retaining raw lookup, per-row error isolation, aliases, strings, CSV serialization and unchanged stored data. evidence/manual-partner-list-search-20261024.json"
+    "Partner search includes visible list-only calculations and shared formatted values while retaining raw lookup, per-row error isolation, aliases, strings, CSV serialization and unchanged stored data. evidence/manual-partner-list-search-20261024.json",
+    "Item search adds visible list-only calculation raw/display values within the existing eligible and sorted query set, preserving supplier/period/disabled filters, selection,5000 cap and CSV contracts. evidence/manual-item-list-search-20261025.json"
   ],
   "checks": {
     "total": 998,
@@ -132,7 +133,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-partner-list-search-20261024.json",
+    "reference": "evidence/manual-item-list-search-20261025.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -157,7 +158,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 260,
+    "currentReleaseBrowserSynthetic": 268,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -185,7 +186,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.89.18",
+    "currentReleaseFullRegressionVersion": "0.89.19",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -1294,16 +1295,48 @@
       "build": true,
       "selfReview": true,
       "independentAgentReview": false
+    },
+    "itemListSearch": {
+      "preFixNodeTests": 16,
+      "preFixNodeFailed": 10,
+      "preFixNodePassed": 6,
+      "newNodeTests": 16,
+      "finalFocusedNodePassed": 46,
+      "preFixActualShellBrowserFailed": 8,
+      "preFixActualShellBrowserPassed": 0,
+      "newActualShellBrowserPassed": 8,
+      "viewports": [
+        390,
+        1280
+      ],
+      "cases": [
+        "visible calculated raw/formatted and trimmed queries",
+        "leading-zero raw text and saved input calculation preserved",
+        "supplier-name/raw search, supplier restriction, registered-period and disabled filters",
+        "legacy list aliases and unchanged saved forms",
+        "invalid formula row isolation, raw lookup and hidden derived-only column exclusion",
+        "sorting, cross-query selection, pagination20/5 and full query CSV25",
+        "5001 matching items:5000 cap, Excel CSV5001, explicit expansion and list CSV5001",
+        "CSV injection and quote protection unchanged",
+        "actual shell input save, calculation search, download and reload"
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 268,
+      "fullNodeSuitePassed": true,
+      "releaseChecks": 4,
+      "build": true,
+      "selfReview": true,
+      "independentAgentReview": false
     }
   },
-  "future_research": "품목 조회 양식의 추가 계산열과 표시 숫자도 검색에 반영되는지 합성 대조하고 확인된 누락만 보완한다. 기존 구매처/품목 검색·사용중단·선택·페이지·전체 CSV·원문/계산값/양식 보존을 함께 검사한다. 이번 거래처 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.18 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
+  "future_research": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.19 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-partner-list-search-20261024.json",
+    "reference": "evidence/manual-item-list-search-20261025.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "679ca09ef353c28b11eccd8c199f64d852bfa39e",
-    "publicVersionVerified": "0.89.18",
+    "deployedSourceCommit": "7eae570be147de4a1bf8c598be46fb641991ffb2",
+    "publicVersionVerified": "0.89.19",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -1362,20 +1395,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.89.18",
+    "existingSessionRetainedVersion": "0.89.19",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.89.18",
+    "lastExactBrowserBackupComparisonVersion": "0.89.19",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.89.18",
+    "currentServerStateAndMailPreservedVersion": "0.89.19",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.89.18",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.19",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1686,11 +1719,11 @@
       "reference": "evidence/manual-master-forms-20261024.json"
     },
     "operatingRuntime": {
-      "version": "0.89.18",
-      "pid": 2824623,
-      "persistentExecSession": 11193,
+      "version": "0.89.19",
+      "pid": 2834809,
+      "persistentExecSession": 4867,
       "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
-      "workerSha256": "5c8917879a2031f986e0ee62eba03f765806e3d4f3e5e68aab4c70ecdc30f087",
+      "workerSha256": "24361b33a573fbefcffc8d76914815076f644ba32ca8ab6a709294263ab77b59",
       "doNotPollOrTerminatePersistentSession": true
     },
     "entryQueryOwnerGuard": {
@@ -1846,6 +1879,15 @@
       "calculatedSearchHostedVerified": false,
       "hostedBusinessOrSettingsSaveVerified": false,
       "reference": "evidence/manual-partner-list-search-20261024.json"
+    },
+    "itemListSearch": {
+      "deployed": true,
+      "sourceCommit": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf",
+      "hostedPartnerReadCancelVerified": true,
+      "hostedItemSettingsReadCancelVerified": true,
+      "calculatedSearchHostedVerified": false,
+      "hostedBusinessOrSettingsSaveVerified": false,
+      "reference": "evidence/manual-item-list-search-20261025.json"
     }
   },
   "manualParity": {
@@ -1858,12 +1900,12 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.89.18",
+      "productionVersion": "0.89.19",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "품목 조회 양식의 추가 계산열과 표시 숫자도 검색에 반영되는지 합성 대조하고 확인된 누락만 보완한다. 기존 구매처/품목 검색·사용중단·선택·페이지·전체 CSV·원문/계산값/양식 보존을 함께 검사한다. 이번 거래처 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "nextIndependentManual": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-08814-integration-20261024.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1920,7 +1962,8 @@
       "latestItemRequiredFocusSourceRequired": "35552cf12f854d47eb138bf3b994f056daa6b5dc",
       "latestItemFormulaGuidanceSourceRequired": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff",
       "latestPartnerFormulaGuidanceSourceRequired": "ec7bdd0b41e404f0e241209e87ae468f3b311005",
-      "latestPartnerListSearchSourceRequired": "92c547eff621fc5247fdbdd2acd521284f1ec49f"
+      "latestPartnerListSearchSourceRequired": "92c547eff621fc5247fdbdd2acd521284f1ec49f",
+      "latestItemListSearchSourceRequired": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -2082,14 +2125,14 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-ITEM-CUSTOM-LIST-SEARCH",
+      "sourceId": "OWN-ITEM-CUSTOM-CSV-TRANSFER",
       "plan": "docs/plan-master-number-transition-20261024.md",
-      "description": "품목 조회 양식의 추가 계산열과 표시 숫자도 검색에 반영되는지 합성 대조하고 확인된 누락만 보완한다. 기존 구매처/품목 검색·사용중단·선택·페이지·전체 CSV·원문/계산값/양식 보존을 함께 검사한다. 이번 거래처 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "description": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "operatingVersion": "0.89.18",
-      "latestEvidence": "evidence/manual-partner-list-search-20261024.json",
-      "title": "품목 조회 계산열 검색 일치",
-      "evidence": "evidence/manual-partner-list-search-20261024.json"
+      "operatingVersion": "0.89.19",
+      "latestEvidence": "evidence/manual-item-list-search-20261025.json",
+      "title": "품목 사용자 추가항목 CSV 이동 보존",
+      "evidence": "evidence/manual-item-list-search-20261025.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2823,13 +2866,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-ITEM-CUSTOM-LIST-SEARCH",
-      "title": "품목 조회 계산열 검색 일치",
-      "operatingVersion": "0.89.18",
-      "evidence": "evidence/manual-partner-list-search-20261024.json",
-      "description": "품목 조회 양식의 추가 계산열과 표시 숫자도 검색에 반영되는지 합성 대조하고 확인된 누락만 보완한다. 기존 구매처/품목 검색·사용중단·선택·페이지·전체 CSV·원문/계산값/양식 보존을 함께 검사한다. 이번 거래처 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "sourceId": "OWN-ITEM-CUSTOM-CSV-TRANSFER",
+      "title": "품목 사용자 추가항목 CSV 이동 보존",
+      "operatingVersion": "0.89.19",
+      "evidence": "evidence/manual-item-list-search-20261025.json",
+      "description": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "latestEvidence": "evidence/manual-partner-list-search-20261024.json",
+      "latestEvidence": "evidence/manual-item-list-search-20261025.json",
       "plan": "docs/plan-master-number-transition-20261024.md"
     },
     "currencyRegistration": {
@@ -3734,14 +3777,22 @@
       "deployed": true,
       "done": false,
       "newOfficialRequirements": 0
+    },
+    "itemListSearch": {
+      "version": "0.89.19",
+      "reference": "evidence/manual-item-list-search-20261025.json",
+      "sourceCommit": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0
     }
   },
   "preparedCandidate": {
-    "version": "0.89.18",
-    "commit": "679ca09ef353c28b11eccd8c199f64d852bfa39e",
-    "sourceCommit": "92c547eff621fc5247fdbdd2acd521284f1ec49f",
-    "manifest": ".artifacts/manual-partner-list-search-20261024/release-manifest.json",
-    "bundleSha256": "5c8917879a2031f986e0ee62eba03f765806e3d4f3e5e68aab4c70ecdc30f087",
+    "version": "0.89.19",
+    "commit": "7eae570be147de4a1bf8c598be46fb641991ffb2",
+    "sourceCommit": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf",
+    "manifest": ".artifacts/manual-item-list-search-20261025/release-manifest.json",
+    "bundleSha256": "24361b33a573fbefcffc8d76914815076f644ba32ca8ab6a709294263ab77b59",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -3809,14 +3860,15 @@
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
-      "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume"
+      "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
+      "visible-item-list-calculation-search-with-existing-eligibility-sort-selection-and-export"
     ],
-    "supersedesCandidateCommit": "8c2aeec1ccecf8349aa74f74956fa25ef5b4e341",
+    "supersedesCandidateCommit": "679ca09ef353c28b11eccd8c199f64d852bfa39e",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.89.18-partner-list-search"
+    "branch": "release/0.89.19-item-list-search"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -4689,6 +4741,13 @@
     "partnerListSearch": {
       "reference": "evidence/manual-partner-list-search-20261024.json",
       "summary": ".artifacts/manual-partner-list-search-20261024/rea/rea-summary.json",
+      "newOwnScopes": 2,
+      "newOriginalScopes": 0,
+      "originalExecuted": false
+    },
+    "itemListSearch": {
+      "reference": "evidence/manual-item-list-search-20261025.json",
+      "summary": ".artifacts/manual-item-list-search-20261025/rea/rea-summary.json",
       "newOwnScopes": 2,
       "newOriginalScopes": 0,
       "originalExecuted": false
