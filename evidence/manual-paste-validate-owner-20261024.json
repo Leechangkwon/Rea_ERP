@@ -1,0 +1,201 @@
+{
+  "version": "0.89.5",
+  "sourceCommit": "c6889ff890db61ecf2711be19e0090c16f9c54d0",
+  "releaseCommit": "81483ad4ed710bcca77639127ac82fea2b4d24bb",
+  "workerSha256": "60f6c441afe43044903b1cb21271161565e34f033745c4125e7a100de00f8474",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.5-paste-validate-owner",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-paste-validate-owner-guard",
+  "baselineProductionCommit": "26d12da91784ecfd954acd77e0cf40088c2ded5c",
+  "changes": {
+    "before": "Paste previews and direct validation read the previous draft/database after owner changes; the actual validation action read required fields first.",
+    "after": "Check the current dialog/parent before preview or validation. Clear invalid preview and success summary, disable apply and retain pasted text, draft and stored data.",
+    "why": "Final apply/save checks did not preserve owner/storage boundaries while calculating validation results.",
+    "readOnlyPreviewAndValidationPreserved": true,
+    "schemaOrParsingOrPricingRulesChanged": false
+  },
+  "validation": {
+    "preFixNodeFailed": 18,
+    "preFixNodePassed": 5,
+    "newNodeTests": 23,
+    "focusedNodePassed": 208,
+    "preFixActualShellBrowserFailed": 4,
+    "newActualShellBrowserPassed": 4,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 172,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "logs": [
+      ".artifacts/manual-paste-validate-owner-20261024/pre-fix.log",
+      ".artifacts/manual-paste-validate-owner-20261024/pre-fix-browser.log",
+      ".artifacts/manual-paste-validate-owner-20261024/focused-all.log",
+      ".artifacts/manual-paste-validate-owner-20261024/focused-browser.log",
+      ".artifacts/manual-paste-validate-owner-20261024/verify-local.log"
+    ],
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-paste-validate-owner-20261024/rea/rea-summary.json",
+    "ownScopes": 8,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "26d12da91784ecfd954acd77e0cf40088c2ded5c",
+    "files": {
+      "dist/entry-tools.js": {
+        "rootSha256": "360904211cb1ca1ea95f95d3f6da1664f66fdc7e2d5f2a11b70c56ce081dd83d",
+        "candidateSha256": "360904211cb1ca1ea95f95d3f6da1664f66fdc7e2d5f2a11b70c56ce081dd83d",
+        "equal": true
+      },
+      "tests/paste-validate-owner.cjs": {
+        "rootSha256": "9c1f6d2504441a76342242a8c9c077ab0fd202e903a01cf2b34fbf549c1cce98",
+        "candidateSha256": "9c1f6d2504441a76342242a8c9c077ab0fd202e903a01cf2b34fbf549c1cce98",
+        "equal": true
+      },
+      "tests/browser/paste-validate-owner.spec.cjs": {
+        "rootSha256": "e1e06808614abda1bd51e44456941847c89afc5863ef09c42e49981cfd522345",
+        "candidateSha256": "e1e06808614abda1bd51e44456941847c89afc5863ef09c42e49981cfd522345",
+        "equal": true
+      }
+    },
+    "narrowInventoryPort": {
+      "baselineRelease": "26d12da91784ecfd954acd77e0cf40088c2ded5c",
+      "inventoryPatchOnlyVerifyGuard": true,
+      "inventoryVerifyScopeEqual": true,
+      "verifyScopeSha256": "f5782380948704909c0b3a2513bd7e16cfdd2346fd0b9b20ba2ba28e33bbfb79",
+      "rootInventoryFullFileSha256": "85f49df86812a4f99ebb024993056535bf6f6e81ea6816d9e2e8823c63e85c57",
+      "candidateInventoryFullFileSha256": "9c28d0f4e6bef993e6b7898a3611d027eefc56af5961c5703b5ea1f7c64dddf1",
+      "unshippedRootVatOrMappingCopied": false
+    },
+    "unshippedRootVatOrMappingCopied": false,
+    "matchingScopePairs": 4,
+    "reaVersion": "6.4.0",
+    "sourceExecuted": false
+  },
+  "runtime": {
+    "version": "0.89.5",
+    "pid": 2697800,
+    "persistentExecSession": 40291,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.89.4",
+    "installedWorkerSha256": "60f6c441afe43044903b1cb21271161565e34f033745c4125e7a100de00f8474"
+  },
+  "releaseManifest": ".artifacts/manual-paste-validate-owner-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.5",
+      "browserInventoryByteEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "workTabCount": 1,
+      "openDialogCount": 0,
+      "existingLoginRetained": true,
+      "hostedPreviewRows": 1,
+      "hostedValidationCompleted": true,
+      "hostedPreviewValidateCancel": true,
+      "hostedParentDraftExact": true,
+      "hostedBusinessOrSettingsSaved": false,
+      "hostedRoleSwitchPerformed": false,
+      "originalTouched": false,
+      "preBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (24).json",
+      "postBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (25).json",
+      "screenshot": ".artifacts/manual-paste-validate-owner-20261024/production.png"
+    },
+    "server": {
+      "version": "0.89.5",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.5",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "publicEvidence": ".artifacts/manual-paste-validate-owner-20261024/public-deploy.json",
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "lastConfirmedDocumentVersion": 24,
+    "prior08815ApprovedAppendSavedAndReread": true,
+    "pending0890ProposalUnchanged": true,
+    "current0895DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Existing concrete0.89.0 proposal remains pending; no repeated approval request or auth check.",
+    "draftFile": ".artifacts/manual-paste-validate-owner-20261024/moa-draft.json"
+  },
+  "nextWork": "기초등록 사용자 문자/숫자 항목의 수식 참조·이름/형식 변경·숨김/양식 전환·백업 복원 경계를 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 기존 구매처 표시와 일반 계산식 합격은 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload server save contracts remain unverified.",
+    "Owner invalidation/recovery tested only on isolated synthetic data; hosted checks preview/validate/cancel without applying or saving.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ],
+  "windowsHandoff": {
+    "path": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/LINUX-HANDOFF.md",
+    "previousBodyByteEqual": true,
+    "previousBodySha256": "33d41391bbfae9b3981ceaebb05fc80a8899f391b139ca5b04d7afbc665e233d",
+    "newFileSha256": "fa9ca06a6e7b7ae153efee670fb020456c6ce773587246e2a50b96f9156dbff5"
+  }
+}
