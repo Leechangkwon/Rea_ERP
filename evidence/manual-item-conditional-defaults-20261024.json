@@ -1,0 +1,213 @@
+{
+  "version": "0.89.12",
+  "sourceCommit": "ec9da9a78ade1e6b846b2074f7a870c7afe968a1",
+  "releaseCommit": "b52f75e35afb6f575f409f92aa2af4f082f48636",
+  "workerSha256": "4394b64d6f692643936a80f74335422fc58d56dbf8d33d40de1b78048d348165",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.12-item-conditional-defaults",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-item-conditional-defaults",
+  "baselineProductionCommit": "9cb901bdb168e18e84cefe84c139a9c8ff5706bb",
+  "changes": {
+    "before": "Item masterEditor evaluated conditional forms using an empty/raw record before ItemUI applied company/normalized defaults, so the first selected form could disagree with the visible values.",
+    "after": "Use ItemCore.initial for the input form registry and effective selection; keep original record/draft delivery and first-render form-default precedence.",
+    "why": "Initial condition matching and the item controls must see the same company, record or current draft values, including omitted defaults and explicit zero/false/blank values.",
+    "schemaOrCoreFormulaRulesChanged": false,
+    "recursiveConditionSelectionAdded": false,
+    "documentAndSearchModePreserved": true,
+    "existingAuthorityExceptionContractPreserved": true,
+    "conditionalInitialValuesDraftReevaluationSaveReloadPassed": true,
+    "implementationScope": "masterEditor item branch registry and effective values only",
+    "parentItemDraftAndAllMastersPreserved": true
+  },
+  "validation": {
+    "preFixNodeTests": 9,
+    "preFixNodeFailed": 7,
+    "preFixNodePassed": 2,
+    "newNodeTests": 9,
+    "finalFocusedNodePassed": 64,
+    "preFixActualShellBrowserFailed": 6,
+    "preFixActualShellBrowserPassed": 2,
+    "newActualShellBrowserPassed": 8,
+    "viewports": [
+      390,
+      1280
+    ],
+    "newAndExistingItems": true,
+    "currentDraftReevaluation": true,
+    "conditionalCustomFormulaSaveReload": true,
+    "initialCases": [
+      "company unit",
+      "zero and false",
+      "existing omitted default",
+      "existing explicit values"
+    ],
+    "preservedValues": [
+      "zero",
+      "false",
+      "empty text",
+      "supplier reference",
+      "custom formula result"
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 214,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "logs": [
+      ".artifacts/manual-item-conditional-defaults-20261024/node-before.log",
+      ".artifacts/manual-item-conditional-defaults-20261024/node-after.log",
+      ".artifacts/manual-item-conditional-defaults-20261024/browser-before.log",
+      ".artifacts/manual-item-conditional-defaults-20261024/browser-after.log",
+      ".artifacts/manual-item-conditional-defaults-20261024/verify-local.log"
+    ]
+  },
+  "rea": {
+    "summary": ".artifacts/manual-item-conditional-defaults-20261024/rea/rea-summary.json",
+    "ownScopes": 2,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "9cb901bdb168e18e84cefe84c139a9c8ff5706bb",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "9cb901bdb168e18e84cefe84c139a9c8ff5706bb",
+      "wholeFileCopied": false,
+      "unchangedOutsideScopes": true,
+      "files": [
+        {
+          "file": "dist/inventory-ui.js",
+          "rootHash": "0ca54583c543159d1d50995a227cd955b47a5306520f1dc412f8cb8317d0c70a",
+          "candidateHash": "3f995cb26557869759aed6bbd7cc3dc3562f1d8c3993e0851f60ac6a15ebafe6",
+          "scopes": [
+            {
+              "name": "masterEditor",
+              "beforeSha256": "31f5642405200bd8d6403be799d40a299f5cddfa4ecc0462044d67a7b5298b28",
+              "afterSha256": "a82a24083684f7aa38d770ff96c0bc6dea21444c289c920e9a276d55d1cc9afe"
+            }
+          ]
+        }
+      ]
+    },
+    "matchingScopePairs": 1,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/item-conditional-defaults.cjs": true,
+      "tests/browser/item-conditional-defaults.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.12",
+    "pid": 2771816,
+    "persistentExecSession": 94416,
+    "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
+    "workerSha256": "4394b64d6f692643936a80f74335422fc58d56dbf8d33d40de1b78048d348165",
+    "doNotPollOrTerminatePersistentSession": true
+  },
+  "releaseManifest": ".artifacts/manual-item-conditional-defaults-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.12",
+      "browserInventoryByteEqual": true,
+      "sha256Before": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "sha256After": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedPartnerFieldsExact": true,
+      "hostedPartnerFieldCount": 13,
+      "hostedItemSettingsFieldsExact": true,
+      "hostedItemSettingsControlCount": 256,
+      "existingAuthenticatedSessionRetained": true,
+      "versionVisible": "0.89.12",
+      "workTabsAfter": 1,
+      "dialogsAfter": 0,
+      "hostedBusinessOrSettingsWrites": 0,
+      "hostedSettingsReorders": 0,
+      "actualMailSends": 0,
+      "conditionalDraftAndFinalSaveOnlySynthetic": true,
+      "verification": "Actual UI JSON backup before/after byte equal; V00113 DOM fields and item settings256 controls read/cancel compared exactly; returned to original request tab."
+    },
+    "server": {
+      "version": "0.89.12",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.12",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "approved0890SavedAndReread": true,
+    "lastConfirmedDocumentVersion": 25,
+    "batch16ProposalConfirmationPending": true,
+    "current08912DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "The approved0.89.0 paragraph is already saved. Separate16-document concrete proposal remains pending; no duplicate prompt or auth recheck.",
+    "draftFile": ".artifacts/manual-item-conditional-defaults-20261024/moa-draft.json"
+  },
+  "nextWork": "품목 조건양식의 저장 시점에서 현재 값과 표시/필수 추가항목·계산식의 검증 경로가 일치하는지 합성 재현하고 확인된 누락만 보완한다. 이번 초기값 평가 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "New/existing conditional item initialization, current draft re-evaluation and final item save/reload used isolated synthetic data. Hosted checks only read/cancel ordinary partner fields and256 item settings controls, without settings or business writes.",
+    "The conditional initial-value contract describes the current own implementation; original server/shared/inherited form contracts remain unverified.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ]
+}
