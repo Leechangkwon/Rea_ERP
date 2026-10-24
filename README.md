@@ -1,6 +1,8 @@
 # 자동화 ERP · REA 재구성 검증
 
-현재 운영은 **0.89.8 / 409b28a**이다. 기초등록 저장·양식 변경 전 계정/회사/역할/권한·저장본·입력창을 확인한다. 왜: 이전 문맥의 초안으로 다른 자료를 덮어쓰지 않기 위해서다. 신규Node31·전체 verify:local/184브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 문맥 변경/저장 차단·복구는 합성 검증이다. [근거](evidence/manual-master-editor-owner-20261024.json), [계획](docs/plan-master-editor-owner-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션21059 poll/terminate 금지.
+현재 운영은 **0.89.9 / 8ed3049**이다. 기초등록 미완성 숫자 입력이 있으면 양식/설정 변경·닫기·메뉴 이동 전에 입력을 확인하고 기존 입력과 설정을 보존한다. 왜: native badInput을 명시적 빈 값으로 저장하지 않기 위해서다. 최종 집중Node27·전체 verify:local/192브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 미완성 입력/저장/복귀는 합성 검증이다. [근거](evidence/manual-master-number-transition-20261024.json), [계획](docs/plan-master-number-transition-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션11386 poll/terminate 금지.
+
+이전0.89.8 기록: 현재 운영은 **0.89.8 / 409b28a**이다. 기초등록 저장·양식 변경 전 계정/회사/역할/권한·저장본·입력창을 확인한다. 왜: 이전 문맥의 초안으로 다른 자료를 덮어쓰지 않기 위해서다. 신규Node31·전체 verify:local/184브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 문맥 변경/저장 차단·복구는 합성 검증이다. [근거](evidence/manual-master-editor-owner-20261024.json), [계획](docs/plan-master-editor-owner-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션21059 poll/terminate 금지.
 
 이전0.89.7 기록: 현재 운영은 **0.89.7 / c94585e**이다. 거래처·공통 기초등록 숫자형 변경 원문과 계산 오류 초안을 보존한다. 왜: 양식 전환으로 기존 값/다른 입력을 지우지 않기 위해서다. 신규Node10·전체 verify:local/180브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 형식 변경·저장/재조회는 합성 검증이다. [근거](evidence/manual-partner-formula-preservation-20261024.json), [계획](docs/plan-partner-formula-preservation-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션27995 poll/terminate 금지.
 
