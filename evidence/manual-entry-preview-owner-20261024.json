@@ -1,0 +1,195 @@
+{
+  "version": "0.89.3",
+  "sourceCommit": "35db0a988111fc45824e3eab48a48af40766ba17",
+  "releaseCommit": "eb8df3a2a781303715f41035d6eb08b9aa07d1e5",
+  "workerSha256": "7f24a0639848ea7e8e2dbfc0eb42facdb3794a248ec69826675597f892ffe0f1",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.3-entry-preview-owner",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-entry-preview-owner-guard",
+  "baselineProductionCommit": "e6ba161ef02b0c063fa0134ca42565beb120f53a",
+  "changes": {
+    "before": "Item search, sorting and legacy discount previews read old data without parent validation. The actual discount button uses a separate amount-adjustment preview with the same omission.",
+    "after": "Validate parent owner and exact storage before item queries, sort, legacy discount and actual amount previews. Clear stale output; keep selected items and quantities; reject retained closed callbacks.",
+    "why": "Final apply checks did not preserve account/editor/storage boundaries while querying and previewing amounts.",
+    "readOnlyPreviewPreserved": true,
+    "schemaOrPricingRulesChanged": false
+  },
+  "validation": {
+    "preFixNodeFailed": 33,
+    "preFixNodePassed": 8,
+    "newNodeTests": 41,
+    "focusedNodePassed": 170,
+    "preFixActualShellBrowserFailed": 2,
+    "newActualShellBrowserPassed": 2,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 162,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "logs": [
+      ".artifacts/manual-entry-preview-owner-20261024/pre-fix.log",
+      ".artifacts/manual-entry-preview-owner-20261024/pre-fix-browser.log",
+      ".artifacts/manual-entry-preview-owner-20261024/focused-all.log",
+      ".artifacts/manual-entry-preview-owner-20261024/verify-local.log"
+    ],
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-entry-preview-owner-20261024/rea/rea-summary.json",
+    "ownScopes": 10,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "files": {
+      "dist/entry-tools.js": {
+        "rootSha256": "ef8b535f58ac5a1d15eacc4084b5972fb581c43c9b44bd2461f4935b7a8de2cf",
+        "candidateSha256": "ef8b535f58ac5a1d15eacc4084b5972fb581c43c9b44bd2461f4935b7a8de2cf",
+        "equal": true
+      },
+      "dist/entry-extra-ui.js": {
+        "rootSha256": "91e1e9a48b1efa6f23112b13a584f5bccf422290e1485421be10695da77f7578",
+        "candidateSha256": "91e1e9a48b1efa6f23112b13a584f5bccf422290e1485421be10695da77f7578",
+        "equal": true
+      },
+      "tests/entry-preview-owner.cjs": {
+        "rootSha256": "55560f5b1576a6aa7ba5893ff7432be857a6ebcc5e83c3fd13c6f0182a7453f5",
+        "candidateSha256": "55560f5b1576a6aa7ba5893ff7432be857a6ebcc5e83c3fd13c6f0182a7453f5",
+        "equal": true
+      },
+      "tests/browser/entry-preview-owner.spec.cjs": {
+        "rootSha256": "d73c68ee097008706777aacd8ebfbb844b4d2d809b28864f00b355a2eb62f6e6",
+        "candidateSha256": "d73c68ee097008706777aacd8ebfbb844b4d2d809b28864f00b355a2eb62f6e6",
+        "equal": true
+      }
+    },
+    "matchingScopePairs": 5,
+    "reaVersion": "6.4.0",
+    "coverage": "unknown",
+    "parseFailures": 0,
+    "sourceExecuted": false
+  },
+  "runtime": {
+    "version": "0.89.3",
+    "pid": 2682203,
+    "persistentExecSession": 75395,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.89.2",
+    "installedWorkerSha256": "7f24a0639848ea7e8e2dbfc0eb42facdb3794a248ec69826675597f892ffe0f1"
+  },
+  "releaseManifest": ".artifacts/manual-entry-preview-owner-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.3",
+      "browserInventoryByteEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "workTabCount": 1,
+      "existingLoginRetained": true,
+      "hostedItemLookupRows": 1,
+      "hostedSortPreviewRows": 5,
+      "hostedAmountPreviewRows": 5,
+      "hostedOpenQueryPreviewCancel": true,
+      "hostedLegacyDiscountOpenVerified": false,
+      "hostedParentDraftExact": true,
+      "hostedBusinessOrSettingsSaved": false,
+      "hostedRoleSwitchPerformed": false,
+      "originalTouched": false
+    },
+    "server": {
+      "version": "0.89.3",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.3",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "publicEvidence": ".artifacts/manual-entry-preview-owner-20261024/public-deploy.json",
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "lastConfirmedDocumentVersion": 24,
+    "prior08815ApprovedAppendSavedAndReread": true,
+    "pending0890ProposalUnchanged": true,
+    "current0893DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Existing concrete0.89.0 proposal remains pending; no repeated approval request or auth check.",
+    "draftFile": ".artifacts/manual-entry-preview-owner-20261024/moa-draft.json"
+  },
+  "nextWork": "EntryExtraUI의 소요량 계산과 이익 보고/목표 단가 미리보기 callback에서 계정/권한·저장본·부모창 변경을 합성 재현하고 확인된 누락만 보완한다. 합격한 품목 검색·정렬·금액조정과 바코드 검사를 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload server save contracts remain unverified.",
+    "Owner invalidations and recovery were tested only on isolated synthetic data; hosted checks were open/cancel and byte preservation.",
+    "Own-scope REA parsing does not prove original runtime equivalence."
+  ],
+  "windowsHandoffPointer": {
+    "path": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/LINUX-HANDOFF.md",
+    "version": "0.89.3",
+    "priorBodyBytePreserved": true,
+    "priorBodySha256": "33d41391bbfae9b3981ceaebb05fc80a8899f391b139ca5b04d7afbc665e233d",
+    "fileSha256": "0146ae6d6f5a6b2cd6ad09c49421c53f3396980edf12efc5f60add7370132ecc"
+  }
+}
