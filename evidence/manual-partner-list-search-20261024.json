@@ -1,0 +1,201 @@
+{
+  "version": "0.89.18",
+  "sourceCommit": "92c547eff621fc5247fdbdd2acd521284f1ec49f",
+  "releaseCommit": "679ca09ef353c28b11eccd8c199f64d852bfa39e",
+  "workerSha256": "5c8917879a2031f986e0ee62eba03f765806e3d4f3e5e68aab4c70ecdc30f087",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.18-partner-list-search",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-partner-list-search",
+  "baselineProductionCommit": "8c2aeec1ccecf8349aa74f74956fa25ef5b4e341",
+  "changes": {
+    "before": "Partner raw custom values were searchable, but visible list-only calculations and formatted values were omitted. A displayed value could disappear when used as a search term.",
+    "after": "Partner search retains raw lookup and also evaluates visible list projection values in raw and shared display formats. Projection failures are isolated per row. The existing table and CSV paths use the resulting record set.",
+    "why": "A displayed custom calculation must be findable before users can consistently review or export its records. Search must not rewrite stored values to achieve this.",
+    "calculationEngineChanged": false,
+    "csvWriterChanged": false,
+    "storedValuesOrPersistentFormsChanged": false,
+    "otherMasterOrItemSearchExpanded": false,
+    "implementationScope": "renderMasters partner search and read-only projection arguments only"
+  },
+  "validation": {
+    "preFixNodeTests": 12,
+    "preFixNodeFailed": 8,
+    "preFixNodePassed": 4,
+    "newNodeTests": 12,
+    "finalFocusedNodePassed": 43,
+    "preFixActualShellBrowserFailed": 8,
+    "preFixActualShellBrowserPassed": 0,
+    "newActualShellBrowserPassed": 8,
+    "viewports": [
+      390,
+      1280
+    ],
+    "cases": [
+      "visible list calculation raw and formatted numeric search",
+      "leading-zero text and cached input calculation preserved",
+      "legacy field aliases, labels, field order and forms unchanged",
+      "invalid calculation row isolated without hiding valid matches",
+      "raw lookup of invalid rows retained; hidden derived-only columns not exposed",
+      "disabled partner inclusion remains explicit",
+      "pagination20/5 and CSV25 matching rows without truncation",
+      "CSV formula injection and quotes preserved",
+      "input save, computed search, CSV and reload use identical records",
+      "other master/item raw search behavior not expanded"
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 260,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-partner-list-search-20261024/rea/rea-summary.json",
+    "ownScopes": 2,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "8c2aeec1ccecf8349aa74f74956fa25ef5b4e341",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "8c2aeec1ccecf8349aa74f74956fa25ef5b4e341",
+      "wholeFileCopied": false,
+      "unchangedOutsideScopes": true,
+      "files": [
+        {
+          "file": "dist/inventory-ui.js",
+          "rootHash": "84154055a0c721ef48c2b00992d958712dc5d8d7e3025c84347946929edab403",
+          "candidateHash": "92b9926010d002ece09dc4111b93dd6033df6406a3dd16a179b31983f473e000",
+          "scopes": [
+            {
+              "name": "renderMasters",
+              "beforeSha256": "cb6b100c395d58b9c0cae121f3beb497200945b10235e86369e20d37d17c142f",
+              "afterSha256": "d841045e1c25e7bcdd74166e898f0336f0d2e54944799ebc00b582ca2f094e10"
+            }
+          ]
+        }
+      ]
+    },
+    "matchingScopePairs": 1,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/partner-list-search.cjs": true,
+      "tests/browser/partner-list-search.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.18",
+    "pid": 2824623,
+    "persistentExecSession": 11193,
+    "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
+    "workerSha256": "5c8917879a2031f986e0ee62eba03f765806e3d4f3e5e68aab4c70ecdc30f087",
+    "doNotPollOrTerminatePersistentSession": true
+  },
+  "releaseManifest": ".artifacts/manual-partner-list-search-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.18",
+      "browserInventoryByteEqual": true,
+      "sha256Before": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "sha256After": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedPartnerFieldsExact": true,
+      "hostedPartnerControlCountIncludingFormPicker": 14,
+      "hostedItemSettingsFieldsExact": true,
+      "hostedItemSettingsControlCount": 256,
+      "existingAuthenticatedSessionRetained": true,
+      "versionVisible": "0.89.18",
+      "workTabsAfter": 1,
+      "dialogsAfter": 0,
+      "hostedBusinessOrSettingsWrites": 0,
+      "hostedSettingsReorders": 0,
+      "actualMailSends": 0,
+      "calculatedSearchSaveAndCsvOnlySynthetic": true,
+      "verification": "Actual UI JSON backups byte equal; partner14 and item settings256 controls read/cancel exact; original request tab retained."
+    },
+    "server": {
+      "version": "0.89.18",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.18",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "approved0890SavedAndReread": true,
+    "lastConfirmedDocumentVersion": 25,
+    "batch16ProposalConfirmationPending": true,
+    "current08918DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "The approved0.89.0 paragraph is already saved. Separate16-document concrete proposal remains pending; no duplicate prompt or auth recheck.",
+    "draftFile": ".artifacts/manual-partner-list-search-20261024/moa-draft.json"
+  },
+  "nextWork": "품목 조회 양식의 추가 계산열과 표시 숫자도 검색에 반영되는지 합성 대조하고 확인된 누락만 보완한다. 기존 구매처/품목 검색·사용중단·선택·페이지·전체 CSV·원문/계산값/양식 보존을 함께 검사한다. 이번 거래처 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "Computed search, CSV download and saved-value reload used isolated synthetic data. Hosted checks only read/cancel ordinary partner fields and item settings.",
+    "A row with a failing list formula retains raw lookup and the existing calculation error display; no derived value is invented or saved.",
+    "CSV preserves raw values and existing injection protection; spreadsheet application import behavior was not tested.",
+    "Own-scope REA parsing does not prove original runtime equivalence."
+  ]
+}
