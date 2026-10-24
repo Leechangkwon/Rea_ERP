@@ -1,6 +1,6 @@
 {
-  "version": "0.89.19",
-  "status": "deployed-item-list-search",
+  "version": "0.89.20",
+  "status": "deployed-item-custom-csv",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -123,7 +123,8 @@
     "Item calculation errors identify the innermost failing output and offer guarded navigation to editable inputs and form settings without changing successful results, persistent visibility or storage. evidence/manual-item-formula-guidance-20261024.json",
     "Partner calculation errors show inline labels and guarded links to editable inputs and existing settings; text strings, cached values, storage and persistent visibility remain unchanged. evidence/manual-partner-formula-guidance-20261024.json",
     "Partner search includes visible list-only calculations and shared formatted values while retaining raw lookup, per-row error isolation, aliases, strings, CSV serialization and unchanged stored data. evidence/manual-partner-list-search-20261024.json",
-    "Item search adds visible list-only calculation raw/display values within the existing eligible and sorted query set, preserving supplier/period/disabled filters, selection,5000 cap and CSV contracts. evidence/manual-item-list-search-20261025.json"
+    "Item search adds visible list-only calculation raw/display values within the existing eligible and sorted query set, preserving supplier/period/disabled filters, selection,5000 cap and CSV contracts. evidence/manual-item-list-search-20261025.json",
+    "Item Excel CSV includes typed custom JSON values; import validates, merges partial custom values, previews current calculated results and applies atomically without importing forms. Warehouse-safety arrays use JSON. evidence/manual-item-custom-csv-20261025.json"
   ],
   "checks": {
     "total": 998,
@@ -133,7 +134,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-item-list-search-20261025.json",
+    "reference": "evidence/manual-item-custom-csv-20261025.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -158,7 +159,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 268,
+    "currentReleaseBrowserSynthetic": 278,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -186,7 +187,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.89.19",
+    "currentReleaseFullRegressionVersion": "0.89.20",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -1327,16 +1328,49 @@
       "build": true,
       "selfReview": true,
       "independentAgentReview": false
+    },
+    "itemCustomCsv": {
+      "preFixNodeTests": 20,
+      "preFixNodeFailed": 16,
+      "preFixNodePassed": 4,
+      "newNodeTests": 20,
+      "finalFocusedNodePassed": 54,
+      "preFixActualShellBrowserFailed": 8,
+      "preFixActualShellBrowserPassed": 2,
+      "newActualShellBrowserPassed": 10,
+      "viewports": [
+        390,
+        1280
+      ],
+      "cases": [
+        "typed custom JSON export/parse including leading zeros, numbers, formula caches and nested retained values",
+        "literal whitespace, quotes, newlines and spreadsheet-formula prefixes preserved inside custom strings",
+        "current input form recalculates forged caches in preview and explicit apply",
+        "partial custom merge; omitted/blank/empty columns retain existing values; explicit empty value clears one provided key",
+        "invalid JSON/array/null/boolean/non-finite numbers/prototype keys rejected before writes",
+        "invalid numeric/required later row blocks the full batch",
+        "settings changes invalidate preview; role changes block writes",
+        "preview cancel, file upload, explicit apply and reload use isolated synthetic data",
+        "warehouse-safety arrays export as JSON and retain quantities",
+        "existing master form/list/search regression preserved"
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 278,
+      "fullNodeSuitePassed": true,
+      "releaseChecks": 4,
+      "build": true,
+      "selfReview": true,
+      "independentAgentReview": false
     }
   },
-  "future_research": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.19 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
+  "future_research": "품목 CSV의 기본 문자·숫자·복합항목 이동을 합성 대조하고 확인된 손실을 보완한다. 현재 수식 주입 방어용 접두문자가 재가져오기 때 원문에 남고, 음수 기본 숫자는 거부되며, 쉼표/세미콜론이 있는 계층그룹은 분리된다. 왜: 사용자 추가항목을 보존해도 기본 품목 값이 자료 이동 중 달라지면 재사용할 수 없기 때문이다. 기존 일반 CSV의 의미를 추측해 바꾸지 않고 자체 내보내기 형식 식별·원문/형식·안전한 CSV 표시를 함께 검증한다. 이번 custom JSON 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.20 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-item-list-search-20261025.json",
+    "reference": "evidence/manual-item-custom-csv-20261025.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "7eae570be147de4a1bf8c598be46fb641991ffb2",
-    "publicVersionVerified": "0.89.19",
+    "deployedSourceCommit": "f2bdef0f2cbbfd693250a2a1199fc1b76722920b",
+    "publicVersionVerified": "0.89.20",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -1395,20 +1429,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.89.19",
+    "existingSessionRetainedVersion": "0.89.20",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.89.19",
+    "lastExactBrowserBackupComparisonVersion": "0.89.20",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.89.19",
+    "currentServerStateAndMailPreservedVersion": "0.89.20",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.89.19",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.20",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1719,11 +1753,11 @@
       "reference": "evidence/manual-master-forms-20261024.json"
     },
     "operatingRuntime": {
-      "version": "0.89.19",
-      "pid": 2834809,
-      "persistentExecSession": 4867,
+      "version": "0.89.20",
+      "pid": 2845016,
+      "persistentExecSession": 75511,
       "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
-      "workerSha256": "24361b33a573fbefcffc8d76914815076f644ba32ca8ab6a709294263ab77b59",
+      "workerSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
       "doNotPollOrTerminatePersistentSession": true
     },
     "entryQueryOwnerGuard": {
@@ -1888,6 +1922,15 @@
       "calculatedSearchHostedVerified": false,
       "hostedBusinessOrSettingsSaveVerified": false,
       "reference": "evidence/manual-item-list-search-20261025.json"
+    },
+    "itemCustomCsv": {
+      "deployed": true,
+      "sourceCommit": "49a14faadd20e91dd37333c20928b33d7beee23f",
+      "hostedPartnerReadCancelVerified": true,
+      "hostedItemSettingsReadCancelVerified": true,
+      "customCsvTransferHostedVerified": false,
+      "hostedBusinessOrSettingsSaveVerified": false,
+      "reference": "evidence/manual-item-custom-csv-20261025.json"
     }
   },
   "manualParity": {
@@ -1900,12 +1943,12 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.89.19",
+      "productionVersion": "0.89.20",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "nextIndependentManual": "품목 CSV의 기본 문자·숫자·복합항목 이동을 합성 대조하고 확인된 손실을 보완한다. 현재 수식 주입 방어용 접두문자가 재가져오기 때 원문에 남고, 음수 기본 숫자는 거부되며, 쉼표/세미콜론이 있는 계층그룹은 분리된다. 왜: 사용자 추가항목을 보존해도 기본 품목 값이 자료 이동 중 달라지면 재사용할 수 없기 때문이다. 기존 일반 CSV의 의미를 추측해 바꾸지 않고 자체 내보내기 형식 식별·원문/형식·안전한 CSV 표시를 함께 검증한다. 이번 custom JSON 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-08814-integration-20261024.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1963,7 +2006,8 @@
       "latestItemFormulaGuidanceSourceRequired": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff",
       "latestPartnerFormulaGuidanceSourceRequired": "ec7bdd0b41e404f0e241209e87ae468f3b311005",
       "latestPartnerListSearchSourceRequired": "92c547eff621fc5247fdbdd2acd521284f1ec49f",
-      "latestItemListSearchSourceRequired": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf"
+      "latestItemListSearchSourceRequired": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf",
+      "latestItemCustomCsvSourceRequired": "49a14faadd20e91dd37333c20928b33d7beee23f"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -2125,14 +2169,14 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-ITEM-CUSTOM-CSV-TRANSFER",
+      "sourceId": "OWN-ITEM-STANDARD-CSV-FIDELITY",
       "plan": "docs/plan-master-number-transition-20261024.md",
-      "description": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "description": "품목 CSV의 기본 문자·숫자·복합항목 이동을 합성 대조하고 확인된 손실을 보완한다. 현재 수식 주입 방어용 접두문자가 재가져오기 때 원문에 남고, 음수 기본 숫자는 거부되며, 쉼표/세미콜론이 있는 계층그룹은 분리된다. 왜: 사용자 추가항목을 보존해도 기본 품목 값이 자료 이동 중 달라지면 재사용할 수 없기 때문이다. 기존 일반 CSV의 의미를 추측해 바꾸지 않고 자체 내보내기 형식 식별·원문/형식·안전한 CSV 표시를 함께 검증한다. 이번 custom JSON 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "operatingVersion": "0.89.19",
-      "latestEvidence": "evidence/manual-item-list-search-20261025.json",
-      "title": "품목 사용자 추가항목 CSV 이동 보존",
-      "evidence": "evidence/manual-item-list-search-20261025.json"
+      "operatingVersion": "0.89.20",
+      "latestEvidence": "evidence/manual-item-custom-csv-20261025.json",
+      "title": "품목 표준항목 CSV 원문/복합값 보존",
+      "evidence": "evidence/manual-item-custom-csv-20261025.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2866,13 +2910,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-ITEM-CUSTOM-CSV-TRANSFER",
-      "title": "품목 사용자 추가항목 CSV 이동 보존",
-      "operatingVersion": "0.89.19",
-      "evidence": "evidence/manual-item-list-search-20261025.json",
-      "description": "품목 Excel CSV의 사용자 추가항목 내보내기/가져오기를 합성 대조하고 확인된 누락만 보완한다. 기본 전체 필드 내보내기와 조회 양식 CSV의 차이를 명시하고 문자00123·숫자·계산값·양식·기존 품목 갱신/미리보기 보존을 검증한다. 왜: 추가항목이 등록/조회에 연결되어도 자료 이동에서 빠지면 실제 사용자 업무가 이어지지 않기 때문이다. 이번 검색 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "sourceId": "OWN-ITEM-STANDARD-CSV-FIDELITY",
+      "title": "품목 표준항목 CSV 원문/복합값 보존",
+      "operatingVersion": "0.89.20",
+      "evidence": "evidence/manual-item-custom-csv-20261025.json",
+      "description": "품목 CSV의 기본 문자·숫자·복합항목 이동을 합성 대조하고 확인된 손실을 보완한다. 현재 수식 주입 방어용 접두문자가 재가져오기 때 원문에 남고, 음수 기본 숫자는 거부되며, 쉼표/세미콜론이 있는 계층그룹은 분리된다. 왜: 사용자 추가항목을 보존해도 기본 품목 값이 자료 이동 중 달라지면 재사용할 수 없기 때문이다. 기존 일반 CSV의 의미를 추측해 바꾸지 않고 자체 내보내기 형식 식별·원문/형식·안전한 CSV 표시를 함께 검증한다. 이번 custom JSON 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "latestEvidence": "evidence/manual-item-list-search-20261025.json",
+      "latestEvidence": "evidence/manual-item-custom-csv-20261025.json",
       "plan": "docs/plan-master-number-transition-20261024.md"
     },
     "currencyRegistration": {
@@ -3785,14 +3829,22 @@
       "deployed": true,
       "done": false,
       "newOfficialRequirements": 0
+    },
+    "itemCustomCsv": {
+      "version": "0.89.20",
+      "reference": "evidence/manual-item-custom-csv-20261025.json",
+      "sourceCommit": "49a14faadd20e91dd37333c20928b33d7beee23f",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0
     }
   },
   "preparedCandidate": {
-    "version": "0.89.19",
-    "commit": "7eae570be147de4a1bf8c598be46fb641991ffb2",
-    "sourceCommit": "5f4f8b51e4b14fd5bf0d39acd4016597fd8b84cf",
-    "manifest": ".artifacts/manual-item-list-search-20261025/release-manifest.json",
-    "bundleSha256": "24361b33a573fbefcffc8d76914815076f644ba32ca8ab6a709294263ab77b59",
+    "version": "0.89.20",
+    "commit": "f2bdef0f2cbbfd693250a2a1199fc1b76722920b",
+    "sourceCommit": "49a14faadd20e91dd37333c20928b33d7beee23f",
+    "manifest": ".artifacts/manual-item-custom-csv-20261025/release-manifest.json",
+    "bundleSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -3861,14 +3913,15 @@
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
-      "visible-item-list-calculation-search-with-existing-eligibility-sort-selection-and-export"
+      "visible-item-list-calculation-search-with-existing-eligibility-sort-selection-and-export",
+      "typed-item-custom-csv-merge-recalculated-preview-and-explicit-atomic-import"
     ],
-    "supersedesCandidateCommit": "679ca09ef353c28b11eccd8c199f64d852bfa39e",
+    "supersedesCandidateCommit": "7eae570be147de4a1bf8c598be46fb641991ffb2",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.89.19-item-list-search"
+    "branch": "release/0.89.20-item-custom-csv"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -4749,6 +4802,13 @@
       "reference": "evidence/manual-item-list-search-20261025.json",
       "summary": ".artifacts/manual-item-list-search-20261025/rea/rea-summary.json",
       "newOwnScopes": 2,
+      "newOriginalScopes": 0,
+      "originalExecuted": false
+    },
+    "itemCustomCsv": {
+      "reference": "evidence/manual-item-custom-csv-20261025.json",
+      "summary": ".artifacts/manual-item-custom-csv-20261025/rea/rea-summary.json",
+      "newOwnScopes": 8,
       "newOriginalScopes": 0,
       "originalExecuted": false
     }

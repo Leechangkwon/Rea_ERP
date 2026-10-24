@@ -1,0 +1,221 @@
+{
+  "version": "0.89.20",
+  "sourceCommit": "49a14faadd20e91dd37333c20928b33d7beee23f",
+  "releaseCommit": "f2bdef0f2cbbfd693250a2a1199fc1b76722920b",
+  "workerSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.20-item-custom-csv",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-25",
+  "status": "deployed-item-custom-csv",
+  "baselineProductionCommit": "7eae570be147de4a1bf8c598be46fb641991ffb2",
+  "changes": {
+    "before": "Excel CSV omitted all item.custom values and the importer rejected a custom column. The preview builder used a shallow record merge and discarded validated formula results. Warehouse-safety arrays were joined as text.",
+    "after": "Add a typed JSON custom column, validate object shape/finite values/unsafe keys, merge only supplied values, and show the existing core validated calculation results in preview. The core recalculates again at explicit apply. Warehouse-safety arrays use JSON.",
+    "why": "A leading-zero string must remain distinct from a number, retained custom values must survive partial updates, and users must review the calculation result that will be saved.",
+    "formulaEngineOrCoreStorageChanged": false,
+    "csvWriterChanged": true,
+    "persistentFormsAutomaticallyImportedOrSaved": false,
+    "implementationScopes": [
+      "ItemListUI.aliases",
+      "ItemListUI.parse",
+      "ItemListUI.exportCsv",
+      "ItemListUI.create custom preview/import"
+    ],
+    "existingStandardTextNumberAndDelimitedListParsingChanged": false
+  },
+  "validation": {
+    "preFixNodeTests": 20,
+    "preFixNodeFailed": 16,
+    "preFixNodePassed": 4,
+    "newNodeTests": 20,
+    "finalFocusedNodePassed": 54,
+    "preFixActualShellBrowserFailed": 8,
+    "preFixActualShellBrowserPassed": 2,
+    "newActualShellBrowserPassed": 10,
+    "viewports": [
+      390,
+      1280
+    ],
+    "cases": [
+      "typed custom JSON export/parse including leading zeros, numbers, formula caches and nested retained values",
+      "literal whitespace, quotes, newlines and spreadsheet-formula prefixes preserved inside custom strings",
+      "current input form recalculates forged caches in preview and explicit apply",
+      "partial custom merge; omitted/blank/empty columns retain existing values; explicit empty value clears one provided key",
+      "invalid JSON/array/null/boolean/non-finite numbers/prototype keys rejected before writes",
+      "invalid numeric/required later row blocks the full batch",
+      "settings changes invalidate preview; role changes block writes",
+      "preview cancel, file upload, explicit apply and reload use isolated synthetic data",
+      "warehouse-safety arrays export as JSON and retain quantities",
+      "existing master form/list/search regression preserved"
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 278,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-item-custom-csv-20261025/rea/rea-summary.json",
+    "ownScopes": 8,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "7eae570be147de4a1bf8c598be46fb641991ffb2",
+    "wholeItemListFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "7eae570be147de4a1bf8c598be46fb641991ffb2",
+      "wholeFileCopied": false,
+      "unchangedOutsideScopes": true,
+      "files": [
+        {
+          "file": "dist/item-list-ui.js",
+          "rootHash": "4372e46ae3602216e5c46487bffaaac19f70f5d19846f07522a68538619c6f21",
+          "candidateHash": "4372e46ae3602216e5c46487bffaaac19f70f5d19846f07522a68538619c6f21",
+          "scopes": [
+            {
+              "name": "aliases",
+              "beforeSha256": "48a20d3ba3348852be2ee98a107e63f73807165880ef0804e21d5a7bb25d8139",
+              "afterSha256": "1c6d19d1c9c839b3f94575ab2e178658a8a8c2602e07be1d297d2975f70b82c5"
+            },
+            {
+              "name": "parse",
+              "beforeSha256": "c4cc8fec56d2aad270deae1a419e2838b2fdcf97886645dac80f2ed0a078ca57",
+              "afterSha256": "472c1503842e921e2e78de3aa2089a72869b72e7c4a5c304bebd412fd40b4810"
+            },
+            {
+              "name": "exportCsv",
+              "beforeSha256": "d9e1098a2b63566129ed550260a2d03eea87e9c0fcbd9caa45c09e2f0c1b1ca9",
+              "afterSha256": "36bea02f72ec981eaafb5385527be32447e561fb1d138a94988f2e08ee22dbb9"
+            },
+            {
+              "name": "create",
+              "beforeSha256": "bb3f813546ee0b947992febf63733ee186b1136d2be2fe3ce631c4d429c36482",
+              "afterSha256": "a455002dfc94f25b87e06c91c22e149708aed489ebffc500991e61be6f902477"
+            }
+          ]
+        }
+      ]
+    },
+    "matchingScopePairs": 4,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/item-custom-csv.cjs": true,
+      "tests/browser/item-custom-csv.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.20",
+    "pid": 2845016,
+    "persistentExecSession": 75511,
+    "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
+    "workerSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
+    "doNotPollOrTerminatePersistentSession": true
+  },
+  "releaseManifest": ".artifacts/manual-item-custom-csv-20261025/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.20",
+      "browserInventoryByteEqual": true,
+      "sha256Before": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "sha256After": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedPartnerFieldsExact": true,
+      "hostedPartnerControlCountIncludingFormPicker": 14,
+      "hostedItemSettingsFieldsExact": true,
+      "hostedItemSettingsControlCount": 256,
+      "existingAuthenticatedSessionRetained": true,
+      "versionVisible": "0.89.20",
+      "workTabsAfter": 1,
+      "dialogsAfter": 0,
+      "hostedBusinessOrSettingsWrites": 0,
+      "hostedSettingsReorders": 0,
+      "actualMailSends": 0,
+      "customCsvTransferOnlySynthetic": true,
+      "verification": "Actual UI JSON backups byte equal; partner14 and item settings256 controls read/cancel exact. Existing request tab retained; open dialogs0."
+    },
+    "server": {
+      "version": "0.89.20",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.20",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "approved0890SavedAndReread": true,
+    "lastConfirmedDocumentVersion": 25,
+    "batch16ProposalConfirmationPending": true,
+    "current08920DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Approved0.88.15 and0.89.0 paragraphs already saved/read back. The separate16-document concrete proposal remains pending. No duplicate prompt or authentication recheck.",
+    "draftFile": ".artifacts/manual-item-custom-csv-20261025/moa-draft.json"
+  },
+  "nextWork": "품목 CSV의 기본 문자·숫자·복합항목 이동을 합성 대조하고 확인된 손실을 보완한다. 현재 수식 주입 방어용 접두문자가 재가져오기 때 원문에 남고, 음수 기본 숫자는 거부되며, 쉼표/세미콜론이 있는 계층그룹은 분리된다. 왜: 사용자 추가항목을 보존해도 기본 품목 값이 자료 이동 중 달라지면 재사용할 수 없기 때문이다. 기존 일반 CSV의 의미를 추측해 바꾸지 않고 자체 내보내기 형식 식별·원문/형식·안전한 CSV 표시를 함께 검증한다. 이번 custom JSON 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "CSV/file upload, preview, explicit import, failure isolation and reload used isolated synthetic data. Hosted checks only read/cancel existing controls.",
+    "Custom values are carried in a JSON object column; forms and formula definitions are not imported. Active input formulas recalculate using the current own form contract.",
+    "Existing standard-field CSV escaping, negative numbers and delimiter-containing list fidelity have confirmed gaps and are the next independent task.",
+    "Actual Excel/other spreadsheet application file editing was not tested. Own scoped REA parsing does not prove original runtime equivalence."
+  ]
+}
