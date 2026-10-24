@@ -54,7 +54,7 @@
   function inputOrder(f){return f?.focusOrder?.version===1?f.focusOrder.order:null;}
   function inputSequence(fields){return fields.map((field,index)=>({field,index,order:inputOrder(field)??index+1})).sort((a,b)=>a.order-b.order||a.index-b.index).map(x=>x.field);}
   function validateForm(input){
-    if(!input||!validKey(input.id)||input.id==='default'||!String(input.name||'').trim()||input.name.length>60||!Array.isArray(input.fields)||input.fields.length>100)throw Error('양식명과 항목 구성을 확인하세요.');
+    if(!input||!validKey(input.id)||input.id==='default'||!String(input.name||'').trim()||input.name.length>60||!Array.isArray(input.fields)||input.fields.length>200)throw Error('양식명과 항목 구성을 확인하세요.');
     const form=copy(input);form.name=form.name.trim();const seen=new Set();
     for(const f of form.fields){
       if(!fieldKey(f.id)||seen.has(f.id)||typeof f.label!=='string'||!f.label.trim()||f.label.length>60)throw Error('중복 항목 ID 또는 항목명을 확인하세요.');seen.add(f.id);
@@ -73,14 +73,18 @@
       if(f.type==='select'&&!f.options.length)throw Error(f.label+' 선택값을 입력하세요.');
     }
     if(!form.fields.some(f=>f.visible))throw Error('표시 항목을 하나 이상 선택하세요.');
-    const byId=new Map(form.fields.map(f=>[f.id,f]));const visit=(f,path)=>{if(path.includes(f.id))throw Error('계산식 항목에 순환 참조가 있습니다.');if(f.formula)for(const id of parse(f.formula).identifiers){if(!byId.has(id))throw Error('계산식의 항목 ID를 확인하세요: '+id);const dep=byId.get(id);if(dep.formula)visit(dep,[...path,f.id]);}};for(const f of form.fields)visit(f,[]);
+    const byId=new Map(form.fields.map(f=>[f.id,f])),visited=new Set();const visit=(f,path)=>{if(path.includes(f.id))throw Error('계산식 항목에 순환 참조가 있습니다.');if(visited.has(f.id))return;if(f.formula)for(const id of parse(f.formula).identifiers){if(!byId.has(id))throw Error('계산식의 항목 ID를 확인하세요: '+id);const dep=byId.get(id);if(dep.formula)visit(dep,[...path,f.id]);}visited.add(f.id);};for(const f of form.fields)visit(f,[]);
     form.page={...pageDefaults,...form.page};if(!['portrait','landscape'].includes(form.page.orientation)||!['A4','A5','Letter'].includes(form.page.paper)||!Number.isFinite(Number(form.page.margin))||form.page.margin<0||form.page.margin>40||!Number.isFinite(Number(form.page.fontSize))||form.page.fontSize<8||form.page.fontSize>20)throw Error('인쇄 페이지 설정을 확인하세요.');
     for(const k of ['title','company','footer'])if(typeof form.page[k]!=='string'||form.page[k].length>200)throw Error('인쇄 문구를 확인하세요.');if(typeof form.page.showTotals!=='boolean')throw Error('인쇄 합계 표시를 확인하세요.');return form;
   }
   function empty(){return {version:1,screens:{}};}
   function screen(store,key){if(!validKey(key))throw Error('화면 구분을 확인하세요.');return store?.screens?.[key]||{forms:[],active:{},rules:[]};}
   function merge(base,saved){
-    const byId=new Map(base.map(f=>[f.id,f])),out=[];for(const s of saved||[]){const b=byId.get(s.id);if(b){out.push({...b,...s,type:b.type,custom:false,protected:b.protected,calculated:b.calculated});byId.delete(s.id);}else if(s.custom)out.push({...s});}
+    const byId=new Map(base.map(f=>[f.id,f])),aliases=new Map();
+    for(const f of base)for(const old of f.legacyIds||[])if(!byId.has(old))aliases.set(old,f.id);
+    const remap=expression=>expression?String(expression).replace(/[A-Za-z][A-Za-z0-9_]*/g,id=>aliases.get(id)||id):expression;
+    const out=[];
+    for(const s of saved||[]){const id=byId.has(s.id)?s.id:aliases.get(s.id),b=byId.get(id);if(b){out.push({...b,...s,id:b.id,type:b.type,custom:false,protected:b.protected,calculated:b.calculated,formula:remap(s.formula)});byId.delete(id);}else if(s.custom)out.push({...s,formula:remap(s.formula)});}
     out.push(...byId.values());return out.map(f=>({...f,visible:f.protected?true:f.visible,readonly:f.calculated?true:f.readonly}));
   }
   function matches(rule,values){const value=String(values[rule.field]??values.custom?.[rule.field]??''),target=String(rule.value??'');if(rule.operator==='eq')return value===target;if(rule.operator==='neq')return value!==target;if(rule.operator==='contains')return value.includes(target);if(rule.operator==='gt')return value!==''&&Number(value)>Number(target);if(rule.operator==='lt')return value!==''&&Number(value)<Number(target);return false;}
