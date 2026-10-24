@@ -1,0 +1,204 @@
+{
+  "version": "0.89.7",
+  "sourceCommit": "842f70316f39d77b77ab0a78e0d74f4f1bd14cc3",
+  "releaseCommit": "c94585e28b675a59f71b21fa96dd65c7e4dcfcd5",
+  "workerSha256": "c941d08febefd7dadfe7c53c2bacf550b89c80772f3ea1ee97a15ef6ed6bcb0a",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.7-partner-formula-preservation",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-partner-formula-preservation",
+  "baselineProductionCommit": "79cf964040adcf0641b2c268d7cc811f5f633b60",
+  "changes": {
+    "before": "General master numeric controls erased unrepresentable custom text; formula displays were read as draft source, losing cached results across layouts.",
+    "after": "Master-only preservation retains original text, reveals invalid hidden fields, focuses errors, preserves formula cache in snapshots and requires explicit correction/clearing before numeric save. Formula display is excluded as source.",
+    "why": "Changing a layout/type must not erase existing partner values or unrelated unsaved inputs.",
+    "masterOnlyOption": true,
+    "schemaOrCoreFormulaRulesChanged": false,
+    "documentAndSearchModePreserved": true,
+    "mobileHintOnSeparateRow": true
+  },
+  "validation": {
+    "preFixNodeFailed": 9,
+    "preFixNodePassed": 1,
+    "newNodeTests": 10,
+    "focusedNodePassed": 65,
+    "preFixActualShellBrowserFailed": 4,
+    "newActualShellBrowserPassed": 4,
+    "viewports": [
+      390,
+      1280
+    ],
+    "minimumInputWidthPx": 120,
+    "mobileWidthBeforeFixFailed": 2,
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 180,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "logs": [
+      ".artifacts/manual-partner-formula-preservation-20261024/node-before.log",
+      ".artifacts/manual-partner-formula-preservation-20261024/node-after.log",
+      ".artifacts/manual-partner-formula-preservation-20261024/browser-before.log",
+      ".artifacts/manual-partner-formula-preservation-20261024/browser-width-before.log",
+      ".artifacts/manual-partner-formula-preservation-20261024/browser-after.log",
+      ".artifacts/manual-partner-formula-preservation-20261024/verify-local.log"
+    ]
+  },
+  "rea": {
+    "summary": ".artifacts/manual-partner-formula-preservation-20261024/rea/rea-summary.json",
+    "ownScopes": 8,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "79cf964040adcf0641b2c268d7cc811f5f633b60",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "79cf964040adcf0641b2c268d7cc811f5f633b60",
+      "wholeFileCopied": false,
+      "rootHash": "8d27d9a25ec5cd4dd1ac7b6ef599eebe783a5a2a7a0850e385509ceb68df32ec",
+      "candidateHash": "55ed39bb98897b0b96412f56e645660281f429c525edc3d6c6ba6513605ed112",
+      "unchangedOutsideScopes": true,
+      "scopes": [
+        {
+          "name": "customControl",
+          "beforeSha256": "da40676414c7c29a7cc2a9f0c4996cd93a1573bb4f7e4e0821f2d244cdfc7a60",
+          "afterSha256": "b2aaa78cad8a581298f955d49ef678a3a9fab8fb7ef037cdb821a19156e4aa2d"
+        },
+        {
+          "name": "configureGrid",
+          "beforeSha256": "c383f92698b29a6cdb6925059fc630bb64e4f16194d4f325c4335699103b1858",
+          "afterSha256": "19f876d801dd594a6fa5705acda20c6d0db6a4698209cca99335c1ef004630fe"
+        },
+        {
+          "name": "masterForm",
+          "beforeSha256": "2a525adbd4169d96b2b548435c350930c37e1d99449f8c20ec4243c0786811fe",
+          "afterSha256": "81d07fbb913ef0124ee5e724e7d379635d4c8bcad456cf1e4b10702df4fddcd2"
+        },
+        {
+          "name": "masterEditor",
+          "beforeSha256": "ccf32e2d2c5d85dd6b5eefccdaaf345c9b63e6d45d5ed15fee9c64e4db38e8c4",
+          "afterSha256": "b01042f6c80cd9d89c0f9a83323a51604d424c830c734f8ba63799b7ca8fe92d"
+        }
+      ]
+    },
+    "matchingScopePairs": 4,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/partner-formula-preservation.cjs": true,
+      "tests/browser/partner-formula-preservation.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.7",
+    "pid": 2718401,
+    "persistentExecSession": 27995,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.89.6",
+    "installedWorkerSha256": "c941d08febefd7dadfe7c53c2bacf550b89c80772f3ea1ee97a15ef6ed6bcb0a"
+  },
+  "releaseManifest": ".artifacts/manual-partner-formula-preservation-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.7",
+      "browserInventoryByteEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "workTabCount": 1,
+      "openDialogCount": 0,
+      "existingLoginRetained": true,
+      "hostedPartnerFields": 13,
+      "hostedPartnerReadCancel": true,
+      "hostedPartnerFieldsExact": true,
+      "hostedTypeChangeOrInvalidSaveTest": false,
+      "hostedBusinessOrSettingsSaved": false,
+      "originalTouched": false,
+      "preBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (28).json",
+      "postBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (29).json",
+      "productionScreenshot": ".artifacts/manual-partner-formula-preservation-20261024/production.png",
+      "syntheticScreenshot": ".artifacts/manual-partner-formula-preservation-20261024/formula-blocked-1280.png"
+    },
+    "server": {
+      "version": "0.89.7",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.7",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "lastConfirmedDocumentVersion": 24,
+    "pending0890ProposalUnchanged": true,
+    "current0897DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Existing concrete0.89.0 proposal remains pending; no repeated approval request or auth check.",
+    "draftFile": ".artifacts/manual-partner-formula-preservation-20261024/moa-draft.json"
+  },
+  "nextWork": "거래처/공통 기초등록의 저장·양식 전환에서 계정·회사·역할·권한·저장본 변경 때 초안/원문이 보존되는지 합성 자료로 대조하고 확인된 누락만 보완한다. 이번 숫자 원문·계산 오류 합격 검사는 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "Type/formula-error save/reload/backup used isolated synthetic data; hosted checks only read/cancel ordinary partner fields without layout or partner saves.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ]
+}
