@@ -1,0 +1,182 @@
+{
+  "version": "0.89.1",
+  "sourceCommit": "c2f7df0bc9ef9216124fa81602118d6ac90910a7",
+  "releaseCommit": "42c51b400d76d7927f5c4824e97858f304e10f0b",
+  "workerSha256": "48fb07b8e64f8f126383e60c6995a9bafdb9a8e2f41662c5f6a4d6abc05b0dfb",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.1-entry-query-owner",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-order-stock-query-owner-guard",
+  "baselineProductionCommit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
+  "changes": {
+    "before": "EntryUI apply guards checked open/write permission; search/filter/paging redraw could query or render prior data after identity/role/storage/parent changes or after close.",
+    "after": "Shared current() reuses the existing parent owner and exact storage assertion before querying/drawing; invalid queries clear displayed rows and retain error, parent draft and raw persisted data.",
+    "why": "Blocking final application alone does not prevent old-account or closed-window data from being read again.",
+    "scope": [
+      "order/general voucher query",
+      "stock/safety query",
+      "row redraw",
+      "selection/application current check"
+    ],
+    "outsideScope": [
+      "barcode entry",
+      "barcode verification",
+      "original server query contract"
+    ]
+  },
+  "validation": {
+    "preFixNodeFailed": 16,
+    "preFixNodePassed": 2,
+    "newNodeTests": 18,
+    "focusedNodePassed": 74,
+    "preFixActualShellBrowserFailed": 2,
+    "newActualShellBrowserPassed": 2,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 158,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "logs": [
+      ".artifacts/manual-entry-query-owner-20261024/pre-fix.log",
+      ".artifacts/manual-entry-query-owner-20261024/pre-fix-browser.log",
+      ".artifacts/manual-entry-query-owner-20261024/focused-all.log",
+      ".artifacts/manual-entry-query-owner-20261024/verify-local.log"
+    ],
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 8,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "resultSha256": "d184526c304f9a5225961d269c4f13c37dc5ee960b1e56c71139aeb65b74e959",
+    "summary": ".artifacts/manual-entry-query-owner-20261024/rea/rea-summary.json",
+    "fullOriginalEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "wholeEntryUiRootCandidateEqual": true,
+    "moduleSha256": "5249fdfc11786d7b8fe093e0b9671940eb782bb4a81e3bdce203aeecc7125ddb",
+    "matchingScopePairs": 4,
+    "reaVersion": "6.4.0",
+    "coverage": "unknown",
+    "parseFailures": 0,
+    "sourceExecuted": false
+  },
+  "runtime": {
+    "version": "0.89.1",
+    "pid": 2664828,
+    "persistentExecSession": 29789,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.89.0",
+    "installedWorkerSha256": "48fb07b8e64f8f126383e60c6995a9bafdb9a8e2f41662c5f6a4d6abc05b0dfb"
+  },
+  "releaseManifest": ".artifacts/manual-entry-query-owner-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.1",
+      "browserInventoryByteEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "workTabCount": 1,
+      "existingLoginRetained": true,
+      "hostedOrderSearchRows": 1,
+      "hostedStockSearchRows": 1,
+      "hostedOpenSearchCancel": true,
+      "hostedBusinessOrSettingsSaved": false,
+      "hostedRoleSwitchPerformed": false,
+      "originalTouched": false
+    },
+    "server": {
+      "version": "0.89.1",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.1",
+    "publicChecks": 21,
+    "assetsMatched": 18,
+    "publicEvidence": ".artifacts/manual-entry-query-owner-20261024/public-deploy.json",
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "lastConfirmedDocumentVersion": 24,
+    "prior08815ApprovedAppendSavedAndReread": true,
+    "pending0890ProposalUnchanged": true,
+    "current0891DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Current connector requires showing concrete changes and user confirmation before saving. Existing0.89.0 proposal is already pending; no duplicate permission request or authentication retry.",
+    "draftFile": ".artifacts/manual-entry-query-owner-20261024/moa-draft.json"
+  },
+  "nextWork": "바코드 입력 EntryTools와 별도 수량대조 EntryExtraUI의 조회/스캔/결과/정렬 callback에서 계정·권한·부모종료·저장본 변경을 합성 재현하고 확인된 누락만 보완한다. 주문·재고 조회의 합격 검사를 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Owner/storage revocation and callback cancellation are localhost synthetic evidence; production only normal query and cancellation tested.",
+    "Original query/permission/server equivalence is unproven and no manual item marked complete.",
+    "Barcode input/verification remain the next separate unit.",
+    "Mapping candidate07bdfb3 must integrate acb8de6, c494077 and c2f7df0 patches before a future release; dirty12 files preserved."
+  ],
+  "windowsHandoffPointer": {
+    "updated": true,
+    "oldBytesPreserved": true,
+    "oldSha256": "33d41391bbfae9b3981ceaebb05fc80a8899f391b139ca5b04d7afbc665e233d",
+    "newSha256": "e81a1300ddfc27689203fcd18502ad674938024c09d6911ca6c4c9ce80d84162"
+  }
+}

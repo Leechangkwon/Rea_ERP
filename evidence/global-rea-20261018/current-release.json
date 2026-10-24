@@ -1,6 +1,6 @@
 {
-  "version": "0.89.0",
-  "status": "deployed-master-fields-supplier-and-formulas",
+  "version": "0.89.1",
+  "status": "deployed-order-stock-query-owner-guard",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -104,7 +104,8 @@
     "Confirmed pricerequest explicit header adoption into purchaseorder preserves stored transaction type with VAT rate, legacy codes and confirmed basis; incompatible type22/nonzero pairs reject atomically. No new tax input or formula migration. evidence/manual-price-order-tax-20261024.json",
     "Ready quote comparisons require at least one saved price confirmation before order candidate/staging/conversion/first save. Explicit requested-price choice, legacy sources, saved orders and partial-confirmation policies preserved. evidence/manual-price-unconfirmed-20261024.json",
     "Shared entry helpers validate original editor, identity, role and exact stored inventory before applying draft or saving My-items. Evidence evidence/manual-entry-helper-owner-20261024.json",
-    "Master layouts select83 item fields plus saved-supplier projections; typed text/number custom fields, safe formulas and canonical legacy aliases. evidence/manual-master-forms-20261024.json"
+    "Master layouts select83 item fields plus saved-supplier projections; typed text/number custom fields, safe formulas and canonical legacy aliases. evidence/manual-master-forms-20261024.json",
+    "Order/stock queries and redraw reuse parent owner/exact storage guards before reading; preserve parent draft and raw data; barcode guards remain separate. evidence/manual-entry-query-owner-20261024.json"
   ],
   "checks": {
     "total": 998,
@@ -114,7 +115,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-master-forms-20261024.json",
+    "reference": "evidence/manual-entry-query-owner-20261024.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -139,7 +140,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 156,
+    "currentReleaseBrowserSynthetic": 158,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -167,7 +168,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.89.0",
+    "currentReleaseFullRegressionVersion": "0.89.1",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -717,16 +718,39 @@
         "candidateClean": true,
         "browserPassed": 156
       }
+    },
+    "entryQueryOwnerGuard": {
+      "preFixNodeFailed": 16,
+      "preFixNodePassed": 2,
+      "newNodeTests": 18,
+      "focusedNodePassed": 74,
+      "preFixActualShellBrowserFailed": 2,
+      "newActualShellBrowserPassed": 2,
+      "viewports": [
+        390,
+        1280
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 158,
+      "fullNodeSuitePassed": true,
+      "releaseChecks": 4,
+      "build": true,
+      "logs": [
+        ".artifacts/manual-entry-query-owner-20261024/pre-fix.log",
+        ".artifacts/manual-entry-query-owner-20261024/pre-fix-browser.log",
+        ".artifacts/manual-entry-query-owner-20261024/focused-all.log",
+        ".artifacts/manual-entry-query-owner-20261024/verify-local.log"
+      ]
     }
   },
-  "future_research": "사용자 요청의 기초등록 양식83필드/구매처7표시/문자·숫자·계산식 연결을0.89.0으로 배포했다. 원본 동등성 완료와 구분한다. 다음은 원본 로그인 없이 주문/재고/바코드 보조창 수명주기를 합성 검증하고 실제 누락만 보완한다. TC101P_01·VAT5 5충돌·최소구매단위·업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15/0.89.0 수정 통합 필요. root전체빌드 금지/전체완료false.",
+  "future_research": "바코드 입력 EntryTools와 별도 수량대조 EntryExtraUI의 조회/스캔/결과/정렬 callback에서 계정·권한·부모종료·저장본 변경을 합성 재현하고 확인된 누락만 보완한다. 주문·재고 조회의 합격 검사를 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15/0.89.0/0.89.1 수정 통합 필요. root전체빌드 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-master-forms-20261024.json",
+    "reference": "evidence/manual-entry-query-owner-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
-    "publicVersionVerified": "0.89.0",
+    "deployedSourceCommit": "42c51b400d76d7927f5c4824e97858f304e10f0b",
+    "publicVersionVerified": "0.89.1",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -785,20 +809,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.89.0",
+    "existingSessionRetainedVersion": "0.89.1",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.89.0",
+    "lastExactBrowserBackupComparisonVersion": "0.89.1",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.89.0",
+    "currentServerStateAndMailPreservedVersion": "0.89.1",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.89.0",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.1",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1109,13 +1133,22 @@
       "reference": "evidence/manual-master-forms-20261024.json"
     },
     "operatingRuntime": {
-      "version": "0.89.0",
-      "pid": 2654195,
-      "persistentExecSession": 1061,
+      "version": "0.89.1",
+      "pid": 2664828,
+      "persistentExecSession": 29789,
       "sessionMustNotBePolledOrTerminated": true,
       "backend": "supabase",
       "publicUrl": "https://rea.qaredi.com",
-      "privateRollbackVersion": "0.88.15"
+      "privateRollbackVersion": "0.89.0",
+      "installedWorkerSha256": "48fb07b8e64f8f126383e60c6995a9bafdb9a8e2f41662c5f6a4d6abc05b0dfb"
+    },
+    "entryQueryOwnerGuard": {
+      "deployed": true,
+      "sourceCommit": "c2f7df0bc9ef9216124fa81602118d6ac90910a7",
+      "hostedOpenSearchCancelVerified": true,
+      "hostedOwnerChangeTested": false,
+      "hostedBusinessSaved": false,
+      "reference": "evidence/manual-entry-query-owner-20261024.json"
     }
   },
   "manualParity": {
@@ -1128,12 +1161,12 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.89.0",
+      "productionVersion": "0.89.1",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "주문 불러오기·재고·바코드 보조창의 조회/미리보기에서 계정·역할 전환과 부모 종료 이후 이전 자료가 남는지 합성 재현하고 실제 누락만 보완한다. 원본 로그인은 필요하지 않다. TC101P_01/VAT5 5충돌/최소구매단위/업로드 저장 계약은 새 근거 확보 때 재개하며 같은 로그인 확인을 반복하지 않는다.",
+      "nextIndependentManual": "바코드 입력 EntryTools와 별도 수량대조 EntryExtraUI의 조회/스캔/결과/정렬 callback에서 계정·권한·부모종료·저장본 변경을 합성 재현하고 확인된 누락만 보완한다. 주문·재고 조회의 합격 검사를 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-08814-integration-20261024.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1172,7 +1205,8 @@
         "latestStatusTabPaginationSourceRequired": "ed72b2980dd4ac83c2b11e1d2e7df06285976646"
       },
       "latestEntryHelperOwnerSourceRequired": "acb8de6c77d070e1f69553a359e45203600e87d0",
-      "latestMasterFormsSourceRequired": "c49407758f818f71e95b6df7838dbad982962867"
+      "latestMasterFormsSourceRequired": "c49407758f818f71e95b6df7838dbad982962867",
+      "latestEntryQueryGuardSourceRequired": "c2f7df0bc9ef9216124fa81602118d6ac90910a7"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1334,12 +1368,14 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "EC-HELP-REQUEST-036",
+      "sourceId": "OWN-BARCODE-HELPER-LIFECYCLE",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "주문 불러오기·재고·바코드 보조창의 조회/미리보기에서 계정·역할 전환과 부모 종료 이후 이전 자료가 남는지 합성 재현하고 실제 누락만 보완한다. 원본 로그인은 필요하지 않다. TC101P_01/VAT5 5충돌/최소구매단위/업로드 저장 계약은 새 근거 확보 때 재개하며 같은 로그인 확인을 반복하지 않는다.",
+      "description": "바코드 입력 EntryTools와 별도 수량대조 EntryExtraUI의 조회/스캔/결과/정렬 callback에서 계정·권한·부모종료·저장본 변경을 합성 재현하고 확인된 누락만 보완한다. 주문·재고 조회의 합격 검사를 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "operatingVersion": "0.89.0",
-      "latestEvidence": "evidence/manual-master-forms-20261024.json"
+      "operatingVersion": "0.89.1",
+      "latestEvidence": "evidence/manual-entry-query-owner-20261024.json",
+      "title": "바코드 입력·검증 보조창 수명주기",
+      "evidence": "evidence/manual-entry-query-owner-20261024.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2073,13 +2109,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-ENTRY-HELPER-LIFECYCLE",
-      "title": "원본 로그인 없이 입력 보조창 조회/미리보기 수명주기 보완",
-      "operatingVersion": "0.89.0",
-      "evidence": "evidence/manual-entry-helper-owner-20261024.json",
-      "description": "주문 불러오기·재고·바코드 보조창의 조회/미리보기에서 계정·역할 전환과 부모 종료 이후 이전 자료가 남는지 합성 재현하고 실제 누락만 보완한다. 원본 로그인은 필요하지 않다. TC101P_01/VAT5 5충돌/최소구매단위/업로드 저장 계약은 새 근거 확보 때 재개하며 같은 로그인 확인을 반복하지 않는다.",
+      "sourceId": "OWN-BARCODE-HELPER-LIFECYCLE",
+      "title": "바코드 입력·검증 보조창 수명주기",
+      "operatingVersion": "0.89.1",
+      "evidence": "evidence/manual-entry-query-owner-20261024.json",
+      "description": "바코드 입력 EntryTools와 별도 수량대조 EntryExtraUI의 조회/스캔/결과/정렬 callback에서 계정·권한·부모종료·저장본 변경을 합성 재현하고 확인된 누락만 보완한다. 주문·재고 조회의 합격 검사를 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "latestEvidence": "evidence/manual-master-forms-20261024.json"
+      "latestEvidence": "evidence/manual-entry-query-owner-20261024.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -2780,7 +2816,8 @@
         "integrated": false
       },
       "masterFormsSourceRequiredBeforeDeployment": "c49407758f818f71e95b6df7838dbad982962867",
-      "currentHelperOwnerSourceRequiredBeforeDeployment": "acb8de6c77d070e1f69553a359e45203600e87d0"
+      "currentHelperOwnerSourceRequiredBeforeDeployment": "acb8de6c77d070e1f69553a359e45203600e87d0",
+      "entryQueryGuardSourceRequiredBeforeDeployment": "c2f7df0bc9ef9216124fa81602118d6ac90910a7"
     },
     "entryHelperOwnerGuard": {
       "version": "0.88.15",
@@ -2798,14 +2835,22 @@
       "done": false,
       "newOfficialRequirements": 0,
       "originalEditorContractIncomplete": true
+    },
+    "entryQueryOwnerGuard": {
+      "version": "0.89.1",
+      "reference": "evidence/manual-entry-query-owner-20261024.json",
+      "sourceCommit": "c2f7df0bc9ef9216124fa81602118d6ac90910a7",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0
     }
   },
   "preparedCandidate": {
-    "version": "0.89.0",
-    "commit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
-    "sourceCommit": "c49407758f818f71e95b6df7838dbad982962867",
-    "manifest": ".artifacts/manual-master-forms-20261024/release-manifest.json",
-    "bundleSha256": "88d8a967cbe1ac46770fb7fd953778702e43769873b06e39fbef351a228329a7",
+    "version": "0.89.1",
+    "commit": "42c51b400d76d7927f5c4824e97858f304e10f0b",
+    "sourceCommit": "c2f7df0bc9ef9216124fa81602118d6ac90910a7",
+    "manifest": ".artifacts/manual-entry-query-owner-20261024/release-manifest.json",
+    "bundleSha256": "48fb07b8e64f8f126383e60c6995a9bafdb9a8e2f41662c5f6a4d6abc05b0dfb",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -2855,14 +2900,15 @@
       "saved-quote-confirmation-before-order-import",
       "status-tab-first-result-page-preserving-applied-pending-query-selection-forms-and-data",
       "entry-helper-owner-role-current-editor-and-exact-storage-boundaries",
-      "master-full-field-metadata-saved-supplier-details-typed-custom-fields-and-safe-formulas"
+      "master-full-field-metadata-saved-supplier-details-typed-custom-fields-and-safe-formulas",
+      "order-stock-query-and-redraw-parent-owner-exact-storage-guards"
     ],
-    "supersedesCandidateCommit": "517cd03d090777330c82a4610cd37166c992f687",
+    "supersedesCandidateCommit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.89.0-master-forms"
+    "branch": "release/0.89.1-entry-query-owner"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -3607,6 +3653,14 @@
     "masterForms": {
       "reference": "evidence/manual-master-forms-20261024.json",
       "ownScopes": 24,
+      "originalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false
+    },
+    "entryQueryOwnerGuard": {
+      "reference": "evidence/manual-entry-query-owner-20261024.json",
+      "ownScopes": 8,
       "originalScopes": 0,
       "parseFailures": 0,
       "coverage": "unknown",
