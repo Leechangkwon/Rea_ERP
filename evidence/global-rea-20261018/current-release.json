@@ -1,6 +1,6 @@
 {
-  "version": "0.89.5",
-  "status": "deployed-paste-validate-owner-guard",
+  "version": "0.89.6",
+  "status": "deployed-master-formula-preservation",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -109,7 +109,8 @@
     "Barcode input and separate readonly verification guard parent owner and exact storage before lookup/scan/comparison/result/sort/My-items, preserving scan originals and draft. evidence/manual-barcode-helper-owner-20261024.json",
     "Item query, sorting, legacy discount and actual amount previews validate parent owner and exact storage before reading; preserve selected quantities, draft and independent readonly previews. evidence/manual-entry-preview-owner-20261024.json",
     "Requirements and profit reports/target-price previews validate current parent owner and exact storage before reading; keep product list/draft and independent readonly profit previews. evidence/manual-extra-calc-owner-20261024.json",
-    "Paste previews and direct/actual input validation check parent owner and exact storage before reading; preserve pasted text, draft, readonly previews. evidence/manual-paste-validate-owner-20261024.json"
+    "Paste previews and direct/actual input validation check parent owner and exact storage before reading; preserve pasted text, draft, readonly previews. evidence/manual-paste-validate-owner-20261024.json",
+    "Item custom numeric type changes retain unrepresentable original text; formula error snapshots preserve prior values and layout transitions, while strict computation/save rejects invalid inputs. evidence/manual-master-formula-preservation-20261024.json"
   ],
   "checks": {
     "total": 998,
@@ -119,7 +120,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-paste-validate-owner-20261024.json",
+    "reference": "evidence/manual-master-formula-preservation-20261024.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -144,7 +145,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 172,
+    "currentReleaseBrowserSynthetic": 176,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -172,7 +173,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.89.5",
+    "currentReleaseFullRegressionVersion": "0.89.6",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -839,16 +840,42 @@
         ".artifacts/manual-paste-validate-owner-20261024/focused-browser.log",
         ".artifacts/manual-paste-validate-owner-20261024/verify-local.log"
       ]
+    },
+    "masterFormulaPreservation": {
+      "preFixNodeFailed": 7,
+      "preFixNodePassed": 4,
+      "newNodeTests": 11,
+      "focusedNodePassed": 51,
+      "itemRegistrationChecks": 35,
+      "formCoreChecks": 18,
+      "preFixActualShellBrowserFailed": 4,
+      "newActualShellBrowserPassed": 4,
+      "viewports": [
+        390,
+        1280
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 176,
+      "fullNodeSuitePassed": true,
+      "releaseChecks": 4,
+      "build": true,
+      "logs": [
+        ".artifacts/manual-master-formula-preservation-20261024/pre-fix.log",
+        ".artifacts/manual-master-formula-preservation-20261024/pre-fix-browser.log",
+        ".artifacts/manual-master-formula-preservation-20261024/focused-all.log",
+        ".artifacts/manual-master-formula-preservation-20261024/focused-browser.log",
+        ".artifacts/manual-master-formula-preservation-20261024/verify-local.log"
+      ]
     }
   },
-  "future_research": "기초등록 사용자 문자/숫자 항목의 수식 참조·이름/형식 변경·숨김/양식 전환·백업 복원 경계를 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 기존 구매처 표시와 일반 계산식 합격은 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.5 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
+  "future_research": "거래처등록의 공통 입력 경로에서 문자/숫자 유형 변경·계산식 오류·양식 전환 때 원문/초안이 보존되는지 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 품목에서 합격한 같은 검사는 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.6 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-paste-validate-owner-20261024.json",
+    "reference": "evidence/manual-master-formula-preservation-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "81483ad4ed710bcca77639127ac82fea2b4d24bb",
-    "publicVersionVerified": "0.89.5",
+    "deployedSourceCommit": "79cf964040adcf0641b2c268d7cc811f5f633b60",
+    "publicVersionVerified": "0.89.6",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -907,20 +934,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.89.5",
+    "existingSessionRetainedVersion": "0.89.6",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.89.5",
+    "lastExactBrowserBackupComparisonVersion": "0.89.6",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.89.5",
+    "currentServerStateAndMailPreservedVersion": "0.89.6",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.89.5",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.6",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1231,14 +1258,14 @@
       "reference": "evidence/manual-master-forms-20261024.json"
     },
     "operatingRuntime": {
-      "version": "0.89.5",
-      "pid": 2697800,
-      "persistentExecSession": 40291,
+      "version": "0.89.6",
+      "pid": 2705478,
+      "persistentExecSession": 78919,
       "sessionMustNotBePolledOrTerminated": true,
       "backend": "supabase",
       "publicUrl": "https://rea.qaredi.com",
-      "privateRollbackVersion": "0.89.4",
-      "installedWorkerSha256": "60f6c441afe43044903b1cb21271161565e34f033745c4125e7a100de00f8474"
+      "privateRollbackVersion": "0.89.5",
+      "installedWorkerSha256": "30bfb3e669140ed2f604cc6798132dba53edd3230de548d93cd51f1109891faa"
     },
     "entryQueryOwnerGuard": {
       "deployed": true,
@@ -1279,6 +1306,15 @@
       "hostedOwnerSwitchVerified": false,
       "hostedBusinessOrSettingsSaveVerified": false,
       "reference": "evidence/manual-paste-validate-owner-20261024.json"
+    },
+    "masterFormulaPreservation": {
+      "deployed": true,
+      "sourceCommit": "fb5d540603d27b619711cc1b37f5c1c0c5d9dadb",
+      "hostedItemReadCancelVerified": true,
+      "hostedTypeChangeSaveVerified": false,
+      "hostedOwnerSwitchVerified": false,
+      "hostedBusinessOrSettingsSaveVerified": false,
+      "reference": "evidence/manual-master-formula-preservation-20261024.json"
     }
   },
   "manualParity": {
@@ -1291,12 +1327,12 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.89.5",
+      "productionVersion": "0.89.6",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "기초등록 사용자 문자/숫자 항목의 수식 참조·이름/형식 변경·숨김/양식 전환·백업 복원 경계를 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 기존 구매처 표시와 일반 계산식 합격은 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "nextIndependentManual": "거래처등록의 공통 입력 경로에서 문자/숫자 유형 변경·계산식 오류·양식 전환 때 원문/초안이 보존되는지 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 품목에서 합격한 같은 검사는 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-08814-integration-20261024.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1340,7 +1376,8 @@
       "latestBarcodeHelperOwnerSourceRequired": "830b9d718b66afcfd8d532ed1c27fc4fd3cef024",
       "latestEntryPreviewOwnerSourceRequired": "35db0a988111fc45824e3eab48a48af40766ba17",
       "latestExtraCalcOwnerSourceRequired": "858559ec1ed90c9a431c22aa02ae9c5129af7fb0",
-      "latestPasteValidateOwnerSourceRequired": "c6889ff890db61ecf2711be19e0090c16f9c54d0"
+      "latestPasteValidateOwnerSourceRequired": "c6889ff890db61ecf2711be19e0090c16f9c54d0",
+      "latestMasterFormulaPreservationSourceRequired": "fb5d540603d27b619711cc1b37f5c1c0c5d9dadb"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1502,14 +1539,14 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-MASTER-FORMULA-PRESERVATION",
+      "sourceId": "OWN-PARTNER-FORMULA-PRESERVATION",
       "plan": "docs/plan-purchase-manual.md",
-      "description": "기초등록 사용자 문자/숫자 항목의 수식 참조·이름/형식 변경·숨김/양식 전환·백업 복원 경계를 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 기존 구매처 표시와 일반 계산식 합격은 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "description": "거래처등록의 공통 입력 경로에서 문자/숫자 유형 변경·계산식 오류·양식 전환 때 원문/초안이 보존되는지 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 품목에서 합격한 같은 검사는 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "operatingVersion": "0.89.5",
-      "latestEvidence": "evidence/manual-paste-validate-owner-20261024.json",
-      "title": "기초등록 사용자 계산식의 참조·형식 변경 보존",
-      "evidence": "evidence/manual-paste-validate-owner-20261024.json"
+      "operatingVersion": "0.89.6",
+      "latestEvidence": "evidence/manual-master-formula-preservation-20261024.json",
+      "title": "거래처 사용자항목의 유형·계산 오류 원문 보존",
+      "evidence": "evidence/manual-master-formula-preservation-20261024.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2243,13 +2280,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-MASTER-FORMULA-PRESERVATION",
-      "title": "기초등록 사용자 계산식의 참조·형식 변경 보존",
-      "operatingVersion": "0.89.5",
-      "evidence": "evidence/manual-paste-validate-owner-20261024.json",
-      "description": "기초등록 사용자 문자/숫자 항목의 수식 참조·이름/형식 변경·숨김/양식 전환·백업 복원 경계를 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 기존 구매처 표시와 일반 계산식 합격은 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "sourceId": "OWN-PARTNER-FORMULA-PRESERVATION",
+      "title": "거래처 사용자항목의 유형·계산 오류 원문 보존",
+      "operatingVersion": "0.89.6",
+      "evidence": "evidence/manual-master-formula-preservation-20261024.json",
+      "description": "거래처등록의 공통 입력 경로에서 문자/숫자 유형 변경·계산식 오류·양식 전환 때 원문/초안이 보존되는지 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 품목에서 합격한 같은 검사는 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "latestEvidence": "evidence/manual-paste-validate-owner-20261024.json"
+      "latestEvidence": "evidence/manual-master-formula-preservation-20261024.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -3009,14 +3046,22 @@
       "deployed": true,
       "done": false,
       "newOfficialRequirements": 0
+    },
+    "masterFormulaPreservation": {
+      "version": "0.89.6",
+      "reference": "evidence/manual-master-formula-preservation-20261024.json",
+      "sourceCommit": "fb5d540603d27b619711cc1b37f5c1c0c5d9dadb",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0
     }
   },
   "preparedCandidate": {
-    "version": "0.89.5",
-    "commit": "81483ad4ed710bcca77639127ac82fea2b4d24bb",
-    "sourceCommit": "c6889ff890db61ecf2711be19e0090c16f9c54d0",
-    "manifest": ".artifacts/manual-paste-validate-owner-20261024/release-manifest.json",
-    "bundleSha256": "60f6c441afe43044903b1cb21271161565e34f033745c4125e7a100de00f8474",
+    "version": "0.89.6",
+    "commit": "79cf964040adcf0641b2c268d7cc811f5f633b60",
+    "sourceCommit": "fb5d540603d27b619711cc1b37f5c1c0c5d9dadb",
+    "manifest": ".artifacts/manual-master-formula-preservation-20261024/release-manifest.json",
+    "bundleSha256": "30bfb3e669140ed2f604cc6798132dba53edd3230de548d93cd51f1109891faa",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -3071,14 +3116,15 @@
       "barcode-input-and-readonly-verification-owner-storage-guards-preserved-scans-results-sort-and-my-items",
       "item-query-sort-legacy-discount-and-actual-amount-preview-current-editor-guards-preserved-selection-quantity",
       "requirements-profit-report-target-preview-current-editor-guards-products-draft-preservation",
-      "paste-preview-and-direct-actual-input-validation-owner-storage-guards-preserve-text-and-draft"
+      "paste-preview-and-direct-actual-input-validation-owner-storage-guards-preserve-text-and-draft",
+      "item-custom-numeric-type-change-and-formula-error-preserve-original-values-and-layout-switch-drafts"
     ],
-    "supersedesCandidateCommit": "26d12da91784ecfd954acd77e0cf40088c2ded5c",
+    "supersedesCandidateCommit": "81483ad4ed710bcca77639127ac82fea2b4d24bb",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.89.5-paste-validate-owner"
+    "branch": "release/0.89.6-master-formula-preservation"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -3861,6 +3907,13 @@
       "reference": "evidence/manual-paste-validate-owner-20261024.json",
       "summary": ".artifacts/manual-paste-validate-owner-20261024/rea/rea-summary.json",
       "newOwnScopes": 8,
+      "newOriginalScopes": 0,
+      "originalExecuted": false
+    },
+    "masterFormulaPreservation": {
+      "reference": "evidence/manual-master-formula-preservation-20261024.json",
+      "summary": ".artifacts/manual-master-formula-preservation-20261024/rea/rea-summary.json",
+      "newOwnScopes": 16,
       "newOriginalScopes": 0,
       "originalExecuted": false
     }

@@ -1,0 +1,195 @@
+{
+  "version": "0.89.6",
+  "sourceCommit": "fb5d540603d27b619711cc1b37f5c1c0c5d9dadb",
+  "releaseCommit": "79cf964040adcf0641b2c268d7cc811f5f633b60",
+  "workerSha256": "30bfb3e669140ed2f604cc6798132dba53edd3230de548d93cd51f1109891faa",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.6-master-formula-preservation",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-master-formula-preservation",
+  "baselineProductionCommit": "81483ad4ed710bcca77639127ac82fea2b4d24bb",
+  "changes": {
+    "before": "Numeric controls erased unrepresentable prior custom text; formula failures cleared computed controls and could block layout transitions or erase cached values.",
+    "after": "Keep unrepresentable originals in an editable text fallback; expose hidden invalid fields for correction, reject strict save, preserve source/cached values in snapshots and recalculate valid results.",
+    "why": "Changing a type or layout must not erase existing item values or unrelated unsaved inputs.",
+    "schemaOrCoreFormulaRulesChanged": false,
+    "ordinaryNumericControlsPreserved": true
+  },
+  "validation": {
+    "preFixNodeFailed": 7,
+    "preFixNodePassed": 4,
+    "newNodeTests": 11,
+    "focusedNodePassed": 51,
+    "itemRegistrationChecks": 35,
+    "formCoreChecks": 18,
+    "preFixActualShellBrowserFailed": 4,
+    "newActualShellBrowserPassed": 4,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 176,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "logs": [
+      ".artifacts/manual-master-formula-preservation-20261024/pre-fix.log",
+      ".artifacts/manual-master-formula-preservation-20261024/pre-fix-browser.log",
+      ".artifacts/manual-master-formula-preservation-20261024/focused-all.log",
+      ".artifacts/manual-master-formula-preservation-20261024/focused-browser.log",
+      ".artifacts/manual-master-formula-preservation-20261024/verify-local.log"
+    ],
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-master-formula-preservation-20261024/rea/rea-summary.json",
+    "ownScopes": 16,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "81483ad4ed710bcca77639127ac82fea2b4d24bb",
+    "files": {
+      "dist/item-ui.js": {
+        "rootSha256": "8004f2ad915e19423b6f4402dfe469be680b80546d91187a671567a2ff6d2c2a",
+        "candidateSha256": "8004f2ad915e19423b6f4402dfe469be680b80546d91187a671567a2ff6d2c2a",
+        "equal": true
+      },
+      "tests/master-formula-preservation.cjs": {
+        "rootSha256": "33aa0a12ffb168aadc6787bcb378c40dca373e257e362ef1541029ab98043bf3",
+        "candidateSha256": "33aa0a12ffb168aadc6787bcb378c40dca373e257e362ef1541029ab98043bf3",
+        "equal": true
+      },
+      "tests/browser/master-formula-preservation.spec.cjs": {
+        "rootSha256": "8b6472a83f29cf67448f06f209c1e6864fa7bb6255eede299393f87ac1983a53",
+        "candidateSha256": "8b6472a83f29cf67448f06f209c1e6864fa7bb6255eede299393f87ac1983a53",
+        "equal": true
+      }
+    },
+    "unshippedRootVatOrMappingCopied": false,
+    "matchingScopePairs": 8,
+    "reaVersion": "6.4.0",
+    "sourceExecuted": false
+  },
+  "runtime": {
+    "version": "0.89.6",
+    "pid": 2705478,
+    "persistentExecSession": 78919,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.89.5",
+    "installedWorkerSha256": "30bfb3e669140ed2f604cc6798132dba53edd3230de548d93cd51f1109891faa"
+  },
+  "releaseManifest": ".artifacts/manual-master-formula-preservation-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.6",
+      "browserInventoryByteEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "workTabCount": 1,
+      "openDialogCount": 0,
+      "existingLoginRetained": true,
+      "hostedItemFields": 83,
+      "hostedItemReadCancel": true,
+      "hostedParentDraftExact": true,
+      "hostedComparison": "Field ID/value/checked mapping; tab navigation reparents controls and changes DOM order. Reopened the unchanged item to compare field values.",
+      "hostedTypeChangeOrInvalidSaveTest": false,
+      "hostedBusinessOrSettingsSaved": false,
+      "originalTouched": false,
+      "preBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (26).json",
+      "postBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (27).json",
+      "productionScreenshot": ".artifacts/manual-master-formula-preservation-20261024/production.png",
+      "syntheticScreenshot": ".artifacts/manual-master-formula-preservation-20261024/formula-blocked-390.png"
+    },
+    "server": {
+      "version": "0.89.6",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.6",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "publicEvidence": ".artifacts/manual-master-formula-preservation-20261024/public-deploy.json",
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "lastConfirmedDocumentVersion": 24,
+    "prior08815ApprovedAppendSavedAndReread": true,
+    "pending0890ProposalUnchanged": true,
+    "current0896DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Existing concrete0.89.0 proposal remains pending; no repeated approval request or auth check.",
+    "draftFile": ".artifacts/manual-master-formula-preservation-20261024/moa-draft.json"
+  },
+  "nextWork": "거래처등록의 공통 입력 경로에서 문자/숫자 유형 변경·계산식 오류·양식 전환 때 원문/초안이 보존되는지 기존 구현과 합성 자료로 대조하고 확인된 누락만 보완한다. 품목에서 합격한 같은 검사는 변화 없이 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload server save contracts remain unverified.",
+    "Type conversion and invalid formula save/reload/backup behavior was tested only on isolated synthetic data; hosted checks were ordinary item read/cancel without form or item saves.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ],
+  "windowsHandoff": {
+    "path": "C:/Users/PL-PD-CHANGGWON-LEE/Desktop/rea_erp/LINUX-HANDOFF.md",
+    "previousBodyByteEqual": true,
+    "previousBodySha256": "33d41391bbfae9b3981ceaebb05fc80a8899f391b139ca5b04d7afbc665e233d",
+    "newFileSha256": "ed8d44375ee2e4c13ae94a29e8d0cf41e284f586beb0d5dbed0a4bda4fdc51f6"
+  }
+}
