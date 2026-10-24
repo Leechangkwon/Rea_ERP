@@ -1,0 +1,198 @@
+{
+  "version": "0.89.17",
+  "sourceCommit": "ec7bdd0b41e404f0e241209e87ae468f3b311005",
+  "releaseCommit": "8c2aeec1ccecf8349aa74f74956fa25ef5b4e341",
+  "workerSha256": "66f3e4bf751544685a401782d77fa242a5314d74e41b395e845eb4077d3e0251",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.17-partner-formula-guidance",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-partner-formula-guidance",
+  "baselineProductionCommit": "c92d76351b00f9669cb2f41a1bf67d90785a552e",
+  "changes": {
+    "before": "Partner calculation failures were shown only in a transient toast without initial feedback, calculation labels or links to hidden inputs.",
+    "after": "The partners branch of masterEditor shows an inline calculation label, guarded buttons to editable reference inputs and existing form settings. Live typing retains focus; explicit failed save reveals the output and focuses help.",
+    "why": "A saved custom formula is not usable if users cannot locate the inputs needed to correct its errors. Existing raw text, cached values and unrelated drafts must remain intact.",
+    "calculationEngineOrStorageChanged": false,
+    "persistentVisibilityChanged": false,
+    "otherMasterFeatureExpanded": false,
+    "implementationScope": "masterEditor partners error feedback, navigation and failure focus only"
+  },
+  "validation": {
+    "preFixNodeTests": 11,
+    "preFixNodeFailed": 11,
+    "preFixNodePassed": 0,
+    "newNodeTests": 11,
+    "finalFocusedNodePassed": 78,
+    "preFixActualShellBrowserFailed": 8,
+    "preFixActualShellBrowserPassed": 0,
+    "newActualShellBrowserPassed": 8,
+    "viewports": [
+      390,
+      1280
+    ],
+    "newAndExistingPartners": true,
+    "cases": [
+      "hidden custom text/number calculation input guidance",
+      "initial/live errors do not take input focus",
+      "explicit failed save reveals result and focuses help",
+      "text003 and00123 persist as strings while numbers normalize",
+      "nested formula error label and readonly reference omission",
+      "constant formula error explicitly opens settings without saving",
+      "old layout/closed modal/changed role/changed snapshot buttons are guarded",
+      "corrected explicit save/reload preserves typed values and unrelated records"
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 252,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-partner-formula-guidance-20261024/rea/rea-summary.json",
+    "ownScopes": 2,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "c92d76351b00f9669cb2f41a1bf67d90785a552e",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "c92d76351b00f9669cb2f41a1bf67d90785a552e",
+      "wholeFileCopied": false,
+      "unchangedOutsideScopes": true,
+      "files": [
+        {
+          "file": "dist/inventory-ui.js",
+          "rootHash": "3cd20acf23180b954f4db902d77d69387504e7c55387458f1710741b4006ef48",
+          "candidateHash": "2cf2f0e682f76775893fb16d85381a443427e415dac45b66255d827328a9270f",
+          "scopes": [
+            {
+              "name": "masterEditor",
+              "beforeSha256": "ac6e5bc01ca64d266594872f24731fac42f0afa2016e73814a575dccbabf4359",
+              "afterSha256": "840f557676be685fa66ad89a5443e2ee0f36b75247ad28781640be56f52a13ed"
+            }
+          ]
+        }
+      ]
+    },
+    "matchingScopePairs": 1,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/partner-formula-guidance.cjs": true,
+      "tests/browser/partner-formula-guidance.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.17",
+    "pid": 2814747,
+    "persistentExecSession": 46158,
+    "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
+    "workerSha256": "66f3e4bf751544685a401782d77fa242a5314d74e41b395e845eb4077d3e0251",
+    "doNotPollOrTerminatePersistentSession": true
+  },
+  "releaseManifest": ".artifacts/manual-partner-formula-guidance-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.17",
+      "browserInventoryByteEqual": true,
+      "sha256Before": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "sha256After": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedPartnerFieldsExact": true,
+      "hostedPartnerControlCountIncludingFormPicker": 14,
+      "hostedItemSettingsFieldsExact": true,
+      "hostedItemSettingsControlCount": 256,
+      "existingAuthenticatedSessionRetained": true,
+      "versionVisible": "0.89.17",
+      "workTabsAfter": 1,
+      "dialogsAfter": 0,
+      "hostedBusinessOrSettingsWrites": 0,
+      "hostedSettingsReorders": 0,
+      "actualMailSends": 0,
+      "partnerFormulaRecoveryAndSaveOnlySynthetic": true,
+      "verification": "Actual UI JSON backups before/after byte equal; partner14 controls and item settings256 controls read/cancel exact; original request tab retained."
+    },
+    "server": {
+      "version": "0.89.17",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.17",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "approved0890SavedAndReread": true,
+    "lastConfirmedDocumentVersion": 25,
+    "batch16ProposalConfirmationPending": true,
+    "current08917DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "The approved0.89.0 paragraph is already saved. Separate16-document concrete proposal remains pending; no duplicate prompt or auth recheck.",
+    "draftFile": ".artifacts/manual-partner-formula-guidance-20261024/moa-draft.json"
+  },
+  "nextWork": "거래처의 문자/숫자 추가항목과 계산 결과가 등록 입력·조회 양식·검색·CSV·백업 재조회에 일관되게 반영되는지 합성 대조하고 확인된 누락만 보완한다. 이번 거래처 오류 안내 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "Partner text/number correction and final save/reload used isolated synthetic data. Hosted checks only read/cancel ordinary partner and item settings controls.",
+    "Navigation lists editable formula inputs without guessing a correct value; form settings remain an explicit action.",
+    "Own-scope REA parsing does not prove original runtime equivalence."
+  ]
+}
