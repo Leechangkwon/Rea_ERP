@@ -1,0 +1,208 @@
+{
+  "version": "0.89.15",
+  "sourceCommit": "35552cf12f854d47eb138bf3b994f056daa6b5dc",
+  "releaseCommit": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
+  "workerSha256": "5a341c3b404ecaf27aa73d48217b078975b56c0e54d56cc7cab6fd2a862d9f52",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.15-item-required-focus",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-item-required-focus",
+  "baselineProductionCommit": "e7bf0596539495f63562c78b08a08795659c6d9e",
+  "changes": {
+    "before": "A hidden required custom field could become hidden again when an item draft resumed. FormCore.check errors had no itemField identity, so ItemUI.save could not reveal or focus the invalid control.",
+    "after": "Validate custom fields in their existing order with the same FormCore.check rules and attach the failing field ID to the same Error. The existing save recovery path reveals the field, opens its tab and focuses it.",
+    "why": "The user must be able to correct a required custom value after draft resume instead of repeatedly receiving an error for a hidden control.",
+    "formCheckRulesMessagesAndFormulaEngineChanged": false,
+    "itemFieldErrorIdentityAdded": true,
+    "persistentFormVisibilityChanged": false,
+    "unsavedDraftPersistenceAcrossBrowserReloadAdded": false,
+    "originalErrorOrderAndStorageShapePreserved": true,
+    "implementationScope": "ItemUI.validate custom field error annotation only"
+  },
+  "validation": {
+    "preFixNodeTests": 8,
+    "preFixNodeFailed": 4,
+    "preFixNodePassed": 4,
+    "newNodeTests": 8,
+    "finalFocusedNodePassed": 68,
+    "preFixActualShellBrowserFailed": 8,
+    "preFixActualShellBrowserPassed": 0,
+    "newActualShellBrowserPassed": 8,
+    "viewports": [
+      390,
+      1280
+    ],
+    "newAndExistingItems": true,
+    "keyboardF8ButtonAndEscapeClose": true,
+    "cases": [
+      "transition close/resume within same app",
+      "initial hidden text/number required fields",
+      "invalid custom field reveal/tab/focus",
+      "declined close confirmation retains same DOM",
+      "stale save/settings callbacks cannot write",
+      "changed role rejects save",
+      "native incomplete number refuses close",
+      "corrected explicit save/reload preserves typed data"
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 236,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "logs": [
+      ".artifacts/manual-item-required-focus-20261024/node-before.log",
+      ".artifacts/manual-item-required-focus-20261024/node-after.log",
+      ".artifacts/manual-item-required-focus-20261024/browser-before.log",
+      ".artifacts/manual-item-required-focus-20261024/browser-after.log",
+      ".artifacts/manual-item-required-focus-20261024/verify-local.log"
+    ]
+  },
+  "rea": {
+    "summary": ".artifacts/manual-item-required-focus-20261024/rea/rea-summary.json",
+    "ownScopes": 2,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "e7bf0596539495f63562c78b08a08795659c6d9e",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "e7bf0596539495f63562c78b08a08795659c6d9e",
+      "wholeFileCopied": false,
+      "unchangedOutsideScopes": true,
+      "files": [
+        {
+          "file": "dist/item-ui.js",
+          "rootHash": "4d9ba00376b4238411def8584e05191fcf88bd2879c924ae80e2c74d7af8f1be",
+          "candidateHash": "4d9ba00376b4238411def8584e05191fcf88bd2879c924ae80e2c74d7af8f1be",
+          "scopes": [
+            {
+              "name": "validate",
+              "beforeSha256": "2d09fa50a18334f409b82bfcd69ecaa2facec7b0b95a8e4998298258336f0e13",
+              "afterSha256": "58b50813cb81cddb1590fcc74a1436e881621b30b1f173b1678fc70350f522ca"
+            }
+          ]
+        }
+      ]
+    },
+    "matchingScopePairs": 1,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/item-required-focus.cjs": true,
+      "tests/browser/item-required-focus.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.15",
+    "pid": 2795595,
+    "persistentExecSession": 9342,
+    "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
+    "workerSha256": "5a341c3b404ecaf27aa73d48217b078975b56c0e54d56cc7cab6fd2a862d9f52",
+    "doNotPollOrTerminatePersistentSession": true
+  },
+  "releaseManifest": ".artifacts/manual-item-required-focus-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.15",
+      "browserInventoryByteEqual": true,
+      "sha256Before": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "sha256After": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedPartnerFieldsExact": true,
+      "hostedPartnerFieldCount": 13,
+      "hostedItemSettingsFieldsExact": true,
+      "hostedItemSettingsControlCount": 256,
+      "existingAuthenticatedSessionRetained": true,
+      "versionVisible": "0.89.15",
+      "workTabsAfter": 1,
+      "dialogsAfter": 0,
+      "hostedBusinessOrSettingsWrites": 0,
+      "hostedSettingsReorders": 0,
+      "actualMailSends": 0,
+      "requiredFieldRecoveryAndSaveOnlySynthetic": true,
+      "verification": "Actual UI JSON backup before/after byte equal; V001 13 DOM fields and item settings 256 controls read/cancel compared exactly; returned to original request tab."
+    },
+    "server": {
+      "version": "0.89.15",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.15",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "approved0890SavedAndReread": true,
+    "lastConfirmedDocumentVersion": 25,
+    "batch16ProposalConfirmationPending": true,
+    "current08915DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "The approved0.89.0 paragraph is already saved. Separate16-document concrete proposal remains pending; no duplicate prompt or auth recheck.",
+    "draftFile": ".artifacts/manual-item-required-focus-20261024/moa-draft.json"
+  },
+  "nextWork": "품목 추가항목의 계산식 오류에서 잘못된 계산/입력 항목을 찾고 값을 보완할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 숨김 필수항목 노출/초안 재개 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "Conditional draft close/resume, hidden text/number required field recovery, stale callback/role guards and final item save/reload used isolated synthetic data. Hosted checks only read/cancel ordinary partner fields and256 item settings controls, without settings or business writes.",
+    "The hidden custom field error recovery contract describes the current own implementation; original server/shared/inherited form contracts remain unverified.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ]
+}
