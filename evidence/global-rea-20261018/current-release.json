@@ -2176,7 +2176,14 @@
       "operatingVersion": "0.89.20",
       "latestEvidence": "evidence/manual-item-custom-csv-20261025.json",
       "title": "품목 표준항목 CSV 원문/복합값 보존",
-      "evidence": "evidence/manual-item-custom-csv-20261025.json"
+      "evidence": "evidence/manual-item-custom-csv-20261025.json",
+      "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
+      "implementationStarted": false,
+      "prerequisites": [
+        "Configure real planned-start/deadline fields for the existing work unit",
+        "Verify real task status on start",
+        "Confirm concrete follow-up Moa append proposal"
+      ]
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -3155,7 +3162,7 @@
       "workDocumentReadSucceeded": true,
       "actualProgressDocVersion": 26,
       "canEdit": true,
-      "writePendingUserConfirmation": false,
+      "writePendingUserConfirmation": true,
       "latestEvidence": "evidence/moa-development-records-batch-20261025.json",
       "historicalUnauthenticatedInitializeWasNotTokenExpiryProof": true,
       "currentVerifiedState": {
@@ -3227,6 +3234,29 @@
         "priorProgressBlocksExact": 33,
         "appendedIndexBlocks": 18,
         "existingDesignAndTaskDocsExact": 5
+      },
+      "latestFollowupProposal": {
+        "artifact": ".artifacts/moa-p1-followup-review-20261025/proposed-packet.json",
+        "sha256": "0391a8a9e64ad3d6a90c246ffc434f7cb59df56e6df057856fd95962c09d64e0",
+        "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+        "blocks": 55,
+        "replacements": 0,
+        "versions": [
+          "0.89.9",
+          "0.89.10",
+          "0.89.11",
+          "0.89.12",
+          "0.89.13",
+          "0.89.14",
+          "0.89.15",
+          "0.89.16",
+          "0.89.17",
+          "0.89.18",
+          "0.89.19",
+          "0.89.20"
+        ],
+        "saved": false,
+        "confirmationPending": true
       }
     },
     "timelineResearch": {
@@ -3871,7 +3901,9 @@
       "metadataUpdatesAvailableThroughCurrentMcp": false,
       "actualDatesConfigured": false,
       "webLoginRequiredForMetadataUi": true,
-      "schedulePreferenceAwaited": true
+      "schedulePreferenceAwaited": true,
+      "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
+      "implementationStartedBeforeDatesConfigured": false
     }
   },
   "preparedCandidate": {
