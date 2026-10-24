@@ -1,0 +1,214 @@
+{
+  "version": "0.89.16",
+  "sourceCommit": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff",
+  "releaseCommit": "c92d76351b00f9669cb2f41a1bf67d90785a552e",
+  "workerSha256": "38bbcbad2a6f985e00906443e8375ee492151917d2be009e753afdb9ebe9f84a",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.16-item-formula-guidance",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-item-formula-guidance",
+  "baselineProductionCommit": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
+  "changes": {
+    "before": "Calculation errors lacked a failing field identity. Item input showed a generic message without the calculation label or navigation to related editable inputs.",
+    "after": "FormCore.compute annotates the same Error with the innermost failing formula field ID. ItemUI labels the calculation and provides guarded buttons to referenced editable inputs and existing form settings. Explicit save reveals the failed output and focuses a help button; live typing never moves focus.",
+    "why": "Users must be able to find and correct calculation inputs without guessing hidden fields or letting the app guess a correct value.",
+    "calculationRulesMessagesOrderOrSuccessfulResultsChanged": false,
+    "errorFormulaFieldIdentityAdded": true,
+    "persistentVisibilityOrStorageShapeChanged": false,
+    "settingsOrBusinessAutoSaveAdded": false,
+    "implementationScopes": [
+      "FormCore.compute",
+      "ItemUI.render error display and save failure feedback"
+    ]
+  },
+  "validation": {
+    "preFixNodeTests": 11,
+    "preFixNodeFailed": 10,
+    "preFixNodePassed": 1,
+    "newNodeTests": 11,
+    "finalFocusedNodePassed": 70,
+    "preFixActualShellBrowserFailed": 8,
+    "preFixActualShellBrowserPassed": 0,
+    "newActualShellBrowserPassed": 8,
+    "viewports": [
+      390,
+      1280
+    ],
+    "newAndExistingItems": true,
+    "cases": [
+      "division/rounding/missing-reference/syntax/cycle error identity",
+      "innermost nested formula identity",
+      "hidden standard/custom input navigation",
+      "live typing never moves focus",
+      "explicit save exposes failed result and focuses help button",
+      "constant error offers form settings without input guesses",
+      "stale and revoked permission callbacks reject actions",
+      "corrected explicit save/reload preserves typed data and unrelated records"
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 244,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false
+  },
+  "rea": {
+    "summary": ".artifacts/manual-item-formula-guidance-20261024/rea/rea-summary.json",
+    "ownScopes": 4,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
+      "wholeFileCopied": false,
+      "unchangedOutsideScopes": true,
+      "files": [
+        {
+          "file": "dist/item-ui.js",
+          "rootHash": "9524d6cd7cb7db22ea94a753555c48334813368a1b3fdd447d96b0cdcdfc9cac",
+          "candidateHash": "9524d6cd7cb7db22ea94a753555c48334813368a1b3fdd447d96b0cdcdfc9cac",
+          "scopes": [
+            {
+              "name": "render",
+              "beforeSha256": "a0066e9c18803352609eb1360b3925e2c1102f0e6634abae64f87ea2aa1e126d",
+              "afterSha256": "4f38c6b7e9752fe926c7354853da2a7ce31a36396e0ecdb783ca96208fed2af6"
+            }
+          ]
+        },
+        {
+          "file": "dist/form-core.js",
+          "rootHash": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+          "candidateHash": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+          "scopes": [
+            {
+              "name": "compute",
+              "beforeSha256": "8f1e784fcad0f92b64436cd9c439eb5e629d127c63ad2601dc4ec0c8ad263de6",
+              "afterSha256": "27d533d81142c778d030f320e150915cabe8a719c94c8c93eeb9813f2c877929"
+            }
+          ]
+        }
+      ]
+    },
+    "matchingScopePairs": 2,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/item-formula-guidance.cjs": true,
+      "tests/browser/item-formula-guidance.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.16",
+    "pid": 2806117,
+    "persistentExecSession": 3353,
+    "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
+    "workerSha256": "38bbcbad2a6f985e00906443e8375ee492151917d2be009e753afdb9ebe9f84a",
+    "doNotPollOrTerminatePersistentSession": true
+  },
+  "releaseManifest": ".artifacts/manual-item-formula-guidance-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.16",
+      "browserInventoryByteEqual": true,
+      "sha256Before": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "sha256After": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "hostedPartnerFieldsExact": true,
+      "hostedPartnerControlCountIncludingFormPicker": 14,
+      "hostedItemSettingsFieldsExact": true,
+      "hostedItemSettingsControlCount": 256,
+      "existingAuthenticatedSessionRetained": true,
+      "versionVisible": "0.89.16",
+      "workTabsAfter": 1,
+      "dialogsAfter": 0,
+      "hostedBusinessOrSettingsWrites": 0,
+      "hostedSettingsReorders": 0,
+      "actualMailSends": 0,
+      "formulaRecoveryAndSaveOnlySynthetic": true,
+      "verification": "Actual UI JSON backups before/after byte equal; partner14 controls including form picker and item settings256 controls read/cancel exact; returned to original request tab."
+    },
+    "server": {
+      "version": "0.89.16",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.16",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "approved0890SavedAndReread": true,
+    "lastConfirmedDocumentVersion": 25,
+    "batch16ProposalConfirmationPending": true,
+    "current08916DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "The approved0.89.0 paragraph is already saved. Separate16-document concrete proposal remains pending; no duplicate prompt or auth recheck.",
+    "draftFile": ".artifacts/manual-item-formula-guidance-20261024/moa-draft.json"
+  },
+  "nextWork": "거래처등록의 문자/숫자 추가항목과 계산식 오류에서 입력값·초안을 보존하며 관련 칸/양식설정으로 이동할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 품목 오류 안내 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "Calculation input navigation and final item save/reload used isolated synthetic data; hosted preservation checks used read/cancel only.",
+    "Help buttons list editable calculation inputs without claiming which value is incorrect. Formula settings remain an explicit user action.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "version": "0.89.15",
-  "status": "deployed-item-required-focus",
+  "version": "0.89.16",
+  "status": "deployed-item-formula-guidance",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -119,7 +119,8 @@
     "Item conditional forms use the same prepared company, record and current draft initial values as ItemUI, preserving first-render form-default precedence and explicit zero/false/blank values. evidence/manual-item-conditional-defaults-20261024.json",
     "Item save validates references, conditional forms, required fields and formulas against full normalized values before compacting the final record; storage shape and unrelated masters remain unchanged. evidence/manual-item-save-normalization-20261024.json",
     "Item save preflight reviews a changed conditional form from the current draft, reveals required fields and pauses without business or form settings writes; subsequent explicit save uses normal validation. evidence/manual-item-conditional-feedback-20261024.json",
-    "Item custom field validation preserves original rules and error order while annotating the failing field ID so hidden required controls can be revealed/focused after draft resume without changing saved form visibility. evidence/manual-item-required-focus-20261024.json"
+    "Item custom field validation preserves original rules and error order while annotating the failing field ID so hidden required controls can be revealed/focused after draft resume without changing saved form visibility. evidence/manual-item-required-focus-20261024.json",
+    "Item calculation errors identify the innermost failing output and offer guarded navigation to editable inputs and form settings without changing successful results, persistent visibility or storage. evidence/manual-item-formula-guidance-20261024.json"
   ],
   "checks": {
     "total": 998,
@@ -129,7 +130,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-item-required-focus-20261024.json",
+    "reference": "evidence/manual-item-formula-guidance-20261024.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -154,7 +155,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 236,
+    "currentReleaseBrowserSynthetic": 244,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -182,7 +183,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.89.15",
+    "currentReleaseFullRegressionVersion": "0.89.16",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -1194,16 +1195,48 @@
         ".artifacts/manual-item-required-focus-20261024/browser-after.log",
         ".artifacts/manual-item-required-focus-20261024/verify-local.log"
       ]
+    },
+    "itemFormulaGuidance": {
+      "preFixNodeTests": 11,
+      "preFixNodeFailed": 10,
+      "preFixNodePassed": 1,
+      "newNodeTests": 11,
+      "finalFocusedNodePassed": 70,
+      "preFixActualShellBrowserFailed": 8,
+      "preFixActualShellBrowserPassed": 0,
+      "newActualShellBrowserPassed": 8,
+      "viewports": [
+        390,
+        1280
+      ],
+      "newAndExistingItems": true,
+      "cases": [
+        "division/rounding/missing-reference/syntax/cycle error identity",
+        "innermost nested formula identity",
+        "hidden standard/custom input navigation",
+        "live typing never moves focus",
+        "explicit save exposes failed result and focuses help button",
+        "constant error offers form settings without input guesses",
+        "stale and revoked permission callbacks reject actions",
+        "corrected explicit save/reload preserves typed data and unrelated records"
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 244,
+      "fullNodeSuitePassed": true,
+      "releaseChecks": 4,
+      "build": true,
+      "selfReview": true,
+      "independentAgentReview": false
     }
   },
-  "future_research": "품목 추가항목의 계산식 오류에서 잘못된 계산/입력 항목을 찾고 값을 보완할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 숨김 필수항목 노출/초안 재개 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.15 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
+  "future_research": "거래처등록의 문자/숫자 추가항목과 계산식 오류에서 입력값·초안을 보존하며 관련 칸/양식설정으로 이동할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 품목 오류 안내 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.16 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-item-required-focus-20261024.json",
+    "reference": "evidence/manual-item-formula-guidance-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
-    "publicVersionVerified": "0.89.15",
+    "deployedSourceCommit": "c92d76351b00f9669cb2f41a1bf67d90785a552e",
+    "publicVersionVerified": "0.89.16",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -1262,20 +1295,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.89.15",
+    "existingSessionRetainedVersion": "0.89.16",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.89.15",
+    "lastExactBrowserBackupComparisonVersion": "0.89.16",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.89.15",
+    "currentServerStateAndMailPreservedVersion": "0.89.16",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.89.15",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.16",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1586,11 +1619,11 @@
       "reference": "evidence/manual-master-forms-20261024.json"
     },
     "operatingRuntime": {
-      "version": "0.89.15",
-      "pid": 2795595,
-      "persistentExecSession": 9342,
+      "version": "0.89.16",
+      "pid": 2806117,
+      "persistentExecSession": 3353,
       "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
-      "workerSha256": "5a341c3b404ecaf27aa73d48217b078975b56c0e54d56cc7cab6fd2a862d9f52",
+      "workerSha256": "38bbcbad2a6f985e00906443e8375ee492151917d2be009e753afdb9ebe9f84a",
       "doNotPollOrTerminatePersistentSession": true
     },
     "entryQueryOwnerGuard": {
@@ -1719,6 +1752,15 @@
       "requiredFieldRecoveryHostedSaveVerified": false,
       "hostedBusinessOrSettingsSaveVerified": false,
       "reference": "evidence/manual-item-required-focus-20261024.json"
+    },
+    "itemFormulaGuidance": {
+      "deployed": true,
+      "sourceCommit": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff",
+      "hostedPartnerReadCancelVerified": true,
+      "hostedItemSettingsReadCancelVerified": true,
+      "formulaRecoveryHostedSaveVerified": false,
+      "hostedBusinessOrSettingsSaveVerified": false,
+      "reference": "evidence/manual-item-formula-guidance-20261024.json"
     }
   },
   "manualParity": {
@@ -1731,12 +1773,12 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.89.15",
+      "productionVersion": "0.89.16",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "품목 추가항목의 계산식 오류에서 잘못된 계산/입력 항목을 찾고 값을 보완할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 숨김 필수항목 노출/초안 재개 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "nextIndependentManual": "거래처등록의 문자/숫자 추가항목과 계산식 오류에서 입력값·초안을 보존하며 관련 칸/양식설정으로 이동할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 품목 오류 안내 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-08814-integration-20261024.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1790,7 +1832,8 @@
       "latestItemConditionalDefaultsSourceRequired": "ec9da9a78ade1e6b846b2074f7a870c7afe968a1",
       "latestItemSaveNormalizationSourceRequired": "0f69a953fd7f772c898e949713faed1ad36dcd15",
       "latestItemConditionalFeedbackSourceRequired": "4fc19e4d6f232bdb96995f8337026eda76584641",
-      "latestItemRequiredFocusSourceRequired": "35552cf12f854d47eb138bf3b994f056daa6b5dc"
+      "latestItemRequiredFocusSourceRequired": "35552cf12f854d47eb138bf3b994f056daa6b5dc",
+      "latestItemFormulaGuidanceSourceRequired": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1952,14 +1995,14 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-ITEM-FORMULA-ERROR-FOCUS",
+      "sourceId": "OWN-PARTNER-FORMULA-ERROR-GUIDANCE",
       "plan": "docs/plan-master-number-transition-20261024.md",
-      "description": "품목 추가항목의 계산식 오류에서 잘못된 계산/입력 항목을 찾고 값을 보완할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 숨김 필수항목 노출/초안 재개 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "description": "거래처등록의 문자/숫자 추가항목과 계산식 오류에서 입력값·초안을 보존하며 관련 칸/양식설정으로 이동할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 품목 오류 안내 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "operatingVersion": "0.89.15",
-      "latestEvidence": "evidence/manual-item-required-focus-20261024.json",
-      "title": "품목 계산식 오류 항목 안내와 입력 복구",
-      "evidence": "evidence/manual-item-required-focus-20261024.json"
+      "operatingVersion": "0.89.16",
+      "latestEvidence": "evidence/manual-item-formula-guidance-20261024.json",
+      "title": "거래처 계산식 오류 안내와 입력 복구",
+      "evidence": "evidence/manual-item-formula-guidance-20261024.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2693,13 +2736,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-ITEM-FORMULA-ERROR-FOCUS",
-      "title": "품목 계산식 오류 항목 안내와 입력 복구",
-      "operatingVersion": "0.89.15",
-      "evidence": "evidence/manual-item-required-focus-20261024.json",
-      "description": "품목 추가항목의 계산식 오류에서 잘못된 계산/입력 항목을 찾고 값을 보완할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 숨김 필수항목 노출/초안 재개 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "sourceId": "OWN-PARTNER-FORMULA-ERROR-GUIDANCE",
+      "title": "거래처 계산식 오류 안내와 입력 복구",
+      "operatingVersion": "0.89.16",
+      "evidence": "evidence/manual-item-formula-guidance-20261024.json",
+      "description": "거래처등록의 문자/숫자 추가항목과 계산식 오류에서 입력값·초안을 보존하며 관련 칸/양식설정으로 이동할 수 있는지 합성 재현하고 확인된 안내 누락만 보완한다. 이번 품목 오류 안내 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "latestEvidence": "evidence/manual-item-required-focus-20261024.json",
+      "latestEvidence": "evidence/manual-item-formula-guidance-20261024.json",
       "plan": "docs/plan-master-number-transition-20261024.md"
     },
     "currencyRegistration": {
@@ -3580,14 +3623,22 @@
       "deployed": true,
       "done": false,
       "newOfficialRequirements": 0
+    },
+    "itemFormulaGuidance": {
+      "version": "0.89.16",
+      "reference": "evidence/manual-item-formula-guidance-20261024.json",
+      "sourceCommit": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0
     }
   },
   "preparedCandidate": {
-    "version": "0.89.15",
-    "commit": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
-    "sourceCommit": "35552cf12f854d47eb138bf3b994f056daa6b5dc",
-    "manifest": ".artifacts/manual-item-required-focus-20261024/release-manifest.json",
-    "bundleSha256": "5a341c3b404ecaf27aa73d48217b078975b56c0e54d56cc7cab6fd2a862d9f52",
+    "version": "0.89.16",
+    "commit": "c92d76351b00f9669cb2f41a1bf67d90785a552e",
+    "sourceCommit": "d5ccbad5dcb3f4054c63091ff865503fb1f8feff",
+    "manifest": ".artifacts/manual-item-formula-guidance-20261024/release-manifest.json",
+    "bundleSha256": "38bbcbad2a6f985e00906443e8375ee492151917d2be009e753afdb9ebe9f84a",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -3652,14 +3703,15 @@
       "item-conditional-forms-evaluate-prepared-company-record-and-current-draft-values",
       "item-form-validation-uses-normalized-values-before-final-storage-compaction",
       "item-before-save-conditional-form-review-preserves-drafts-and-reveals-required-fields",
+      "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume",
       "item-custom-field-errors-reveal-hidden-controls-after-conditional-draft-resume"
     ],
-    "supersedesCandidateCommit": "e7bf0596539495f63562c78b08a08795659c6d9e",
+    "supersedesCandidateCommit": "8879e96ea99c6bc32b6e4a0e1c6837e02f4f1998",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.89.15-item-required-focus"
+    "branch": "release/0.89.16-item-formula-guidance"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -4512,6 +4564,13 @@
       "reference": "evidence/manual-item-required-focus-20261024.json",
       "summary": ".artifacts/manual-item-required-focus-20261024/rea/rea-summary.json",
       "newOwnScopes": 2,
+      "newOriginalScopes": 0,
+      "originalExecuted": false
+    },
+    "itemFormulaGuidance": {
+      "reference": "evidence/manual-item-formula-guidance-20261024.json",
+      "summary": ".artifacts/manual-item-formula-guidance-20261024/rea/rea-summary.json",
+      "newOwnScopes": 4,
       "newOriginalScopes": 0,
       "originalExecuted": false
     }
