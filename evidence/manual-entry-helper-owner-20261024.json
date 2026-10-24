@@ -1,0 +1,421 @@
+{
+  "version": "0.88.15",
+  "status": "deployed-editor-helper-owner-and-storage-preservation",
+  "baselineProductionCommit": "0c6bc04d68792dde9f06b9908ab5ef3d3a36722a",
+  "changes": [
+    {
+      "before": "BOM preview still replaced an editor draft after logout, user/company/role changes, an external storage revision or detached parent DOM. My-item settings could save after a same-user role change.",
+      "after": "Reuse the existing editor/account/role/storage guard at helper launch and before every shared draft apply; EntryExtra modal guards invoke assertCurrent before draft or personal-group mutations.",
+      "why": "A still-writable replacement account or unchanged cached database must not authorize an older editor or silently apply a stale result. This is a reproducible own-product consistency defect independent of unknown original calculation contracts.",
+      "preserved": [
+        "Existing calculations and original server contracts",
+        "Saved business data and custom forms",
+        "Source lineage, quantities and stock",
+        "Root-only VAT5 research and both mapping candidates",
+        "Normal BOM apply/save/reload and user draft values"
+      ]
+    }
+  ],
+  "validation": {
+    "beforeNode": {
+      "tests": 8,
+      "failed": 6,
+      "passed": 2
+    },
+    "newNode": 9,
+    "targetedNodeBeforeNinthAdded": 139,
+    "targetedBrowser": 2,
+    "browserWidths": [
+      390,
+      1280
+    ],
+    "fullVerifyLocalPassed": true,
+    "testHarnessCorrections": [
+      "Scope the My-item test close button to its helper, not the parent editor.",
+      "Synchronize all isolated release version displays and manual metadata with package0.88.15 before full regression."
+    ],
+    "fullBrowserPassed": 152,
+    "rootFocusedNode": 60,
+    "nodeTestRunnerChecksAcrossGroups": 1570,
+    "targetedNodeIncludingNinth": 140,
+    "releaseChecks": 4,
+    "fullVerifyLog": ".artifacts/manual-entry-helper-owner-20261024/verify-local.log"
+  },
+  "rea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 8,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "applyDraft",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "d44a009a21e5b2500c3961eef51410202f406f28c201bfb7e581001d8ddf0978",
+        "start": 91262,
+        "end": 92517,
+        "lineStart": 405,
+        "lineEnd": 405,
+        "fragmentSha256": "f4591af93dfac081805ee20b24c992a6534c5a5fe7c0bbef52ac392bdc8196d3",
+        "inputFile": "own-applyDraft.js",
+        "inputSha256": "bef55e47a4401ac0db20979c2e646bdc6039c9edb91cf533de99bd6da305ea9e",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "applyDraft",
+        "file": ".artifacts/validation/entry-helper-owner-20261024/dist/inventory-ui.js",
+        "sourceSha256": "a8c419027f7df7d891085cbe0945d175155604af799e70c4c2b55017e66d071a",
+        "start": 89358,
+        "end": 90613,
+        "lineStart": 403,
+        "lineEnd": 403,
+        "fragmentSha256": "f4591af93dfac081805ee20b24c992a6534c5a5fe7c0bbef52ac392bdc8196d3",
+        "inputFile": "candidate-applyDraft.js",
+        "inputSha256": "bef55e47a4401ac0db20979c2e646bdc6039c9edb91cf533de99bd6da305ea9e",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "helperOptions",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "d44a009a21e5b2500c3961eef51410202f406f28c201bfb7e581001d8ddf0978",
+        "start": 95277,
+        "end": 95795,
+        "lineStart": 427,
+        "lineEnd": 427,
+        "fragmentSha256": "0b30fa6d8ed4c2e6fe3fa5a2c7f296e5a1761d58f89219fcaa0c08016f26807d",
+        "inputFile": "own-helperOptions.js",
+        "inputSha256": "3bb402174af69d36cabd1d4e72b3bdea8d2026b35bbd14a7ea3ae1aa43854b60",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "helperOptions",
+        "file": ".artifacts/validation/entry-helper-owner-20261024/dist/inventory-ui.js",
+        "sourceSha256": "a8c419027f7df7d891085cbe0945d175155604af799e70c4c2b55017e66d071a",
+        "start": 90625,
+        "end": 91104,
+        "lineStart": 404,
+        "lineEnd": 404,
+        "fragmentSha256": "277789bbf0e72dc3e02231592da8a20835930e435b89c44ec9067872ba502f27",
+        "inputFile": "candidate-helperOptions.js",
+        "inputSha256": "757e0852c4165ca776c39e58c8bc1cc0f236c8a5838d56ed42bc3663afa8c1c4",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "helper",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "d44a009a21e5b2500c3961eef51410202f406f28c201bfb7e581001d8ddf0978",
+        "start": 96449,
+        "end": 96551,
+        "lineStart": 431,
+        "lineEnd": 431,
+        "fragmentSha256": "d23e45d7896c16757a7414b0997064a1d45c4797c1c9fdf5a2624ea8b00411af",
+        "inputFile": "own-helper.js",
+        "inputSha256": "1f5f05aadaf1885d3cb1a797c2fd62b4830feb5a864bb5c0c01ed491fa04c577",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "helper",
+        "file": ".artifacts/validation/entry-helper-owner-20261024/dist/inventory-ui.js",
+        "sourceSha256": "a8c419027f7df7d891085cbe0945d175155604af799e70c4c2b55017e66d071a",
+        "start": 91758,
+        "end": 91860,
+        "lineStart": 408,
+        "lineEnd": 408,
+        "fragmentSha256": "d23e45d7896c16757a7414b0997064a1d45c4797c1c9fdf5a2624ea8b00411af",
+        "inputFile": "candidate-helper.js",
+        "inputSha256": "1f5f05aadaf1885d3cb1a797c2fd62b4830feb5a864bb5c0c01ed491fa04c577",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "modal",
+        "file": "dist/entry-extra-ui.js",
+        "sourceSha256": "ff9853daf91e10f5072c35519c0034aff4bfeb554fd4a111de78f5aeeec05922",
+        "start": 1689,
+        "end": 3037,
+        "lineStart": 8,
+        "lineEnd": 11,
+        "fragmentSha256": "f1cd582776d1a7854d4b0961dde0c39fe70103a7b626c81dffb87c239228f1f5",
+        "inputFile": "own-modal.js",
+        "inputSha256": "8a20f59eedc14dbcb5f7c6fbdc419990d74ad36520cfc01227653741ef65c5b8",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "modal",
+        "file": ".artifacts/validation/entry-helper-owner-20261024/dist/entry-extra-ui.js",
+        "sourceSha256": "ff9853daf91e10f5072c35519c0034aff4bfeb554fd4a111de78f5aeeec05922",
+        "start": 1689,
+        "end": 3037,
+        "lineStart": 8,
+        "lineEnd": 11,
+        "fragmentSha256": "f1cd582776d1a7854d4b0961dde0c39fe70103a7b626c81dffb87c239228f1f5",
+        "inputFile": "candidate-modal.js",
+        "inputSha256": "8a20f59eedc14dbcb5f7c6fbdc419990d74ad36520cfc01227653741ef65c5b8",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "394af160f3629b07ff7d9c3bf6e761ae9ef82afd21b41b4105828d24a396baa8",
+    "statistics": {
+      "relevant_files": 8,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 6527,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 8,
+      "visited_ast_nodes": 1650,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "exactExpectedEdits": {
+      "own/dist/inventory-ui.js": true,
+      "candidate/dist/inventory-ui.js": true,
+      "own/dist/entry-extra-ui.js": true,
+      "candidate/dist/entry-extra-ui.js": true
+    },
+    "reason": "helperOptions retains a pre-existing root-only VAT option; targeted changes exactly match each baseline. Production candidate excludes that unshipped option.",
+    "fullApplyDraftRootCandidateEqual": true,
+    "fullHelperOptionsRootCandidateEqual": false
+  },
+  "preservedCandidates": {
+    "oldDirtyStatusExact": true,
+    "oldDirtyFiles": 12,
+    "oldDirtyHashesExact": true,
+    "mappingIntegratedHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "mappingIntegratedStatus": ""
+  },
+  "deploymentAttempted": true,
+  "productionDeployed": true,
+  "originalBusinessWrites": 0,
+  "productionBusinessWrites": 0,
+  "originalApiCalls": 0,
+  "communityPublished": false,
+  "manualCounts": {
+    "indexItems": 77,
+    "reviewedBodies": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "blocked": [
+    "TC101P_01 field-link editor contract and real configured acceptance",
+    "Five unresolved VAT5 arithmetic/input/precision conflicts",
+    "Minimum-purchase-unit/plan quantity original formula",
+    "Request-upload actual-save validation contract"
+  ],
+  "nextWork": "Extend the new owner/storage boundary scenarios to order imports, barcode and stock helpers using only local synthetic inputs; resume original-contract work only when new read-only evidence exists.",
+  "sourceCommit": "acb8de6c77d070e1f69553a359e45203600e87d0",
+  "sourcePushed": true,
+  "releaseCommit": "517cd03d090777330c82a4610cd37166c992f687",
+  "releasePushed": true,
+  "workerSha256": "6990c9ba90b0cfa1d32ab4e470af60729b7c656135f17008a0dbe4665f4d4a97",
+  "runtime": {
+    "version": "0.88.15",
+    "pid": 2646922,
+    "persistentExecSession": 66032,
+    "sessionMustNotBePolledOrTerminated": true,
+    "status": "Rea ERP is running: http://127.0.0.1:8781 (Linux PID 2646922; backend: see /__rea/health)",
+    "health": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "installedWorkerSha256": "6990c9ba90b0cfa1d32ab4e470af60729b7c656135f17008a0dbe4665f4d4a97"
+  },
+  "releaseManifest": ".artifacts/manual-entry-helper-owner-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.88.15",
+      "browserInventoryByteEqual": true,
+      "browserInventorySha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "authenticatedSessionRetained": true,
+      "workTabCount": 1,
+      "hostedHelperOpenCancelVerified": true,
+      "hostedBusinessSaved": false,
+      "hostedRoleSwitchTested": false,
+      "originalTouched": false
+    },
+    "server": {
+      "version": "0.88.15",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    }
+  },
+  "deployment": {
+    "version": "0.88.15",
+    "sourceCommit": "517cd03d090777330c82a4610cd37166c992f687",
+    "checks": [
+      {
+        "path": "/login",
+        "status": 200,
+        "versionPresent": true
+      },
+      {
+        "path": "/purchasing-progress-settings-ui.js",
+        "status": 200,
+        "sha256": "915320106f73c92ecf8946bbff40b6e569b88826ac335b30aa6d180ad4387571",
+        "equalsLocal": true
+      },
+      {
+        "path": "/self-settings-ui.js",
+        "status": 200,
+        "sha256": "287ea8bc7529365f29115346e807d48c7097d36e32efc135202e997b97e21b51",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-core.js",
+        "status": 200,
+        "sha256": "650da82f6176e7262594bfdbf46b1f5e126a5b99b169dc269888363d96a06c69",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.js",
+        "status": 200,
+        "sha256": "c928a81f674347eadddc2646efe63a50b2fdece285ccc3e561da59a0a47f6c3b",
+        "equalsLocal": true
+      },
+      {
+        "path": "/form-options.css",
+        "status": 200,
+        "sha256": "0efd905def4977deca1c4a6bb48ad84454b2de9a613ea32642b205375188bad6",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-ui.js",
+        "status": 200,
+        "sha256": "a8c419027f7df7d891085cbe0945d175155604af799e70c4c2b55017e66d071a",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api-manual-data.js",
+        "status": 200,
+        "sha256": "4e46c5989543e63cb4208443b9341c87fb9ccdec34aed34e333934b1d3d4e240",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory.css",
+        "status": 200,
+        "sha256": "e851910059b3a2135dd6c8f399504164d502ff8cf7241f87c632045759aa4812",
+        "equalsLocal": true
+      },
+      {
+        "path": "/inventory-core.js",
+        "status": 200,
+        "sha256": "9fe74fd7c4df2a30e273fbdb19919501b48a59b796863caf24b82e3d46e91281",
+        "equalsLocal": true
+      },
+      {
+        "path": "/entry-core.js",
+        "status": 200,
+        "sha256": "bf274499eb775c8f26ae42ebc5cc69bf17ab4af1250d8e21984366619c1c8a70",
+        "equalsLocal": true
+      },
+      {
+        "path": "/price-request-core.js",
+        "status": 200,
+        "sha256": "b8482bdea4a56e07d2560bc5b91193c17411d069b1ab160a89e552d030a79025",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchase-plan-core.js",
+        "status": 200,
+        "sha256": "1c0850c08d876fca11c33be154dc57b09a59cce7a46a7f829144f1023a891adf",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchase-plan-ui.js",
+        "status": 200,
+        "sha256": "ebf1bb53df211ab0793f38e6d6e8e43fc36b1ce039e1d4dbd96b28a8a74e1355",
+        "equalsLocal": true
+      },
+      {
+        "path": "/purchasing-plan-list-ui.js",
+        "status": 200,
+        "sha256": "d3a92f36f3813e9494f9babfe8a1cab61f28af8e12d8c6bb69d98918daf69722",
+        "equalsLocal": true
+      },
+      {
+        "path": "/api/mail/mailboxes",
+        "status": 401
+      },
+      {
+        "path": "/__rea/health",
+        "status": 404
+      },
+      {
+        "path": "/entry-extra-ui.js",
+        "status": 200,
+        "sha256": "ff9853daf91e10f5072c35519c0034aff4bfeb554fd4a111de78f5aeeec05922",
+        "equalsLocal": true
+      }
+    ]
+  },
+  "moa": {
+    "whoamiReadSucceeded": true,
+    "projectListed": true,
+    "existingProgressVersion": 23,
+    "existingProgressCanEdit": true,
+    "originalDesignsRead": {
+      "prd": 3,
+      "architecture": 2,
+      "roadmap": 3
+    },
+    "saved": false,
+    "reason": "Connector requires showing concrete changes and user confirmation before saving."
+  },
+  "limitations": [
+    "Original login and field-link/VAT5/minimum-unit/upload contracts remain gated; no original writes or authentication retries.",
+    "Browser synthetic save/reload does not prove hosted or original real-business acceptance.",
+    "Mapping candidate07bdfb3 is preserved and now requires the new helper-owner correction before any future release; not installed."
+  ]
+}
