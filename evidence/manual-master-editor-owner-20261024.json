@@ -1,0 +1,190 @@
+{
+  "version": "0.89.8",
+  "sourceCommit": "39ca0b92fdee5e5c7c0371b215b2b709d0e1a609",
+  "releaseCommit": "409b28a8a21276373e09221c30bb0fc5750dd4de",
+  "workerSha256": "bfe3a89b1eb74b7226f500321320d149a105731b8129ca095e25f0b97b8b029d",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.8-master-editor-owner",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "date": "2026-10-24",
+  "status": "deployed-master-editor-owner",
+  "baselineProductionCommit": "c94585e28b675a59f71b21fa96dd65c7e4dcfcd5",
+  "changes": {
+    "before": "General master save could run after logout/account/company/role/read-permission changes or detached/closed editors; a failed external-storage layout switch left the picker inconsistent.",
+    "after": "Capture editor host/modal/route and actor identity; guard master saves, item callbacks and form preserve/commit against owner/role/read-write/storage/lifecycle changes before executing a command. Retain drafts and restore rejected layout selection.",
+    "why": "A draft opened under a prior account or editor must not overwrite another context.",
+    "schemaOrCoreFormulaRulesChanged": false,
+    "documentAndSearchModePreserved": true,
+    "normalOwnFormCommitThenMasterSavePreserved": true
+  },
+  "validation": {
+    "preFixNodeFailed": 17,
+    "preFixNodePassed": 14,
+    "newNodeTests": 31,
+    "focusedNodePassed": 96,
+    "preFixActualShellBrowserFailed": 4,
+    "newActualShellBrowserPassed": 4,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 184,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "independentAgentReview": false,
+    "logs": [
+      ".artifacts/manual-master-editor-owner-20261024/node-before.log",
+      ".artifacts/manual-master-editor-owner-20261024/node-after.log",
+      ".artifacts/manual-master-editor-owner-20261024/browser-before.log",
+      ".artifacts/manual-master-editor-owner-20261024/browser-after.log",
+      ".artifacts/manual-master-editor-owner-20261024/verify-local.log"
+    ]
+  },
+  "rea": {
+    "summary": ".artifacts/manual-master-editor-owner-20261024/rea/rea-summary.json",
+    "ownScopes": 4,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "sourceScopeVerification": {
+    "productionBase": "c94585e28b675a59f71b21fa96dd65c7e4dcfcd5",
+    "wholeInventoryFileCopied": false,
+    "scopedPort": {
+      "baseRelease": "c94585e28b675a59f71b21fa96dd65c7e4dcfcd5",
+      "wholeFileCopied": false,
+      "rootHash": "1a3ff3f23cfb8100e050003f72f20f0a2d24a85f6a6fdba666aa8b7794cc21ee",
+      "candidateHash": "d433ea09fc93a29da813c763578707ec6d56eb250711214f15f5152686d8e0ef",
+      "unchangedOutsideScopes": true,
+      "scopes": [
+        {
+          "name": "ensureOptions",
+          "beforeSha256": "1e1d22c534e419463cae079ba0b36843a5a39fe8bfc596f9a6f01c0f070a57d7",
+          "afterSha256": "c31377c678b35c698431b7b23df6c0e9d60c063b26f8915958fdb69398155ca4"
+        },
+        {
+          "name": "masterEditor",
+          "beforeSha256": "b01042f6c80cd9d89c0f9a83323a51604d424c830c734f8ba63799b7ca8fe92d",
+          "afterSha256": "334c59eebef141be14a9da22c5d74b1d4be9e06340973c0e0dd9222ee1ab2f3f"
+        }
+      ]
+    },
+    "matchingScopePairs": 2,
+    "unshippedRootVatOrMappingCopied": false,
+    "tests": {
+      "tests/master-editor-owner.cjs": true,
+      "tests/browser/master-editor-owner.spec.cjs": true
+    }
+  },
+  "runtime": {
+    "version": "0.89.8",
+    "pid": 2725117,
+    "persistentExecSession": 21059,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.89.7",
+    "installedWorkerSha256": "bfe3a89b1eb74b7226f500321320d149a105731b8129ca095e25f0b97b8b029d"
+  },
+  "releaseManifest": ".artifacts/manual-master-editor-owner-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.8",
+      "browserInventoryByteEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formsExact": true,
+      "workTabCount": 1,
+      "openDialogCount": 0,
+      "existingLoginRetained": true,
+      "hostedPartnerFields": 13,
+      "hostedPartnerReadCancel": true,
+      "hostedPartnerFieldsExact": true,
+      "hostedContextChangeOrSaveTest": false,
+      "hostedBusinessOrSettingsSaved": false,
+      "originalTouched": false,
+      "preBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (30).json",
+      "postBackupFile": "/mnt/c/Users/PL-PD-CHANGGWON-LEE/Downloads/ecount-inventory-2026-10-24 (31).json",
+      "productionScreenshot": ".artifacts/manual-master-editor-owner-20261024/production.png",
+      "syntheticScreenshot": ".artifacts/manual-master-editor-owner-20261024/role-blocked-1280.png"
+    },
+    "server": {
+      "version": "0.89.8",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyFilesExact": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "deployment": {
+    "publicUrl": "https://rea.qaredi.com",
+    "version": "0.89.8",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "rootFullBuildPerformed": false,
+    "unshippedVATOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "manualCounts": {
+    "index": 77,
+    "bodies": 47,
+    "requirements": 44,
+    "done": 0,
+    "changed": false
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "newOriginalBodies": 0,
+  "communityPublished": false,
+  "moa": {
+    "lastConfirmedDocumentVersion": 24,
+    "pending0890ProposalUnchanged": true,
+    "current0898DraftOnly": true,
+    "saveAttempted": false,
+    "reason": "Existing concrete0.89.0 proposal remains pending; no repeated approval request or auth check.",
+    "draftFile": ".artifacts/manual-master-editor-owner-20261024/moa-draft.json"
+  },
+  "nextWork": "기초등록 숫자 입력의 미완성값·native badInput 상태에서 양식 전환·닫기·초안 읽기의 원문/설정 보존을 합성 재현하고 확인된 누락만 보완한다. 이번 계정·권한/저장본 경계 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Original TC101P_01, VAT5, minimum purchase unit and upload save contracts remain unverified.",
+    "Account/role/storage invalidation and recovery used isolated synthetic data; hosted checks only read/cancel ordinary partner fields without switching accounts or saving layouts/partners.",
+    "Own-scope REA parsing does not establish original runtime equivalence."
+  ]
+}
