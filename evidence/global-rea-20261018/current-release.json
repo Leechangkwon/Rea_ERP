@@ -1,6 +1,6 @@
 {
-  "version": "0.88.15",
-  "status": "deployed-editor-helper-owner-and-storage-preservation",
+  "version": "0.89.0",
+  "status": "deployed-master-fields-supplier-and-formulas",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -103,7 +103,8 @@
     "Generic conversion to purchasing inputs rejects historical type22/nonzero VAT without changing source, draft quantities, settings, history or balances. Compatible conversions and exact-source return amounts remain supported; explicit source correction can then convert with its recorded rate. evidence/manual-vat-convert-guard-20261024.json",
     "Confirmed pricerequest explicit header adoption into purchaseorder preserves stored transaction type with VAT rate, legacy codes and confirmed basis; incompatible type22/nonzero pairs reject atomically. No new tax input or formula migration. evidence/manual-price-order-tax-20261024.json",
     "Ready quote comparisons require at least one saved price confirmation before order candidate/staging/conversion/first save. Explicit requested-price choice, legacy sources, saved orders and partial-confirmation policies preserved. evidence/manual-price-unconfirmed-20261024.json",
-    "Shared entry helpers validate original editor, identity, role and exact stored inventory before applying draft or saving My-items. Evidence evidence/manual-entry-helper-owner-20261024.json"
+    "Shared entry helpers validate original editor, identity, role and exact stored inventory before applying draft or saving My-items. Evidence evidence/manual-entry-helper-owner-20261024.json",
+    "Master layouts select83 item fields plus saved-supplier projections; typed text/number custom fields, safe formulas and canonical legacy aliases. evidence/manual-master-forms-20261024.json"
   ],
   "checks": {
     "total": 998,
@@ -113,7 +114,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-entry-helper-owner-20261024.json",
+    "reference": "evidence/manual-master-forms-20261024.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -138,7 +139,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 152,
+    "currentReleaseBrowserSynthetic": 156,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -166,7 +167,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.88.15",
+    "currentReleaseFullRegressionVersion": "0.89.0",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -686,16 +687,46 @@
     },
     "entryHelperOwnerNewNode": 9,
     "entryHelperOwnerRelatedNode": 140,
-    "entryHelperOwnerNewBrowser": 2
+    "entryHelperOwnerNewBrowser": 2,
+    "masterForms": {
+      "verifyLocalExit": 0,
+      "fullBrowserPassed": 156,
+      "newBrowserPassed": 4,
+      "viewports": [
+        390,
+        1280
+      ],
+      "newNodeCases": 10,
+      "focusedModalAndMasterNodeCases": 36,
+      "existingItemRegistrationChecks": 35,
+      "releaseChecks": 4,
+      "selfReview": true,
+      "independentSubagentReview": false,
+      "finalExactReleaseVerificationPending": false,
+      "logs": [
+        ".artifacts/manual-master-forms-20261024/verify-local.log",
+        ".artifacts/manual-master-forms-20261024/focused-recheck.log",
+        ".artifacts/manual-master-forms-20261024/final-targeted.log",
+        ".artifacts/manual-master-forms-20261024/verify-final.log"
+      ],
+      "knownRepairDuringValidation": "Guarded absent ItemCore in legacy minimal modal environment; preserved existing missing-custom default behavior; final spec-label repair covered by extended live-form Node scenario and focused browser recheck.",
+      "finalExactReleaseVerification": {
+        "exitCode": 0,
+        "exactReleasedCode": true,
+        "workerHashUnchanged": "88d8a967cbe1ac46770fb7fd953778702e43769873b06e39fbef351a228329a7",
+        "candidateClean": true,
+        "browserPassed": 156
+      }
+    }
   },
-  "future_research": "029는 제목에 견적서/출하지시서/출하 범위로 미독 보류(done아님). 구매 우선 다음030 불러온 전표 자동 종결을 기존0.88 Option 설정/027 본문·실제 적용 계약과 대조한다.028 감사 이력/H 상세는 입력 이력 불러오기와 구분하고 정확한 본문·기초코드/상세/권한/보관 gate를 유지한다. 기존 VAT/통화/BODY/업로드/매핑 등 gate·root 전체빌드 금지 유지·전체완료false.",
+  "future_research": "사용자 요청의 기초등록 양식83필드/구매처7표시/문자·숫자·계산식 연결을0.89.0으로 배포했다. 원본 동등성 완료와 구분한다. 다음은 원본 로그인 없이 주문/재고/바코드 보조창 수명주기를 합성 검증하고 실제 누락만 보완한다. TC101P_01·VAT5 5충돌·최소구매단위·업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15/0.89.0 수정 통합 필요. root전체빌드 금지/전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-entry-helper-owner-20261024.json",
+    "reference": "evidence/manual-master-forms-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "517cd03d090777330c82a4610cd37166c992f687",
-    "publicVersionVerified": "0.88.15",
+    "deployedSourceCommit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
+    "publicVersionVerified": "0.89.0",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -754,20 +785,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.88.15",
+    "existingSessionRetainedVersion": "0.89.0",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.88.15",
+    "lastExactBrowserBackupComparisonVersion": "0.89.0",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.88.15",
+    "currentServerStateAndMailPreservedVersion": "0.89.0",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.88.15",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.0",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1069,6 +1100,22 @@
       "hostedOpenCancelVerified": true,
       "hostedBusinessSaved": false,
       "reference": "evidence/manual-entry-helper-owner-20261024.json"
+    },
+    "masterForms": {
+      "deployed": true,
+      "sourceCommit": "c49407758f818f71e95b6df7838dbad982962867",
+      "hostedOpenFilterCancelVerified": true,
+      "hostedSettingsOrBusinessSaveVerified": false,
+      "reference": "evidence/manual-master-forms-20261024.json"
+    },
+    "operatingRuntime": {
+      "version": "0.89.0",
+      "pid": 2654195,
+      "persistentExecSession": 1061,
+      "sessionMustNotBePolledOrTerminated": true,
+      "backend": "supabase",
+      "publicUrl": "https://rea.qaredi.com",
+      "privateRollbackVersion": "0.88.15"
     }
   },
   "manualParity": {
@@ -1081,7 +1128,7 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.88.15",
+      "productionVersion": "0.89.0",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
@@ -1124,7 +1171,8 @@
         "latestPriceRequestConfirmationSourceRequired": "22536b8363f421955d45732991f2dc27b8220eeb",
         "latestStatusTabPaginationSourceRequired": "ed72b2980dd4ac83c2b11e1d2e7df06285976646"
       },
-      "latestEntryHelperOwnerSourceRequired": "acb8de6c77d070e1f69553a359e45203600e87d0"
+      "latestEntryHelperOwnerSourceRequired": "acb8de6c77d070e1f69553a359e45203600e87d0",
+      "latestMasterFormsSourceRequired": "c49407758f818f71e95b6df7838dbad982962867"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1290,8 +1338,8 @@
       "plan": "docs/plan-purchase-manual.md",
       "description": "주문 불러오기·재고·바코드 보조창의 조회/미리보기에서 계정·역할 전환과 부모 종료 이후 이전 자료가 남는지 합성 재현하고 실제 누락만 보완한다. 원본 로그인은 필요하지 않다. TC101P_01/VAT5 5충돌/최소구매단위/업로드 저장 계약은 새 근거 확보 때 재개하며 같은 로그인 확인을 반복하지 않는다.",
       "done": false,
-      "operatingVersion": "0.88.15",
-      "latestEvidence": "evidence/manual-entry-helper-owner-20261024.json"
+      "operatingVersion": "0.89.0",
+      "latestEvidence": "evidence/manual-master-forms-20261024.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2027,10 +2075,11 @@
     "nextExecutableWork": {
       "sourceId": "OWN-ENTRY-HELPER-LIFECYCLE",
       "title": "원본 로그인 없이 입력 보조창 조회/미리보기 수명주기 보완",
-      "operatingVersion": "0.88.15",
+      "operatingVersion": "0.89.0",
       "evidence": "evidence/manual-entry-helper-owner-20261024.json",
       "description": "주문 불러오기·재고·바코드 보조창의 조회/미리보기에서 계정·역할 전환과 부모 종료 이후 이전 자료가 남는지 합성 재현하고 실제 누락만 보완한다. 원본 로그인은 필요하지 않다. TC101P_01/VAT5 5충돌/최소구매단위/업로드 저장 계약은 새 근거 확보 때 재개하며 같은 로그인 확인을 반복하지 않는다.",
-      "done": false
+      "done": false,
+      "latestEvidence": "evidence/manual-master-forms-20261024.json"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -2270,7 +2319,16 @@
       "canEdit": true,
       "writePendingUserConfirmation": true,
       "latestEvidence": "evidence/manual-entry-helper-owner-20261024.json",
-      "historicalUnauthenticatedInitializeWasNotTokenExpiryProof": true
+      "historicalUnauthenticatedInitializeWasNotTokenExpiryProof": true,
+      "currentVerifiedState": {
+        "pluginVersion": "1.0.2",
+        "accountAndProjectRead": true,
+        "documentVersion": 24,
+        "prior08815ApprovedAppendSavedAndReread": true,
+        "current0890ProposalConfirmationPending": true,
+        "authenticationRetryRequired": false,
+        "evidence": "evidence/manual-master-forms-20261024.json"
+      }
     },
     "timelineResearch": {
       "candidate": "CAND-COM-TIMELINE-001",
@@ -2720,7 +2778,9 @@
         "sourceCommit": "acb8de6c77d070e1f69553a359e45203600e87d0",
         "reference": "evidence/manual-entry-helper-owner-20261024.json",
         "integrated": false
-      }
+      },
+      "masterFormsSourceRequiredBeforeDeployment": "c49407758f818f71e95b6df7838dbad982962867",
+      "currentHelperOwnerSourceRequiredBeforeDeployment": "acb8de6c77d070e1f69553a359e45203600e87d0"
     },
     "entryHelperOwnerGuard": {
       "version": "0.88.15",
@@ -2729,14 +2789,23 @@
       "deployed": true,
       "newOfficialRequirements": 0,
       "done": false
+    },
+    "masterForms": {
+      "version": "0.89.0",
+      "reference": "evidence/manual-master-forms-20261024.json",
+      "sourceCommit": "c49407758f818f71e95b6df7838dbad982962867",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0,
+      "originalEditorContractIncomplete": true
     }
   },
   "preparedCandidate": {
-    "version": "0.88.15",
-    "commit": "517cd03d090777330c82a4610cd37166c992f687",
-    "sourceCommit": "acb8de6c77d070e1f69553a359e45203600e87d0",
-    "manifest": ".artifacts/manual-entry-helper-owner-20261024/release-manifest.json",
-    "bundleSha256": "6990c9ba90b0cfa1d32ab4e470af60729b7c656135f17008a0dbe4665f4d4a97",
+    "version": "0.89.0",
+    "commit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
+    "sourceCommit": "c49407758f818f71e95b6df7838dbad982962867",
+    "manifest": ".artifacts/manual-master-forms-20261024/release-manifest.json",
+    "bundleSha256": "88d8a967cbe1ac46770fb7fd953778702e43769873b06e39fbef351a228329a7",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -2785,14 +2854,15 @@
       "confirmed-request-explicit-tax-header-preservation",
       "saved-quote-confirmation-before-order-import",
       "status-tab-first-result-page-preserving-applied-pending-query-selection-forms-and-data",
-      "entry-helper-owner-role-current-editor-and-exact-storage-boundaries"
+      "entry-helper-owner-role-current-editor-and-exact-storage-boundaries",
+      "master-full-field-metadata-saved-supplier-details-typed-custom-fields-and-safe-formulas"
     ],
-    "supersedesCandidateCommit": "b61342062f0b9b64f5cc54cc15ae91b66d68797b",
+    "supersedesCandidateCommit": "517cd03d090777330c82a4610cd37166c992f687",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.88.14-list-tab-page"
+    "branch": "release/0.89.0-master-forms"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -2988,6 +3058,11 @@
       "newBodies": 1,
       "reobservedBodies": 1,
       "priorEvidence": "evidence/manual-input-path-20261023.json"
+    },
+    "masterFormsFaqs": {
+      "reference": "evidence/manual-master-forms-20261024.json",
+      "manifest": ".artifacts/manual-master-forms-20261024/reference-manifest.json",
+      "manualBodyCountsChanged": false
     }
   },
   "additional_REA_scope_evidence": {
@@ -3528,6 +3603,14 @@
       "truncated": false,
       "originalExecuted": false,
       "reusedPriorOriginalScopes": 4
+    },
+    "masterForms": {
+      "reference": "evidence/manual-master-forms-20261024.json",
+      "ownScopes": 24,
+      "originalScopes": 0,
+      "parseFailures": 0,
+      "coverage": "unknown",
+      "truncated": false
     }
   }
 }

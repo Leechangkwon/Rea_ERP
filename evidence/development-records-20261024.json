@@ -385,18 +385,33 @@
     "accountRead": true,
     "projectRead": true,
     "progressRead": true,
-    "progressDocVersion": 23,
+    "progressDocVersion": 24,
     "canEdit": true,
     "existingDesignVersions": {
       "prd": 3,
       "architecture": 2,
       "roadmap": 3
     },
-    "saved": false,
+    "saved": true,
     "writePendingConcreteProposalConfirmation": true,
-    "latestEvidence": "evidence/manual-entry-helper-owner-20261024.json",
+    "latestEvidence": "evidence/manual-master-forms-20261024.json",
     "previousPreparedPacketRetained": true,
     "previousPreparedPacketRequiresRefreshBeforeWrite": true,
-    "why": "Current connector tools are available and real document reads succeeded; old missing-tools status and file hashes must not be reused for a future save."
+    "why": "Actual account tools and the approved0.88.15 append/readback work. New0.89.0 and historical sections require separate concrete confirmation; no authentication retry needed.",
+    "readbackVerified": true,
+    "savedScope": "Approved0.88.15 paragraph only; sixteen historical sections remain local drafts.",
+    "current0890ProposalPending": true,
+    "priorApprovedAppend": {
+      "pageId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+      "approvedVersion": "0.88.15",
+      "doc_version": 24,
+      "existingBlocksPreserved": true,
+      "approvedParagraphReadback": true,
+      "blocks": 32,
+      "approval": "User approved the exact paragraph via async reply",
+      "appendText": "2026-10-24 · 0.88.15: 원본 로그인 대기만 반복하지 않도록 자체 보존 결함 수정부터 재개했다. BOM 계산 후 계정·회사·역할·입력창·저장본이 달라져도 결과가 적용되던 문제를 수정했다. 이유는 이전 화면의 결과로 다른 계정이나 창의 자료를 덮어쓰지 않도록 하기 위해서다. 신규 Node 9개·전체 브라우저 152개 통과 후 기존 운영에 배포했고, 로그인·자료 8건·양식·서버 상태·메일 보존을 확인했다. 원본 필드설정·VAT5·최소구매단위·업로드 저장 계약은 미완료이며, 다음은 주문/재고/바코드 보조창의 조회·미리보기 보호를 개발한다.",
+      "oldVersion": 23,
+      "oldBlocks": 31
+    }
   }
 }

@@ -1,0 +1,284 @@
+{
+  "version": "0.89.0",
+  "sourceCommit": "c49407758f818f71e95b6df7838dbad982962867",
+  "releaseCommit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
+  "workerSha256": "88d8a967cbe1ac46770fb7fd953778702e43769873b06e39fbef351a228329a7",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.0-master-forms",
+  "pushed": true,
+  "status": "deployed-master-form-fields-and-safe-formulas",
+  "date": "2026-10-24",
+  "baselineProductionCommit": "517cd03d090777330c82a4610cd37166c992f687",
+  "request": "Deeply analyze and implement foundation master forms, saved supplier fields, typed custom text/number fields and formulas.",
+  "originalAndIndependentBoundary": {
+    "originalERPLoginRequired": true,
+    "originalERPActionsPerformed": 0,
+    "originalApiCalls": 0,
+    "originalJavaScriptExecuted": false,
+    "originalWholeEditorEquivalence": false,
+    "newOfficialRequirements": 0,
+    "manualCountsUnchanged": {
+      "index": 77,
+      "bodies": 47,
+      "requirements": 44,
+      "done": 0
+    },
+    "officialFaqSupport": [
+      {
+        "sid": "7WCQTKDK6V33QLJ",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCQTKDK6V33QLJ",
+        "path": ".artifacts/manual-master-forms-20261024/supplier-display.html",
+        "sha256": "af2a1ea4fc921e1a28f4d55ce3fb8f0c82380e3478e7666cbacef743ffe6e97e",
+        "originalAppExecuted": false
+      },
+      {
+        "sid": "7WCIML9F4SW3QLU",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCIML9F4SW3QLU",
+        "path": ".artifacts/manual-master-forms-20261024/numeric-formula.html",
+        "sha256": "5390bbd9026252bcc181cc868f89da3a1a4e06d7d0e204fc1ff59d8377584986",
+        "originalAppExecuted": false
+      },
+      {
+        "sid": "7WCIIR5HJ3R3QRK",
+        "url": "https://www.ecount.com/kr/ecount/service/faq-view?record_sid=7WCIIR5HJ3R3QRK",
+        "path": ".artifacts/manual-master-forms-20261024/item-price-label.html",
+        "sha256": "5b15e7db9289fff79cdaab586108dd2c8d999b4af19e930527bc14898c0c6429",
+        "originalAppExecuted": false
+      }
+    ]
+  },
+  "changes": [
+    {
+      "before": "Master list fields were cut to five metadata columns.",
+      "after": "All item fields and saved supplier code/name/business/contact/phone/email/address are selectable; default list shows supplier name.",
+      "why": "A purchase supplier was stored but unavailable as a list layout choice.",
+      "count": {
+        "itemInputBuiltins": 83,
+        "itemListBuiltins": 90,
+        "supplierChoices": 7
+      }
+    },
+    {
+      "before": "Shared item form settings used the small generic master schema, disconnected from ItemUI detail controls.",
+      "after": "All83 field labels/order/visibility/required/readonly and fresh-item defaults feed actual typed controls.",
+      "why": "The same metadata must control actual entry and persistence, not just the form preview.",
+      "complexDefaults": "Original array controls and defaults preserved; complex defaults are edited in the original typed input-settings UI."
+    },
+    {
+      "before": "Numeric custom formulas were supported in core but did not show live results using full native item fields.",
+      "after": "Text/number creation, numeric reference picker, operators/functions and live readonly calculated results; core recalculates before saving.",
+      "why": "Users need a usable way to build and verify formulas without trusting editable computed values.",
+      "functions": [
+        "ROUND",
+        "MIN",
+        "MAX",
+        "ABS"
+      ],
+      "rejects": [
+        "unknown references",
+        "cycles",
+        "division by zero",
+        "JavaScript execution",
+        "non-finite inputs"
+      ]
+    },
+    {
+      "before": "Old list forms refer to c0..cN column positions.",
+      "after": "Read-only aliases map to canonical IDs and remap formula tokens, preserving saved raw JSON/order/labels until explicit save.",
+      "why": "Expanding the metadata catalog must not misbind old calculations or rewrite user layouts."
+    },
+    {
+      "before": "Specification-mode refresh replaced a user-selected field label.",
+      "after": "Named-form specification labels and required markers survive mode changes.",
+      "why": "A built-in mode switch must respect the selected named form."
+    },
+    {
+      "before": "Search ignored custom values and most detailed fields.",
+      "after": "All saved values and the registered supplier name are searchable.",
+      "why": "Custom data must be usable after saving and reloading, not only displayable."
+    }
+  ],
+  "validation": {
+    "verifyLocalExit": 0,
+    "fullBrowserPassed": 156,
+    "newBrowserPassed": 4,
+    "viewports": [
+      390,
+      1280
+    ],
+    "newNodeCases": 10,
+    "focusedModalAndMasterNodeCases": 36,
+    "existingItemRegistrationChecks": 35,
+    "releaseChecks": 4,
+    "selfReview": true,
+    "independentSubagentReview": false,
+    "finalExactReleaseVerificationPending": false,
+    "logs": [
+      ".artifacts/manual-master-forms-20261024/verify-local.log",
+      ".artifacts/manual-master-forms-20261024/focused-recheck.log",
+      ".artifacts/manual-master-forms-20261024/final-targeted.log",
+      ".artifacts/manual-master-forms-20261024/verify-final.log"
+    ],
+    "knownRepairDuringValidation": "Guarded absent ItemCore in legacy minimal modal environment; preserved existing missing-custom default behavior; final spec-label repair covered by extended live-form Node scenario and focused browser recheck.",
+    "finalExactReleaseVerification": {
+      "exitCode": 0,
+      "exactReleasedCode": true,
+      "workerHashUnchanged": "88d8a967cbe1ac46770fb7fd953778702e43769873b06e39fbef351a228329a7",
+      "candidateClean": true,
+      "browserPassed": 156
+    }
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownScopes": 24,
+    "originalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "resultSha256": "f27e8a404ede85a71d7ae254bf7a0eaeb6c2c6a3874a4c1c2664c36a5c97d5e8",
+    "summary": ".artifacts/manual-master-forms-20261024/rea/rea-summary.json",
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "runtime": {
+    "version": "0.89.0",
+    "pid": 2654195,
+    "persistentExecSession": 1061,
+    "sessionMustNotBePolledOrTerminated": true,
+    "backend": "supabase",
+    "publicUrl": "https://rea.qaredi.com",
+    "privateRollbackVersion": "0.88.15"
+  },
+  "releaseManifest": ".artifacts/manual-master-forms-20261024/release-manifest.json",
+  "preservation": {
+    "browser": {
+      "version": "0.89.0",
+      "exactBytesEqual": true,
+      "sha256": "161e58be661228463ccb1bc9ad4b71a53d6828bf0b07de53ee67e93d84552b1e",
+      "documents": 8,
+      "formHash": "a35724c941e7093e9f5b626008c91c1c4149ca22b4f9afb7ed7bf5a783d0b8c9",
+      "existingItems": 4,
+      "existingItemsWithSavedSupplier": 0,
+      "settingsOrBusinessWrites": 0,
+      "addedWorkTabsClosed": true,
+      "priorWorkTabs": 1,
+      "afterWorkTabs": 1,
+      "authenticatedReadOnlyUI": {
+        "version": "0.89.0",
+        "masterListFields": 90,
+        "itemInputFields": 83,
+        "supplierFieldChoices": 7,
+        "numericReferencePicker": true,
+        "formulaEditorOpenClose": true
+      },
+      "originalERPVisited": false
+    },
+    "server": {
+      "version": "0.89.0",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 34,
+          "afterRevision": 34,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "uncommittedCandidates": {
+      "dirtyCandidateExact": true,
+      "files": 12,
+      "integrationHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+      "integrationClean": true
+    }
+  },
+  "deployment": {
+    "version": "0.89.0",
+    "releaseCommit": "5cef35ee88c7d910feb6e3e3989d6b020cfe6439",
+    "publicChecks": 20,
+    "assetsMatched": 17,
+    "evidence": ".artifacts/manual-master-forms-20261024/public-deploy.json",
+    "hostedReadOnlyFlow": {
+      "version": "0.89.0",
+      "masterListFields": 90,
+      "itemInputFields": 83,
+      "supplierFieldChoices": 7,
+      "numericReferencePicker": true,
+      "formulaEditorOpenClose": true
+    },
+    "productionBusinessWrites": 0,
+    "productionSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0,
+    "rootFullBuildPerformed": false,
+    "unshippedVatOrMappingInstalled": false
+  },
+  "moa": {
+    "prior08815": {
+      "pageId": "d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
+      "approvedVersion": "0.88.15",
+      "doc_version": 24,
+      "existingBlocksPreserved": true,
+      "approvedParagraphReadback": true,
+      "blocks": 32,
+      "approval": "User approved the exact paragraph via async reply",
+      "appendText": "2026-10-24 · 0.88.15: 원본 로그인 대기만 반복하지 않도록 자체 보존 결함 수정부터 재개했다. BOM 계산 후 계정·회사·역할·입력창·저장본이 달라져도 결과가 적용되던 문제를 수정했다. 이유는 이전 화면의 결과로 다른 계정이나 창의 자료를 덮어쓰지 않도록 하기 위해서다. 신규 Node 9개·전체 브라우저 152개 통과 후 기존 운영에 배포했고, 로그인·자료 8건·양식·서버 상태·메일 보존을 확인했다. 원본 필드설정·VAT5·최소구매단위·업로드 저장 계약은 미완료이며, 다음은 주문/재고/바코드 보조창의 조회·미리보기 보호를 개발한다.",
+      "oldVersion": 23,
+      "oldBlocks": 31
+    },
+    "currentFeature": {
+      "saved": false,
+      "readbackVerified": false,
+      "currentDocumentVersion": 24,
+      "proposalShown": true,
+      "awaitingUserConfirmation": true,
+      "proposalFile": ".artifacts/manual-master-forms-20261024/moa-0890-proposal.json"
+    }
+  },
+  "nextWork": "Continue synthetic lifecycle checks for order/stock/barcode helpers; resume original form inheritance/shared editor/field-link/VAT/minimum-unit/upload contracts only with new evidence.",
+  "limitations": [
+    "Current saved four items have no supplier code; no guessed supplier backfill. Users explicitly connect suppliers in item detail.",
+    "Named item forms select their own metadata; default continues existing itemRegistration configuration. Existing custom-field missing-value defaults retain prior behavior.",
+    "List formulas are presentation/CSV only. Input formulas are recalculated when saving.",
+    "Original exact layout, inheritance, sharing and server acceptance remain unverified; no full manual completion claimed.",
+    "Production settings/business save acceptance is separate from localhost synthetic save/reload."
+  ],
+  "sourceScopeVerification": {
+    "rootAndCandidateMatchingFragments": 12,
+    "scopeHashes": {
+      "item-core.js/formFields": "4534e28fe1a85119bc91b1ab2d1db2c76e50d14b9f24c2ba74425b48b72ef784",
+      "item-core.js/query": "856ec595f075cd2dcf2ce0ba2a6cd4586e0e8d5d53b2733bcc98e749c2a6f5bc",
+      "form-core.js/merge": "feaa8d2551a881d034a61973678008c3bcaff9fa4473d3fbb30bbd1e584d96ff",
+      "form-core.js/validateForm": "b896fef7f421d3045cfe5507dd3b6eed36468b81293b7b3aaaf1ed2148572e72",
+      "item-ui.js/read": "d63408ac8c4a03e883ecf4bf0e58863daf7915c1a3b09b9bb2c41e3ecfabfd5e",
+      "item-ui.js/updateCalculated": "83c9740cb6edc5748943d589c2690b591dd6ef12999aacd36d481001df7800b2",
+      "item-ui.js/updateSpecLabel": "09ed64153b166cf2fa578988ed1853ee9875f3b69cabf0b1cba57004a3a4d3e8",
+      "form-options.js/formulaEditor": "1a16e3e1be01f528202c77940dcf920f034e8bcb64a89b276a94c47246285af3",
+      "inventory-ui.js/projection": "8823ad278d7d57355022909de65b4317fe0562877464bf50654eb2897b1c312e",
+      "inventory-ui.js/masterInputFields": "52d1834756008b56aa53f3ab87919c8e4a786edc6818f82d81857eae04201a13",
+      "inventory-ui.js/masterListCatalog": "7cceb45c863927cbc6c01cdd9d6bf7648a1c30c0572344700004655741398975",
+      "inventory-ui.js/masterListValues": "ca398c875eb3f2aaeb9df3adaa387667a5d653abd73bdc3f30eedb017ccadc73"
+    },
+    "entireRootInventoryUIEqualsCandidate": false,
+    "reason": "Unshipped VAT research remains outside the selected master form scopes; production uses the isolated0.88.15 base."
+  }
+}
