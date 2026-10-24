@@ -1,6 +1,8 @@
 # 자동화 ERP · REA 재구성 검증
 
-현재 운영은 **0.89.13 / be0af0c**이다. 품목의 정규 전체값으로 조건양식·필수항목·계산식을 검증한 뒤 최종 보관값을 축약한다. 왜: 기본값 생략이 조건 검증을 우회하거나 계산 입력을 없애면 안 되기 때문이다. 집중Node42·전체 verify:local/220브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 저장 검증·재조회는 합성 자료다. [근거](evidence/manual-item-save-normalization-20261024.json), [계획](docs/plan-master-number-transition-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션86460 poll/terminate 금지.
+현재 운영은 **0.89.14 / e7bf059**이다. 품목 저장 전에 조건양식이 바뀌었으면 초안을 유지하며 새 필수항목을 보여주고 확인 후 다시 저장하도록 안내한다. 왜: 화면에 없는 항목의 오류를 고칠 수 없거나 보지 못한 양식으로 바로 저장되면 안 되기 때문이다. 집중Node72·전체 verify:local/228브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 전환·저장 검증은 합성 자료다. [근거](evidence/manual-item-conditional-feedback-20261024.json), [계획](docs/plan-master-number-transition-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션42101 poll/terminate 금지.
+
+이전0.89.13 기록: 현재 운영은 **0.89.13 / be0af0c**이다. 품목의 정규 전체값으로 조건양식·필수항목·계산식을 검증한 뒤 최종 보관값을 축약한다. 왜: 기본값 생략이 조건 검증을 우회하거나 계산 입력을 없애면 안 되기 때문이다. 집중Node42·전체 verify:local/220브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 저장 검증·재조회는 합성 자료다. [근거](evidence/manual-item-save-normalization-20261024.json), [계획](docs/plan-master-number-transition-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션86460 poll/terminate 금지.
 
 이전0.89.12 기록: 현재 운영은 **0.89.12 / b52f75e**이다. 품목 조건양식 평가에 입력창과 같은 회사/기존/현재초안 초기값을 사용한다. 왜: 기본 구매처·단위·0/false 조건과 실제 화면값이 달라 필요한 항목이 누락되면 안 되기 때문이다. 집중Node64·전체 verify:local/214브라우저·공개22검사와 운영 로그인/8전표/양식/서버/메일 보존 확인. 조건양식·초안 재평가·품목 저장/재조회는 합성 검증이다. [근거](evidence/manual-item-conditional-defaults-20261024.json), [계획](docs/plan-master-number-transition-20261024.md). 원본 전체동등성 미완료·root전체빌드/VAT5/매핑 설치 금지. 지속세션94416 poll/terminate 금지.
 

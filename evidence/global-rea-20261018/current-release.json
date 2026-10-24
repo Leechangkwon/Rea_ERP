@@ -1,6 +1,6 @@
 {
-  "version": "0.89.13",
-  "status": "deployed-item-save-normalization",
+  "version": "0.89.14",
+  "status": "deployed-item-conditional-feedback",
   "route_coverage_baseline": {
     "total": 759,
     "menu_only": 487,
@@ -117,7 +117,8 @@
     "Item input settings validate scalar/nested native numeric defaults before move/save, preserving controls, order, config and parent drafts on refusal. evidence/manual-item-settings-number-20261024.json",
     "Item user form defaults apply only on first draw; later input/function settings redraws preserve the current zero/false/blank/reference and calculated draft values. evidence/manual-item-default-precedence-20261024.json",
     "Item conditional forms use the same prepared company, record and current draft initial values as ItemUI, preserving first-render form-default precedence and explicit zero/false/blank values. evidence/manual-item-conditional-defaults-20261024.json",
-    "Item save validates references, conditional forms, required fields and formulas against full normalized values before compacting the final record; storage shape and unrelated masters remain unchanged. evidence/manual-item-save-normalization-20261024.json"
+    "Item save validates references, conditional forms, required fields and formulas against full normalized values before compacting the final record; storage shape and unrelated masters remain unchanged. evidence/manual-item-save-normalization-20261024.json",
+    "Item save preflight reviews a changed conditional form from the current draft, reveals required fields and pauses without business or form settings writes; subsequent explicit save uses normal validation. evidence/manual-item-conditional-feedback-20261024.json"
   ],
   "checks": {
     "total": 998,
@@ -127,7 +128,7 @@
     "purchasingSearchRelated": 75,
     "browserSynthetic": 30,
     "verifyLocalPassed": true,
-    "reference": "evidence/manual-item-save-normalization-20261024.json",
+    "reference": "evidence/manual-item-conditional-feedback-20261024.json",
     "cacheAuthRuntimeRegression": 56,
     "planRequestImportRegressionPassed": true,
     "gmailNodeTests": 14,
@@ -152,7 +153,7 @@
     "orderImportNewNode": 6,
     "orderImportNewBrowser": 1,
     "staffSessionFocusedTests": 45,
-    "currentReleaseBrowserSynthetic": 220,
+    "currentReleaseBrowserSynthetic": 228,
     "currentReleaseVerifyLocalPassed": true,
     "priceInputCloseRelatedNode": 72,
     "priceInputCloseNewNode": 8,
@@ -180,7 +181,7 @@
     "purchaseReturnReportNewNode": 7,
     "purchaseReturnReportRelatedNode": 97,
     "purchaseReturnReportNewBrowser": 1,
-    "currentReleaseFullRegressionVersion": "0.89.13",
+    "currentReleaseFullRegressionVersion": "0.89.14",
     "purchaseNegativeCopyReturnNewNode": 18,
     "purchaseNegativeCopyReturnRelatedNode": 62,
     "purchaseNegativeCopyReturnNewBrowser": 1,
@@ -1112,16 +1113,56 @@
         ".artifacts/manual-item-save-normalization-20261024/browser-after.log",
         ".artifacts/manual-item-save-normalization-20261024/verify-local.log"
       ]
+    },
+    "itemConditionalFeedback": {
+      "preFixNodeTests": 8,
+      "preFixNodeFailed": 4,
+      "preFixNodePassed": 4,
+      "newNodeTests": 8,
+      "finalFocusedNodePassed": 72,
+      "preFixActualShellBrowserFailed": 8,
+      "preFixActualShellBrowserPassed": 0,
+      "newActualShellBrowserPassed": 8,
+      "viewports": [
+        390,
+        1280
+      ],
+      "newAndExistingItems": true,
+      "keyboardF8AndButton": true,
+      "cases": [
+        "new conditional required field reveal/focus",
+        "old required field no longer applies",
+        "old formula error no longer applies",
+        "same form validation retained",
+        "native incomplete number blocks redraw",
+        "changed role blocks redraw",
+        "paused save preserves all state",
+        "explicit corrected save and reload"
+      ],
+      "verifyLocalExitCode": 0,
+      "fullBrowserPassed": 228,
+      "fullNodeSuitePassed": true,
+      "releaseChecks": 4,
+      "build": true,
+      "selfReview": true,
+      "independentAgentReview": false,
+      "logs": [
+        ".artifacts/manual-item-conditional-feedback-20261024/node-before.log",
+        ".artifacts/manual-item-conditional-feedback-20261024/node-after.log",
+        ".artifacts/manual-item-conditional-feedback-20261024/browser-before.log",
+        ".artifacts/manual-item-conditional-feedback-20261024/browser-after.log",
+        ".artifacts/manual-item-conditional-feedback-20261024/verify-local.log"
+      ]
     }
   },
-  "future_research": "입력 중 조건값이 달라져 저장에 새 필수/계산 항목이 요구될 때 품목 초안을 보존하며 해당 항목으로 안내하는지 합성 재현하고 확인된 누락만 보완한다. 이번 정규값 검증/최종 축약 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.13 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
+  "future_research": "품목 조건양식 전환 뒤 닫기/취소·초안 재개·이전 창 콜백과 계정/권한 변경 경계를 합성 검증하고 확인된 보존 누락만 보완한다. 이번 저장 전 양식 재확인/필수 노출 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다. 매핑 후보 배포 전0.88.15~0.89.14 후속 수정 통합 필요. root전체빌드 금지·전체완료false.",
   "deployment_tracking": "https://changkwon.mso.so/community/p/d3ba3bd1-a5bd-4e60-8fa6-5064a3da3cb5",
   "runtimeRelease": {
-    "reference": "evidence/manual-item-save-normalization-20261024.json",
+    "reference": "evidence/manual-item-conditional-feedback-20261024.json",
     "featureContractBaseline": "0.42.0",
     "originalEquivalenceUnchanged": true,
-    "deployedSourceCommit": "be0af0c72fdd612d7d49fe85bb4028a89ff78fc6",
-    "publicVersionVerified": "0.89.13",
+    "deployedSourceCommit": "e7bf0596539495f63562c78b08a08795659c6d9e",
+    "publicVersionVerified": "0.89.14",
     "actualExistingAccountLoginVerified": true,
     "lastExistingAccountLoginVerifiedVersion": "0.53.3",
     "currentAuthenticatedUiBlock": null,
@@ -1180,20 +1221,20 @@
     "currentPurchasingReferenceHostedVerifiedVersion": "0.50.0",
     "managementCatalogEmptyInHostedVerification": true,
     "purchasingReferenceHostedBusinessWritesPerformed": false,
-    "existingSessionRetainedVersion": "0.89.13",
+    "existingSessionRetainedVersion": "0.89.14",
     "documentDateFilterHostedReadOnlyVerified": true,
     "documentDateDataBearingSaveAcceptance": false,
     "bomDepthHostedPreviewVerified": true,
     "bomDepthHostedSavePerformed": false,
     "orderLinesHostedStagingVerified": true,
     "orderLinesHostedSavePerformed": false,
-    "lastExactBrowserBackupComparisonVersion": "0.89.13",
+    "lastExactBrowserBackupComparisonVersion": "0.89.14",
     "previous0530FinalBrowserComparisonRecovered": true,
-    "currentServerStateAndMailPreservedVersion": "0.89.13",
+    "currentServerStateAndMailPreservedVersion": "0.89.14",
     "currentAuthenticatedBusinessVerificationVersion": null,
     "staffSessionRetentionMinutes": 43200,
     "staffSessionRetainedWithoutRelogin": true,
-    "currentAuthenticatedSessionVerificationVersion": "0.89.13",
+    "currentAuthenticatedSessionVerificationVersion": "0.89.14",
     "priceRequestCloseReopenDeployed": true,
     "priceRequestCloseReopenHostedSaveVerified": false,
     "priceRequestComparisonOperatingCount": 0,
@@ -1504,11 +1545,11 @@
       "reference": "evidence/manual-master-forms-20261024.json"
     },
     "operatingRuntime": {
-      "version": "0.89.13",
-      "pid": 2779382,
-      "persistentExecSession": 86460,
+      "version": "0.89.14",
+      "pid": 2787492,
+      "persistentExecSession": 42101,
       "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
-      "workerSha256": "521fa7e8f2f01b55cdfc8aa3d9a6f79707a2600b4e74a35f8ff6c4338dcf18f9",
+      "workerSha256": "dccb0202053730c888e2f01415d25aa497579b5b92c6bf2481834944c3a80c85",
       "doNotPollOrTerminatePersistentSession": true
     },
     "entryQueryOwnerGuard": {
@@ -1619,6 +1660,15 @@
       "normalizedItemHostedSaveVerified": false,
       "hostedBusinessOrSettingsSaveVerified": false,
       "reference": "evidence/manual-item-save-normalization-20261024.json"
+    },
+    "itemConditionalFeedback": {
+      "deployed": true,
+      "sourceCommit": "4fc19e4d6f232bdb96995f8337026eda76584641",
+      "hostedPartnerReadCancelVerified": true,
+      "hostedItemSettingsReadCancelVerified": true,
+      "conditionalFeedbackHostedSaveVerified": false,
+      "hostedBusinessOrSettingsSaveVerified": false,
+      "reference": "evidence/manual-item-conditional-feedback-20261024.json"
     }
   },
   "manualParity": {
@@ -1631,12 +1681,12 @@
       "status": "08814-compatibility-candidate-verified-pushed-editor-and-hosted-acceptance-gated-not-deployed",
       "plan": "docs/plan-purchase-manual.md",
       "evidence": "evidence/manual-mapping-editor-research-20261023.json",
-      "productionVersion": "0.89.13",
+      "productionVersion": "0.89.14",
       "done": false,
       "candidateSourceCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
       "candidateDeployed": false,
       "resumeWhen": "Actual read-only legacy TC101P_01 editor/loaded asset or verified source; confirm target selection, source metadata, remove/apply/save/cancel and authorization. Do not substitute modern derive modes or re-run prior helper/regression with no change.",
-      "nextIndependentManual": "입력 중 조건값이 달라져 저장에 새 필수/계산 항목이 요구될 때 품목 초안을 보존하며 해당 항목으로 안내하는지 합성 재현하고 확인된 누락만 보완한다. 이번 정규값 검증/최종 축약 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "nextIndependentManual": "품목 조건양식 전환 뒤 닫기/취소·초안 재개·이전 창 콜백과 계정/권한 변경 경계를 합성 검증하고 확인된 보존 누락만 보완한다. 이번 저장 전 양식 재확인/필수 노출 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "originalImplementationSourceCommit": "878a0096e1968a33ec141cea7f4d69a0e13c7c8f",
       "compatibilityEvidence": "evidence/manual-mapping-08814-integration-20261024.json",
       "latestHistoryGuardSourceRequired": "ba9c43056902596229a9ead015be2d01806bbf9a",
@@ -1688,7 +1738,8 @@
       "latestItemSettingsNumberSourceRequired": "8436dc3873c2687f4b439bd06fee5a3d72199840",
       "latestItemDefaultPrecedenceSourceRequired": "8a82b5a64c4995b1a43c15576b63d93a5f181b33",
       "latestItemConditionalDefaultsSourceRequired": "ec9da9a78ade1e6b846b2074f7a870c7afe968a1",
-      "latestItemSaveNormalizationSourceRequired": "0f69a953fd7f772c898e949713faed1ad36dcd15"
+      "latestItemSaveNormalizationSourceRequired": "0f69a953fd7f772c898e949713faed1ad36dcd15",
+      "latestItemConditionalFeedbackSourceRequired": "4fc19e4d6f232bdb96995f8337026eda76584641"
     },
     "independentWork": {
       "requirement": "REQ-PUR-FLOW-001",
@@ -1850,14 +1901,14 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-ITEM-CONDITIONAL-SAVE-FEEDBACK",
+      "sourceId": "OWN-ITEM-CONDITIONAL-TRANSITION-LIFECYCLE",
       "plan": "docs/plan-master-number-transition-20261024.md",
-      "description": "입력 중 조건값이 달라져 저장에 새 필수/계산 항목이 요구될 때 품목 초안을 보존하며 해당 항목으로 안내하는지 합성 재현하고 확인된 누락만 보완한다. 이번 정규값 검증/최종 축약 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "description": "품목 조건양식 전환 뒤 닫기/취소·초안 재개·이전 창 콜백과 계정/권한 변경 경계를 합성 검증하고 확인된 보존 누락만 보완한다. 이번 저장 전 양식 재확인/필수 노출 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "operatingVersion": "0.89.13",
-      "latestEvidence": "evidence/manual-item-save-normalization-20261024.json",
-      "title": "품목 조건 변경 후 저장 오류 안내와 초안 보존",
-      "evidence": "evidence/manual-item-save-normalization-20261024.json"
+      "operatingVersion": "0.89.14",
+      "latestEvidence": "evidence/manual-item-conditional-feedback-20261024.json",
+      "title": "품목 조건양식 전환 뒤 취소·초안 재개 보존",
+      "evidence": "evidence/manual-item-conditional-feedback-20261024.json"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2591,13 +2642,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-ITEM-CONDITIONAL-SAVE-FEEDBACK",
-      "title": "품목 조건 변경 후 저장 오류 안내와 초안 보존",
-      "operatingVersion": "0.89.13",
-      "evidence": "evidence/manual-item-save-normalization-20261024.json",
-      "description": "입력 중 조건값이 달라져 저장에 새 필수/계산 항목이 요구될 때 품목 초안을 보존하며 해당 항목으로 안내하는지 합성 재현하고 확인된 누락만 보완한다. 이번 정규값 검증/최종 축약 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+      "sourceId": "OWN-ITEM-CONDITIONAL-TRANSITION-LIFECYCLE",
+      "title": "품목 조건양식 전환 뒤 취소·초안 재개 보존",
+      "operatingVersion": "0.89.14",
+      "evidence": "evidence/manual-item-conditional-feedback-20261024.json",
+      "description": "품목 조건양식 전환 뒤 닫기/취소·초안 재개·이전 창 콜백과 계정/권한 변경 경계를 합성 검증하고 확인된 보존 누락만 보완한다. 이번 저장 전 양식 재확인/필수 노출 합격은 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
       "done": false,
-      "latestEvidence": "evidence/manual-item-save-normalization-20261024.json",
+      "latestEvidence": "evidence/manual-item-conditional-feedback-20261024.json",
       "plan": "docs/plan-master-number-transition-20261024.md"
     },
     "currencyRegistration": {
@@ -3462,14 +3513,22 @@
       "deployed": true,
       "done": false,
       "newOfficialRequirements": 0
+    },
+    "itemConditionalFeedback": {
+      "version": "0.89.14",
+      "reference": "evidence/manual-item-conditional-feedback-20261024.json",
+      "sourceCommit": "4fc19e4d6f232bdb96995f8337026eda76584641",
+      "deployed": true,
+      "done": false,
+      "newOfficialRequirements": 0
     }
   },
   "preparedCandidate": {
-    "version": "0.89.13",
-    "commit": "be0af0c72fdd612d7d49fe85bb4028a89ff78fc6",
-    "sourceCommit": "0f69a953fd7f772c898e949713faed1ad36dcd15",
-    "manifest": ".artifacts/manual-item-save-normalization-20261024/release-manifest.json",
-    "bundleSha256": "521fa7e8f2f01b55cdfc8aa3d9a6f79707a2600b4e74a35f8ff6c4338dcf18f9",
+    "version": "0.89.14",
+    "commit": "e7bf0596539495f63562c78b08a08795659c6d9e",
+    "sourceCommit": "4fc19e4d6f232bdb96995f8337026eda76584641",
+    "manifest": ".artifacts/manual-item-conditional-feedback-20261024/release-manifest.json",
+    "bundleSha256": "dccb0202053730c888e2f01415d25aa497579b5b92c6bf2481834944c3a80c85",
     "includes": [
       "plan-generation-100-selection-limit",
       "purchase-receiving-warehouse",
@@ -3532,14 +3591,15 @@
       "item-settings-native-numeric-default-move-save-and-nested-warehouse-preservation",
       "item-user-form-defaults-first-render-preserving-current-drafts-after-settings-save",
       "item-conditional-forms-evaluate-prepared-company-record-and-current-draft-values",
-      "item-form-validation-uses-normalized-values-before-final-storage-compaction"
+      "item-form-validation-uses-normalized-values-before-final-storage-compaction",
+      "item-before-save-conditional-form-review-preserves-drafts-and-reveals-required-fields"
     ],
-    "supersedesCandidateCommit": "b52f75e35afb6f575f409f92aa2af4f082f48636",
+    "supersedesCandidateCommit": "be0af0c72fdd612d7d49fe85bb4028a89ff78fc6",
     "supersededCandidatePreserved": true,
     "installedIntoOperatingRuntime": true,
     "authenticatedAcceptancePending": false,
     "hostedPurchasingWriteAcceptancePending": true,
-    "branch": "release/0.89.13-item-save-normalization"
+    "branch": "release/0.89.14-item-conditional-feedback"
   },
   "supplementalSourceEvidence": {
     "requestUploadAttributeSetting": {
@@ -4378,6 +4438,13 @@
       "reference": "evidence/manual-item-save-normalization-20261024.json",
       "summary": ".artifacts/manual-item-save-normalization-20261024/rea/rea-summary.json",
       "newOwnScopes": 2,
+      "newOriginalScopes": 0,
+      "originalExecuted": false
+    },
+    "itemConditionalFeedback": {
+      "reference": "evidence/manual-item-conditional-feedback-20261024.json",
+      "summary": ".artifacts/manual-item-conditional-feedback-20261024/rea/rea-summary.json",
+      "newOwnScopes": 4,
       "newOriginalScopes": 0,
       "originalExecuted": false
     }
