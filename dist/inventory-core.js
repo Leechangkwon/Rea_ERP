@@ -305,7 +305,7 @@
     if(!originalCode&&index>=0)throw Error('이미 존재하는 코드입니다.');
     if(originalCode&&index<0)throw Error('수정할 등록 자료가 없습니다.');
     if(key==='items'){
-      if(I)x=I.compact(x,db);else {x.buyPrice=num(x.buyPrice||0,'입고단가');x.sellPrice=num(x.sellPrice||0,'출고단가');x.safety=num(x.safety||0,'안전재고');}
+      if(I)x=I.validate(x,db);else {x.buyPrice=num(x.buyPrice||0,'입고단가');x.sellPrice=num(x.sellPrice||0,'출고단가');x.safety=num(x.safety||0,'안전재고');}
       const old=db.masters.items[index];
       if(!old&&!x.supplier||old?.supplier&&!x.supplier)throw Error('품목 구매처는 필수입니다. 등록된 거래처를 선택하세요.');
       if(x.supplier&&x.supplier!==old?.supplier)requireCode(db,'partners',x.supplier);
@@ -328,7 +328,7 @@
         x.fractionDigits=Number(value);
       }
     }
-    applyForm(db,'master:'+key,'input',x);
+    applyForm(db,'master:'+key,'input',x);if(key==='items'&&I)x=I.compact(x,db);
     if(index<0)db.masters[key].push(x);else db.masters[key][index]=x;log(db,masterNames[key]+' 등록/수정: '+x.code);return x;
   }
   function validatePlanOrderRows(db,doc,source){
