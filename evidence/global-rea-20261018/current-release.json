@@ -3134,7 +3134,7 @@
       "userConnectionRequested": false,
       "connected": true,
       "posted": true,
-      "lastSavedReadbackVersion": "0.89.0",
+      "lastSavedReadbackVersion": "0.89.8",
       "serverRepairPromptProvidedToUser": true,
       "serverRepairConfirmed": false,
       "connectionConfirmed": true,
@@ -3143,7 +3143,7 @@
       "legacyWhoamiStatus": 401,
       "legacyWhoamiIsModernOAuthTest": false,
       "modernMoaOAuthState": "connected-account-and-real-work-project-documents-read-successfully",
-      "pendingLocalUpdates": 123,
+      "pendingLocalUpdates": null,
       "credentialsReadOrChanged": false,
       "tokenReissueRequested": false,
       "localCliAuthStatus": "o_auth",
@@ -3153,23 +3153,25 @@
       "whoamiSucceeded": true,
       "workProjectReadSucceeded": true,
       "workDocumentReadSucceeded": true,
-      "actualProgressDocVersion": 25,
+      "actualProgressDocVersion": 26,
       "canEdit": true,
       "writePendingUserConfirmation": false,
-      "latestEvidence": "evidence/moa-approved-0890-20261024.json",
+      "latestEvidence": "evidence/moa-development-records-batch-20261025.json",
       "historicalUnauthenticatedInitializeWasNotTokenExpiryProof": true,
       "currentVerifiedState": {
         "pluginVersion": "1.0.2",
         "accountAndProjectRead": true,
-        "documentVersion": 25,
+        "documentVersion": 26,
         "prior08815ApprovedAppendSavedAndReread": true,
         "current0890ProposalConfirmationPending": false,
         "authenticationRetryRequired": false,
         "evidence": "evidence/moa-approved-0890-20261024.json",
-        "approved0890AppendSavedAndReread": true
+        "approved0890AppendSavedAndReread": true,
+        "developmentRecords16SavedAndReread": true,
+        "latestBatchEvidence": "evidence/moa-development-records-batch-20261025.json"
       },
       "pendingLocalUpdatesNeedsReconciliation": true,
-      "writeConfirmationScope": "Approved0.89.0 paragraph saved and reread; historical and later drafts are not authorized by this approval.",
+      "writeConfirmationScope": "User approved the exact frozen16-document proposal and dynamic returned-URL index. Created16/read back334 blocks; appended18 index blocks with33 existing blocks unchanged. This does not include later local appendices.",
       "latestApprovedAppend": {
         "date": "2026-10-24",
         "action": "append-approved-0.89.0-record-and-reread",
@@ -3202,10 +3204,29 @@
       },
       "developmentRecordsBatchProposal": {
         "documentCount": 16,
-        "confirmationPending": true,
+        "confirmationPending": false,
         "proposalFile": ".artifacts/moa-development-records-review-20261024/proposed-packet.json",
-        "remotelyCreated": false,
-        "existingApproved0890RecordVerifiedVersion": 25
+        "remotelyCreated": true,
+        "existingApproved0890RecordVerifiedVersion": 25,
+        "createdAndRereadExact": 16,
+        "indexDocVersion": 26,
+        "approvedOn": "2026-10-25",
+        "approval": "16개 세부 문서와 색인 일괄 반영",
+        "evidence": "evidence/moa-development-records-batch-20261025.json"
+      },
+      "lastSavedReadbackKind": "approved-16-development-records-batch",
+      "historicalPendingLocalUpdatesCount": 123,
+      "pendingLocalUpdatesCountStatus": "Not recounted after the approved 0.89.8 snapshot batch; later 0.89.9~0.89.20 local appendices were not published.",
+      "latestApprovedBatch": {
+        "date": "2026-10-25",
+        "reference": "evidence/moa-development-records-batch-20261025.json",
+        "projectId": "b28ab4c5-eb66-4c33-98d5-784303e06838",
+        "snapshotVersion": "0.89.8",
+        "documentsSavedAndReread": 16,
+        "indexDocVersion": 26,
+        "priorProgressBlocksExact": 33,
+        "appendedIndexBlocks": 18,
+        "existingDesignAndTaskDocsExact": 5
       }
     },
     "timelineResearch": {
@@ -3837,6 +3858,20 @@
       "deployed": true,
       "done": false,
       "newOfficialRequirements": 0
+    },
+    "mandatoryMoaWorkTracking": {
+      "requestedOn": "2026-10-25",
+      "same16WorkUnits": true,
+      "plannedStartAndDeadlineRequired": true,
+      "startStatus": "doing",
+      "completeStatus": "done",
+      "completionRequiresUnitAcceptance": true,
+      "detailedProgressAndChangeReasonsRequired": true,
+      "evidence": "evidence/moa-development-records-batch-20261025.json",
+      "metadataUpdatesAvailableThroughCurrentMcp": false,
+      "actualDatesConfigured": false,
+      "webLoginRequiredForMetadataUi": true,
+      "schedulePreferenceAwaited": true
     }
   },
   "preparedCandidate": {
