@@ -19,7 +19,7 @@
     d.addEventListener('cancel',event=>{event.preventDefault();event.stopPropagation();close();});d.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close();}});
     body.append(N('p','작성 중인 전표에만 적용됩니다. 전표를 저장하기 전까지 업무 자료와 재고는 변경되지 않습니다.','inv-note'));
     if(!writable(options))body.append(N('p','조회 전용입니다. 적용에는 입력 권한이 필요합니다.','inv-note'));
-    const guard=()=>{if(!writable(options)){error.textContent='입력 권한이 필요합니다.';return false;}return d.open;};
+    const guard=()=>{if(!d.isConnected||!d.open)return false;try{options.assertCurrent?.();if(!writable(options))throw Error('입력 권한이 필요합니다.');return true;}catch(e){error.textContent=e.message||String(e);return false;}};
     const fail=e=>{error.textContent=e.message||String(e);};let busy=false;
     const apply=(build,{keepOpen=false}={})=>{if(busy||!guard())return false;error.textContent='';try{const result=build();if(!guard())return false;busy=true;const accepted=options.onApply(result);if(accepted===false)return false;if(!keepOpen)close();return true;}catch(e){fail(e);return false;}finally{busy=false;}};
     document.body.append(d);return {d,body,error,close,guard,fail,apply,show(){body.append(error);d.showModal();return d;}};
