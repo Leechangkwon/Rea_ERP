@@ -48,17 +48,33 @@
   }
   function schema(id,label,type='text',extra={}){return F.field(id,label,type,extra);}
   function controlValue(x){return x.getReferenceValues?x.getReferenceValues():x.type==='checkbox'?x.checked:x.value;}
-  function customControl(f,value){const v=value??F.defaultValue(f,C.today());const x=f.multiline&&f.type==='text'?N('textarea'):f.type==='select'?select(f.label,f.options.map(x=>[x,x]),v):input(f.label,v,f.type==='reference'?'text':f.type);if(x.tagName==='TEXTAREA'){x.value=v;x.setAttribute('aria-label',f.label);x.rows=3;}if(f.type==='checkbox')x.checked=v===true||v==='true'||v==='1';x.dataset.customField=f.id;return x;}
-  function configureGrid(grid,context,title,base,controls,record={},fresh=false,changed=()=>{},formCustomizer=customizer){
+  function customControl(f,value,preserveNumeric=false){const v=value??F.defaultValue(f,C.today());const x=f.multiline&&f.type==='text'?N('textarea'):f.type==='select'?select(f.label,f.options.map(x=>[x,x]),v):input(f.label,v,f.type==='reference'?'text':f.type);if(x.tagName==='TEXTAREA'){x.value=v;x.setAttribute('aria-label',f.label);x.rows=3;}if(f.type==='checkbox')x.checked=v===true||v==='true'||v==='1';if(preserveNumeric&&f.type==='number'&&!f.formula&&v!==''&&(x.value===''||!Number.isFinite(Number(x.value)))){x.type='text';x.inputMode='decimal';x.value=String(v);x.dataset.numericTextFallback='true';x.setAttribute('aria-invalid','true');x.title='기존 원문을 보존했습니다. 숫자로 수정하거나 비운 뒤 저장하세요.';}x.dataset.customField=f.id;return x;}
+  function configureGrid(grid,context,title,base,controls,record={},fresh=false,changed=()=>{},formCustomizer=customizer,{preserveCustom=false}={}){
     formCustomizer.register(context,title,base,record);const meta=formCustomizer.form(context,base,record),customControls={},placed=new Map(),orderedInput=context==='input'&&optionKey==='doc:request';let customBase={...record.custom};grid.replaceChildren();
-    for(const f of meta.fields){let x=controls[f.id];if(!x){if(!f.custom)continue;x=customControl(f,record.custom?.[f.id]);customControls[f.id]=x;}else if(fresh&&f.defaultValue!==''){const v=F.defaultValue(f,C.today());if(x.type==='checkbox')x.checked=v===true||v==='true';else x.value=v;}
+    for(const f of meta.fields){let x=controls[f.id];if(!x){if(!f.custom)continue;x=customControl(f,record.custom?.[f.id],preserveCustom);customControls[f.id]=x;}else if(fresh&&f.defaultValue!==''){const v=F.defaultValue(f,C.today());if(x.type==='checkbox')x.checked=v===true||v==='true';else x.value=v;}
       const original=base.find(b=>b.id===f.id);if(f.custom||f.label!==original?.label)x.setAttribute('aria-label',f.label);x.dataset.formField=f.id;x.readOnly=f.readonly||f.calculated;if(x.tagName==='SELECT'||x.type==='checkbox')x.disabled=Boolean(f.readonly||f.calculated);
-      x.syncReferencePicker?.();const wrapper=field(f.label+(f.required?' *':''),x);wrapper.hidden=!f.visible;wrapper.dataset.formField=f.id;if(orderedInput){wrapper.style.order=String(meta.fields.indexOf(f));placed.set(f.id,wrapper);}grid.append(wrapper);if(f.custom){x.oninput=changed;x.onchange=changed;}
+      x.syncReferencePicker?.();const wrapper=field(f.label+(f.required?' *':''),x);wrapper.hidden=!f.visible&&!x.dataset.numericTextFallback;wrapper.dataset.formField=f.id;if(x.dataset.numericTextFallback){const hint=note('기존 원문 보존: 숫자로 수정하거나 비우면 저장할 수 있습니다.');wrapper.style.flexWrap='wrap';hint.style.flexBasis='100%';hint.style.margin='0';wrapper.append(hint);}if(orderedInput){wrapper.style.order=String(meta.fields.indexOf(f));placed.set(f.id,wrapper);}grid.append(wrapper);if(f.custom){x.oninput=changed;x.onchange=changed;}
     }
     if(orderedInput)for(const f of F.inputSequence(meta.fields))if(placed.has(f.id))grid.append(placed.get(f.id));
-    const read=()=>{const values={...record,...customBase,...Object.fromEntries(Object.entries(controls).map(([k,x])=>[k,controlValue(x)])),...Object.fromEntries(Object.entries(customControls).map(([k,x])=>[k,controlValue(x)]))};return F.compute(meta.fields,values);};
-    const update=()=>{const values=read();for(const f of meta.fields.filter(f=>f.formula))if(customControls[f.id])customControls[f.id].value=values[f.id];return values;};
-    const rawCustomValues=()=>({...customBase,...Object.fromEntries(Object.entries(customControls).map(([id,x])=>[id,controlValue(x)]))});
+    const collect=(strict=true)=>{
+      const values={...record,...customBase,...Object.fromEntries(Object.entries(controls).map(([k,x])=>[k,controlValue(x)]))};let invalid=false;
+      for(const [id,x]of Object.entries(customControls)){
+        const f=meta.fields.find(f=>f.id===id);if(preserveCustom&&f.formula)continue;let value=controlValue(x);
+        if(preserveCustom&&f.type==='number'){
+          const probe=input('',value,'number'),bad=Boolean(x.validity?.badInput)||(value!==''&&(probe.value===''||!Number.isFinite(Number(probe.value))));
+          x.setAttribute('aria-invalid',String(bad));if(bad){invalid=true;if(strict||x.validity?.badInput){const error=Error(f.label+' 숫자를 확인하세요. 기존 원문을 수정하거나 비운 뒤 저장하세요.');error.formField=id;throw error;}}else if(value!=='')value=Number(value);
+        }
+        values[id]=value;
+      }
+      return {values,invalid};
+    };
+    const read=()=>F.compute(meta.fields,collect().values);
+    const update=()=>{try{const values=read();for(const f of meta.fields.filter(f=>f.formula))if(customControls[f.id])customControls[f.id].value=values[f.id];return values;}catch(error){if(preserveCustom)for(const f of meta.fields.filter(f=>f.formula))if(customControls[f.id])customControls[f.id].value='';throw error;}};
+    const rawCustomValues=()=>{
+      if(!preserveCustom)return {...customBase,...Object.fromEntries(Object.entries(customControls).map(([id,x])=>[id,controlValue(x)]))};
+      const snapshot=collect(false);let values=snapshot.values;if(!snapshot.invalid)try{values=F.compute(meta.fields,values);}catch{}
+      return {...customBase,...Object.fromEntries(meta.fields.filter(f=>f.custom).map(f=>[f.id,values[f.id]??'']))};
+    };
     const customValues=()=>{const values=update();return {...customBase,...Object.fromEntries(meta.fields.filter(f=>f.custom).map(f=>[f.id,values[f.id]??'']))};};
     const applyCustom=values=>{const next={...values};for(const f of meta.fields.filter(f=>f.custom))if(next[f.id]===undefined||next[f.id]===null)next[f.id]=F.defaultValue(f,C.today());const computed=F.compute(meta.fields,{...record,...next,...Object.fromEntries(Object.entries(controls).map(([key,x])=>[key,controlValue(x)]))});customBase={...values};for(const f of meta.fields.filter(f=>f.custom)){const x=customControls[f.id],value=computed[f.id];if(!x)continue;if(x.type==='checkbox')x.checked=value===true||value==='true'||value==='1';else x.value=value;}update();};
     try{update();}catch{}return {meta,read,update,customValues,rawCustomValues,applyCustom};
@@ -226,7 +242,7 @@
     for(const [k,label,type] of defs){
       const legacy=key==='currencies'&&k==='fractionDigits'&&(!fresh||record)&&(!Object.hasOwn(initial,k)||!['number','string'].includes(typeof initial[k])||!/^([0-4])$/.test(String(initial[k]))),x=key==='currencies'&&k==='fractionDigits'?select(label,[...(legacy?[['__preserve__','미설정 / 기존값 보존']]:[]),['0','사용안함'],...['1','2','3','4'].map(v=>[v,v])],legacy?'__preserve__':String(initial[k]??2),null):input(label,initial[k]??(k==='unit'?'EA':''),type);controls[k]=x;
     }
-    const enabled=input('사용중단',false,'checkbox');enabled.checked=Boolean(initial.disabled);controls.disabled=enabled;let configuration=configureGrid(grid,'input','등록 입력 양식',base,controls,initial,fresh,()=>{},formCustomizer);if(record)controls.code.readOnly=true;const currencyBaseline=key==='currencies'?{rate:controls.rate.value,fractionDigits:controls.fractionDigits.value}:null;
+    const enabled=input('사용중단',false,'checkbox');enabled.checked=Boolean(initial.disabled);controls.disabled=enabled;let configuration=configureGrid(grid,'input','등록 입력 양식',base,controls,initial,fresh,()=>{},formCustomizer,{preserveCustom:true});if(record)controls.code.readOnly=true;const currencyBaseline=key==='currencies'?{rate:controls.rate.value,fractionDigits:controls.fractionDigits.value}:null;
     const values=(raw=false)=>{
       const result={...initial,...Object.fromEntries(Object.entries(controls).map(([k,v])=>[k,controlValue(v)])),custom:raw?configuration.rawCustomValues():configuration.customValues()};
       if(key==='currencies'){
@@ -261,7 +277,7 @@
       editor={kind:'master',read:()=>itemEditor.read()};capture=()=>{};activeEditorModal.destroy=()=>itemEditor.destroy?.();customizer.mount(host,'input',()=>{const current=itemEditor.read();itemEditor.destroy?.();draw(current);});const legacyBar=host.querySelector(':scope > .form-option-bar');legacyBar?.querySelector('.form-option-trigger')?.remove();legacyBar?.querySelector('.form-option-menu')?.remove();itemEditor.mountFormPicker(legacyBar);return;
     }
     const {controls:masterControls,configuration,values}=masterForm(grid,key,initial,record,!record&&!value,customizer);Object.assign(controls,masterControls);grid.oninput=()=>{try{configuration.update();}catch(e){ctx.toast(e.message);}};
-    editor={kind:'master',read:()=>values(true)};capture=()=>{};const save=()=>{try{if(key==='currencies'){assertReturnSession();assertStorageCurrent();}const rec=values();F.check(configuration.meta.fields,configuration.read());if(commit('master',{key,record:rec,originalCode:record?.code})){discardDraft(draftKey);activeEditorModal.dialog.close();}}catch(e){ctx.toast(e.message);}};
+    editor={kind:'master',read:()=>values(true)};capture=()=>{};const save=()=>{try{if(key==='currencies'){assertReturnSession();assertStorageCurrent();}const rec=values();F.check(configuration.meta.fields,configuration.read());if(commit('master',{key,record:rec,originalCode:record?.code})){discardDraft(draftKey);activeEditorModal.dialog.close();}}catch(e){ctx.toast(e.message);if(e.formField){const x=[...grid.querySelectorAll('[data-custom-field]')].find(x=>x.dataset.customField===e.formField);if(x){x.closest('label').hidden=false;x.focus();}}}};
     form.append(grid,...(key==='currencies'?[note('변동환율을 사용하면 환율을 비워 두세요. 금액 소수점은 등록값으로 보관합니다.')]:[]),toolbar(button('저장(F8)',save,'primary'),button('닫기',()=>activeEditorModal.requestClose())));form.addEventListener('submit',e=>{e.preventDefault();save();});form.addEventListener('keydown',e=>{if(e.key==='F8'){e.preventDefault();save();}});host.append(form);controls.name.required=true;controls.code.required=true;customizer.mount(host,'input',()=>draw(values(true)));readonlyEditor();
     };draw(transient||drafts.get(draftKey));},onRefresh||refreshCurrentView);}
   const masterListFields=key=>(masterFields[key]||[]).filter(f=>!['group1','group2'].includes(f[0])).slice(0,5),masterGroupFields=key=>['partners','projects'].includes(key)?(masterFields[key]||[]).filter(f=>['group1','group2'].includes(f[0])):[];
