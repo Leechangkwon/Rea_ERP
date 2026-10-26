@@ -31,3 +31,9 @@ root에는 운영에 합격하지 않은 VAT5 연구가 포함돼 있다. 이후
 수정 전 신규Node3/390·1280px Chromium2 실패, 수정 후 관련Node40·신규브라우저2·격리0.88.14 전체 verify:local exit0/브라우저150 통과다. 세 목록 각각 2페이지→확인 탭 첫 페이지→다시2페이지→전체 첫 페이지, 검색 초안·선택·저장원문 불변을 검증했다. source ed72b29·release 0c6bc04를push 후 기존 WSL·Supabase·Cloudflare rea.qaredi.com에 반영했다. 기존 로그인/작업탭1·브라우저8전표/양식 byte동일·서버app30/gateway0 본문/수정번호·설정·메일3함8통1첨부 exact동일·복원미리보기 appliedfalse다. 운영 실제 목록은1페이지라 다중페이지 합격은 localhost 합성 근거로 구분한다. 실제 업무/설정 저장·발송0이다.
 
 왜 격리 후보로 배포했는가: root에는 미배포 VAT5/매핑 연구가 있으므로 운영0.88.13 기반에 페이지 수정만 반영해야 하기 때문이다. 기존 서버·메일/브라우저 자료는 백업/조회로 비교했고 복원 쓰기는 하지 않았다.
+
+## 운영 장애 복구 · Error1033 · 2026-10-26
+
+공개HTTP530/Error1033과 로컬8781 미대기·ERP/터널 프로세스 중단을 확인했다. WSL 로그에는 오늘10:45:36 KST의 정상 poweroff가 남지만 종료를 일으킨 주체는 미확인이다. 기존0.89.20 worker/runtime.env SHA를 대조한 뒤 기존 manager로 재시작하고 기존 rea-erp-local Tunnel 설정으로 cloudflared를 다시 실행했다. 왜: 정상 connector가 없어 공개 경로가 끊겼고 WSL의 ERP도 내려가 있었기 때문이다. 임시 exec93155는 manager stop으로 종료했고, 현재는 Windows 독립 숨김 wsl holder PID104664·cloudflared PID54288 / Linux manager PID1047·server group1058로 실행한다. 과거75511/PID2845016은 현재 실행 정보가 아니다. worker 버전/내용·설정·DNS·터널 경로는 그대로다.
+
+공개22검사/19자산hash일치·login200·로컬Supabase health200·기존 로그인으로 실제 메인0.89.20을 확인했다. 서버state는 복구 검사 동안 revision36으로 안정적이고10:37:07 KST의 기존 갱신을 유지했다. 이전 배포 revision34로 되돌리지 않았다. gateway는 동일하고 메일3함8통1첨부는 이전 배포와 일치한다. 소스/빌드/DB복원/진단 스크립트 자료쓰기/메일발송/인증정보 변경0이다. 자동시작 서비스/작업은 추가하지 않아 PC/WSL 전체 종료 뒤에는 기존 런타임 재시작이 필요하다. 근거 evidence/incident-rea-1033-20261026.json. 모아는 기존 운영 문서와 진행 색인에 추가할 구체안을 준비했고 미저장/확인 대기다. 실제 모아 일정/상태 필드는 변경하지 않았다. 전체 매뉴얼 합격0과 다음 CSV 기능은 미완료 그대로다.

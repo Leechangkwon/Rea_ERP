@@ -1754,11 +1754,19 @@
     },
     "operatingRuntime": {
       "version": "0.89.20",
-      "pid": 2845016,
-      "persistentExecSession": 75511,
+      "pid": 1047,
+      "serverProcessGroupPid": 1058,
       "installedWorker": "/home/lck/projects/Rea_ERP/dist/server/index.js",
       "workerSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
-      "doNotPollOrTerminatePersistentSession": true
+      "runtimeMode": "independent-hidden-Windows-wsl-holder",
+      "windowsWslPid": 104664,
+      "cloudflaredWindowsPid": 54288,
+      "persistentExecSession": null,
+      "priorPersistentExecSession": 75511,
+      "priorRuntimeEndedWithWslShutdown": true,
+      "managedControl": "/home/lck/.local/bin/rea-erp-dev {run|status|stop}",
+      "automaticStartupInstalled": false,
+      "recoveryEvidence": "evidence/incident-rea-1033-20261026.json"
     },
     "entryQueryOwnerGuard": {
       "deployed": true,
@@ -1931,6 +1939,24 @@
       "customCsvTransferHostedVerified": false,
       "hostedBusinessOrSettingsSaveVerified": false,
       "reference": "evidence/manual-item-custom-csv-20261025.json"
+    },
+    "latestOperationalRecovery": {
+      "dateKst": "2026-10-26",
+      "kind": "Error1033",
+      "status": "restored",
+      "versionUnchanged": "0.89.20",
+      "publicChecksPassed": 22,
+      "assetsExact": 19,
+      "existingBrowserSessionRetained": true,
+      "evidence": "evidence/incident-rea-1033-20261026.json",
+      "moaProposal": {
+        "artifact": ".artifacts/incident-rea-1033-20261026/moa-proposed-packet.json",
+        "sha256": "319ced45f03e70e5906d19c8d644b0126c7c2390d5d68f71b353633ad0c2b1d8",
+        "documents": 2,
+        "appendedBlocks": 5,
+        "saved": false,
+        "confirmationPending": true
+      }
     }
   },
   "manualParity": {

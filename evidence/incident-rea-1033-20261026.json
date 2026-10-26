@@ -1,0 +1,98 @@
+{
+  "dateKst": "2026-10-26",
+  "kind": "production-outage-1033-recovery",
+  "status": "restored",
+  "request": "rea.qaredi.com unavailable with Error1033",
+  "initialPublic": {
+    "httpStatus": 530,
+    "error1033Observed": true
+  },
+  "initialLocal": {
+    "port8781Listening": false,
+    "erpNodeRunning": false,
+    "cloudflaredRunning": false
+  },
+  "confirmedFacts": {
+    "wslShutdownAtKst": "2026-10-26T10:45:36+09:00",
+    "shutdownInitiatorIdentified": false,
+    "noExistingReaAutoStartServiceFound": true
+  },
+  "directFailure": "Cloudflare had no running healthy connector for the existing REA tunnel; the local ERP was also stopped.",
+  "recovery": {
+    "existingWorkerVersion": "0.89.20",
+    "linuxManagerPid": 1047,
+    "serverProcessGroupPid": 1058,
+    "windowsWslHolderPid": 104664,
+    "cloudflaredWindowsPid": 54288,
+    "runtimeMode": "independent-hidden-Windows-processes",
+    "temporaryExecSession": 93155,
+    "temporarySessionRetiredUsingManagedStop": true,
+    "activePersistentExecSession": null,
+    "automaticStartupInstalled": false
+  },
+  "checks": {
+    "version": "0.89.20",
+    "publicChecksPassed": 22,
+    "assetsExact": 19,
+    "loginStatus": 200,
+    "localHealth": 200,
+    "backend": "supabase",
+    "publicOrigin": "https://rea.qaredi.com",
+    "managedServerGroupPid": 1058,
+    "linuxManagerPid": 1047,
+    "workerSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
+    "runtimeConfigSha256": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928"
+  },
+  "hostedBrowser": {
+    "origin": "https://rea.qaredi.com",
+    "mainScreenVersion": "0.89.20",
+    "existingAccountSessionRetained": true,
+    "credentialsEntered": false,
+    "businessOrSettingsSaved": false
+  },
+  "preservation": {
+    "serverStateStableAcrossRecoveryChecks": true,
+    "serverRevision": 36,
+    "serverStateUpdatedBeforeIncidentKst": "2026-10-26T10:37:07.842+09:00",
+    "notRolledBackToPriorReleaseRevision": true,
+    "gatewayStateExactSinceRelease": true,
+    "mail": {
+      "boxes": 3,
+      "messages": 8,
+      "files": 1,
+      "boxesExact": true,
+      "messagesExact": true,
+      "filesExact": true
+    },
+    "workerSha256": "00c77bdcdb9ac969600d8ebebc309091449bf1144e5d1f7068c31bf02030a738",
+    "runtimeEnvSha256": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+    "tunnelConfigSha256": "f1fe1bacffe9840e0573259166d43a54040fe44da308a5fce1d5a6f3ee8d67f0"
+  },
+  "sourceCodeBuiltOrReplaced": false,
+  "databaseRestoreOrMigration": false,
+  "databaseWritesByDiagnosticScripts": false,
+  "mailSent": false,
+  "credentialOrDnsOrTunnelRouteChanged": false,
+  "moaRecordSaved": false,
+  "moaRecordConfirmationPending": true,
+  "actualMoaScheduleOrStatusFieldsChanged": false,
+  "localIncidentTiming": "Unscheduled recovery directly requested by user and executed on2026-10-26; no retrospective planned dates invented.",
+  "limitations": [
+    "WSL shutdown initiator was not determined.",
+    "No reboot/login automatic-start task or service was installed.",
+    "A full PC/WSL shutdown still requires starting the existing runtime again.",
+    "Whole manual acceptance and unrelated CSV feature work are unchanged."
+  ],
+  "publicVerificationArtifact": ".artifacts/incident-rea-1033-20261026/public-recovery.json",
+  "stateVerificationArtifact": ".artifacts/incident-rea-1033-20261026/state-metadata.json",
+  "mailVerificationArtifact": ".artifacts/incident-rea-1033-20261026/preservation.json",
+  "restoredObservedAtKst": "2026-10-26T11:46:15.070032+09:00",
+  "moaProposal": {
+    "artifact": ".artifacts/incident-rea-1033-20261026/moa-proposed-packet.json",
+    "sha256": "319ced45f03e70e5906d19c8d644b0126c7c2390d5d68f71b353633ad0c2b1d8",
+    "documents": 2,
+    "appendedBlocks": 5,
+    "saved": false,
+    "confirmationPending": true
+  }
+}
