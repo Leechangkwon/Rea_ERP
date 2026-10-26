@@ -3162,7 +3162,7 @@
       "workDocumentReadSucceeded": true,
       "actualProgressDocVersion": 26,
       "canEdit": true,
-      "writePendingUserConfirmation": false,
+      "writePendingUserConfirmation": true,
       "latestEvidence": "evidence/moa-p1-followup-approved-20261025.json",
       "historicalUnauthenticatedInitializeWasNotTokenExpiryProof": true,
       "currentVerifiedState": {
@@ -3288,6 +3288,15 @@
         ],
         "metadataChanged": false,
         "evidence": "evidence/moa-p1-followup-approved-20261025.json"
+      },
+      "recordTransport": "configured-moa-mcp",
+      "webLoginRequired": false,
+      "latestRouteCorrectionProposal": {
+        "artifact": ".artifacts/moa-mcp-recording-route-20261026/proposed-packet.json",
+        "blocks": 3,
+        "saved": false,
+        "confirmationPending": true,
+        "evidence": "evidence/moa-mcp-recording-route-20261026.json"
       }
     },
     "timelineResearch": {
@@ -3931,12 +3940,15 @@
       "evidence": "evidence/moa-development-records-batch-20261025.json",
       "metadataUpdatesAvailableThroughCurrentMcp": false,
       "actualDatesConfigured": false,
-      "webLoginRequiredForMetadataUi": true,
       "schedulePreferenceAwaited": true,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": false,
       "latestRecordedP1Evidence": "evidence/moa-p1-followup-approved-20261025.json",
-      "followupRecordConfirmationPending": false
+      "followupRecordConfirmationPending": false,
+      "recordTransport": "configured-moa-mcp",
+      "webLoginIsPrerequisite": false,
+      "webLoginPollingEnabled": false,
+      "routeCorrectionEvidence": "evidence/moa-mcp-recording-route-20261026.json"
     }
   },
   "preparedCandidate": {
