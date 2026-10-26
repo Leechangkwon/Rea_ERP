@@ -3162,8 +3162,8 @@
       "workDocumentReadSucceeded": true,
       "actualProgressDocVersion": 26,
       "canEdit": true,
-      "writePendingUserConfirmation": true,
-      "latestEvidence": "evidence/moa-p1-followup-approved-20261025.json",
+      "writePendingUserConfirmation": false,
+      "latestEvidence": "evidence/moa-mcp-recording-route-approved-20261026.json",
       "historicalUnauthenticatedInitializeWasNotTokenExpiryProof": true,
       "currentVerifiedState": {
         "pluginVersion": "1.0.2",
@@ -3221,7 +3221,7 @@
         "approval": "16개 세부 문서와 색인 일괄 반영",
         "evidence": "evidence/moa-development-records-batch-20261025.json"
       },
-      "lastSavedReadbackKind": "approved-P1-followup-55-blocks",
+      "lastSavedReadbackKind": "approved-MCP-recording-route-correction-3-blocks",
       "historicalPendingLocalUpdatesCount": 123,
       "pendingLocalUpdatesCountStatus": "P1 follow-up0.89.9~0.89.20 appended55/readback exact. Other local documents and the original progress index were not updated by this operation; reconciliation remains separate.",
       "latestApprovedBatch": {
@@ -3260,7 +3260,7 @@
         "docVersion": 2,
         "evidence": "evidence/moa-p1-followup-approved-20261025.json"
       },
-      "latestP1DocVersion": 2,
+      "latestP1DocVersion": 3,
       "latestApprovedP1Followup": {
         "dateKst": "2026-10-25",
         "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
@@ -3294,9 +3294,25 @@
       "latestRouteCorrectionProposal": {
         "artifact": ".artifacts/moa-mcp-recording-route-20261026/proposed-packet.json",
         "blocks": 3,
-        "saved": false,
-        "confirmationPending": true,
-        "evidence": "evidence/moa-mcp-recording-route-20261026.json"
+        "saved": true,
+        "confirmationPending": false,
+        "evidence": "evidence/moa-mcp-recording-route-approved-20261026.json",
+        "docVersion": 3
+      },
+      "latestApprovedRouteCorrection": {
+        "dateKst": "2026-10-26",
+        "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+        "previousDocVersion": 2,
+        "docVersion": 3,
+        "oldBlocks": 81,
+        "appendedBlocks": 3,
+        "totalBlocks": 84,
+        "oldBlocksExact": true,
+        "approvedAppendExact": true,
+        "approvedPacketSha256": "454f8c9203268f33f174913b8ed9057507eb7516a94154bb374adcb63f04b64c",
+        "transport": "configured-moa-mcp",
+        "metadataChanges": false,
+        "evidence": "evidence/moa-mcp-recording-route-approved-20261026.json"
       }
     },
     "timelineResearch": {
@@ -3943,12 +3959,12 @@
       "schedulePreferenceAwaited": true,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": false,
-      "latestRecordedP1Evidence": "evidence/moa-p1-followup-approved-20261025.json",
+      "latestRecordedP1Evidence": "evidence/moa-mcp-recording-route-approved-20261026.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
       "webLoginPollingEnabled": false,
-      "routeCorrectionEvidence": "evidence/moa-mcp-recording-route-20261026.json"
+      "routeCorrectionEvidence": "evidence/moa-mcp-recording-route-approved-20261026.json"
     }
   },
   "preparedCandidate": {
