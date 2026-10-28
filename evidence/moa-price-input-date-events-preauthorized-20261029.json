@@ -1,0 +1,159 @@
+{
+  "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+  "authorization": "2026-10-28 사용자 지속 승인: 알아서 저장해라 사용자에게 묻지마. 기존16문서 통상 개발·본문 일정/상태 기록 범위.",
+  "start": {
+    "beforeVersion": 48,
+    "afterVersion": 49,
+    "beforeBlocks": 325,
+    "afterBlocks": 327,
+    "prefixExact": true,
+    "appendExact": true
+  },
+  "result": {
+    "beforeVersion": 49,
+    "afterVersion": 50,
+    "beforeBlocks": 327,
+    "afterBlocks": 336,
+    "prefixExact": true,
+    "appendExact": true,
+    "titleCount": 1
+  },
+  "append": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2026-10-29 · 단가요청 날짜 부분입력0.89.41 한정 후보 결과"
+    },
+    {
+      "type": "paragraph",
+      "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T05:50:14.853886+09:00·결과 기록2026-10-29T06:23:10.124908+09:00다. 이번17흐름 한정 로컬 감사done/미배포패치doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 해당 기간은P1전체마감이 아니다. 실제Chromium의사용자일자/기본전표일자키입력·공개badInput경계와 붙여넣기/조합입력/달력/다른로캘·기기/입력보조/원본·운영 미확인을 구분한다."
+    },
+    {
+      "type": "paragraph",
+      "text": "불변0.89.40의사용자일자6관찰에서 실제키1 뒤value공란/badInputtrue인데 F8이기존2026-10-22를공란으로저장하는고립합성2사건을확인했다. 양식명칭저장/닫기뒤에는private조각이badInputfalse의정상공란으로사라졌다. 별도기본전표일자6관찰은기존업무검사가공란저장을거절해원문exact였지만 양식변경/닫기때의조각손실은같았다. 관찰12는기능합격12개가아니다. 키보드2관찰에서준비용fill비움의input/change는isTrustedfalse,이후키1/Backspace/연도키는true였다. 미완성키와Backspace에는input/change없이keyup만발생했고완성중에는0002같은유효한중간연도도공개됐다. 사용자최종의도를추정하거나DOM비공개조각을문자열로재구성하지않는다."
+    },
+    {
+      "type": "paragraph",
+      "text": "단가요청의등록된header date와custom number/date control에대해native badInput을모든raw/strict읽기전에구분해일자/숫자오류·aria-invalid를표시한다. preserveInputValues의native date가badInput이거나이미invalid인경우만keyup에서기존검사를실행해즉시피드백과native Backspace비움복구를제공한다. 유효일자의단순방향키는다른저장오류를지우지않는다. 같은소유자는저장·양식진입/적용·조건재구성·닫기를거절해살아있는DOM을유지한다. hasIncompleteInput으로소유문맥이바뀐뒤닫기만읽기/공란초안저장없이허용해기존업무일자를보존한다. 기존숫자정책·공통FormCore/parser/evaluator/schema/backup/FormOptions와전표필수일자규칙은유지했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "최종390/1280×17흐름34·기존관련Node99·전체verify:local exit0/558브라우저·전체Node·릴리스검사/빌드를통과했다. 사용자일자12흐름/기본일자5흐름으로keyup공개상태·input/change부재, F8/F7거절·첫양식진입/선택거절·DOM유지, 닫기/Escape·Backspace명시비움초안, 실제키완성뒤명시저장, 반복양식변경뒤다음부분입력, 쓰기가능/읽기역할변경시닫기/재진입, 조건재구성, 유효날짜방향키와다른오류보존을확인했다. 최종합성설정저장2·합성업무저장6·거절한F8/F7시도16(부분입력흐름12/기존필수업무오류4)·pageerror/원격쓰기0이다. 기본일자를명시비워초안으로닫을수있어도업무저장은기존규칙대로거절한다. 유효저장뒤다른전표/기초자료/양식은대응exact다. 역할변경6사례는검사기주입이며실제계정/원본권한합격은아니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "최초불변24는부분입력보호첫기대실패22개와존재하지않는창고공란선택지를고른fixture timeout2개였다. 입력가능한기본일자비움으로준비를고쳐정상방향키2개만불변40에서재검사해통과했다. 추가기본일자10개도불변40에서실패했다. 이24/2/10을단일34실행으로표시하지않고독립요구사항으로합산하지않는다. 첫custom24통과소스/Node/REA는before-native-header-snapshot에보존하고추가실관찰뒤기본일자로확장했다. 중간소스의전체빌드/새worker합격은없으며최종34는첫실행에모두통과했다. 각baseline/관찰/키보드/중간/최종원고·로그·실패trace/스크린샷·이벤트JSON을분리보존했다. 새영구Node파일0이며기존99는새요구사항이아니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "source 54c15a2 / release 80527d8 / branch release/0.89.41-price-input-date-events를커밋·push했다. 후보worker 3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43은미설치다. root/candidate6공유수정밖의원형·기존VAT/API차이를역변환exact로보존했다. 자체REA6.4는configureGrid와docEditor의editor정의/getDoc native guard 및editorDialog의소유자닫기if를root/candidate8범위4raw해시쌍exact·parse0·coverageunknown/truncatedfalse로대조했으며전체함수/모듈·원본실행동등성은아니다. 설치운영0.89.22 worker79222ea6…·기존0.89.23~40의18후보HEAD/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "새브라우저연결근거가없어같은연결/로그인확인을하지않았다. 최신운영브라우저백업/인증UI와서버·메일배포전기준을새로확보한뒤 이전보호를포함한0.89.41후보의배포·공개변경자산/읽기UI/자료·양식보존을검증한다. 이번운영프로세스생존/공개health·새인증UI/서버·메일스냅샷합격은아니다. root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다. 한정키입력을P1/P0~P10/전체매뉴얼완료로올리지않으며 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체매뉴얼완료false다. 근거 evidence/manual-price-input-date-events-20261029.json."
+    },
+    {
+      "type": "paragraph",
+      "text": "다음은단가요청기존선택사용자값·선택지변경보존대조다. 왜: 40의미등록선택기본값과이번날짜키입력보호는이미전표에저장된선택값/현재초안이선택지삭제·명칭/유형/readonly·적용양식변경을만나는경계를대신하지못하기때문이다. 기존customControl/configureGrid·F.merge/effective/check와FormOptions/부모preserveForm의검증범위부터읽고지원UI의취소/명시저장·선택수정/비움·초안재진입의새소실만재현한다. 미등록값을자동삭제/다른값으로치환하지않고같은ID의문자/수치/0/false와schema거부를구분한다. 날짜붙여넣기/조합입력/달력/다른로캘·기기/입력보조·원본/운영은미확인으로유지하며기존19후보/원문·양식·자료/운영gate를보존한다. 이번날짜34/비숫자40과같은전체검사를변화없이반복하지않는다."
+    }
+  ],
+  "readbackTail": [
+    {
+      "id": "b20438a6-f61a-4de4-b6de-7e9c79ad2c53",
+      "text": [
+        {
+          "m": [],
+          "t": "2026-10-29 · 단가요청 날짜 부분입력0.89.41 한정 후보 결과"
+        }
+      ],
+      "type": "heading",
+      "level": 2
+    },
+    {
+      "id": "f42b5209-6960-4068-93d6-e5cd30be56e8",
+      "text": [
+        {
+          "m": [],
+          "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T05:50:14.853886+09:00·결과 기록2026-10-29T06:23:10.124908+09:00다. 이번17흐름 한정 로컬 감사done/미배포패치doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 해당 기간은P1전체마감이 아니다. 실제Chromium의사용자일자/기본전표일자키입력·공개badInput경계와 붙여넣기/조합입력/달력/다른로캘·기기/입력보조/원본·운영 미확인을 구분한다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "d0ecc445-cde4-446c-8a21-5ee0e8fc977b",
+      "text": [
+        {
+          "m": [],
+          "t": "불변0.89.40의사용자일자6관찰에서 실제키1 뒤value공란/badInputtrue인데 F8이기존2026-10-22를공란으로저장하는고립합성2사건을확인했다. 양식명칭저장/닫기뒤에는private조각이badInputfalse의정상공란으로사라졌다. 별도기본전표일자6관찰은기존업무검사가공란저장을거절해원문exact였지만 양식변경/닫기때의조각손실은같았다. 관찰12는기능합격12개가아니다. 키보드2관찰에서준비용fill비움의input/change는isTrustedfalse,이후키1/Backspace/연도키는true였다. 미완성키와Backspace에는input/change없이keyup만발생했고완성중에는0002같은유효한중간연도도공개됐다. 사용자최종의도를추정하거나DOM비공개조각을문자열로재구성하지않는다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "dcdf8112-663b-4a14-b552-4f5e0256db2a",
+      "text": [
+        {
+          "m": [],
+          "t": "단가요청의등록된header date와custom number/date control에대해native badInput을모든raw/strict읽기전에구분해일자/숫자오류·aria-invalid를표시한다. preserveInputValues의native date가badInput이거나이미invalid인경우만keyup에서기존검사를실행해즉시피드백과native Backspace비움복구를제공한다. 유효일자의단순방향키는다른저장오류를지우지않는다. 같은소유자는저장·양식진입/적용·조건재구성·닫기를거절해살아있는DOM을유지한다. hasIncompleteInput으로소유문맥이바뀐뒤닫기만읽기/공란초안저장없이허용해기존업무일자를보존한다. 기존숫자정책·공통FormCore/parser/evaluator/schema/backup/FormOptions와전표필수일자규칙은유지했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "8b1eb52a-3dcd-4732-bb5a-3cd0e3251f91",
+      "text": [
+        {
+          "m": [],
+          "t": "최종390/1280×17흐름34·기존관련Node99·전체verify:local exit0/558브라우저·전체Node·릴리스검사/빌드를통과했다. 사용자일자12흐름/기본일자5흐름으로keyup공개상태·input/change부재, F8/F7거절·첫양식진입/선택거절·DOM유지, 닫기/Escape·Backspace명시비움초안, 실제키완성뒤명시저장, 반복양식변경뒤다음부분입력, 쓰기가능/읽기역할변경시닫기/재진입, 조건재구성, 유효날짜방향키와다른오류보존을확인했다. 최종합성설정저장2·합성업무저장6·거절한F8/F7시도16(부분입력흐름12/기존필수업무오류4)·pageerror/원격쓰기0이다. 기본일자를명시비워초안으로닫을수있어도업무저장은기존규칙대로거절한다. 유효저장뒤다른전표/기초자료/양식은대응exact다. 역할변경6사례는검사기주입이며실제계정/원본권한합격은아니다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "dd51d689-2e3f-43d8-9569-52e902800d29",
+      "text": [
+        {
+          "m": [],
+          "t": "최초불변24는부분입력보호첫기대실패22개와존재하지않는창고공란선택지를고른fixture timeout2개였다. 입력가능한기본일자비움으로준비를고쳐정상방향키2개만불변40에서재검사해통과했다. 추가기본일자10개도불변40에서실패했다. 이24/2/10을단일34실행으로표시하지않고독립요구사항으로합산하지않는다. 첫custom24통과소스/Node/REA는before-native-header-snapshot에보존하고추가실관찰뒤기본일자로확장했다. 중간소스의전체빌드/새worker합격은없으며최종34는첫실행에모두통과했다. 각baseline/관찰/키보드/중간/최종원고·로그·실패trace/스크린샷·이벤트JSON을분리보존했다. 새영구Node파일0이며기존99는새요구사항이아니다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "3256568d-019f-49c6-a062-495b6495853d",
+      "text": [
+        {
+          "m": [],
+          "t": "source 54c15a2 / release 80527d8 / branch release/0.89.41-price-input-date-events를커밋·push했다. 후보worker 3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43은미설치다. root/candidate6공유수정밖의원형·기존VAT/API차이를역변환exact로보존했다. 자체REA6.4는configureGrid와docEditor의editor정의/getDoc native guard 및editorDialog의소유자닫기if를root/candidate8범위4raw해시쌍exact·parse0·coverageunknown/truncatedfalse로대조했으며전체함수/모듈·원본실행동등성은아니다. 설치운영0.89.22 worker79222ea6…·기존0.89.23~40의18후보HEAD/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "4cffbb1f-3172-44ae-af0b-a26682ee08b4",
+      "text": [
+        {
+          "m": [],
+          "t": "새브라우저연결근거가없어같은연결/로그인확인을하지않았다. 최신운영브라우저백업/인증UI와서버·메일배포전기준을새로확보한뒤 이전보호를포함한0.89.41후보의배포·공개변경자산/읽기UI/자료·양식보존을검증한다. 이번운영프로세스생존/공개health·새인증UI/서버·메일스냅샷합격은아니다. root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다. 한정키입력을P1/P0~P10/전체매뉴얼완료로올리지않으며 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체매뉴얼완료false다. 근거 evidence/manual-price-input-date-events-20261029.json."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "ac8c32f5-0c03-4de4-928e-8a4f85e2132d",
+      "text": [
+        {
+          "m": [],
+          "t": "다음은단가요청기존선택사용자값·선택지변경보존대조다. 왜: 40의미등록선택기본값과이번날짜키입력보호는이미전표에저장된선택값/현재초안이선택지삭제·명칭/유형/readonly·적용양식변경을만나는경계를대신하지못하기때문이다. 기존customControl/configureGrid·F.merge/effective/check와FormOptions/부모preserveForm의검증범위부터읽고지원UI의취소/명시저장·선택수정/비움·초안재진입의새소실만재현한다. 미등록값을자동삭제/다른값으로치환하지않고같은ID의문자/수치/0/false와schema거부를구분한다. 날짜붙여넣기/조합입력/달력/다른로캘·기기/입력보조·원본/운영은미확인으로유지하며기존19후보/원문·양식·자료/운영gate를보존한다. 이번날짜34/비숫자40과같은전체검사를변화없이반복하지않는다."
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "actualMetadataConfigured": false,
+  "otherDocumentsChanged": 0,
+  "indexChanged": 0,
+  "newDocumentsCreated": 0,
+  "reapprovalQuestions": 0,
+  "duplicatePosts": 0
+}

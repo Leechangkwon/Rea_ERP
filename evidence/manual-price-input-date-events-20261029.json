@@ -1,0 +1,1533 @@
+{
+  "sourceId": "OWN-PRICE-INPUT-DATE-NATIVE-EVENT-LIFECYCLE-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T05:50:14.853886+09:00",
+  "auditStatus": "done-for-seventeen-local-flows",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "operatingVersion": "0.89.22",
+  "recordedAt": "2026-10-29T06:23:10.124908+09:00",
+  "elapsedSeconds": 1975.271,
+  "version": "0.89.41",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "patchStatus": "doing",
+  "release": {
+    "version": "0.89.41",
+    "sourceCommit": "54c15a282ef1e8affddf7be3c7ca65b2f30f772d",
+    "releaseCommit": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+    "branch": "release/0.89.41-price-input-date-events",
+    "baselineReleaseCommit": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+    "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.41-price-input-date-events",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.40",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "sourceRemoteRef": "54c15a282ef1e8affddf7be3c7ca65b2f30f772d",
+    "releaseRemoteRef": "80527d8841d40b2f02854a02491a1a8e42e96b6b"
+  },
+  "checks": {
+    "actualShellCases": 34,
+    "flowCount": 17,
+    "widths": [
+      390,
+      1280
+    ],
+    "initialCustomObservations": [
+      {
+        "width": 390,
+        "action": "metadata",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 390,
+        "action": "close",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 1280,
+        "action": "close",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 390,
+        "action": "save",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": null,
+        "childClosed": true,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "",
+        "documentsExact": false,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 1280,
+        "action": "save",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": null,
+        "childClosed": true,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "",
+        "documentsExact": false,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 1280,
+        "action": "metadata",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      }
+    ],
+    "initialHeaderObservations": [
+      {
+        "width": 390,
+        "action": "close",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 1280,
+        "action": "metadata",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 1280,
+        "action": "save",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 390,
+        "action": "save",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 390,
+        "action": "metadata",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "width": 1280,
+        "action": "close",
+        "before": {
+          "value": "",
+          "badInput": true,
+          "type": "date"
+        },
+        "after": {
+          "value": "",
+          "badInput": false,
+          "type": "date"
+        },
+        "childClosed": false,
+        "originalStoredValue": "2026-10-22",
+        "storedValue": "2026-10-22",
+        "documentsExact": true,
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "blur",
+            "trusted": true,
+            "key": null,
+            "value": "",
+            "badInput": true
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      }
+    ],
+    "nativeKeyboardObservations": [
+      {
+        "mode": "backspace",
+        "partial": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "",
+          "badInput": false
+        },
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "Backspace",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "Backspace",
+            "value": "",
+            "badInput": false
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "mode": "complete",
+        "partial": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "2026-01-02",
+          "badInput": false
+        },
+        "events": [
+          {
+            "event": "input",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": false,
+            "key": null,
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": false
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "1",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "ArrowRight",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "ArrowRight",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "2",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "2",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "ArrowRight",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "ArrowRight",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "2",
+            "value": "",
+            "badInput": true
+          },
+          {
+            "event": "input",
+            "trusted": true,
+            "key": null,
+            "value": "0002-01-02",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": true,
+            "key": null,
+            "value": "0002-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "2",
+            "value": "0002-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "0",
+            "value": "0002-01-02",
+            "badInput": false
+          },
+          {
+            "event": "input",
+            "trusted": true,
+            "key": null,
+            "value": "0020-01-02",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": true,
+            "key": null,
+            "value": "0020-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "0",
+            "value": "0020-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "2",
+            "value": "0020-01-02",
+            "badInput": false
+          },
+          {
+            "event": "input",
+            "trusted": true,
+            "key": null,
+            "value": "0202-01-02",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": true,
+            "key": null,
+            "value": "0202-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "2",
+            "value": "0202-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keydown",
+            "trusted": true,
+            "key": "6",
+            "value": "0202-01-02",
+            "badInput": false
+          },
+          {
+            "event": "input",
+            "trusted": true,
+            "key": null,
+            "value": "2026-01-02",
+            "badInput": false
+          },
+          {
+            "event": "change",
+            "trusted": true,
+            "key": null,
+            "value": "2026-01-02",
+            "badInput": false
+          },
+          {
+            "event": "keyup",
+            "trusted": true,
+            "key": "6",
+            "value": "2026-01-02",
+            "badInput": false
+          }
+        ],
+        "pageErrors": [],
+        "remoteWrites": []
+      }
+    ],
+    "firstBaseline24": {
+      "partialInputExpectationFailures": 22,
+      "fixtureTimeouts": 2
+    },
+    "correctedBaselineSubset": {
+      "passed": 2,
+      "failed": 0
+    },
+    "addedHeaderBaseline": {
+      "passed": 0,
+      "failed": 10
+    },
+    "customIntermediate": {
+      "passed": 24,
+      "failed": 0,
+      "fullVerificationRun": false
+    },
+    "finalNative": {
+      "passed": 34,
+      "failed": 0
+    },
+    "focusedNode": 99,
+    "permanentNewNodeFiles": 0,
+    "wholeBrowser": 558,
+    "allNodeAndBuildPassed": true,
+    "fullVerification": {
+      "exitCode": 0,
+      "elapsedSeconds": 586.7016162872314,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "tests/browser/price-input-date-events.spec.cjs": "01c798e6e2dde88b5735285fac10fc9401cca60167afa761b46d847975dbb2fe",
+        "package.json": "44baa7fd9a216984017c6d7c3f53ca259e5b661adf2e84ba400af9c86298bd3d"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "tests/browser/price-input-date-events.spec.cjs": "01c798e6e2dde88b5735285fac10fc9401cca60167afa761b46d847975dbb2fe",
+        "package.json": "44baa7fd9a216984017c6d7c3f53ca259e5b661adf2e84ba400af9c86298bd3d"
+      }
+    },
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 8,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "configureGrid",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "38a6505453e2639c7a660a5ba4922d9149b2f58312b1dde58bd5912a0b073da6",
+          "start": 11935,
+          "end": 18225,
+          "lineStart": 78,
+          "lineEnd": 111,
+          "fragmentSha256": "f7ea12b7e7dd53924dccf3c59e980dfbe76e0a2fcd83fa69cb87c983be58d2af",
+          "inputFile": "own-configureGrid.js",
+          "inputSha256": "3f05647e8fa7b5e354a7986f0295add7c225182cc60531afb14ada9046fae8a4",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "configureGrid",
+          "file": ".artifacts/releases/0.89.41-price-input-date-events/dist/inventory-ui.js",
+          "sourceSha256": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd",
+          "start": 11912,
+          "end": 18202,
+          "lineStart": 78,
+          "lineEnd": 111,
+          "fragmentSha256": "f7ea12b7e7dd53924dccf3c59e980dfbe76e0a2fcd83fa69cb87c983be58d2af",
+          "inputFile": "candidate-configureGrid.js",
+          "inputSha256": "3f05647e8fa7b5e354a7986f0295add7c225182cc60531afb14ada9046fae8a4",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-editor",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "38a6505453e2639c7a660a5ba4922d9149b2f58312b1dde58bd5912a0b073da6",
+          "start": 75158,
+          "end": 75564,
+          "lineStart": 361,
+          "lineEnd": 361,
+          "fragmentSha256": "5d5238d27093c18cb96255485096b83a9c068340714e3b98246b310f88091b25",
+          "inputFile": "own-price-editor.js",
+          "inputSha256": "c006a58182a03671f691a692a0235fe59ca82c350b734f9aedab8786892677b7",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-editor",
+          "file": ".artifacts/releases/0.89.41-price-input-date-events/dist/inventory-ui.js",
+          "sourceSha256": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd",
+          "start": 75110,
+          "end": 75516,
+          "lineStart": 361,
+          "lineEnd": 361,
+          "fragmentSha256": "5d5238d27093c18cb96255485096b83a9c068340714e3b98246b310f88091b25",
+          "inputFile": "candidate-price-editor.js",
+          "inputSha256": "c006a58182a03671f691a692a0235fe59ca82c350b734f9aedab8786892677b7",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-number-guard",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "38a6505453e2639c7a660a5ba4922d9149b2f58312b1dde58bd5912a0b073da6",
+          "start": 90651,
+          "end": 91156,
+          "lineStart": 402,
+          "lineEnd": 402,
+          "fragmentSha256": "d2310eef67f524ee0dd2f38eaf809b2a73c7b9d8b0c3298b17ae3f6684db2bbd",
+          "inputFile": "own-price-number-guard.js",
+          "inputSha256": "49727513fc3f8c866bd12116f5256c39d49f9e1dbfc18759d01fe9086564261e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-number-guard",
+          "file": ".artifacts/releases/0.89.41-price-input-date-events/dist/inventory-ui.js",
+          "sourceSha256": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd",
+          "start": 90387,
+          "end": 90892,
+          "lineStart": 401,
+          "lineEnd": 401,
+          "fragmentSha256": "d2310eef67f524ee0dd2f38eaf809b2a73c7b9d8b0c3298b17ae3f6684db2bbd",
+          "inputFile": "candidate-price-number-guard.js",
+          "inputSha256": "49727513fc3f8c866bd12116f5256c39d49f9e1dbfc18759d01fe9086564261e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-context-close",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "38a6505453e2639c7a660a5ba4922d9149b2f58312b1dde58bd5912a0b073da6",
+          "start": 31819,
+          "end": 31916,
+          "lineStart": 183,
+          "lineEnd": 183,
+          "fragmentSha256": "7d15605f31c67c719c09891cc6d6eb2fcb11d43f0f1cec0c27be2aaafba88b38",
+          "inputFile": "own-price-context-close.js",
+          "inputSha256": "e0971d8c017222b190ccdd78413e3367390fb89a835cdd4bbe7de14910e0e39b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-context-close",
+          "file": ".artifacts/releases/0.89.41-price-input-date-events/dist/inventory-ui.js",
+          "sourceSha256": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd",
+          "start": 31796,
+          "end": 31893,
+          "lineStart": 183,
+          "lineEnd": 183,
+          "fragmentSha256": "7d15605f31c67c719c09891cc6d6eb2fcb11d43f0f1cec0c27be2aaafba88b38",
+          "inputFile": "candidate-price-context-close.js",
+          "inputSha256": "e0971d8c017222b190ccdd78413e3367390fb89a835cdd4bbe7de14910e0e39b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "a202c3aeb01aa05c64898d066dd02c07a60ddce43b7aa1478bb96552a783662c",
+      "statistics": {
+        "relevant_files": 8,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 15102,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 8,
+        "visited_ast_nodes": 3772,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "port": {
+      "root": {
+        "outsideSharedEditsExact": true,
+        "beforeSha256": "933241dd17558b1b71342ba70061c9fcb96593009eb1d381dad5a353b89fa8b6",
+        "afterSha256": "38a6505453e2639c7a660a5ba4922d9149b2f58312b1dde58bd5912a0b073da6"
+      },
+      "candidate": {
+        "outsideSharedEditsExact": true,
+        "beforeSha256": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+        "afterSha256": "838649d640f9a1d28867bcad3ec6d07c24310e1a5ed792451e51490f9cb687dd"
+      }
+    },
+    "syntheticMetadataSaves": 2,
+    "syntheticBusinessSaves": 6,
+    "refusedBusinessSaveAndPrintAttempts": 16,
+    "refusedPartialInputAttempts": 12,
+    "refusedExistingBusinessRequiredFieldAttempts": 4,
+    "syntheticRoleChangeCases": 6,
+    "pageErrors": 0,
+    "remoteWrites": 0
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "remainingWork": [
+    "Existing selected business values under changed options/layouts",
+    "Native paste/composition/calendar/other locales and devices",
+    "Entry helpers and other document contexts"
+  ],
+  "originalAccepted": false,
+  "productionAccepted": false,
+  "actualAccountAccepted": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "browserConnectionRetried": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "newErpChanged": false,
+  "automaticStartupAdded": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-INPUT-SELECT-OPTIONS-EXISTING-RAW-CONTRACT-AUDIT",
+    "title": "단가요청 기존 선택 사용자값·선택지 변경 보존 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-input-date-events-20261029.json",
+    "latestEvidence": "evidence/manual-price-input-date-events-20261029.json",
+    "description": "0.89.40의 미등록선택 기본값 보존과0.89.41의날짜native키입력17흐름은확인했지만 이미업무전표에저장된선택값/현재자식초안이선택지삭제·이름/유형·readonly·적용양식변경을만날때의값/메타데이터/부모검색보존은별도다. 기존customControl/configureGrid·F.merge/effective/check와FormOptions/부모preserveForm의검증범위를먼저읽고지원UI의취소/명시저장·선택수정/비움·초안재진입에서새소실만재현한다. 미등록값을자동삭제하거나다른선택값으로바꾸지않고같은ID의문자/수치/0/false와schema거부를구분한다. 날짜붙여넣기/조합입력/달력선택/다른로캘·기기/입력보조·원본/운영은이번키입력으로대신하지않는다. 기존19후보/원문·양식·자료/운영gate를보존하고완료된날짜34/비숫자40과같은전체검사를변화없이반복하지않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 48,
+        "afterVersion": 49,
+        "beforeBlocks": 325,
+        "afterBlocks": 327,
+        "prefixExact": true,
+        "appendExact": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 실제 날짜 입력 이벤트·부분값 수명 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T05:50:14.853886+09:00·한정감사doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 정상native date의실제키/세그먼트·input/change·미완성값/명시비움·양식재구성·닫기/권한문맥에서 공개value/badInput과저장시점을먼저관찰한다. 숫자1e나기존문자fallback을날짜부분입력증거로대신하지않고 DOM비공개토큰을추측재구성/JSON저장하지않는다. 확인된새손실만기존원문/양식/자료·18후보/운영gate를보존하며보완한다. 같은브라우저연결/로그인확인과완료된정상추가24/원문복구16의전체검사를변화없이반복하지않는다. 기존업무선택지변경·계산참조결합/신규F2·다른전표/원본·운영합격은미확인으로유지한다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "bddf03e5-d428-4803-8083-ed18642da3bc",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 실제 날짜 입력 이벤트·부분값 수명 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "87af24a9-8906-4344-b520-90301e56a336",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T05:50:14.853886+09:00·한정감사doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 정상native date의실제키/세그먼트·input/change·미완성값/명시비움·양식재구성·닫기/권한문맥에서 공개value/badInput과저장시점을먼저관찰한다. 숫자1e나기존문자fallback을날짜부분입력증거로대신하지않고 DOM비공개토큰을추측재구성/JSON저장하지않는다. 확인된새손실만기존원문/양식/자료·18후보/운영gate를보존하며보완한다. 같은브라우저연결/로그인확인과완료된정상추가24/원문복구16의전체검사를변화없이반복하지않는다. 기존업무선택지변경·계산참조결합/신규F2·다른전표/원본·운영합격은미확인으로유지한다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 50,
+    "p1FinalBlocks": 336,
+    "evidence": "evidence/moa-price-input-date-events-preauthorized-20261029.json"
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-input-date-events-20261029/browser-baseline-fixed.log": "157f30763207ac0f1971f390bdf32691403b6b9d62ea01cfd0c952fbbf712485",
+    ".artifacts/manual-price-input-date-events-20261029/release.json": "a2a06bf0ade50676e09576489251c81abb2ea28dbe97cdc29bef156df87d126a",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-exit.json": "3c8d0e326178a847ab94ae49779ff16d184f5971fb480b2afcfd73bdd2eb4fbc",
+    ".artifacts/manual-price-input-date-events-20261029/browser-keyboard-probe-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-date-events-20261029/native-keyboard-observations.json": "64a5d46fefbafd38f16dad3f8756b07791eae7637b0228de16c74f1c6359ca82",
+    ".artifacts/manual-price-input-date-events-20261029/build-automation.py": "e777b6683f0d4782587c5d8f26d742bf2224f6bc392570ed1ea897031d24548d",
+    ".artifacts/manual-price-input-date-events-20261029/browser-keyboard-probe.cjs": "aa577a112deef4bd3268f7e4175db97955801cad6cfb8b635bc91c6d6e881f34",
+    ".artifacts/manual-price-input-date-events-20261029/verify-local.log": "15393e4a2e52ef4b1b61de765de1291373d074cb3a7f9cdcf7a2fe1c98a192cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe.log": "b21e7a1c73b672ef70ee76e2a84325f12601258de1599a86ab06c034dd9fe090",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-exit.json": "d424f14008fbc512a1808c78759a8002acb50630ef5281cd3c0724e77fffac85",
+    ".artifacts/manual-price-input-date-events-20261029/node-final.log": "47d4fec042611dbec69034d2ef0b41983af430efd49199ba76df671446f4d16e",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe.log": "ac900e931c49c6b6a2b3c3aaa65d798d4571d45b8453a5b1671e945a6d624a79",
+    ".artifacts/manual-price-input-date-events-20261029/browser-final.log": "558566d5db3d3926d7d3f10add882c0558242bab009c73b3d19fc87b149095fe",
+    ".artifacts/manual-price-input-date-events-20261029/inventory-ui-root-before.js": "933241dd17558b1b71342ba70061c9fcb96593009eb1d381dad5a353b89fa8b6",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before.log": "9437c816daee70ff995511a2c72a248b4f35c4dfdaa77438436c2ed920d9d2c8",
+    ".artifacts/manual-price-input-date-events-20261029/patch-port.json": "74e26558316bfc7185ad12d2aa0be08ebd75bd81e81d2333d85cd08029df995b",
+    ".artifacts/manual-price-input-date-events-20261029/preserve.py": "c064cdf264dcc194f895b2cd89d343b91b78d5ac7f0f5168fa5c6fda14c47247",
+    ".artifacts/manual-price-input-date-events-20261029/browser-with-header.cjs": "01c798e6e2dde88b5735285fac10fc9401cca60167afa761b46d847975dbb2fe",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-exit.json": "d6d975d98e81baf587ff64418956ea9d5146c2fcb884995557b0381b9b70b9f0",
+    ".artifacts/manual-price-input-date-events-20261029/browser-after.log": "f637e85a8a7e545a443a50a35a836600fe0e078b2dc11b75b140a41f74e1de12",
+    ".artifacts/manual-price-input-date-events-20261029/release-stage.py": "88533e28b3fc0b2c8cb2de731cdd49b9488100abe82e03ec3565b647e330c3eb",
+    ".artifacts/manual-price-input-date-events-20261029/prepare-record.py": "7d5a47759b70c3f3e18d3303a70143f3ae2e0b0c44656bbaf5aa7a137b949020",
+    ".artifacts/manual-price-input-date-events-20261029/browser-fixed.cjs": "b473be458859dbfeae70c1057f86d1828fb7ea9e750849afa5ca8583fc77922a",
+    ".artifacts/manual-price-input-date-events-20261029/moa-start.json": "0a15c35a0bf5fe49cf6956473326f1564d7d1b91b15c2dd9e153f9c2fa530ed1",
+    ".artifacts/manual-price-input-date-events-20261029/finalize-records.py": "6defdc52c5bd95e8f46e1889f71c0e4559421e3ffccd143ccfb8053ce40e4ba8",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe.cjs": "38ae738c845be41a7561fe377329f66a927aedc725b1e1bd740add710326ce2b",
+    ".artifacts/manual-price-input-date-events-20261029/browser-keyboard-probe.log": "7fb858a66970265d5fed7892ed3c971b4a9d87b307819b1ac9992585047ea63f",
+    ".artifacts/manual-price-input-date-events-20261029/node-focused.log": "ec555e3258ab0c973c11b7bdccf2bd31571333f545fa2d991d82ebaf116f2ac2",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe.cjs": "0f6616ba266212b927d5219e97613da883cb445dd275770f512586e1ae2256ec",
+    ".artifacts/manual-price-input-date-events-20261029/node-focused-exit.json": "30ebeee3f7fb25052980db8b0179e84bbbb2dc55fc80f681f68e19e9f0ee480a",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before.cjs": "22561afdf0af0abaefe350abefb00edaeab3c56f5e0ed786d3a2f3e28f3a16ca",
+    ".artifacts/manual-price-input-date-events-20261029/browser-baseline-fixed-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-date-events-20261029/initial-header-observations.json": "a825248313238cc9ffd79cf1bd0ef00b86f33fcde1fcdc2e5c68f2c0d5aeab1b",
+    ".artifacts/manual-price-input-date-events-20261029/browser-final-exit.json": "40995cae9b20557ca29fc753097242ecf9785ec6cc9e77e81de0e264109ecda9",
+    ".artifacts/manual-price-input-date-events-20261029/shared-edits.json": "608cec55c0e04d504df1f87012b5dc396c951d8aa1c9aed8c8ce84853c1496b8",
+    ".artifacts/manual-price-input-date-events-20261029/inventory-ui-candidate-before.js": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+    ".artifacts/manual-price-input-date-events-20261029/preservation.json": "19dec0de9de226e92f309591a5e7a9cd44164938247fb0e05dab0b523c7fb387",
+    ".artifacts/manual-price-input-date-events-20261029/browser-after-exit.json": "cdaf083866a6bdfef31a435a190c62fb6266c197f0664f89a981cee29fac66cc",
+    ".artifacts/manual-price-input-date-events-20261029/initial-custom-observations.json": "896d43cb4f3a980f45b9f93430acf7fe89d0c6f5ccb104bcfc81ee436ee076ff",
+    ".artifacts/manual-price-input-date-events-20261029/unchanged-common-and-baseline-sources.json": "65cf1892bc36492933a9665acf24a69abf3d9c947932aa337a4f2fba0bc0e2a6",
+    ".artifacts/manual-price-input-date-events-20261029/analyze.mjs": "5a84dce1bede6cb83f196257cbaf19fc5de4519b36653fd51a3ee372885582fe",
+    ".artifacts/manual-price-input-date-events-20261029/start.json": "e34fbf1555884a17c76b726550e65cc67a9d4829e86f5d978d8b592adf16566f",
+    ".artifacts/manual-price-input-date-events-20261029/node-final-exit.json": "30ebeee3f7fb25052980db8b0179e84bbbb2dc55fc80f681f68e19e9f0ee480a",
+    ".artifacts/manual-price-input-date-events-20261029/verify-local-exit.json": "3eb68f76686e0f60312e38aa517f8c6f155564c1ee35b296b945acd57002d6b9",
+    ".artifacts/manual-price-input-date-events-20261029/audit-completion.py": "447a430e851efadc2285156440f3acb3ac7c62b4d704d0e9d5a858fbe086f153",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline.log": "96910f929e4154d54e1d5323fb734cbb9572ab1016d23c7d0b6939c91289161a",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/.last-run.json": "1244c15e307c4abc31b183a82543b436c5ab86ad04bd8b7836d49aab2b609417",
+    ".artifacts/manual-price-input-date-events-20261029/browser-baseline-fixed-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/.last-run.json": "d83c26de44160f00eb9d8109c7b225b8a91f0e9a10c1a100bccfdc20d02ddf23",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/candidate-ui.js": "5339c8e0ba2c1e98efef4bc7e189cf83f02d14a262d12e922f145c8c57917077",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/root-ui.js": "5ebecb19872db7c104f23e4313a9527d073b95db08b28f0e24b2080e4a31403c",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/patch-port.json": "94fd64a79958f50afb7b618624a6e7928badba569af8800f4b85c83fa3377268",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/browser-after.log": "f637e85a8a7e545a443a50a35a836600fe0e078b2dc11b75b140a41f74e1de12",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/node-focused.log": "ec555e3258ab0c973c11b7bdccf2bd31571333f545fa2d991d82ebaf116f2ac2",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/node-focused-exit.json": "30ebeee3f7fb25052980db8b0179e84bbbb2dc55fc80f681f68e19e9f0ee480a",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/shared-edits.json": "b1c3b3ee0955b52b841036fa7aa7afb05e39e80abb3d728deb8c5f165d696b30",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/browser-after-exit.json": "cdaf083866a6bdfef31a435a190c62fb6266c197f0664f89a981cee29fac66cc",
+    ".artifacts/manual-price-input-date-events-20261029/browser-keyboard-probe-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-date-events-20261029/browser-after-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-date-events-20261029/rea/rea-summary.json": "4d31870ba6465b61c7e9ced8437402026ec290ea3f9149c1558b184ce083dc3b",
+    ".artifacts/manual-price-input-date-events-20261029/rea/stderr.log": "11636643f33b277fa33a7db83ba33f57cc339eb4da9842fe66830fcc39b7a2fd",
+    ".artifacts/manual-price-input-date-events-20261029/rea/result.json": "a202c3aeb01aa05c64898d066dd02c07a60ddce43b7aa1478bb96552a783662c",
+    ".artifacts/manual-price-input-date-events-20261029/browser-final-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/price-header-date-observe--f82e3-er-date-fragments-close-390/observation.json": "3f8161a6cbdee9baf12d0c5424896457d9d62d2926e0e7e58b9d0f18173173c5",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/price-header-date-observe--f3be8-ate-fragments-metadata-1280/observation.json": "4f1bd90d7437d1014de1563ed0e3de4ec8b043c131df7b7e2b07de09eec6e6ca",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/price-header-date-observe--56005-er-date-fragments-save-1280/observation.json": "893720719f990568d4e9d5391bdf738751de3139ed33bd3d7624d99bbef198e3",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/price-header-date-observe--38e9d-der-date-fragments-save-390/observation.json": "b45806949f900854dcc9ec1fd213c3aa64d828d5cdf1abec6b2ce01ab83224ed",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/price-header-date-observe--e39e8-date-fragments-metadata-390/observation.json": "0ba827425742036abbf54b7ce5d112c936a3e032a21c46d31e2b8dec1482e5f7",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-observe-results/price-header-date-observe--869e3-r-date-fragments-close-1280/observation.json": "35f90fa5f7b149bfc27a3520662dbc1eb192e6b57b669c701a42dd804fa160cb",
+    ".artifacts/manual-price-input-date-events-20261029/browser-final-results/price-input-date-events-tr-cd196-e-without-input-change-1280/trusted-key-events.json": "1c812d432575cc765d365619b1912f9c44f2c7cd9a955b8342992b8c02afdb66",
+    ".artifacts/manual-price-input-date-events-20261029/browser-final-results/price-input-date-events-tr-d5671-te-without-input-change-390/trusted-key-events.json": "1c812d432575cc765d365619b1912f9c44f2c7cd9a955b8342992b8c02afdb66",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/candidate-price-context-close.js": "e0971d8c017222b190ccdd78413e3367390fb89a835cdd4bbe7de14910e0e39b",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/own-price-context-close.js": "e0971d8c017222b190ccdd78413e3367390fb89a835cdd4bbe7de14910e0e39b",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/own-price-number-guard.js": "49727513fc3f8c866bd12116f5256c39d49f9e1dbfc18759d01fe9086564261e",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/candidate-price-number-guard.js": "49727513fc3f8c866bd12116f5256c39d49f9e1dbfc18759d01fe9086564261e",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/candidate-configureGrid.js": "3f05647e8fa7b5e354a7986f0295add7c225182cc60531afb14ada9046fae8a4",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/own-configureGrid.js": "3f05647e8fa7b5e354a7986f0295add7c225182cc60531afb14ada9046fae8a4",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/own-price-editor.js": "c006a58182a03671f691a692a0235fe59ca82c350b734f9aedab8786892677b7",
+    ".artifacts/manual-price-input-date-events-20261029/rea/input/candidate-price-editor.js": "c006a58182a03671f691a692a0235fe59ca82c350b734f9aedab8786892677b7",
+    ".artifacts/manual-price-input-date-events-20261029/browser-after-results/price-input-date-events-tr-cd196-e-without-input-change-1280/trusted-key-events.json": "1c812d432575cc765d365619b1912f9c44f2c7cd9a955b8342992b8c02afdb66",
+    ".artifacts/manual-price-input-date-events-20261029/browser-after-results/price-input-date-events-tr-d5671-te-without-input-change-390/trusted-key-events.json": "1c812d432575cc765d365619b1912f9c44f2c7cd9a955b8342992b8c02afdb66",
+    ".artifacts/manual-price-input-date-events-20261029/browser-keyboard-probe-results/price-date-keyboard-probe-native-segment-keyboard-backspace/keyboard.json": "67d52e0a7dec08bd887305a12fc2644ed7d8f9116b60b4b5098bda728a46907e",
+    ".artifacts/manual-price-input-date-events-20261029/browser-keyboard-probe-results/price-date-keyboard-probe-native-segment-keyboard-complete/keyboard.json": "110ca4fad6d73b60d637908e6789a792bdcc0c3b9dbd374c79af744824fcf4f2",
+    ".artifacts/manual-price-input-date-events-20261029/before-native-header-snapshot/rea/rea-summary.json": "b74475f0feeb4cdb69ad98f5e5e5fd78b297d52806c81c67d5de7e83381c6bd7",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/price-input-date-observe-o-2f075-date-fragments-metadata-390/observation.json": "0ba827425742036abbf54b7ce5d112c936a3e032a21c46d31e2b8dec1482e5f7",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/price-input-date-observe-o-a24f1-al-date-fragments-close-390/observation.json": "3f8161a6cbdee9baf12d0c5424896457d9d62d2926e0e7e58b9d0f18173173c5",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/price-input-date-observe-o-0cab7-l-date-fragments-close-1280/observation.json": "35f90fa5f7b149bfc27a3520662dbc1eb192e6b57b669c701a42dd804fa160cb",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/price-input-date-observe-o-799a8-eal-date-fragments-save-390/observation.json": "47f3e452beb3e7ba3f7eab655aee4f569ce121bedff7f8e5b4b46e2432002375",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/price-input-date-observe-o-6acee-al-date-fragments-save-1280/observation.json": "d023243270d28db1ba81a2b9af85d810a8991e0c69eedab2ed15ef6cb098b41d",
+    ".artifacts/manual-price-input-date-events-20261029/browser-observe-results/price-input-date-observe-o-54300-ate-fragments-metadata-1280/observation.json": "4f1bd90d7437d1014de1563ed0e3de4ec8b043c131df7b7e2b07de09eec6e6ca",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-ea78d-verwriting-stored-date-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-ea78d-verwriting-stored-date-1280/trace.zip": "a5a27aeecbcc4b753ab3e3129fc0a3cdae60c0ad992999b6c8fa996adab7efa0",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-sa-6f671-y-explicit-blank-draft-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-sa-6f671-y-explicit-blank-draft-1280/trace.zip": "41e4b6f7dbaadc7645eeaf37a11587268368a24bae678e6bcb434036979abdec",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-wr-517e1-e-partial-date-as-blank-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-wr-517e1-e-partial-date-as-blank-390/trace.zip": "3fa0ae78d3651bbbb68728b73a1a60488af44b791fdff73a7797619cc3f8413f",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-ch-8c5d4-zing-private-date-token-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-ch-8c5d4-zing-private-date-token-390/trace.zip": "2a54b872ed816248e058c6833e30cafa2a5458c795c6e4b9951c75823105e9a7",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-adcaa--native-explicit-clear-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-adcaa--native-explicit-clear-1280/trace.zip": "de77cbbafebe57554c5ba40e6626e3d9b04649f5d5dc49b00f2667e209e5b191",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-wr-bcf7b--partial-date-as-blank-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-wr-bcf7b--partial-date-as-blank-1280/trace.zip": "9fdfa709f129cb6836e9905db8610c20ac71d27af55a4d1f2ef514adbeb90fb3",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-co-44cd6-l-checks-remounted-date-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-co-44cd6-l-checks-remounted-date-390/trace.zip": "87ed330318ad2bd68632cd83af759189ba9e3e018eb9954b2ed999111f75e245",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-1a09b-xplicit-business-blank-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-1a09b-xplicit-business-blank-1280/trace.zip": "427e672072ece68583c42062c1205e6b5ad8e07919b4fc039c356ab7ea9f5b26",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-sa-983f9-ly-explicit-blank-draft-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-sa-983f9-ly-explicit-blank-draft-390/trace.zip": "ad31a85eb8e048262523e0af0bd46f61fd7c988dd27dec345c81af1ef1d80d1c",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-Es-f813d--permits-explicit-save-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-Es-f813d--permits-explicit-save-1280/trace.zip": "cd3b109bcac0494b36522253a5792aa8c990b5a3845f12c1c1965efc71412c8f",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-f01d9-explicit-business-blank-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-f01d9-explicit-business-blank-390/trace.zip": "7abb165f46830cdd82441a7e0d2a518808b4a9c3a82cd17f03b7c04684cc3a88",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-1c77a-s-unrelated-save-error-1280/test-failed-1.png": "af70f54ceb1886645c86e923511043417360fbd04fcbd07e0a5410bd5ec67e35",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-1c77a-s-unrelated-save-error-1280/trace.zip": "54343de4ad5ac050130a8edc55ff8035040e9c3fdee88642af98847124d4ea5e",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-bde5e-overwriting-stored-date-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-bde5e-overwriting-stored-date-390/trace.zip": "6aef78f3b3e67b5b899ff5e729250ea2a5de783e5cf17ddb0bfd1e33555e2d37",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-ch-fc441-ing-private-date-token-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-ch-fc441-ing-private-date-token-1280/trace.zip": "bf4d7918968806afecbcd4db812fe185bebf3ea7808d92933ff95a3a02c8f23b",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-c4a44-ry-and-retains-live-DOM-390/test-failed-1.png": "4008fd36bdb2b5c35dde8fba3cd508680f2ddd184c3f178615e44f7d028addae",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-c4a44-ry-and-retains-live-DOM-390/trace.zip": "0d15ddede22db2b02a2e8d9faa07832d038b3f0e5fa5466eabbc90ee4900ff64",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-tr-cd196-e-without-input-change-1280/test-failed-1.png": "d1997db9de02f3a0eaa13c73681f01ee889188cb4a80d101b24e240988a8b87c",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-tr-cd196-e-without-input-change-1280/trace.zip": "4d6330b376791f6293bb3a5b3a10e229aa43016a3a109520d2b2412071fd6579",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-0c9bc-ss-unrelated-save-error-390/test-failed-1.png": "e95772e37f0d7af772472f7455f63c4049dabce15dd8ac44958dfe3e9924b9e1",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-na-0c9bc-ss-unrelated-save-error-390/trace.zip": "67cbaf9dba11dd99a7e2ccd23f47764f47732388fd319647ac58f260d51ae2c8",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-tr-d5671-te-without-input-change-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-tr-d5671-te-without-input-change-390/trace.zip": "d985eb5d7a067651b3a4ba86f171ea326335b4c16c5391d9caed5e1c67a5b2e2",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-co-63c83--checks-remounted-date-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-co-63c83--checks-remounted-date-1280/trace.zip": "3e20fc6eb9f801c235465fae5e0cf2f5b85d99b8cb9e85333a3dfbca9be2c36c",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-d7fc0-l-native-explicit-clear-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-d7fc0-l-native-explicit-clear-390/trace.zip": "32074bd6d16cf341e43ff49abb04e240674fd85d59d2315d163af72e7489c4ae",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-3cf51-ayout-picker-activation-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-3cf51-ayout-picker-activation-390/trace.zip": "4999dd383d7b6ff695e00ec982992bc9dd46edfb4a4a9a426ecc2b1e61bd1f50",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-1d65d-yout-picker-activation-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-1d65d-yout-picker-activation-1280/trace.zip": "f9dbc6667365a6f6813206197081586a7572b77fcf4ec332554ca6edd662e203",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-Es-b59c6-n-permits-explicit-save-390/test-failed-1.png": "51d0fb7e5057b035f0a76017df84d289463f897e7732ed664394883bae5a8bac",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-Es-b59c6-n-permits-explicit-save-390/trace.zip": "9008e7e94f4355f8d91d223d4cfab42f34299e35e8658a34f52c10b90f58a34e",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-e289b-y-and-retains-live-DOM-1280/test-failed-1.png": "9b902bdeb2f8a250c98174963ef34010292ac7383a8de9c4d909270c159ad4cf",
+    ".artifacts/manual-price-input-date-events-20261029/browser-before-results/price-input-date-events-pa-e289b-y-and-retains-live-DOM-1280/trace.zip": "e1f7fde62533f01328605a0566ebe5cda3e38b8dd460f209e2297c5de7992d1a",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-d6201-ializing-private-blank-1280/test-failed-1.png": "35047cbff606854e9190abc53b2b4f484e176eae7d055fca495bd64e0d7a34ab",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-d6201-ializing-private-blank-1280/trace.zip": "40fe19fb9641ca61117390270c7a1c9e9d36f6e515dcfabc887e15ccb9e2dbda",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-5be3f-efuses-metadata-repaint-390/test-failed-1.png": "cc0012ee0ebc223ebe09753573a52d0a372e0fd66167fb1c0fa28401912b8b77",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-5be3f-efuses-metadata-repaint-390/trace.zip": "02a77c41c389549e8bfda028322631bb25fdf2d8835cb9def0cdb2a2b8fa5c56",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-22979-aves-only-intended-date-390/test-failed-1.png": "cc0012ee0ebc223ebe09753573a52d0a372e0fd66167fb1c0fa28401912b8b77",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-22979-aves-only-intended-date-390/trace.zip": "070ed854dbc727c5a35448cad27048e90a6ef6d4247703c3555570b9a0815486",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-26c6a-ves-only-intended-date-1280/test-failed-1.png": "35047cbff606854e9190abc53b2b4f484e176eae7d055fca495bd64e0d7a34ab",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-26c6a-ves-only-intended-date-1280/trace.zip": "30455ff1b8c3cacd765a33ff0ededfa707702b7deea76bda3c535fe688fceab7",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-a3a73-mains-business-invalid-1280/test-failed-1.png": "35047cbff606854e9190abc53b2b4f484e176eae7d055fca495bd64e0d7a34ab",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-a3a73-mains-business-invalid-1280/trace.zip": "06259fddb16b581ab9bcb06e18e50ca518975c8185a9bf09cc605e018674f381",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-9bf2e--without-source-change-1280/test-failed-1.png": "35047cbff606854e9190abc53b2b4f484e176eae7d055fca495bd64e0d7a34ab",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-9bf2e--without-source-change-1280/trace.zip": "798ffc0ec6c7636ecb64eb7224084d3f747d510b697fb16f52eaced13dcaf2de",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-1c045-rializing-private-blank-390/test-failed-1.png": "cc0012ee0ebc223ebe09753573a52d0a372e0fd66167fb1c0fa28401912b8b77",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-1c045-rializing-private-blank-390/trace.zip": "e0164e8e542395306535e9d8b6c0ad8e9faad8c03c6cb2e13d978b7192afe564",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-36a12-fuses-metadata-repaint-1280/test-failed-1.png": "35047cbff606854e9190abc53b2b4f484e176eae7d055fca495bd64e0d7a34ab",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-36a12-fuses-metadata-repaint-1280/trace.zip": "e7e03f4778663ded6d5a4422a46090d955b1097b47dc35929dd7ba608e134eab",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-0ddee-t-without-source-change-390/test-failed-1.png": "cc0012ee0ebc223ebe09753573a52d0a372e0fd66167fb1c0fa28401912b8b77",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-0ddee-t-without-source-change-390/trace.zip": "1d2188a470ca8ce1da6360a0671ba32b03d19aeb674d440f42c6672fa784ee22",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-953f4-emains-business-invalid-390/test-failed-1.png": "cc0012ee0ebc223ebe09753573a52d0a372e0fd66167fb1c0fa28401912b8b77",
+    ".artifacts/manual-price-input-date-events-20261029/browser-header-baseline-results/price-input-date-events-na-953f4-emains-business-invalid-390/trace.zip": "7d558b59a8b14ba0bf5631a44b4dabc330d4eced39d1018aedfb0b16068f1174"
+  }
+}
