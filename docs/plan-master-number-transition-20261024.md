@@ -1112,3 +1112,26 @@ source 54c15a2 / release 80527d8 / branch release/0.89.41-price-input-date-event
 예정10/29~10/30 KST, 실제착수06:32:13+09. 한정 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 기존41의선택B→checkbox false 덮어쓰기와 미편집선택의수치0/boolean false→문자열변환을합성UI에서확인했다. 단가요청input의select에만DOM이벤트편집여부를두어미편집primitive를유지하고 명시선택은기존문자열계약을유지한다. metadata commit전현재input/다음effective양식을대조해비어있지않은비boolean 선택의checkbox전환을거절하고명시비움뒤허용한다. formSave/formActivate 등기존연산·현재소유자가드뒤에서실행한다. parent검색규칙/공통schema/FormCore/FormOptions/backup은유지했다.
 
 15흐름×390/1280 실제자체셸30·기존관련Node99·격리후보verify:local전체588/전체Node/빌드·자체REA8범위4raw쌍exact/parse0을확인했다. 원본/운영합격이아니며자료/조건에의한자동양식분기·입력보조·새로고침수명은별도다. 기존19후보/운영22worker/dirty12/매핑07bdfb3를보존한다. 세부실패/원고/결과는.artifacts/manual-price-input-select-existing-20261029와후속근거JSON에기록한다.
+
+
+## 2026-10-29 · 0.89.42 기존 선택값·유형 보존 한정 후보·운영0.89.22 유지
+
+예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T06:32:13.695217+09:00·결과 기록2026-10-29T06:50:30.747875+09:00다. 이번15흐름 한정 로컬 감사done/미배포패치doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 이 기간은P1전체마감이 아니다. 기존선택값/옵션변경과명시양식변경의확인범위를업무조건자동분기·입력보조·원본/운영 미확인과구분한다.
+
+불변0.89.41의8개실제관찰에서선택B를checkbox로바꾸고F8저장하면false가됐고, 기존수치0/boolean false는사용자가선택항목을만지지않고제목만바꾼뒤저장해도문자열0/false가됐다. 두너비의B덮어쓰기2건과primitive변환4건은고립합성업무쓰기이며원본/운영사건이아니다. 선택B의선택지만삭제한경계는기존40보호로B/명시오류/F8거절을유지했다. 관찰8통과는계약합격8개가아니다.
+
+단가요청input의select에만미편집수치/boolean 원문을DOM선택표시와따로유지한다. 실제input/change로선택지를명시변경하면기존문자열선택계약을사용하고제목저장/초안닫기·재진입/명시업무저장에서는미편집0/false의원래타입을유지한다. 원문이이미문자열인선택/누락선택의임시옵션과기존오류규칙은유지한다. parser/evaluator/schema/backup/FormCore와공통FormOptions는변경하지않았다.
+
+양식metadata commit전에기존소유자·부모검색가드를확인하고현재input과다음effective양식을대조한다. 현재custom select의비어있지않은비boolean 값을checkbox로바꾸는명시저장/적용은항목명/ID·선택값을비우라는안내와함께저장전에거절한다. 명시비움뒤전환은허용하고실제boolean false는checkbox에도그대로표현된다. 다른입력context/공통목록에이보호를무조건확대하지않았다.
+
+최종390/1280×15흐름 실제자체셸30은취소·저장된/미저장선택의옵션삭제·F8/F7거절/원문초안재진입·유효수정·readonly옵션복구·checkbox유형/적용거절과명시비움복구·호환문자/부모검색·빈옵션schema거절·수치0/boolean false원문타입·명시선택문자열·문자열false와boolean false차이를확인했다. 최종30의합성설정쓰기22·합성업무쓰기10·pageerror/원격쓰기0이며다른전표/기초자료/양식은대응exact다. metadata저장에의한업무원문변경과명시업무저장을구분했다.
+
+불변첫30은18통과/12실패였고10개는새보호경계,2개는시험전용대체양식을모든fixture에넣어같은ID의전역항목카탈로그가옛명칭을선택한준비오류였다. 대체양식은실제적용시험에만넣도록fixture를분리하고해당호환문자2개만불변41에서재검사해통과했다. 첫패치30은28통과/동일fixture2실패였고앱추가변경없이최종30을통과했다. 겹치는실행은독립요구사항으로합산하지않는다. 초기브라우저라이브러리연결누락8시작실패와기준검사중포트선점1시작실패는앱실행전준비오류다. 원고/로그/trace/스크린샷/관찰JSON을각경로로보존했다.
+
+기존관련Node99·최종전체verify:local exit0/588브라우저·전체Node·릴리스검사/빌드를통과했고전체검사전후UI/core/options/새검사/package해시가exact다. 새영구Node파일0,새실제셸파일1이며99/588을새독립요구사항으로세지않는다. 자체REA6.4는controlValue/customControl/ensureOptions와docEditor의preserveForm할당을root/candidate8범위4raw해시쌍exact·parse0·coverageunknown/truncatedfalse로대조했다. docEditor전체/원본실행동등성은아니며원본새관찰/본문추가0이다.
+
+source 99b6f47 / release 87ad2a1 / branch release/0.89.42-price-input-select-values를커밋·push했다. 후보worker 57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74은미설치다. root/candidate4공유수정밖원형·기존VAT/API차이를역변환exact로보존했다. 설치운영0.89.22 worker79222ea6…·기존0.89.23~41의19후보HEAD/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존이다. 새브라우저연결근거가없어동일연결/로그인을재확인하지않았다. 새운영브라우저백업/인증UI·서버/메일배포전기준을확보한뒤이전보호를포함한42후보를배포·읽기UI/자료·양식보존검증한다. 이번운영생존/공개health/새인증UI·서버/메일합격이아니다. root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체매뉴얼완료false다. 근거 evidence/manual-price-input-select-existing-20261029.json.
+
+다음은단가요청선택값의숫자유형변경·복구경계대조다. 왜: 이번유형전환거절은checkbox이고number전환은문자기본값을그대로남겨schema가거부하는경로와기본값을명시비운뒤기존선택원문을DOM이표현하는경로를구분해야하기때문이다. 기존customControl 숫자fallback옵션과docEditor의활성옵션·현재원문/초안·취소/수정/비움·readonly복구를먼저읽고새소실만재현한다. 숫자/일자/문자유형전환전체와업무조건자동양식분기는미확인으로유지하고임의값치환/초기화로숨기지않으며기존20후보/원문/양식/운영gate를보존한다. 이번선택30과완료된날짜/비숫자행렬을변화없이반복하지않는다.
+
+모아P1은지속승인으로v50→51→52·기존336exact·착수2/결과10 문구/종류/수준exact·총348블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-input-select-existing-preauthorized-20261029.json.
