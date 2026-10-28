@@ -388,7 +388,8 @@
     if(type==='pricerequest')editor.preserveForm=(op,payload)=>{
       const current=db.settings.customization,next=op==='formSave'?F.save(current,'doc:pricerequest',payload.context,payload.form):op==='formActivate'?F.activate(current,'doc:pricerequest',payload.context,payload.id):op==='formDelete'?F.remove(current,'doc:pricerequest',payload.id):op==='formRules'?F.rules(current,'doc:pricerequest',payload.rules):current;
       if(next===current)return;const value=getDoc(true),target=F.effective(next,'doc:pricerequest','input',headerBase,value);
-      for(const field of configuration.meta.fields.filter(x=>x.custom&&x.type==='select')){const raw=value.custom[field.id],to=target.fields.find(x=>x.id===field.id);if(to?.type==='checkbox'&&raw!==''&&raw!=null&&typeof raw!=='boolean')throw Error(field.label+' ('+field.id+') 선택값을 비운 뒤 체크 항목으로 변경하세요. 현재 입력값과 양식을 보존했습니다.');}
+      for(const field of configuration.meta.fields.filter(x=>x.custom&&x.type==='select')){const raw=value.custom[field.id],to=target.fields.find(x=>x.id===field.id);if(to?.type==='checkbox'&&raw!==''&&raw!=null&&typeof raw!=='boolean')throw Error(field.label+' ('+field.id+') 선택값을 비운 뒤 체크 항목으로 변경하세요. 현재 입력값과 양식을 보존했습니다.');
+        if(to?.type==='number'&&!to.formula&&!to.calculated&&raw!==''&&raw!=null){const probe=input('',raw,'number');if(probe.value===''||!Number.isFinite(Number(probe.value)))throw Error(field.label+' ('+field.id+') 선택값을 숫자 선택값으로 바꾸거나 비운 뒤 숫자 항목으로 변경하세요. 현재 입력값과 양식을 보존했습니다.');}}
     };
     if(priceRequestPartners&&existing){fields.partner.disabled=true;fields.partner.readOnly=true;fields.partner.syncReferencePicker();fields.partner.title='저장된 요청 거래처는 비교자료와 함께 보존됩니다.';}
     if(type==='purchaseorder'){const attachment=grid.querySelector('[data-form-field="attachment"]');if(attachment)attachment.style.gridColumn='1 / -1';}
