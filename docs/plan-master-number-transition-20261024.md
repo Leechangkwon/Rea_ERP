@@ -1172,3 +1172,26 @@ source 8c18ff0 / release 02f3c0e / branch release/0.89.43-price-select-number-tr
 예정10/29~10/30 KST·실제착수07:30:30.374947+09. 한정17흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변43에서기존숫자형저장B/0x10/false와유한숫자기본값0x10이native value공란/badInputfalse로탈락해F8이공란을저장하는합성8관찰을확인했다. 저장원문변경6과기본값탈락2를구분한다. 단가요청input의preserveInputValues옵션에서비계산number를text/inputModedecimal로원문보존하고비문자primitive의미편집타입도유지한다. strict collect가실제number표현/유한값을검사해저장/전표를거절하되raw초안은읽을수있다. 숫자오류때계산출력을비우고마지막raw계산값을분리보관한다. 초기품목행양식판정만숫자오류의rawheader를허용해화면을유지하고strict저장은완화하지않는다.
 
 최종390/1280×17흐름 실제자체셸34·기존관련Node99·격리후보verify:local전체650/전체Node/빌드·자체REA6범위3raw쌍exact/parse0을확인했다. 미수정기본값의새기본값재열기와사용자가수정한초안재진입을구분한다. 공통schema/FormCore/FormOptions/backup·기존21후보/운영22worker/dirty12/매핑07bdfb3를보존했다. 원본/운영·업무조건자동유형전환·입력보조/행계산전체합격이아니다. 실패/보완과근거는.artifacts/manual-price-numeric-legacy-20261029및후속JSON에보존한다.
+
+
+## 2026-10-29 · 0.89.44 기존 숫자 원문 보존 한정 후보·운영0.89.22 유지
+
+예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T07:30:30.374947+09:00·결과 기록2026-10-29T07:58:46.611477+09:00다. 이번17흐름 한정 로컬 감사done/미배포패치doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 이 기간은P1전체마감이 아니다. 기존숫자원문의초기표현/설정/초안·복구와업무조건자동분기·입력보조/행계산전체·원본/운영 미확인을구분한다.
+
+불변0.89.43의8개실제관찰에서처음부터숫자형인저장B/0x10/boolean false는native value공란·badInputfalse·aria-invalidfalse가됐고F8이공란으로저장하는합성6사건을확인했다. schema가허용한유한숫자기본값0x10도원래업무사용자값이없던2사건에서공란으로저장됐다. 6개기존저장값변경과2개기본값탈락을구분하며원본/운영사건이아니다. 관찰실행8통과는요구사항합격8개가아니다.
+
+단가요청input의기존preserveInputValues옵션에서비계산number를HTML이표현하지못하면text/inputMode decimal로보이는원문을유지한다. 미편집비문자primitive도원래타입을보관해boolean false가초안/다른양식재표시에서문자열로조용히바뀌지않는다. strict collect는실제HTML number표현과유한값을확인해항목명/ID·숫자오류/aria-invalid를표시하고F8/F7을거절한다. 보이는원문은raw초안/설정/닫기·재진입에읽을수있고숨긴오류항목도보여주되저장된visible/readonly는바꾸지않는다. 공통schema/FormCore/FormOptions/backup·다른context는유지했다.
+
+숫자원문오류가있으면계산출력도비우고aria-invalid를표시하되마지막정상raw계산값은별도보관해화면공란이초안계산값으로직렬화되지않게했다. 피연산자를고치면정상재계산으로복구한다. 초기품목행양식판정은숫자오류의보관header raw만명시사용해상세화면을열어두고엄격업무저장/출력은완화하지않는다. 명시유효수정/비움·읽기전용해제·문자/선택양식복구가가능하며미수정기본값의clean 재열기에는명시새기본값9가적용되고사용자가수정한초안B는재진입에서도유지된다.
+
+최종390/1280×17흐름 실제자체셸34는저장B/0x10/공백3/false의F8/F7거절·제목저장/초안·유한기본값2종의현재원문과수정초안·정상숫자수정/명시비움·readonly해제·숨은오류표시/메타데이터보존·문자유형복구·boolean false의초안/선택양식/실제타입저장·숫자기본값schema거부·계산출력오류/마지막raw/복구·정상지수표기·미수정기본값clean재열기를확인했다. 최종합성설정쓰기24·합성업무쓰기18·거절한F8/F7시도18·pageerror/원격쓰기0이다. 저장뒤같은전표의다른사용자값·다른전표/기초자료/양식은대응exact다.
+
+불변첫32는2통과/30실패였다. 첫보완32도2통과/30실패였으며추가strict숫자오류가초기renderLines의양식판정을중단해상세창이열리지않는실제회귀였다. 숫자오류에도원문header로초기행양식을판정하도록보완한다음32는28통과/4실패였다. 이4개는미수정기본값도새기본값저장뒤clean재열기에서옛값이어야한다는fixture가잘못된것으로확인했다. 현재원문유지와실제수정초안B의보존을분리하고clean재열기2개를추가해앱추가변경없이최종34를통과했다. 추가clean2개는불변43에서0통과/2실패였으며기존32와합쳐단일34 baseline으로표시하지않는다. 각실패로그/trace/스크린샷·원고와초기보완소스본을보존했다. 초기Node/REA긍정결과경로는후속재실행으로최종값만남았으므로초기원본완전보관을주장하지않고최종검증에만사용한다. 겹치는실행을독립요구사항으로합산하지않는다.
+
+최종기존관련Node99·전체verify:local exit0/650브라우저·전체Node·릴리스검사/빌드를통과했고전체검사전후UI/core/options/새검사/package해시가exact다. 새영구Node파일0/새실제셸파일1이며99/650을새요구사항으로세지않는다. 자체REA6.4는customControl/configureGrid와docEditor내renderLines선언을root/candidate6범위3raw해시쌍exact·parse0·coverageunknown/truncatedfalse로대조했다. 전체docEditor/모듈·원본실행동등성이아니며원본새관찰/본문추가0이다.
+
+source 513e03e / release ba745fc / branch release/0.89.44-price-numeric-legacy-raw를커밋·push했다. 후보worker 220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362은미설치다. root/candidate6공유수정밖원형과기존VAT/API차이를역변환exact로보존했다. 설치운영0.89.22 worker79222ea6…·기존0.89.23~43의21후보HEAD/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존이다. 새브라우저연결근거가없어동일연결/로그인을재확인하지않았다. 새운영브라우저백업/인증UI·서버/메일배포전기준확보뒤이전보호를포함한44후보를배포·읽기UI/자료·양식보존검증한다. 이번운영생존/공개health/새인증UI·서버/메일합격이아니다. root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체매뉴얼완료false다. 근거 evidence/manual-price-numeric-legacy-20261029.json.
+
+다음은단가요청업무조건에의한입력양식유형전환보존대조다. 왜: 이번기존숫자원문보호와FormOptions의명시metadata변경가드와별개로grid change는업무/사용자조건에따른다른input/lines양식으로docEditor를직접재구성하기때문이다. 기존조건양식/실제지원UI와소비자부터읽고저장선택값/미저장초안의조건변경·취소/복구·readonly/역할/자료문맥의새손실만대조한다. 조건/값자동삭제로숨기지않고기존22후보/원문·양식·자료·운영gate를보존한다. 입력보조applyCustom/행계산전체·다른전표/원본/운영은미확인으로유지하며이번34와완료된행렬을변화없이반복하지않는다.
+
+모아P1은지속승인으로v54→55→56·기존360exact·착수2/결과10 문구/종류/수준exact·총372블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-numeric-legacy-preauthorized-20261029.json.
