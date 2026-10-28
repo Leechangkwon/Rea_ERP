@@ -1,0 +1,543 @@
+{
+  "sourceId": "OWN-PRICE-INPUT-COMPUTE-ERROR-DISPLAY-RECOVERY-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T04:48:02.150763+09:00",
+  "auditStatus": "done-for-eight-local-flows",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "sourceRoot": "/home/lck/projects/Rea_ERP",
+  "operatingVersion": "0.89.22",
+  "recordedAt": "2026-10-29T05:06:51.697780+09:00",
+  "elapsedSeconds": 1129.547,
+  "version": "0.89.39",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.39",
+    "sourceCommit": "f0cf786cb7706efed5c3895a52be46de9fd09335",
+    "releaseCommit": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+    "branch": "release/0.89.39-price-input-compute-display",
+    "baselineReleaseCommit": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+    "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.39-price-input-compute-display",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.38",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "sourceRemoteRef": "f0cf786cb7706efed5c3895a52be46de9fd09335",
+    "releaseRemoteRef": "bcb42b151d3dece8c7ddd5b310fe2922683a223a"
+  },
+  "checks": {
+    "actualShellCases": 16,
+    "flowCount": 8,
+    "widths": [
+      390,
+      1280
+    ],
+    "baseline": {
+      "passed": 0,
+      "failed": 16
+    },
+    "firstAfter": {
+      "passed": 14,
+      "failed": 2,
+      "fixtureReadonlyExpectationFailures": 2,
+      "applicationChangesAfterFirstAfter": 0
+    },
+    "focusedNode": 99,
+    "permanentNewNodeFiles": 0,
+    "wholeBrowser": 484,
+    "allNodeAndBuildPassed": true,
+    "fullVerification": {
+      "exitCode": 0,
+      "elapsedSeconds": 530.3830795288086,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "tests/browser/price-input-compute-display.spec.cjs": "b7f2afffb00a47ee92a196865c2505a08ab2421bbac15f9c849048479faea139",
+        "tests/browser/price-input-projection.spec.cjs": "32af43111ed5868c33d066adf125d1fe5ace1de8071f2f3dcb51a1907539b7ae",
+        "package.json": "f30a6ce235fdef8dbf16598f864f671c0aa814ee20829657a0cf82bf5a9a0ed7"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "tests/browser/price-input-compute-display.spec.cjs": "b7f2afffb00a47ee92a196865c2505a08ab2421bbac15f9c849048479faea139",
+        "tests/browser/price-input-projection.spec.cjs": "32af43111ed5868c33d066adf125d1fe5ace1de8071f2f3dcb51a1907539b7ae",
+        "package.json": "f30a6ce235fdef8dbf16598f864f671c0aa814ee20829657a0cf82bf5a9a0ed7"
+      }
+    },
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 6,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "configureGrid",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "861f7e97ec06e948273b196f92f6e3c084f51201f36c80d6f3c09c3508e80791",
+          "start": 11474,
+          "end": 16936,
+          "lineStart": 78,
+          "lineEnd": 110,
+          "fragmentSha256": "4a164b214c1ef929b11116a8c9d6f89432370c75ca2bfa615eb9bd7279575e94",
+          "inputFile": "own-configureGrid.js",
+          "inputSha256": "529d076d80ec287975331707fdc5e6b0cf875489b1d523c01c62cd7005b6b15b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "configureGrid",
+          "file": ".artifacts/releases/0.89.39-price-input-compute-display/dist/inventory-ui.js",
+          "sourceSha256": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+          "start": 11451,
+          "end": 16913,
+          "lineStart": 78,
+          "lineEnd": 110,
+          "fragmentSha256": "4a164b214c1ef929b11116a8c9d6f89432370c75ca2bfa615eb9bd7279575e94",
+          "inputFile": "candidate-configureGrid.js",
+          "inputSha256": "529d076d80ec287975331707fdc5e6b0cf875489b1d523c01c62cd7005b6b15b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-configure",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "861f7e97ec06e948273b196f92f6e3c084f51201f36c80d6f3c09c3508e80791",
+          "start": 82924,
+          "end": 83213,
+          "lineStart": 387,
+          "lineEnd": 387,
+          "fragmentSha256": "bfcdd0d350c7ff61ef2f8d4913115b7f4d777d63b7d7f7d3a50f6428c11080d2",
+          "inputFile": "own-price-configure.js",
+          "inputSha256": "ef6c3cd19c05c206d05df4b7be8b7718904adb4cb8855b3a7e15400c6bf2c29a",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-configure",
+          "file": ".artifacts/releases/0.89.39-price-input-compute-display/dist/inventory-ui.js",
+          "sourceSha256": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+          "start": 82679,
+          "end": 82968,
+          "lineStart": 386,
+          "lineEnd": 386,
+          "fragmentSha256": "bfcdd0d350c7ff61ef2f8d4913115b7f4d777d63b7d7f7d3a50f6428c11080d2",
+          "inputFile": "candidate-price-configure.js",
+          "inputSha256": "ef6c3cd19c05c206d05df4b7be8b7718904adb4cb8855b3a7e15400c6bf2c29a",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-render-lines",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "861f7e97ec06e948273b196f92f6e3c084f51201f36c80d6f3c09c3508e80791",
+          "start": 93363,
+          "end": 99133,
+          "lineStart": 409,
+          "lineEnd": 417,
+          "fragmentSha256": "63956f434cd49102d8be065d163531acaf9f6f4433a3f2416335445fc1847d04",
+          "inputFile": "own-price-render-lines.js",
+          "inputSha256": "285f120511eec629e63373e5bbc45dd54d73315b277599bb6cae36c18f5d56bb",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-render-lines",
+          "file": ".artifacts/releases/0.89.39-price-input-compute-display/dist/inventory-ui.js",
+          "sourceSha256": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+          "start": 92107,
+          "end": 97877,
+          "lineStart": 408,
+          "lineEnd": 416,
+          "fragmentSha256": "63956f434cd49102d8be065d163531acaf9f6f4433a3f2416335445fc1847d04",
+          "inputFile": "candidate-price-render-lines.js",
+          "inputSha256": "285f120511eec629e63373e5bbc45dd54d73315b277599bb6cae36c18f5d56bb",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "abab160400c387eb338800f23092518373b555efa7ed69888b421eb368c561ad",
+      "statistics": {
+        "relevant_files": 6,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 23802,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 6,
+        "visited_ast_nodes": 6076,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "port": {
+      "root": {
+        "outsideSharedEditsExact": true,
+        "beforeSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+        "afterSha256": "861f7e97ec06e948273b196f92f6e3c084f51201f36c80d6f3c09c3508e80791"
+      },
+      "candidate": {
+        "outsideSharedEditsExact": true,
+        "beforeSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+        "afterSha256": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e"
+      }
+    },
+    "syntheticMetadataSaves": 12,
+    "syntheticBusinessSaves": 2,
+    "refusedBusinessSaveAndPrintAttempts": 4,
+    "pageErrors": 0,
+    "remoteWrites": 0
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "remainingWork": [
+    "Non-numeric field addition full lifecycle",
+    "Input helper applyDraft and row calculation",
+    "Other runtime formula error types and other document contexts"
+  ],
+  "originalAccepted": false,
+  "productionAccepted": false,
+  "actualAccountAccepted": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "browserConnectionRetried": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "newErpChanged": false,
+  "automaticStartupAdded": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-INPUT-NONNUMERIC-ADDITION-LIFECYCLE-AUDIT",
+    "title": "단가요청 비숫자 사용자항목 추가·초안·검색 투영 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-input-compute-display-20261029.json",
+    "latestEvidence": "evidence/manual-price-input-compute-display-20261029.json",
+    "description": "숫자추가/정상계산 투영·부분숫자 보존·입력 계산오류 표시의 한정 흐름과 구분해, 아직 확인하지 않은 문자/일자/선택/체크 사용자항목 추가의 취소·명시저장·기본값/readonly·자식초안·부모 검색/재진입을 대조한다. 기존 FormCore/지원UI/저장schema와 부모검색 투영규칙부터 읽고 schema거부를 실제소실로 분류하거나 input기본값/계산/readonly를 검색에 자동상속하지 않는다. 새 차이만 재현하며 기존 원문/양식/자료·17후보/운영gate를 보존한다. 입력보조 applyDraft/행계산·다른전표/모든계산에러종류/원본·운영 합격은 이번8흐름으로 대신하지 않고 미확인으로 유지한다. 완료된 숫자·계산오류8흐름/역할/작업탭과 같은 전체검사를 변화없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 43,
+        "afterVersion": 44,
+        "beforeBlocks": 303,
+        "afterBlocks": 305,
+        "prefixExact": true,
+        "appendExact": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 입력 계산오류 표시·수정 복구 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T04:48:02.150763+09:00·한정감사/패치doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 이전0.89.38의 미완성 숫자 원문보호와 구분해, 분모0의 명시오류/업무저장차단·원문유지에도 readonly계산칸이 옛1로 남고 aria-invalid가 없는 실제관찰을 출발점으로 삼는다. 기존 FormCore.compute/configureGrid.update·rawCustomValues와docEditor 오류/합계/인쇄·초안경로의 이미검증한 범위를 먼저 읽고 계산대상귀속/표시/수정·해제/설정·재진입의 새차이만 재현한다. 보관원문·양식/backup과 운영0.89.22/기존16후보를 보존하며 전체매뉴얼/비숫자추가/원본·운영합격으로 확대하지 않는다. 배포는 최신 운영브라우저백업/인증UI·서버/메일 기준확보 조건을 유지하고 같은연결/로그인 확인을 반복하지 않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "7aa36d6d-34f3-4f53-984c-102d807683b4",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 입력 계산오류 표시·수정 복구 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "068c7b55-027e-4650-aece-08dd52b41775",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T04:48:02.150763+09:00·한정감사/패치doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 이전0.89.38의 미완성 숫자 원문보호와 구분해, 분모0의 명시오류/업무저장차단·원문유지에도 readonly계산칸이 옛1로 남고 aria-invalid가 없는 실제관찰을 출발점으로 삼는다. 기존 FormCore.compute/configureGrid.update·rawCustomValues와docEditor 오류/합계/인쇄·초안경로의 이미검증한 범위를 먼저 읽고 계산대상귀속/표시/수정·해제/설정·재진입의 새차이만 재현한다. 보관원문·양식/backup과 운영0.89.22/기존16후보를 보존하며 전체매뉴얼/비숫자추가/원본·운영합격으로 확대하지 않는다. 배포는 최신 운영브라우저백업/인증UI·서버/메일 기준확보 조건을 유지하고 같은연결/로그인 확인을 반복하지 않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 45,
+    "p1FinalBlocks": 314,
+    "evidence": "evidence/moa-price-input-compute-display-preauthorized-20261029.json"
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline.cjs": "cfe324d9c8c291ecafeb3e3f3fc1e9fc09b57c26f08f50a73c280160af464de9",
+    ".artifacts/manual-price-input-compute-display-20261029/release.json": "7c6cb1917e2b8dc710eda401322a5198ef65766c7edfff7e37d525d8d8d1a32a",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-first-after.cjs": "6d276832ac83a59ce2ba3be911e2e977deebf8f3dd356cc3ab1fe33e36fb0e60",
+    ".artifacts/manual-price-input-compute-display-20261029/build-automation.py": "3e07811e73678c7a8c6510ebe945ac0e134d416f2a7202b3093df6a77687a397",
+    ".artifacts/manual-price-input-compute-display-20261029/verify-local.log": "903d9e0baf4db982d7680133bec7f735fa4bcd21120b7af7ac7cd8c326c20229",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-before-exit.json": "251a504a50d57fb6a7f343d15e8df986f1ce8c4a0231371661b2ced033f8a4ec",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-final.log": "a235a9b0abdd4c22b26788f186e929c5147967f3be9ca916e6826e76a6e42ea3",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-debug.cjs": "d203350c68c9318d08a192a076673f4248f7269367167e14d7072da4e6a333a6",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-before.log": "80befcee2a25866ef0f6f6a7e8ccc4fafb9cddaace2f4566ff5605c248027601",
+    ".artifacts/manual-price-input-compute-display-20261029/patch-port.json": "90dd970ebdc143cf579e79cdee786ba082a16187d70d246a3a229f741d6ef1b6",
+    ".artifacts/manual-price-input-compute-display-20261029/before-debug.js": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+    ".artifacts/manual-price-input-compute-display-20261029/preserve.py": "eb835fe26c52f904b3bc8c8fcd98a671f9d830dd4788cbcc9aa86e7426faadd2",
+    ".artifacts/manual-price-input-compute-display-20261029/patch.py": "c44cd1ca4de5b50b0444fba1104479304c35b74129ea69d6d66d2b2417017e73",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after.log": "edc388ec4080e129a40cb0d666368ea493f57cd40f5576d4a75a82b94700003d",
+    ".artifacts/manual-price-input-compute-display-20261029/release-stage.py": "e3073065656e31a4a65697dad4527c44db882afc2c20ddd65851f3d32083dc10",
+    ".artifacts/manual-price-input-compute-display-20261029/prepare-record.py": "e1aed08e56522e5995e9d6c6ce4c4f12a5eb900c1e6da203d7c448d6dfc701fd",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-before-debug.cjs": "6d276832ac83a59ce2ba3be911e2e977deebf8f3dd356cc3ab1fe33e36fb0e60",
+    ".artifacts/manual-price-input-compute-display-20261029/moa-start.json": "a11c0f97fc1b974632d494fbdeeb2528b5a7b0551b3a66d1e638069eb5cf8fbe",
+    ".artifacts/manual-price-input-compute-display-20261029/finalize-records.py": "b2af06d5012f105c287b4fb83b152a19788bd2efa69159262488f27d7e52335a",
+    ".artifacts/manual-price-input-compute-display-20261029/unchanged-common-sources.json": "4a6b31d914707fde74631db2ed5cf2b102217581fbcac6ca04e2c7f1c4e7fdaa",
+    ".artifacts/manual-price-input-compute-display-20261029/node-focused.log": "10deffaba9314b47b9ab0c20539809157c75eef42472b9e17188b6fa4b14c922",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-debug.log": "4a7d72baa1f3cf77572995ad9c051203a50f565e55963b034c3639a4020f9e69",
+    ".artifacts/manual-price-input-compute-display-20261029/node-focused-exit.json": "30ebeee3f7fb25052980db8b0179e84bbbb2dc55fc80f681f68e19e9f0ee480a",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-final-exit.json": "94bb241ab009b8e0c38b961e6ccb2766c44f88e9d0a7d2c8110a1bc7f8e8f1cb",
+    ".artifacts/manual-price-input-compute-display-20261029/shared-edits.json": "0a33fa0820ffdfb76834374d7ecd5340a4f49ea07dc39a3c458d3acef87a0cd1",
+    ".artifacts/manual-price-input-compute-display-20261029/preservation.json": "8ae04699794428ed9dc34e3674d49d00634373268d1d22339e33995a74a4f683",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after-exit.json": "5bb96afa103ee8221a9a1b3077921d055738152b3d4502be58b630fba5c198a0",
+    ".artifacts/manual-price-input-compute-display-20261029/analyze.mjs": "e874e5f1ed9927c69011dac008dc4f1d6ac52fee8d88fd8671856d00b96c8253",
+    ".artifacts/manual-price-input-compute-display-20261029/start.json": "97feb6e74315b9ccf277fe928d717b25fc7e8b28458fe41ef0424029b063cd3b",
+    ".artifacts/manual-price-input-compute-display-20261029/verify-local-exit.json": "4fef39858c8cd8e66cb8e428ce0a125152957d3f052b28a8938a7fc71d89b54e",
+    ".artifacts/manual-price-input-compute-display-20261029/audit-completion.py": "a59f7c0884012685c76e9e6e6ee51b1c958de057a091eca0c4311ef28c32d729",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after-results/.last-run.json": "dc6621e6c9fa5b48e79b205dd4d08154cb198d4d0f0166f2f0b3188edf9979a2",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/rea-summary.json": "8b6676e284be12640737f9a17d08bfed9d888d65ade494516b8cec097827b1d1",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/stderr.log": "e3da21bce75715760d92c82da851cffd7a2774eba754388bdd9e6379e603241c",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/result.json": "abab160400c387eb338800f23092518373b555efa7ed69888b421eb368c561ad",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/.last-run.json": "8f13de0b4850d64f6b746e409ec90ba3431251f6399434f30e3fe239518d2e21",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-final-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-debug-results/.last-run.json": "c1001bda46883776a42899944cf1a34b54a42468adfee3c775d29c873118a10e",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-debug-results/price-input-compute-displa-7d353-ther-than-display-blank-390/test-failed-1.png": "d078794b8207f66ebf4999cd74f563ceca49287ebe1bcb430b5f642d1dc41444",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-debug-results/price-input-compute-displa-7d353-ther-than-display-blank-390/trace.zip": "f831e0d939c6a3edf9af5592166101f41fe24017ffe9eaf9fe4e8b451cf5babe",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-9d4f6-tained-computed-result-1280/test-failed-1.png": "07e1c1029010e821a597f370efc928d6a1d58cbc4fbb76d072f49d36788e1854",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-9d4f6-tained-computed-result-1280/trace.zip": "79b21fc9e7f3336fcb5ac486f388fc107b306a8414fadaadc63217c02acb9521",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-f12e3-t-moving-operand-focus-1280/test-failed-1.png": "567ae912a98a69c6d4eba80f44373dc5411b1ff1d4d5a1ee36370af31af164ef",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-f12e3-t-moving-operand-focus-1280/trace.zip": "470a324b99befbb0bced77b31c027d497a706fc324584eca9f37ce8b488cbe0b",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-8ddc8-serialize-blank-output-1280/test-failed-1.png": "567ae912a98a69c6d4eba80f44373dc5411b1ff1d4d5a1ee36370af31af164ef",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-8ddc8-serialize-blank-output-1280/trace.zip": "b715fe378e96b5b88bb06f9a1092b52c64f7c1481f70cce8a2e8139b838e2f8e",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-d47b3--serialize-blank-output-390/test-failed-1.png": "535711521440ab569d2c80ed8aa4aa4ede8e0b76600c88e77febd09536ad2740",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-d47b3--serialize-blank-output-390/trace.zip": "42baa96dde4f625b539fd445456f10cc63155269816a34b3cb877fa404341aaa",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-d02d2-etained-computed-result-390/test-failed-1.png": "e2180bbb72bbe93c7e9f1daac25ff77258c3741f7f2fef603aa7553d2162df7c",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-d02d2-etained-computed-result-390/trace.zip": "10297f5f0044817a9612e5dbb8e21f642d6fd244c37016f0d2e9f8e4d26c176c",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-27d19-ut-moving-operand-focus-390/test-failed-1.png": "535711521440ab569d2c80ed8aa4aa4ede8e0b76600c88e77febd09536ad2740",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-27d19-ut-moving-operand-focus-390/trace.zip": "e9cf3d368e3250866912edde4617260086c935d4d9bbad7d210c9884e4aacc36",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-6da12-es-other-custom-values-1280/test-failed-1.png": "567ae912a98a69c6d4eba80f44373dc5411b1ff1d4d5a1ee36370af31af164ef",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-6da12-es-other-custom-values-1280/trace.zip": "a33a25cf7dae3ea03cb76116164f63db361c4d943a3a206f915a50dac57f126a",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-9fb2c-with-corrected-formula-1280/test-failed-1.png": "496c43f65ba73a7ac4127340d79b6348a67a10443f921a35a36f1346633e169e",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-9fb2c-with-corrected-formula-1280/trace.zip": "f1d5651b60696345770f1ed08eda027260da29d83cf0c61051fe70c62e21d9af",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-db97c-etadata-remains-hidden-1280/test-failed-1.png": "abfd352c91ec422223134333b1d2e3738b72d04ceddb3a549c7e908ba1d4740f",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-db97c-etadata-remains-hidden-1280/trace.zip": "4d38785983a548bda0dcd126456fe385bd9dfa3ebaf06d53191b56f05a74e3d7",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-17da4--with-corrected-formula-390/test-failed-1.png": "e2180bbb72bbe93c7e9f1daac25ff77258c3741f7f2fef603aa7553d2162df7c",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-17da4--with-corrected-formula-390/trace.zip": "0537d4362af95863aae8e43496ffe41a02d810775e866bc4ab1ef505196cd0fe",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-06478-nd-and-preserves-source-390/test-failed-1.png": "535711521440ab569d2c80ed8aa4aa4ede8e0b76600c88e77febd09536ad2740",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-06478-nd-and-preserves-source-390/trace.zip": "77f718f2407607897e1c6718c1841e9d6aa8aede5d90ace08741488bb3a6b8eb",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-fb7b2-metadata-remains-hidden-390/test-failed-1.png": "8db4468bbeaa31dda9597ed007e8c419ab852c3f42abedadead3a7f9cd01334c",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-fb7b2-metadata-remains-hidden-390/trace.zip": "4f8d906234512ad4b889530bb62c450249fa2e89dbb24ff3e1df36f521ef249f",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-7d353-ther-than-display-blank-390/test-failed-1.png": "535711521440ab569d2c80ed8aa4aa4ede8e0b76600c88e77febd09536ad2740",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-7d353-ther-than-display-blank-390/trace.zip": "863828e8747176e76ef5f1b9318308ee1f24f7b9637ab262dca11f737f36fb4c",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-eae92-d-and-preserves-source-1280/test-failed-1.png": "567ae912a98a69c6d4eba80f44373dc5411b1ff1d4d5a1ee36370af31af164ef",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-eae92-d-and-preserves-source-1280/trace.zip": "e4682dedd48e371abed77ceccb01404a2c2401b187ce70e4b105fec742bdc57c",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-466ba-her-than-display-blank-1280/test-failed-1.png": "567ae912a98a69c6d4eba80f44373dc5411b1ff1d4d5a1ee36370af31af164ef",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-466ba-her-than-display-blank-1280/trace.zip": "9546fbbac11ede48efb38c83cf757b031535ae4f7682df01c9af4f4c2acdb7d0",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-42e0e-ves-other-custom-values-390/test-failed-1.png": "535711521440ab569d2c80ed8aa4aa4ede8e0b76600c88e77febd09536ad2740",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-baseline-results/price-input-compute-displa-42e0e-ves-other-custom-values-390/trace.zip": "29ea5e7d50ac8ae09cf3ddd8b287c4f49befb0a74cd025a21234e0dd8a64bb1f",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/input/candidate-price-configure.js": "ef6c3cd19c05c206d05df4b7be8b7718904adb4cb8855b3a7e15400c6bf2c29a",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/input/candidate-configureGrid.js": "529d076d80ec287975331707fdc5e6b0cf875489b1d523c01c62cd7005b6b15b",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/input/own-price-configure.js": "ef6c3cd19c05c206d05df4b7be8b7718904adb4cb8855b3a7e15400c6bf2c29a",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/input/own-configureGrid.js": "529d076d80ec287975331707fdc5e6b0cf875489b1d523c01c62cd7005b6b15b",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/input/candidate-price-render-lines.js": "285f120511eec629e63373e5bbc45dd54d73315b277599bb6cae36c18f5d56bb",
+    ".artifacts/manual-price-input-compute-display-20261029/rea/input/own-price-render-lines.js": "285f120511eec629e63373e5bbc45dd54d73315b277599bb6cae36c18f5d56bb",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after-results/price-input-compute-displa-7d353-ther-than-display-blank-390/test-failed-1.png": "d078794b8207f66ebf4999cd74f563ceca49287ebe1bcb430b5f642d1dc41444",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after-results/price-input-compute-displa-7d353-ther-than-display-blank-390/trace.zip": "0bb2b550f01680f58b4e75c0f9eb7471b983f782469078c4157203dca7d78131",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after-results/price-input-compute-displa-466ba-her-than-display-blank-1280/test-failed-1.png": "225dda8ecbc8713bcc427ffc891b724fab53813d12520a1d4e67887852ff6bec",
+    ".artifacts/manual-price-input-compute-display-20261029/browser-after-results/price-input-compute-displa-466ba-her-than-display-blank-1280/trace.zip": "c47b0910025a65fe38c7d786b211b205a1c4834215b59775e9d1d3229f70282a"
+  }
+}

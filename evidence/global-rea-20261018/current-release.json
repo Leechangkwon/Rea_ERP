@@ -2023,8 +2023,8 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-price-input-number-preflight-20261029.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.37",
+    "pendingDeploymentCandidateReference": "evidence/manual-price-input-compute-display-20261029.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.38",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
@@ -2040,7 +2040,8 @@
       "0.89.34",
       "0.89.35",
       "0.89.36",
-      "0.89.37"
+      "0.89.37",
+      "0.89.38"
     ]
   },
   "manualParity": {
@@ -2281,13 +2282,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-INPUT-COMPUTE-ERROR-DISPLAY-RECOVERY-AUDIT",
-      "title": "단가요청 입력 계산오류 표시·수정 복구 대조",
+      "sourceId": "OWN-PRICE-INPUT-NONNUMERIC-ADDITION-LIFECYCLE-AUDIT",
+      "title": "단가요청 비숫자 사용자항목 추가·초안·검색 투영 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-input-number-preflight-20261029.json",
-      "latestEvidence": "evidence/manual-price-input-number-preflight-20261029.json",
-      "description": "새 숫자추가와 정상 입력계산식 변경의 부모투영/초안은 한정 확인했고 native 미완성숫자의 저장/재구성/닫기 손실을38로 보완했다. 별도관찰에서 분모0은 명시오류와업무저장차단·원문유지를 제공하지만 readonly계산칸은 이전1이 남고 aria-invalid가 없었다. 현재 입력계산 오류표시/수정·해제·계산대상 귀속·설정/재진입의 계약은 별도다. 기존 FormCore.compute와 configureGrid.update/rawCustomValues, docEditor의 오류/합계/인쇄·초안 경로 및 기초등록 계산오류 검사의 검증범위를 먼저 읽고, 입력원문·저장된사용자값·양식/backup을 보존하며 실제 잘못된표시와복구 차이만 재현한다. 공통validator 강화로 기존backup을 거부하거나 표시를 비우면서 보관원문까지 지우지 않는다. 비숫자 추가항목의 전체수명/다른공통목록/원본·운영은 미확인으로 유지한다. 기존16후보·자료/양식/운영gate를 보존하고 정상추가/계산투영·부분숫자/소유자닫기 행렬과 같은 전체검사를 변화없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-input-compute-display-20261029.json",
+      "latestEvidence": "evidence/manual-price-input-compute-display-20261029.json",
+      "description": "숫자추가/정상계산 투영·부분숫자 보존·입력 계산오류 표시의 한정 흐름과 구분해, 아직 확인하지 않은 문자/일자/선택/체크 사용자항목 추가의 취소·명시저장·기본값/readonly·자식초안·부모 검색/재진입을 대조한다. 기존 FormCore/지원UI/저장schema와 부모검색 투영규칙부터 읽고 schema거부를 실제소실로 분류하거나 input기본값/계산/readonly를 검색에 자동상속하지 않는다. 새 차이만 재현하며 기존 원문/양식/자료·17후보/운영gate를 보존한다. 입력보조 applyDraft/행계산·다른전표/모든계산에러종류/원본·운영 합격은 이번8흐름으로 대신하지 않고 미확인으로 유지한다. 완료된 숫자·계산오류8흐름/역할/작업탭과 같은 전체검사를 변화없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2307,7 +2308,8 @@
         "0.89.35",
         "0.89.36",
         "0.89.37",
-        "0.89.38"
+        "0.89.38",
+        "0.89.39"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3043,13 +3045,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-INPUT-COMPUTE-ERROR-DISPLAY-RECOVERY-AUDIT",
-      "title": "단가요청 입력 계산오류 표시·수정 복구 대조",
+      "sourceId": "OWN-PRICE-INPUT-NONNUMERIC-ADDITION-LIFECYCLE-AUDIT",
+      "title": "단가요청 비숫자 사용자항목 추가·초안·검색 투영 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-input-number-preflight-20261029.json",
-      "latestEvidence": "evidence/manual-price-input-number-preflight-20261029.json",
-      "description": "새 숫자추가와 정상 입력계산식 변경의 부모투영/초안은 한정 확인했고 native 미완성숫자의 저장/재구성/닫기 손실을38로 보완했다. 별도관찰에서 분모0은 명시오류와업무저장차단·원문유지를 제공하지만 readonly계산칸은 이전1이 남고 aria-invalid가 없었다. 현재 입력계산 오류표시/수정·해제·계산대상 귀속·설정/재진입의 계약은 별도다. 기존 FormCore.compute와 configureGrid.update/rawCustomValues, docEditor의 오류/합계/인쇄·초안 경로 및 기초등록 계산오류 검사의 검증범위를 먼저 읽고, 입력원문·저장된사용자값·양식/backup을 보존하며 실제 잘못된표시와복구 차이만 재현한다. 공통validator 강화로 기존backup을 거부하거나 표시를 비우면서 보관원문까지 지우지 않는다. 비숫자 추가항목의 전체수명/다른공통목록/원본·운영은 미확인으로 유지한다. 기존16후보·자료/양식/운영gate를 보존하고 정상추가/계산투영·부분숫자/소유자닫기 행렬과 같은 전체검사를 변화없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-input-compute-display-20261029.json",
+      "latestEvidence": "evidence/manual-price-input-compute-display-20261029.json",
+      "description": "숫자추가/정상계산 투영·부분숫자 보존·입력 계산오류 표시의 한정 흐름과 구분해, 아직 확인하지 않은 문자/일자/선택/체크 사용자항목 추가의 취소·명시저장·기본값/readonly·자식초안·부모 검색/재진입을 대조한다. 기존 FormCore/지원UI/저장schema와 부모검색 투영규칙부터 읽고 schema거부를 실제소실로 분류하거나 input기본값/계산/readonly를 검색에 자동상속하지 않는다. 새 차이만 재현하며 기존 원문/양식/자료·17후보/운영gate를 보존한다. 입력보조 applyDraft/행계산·다른전표/모든계산에러종류/원본·운영 합격은 이번8흐름으로 대신하지 않고 미확인으로 유지한다. 완료된 숫자·계산오류8흐름/역할/작업탭과 같은 전체검사를 변화없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3069,7 +3071,8 @@
         "0.89.35",
         "0.89.36",
         "0.89.37",
-        "0.89.38"
+        "0.89.38",
+        "0.89.39"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4106,7 +4109,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-price-input-number-preflight-preauthorized-20261029.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-input-compute-display-preauthorized-20261029.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4120,19 +4123,19 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-price-input-projection-20261029/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-input-compute-display-20261029/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 43,
+      "lastConfirmedP1Version": 45,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-price-input-number-preflight-20261029.json",
+      "currentPatchReference": "evidence/manual-price-input-compute-display-20261029.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
       "routineBodyAuthorizationScope": "Existing16 Moa work documents: routine development record additions and body schedule/status; preserve existing content and work units; read current version/permission and reread after saving",
       "lastConfirmedOperationsVersion": 2,
       "currentPatchScheduleOnly": true,
-      "currentAuditReference": "evidence/manual-price-input-number-preflight-20261029.json",
-      "currentAuditStatus": "done-for-fourteen-local-flows",
+      "currentAuditReference": "evidence/manual-price-input-compute-display-20261029.json",
+      "currentAuditStatus": "done-for-eight-local-flows",
       "currentAuditScheduleOnly": true
     },
     "itemStandardCsv": {
@@ -4273,7 +4276,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-INPUT-COMPUTE-ERROR-DISPLAY-RECOVERY-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-INPUT-NONNUMERIC-ADDITION-LIFECYCLE-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4904,6 +4907,65 @@
       "nonNumericAdditionLifecycleAccepted": false,
       "originalBaselineTracePreserved": false,
       "recreatedBaselineTraceRetained": true,
+      "originalAccepted": false,
+      "productionAccepted": false
+    },
+    "priceInputComputeDisplayCandidate": {
+      "version": "0.89.39",
+      "sourceCommit": "f0cf786cb7706efed5c3895a52be46de9fd09335",
+      "releaseCommit": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+      "branch": "release/0.89.39-price-input-compute-display",
+      "baselineReleaseCommit": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+      "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.39-price-input-compute-display",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.38",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "sourceRemoteRef": "f0cf786cb7706efed5c3895a52be46de9fd09335",
+      "releaseRemoteRef": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+      "reference": "evidence/manual-price-input-compute-display-20261029.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29",
+        "0.89.30",
+        "0.89.31",
+        "0.89.32",
+        "0.89.33",
+        "0.89.34",
+        "0.89.35",
+        "0.89.36",
+        "0.89.37",
+        "0.89.38"
+      ],
+      "sourceWorkComplete": false,
+      "acceptedScope": "Eight local price input header compute-error flows only"
+    },
+    "priceInputComputeDisplayAudit": {
+      "reference": "evidence/manual-price-input-compute-display-20261029.json",
+      "status": "eight-local-flows-done-candidate39-not-deployed",
+      "sourceWorkComplete": false,
+      "actualShellCases": 16,
+      "focusedNode": 99,
+      "wholeBrowser": 484,
+      "ownReaScopes": 6,
+      "ownReaRawPairs": 3,
+      "rootLegacyVatAndApiDeltaRetained": true,
+      "headerZeroDivisorAndNestedErrorRecoveryLocalAccepted": true,
+      "allCalculationErrorTypesAccepted": false,
+      "inputHelperAndRowCalculationAccepted": false,
+      "nonNumericAdditionLifecycleAccepted": false,
       "originalAccepted": false,
       "productionAccepted": false
     }
