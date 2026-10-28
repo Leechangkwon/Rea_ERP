@@ -1,0 +1,174 @@
+{
+  "version": "0.89.22",
+  "sourceCommit": "a0142131caf64027eb7432f4c4a5fb42e9b2a414",
+  "releaseCommit": "c9e3cc33c2c02f8f3ef83b30426deddff005a88f",
+  "branch": "release/0.89.22-master-csv-feedback",
+  "baselineReleaseCommit": "a1d8169c11d36d9cb2be5ec49718666ab0c8dc79",
+  "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.22-master-csv-feedback",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "status": "deployed-master-csv-feedback",
+  "date": "2026-10-28",
+  "sourceId": "OWN-MASTER-CSV-CONTRACT-AUDIT",
+  "changes": {
+    "before": "Master list-form calculation errors were shown in the table, but CSV click threw an unhandled window error with no export feedback.",
+    "after": "Catch errors only at the renderMasters CSV action and show the existing error reason as CSV failure feedback. Failed projection still creates no download; filtering a valid record recovers normal CSV.",
+    "why": "A failed export must explain the reason without inventing calculated data or silently appearing to do nothing.",
+    "scope": "renderMasters CSV action only",
+    "sharedProjectionCsvOrCalculationEngineChanged": false,
+    "storageOrSchemaChanged": false
+  },
+  "auditContracts": [
+    "List CSV exports current visible list columns/calculated values with original numeric data and spreadsheet escaping.",
+    "Item Excel CSV exports all standard/custom data and uses the0.89.21 versioned transfer contract. It is separate from list-form CSV.",
+    "Existing search/selection/page and data/form preservation evidence is reused; no original behavior inferred."
+  ],
+  "validation": {
+    "preFixNewNodeFailed": 2,
+    "focusedNodePassed": 30,
+    "newActualShellBrowserPassed": 4,
+    "viewports": [
+      390,
+      1280
+    ],
+    "verifyLocalExitCode": 0,
+    "fullBrowserPassed": 294,
+    "fullNodeSuitePassed": true,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "originalEquivalence": false
+  },
+  "scopedPort": {
+    "file": "dist/inventory-ui.js",
+    "symbol": "renderMasters",
+    "baseRelease": "a1d8169c11d36d9cb2be5ec49718666ab0c8dc79",
+    "wholeFileCopied": false,
+    "rootOriginalHash": "d3f4dbfdb7cc89a0fafc3c32cfb2f91ad4e6154e2e7fe4f5d1599479e35935d4",
+    "candidateOriginalHash": "94a57781e8fa614f536112b472e03d8777c948477a77e084b48f6664951333cf",
+    "originalScopeHash": "2a7825833ac3a1b38375821080fd1405bc1e25e1c2261ec5d157e567f1e706ae",
+    "changedScopeHash": "ae16050a090ae70efafb9e4fde863494b685cc68c3ea7867d65fbc92e51739ff",
+    "unchangedOutsideScopes": true
+  },
+  "rea": {
+    "version": "6.4.0",
+    "ownInputs": 2,
+    "originalInputs": 0,
+    "summary": ".artifacts/manual-master-csv-contract-audit-20261028/rea/rea-summary.json",
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "runtime": {
+    "version": "0.89.22",
+    "pid": 27711,
+    "windowsHolderPid": 29848,
+    "cloudflaredWindowsPid": 121356,
+    "manager": "/home/lck/.local/bin/rea-erp-dev",
+    "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+    "health": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "persistentExecSession": null,
+    "independentHiddenWindowsWslHolder": true,
+    "autostartAdded": false,
+    "checkedAt": "2026-10-28T17:28:03.801248+09:00"
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.89.22",
+      "browserInventoryByteEqual": true,
+      "documents": 8,
+      "formsByteEqual": true,
+      "itemCsvByteEqual": true,
+      "partnerCsvByteEqual": true,
+      "existingSessionRetained": true,
+      "hostedNormalCsvVerified": true,
+      "hostedErrorCaseVerified": false,
+      "hostedBusinessOrSettingsWrites": 0,
+      "originalActions": 0
+    },
+    "server": {
+      "version": "0.89.22",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 36,
+          "afterRevision": 36,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "dirtyFilesExact": 12,
+    "cleanIntegrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+  },
+  "deployment": {
+    "url": "https://rea.qaredi.com",
+    "publicChecks": 23,
+    "staticAssetsExact": 20,
+    "rootFullBuild": false,
+    "vatOrMappingInstalled": false,
+    "hostedBusinessOrSettingsWrites": 0,
+    "mailSends": 0,
+    "restoresApplied": 0
+  },
+  "failuresAndRecovery": [
+    "Candidate initialization whole inventory-ui equality assertion found expected unshipped root VAT/mapping differences; only matching renderMasters scope was ported.",
+    "Browser control returned browser.user unavailable; documented recovery and one runtime reset restored the existing tab without authentication changes."
+  ],
+  "moa": {
+    "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+    "lastReadDocVersion": 4,
+    "existingBlocks": 91,
+    "canEdit": true,
+    "bodyPlannedStart": "2026-10-28",
+    "bodyDeadline": "2026-10-29",
+    "patchStatus": "done",
+    "stageStatus": "doing",
+    "actualMetadataFieldsSet": false,
+    "bodySaved": false,
+    "approvalRequested": true,
+    "proposalFile": ".artifacts/manual-master-csv-contract-audit-20261028/moa-proposed-packet.json",
+    "previous08921SevenBlocksSaved": true
+  },
+  "manualCounts": {
+    "requirements": 77,
+    "bodies": 47,
+    "independent": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "originalActions": 0,
+  "nextWork": "품목/거래처 CSV 계약 대조와 계산 오류 안내 수정은 완료했다. 다음은 창고·부서·프로젝트·사원·관리항목·통화 등 나머지 기초등록의 조회양식 CSV에서 실제 열/숫자 형식/추가값·계산·백업 보존 경계를 확보된 P1 자료와 합성 대조한다. 왜: 이번 두 경로의 합격을 다른 기초등록으로 확대하지 않기 위해서다. 새 차이가 확인된 항목만 보완하고, 같은 품목 표준 CSV/거래처·품목 검색/이번 오류 안내 검사와 원본 차단 조사는 반복하지 않는다. 착수 시 기존 P1 본문용 일정·doing 기록안을 정하며 실제 메타데이터 미지원은 개발 중단 조건이 아니다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 때 재개한다.",
+  "limitations": [
+    "Failure and valid-filter recovery are synthetic actual-shell evidence. Hosted checks only compare normal CSV downloads and unchanged backups.",
+    "No actual source ERP actions, operational data/settings writes or external spreadsheet edits were performed."
+  ]
+}
