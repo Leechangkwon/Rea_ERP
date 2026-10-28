@@ -931,3 +931,16 @@ fresh 저장 응답을 기다리는 동안 실제 조건명/대상양식 변경�
 다음은 단가요청 자식 입력양식 변경 뒤 부모 검색 재구성 대조다. 왜: 지금 합격은 부모 검색양식의 역할조건 저장/분기이고, 자식 상세창의 input메타데이터 변경은 host/registry/사용자항목 투영과 부모refresh가 다른 경로이기 때문이다. 기존 ensureOptions/docFilters/docList/documentDialog/refreshCurrentView와 메모저장·양식검사의 이미 검증한 범위를 먼저 읽고 타입/readonly/추가·제거/기본값/계산 변경 때 현재검색·미적용빠른문자·선택/페이지/초안 및 원문 보존의 새 차이만 재현한다. schema가 이미 거부하는 값과 실제 소실을 구분하고 임의초기화/자동조건삭제로 손실을 숨기지 않는다. 완료된 역할fresh/F2/change/입력중복 행렬과 같은 전체검사를 반복하지 않는다.
 
 모아 P1은 지속 승인으로 v37→38→39·기존267exact·착수2/결과8 문구/종류/수준exact·총277블록/결과제목1회를 저장·재조회했다. 다른15문서/색인변경·새문서·재질문·중복게시0, 실제 일정/상태 메타데이터 미설정이다. 근거 evidence/moa-price-role-save-audit-preauthorized-20261029.json.
+
+
+## 2026-10-29 · 자식 입력양식/부모 검색 재구성0.89.37 후보 착수
+
+예정10/29~10/30KST·한정감사/패치doing·P1doing·실제메타데이터미설정, 모아P1v39→40/279 착수2저장·재조회다. 불변36 실제 두 흐름×390/1280의4개는 모두실패했다. 항목명 저장 뒤 부모투영항목은 옛이름이었고 현재검색조건2를 갖는 입력항목 제거도 저장됐다. 별도1관찰은 같은화면1건/300원·조건2가 작업탭복귀뒤항목0/2건/500원으로넓어졌고전표원문exact·pageerror/원격쓰기0이었다. 중간probe로그/trace/스크린샷/JSON을보존했다. 초기읽기의없는파일명·PowerShell→WSL regex인용오류는준비오류로구분한다.
+
+0.89.37은자식과부모소유연결을명시하고기존부모검색보존preflight를자식양식저장에도적용한다. 부모registry/원래input투영ID를캡처해자식registry를잘못참조하지않고, 자신의성공한메타데이터저장만부모자료기준을전진시킨다. 메타데이터변경이있던자식닫기만기존refreshCurrentView로부모를재구성/복원하고일반상세저장의refresh는유지한다. 원본/운영저장·배포0이며반복저장/유형·취소·권한·자료가드/전체검증은이후검사한다.
+
+불변36의최종22는6통과/16실패, 수정후최종22·관련Node88통과다. 첫확장22의17통과/5실패는header닫기×와필드삭제×의동일라벨4개·행클릭시nativefocus가가로스크롤을120→10으로조정한뒤에열렸는데클릭전120을기준으로삼은fixture1개였다. header를명시하고실제자식창개방직후scroll을기준으로삼아앱변경없이보정했으며원고/실패로그/trace/스크린샷을보존했다. 끝개행assertion·버전표시문자열수를1로가정한준비assertion도보정했고정지뒤의4재검사를22로세지않았다. root포팅guard가editorDialog의기존transaction-vat-review닫기차이를감지해정지했으므로해당원형을보존해3함수만반영했다. 자체REA는ensureOptions/docList각1함수와editorDialog의scope초기화/부모갱신if 각1범위를root/candidate8개4raw해시쌍으로대조해parse0/coverageunknown/truncatedfalse다. editorDialog전체2함수raw동등성은주장하지않는다. 전체verify:local은격리37후보에서진행한다.
+
+첫37 후보의 전체436은 통과했지만 소유자 재확인 추가 전 intermediate로 before-owner-snapshot에 worker/로그/REA/소스를 보존했다. 올바른input을 쓰는 추가Node 진단과 별도4187포트 실제브라우저에서, 명시메타데이터 저장 뒤 역할을 바꾸고 닫으면 옛검색2/미적용원문이 새역할 화면에 복원되는 것을 확인했다. 최초label/input 오인과 보충브라우저 상대require 경로 오류는 준비오류로 분리했다. 최종코드는 닫기 때 원래listScope 소유자를 재확인해 같은소유자만snapshot을 복원한다. 소유자변경은 fresh render, 같은소유자의 외부자료변경은 초안을 유지하고 옛결과를 표시하지 않는다. 최종Node89(기존88+보충소유자1)·실제26은 통과했으며 전체440을 최종코드로 재검증한다. 원본/운영 저장·배포0이다.
+
+최종 소유자닫기 가드를 포함한 코드의 전체verify:local exit0/440브라우저·전체Node·릴리스검사/빌드가 통과했다. 검사 전후 UI/FormOptions/FormCore/새브라우저검사/package 해시는exact이며 자체REA8범위4raw해시쌍exact·parse0와 root3함수밖/기존editor VAT닫기차이·운영worker/기존14후보/dirty12/매핑보존을 확인했다. 첫436은중간결과로구분한다. 아직입력항목추가/계산식의잔여범위와운영합격은아니며 패치doing/P1doing으로후보커밋·push/모아기록을진행한다.
