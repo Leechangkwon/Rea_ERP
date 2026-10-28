@@ -969,3 +969,18 @@ source dd7d53b / release 409adff / branch release/0.89.37-price-child-metadata�
 다음은 입력 사용자항목 추가·계산 변경의 부모 검색 투영 대조다. 왜: 이번13흐름은 이미 존재하는 input항목의 명칭/유형/제거/기본값/readonly와 소유자 복귀를 보완했고, 새항목 생성과 입력계산식 변경은 항목카탈로그/계산원문/자식초안이 다른 경로이기 때문이다. 기존 FormCore.custom/effective/configureGrid·docFilters/docEditor/getDoc의 지원UI와 이미 검증한 범위부터 읽고 새 소실/덮어쓰기만 재현한다. 입력기본값/readonly/계산식을 검색에 자동상속한다고 추정하거나 schema거부를 실제소실로 분류하지 않는다. 기존15후보/자료/양식과 운영gate를 보존하고 이번 명칭/제거/유형/소유자닫기 및 같은 전체검사를 변화없이 반복하지 않는다.
 
 모아 P1은 지속 승인으로 v39→40→41·기존277exact·착수2/결과11 문구/종류/수준exact·총290블록/결과제목1회를 저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0이며 실제 일정/상태 메타데이터는 미설정이다. 근거 evidence/moa-price-child-metadata-preauthorized-20261029.json.
+
+
+## 2026-10-29 · 입력항목 추가/계산 투영 대조와0.89.38 숫자 입력 보호 착수
+
+예정10/29~10/30KST·감사/패치doing/P1doing·실제메타데이터미설정, 모아v41→42/292 착수2 저장·재조회다. 변경 없는37후보의새숫자기본값/readonly는자식9와부모공란으로분리되고계산식변경뒤원래피연산자/자식초안/부모필터가유지되는2흐름은통과했다. 입력계산0분모는명시오류/업무저장거절/원문exact이나readonly계산표시는이전1·aria-invalid미표시로관찰했으며이번원문보존합격을오류표시전체합격으로올리지않는다. 추가실제probe에서새숫자항목1e의value공란/badInputtrue가두번째메타데이터저장/재표시뒤badInputfalse로사라졌고업무원문exact·pageerror/원격쓰기0이었다.
+
+38은단가요청docEditor의살아있는custom숫자control badInput만getDoc(raw/strict)앞에서구분해명시오류/aria-invalid로기존DOM을유지한다. FormOptions guard는현재editor.read를동적으로사용해반복재구성뒤옛control을검사하지않는다. 원래listScope소유자에서만새raw입력검사를적용하며문맥변경을숫자수정대기로가두지않는다. 공통schema/계산기/backup/다른입력화면/검색소비자는그대로다. 원본/운영쓰기·배포0, 기존15후보와운영worker/dirty12/매핑을보존한다.
+
+38 첫 실제26은23통과/3실패였다. 유효한새DOM이aria-invalid속성없음을허용하는데false문자열을요구한fixture1개를정정했다. 다른2개는숫자오류가blur뒤표시돼중앙정렬상세창위치가변하며첫Option클릭이닫힌메뉴로끝난실제입력수명회귀였다. 단가요청custom입력에서getDoc(raw)을input시점에도검사해오류/aria를클릭전표시하고정상수정시비우도록보완한다. 두실행config가같은outputDir를가리켜최초37실패trace가38실행때덮였으며최초before.log는보존됐지만원래trace보존으로주장하지않는다. 첫38실패trace를별도복사하고서로다른디렉터리로37baseline재생성/최종38검사를진행한다. 재생성trace와원래로그를구분한다.
+
+최종26은모두통과했고기존88+latevalidity주입2의집중Node90도통과했다. 동일소유자에서저장/양식진입·적용/닫기/조건자동재구성의불완전숫자를정상공란과구분하고, 수정/명시비움/유효0 및역할변경시문맥이동을허용한다. late2는열린모달뒤DOM validity주입인jsdom합성이며실제모달밖사용자입력증명은아니다. App공통FormOptions/parser/evaluator/schema/backup은변경0, docEditor의공유4구간만수정해root기존VAT/API차이를바이트단위역변환exact로보존했다. 자체REA12범위6raw해시쌍exact·parse0/coverageunknown/truncatedfalse이고docEditor전체동등성은아니다. 기준37최초26/재생성26은각14통과/12실패며같은검사의근거보존재실행으로따로합산하지않는다. 최초trace유실과재생성근거를구분한다. 격리38후보전체verify:local을진행한다.
+
+추가권한경계의실제4187probe에서쓰기권한이있는manager역할로바꾼뒤F8이기존custom숫자2를공란으로저장했고child가닫혔다. 이는첫38의getDoc(raw/strict)검사를원래소유자로만한정한공백이었다. 최종코드는단가요청custom숫자badInput의모든raw/strict읽기를거절한다. 문맥이바뀌고비직렬화입력이남은닫기만editor.ownerCurrent/hasIncompleteNumber로읽기없이종료해공란초안을만들지않는다. 유효한입력의기존닫기정책은유지한다. 원본/운영이아닌합성자료의before값2→공란JSON/trace를보존했다. 첫전체466은수정전intermediate로before-serialization-snapshot에보존했다. 최종Node91(기존88+validity주입late2/역할1)·실제28은통과했으며소유문맥이바뀌어도업무원문2와재진입초안2가유지된다. root기존VAT/API차이는5공유구간역변환exact, 자체REA14범위7raw해시쌍parse0/unknown/truncatedfalse다.
+
+최종역할/직렬화보완코드의전체verify:local exit0/468브라우저·전체Node·릴리스검사/빌드가통과했다. 검사전후 UI/FormOptions/FormCore/새브라우저검사/package 해시는exact이며자체REA14범위7raw해시쌍parse0·coverageunknown/truncatedfalse와root5공유구간밖/VAT·API차이·운영22worker/기존15후보/dirty12/매핑보존을확인했다. 첫466은중간결과로구분한다. 추가숫자/계산투영과불완전숫자14흐름의한정로컬감사done이나계산오류시readonly옛값1표시·비숫자추가수명과원본/운영합격은미완료다. 패치doing/P1doing으로후보커밋·push/모아기록을진행한다.
