@@ -1,0 +1,838 @@
+{
+  "actualStart": "2026-10-29T01:33:20.311650+09:00",
+  "plannedStart": "2026-10-29",
+  "plannedDeadline": "2026-10-30",
+  "auditStatus": "done-for-seven-tested-local-flows",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "recordedAt": "2026-10-29T01:55:57.132643+09:00",
+  "elapsedSeconds": 1356.821,
+  "version": "0.89.35",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "patchStatus": "doing",
+  "basis": [
+    "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
+    "Actual mousedown/change/mouseup diagnostic for numeric and native query inputs",
+    "Existing role/conditional/metadata and editorDialog parent refresh contracts"
+  ],
+  "change": {
+    "scope": "Already-applied editable numeric and native query inputs in price-request common list only",
+    "stamp": [
+      "control value",
+      "badInput",
+      "dbSourceRaw",
+      "storageError",
+      "actual stored raw",
+      "current account/company/role/read/write/settings scope"
+    ],
+    "skip": "Only identical change after applied input; retain actionable row DOM through pointer click",
+    "revalidate": "Different value, change-only event, changed data or role/read-only scope keep runRefresh and guards",
+    "unchanged": [
+      "Change-only text/select filters",
+      "FormOptions/schema/evaluator/backup",
+      "other common lists",
+      "original or production behavior acceptance"
+    ]
+  },
+  "checks": {
+    "newNodeTests": 7,
+    "newNodeBefore": {
+      "passed": 5,
+      "failed": 2
+    },
+    "focusedNodeTests": 109,
+    "actualBrowser": {
+      "tests": 14,
+      "passed": 14,
+      "widths": [
+        390,
+        1280
+      ],
+      "flows": [
+        "numeric first click/detail memo explicit save/parent condition retained",
+        "actual userId conditional cancel and compatible switch",
+        "conditional field loss refusal/clear/switch",
+        "actual field remove refusal/clear/save",
+        "changed data on blur not skipped",
+        "changed role on blur not skipped",
+        "native query first click opens detail"
+      ],
+      "pageErrors": 0,
+      "remoteWrites": 0,
+      "syntheticBusinessMemoSaves": 2,
+      "syntheticMetadataSaves": 6,
+      "externalDataFixtureMutations": 2,
+      "roleFixtureMutations": 2
+    },
+    "actualRegressionBefore": {
+      "tests": 2,
+      "failed": 2,
+      "immutableVersion": "0.89.34"
+    },
+    "numericDiagnostic": {
+      "first": {
+        "events": [
+          {
+            "type": "mousedown",
+            "target": "2026-10-02 / PRICEREQUEST-20261002-00003",
+            "oldConnected": true
+          },
+          {
+            "after": "mousedown",
+            "oldConnected": true
+          },
+          {
+            "type": "change",
+            "target": "검색 숫자",
+            "oldConnected": true
+          },
+          {
+            "after": "change",
+            "oldConnected": true
+          },
+          {
+            "type": "mouseup",
+            "target": "2026-10-02 / PRICEREQUEST-20261002-00003",
+            "oldConnected": false
+          },
+          {
+            "after": "mouseup",
+            "oldConnected": false
+          }
+        ],
+        "opened": false
+      },
+      "second": {
+        "heading": "단가요청 상세 / 수정",
+        "labels": [
+          {
+            "label": "적용 양식",
+            "value": "events_input",
+            "type": "select-one"
+          },
+          {
+            "label": "일자",
+            "value": "2026-10-02",
+            "type": "date"
+          },
+          {
+            "label": "검색 숫자",
+            "value": "2",
+            "type": "number"
+          },
+          {
+            "label": "거래처",
+            "value": "V001",
+            "type": "select-one"
+          },
+          {
+            "label": "담당자",
+            "value": "",
+            "type": "select-one"
+          },
+          {
+            "label": "출하/입고창고",
+            "value": "W001",
+            "type": "select-one"
+          },
+          {
+            "label": "프로젝트",
+            "value": "",
+            "type": "select-one"
+          },
+          {
+            "label": "통화",
+            "value": "KRW",
+            "type": "select-one"
+          },
+          {
+            "label": "거래유형",
+            "value": "0",
+            "type": "select-one"
+          },
+          {
+            "label": "전표 적요",
+            "value": "",
+            "type": "text"
+          },
+          {
+            "label": "납기일",
+            "value": "",
+            "type": "date"
+          },
+          {
+            "label": "전표 진행상태",
+            "value": "진행",
+            "type": "select-one"
+          },
+          {
+            "label": "입력 행에서 찾기",
+            "value": "",
+            "type": "text"
+          },
+          {
+            "label": "행 선택 1",
+            "value": "false",
+            "type": "checkbox"
+          },
+          {
+            "label": "품목 1",
+            "value": "M001",
+            "type": "select-one"
+          },
+          {
+            "label": "수량 1",
+            "value": "3",
+            "type": "number"
+          },
+          {
+            "label": "단가 1",
+            "value": "100",
+            "type": "number"
+          },
+          {
+            "label": "할인율 1",
+            "value": "0",
+            "type": "number"
+          },
+          {
+            "label": "적요 1",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "buttons": [
+          "×",
+          "Option ▾",
+          "양식설정",
+          "항목설정",
+          "검색항목설정",
+          "조건양식설정",
+          "페이지설정",
+          "다중 선택",
+          "전체 해제",
+          "V001 · 샘플 구매처 ×",
+          "찾기(F3)",
+          "정렬",
+          "거래내역보기(단가요청)",
+          "My품목",
+          "My품목설정",
+          "주문",
+          "계획",
+          "재고불러오기",
+          "바코드",
+          "전표 바코드",
+          "검증",
+          "전표 불러오기",
+          "재고 품목 선택",
+          "안전재고",
+          "품목 추가",
+          "발주",
+          "할인",
+          "웹자료올리기",
+          "입력 검증",
+          "소요",
+          "보류",
+          "찾기",
+          "찾기 닫기",
+          "행 추가",
+          "선택 행 복사",
+          "단가 적용",
+          "×",
+          "저장(F8)",
+          "저장/전표(F7)",
+          "다시 작성",
+          "리스트"
+        ]
+      },
+      "errors": [],
+      "posts": []
+    },
+    "nativeQueryDiagnostic": {
+      "first": {
+        "events": [
+          {
+            "type": "mousedown",
+            "target": "2026-10-02 / PRICEREQUEST-20261002-00003",
+            "oldConnected": true
+          },
+          {
+            "after": "mousedown",
+            "oldConnected": true
+          },
+          {
+            "type": "change",
+            "target": "자료 검색",
+            "oldConnected": true
+          },
+          {
+            "after": "change",
+            "oldConnected": true
+          },
+          {
+            "type": "mouseup",
+            "target": "2026-10-02 / PRICEREQUEST-20261002-00003",
+            "oldConnected": false
+          },
+          {
+            "after": "mouseup",
+            "oldConnected": false
+          }
+        ],
+        "opened": false
+      },
+      "second": {
+        "heading": "단가요청 상세 / 수정",
+        "labels": [
+          {
+            "label": "적용 양식",
+            "value": "default",
+            "type": "select-one"
+          },
+          {
+            "label": "일자",
+            "value": "2026-10-02",
+            "type": "date"
+          },
+          {
+            "label": "거래처",
+            "value": "V001",
+            "type": "select-one"
+          },
+          {
+            "label": "담당자",
+            "value": "",
+            "type": "select-one"
+          },
+          {
+            "label": "출하/입고창고",
+            "value": "W001",
+            "type": "select-one"
+          },
+          {
+            "label": "프로젝트",
+            "value": "",
+            "type": "select-one"
+          },
+          {
+            "label": "통화",
+            "value": "KRW",
+            "type": "select-one"
+          },
+          {
+            "label": "거래유형",
+            "value": "0",
+            "type": "select-one"
+          },
+          {
+            "label": "전표 적요",
+            "value": "",
+            "type": "text"
+          },
+          {
+            "label": "납기일",
+            "value": "",
+            "type": "date"
+          },
+          {
+            "label": "전표 진행상태",
+            "value": "진행",
+            "type": "select-one"
+          },
+          {
+            "label": "입력 행에서 찾기",
+            "value": "",
+            "type": "text"
+          },
+          {
+            "label": "행 선택 1",
+            "value": "false",
+            "type": "checkbox"
+          },
+          {
+            "label": "품목 1",
+            "value": "M001",
+            "type": "select-one"
+          },
+          {
+            "label": "수량 1",
+            "value": "3",
+            "type": "number"
+          },
+          {
+            "label": "단가 1",
+            "value": "100",
+            "type": "number"
+          },
+          {
+            "label": "할인율 1",
+            "value": "0",
+            "type": "number"
+          },
+          {
+            "label": "적요 1",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "buttons": [
+          "×",
+          "Option ▾",
+          "양식설정",
+          "항목설정",
+          "검색항목설정",
+          "조건양식설정",
+          "페이지설정",
+          "다중 선택",
+          "전체 해제",
+          "V001 · 샘플 구매처 ×",
+          "찾기(F3)",
+          "정렬",
+          "거래내역보기(단가요청)",
+          "My품목",
+          "My품목설정",
+          "주문",
+          "계획",
+          "재고불러오기",
+          "바코드",
+          "전표 바코드",
+          "검증",
+          "전표 불러오기",
+          "재고 품목 선택",
+          "안전재고",
+          "품목 추가",
+          "발주",
+          "할인",
+          "웹자료올리기",
+          "입력 검증",
+          "소요",
+          "보류",
+          "찾기",
+          "찾기 닫기",
+          "행 추가",
+          "선택 행 복사",
+          "단가 적용",
+          "×",
+          "저장(F8)",
+          "저장/전표(F7)",
+          "다시 작성",
+          "리스트"
+        ]
+      },
+      "errors": [],
+      "posts": []
+    },
+    "failureHistory": {
+      "initialActualProbes": {
+        "failed": 2,
+        "reason": "Numeric input change between mousedown and mouseup detached row; no click event and no dialog, not login/session failure"
+      },
+      "eventObservations": {
+        "numeric": "First action absent; second action opens detail; pageerror0",
+        "nativeQuery": "Same event sequence; first action absent; second opens detail"
+      },
+      "newNodeBefore": {
+        "tests": 7,
+        "passed": 5,
+        "failed": 2,
+        "baseline": "0.89.34"
+      },
+      "actualRegressionBefore": {
+        "tests": 2,
+        "failed": 2,
+        "baseline": "0.89.34"
+      },
+      "firstBrowser": {
+        "passed": 10,
+        "failed": 2,
+        "fixtureDifference": "Explicit detail save added empty memo/custom keys to a fixture line that omitted them; no changed business values"
+      },
+      "fixtureCorrection": "Seed memo empty string and custom empty object before edit; retain exact line assertion; no app change for correction",
+      "finalBrowser": {
+        "tests": 14,
+        "passed": 14
+      },
+      "finalNodeFocused": 109,
+      "scope": "Local synthetic UI only; role/read-only/external-data mutations injected by tests, not real account changes"
+    },
+    "fullVerifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.35-price-search-blur-actions",
+      "startedAt": "2026-10-28T16:46:42.651363+00:00",
+      "finishedAt": "2026-10-28T16:54:30.788161+00:00",
+      "exitCode": 0,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "e855154a5b16280f882c2ae96ddc080597ef9cb58a46a45f4f33f712bd95f19e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-search-blur-actions.cjs": "18a0380b5f01a3f2d33212f7788cffd4c6e61ea321c77656c1f6a7e130b359e2",
+        "tests/browser/price-search-blur-actions.spec.cjs": "dcecfb5d89ea237e39f4cfdb17d4c1dbe5a74d15124e0d3133afee0ea778c2a3",
+        "package.json": "8819364c3ed9b1875febafefb3d5c53aad1edbe6053bf20ab9c0edbfd5964556"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "e855154a5b16280f882c2ae96ddc080597ef9cb58a46a45f4f33f712bd95f19e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-search-blur-actions.cjs": "18a0380b5f01a3f2d33212f7788cffd4c6e61ea321c77656c1f6a7e130b359e2",
+        "tests/browser/price-search-blur-actions.spec.cjs": "dcecfb5d89ea237e39f4cfdb17d4c1dbe5a74d15124e0d3133afee0ea778c2a3",
+        "package.json": "8819364c3ed9b1875febafefb3d5c53aad1edbe6053bf20ab9c0edbfd5964556"
+      }
+    },
+    "browserTests": 396,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 2,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "abe95142303da17ff02810033f528babf920d425443b64756f0f83375dca86dc",
+          "start": 149664,
+          "end": 165306,
+          "lineStart": 593,
+          "lineEnd": 630,
+          "fragmentSha256": "330bf9e323b0de08f69742e45f31a39f3faca842e6c3fd6d3b4f956d822f97e3",
+          "inputFile": "own-docList.js",
+          "inputSha256": "f8861136e960092b8a31e2708d7b05e2cb98d25ef1012440808a8a667d2d2158",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.35-price-search-blur-actions/dist/inventory-ui.js",
+          "sourceSha256": "e855154a5b16280f882c2ae96ddc080597ef9cb58a46a45f4f33f712bd95f19e",
+          "start": 144918,
+          "end": 160560,
+          "lineStart": 570,
+          "lineEnd": 607,
+          "fragmentSha256": "330bf9e323b0de08f69742e45f31a39f3faca842e6c3fd6d3b4f956d822f97e3",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "f8861136e960092b8a31e2708d7b05e2cb98d25ef1012440808a8a667d2d2158",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "21443338e593e5f026469e46854fbfc4db1e4c55bf90c99f3f7b0ff87180170c",
+      "statistics": {
+        "relevant_files": 2,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 33716,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 2,
+        "visited_ast_nodes": 7148,
+        "findings": 4,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "priorApiVatDifferenceRetained": true,
+      "scope": "Price-request already-applied numeric and native query blur action",
+      "scopes": [
+        {
+          "name": "docList",
+          "sourceHash": "330bf9e323b0de08f69742e45f31a39f3faca842e6c3fd6d3b4f956d822f97e3",
+          "candidateHash": "330bf9e323b0de08f69742e45f31a39f3faca842e6c3fd6d3b4f956d822f97e3"
+        }
+      ]
+    }
+  },
+  "release": {
+    "version": "0.89.35",
+    "sourceCommit": "fbf906ba50c7db9b0da254d96c8571aeb5d15c10",
+    "releaseCommit": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+    "branch": "release/0.89.35-price-search-blur-actions",
+    "baselineReleaseCommit": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+    "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.35-price-search-blur-actions",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.34",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "conditionalUserIdSwitchLocalAccepted": true,
+  "fieldRemovalUiRecoveryLocalAccepted": true,
+  "parentMemoSaveRefreshLocalAccepted": true,
+  "roleCatalogConditionalSwitchAccepted": false,
+  "parentInputMetadataRepaintAccepted": false,
+  "changeOnlyFilterActionsAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
+    "title": "단가요청 change 전용 검색필터와 행 동작 시점 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-search-blur-actions-20261029.json",
+    "latestEvidence": "evidence/manual-price-search-blur-actions-20261029.json",
+    "description": "이번 중복 생략은 input에서 이미 적용한 숫자/기본자료검색만 해당한다. 검색전용 문자·일자·선택/체크는 change에서 처음 조건을 적용할 수 있어 같은 skip을 복사하면 새 검색을 누락하거나 과거행 동작을 실행할 수 있다. 기존 실제 이벤트/적용 시점·행 식별자·첫 클릭/키보드·수정/비움과 자료/권한 가드에서 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 입력메타데이터 변경 후 부모재구성도 아직 별도 미확인으로 유지한다. 원본 저장/발송 없이 기존 후보/운영gate를 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "transport": "configured-moa-mcp",
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 33,
+        "afterVersion": 34,
+        "beforeBlocks": 243,
+        "afterBlocks": 245,
+        "prefixExact": true,
+        "appendExact": true,
+        "canEdit": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 조건양식 전환·부모 갱신 입력수명 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT에 따라 조건규칙이 실제 다른 검색양식을 선택하는 저장/취소, 검색전용 항목 삭제 거절·수정 후 복구, 상세창 명시 저장 뒤 부모 목록 갱신을 실제 자체셸에서 대조한다. 왜: 앞선12흐름은 같은 항목과 미변경 규칙 저장이며 실제 분기 전환·제거·부모 갱신을 대신하지 못하기 때문이다. 기존 역할/화면/업무 조건값과 소유자/권한/자료 경계부터 읽고 확인된 새 차이만 보완한다. 원본 저장/발송을 하지 않고 운영0.89.22·기존0.89.23~34 후보·dirty12/매핑·원문/양식/메일을 보존하며 완료된 정상초안/키/미완성 입력 행렬을 반복하지 않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "50d319e6-cfee-49f9-b72d-0d8fb44969da",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 조건양식 전환·부모 갱신 입력수명 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "8c619e1c-944b-4255-ac46-703db40978d0",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT에 따라 조건규칙이 실제 다른 검색양식을 선택하는 저장/취소, 검색전용 항목 삭제 거절·수정 후 복구, 상세창 명시 저장 뒤 부모 목록 갱신을 실제 자체셸에서 대조한다. 왜: 앞선12흐름은 같은 항목과 미변경 규칙 저장이며 실제 분기 전환·제거·부모 갱신을 대신하지 못하기 때문이다. 기존 역할/화면/업무 조건값과 소유자/권한/자료 경계부터 읽고 확인된 새 차이만 보완한다. 원본 저장/발송을 하지 않고 운영0.89.22·기존0.89.23~34 후보·dirty12/매핑·원문/양식/메일을 보존하며 완료된 정상초안/키/미완성 입력 행렬을 반복하지 않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 35,
+    "p1FinalBlocks": 255,
+    "evidence": "evidence/moa-price-search-blur-actions-preauthorized-20261029.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-search-lifecycle-20261029/numeric-probe-confirmed.spec.cjs": "b9c0c29767077998c60c122e7260acbb2953c7aa2b232fccacbbc90437a0edbd",
+    ".artifacts/manual-price-search-lifecycle-20261029/query-blur-action-before.json": "3c4a88e66dd02bf9f82fa9f6ce3b035448223aefd7bb33505766b650e945252b",
+    ".artifacts/manual-price-search-lifecycle-20261029/release.json": "6f2377ad73e8a3ccc770cf335414ef23bc7aa5d75450df2b374e5d5e3a878dd0",
+    ".artifacts/manual-price-search-lifecycle-20261029/node-before.log": "240b081b5baeea6149ea1e310f6b943673e064c2763fdca0e6173dbe49a27a6d",
+    ".artifacts/manual-price-search-lifecycle-20261029/probe.log": "e11ff51b14e580e324559cb26727e018144d1e233267fbd962eab366b4be6a5e",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-two.log": "477d9ca90f725054fce78e0af3a0e221dd2dd5b4456915ed1d3be4a0a5e0d13f",
+    ".artifacts/manual-price-search-lifecycle-20261029/node-after.log": "39dcb1d05879d29a81a0dfec39a0aa8dd9a47295dafeca03afabf518fc6b713a",
+    ".artifacts/manual-price-search-lifecycle-20261029/probe-confirmed.log": "14a0f4fd2fff1c724f219c580b9bb36ad14167d490722268b04fb13822f450b0",
+    ".artifacts/manual-price-search-lifecycle-20261029/verify-local.log": "8640e524209526f67d02c8939926ec2481a7aec71a89c6d96faecc78f7faf4b9",
+    ".artifacts/manual-price-search-lifecycle-20261029/current-release-before.json": "6b9f842e259c5d57256608538ea5319883f26d9bd6597ea6e737b83e149c170e",
+    ".artifacts/manual-price-search-lifecycle-20261029/first-probe.spec.cjs": "d549441dc1a702bcab100636bbdd6bedfb428a33fcf20db57965831f24477b8f",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-exit.json": "23a30344f587f2f6c30d5236f46de89f375ea6abf89d1e3b5966b61af14c812f",
+    ".artifacts/manual-price-search-lifecycle-20261029/probe-second.log": "6d1a660950a0f0c739171ac752ae0b15ea07d8edc7a63c0fef26b180e9eea627",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-header.cjs": "e4a04496bc2ca77690be9c4a68874e366b7e7460d6e09329d7a23b0eaa316e56",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-first-fixture.spec.cjs": "d68d9b16e9fedeec4ff5d3bcb47db3ea267a88019a00139f4d3adc0210486364",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before.log": "4b15f057269aded28f50833a412afb9cc6afb7c8b8e4028244b51d2aa761490a",
+    ".artifacts/manual-price-search-lifecycle-20261029/blur-action-before.json": "bc65acbb9a38df536af7b62e87f04059cebd883998f1f2cb447f02ed89a316d4",
+    ".artifacts/manual-price-search-lifecycle-20261029/patch-port.json": "9cd0e2540b6723d20e3eea161145380448847ae2cde517a1d5c63ecb93e36eb5",
+    ".artifacts/manual-price-search-lifecycle-20261029/node-before-numeric-six.log": "c3885b9193cc25c18db2eefbfd001d9ea0e97d55642619846492db21318fde0c",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-after.log": "d97bbe406ec9781ef16dd20f4ed3809873ef2ce725ef9b0d1d2deb4c0e306a59",
+    ".artifacts/manual-price-search-lifecycle-20261029/query-probe.log": "687a06f61dd4e70099b03722b07ed6cd3592ff0011c61ba7f07a52440a9f987a",
+    ".artifacts/manual-price-search-lifecycle-20261029/moa-start.json": "a3bcdf2ffeb046a7c9e537398e84465979afc881542960beaa527109ab1689ab",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-first.log": "c46d5c2ab8567baf1840667009a5551735a7b33f1d0a58f162e634c816f84757",
+    ".artifacts/manual-price-search-lifecycle-20261029/second-probe.spec.cjs": "d9e625f148a0522c2a018a4ede7c1a9e11b0b77607f56f3f9432a5ced1d4d74d",
+    ".artifacts/manual-price-search-lifecycle-20261029/harness-notes.json": "54227a699e28400b7a852982885b630562068ebb5db1cb4734eed0d40a9437ba",
+    ".artifacts/manual-price-search-lifecycle-20261029/port.cjs": "3f69198450f2d1b4a429173a0cd35ffddee2d175f33b6fcd3a68fc8917a7ccd2",
+    ".artifacts/manual-price-search-lifecycle-20261029/node-focused-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-search-lifecycle-20261029/preservation.json": "a03f83a3d8afbcdffa155f6fda79b8e11ae7f9677f7be102a71827bd271d50fd",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-after-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-search-lifecycle-20261029/analyze.mjs": "20fc4167f2b01eca94b1471c3da953a22aba9c858e6f770780f3004d598f6e4d",
+    ".artifacts/manual-price-search-lifecycle-20261029/start.json": "78d3fe5d4b14c38acb05f6c9ecb805c9e762ea760d13daffb3c8b8c13810c1ae",
+    ".artifacts/manual-price-search-lifecycle-20261029/verify-local-exit.json": "df7b28ecfb39ac7c3db0368b3dfcb1df12ed2003a2a34ef57e24f6034d03aa67",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-two-exit.json": "af39efcff11ce511c21437d386142a4034511645e8cae5bafdc6556863056c13",
+    ".artifacts/manual-price-search-lifecycle-20261029/first-probe-results/.last-run.json": "d5dbe8ca644f179c868aa8d853c9aea74c35c222eb67b2bcd363d866fe178f7f",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-results/.last-run.json": "849e60c31face613da2399ad38f1b10f8e53f7983b7b237556e7a019c99cecc7",
+    ".artifacts/manual-price-search-lifecycle-20261029/second-probe-results/.last-run.json": "d5dbe8ca644f179c868aa8d853c9aea74c35c222eb67b2bcd363d866fe178f7f",
+    ".artifacts/manual-price-search-lifecycle-20261029/rea/rea-summary.json": "caf25623bcb2ad16cb865af5a8243ddaf6f379f36139acad3f31d50166ceb89a",
+    ".artifacts/manual-price-search-lifecycle-20261029/rea/stderr.log": "d664a7634ee3f473d273c7256e0f8a9db218d21667f14156b6edeeaee5d29aca",
+    ".artifacts/manual-price-search-lifecycle-20261029/rea/result.json": "21443338e593e5f026469e46854fbfc4db1e4c55bf90c99f3f7b0ff87180170c",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-two-results/.last-run.json": "47ed8edd8eb9c36b889bab94fd4e8780cde2fd1b01a386837e5dee4a1ba50218",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-first-results/.last-run.json": "88816e6eeeefec70fa9115789f416ef6577e74aaceb8ca78abdc5600d35a7409",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-first-results/price-search-blur-actions--57835--save-refreshes-parent-1280/test-failed-1.png": "a8a598af7a60c624d28e0c21c6873cfffd0a7596e6470ea154439d887fbd56f6",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-first-results/price-search-blur-actions--b411f-n-save-refreshes-parent-390/test-failed-1.png": "565c782e42e4b780e9678e2af7f37f005945da49ccae4317a49eaa10a4ccbad0",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-two-results/price-search-blur-actions--b411f-n-save-refreshes-parent-390/test-failed-1.png": "8f861c901c8759d7f80870b52521742c629e73bf5acc502554f1e0e23e76ecaf",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-two-results/price-search-blur-actions--7bf06-lied-input-opens-detail-390/test-failed-1.png": "5a09fa55f96748a791cc8b93759d2a4083845a5fc24a706e7ab260d67695621d",
+    ".artifacts/manual-price-search-lifecycle-20261029/second-probe-results/price-lifecycle-probe-inspect-parent-detail-local-controls/test-failed-1.png": "f8cf629854f3c147f111f6c1a1c4066529a7fdd169bdd27c678f095a30aec00e",
+    ".artifacts/manual-price-search-lifecycle-20261029/browser-before-results/price-search-blur-actions--b411f-n-save-refreshes-parent-390/test-failed-1.png": "8f861c901c8759d7f80870b52521742c629e73bf5acc502554f1e0e23e76ecaf",
+    ".artifacts/manual-price-search-lifecycle-20261029/first-probe-results/price-lifecycle-probe-inspect-parent-detail-local-controls/test-failed-1.png": "f8cf629854f3c147f111f6c1a1c4066529a7fdd169bdd27c678f095a30aec00e"
+  }
+}

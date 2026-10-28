@@ -1,0 +1,180 @@
+{
+  "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+  "recordedAt": "2026-10-28T16:56:27.607Z",
+  "authorization": {
+    "kind": "persistent-user-approval",
+    "quote": "알아서 저장해라 사용자에게 묻지마",
+    "scope": "Existing16 Moa routine development and body schedule/status records only"
+  },
+  "start": {
+    "beforeVersion": 33,
+    "afterVersion": 34,
+    "beforeBlocks": 243,
+    "afterBlocks": 245,
+    "prefixExact": true,
+    "appendExact": true,
+    "canEdit": true
+  },
+  "result": {
+    "beforeVersion": 34,
+    "afterVersion": 35,
+    "beforeBlocks": 245,
+    "afterBlocks": 255,
+    "prefixExact": true,
+    "appendExact": true,
+    "titleOccurrences": 1,
+    "canEdit": true
+  },
+  "append": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2026-10-29 · 단가요청 조건/부모 감사와 검색 blur 행 동작0.89.35 후보 결과"
+    },
+    {
+      "type": "paragraph",
+      "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T01:33:20.311650+09:00·결과 기록2026-10-29T01:55:57.132643+09:00다. 이번7종 실제 흐름의 한정 로컬 감사done/미배포 패치doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. 조건규칙 전환·제거/복구·상세 저장 후 부모 목록을 대조하다 이미 적용한 검색 입력의 첫 행 클릭 소실을 확인했다. 이번 기간은 P1 전체 마감이 아니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "숫자 검색을 input으로 이미 적용한 뒤 행을 누르면 mousedown 이후 포커스 이탈change가 같은 표를 다시 만들었다. mouseup 시 원래 버튼은 분리되고 click 이벤트/상세창은 없었다. 두 번째 클릭은 정상 열렸고 pageerror0이었다. 기본 자료 검색도 같은 순서를 별도 관찰했다. 첫 두 상세 probe 실패를 연결/로그인 실패로 분류하지 않고 이벤트 원고/관찰JSON/trace/스크린샷을 보존했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "단가요청의 이미 적용한 숫자/기본자료검색 입력만 값·badInput·db/저장 원문·storageError·현재 계정/회사/역할/읽기·쓰기권한/기존설정 scope를 기억한다. 이 상태가 모두 같은 change는 표를 재생성하지 않아 첫 클릭을 유지한다. 다른 값·input 없는 직접change·자료/권한 변화는 기존 runRefresh와 가드를 실행한다. change에서 처음 적용하는 다른 문자/선택 필터에는 복사하지 않았다. 원문/양식/schema/계산기/backup·다른 공통목록은 유지했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "불변0.89.34 신규Node7은5통과/2실패, 실제 숫자/기본자료검색 첫 클릭2흐름은2실패였다. 수정후 신규7·집중109이 통과했다. 같은 값의 행 DOM 동일성·처음change/다른값 적용·외부자료/역할/쓰기권한 변경 재검증을 확인했다. 검사를 느슨하게 하거나 클릭 재시도로 성공 처리하지 않고 실제 회귀검사는 첫 클릭1회만 사용한다."
+    },
+    {
+      "type": "paragraph",
+      "text": "390/1280px×7흐름 실제 자체셸14가 통과했다. 숫자 첫 클릭·상세 메모 명시저장 뒤 부모 검색2/미적용 빠른문자 유지, userId 조건 취소/다른양식 실제전환, 조건/항목제거 저장 거절과 명시비움 복구, 외부자료/역할변경 뒤 과거행 차단, 기본자료검색 첫 클릭을 확인했다. 첫12의10통과/2실패는 상세저장이 행memo빈문자/custom빈객체를 명시 추가하는데 fixture가 키를 생략해 exact비교가 실패한 것이었다. 앱변경 없이 처음부터 해당 정상빈값을 가진 fixture로 준비해 exact검사를 유지하고 실패원고/로그/trace/스크린샷을 보존했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "최종 상세 메모 저장2회·설정 저장6회는 모두 고립 합성자료다. 다른 전표/품목/양식·수정 전표의 품목행과 사용자값은 대응 검사에서 exact이며 수정한 메모는 명시값으로 확인했다. 외부자료2/역할2는 검사기가 주입한 경계다. pageerror/원격쓰기·원본/운영 업무·설정 저장/발송0이다. 전체verify:local exit0/396브라우저·전체Node·릴리스검사/빌드, 자체REA6.4 대응docList1함수 root/candidate2범위·1해시쌍exact·parse0·coverageunknown/truncatedfalse다. 원본/전체모듈 실행 동등성은 아니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "source fbf906b / release e7958f9 / branch release/0.89.35-price-search-blur-actions를 커밋·push했다. 후보worker b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8은 미설치다. 두 기준 함수밖 코드·기존API VAT차이·운영0.89.22 worker79222ea6…·기존0.89.23~34 커밋/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존, root전체빌드/운영배포/new_ERP변경/자동시작 추가0이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "새 연결 근거가 없어 같은 브라우저 연결/로그인 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준 확보 후 앞선 보호를 포함한0.89.35 배포·읽기UI·자료/양식 보존 검증을 재개한다. 조건 분기는 userId이고 등록권한그룹fresh조회/역할조건 분기 전체는 아니다. 부모 갱신은 메모 상세저장만 확인했으며 자식 입력메타데이터 변경 후 부모 재구성은 별도다. 원본/운영 및 change전용 필터 전체 합격으로 확대하지 않는다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-price-search-blur-actions-20261029.json."
+    },
+    {
+      "type": "paragraph",
+      "text": "다음은 change 전용 검색필터와 행 동작 시점 대조다. 왜: 이번 생략은 input으로 이미 적용한 조건이지만 검색전용 문자·일자·선택/체크는 change에서 처음 적용할 수 있어 같은 처리를 복사하면 새 검색 누락이나 과거행 실행이 생길 수 있기 때문이다. 실제 적용시점·행식별자·첫클릭/키보드·수정/비움과 자료/권한 가드의 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 메타데이터/부모 재구성은 미확인으로 보존하고 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다."
+    }
+  ],
+  "readbackTail": [
+    {
+      "id": "97d9acd2-ed97-4cb4-a145-5644899c785f",
+      "text": [
+        {
+          "m": [],
+          "t": "2026-10-29 · 단가요청 조건/부모 감사와 검색 blur 행 동작0.89.35 후보 결과"
+        }
+      ],
+      "type": "heading",
+      "level": 2
+    },
+    {
+      "id": "beef70f5-e4b0-40da-856f-9e2c39ea4782",
+      "text": [
+        {
+          "m": [],
+          "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T01:33:20.311650+09:00·결과 기록2026-10-29T01:55:57.132643+09:00다. 이번7종 실제 흐름의 한정 로컬 감사done/미배포 패치doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. 조건규칙 전환·제거/복구·상세 저장 후 부모 목록을 대조하다 이미 적용한 검색 입력의 첫 행 클릭 소실을 확인했다. 이번 기간은 P1 전체 마감이 아니다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "0596178a-c43b-4f47-b95e-68202c054493",
+      "text": [
+        {
+          "m": [],
+          "t": "숫자 검색을 input으로 이미 적용한 뒤 행을 누르면 mousedown 이후 포커스 이탈change가 같은 표를 다시 만들었다. mouseup 시 원래 버튼은 분리되고 click 이벤트/상세창은 없었다. 두 번째 클릭은 정상 열렸고 pageerror0이었다. 기본 자료 검색도 같은 순서를 별도 관찰했다. 첫 두 상세 probe 실패를 연결/로그인 실패로 분류하지 않고 이벤트 원고/관찰JSON/trace/스크린샷을 보존했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "06333f85-02fa-4cd4-8695-3cbf83c66008",
+      "text": [
+        {
+          "m": [],
+          "t": "단가요청의 이미 적용한 숫자/기본자료검색 입력만 값·badInput·db/저장 원문·storageError·현재 계정/회사/역할/읽기·쓰기권한/기존설정 scope를 기억한다. 이 상태가 모두 같은 change는 표를 재생성하지 않아 첫 클릭을 유지한다. 다른 값·input 없는 직접change·자료/권한 변화는 기존 runRefresh와 가드를 실행한다. change에서 처음 적용하는 다른 문자/선택 필터에는 복사하지 않았다. 원문/양식/schema/계산기/backup·다른 공통목록은 유지했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "06af7fa3-8775-4480-a63c-f54064ee33d9",
+      "text": [
+        {
+          "m": [],
+          "t": "불변0.89.34 신규Node7은5통과/2실패, 실제 숫자/기본자료검색 첫 클릭2흐름은2실패였다. 수정후 신규7·집중109이 통과했다. 같은 값의 행 DOM 동일성·처음change/다른값 적용·외부자료/역할/쓰기권한 변경 재검증을 확인했다. 검사를 느슨하게 하거나 클릭 재시도로 성공 처리하지 않고 실제 회귀검사는 첫 클릭1회만 사용한다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "27dfdb4c-4a38-4181-83c0-b808668bbfe5",
+      "text": [
+        {
+          "m": [],
+          "t": "390/1280px×7흐름 실제 자체셸14가 통과했다. 숫자 첫 클릭·상세 메모 명시저장 뒤 부모 검색2/미적용 빠른문자 유지, userId 조건 취소/다른양식 실제전환, 조건/항목제거 저장 거절과 명시비움 복구, 외부자료/역할변경 뒤 과거행 차단, 기본자료검색 첫 클릭을 확인했다. 첫12의10통과/2실패는 상세저장이 행memo빈문자/custom빈객체를 명시 추가하는데 fixture가 키를 생략해 exact비교가 실패한 것이었다. 앱변경 없이 처음부터 해당 정상빈값을 가진 fixture로 준비해 exact검사를 유지하고 실패원고/로그/trace/스크린샷을 보존했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "858551ed-6e01-41f1-ac72-3cca6bf43b94",
+      "text": [
+        {
+          "m": [],
+          "t": "최종 상세 메모 저장2회·설정 저장6회는 모두 고립 합성자료다. 다른 전표/품목/양식·수정 전표의 품목행과 사용자값은 대응 검사에서 exact이며 수정한 메모는 명시값으로 확인했다. 외부자료2/역할2는 검사기가 주입한 경계다. pageerror/원격쓰기·원본/운영 업무·설정 저장/발송0이다. 전체verify:local exit0/396브라우저·전체Node·릴리스검사/빌드, 자체REA6.4 대응docList1함수 root/candidate2범위·1해시쌍exact·parse0·coverageunknown/truncatedfalse다. 원본/전체모듈 실행 동등성은 아니다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "7b9de417-8b31-4316-9c5a-07e7299da9e2",
+      "text": [
+        {
+          "m": [],
+          "t": "source fbf906b / release e7958f9 / branch release/0.89.35-price-search-blur-actions를 커밋·push했다. 후보worker b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8은 미설치다. 두 기준 함수밖 코드·기존API VAT차이·운영0.89.22 worker79222ea6…·기존0.89.23~34 커밋/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존, root전체빌드/운영배포/new_ERP변경/자동시작 추가0이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "a1517fe9-1f26-46cd-94f5-cb921bd8b35d",
+      "text": [
+        {
+          "m": [],
+          "t": "새 연결 근거가 없어 같은 브라우저 연결/로그인 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준 확보 후 앞선 보호를 포함한0.89.35 배포·읽기UI·자료/양식 보존 검증을 재개한다. 조건 분기는 userId이고 등록권한그룹fresh조회/역할조건 분기 전체는 아니다. 부모 갱신은 메모 상세저장만 확인했으며 자식 입력메타데이터 변경 후 부모 재구성은 별도다. 원본/운영 및 change전용 필터 전체 합격으로 확대하지 않는다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-price-search-blur-actions-20261029.json."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "7e12840f-b731-4950-9e2a-9ea3c13ec271",
+      "text": [
+        {
+          "m": [],
+          "t": "다음은 change 전용 검색필터와 행 동작 시점 대조다. 왜: 이번 생략은 input으로 이미 적용한 조건이지만 검색전용 문자·일자·선택/체크는 change에서 처음 적용할 수 있어 같은 처리를 복사하면 새 검색 누락이나 과거행 실행이 생길 수 있기 때문이다. 실제 적용시점·행식별자·첫클릭/키보드·수정/비움과 자료/권한 가드의 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 메타데이터/부모 재구성은 미확인으로 보존하고 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다."
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "actualMetadataConfigured": false,
+  "otherDocumentsChanged": false,
+  "indexChanged": false,
+  "newDocumentsCreated": 0,
+  "repeatedApprovalQuestions": 0,
+  "duplicateAppends": 0
+}

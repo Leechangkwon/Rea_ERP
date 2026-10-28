@@ -2023,8 +2023,8 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-price-search-form-draft-20261029.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.33",
+    "pendingDeploymentCandidateReference": "evidence/manual-price-search-blur-actions-20261029.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.34",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
@@ -2036,7 +2036,8 @@
       "0.89.30",
       "0.89.31",
       "0.89.32",
-      "0.89.33"
+      "0.89.33",
+      "0.89.34"
     ]
   },
   "manualParity": {
@@ -2277,13 +2278,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
-      "title": "단가요청 조건양식 전환·부모 갱신 입력수명 대조",
+      "sourceId": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
+      "title": "단가요청 change 전용 검색필터와 행 동작 시점 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-form-draft-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-form-draft-20261029.json",
-      "description": "이번 실제12흐름은 동일 항목의 제목/기본값·readonly/계산식·유형거절·적용양식과 미변경 조건저장이다. 실제 조건규칙을 바꾸어 다른 검색양식을 적용하는 경로와 삭제 항목의 실제 UI 복구·상세 저장 뒤 부모 refresh는 별도다. 기존 역할/화면/업무 조건값 계약과 실제 명시저장/취소·소유자/자료/권한 변경에서 미검증 손실만 대조한다. 원본 설정/업무 저장은 하지 않고 기존 양식/자료·후보·운영gate를 보존한다. 완료된 정상초안/키/미완성입력 행렬과 같은 전체검사를 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-search-blur-actions-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-blur-actions-20261029.json",
+      "description": "이번 중복 생략은 input에서 이미 적용한 숫자/기본자료검색만 해당한다. 검색전용 문자·일자·선택/체크는 change에서 처음 조건을 적용할 수 있어 같은 skip을 복사하면 새 검색을 누락하거나 과거행 동작을 실행할 수 있다. 기존 실제 이벤트/적용 시점·행 식별자·첫 클릭/키보드·수정/비움과 자료/권한 가드에서 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 입력메타데이터 변경 후 부모재구성도 아직 별도 미확인으로 유지한다. 원본 저장/발송 없이 기존 후보/운영gate를 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2299,7 +2300,8 @@
         "0.89.31",
         "0.89.32",
         "0.89.33",
-        "0.89.34"
+        "0.89.34",
+        "0.89.35"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3035,13 +3037,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
-      "title": "단가요청 조건양식 전환·부모 갱신 입력수명 대조",
+      "sourceId": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
+      "title": "단가요청 change 전용 검색필터와 행 동작 시점 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-form-draft-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-form-draft-20261029.json",
-      "description": "이번 실제12흐름은 동일 항목의 제목/기본값·readonly/계산식·유형거절·적용양식과 미변경 조건저장이다. 실제 조건규칙을 바꾸어 다른 검색양식을 적용하는 경로와 삭제 항목의 실제 UI 복구·상세 저장 뒤 부모 refresh는 별도다. 기존 역할/화면/업무 조건값 계약과 실제 명시저장/취소·소유자/자료/권한 변경에서 미검증 손실만 대조한다. 원본 설정/업무 저장은 하지 않고 기존 양식/자료·후보·운영gate를 보존한다. 완료된 정상초안/키/미완성입력 행렬과 같은 전체검사를 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-search-blur-actions-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-blur-actions-20261029.json",
+      "description": "이번 중복 생략은 input에서 이미 적용한 숫자/기본자료검색만 해당한다. 검색전용 문자·일자·선택/체크는 change에서 처음 조건을 적용할 수 있어 같은 skip을 복사하면 새 검색을 누락하거나 과거행 동작을 실행할 수 있다. 기존 실제 이벤트/적용 시점·행 식별자·첫 클릭/키보드·수정/비움과 자료/권한 가드에서 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 입력메타데이터 변경 후 부모재구성도 아직 별도 미확인으로 유지한다. 원본 저장/발송 없이 기존 후보/운영gate를 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3057,7 +3059,8 @@
         "0.89.31",
         "0.89.32",
         "0.89.33",
-        "0.89.34"
+        "0.89.34",
+        "0.89.35"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4094,7 +4097,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-price-search-form-draft-preauthorized-20261029.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-search-blur-actions-preauthorized-20261029.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4108,11 +4111,11 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-price-search-draft-20261029/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-search-lifecycle-20261029/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 33,
+      "lastConfirmedP1Version": 35,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-price-search-form-draft-20261029.json",
+      "currentPatchReference": "evidence/manual-price-search-blur-actions-20261029.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
@@ -4258,7 +4261,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4635,6 +4638,62 @@
       "originalAccepted": false,
       "productionAccepted": false,
       "originalAuditDone": false
+    },
+    "priceSearchBlurActionsCandidate": {
+      "version": "0.89.35",
+      "sourceCommit": "fbf906ba50c7db9b0da254d96c8571aeb5d15c10",
+      "releaseCommit": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+      "branch": "release/0.89.35-price-search-blur-actions",
+      "baselineReleaseCommit": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+      "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.35-price-search-blur-actions",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.34",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "remoteRefsVerified": true,
+      "reference": "evidence/manual-price-search-blur-actions-20261029.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29",
+        "0.89.30",
+        "0.89.31",
+        "0.89.32",
+        "0.89.33",
+        "0.89.34"
+      ],
+      "alreadyAppliedInputBlurActionImplemented": true,
+      "changeOnlyFilterActionsAccepted": false
+    },
+    "priceSearchLifecycleAudit": {
+      "reference": "evidence/manual-price-search-blur-actions-20261029.json",
+      "status": "limited-local-audit-done-blur-candidate-not-deployed",
+      "newNodeTests": 7,
+      "focusedNodeTests": 109,
+      "ownActualShellBrowserCases": 14,
+      "widths": [
+        390,
+        1280
+      ],
+      "conditionalUserIdSwitchLocalAccepted": true,
+      "fieldRemovalUiRecoveryLocalAccepted": true,
+      "parentMemoSaveRefreshLocalAccepted": true,
+      "roleCatalogConditionalSwitchAccepted": false,
+      "parentInputMetadataRepaintAccepted": false,
+      "changeOnlyFilterActionsAccepted": false,
+      "originalAccepted": false,
+      "productionAccepted": false
     }
   },
   "preparedCandidate": {
