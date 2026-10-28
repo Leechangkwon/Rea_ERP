@@ -1,0 +1,622 @@
+{
+  "actualStart": "2026-10-29T03:09:09.893978+09:00",
+  "plannedStart": "2026-10-29",
+  "plannedDeadline": "2026-10-30",
+  "auditStatus": "done-for-thirteen-tested-local-flows",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "recordedAt": "2026-10-29T03:46:03.612062+09:00",
+  "elapsedSeconds": 2213.718,
+  "version": "0.89.37",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "remainingSourceWork": "Input field addition and formula projection lifecycle are unverified",
+  "patchStatus": "doing",
+  "checks": {
+    "permanentNewNodeFiles": 0,
+    "focusedNode": 89,
+    "existingRelatedNode": 88,
+    "supplementalOwnerCloseProbe": 1,
+    "actualShellCases": 26,
+    "widths": [
+      390,
+      1280
+    ],
+    "flowCount": 13,
+    "baseline22": {
+      "passed": 6,
+      "failed": 16
+    },
+    "initial4SubsetFailed": 4,
+    "removalObservation": {
+      "beforeTab": {
+        "value": "2",
+        "summary": "1건 · 합계 300 원"
+      },
+      "afterTab": {
+        "controls": 0,
+        "summary": "2건 · 합계 500 원"
+      },
+      "documentsExact": true,
+      "pageErrors": [],
+      "remoteWrites": []
+    },
+    "firstExpanded22": {
+      "passed": 17,
+      "fixtureFailed": 5,
+      "reason": "Header versus field removal x ambiguity4; scroll before native row focus versus at modal opening1"
+    },
+    "ownerBeforeNode": {
+      "value": "2",
+      "quick": "private prior draft",
+      "role": "viewer"
+    },
+    "ownerBeforeActual": {
+      "value": "2",
+      "quick": "미적용 원문",
+      "rows": "1건 · 합계 300 원"
+    },
+    "intermediateFull": {
+      "status": "intermediate436-before-owner-close-guard-not-installed",
+      "workerSha256": "6be99779d8868d31a87994870c94662ee3baf0f761b78be78e742ceca4d3f505"
+    },
+    "finalFull": {
+      "exitCode": 0,
+      "elapsedSeconds": 497.4646439552307,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/browser/price-child-metadata.spec.cjs": "79609b5168baa7b7d1908b39406621d428607c48e20b8c77ab1073daf0631f2d",
+        "package.json": "7aca703d1885c8f81ff12f6faf6171001ab5af38b4942655b1524a6137b28d13"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/browser/price-child-metadata.spec.cjs": "79609b5168baa7b7d1908b39406621d428607c48e20b8c77ab1073daf0631f2d",
+        "package.json": "7aca703d1885c8f81ff12f6faf6171001ab5af38b4942655b1524a6137b28d13"
+      },
+      "includesOwnerCloseGuard": true
+    },
+    "finalWholeBrowser": 440,
+    "allNodeAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 8,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "ensureOptions",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "243594c552c0c8c0ee073f1cbb70ad3df9a10d5e4f0e42103f9a7d7e3d95b991",
+          "start": 8601,
+          "end": 9776,
+          "lineStart": 63,
+          "lineEnd": 66,
+          "fragmentSha256": "df7dff1bfe6b5c6ead02b58028b493be27906bf1d736b4d7a12bbfd8391aaf96",
+          "inputFile": "own-ensureOptions.js",
+          "inputSha256": "01ce8ef916da326026ff7b4459d7faa8ea70984af187c965bd703a0ea00ab994",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "ensureOptions",
+          "file": ".artifacts/releases/0.89.37-price-child-metadata/dist/inventory-ui.js",
+          "sourceSha256": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+          "start": 8578,
+          "end": 9753,
+          "lineStart": 63,
+          "lineEnd": 66,
+          "fragmentSha256": "df7dff1bfe6b5c6ead02b58028b493be27906bf1d736b4d7a12bbfd8391aaf96",
+          "inputFile": "candidate-ensureOptions.js",
+          "inputSha256": "01ce8ef916da326026ff7b4459d7faa8ea70984af187c965bd703a0ea00ab994",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "243594c552c0c8c0ee073f1cbb70ad3df9a10d5e4f0e42103f9a7d7e3d95b991",
+          "start": 150174,
+          "end": 166474,
+          "lineStart": 593,
+          "lineEnd": 630,
+          "fragmentSha256": "e8cba8f010acfb9557d91fcb4701a9251a1e8e07b3bf9af16703e719424147d6",
+          "inputFile": "own-docList.js",
+          "inputSha256": "4f26167a3d1bd848207d81faa667b0cfbc5418ef7a63cc777a4f81fd149caaad",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.37-price-child-metadata/dist/inventory-ui.js",
+          "sourceSha256": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+          "start": 145428,
+          "end": 161728,
+          "lineStart": 570,
+          "lineEnd": 607,
+          "fragmentSha256": "e8cba8f010acfb9557d91fcb4701a9251a1e8e07b3bf9af16703e719424147d6",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "4f26167a3d1bd848207d81faa667b0cfbc5418ef7a63cc777a4f81fd149caaad",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "editor-scope",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "243594c552c0c8c0ee073f1cbb70ad3df9a10d5e4f0e42103f9a7d7e3d95b991",
+          "start": 29045,
+          "end": 29142,
+          "lineStart": 177,
+          "lineEnd": 177,
+          "fragmentSha256": "84c06c7c6c70a9cd249ec52966566ef1d9aaabf8c213c932ddde3f4e087a9b8c",
+          "inputFile": "own-editor-scope.js",
+          "inputSha256": "1c97a8d4f9515a4f389cadee8246c67a56f2ac771caa58f1372dc4b20095647f",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "editor-scope",
+          "file": ".artifacts/releases/0.89.37-price-child-metadata/dist/inventory-ui.js",
+          "sourceSha256": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+          "start": 29022,
+          "end": 29119,
+          "lineStart": 177,
+          "lineEnd": 177,
+          "fragmentSha256": "84c06c7c6c70a9cd249ec52966566ef1d9aaabf8c213c932ddde3f4e087a9b8c",
+          "inputFile": "candidate-editor-scope.js",
+          "inputSha256": "1c97a8d4f9515a4f389cadee8246c67a56f2ac771caa58f1372dc4b20095647f",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "editor-refresh",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "243594c552c0c8c0ee073f1cbb70ad3df9a10d5e4f0e42103f9a7d7e3d95b991",
+          "start": 31059,
+          "end": 31254,
+          "lineStart": 184,
+          "lineEnd": 184,
+          "fragmentSha256": "20b2f22719e3ae03467cc75798aa076f06938b8e77e14bcca726e8181ef553ad",
+          "inputFile": "own-editor-refresh.js",
+          "inputSha256": "9a57a4ff3c1122eefd550fb304c7eb7e954f51ff603897c4fc0d1d83ca01dd8b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "editor-refresh",
+          "file": ".artifacts/releases/0.89.37-price-child-metadata/dist/inventory-ui.js",
+          "sourceSha256": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+          "start": 31011,
+          "end": 31206,
+          "lineStart": 184,
+          "lineEnd": 184,
+          "fragmentSha256": "20b2f22719e3ae03467cc75798aa076f06938b8e77e14bcca726e8181ef553ad",
+          "inputFile": "candidate-editor-refresh.js",
+          "inputSha256": "9a57a4ff3c1122eefd550fb304c7eb7e954f51ff603897c4fc0d1d83ca01dd8b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "bcaf6cf1bcc94cb3251f3688d8e55c88645d44c3908f681f2ac2be8bb3c7f02a",
+      "statistics": {
+        "relevant_files": 8,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 38018,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 8,
+        "visited_ast_nodes": 7938,
+        "findings": 4,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "port": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "priorApiVatDifferenceRetained": true,
+      "editorDialogVatCloseDifferenceRetained": true,
+      "scope": "Price child form preflight and parent metadata remount",
+      "scopes": [
+        {
+          "name": "ensureOptions",
+          "sourceHash": "df7dff1bfe6b5c6ead02b58028b493be27906bf1d736b4d7a12bbfd8391aaf96",
+          "candidateHash": "df7dff1bfe6b5c6ead02b58028b493be27906bf1d736b4d7a12bbfd8391aaf96",
+          "normalizedSourceHash": "df7dff1bfe6b5c6ead02b58028b493be27906bf1d736b4d7a12bbfd8391aaf96"
+        },
+        {
+          "name": "editorDialog",
+          "sourceHash": "61339ad9fcc1f288c648a27103e0c80256b6fc122c3971cea1f78e8c3efff1da",
+          "candidateHash": "257eea34d4600250db3120495eba44853d67beda59f450dc7c1b0484413bb141",
+          "normalizedSourceHash": "257eea34d4600250db3120495eba44853d67beda59f450dc7c1b0484413bb141"
+        },
+        {
+          "name": "docList",
+          "sourceHash": "e8cba8f010acfb9557d91fcb4701a9251a1e8e07b3bf9af16703e719424147d6",
+          "candidateHash": "e8cba8f010acfb9557d91fcb4701a9251a1e8e07b3bf9af16703e719424147d6",
+          "normalizedSourceHash": "e8cba8f010acfb9557d91fcb4701a9251a1e8e07b3bf9af16703e719424147d6"
+        }
+      ]
+    },
+    "syntheticUiMetadataSavesInFinal26": 18,
+    "businessSavesInFinal26": 0,
+    "externalBusinessMutationsInFinal26": 4,
+    "roleMutationsInFinal26": 4,
+    "pageErrors": 0,
+    "remoteWrites": 0
+  },
+  "release": {
+    "version": "0.89.37",
+    "sourceCommit": "dd7d53b2241248d7b5e66aebacacff38a042a4ca",
+    "releaseCommit": "409adff1844d9ec0e74babebdc1785a22183ad68",
+    "branch": "release/0.89.37-price-child-metadata",
+    "baselineReleaseCommit": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+    "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.37-price-child-metadata",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.36",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": {
+      "refs/heads/main": "dd7d53b2241248d7b5e66aebacacff38a042a4ca",
+      "refs/heads/release/0.89.37-price-child-metadata": "409adff1844d9ec0e74babebdc1785a22183ad68"
+    }
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "inputAdditionAndFormulaAccepted": false,
+  "originalAccepted": false,
+  "productionAccepted": false,
+  "actualAccountAccepted": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "sameBrowserConnectionRetried": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "newErpChanged": false,
+  "automaticStartupAdded": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-SEARCH-INPUT-PROJECTION-ADDITION-COMPUTE-AUDIT",
+    "title": "입력 사용자항목 추가·계산 변경의 부모 검색 투영 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-child-metadata-20261029.json",
+    "latestEvidence": "evidence/manual-price-child-metadata-20261029.json",
+    "description": "이번37은 자식 입력양식의 명칭/반복저장/readonly·기본값 의미/호환유형·비호환거절/제거·비움복구/페이지·소유자·자료경계를13흐름으로 한정 보완했다. 새 사용자항목 추가와 입력계산식 변경은 다른 항목생성/원문투영/계산원본/자식초안 수명 경로이며 전체 child-metadata 감사 완료가 아니다. 기존 FormCore.custom/effective/configureGrid와 docFilters/docEditor/getDoc의 지원 UI/fieldCatalog·이미 검증한 계약을 먼저 읽고 추가항목·계산식이 부모 검색값/검색메타데이터·기존 업무사용자값·자식 초안과 취소/명시저장·복귀에서 새로 사라지거나 덮이는지 대조한다. 입력기본값/readonly/계산식을 검색에 자동상속한다고 추정하지 않고 기존 리셋/투영 계약과 schema거부를 구분한다. 기존15후보·자료/양식·원본/운영gate를 유지하고 이번 명칭/제거/유형/소유자닫기 및 같은 전체검사를 변화없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 39,
+        "afterVersion": 40,
+        "beforeBlocks": 277,
+        "afterBlocks": 279,
+        "prefixExact": true,
+        "appendExact": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 자식 입력양식 변경 뒤 부모 검색 재구성 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-CHILD-INPUT-METADATA-PARENT-REPAINT-AUDIT에 따라 기존 ensureOptions/docFilters/docList/documentDialog/refreshCurrentView와 메모저장·양식검사에서 이미 확인한 경계를 먼저 읽고 자식 input메타데이터 변경/취소/명시저장 뒤 부모 검색의 새 차이만 대조한다. 왜: 부모 조건양식의 등록그룹fresh 저장·분기와 자식 host/registry/사용자항목 투영·부모refresh는 다른 경로이기 때문이다. 타입/readonly/추가·제거/기본값/계산 변경과 현재검색·미적용빠른문자·선택/페이지/초안·기존양식/업무원문, 자료/계정/닫기 가드를 구분한다. schema거부와 실제소실을 혼동하지 않고 임의초기화/자동조건삭제로 손실을 숨기지 않는다. 운영0.89.22와0.89.23~36의14후보·dirty12/매핑 및 기존자료/양식/메일을 보존하며 원본/운영 저장·발송·new_ERP 변경·자동시작 추가를 하지 않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "a4d018df-a0c6-4877-bb90-69892a2b2c36",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 자식 입력양식 변경 뒤 부모 검색 재구성 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "d76daf0b-9740-424b-879f-06630e04abb8",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-CHILD-INPUT-METADATA-PARENT-REPAINT-AUDIT에 따라 기존 ensureOptions/docFilters/docList/documentDialog/refreshCurrentView와 메모저장·양식검사에서 이미 확인한 경계를 먼저 읽고 자식 input메타데이터 변경/취소/명시저장 뒤 부모 검색의 새 차이만 대조한다. 왜: 부모 조건양식의 등록그룹fresh 저장·분기와 자식 host/registry/사용자항목 투영·부모refresh는 다른 경로이기 때문이다. 타입/readonly/추가·제거/기본값/계산 변경과 현재검색·미적용빠른문자·선택/페이지/초안·기존양식/업무원문, 자료/계정/닫기 가드를 구분한다. schema거부와 실제소실을 혼동하지 않고 임의초기화/자동조건삭제로 손실을 숨기지 않는다. 운영0.89.22와0.89.23~36의14후보·dirty12/매핑 및 기존자료/양식/메일을 보존하며 원본/운영 저장·발송·new_ERP 변경·자동시작 추가를 하지 않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 41,
+    "p1FinalBlocks": 290,
+    "evidence": "evidence/moa-price-child-metadata-preauthorized-20261029.json"
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-child-metadata-20261029/role-after-metadata-native-correct-before.json": "8f6dfc4f45818816f5f42e62e1624d8cd509c236149024b471e2d0b9e4627bb2",
+    ".artifacts/manual-price-child-metadata-20261029/release.json": "7d36fc04bb09c27c54034fd77d04354e88dd3230cd91437d5d2fb09fca376ca0",
+    ".artifacts/manual-price-child-metadata-20261029/browser-first-after-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-child-metadata-20261029/role-after-metadata-native-correct-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22.log": "dfbe12da0339c45a1d481aff846350a1a10880493fa5a17b356229d728b0e6a6",
+    ".artifacts/manual-price-child-metadata-20261029/build-automation.py": "8780cca58aa7d3d1b3758442365ebcadd8e91cbd2710ce45222dcccf7414781b",
+    ".artifacts/manual-price-child-metadata-20261029/verify-local.log": "ae7c89e2fd9a500c70a6ea6360086df083e2552a066d2296d604ab0612c25734",
+    ".artifacts/manual-price-child-metadata-20261029/patch-owner-close.py": "faa70b2cab75a2b36c7bc09a654af9d208717b86f0e651a143014f83e86fdcb3",
+    ".artifacts/manual-price-child-metadata-20261029/role-after-metadata-native-before.log": "19a794b3651a824c294f141ed363a82e0faa30cb92d5f64c3377c44ebcb6bed2",
+    ".artifacts/manual-price-child-metadata-20261029/child-audit.config-final.cjs": "817537bb1da2dac5055d91b37ac9211210a77e2410351736caf97d4e81385daf",
+    ".artifacts/manual-price-child-metadata-20261029/browser-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first.cjs": "eaf914821378ad64f883209f1ce913ce9cd1fd806886f7e941e7a128cc6c6069",
+    ".artifacts/manual-price-child-metadata-20261029/node-related-exit.json": "a20452b4a1424e27b67c69d48625bac36464720f3104d5493181b2699999dd91",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded.log": "b4e8f0e1d9a4f0154989bdd589c22877cd6d95f04cde1ef4c7a51d5a5464fb1d",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-final-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-child-metadata-20261029/child-removal-observation.json": "e06b5b21100c0708421001096e401a1eeb75895d0bc0ed96bf270078ac41503d",
+    ".artifacts/manual-price-child-metadata-20261029/browser-first-after.log": "14c82ce8f6bbf1800cb7dc391ed1d19a8620d1423090fd54895aabde8427e9ee",
+    ".artifacts/manual-price-child-metadata-20261029/browser-final.cjs": "9ab8d0dd34dd3725e0f8dfd9c8272f74a951bd52e248b01335293e9c0445d915",
+    ".artifacts/manual-price-child-metadata-20261029/browser-initial.cjs": "b56c255974aba9be07ae4fb57d860298f6ef198b487a65bba86bf6e6d54ab1b9",
+    ".artifacts/manual-price-child-metadata-20261029/browser-before.log": "a56d0067a9ad3c1792f56f43549b6a0b7190304a02c60171dccdf843bd3dc4c1",
+    ".artifacts/manual-price-child-metadata-20261029/patch-port.json": "0112e9ae91ad66b6a04170530651594b9bf217e8ad9f48dd93e4d0a34fb06427",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-probe.cjs": "0767194fed94e3d13f21e36d1df4ba2529d19a8891bbb6da35abd231d841f3f6",
+    ".artifacts/manual-price-child-metadata-20261029/browser-observation-original.cjs": "0d2331ea8393d5dc3701fc9e7b859a05d0d509287263e4617c332fc05c6e5471",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-probe-first.cjs": "0767194fed94e3d13f21e36d1df4ba2529d19a8891bbb6da35abd231d841f3f6",
+    ".artifacts/manual-price-child-metadata-20261029/node-related.log": "ed3ce3caf0cd443cfee29120bcf148d0fccac5a05b724e8c56d865bab104c577",
+    ".artifacts/manual-price-child-metadata-20261029/role-after-metadata-native-correct-before.log": "3098cd0f515bf788153407a91ab6199043d5aa5adf8ae0970740532ba9346dec",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-observe.log": "37a53951ce2b31b1627e4218de1d9fd81d8f4df098f8255ee3722ad3b36afb60",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after22-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-child-metadata-20261029/preserve.py": "e79990cb57accf2b9326bbb2749d547a1fb55a62bd7a30baf588f6f54a70169b",
+    ".artifacts/manual-price-child-metadata-20261029/role-after-metadata-native-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-child-metadata-20261029/release-stage.py": "083c475bdafc5041857ae3ff43186d6a0e0b6cfc03c6a996d4ffbca94e465b31",
+    ".artifacts/manual-price-child-metadata-20261029/prepare-record.py": "99da1cb5c13802c77ceb2d761dac53ae2c0c81eb29a63a04cdf794b008ca8e97",
+    ".artifacts/manual-price-child-metadata-20261029/node-related-owner-final.log": "ebb1b49e6778b062fd1e304b2478b0b108e5c3dd67f3231c257060e29d69a758",
+    ".artifacts/manual-price-child-metadata-20261029/moa-start.json": "1188d1a6e6f33a6ea6053d93a7b6754ba2d5fbe1569440dad68ac1ab66e37829",
+    ".artifacts/manual-price-child-metadata-20261029/finalize-records.py": "eb5f85163be6d28702e946ac360334d9a68d7c148d46acd1a90fba1ab2f1304b",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-probe.log": "e3bf3380619dd5bdca33e2b8550067e1a10ad1a9ed7e478113e384c00be5cbf7",
+    ".artifacts/manual-price-child-metadata-20261029/role-native.config.cjs": "7b9d80d78996fd55b0cab07c467680d9393562e6acfa2bdddbb5fe73130f7cd0",
+    ".artifacts/manual-price-child-metadata-20261029/browser-owner-final.log": "67380165dafb40dbc339577647ebcc53285e2f41f26d2d2fb5b0017849cafb13",
+    ".artifacts/manual-price-child-metadata-20261029/metadata-role-close-observation-before.json": "6c7f31eb6367df53548bb436249d3d287cdd5000c0ab5a7da547226a30cd8206",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-final.log": "600b08dd0c48c2e770a2fca507edd8279ac6b85ea61cdf8c20eb97affdeb4eab",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-child-metadata-20261029/port.cjs": "5835546fc01417445aafeabaa5bbffea353608aac7d54017ac6dabffcd4d3db9",
+    ".artifacts/manual-price-child-metadata-20261029/node-related-owner-final-exit.json": "6184f027177bb71b62d02ae60baeb38a4c659671a715d8799c29929a0c86b60f",
+    ".artifacts/manual-price-child-metadata-20261029/metadata-role-close-correct-before.json": "1f9e859928a453e91b7ba8f24e978d4e7cf1f941520b6a0531a99b04ec9afc6e",
+    ".artifacts/manual-price-child-metadata-20261029/browser-removal-observation.log": "4a7fefeb7a0eb82c312b40fbaea6e858ca34fc2ecf72bde449acfd53f5366568",
+    ".artifacts/manual-price-child-metadata-20261029/browser-final-owner.cjs": "79609b5168baa7b7d1908b39406621d428607c48e20b8c77ab1073daf0631f2d",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-probe-correct-control.log": "763e3f0678ccb38afa57f7066fc051d2879a47d50b4bae6fd539a3963223ffb1",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-probe-correct-control.cjs": "3b6d60f1e6aba9aaa30985e1c105ba7efe0a9cf5b11fd101120158cc83136606",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after22.log": "627908ef108e0490196d3c6029d6ae2cc7cb87af54ceac60ffcaae076b7aa796",
+    ".artifacts/manual-price-child-metadata-20261029/preservation.json": "eadcc0f5d7090e683830b40a6367a83fc0945a402b34b1a8715fa99eb5627749",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-probe-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded.cjs": "eaf914821378ad64f883209f1ce913ce9cd1fd806886f7e941e7a128cc6c6069",
+    ".artifacts/manual-price-child-metadata-20261029/analyze.mjs": "828f251cedf3463afd59607492c7912731e0d164b6f12d87532ea55e18e9e228",
+    ".artifacts/manual-price-child-metadata-20261029/browser-removal-observation-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-child-metadata-20261029/start.json": "daabeb5a01c92c3de8c102297d216e2b206814dd32efd2b0fc40e97a885d377e",
+    ".artifacts/manual-price-child-metadata-20261029/verify-local-exit.json": "5ca4b6a0840aa519a2614b3406112370799a01568a248aa26413de1d967d7f80",
+    ".artifacts/manual-price-child-metadata-20261029/role-close-observe.cjs": "b13275f44391131f09dc5a31822d8b409fa77cfdf8480be4d3ac92fbc6803a3a",
+    ".artifacts/manual-price-child-metadata-20261029/browser-owner-final-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-child-metadata-20261029/role-native-first.cjs": "d612abd07b33f4807987d3339037749fa4e58228d8094d904dcb2660df644ad2",
+    ".artifacts/manual-price-child-metadata-20261029/audit-completion.py": "1583f38c955c4763cbe0fe51a395aefbc6de8bc176edf2f6f3dadd2b422d60fb",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/.last-run.json": "2786b45ca4029d8e72e634e1e0256453c84dba919c07ae671758b54eec0838e7",
+    ".artifacts/manual-price-child-metadata-20261029/browser-before-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/verify-local.log": "ccf0ff93a112dc6f8781f3e3fde0f04a994dbf815d784956e458e1a5733e0b24",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/patch-port.json": "d34d50e1dfd252f30ce450f4009f8502cd260809c0ab4ed1d650c4128a9081ed",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/status.json": "00b770fd3e83fcd0e922af26b8c62e5ca86d015b30e9841eaabf4e578e2a4b93",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/verify-local-exit.json": "1809dd442037028e5d6b7139ca90cba98324cbeae8a045f243fc5338a444383a",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after-results/.last-run.json": "aa8ca8dd9712eff31da272324298b71f7f7c44265c4f5370842b8dd2393cac46",
+    ".artifacts/manual-price-child-metadata-20261029/rea/rea-summary.json": "c82ec6a0207f7b5dfb80eac6c8473be9a2ea5fe530a889b2d4c237d225b7daf2",
+    ".artifacts/manual-price-child-metadata-20261029/rea/stderr.log": "909a36e47812b473755eac59bfe1ba0843a7063a05b7173514626a750e96606a",
+    ".artifacts/manual-price-child-metadata-20261029/rea/result.json": "bcaf6cf1bcc94cb3251f3688d8e55c88645d44c3908f681f2ac2be8bb3c7f02a",
+    ".artifacts/manual-price-child-metadata-20261029/role-probe-browser-results/.last-run.json": "303259bdf49d0159cf5022dabb18afefcb9cb9e80ae83c6917e939920301f202",
+    ".artifacts/manual-price-child-metadata-20261029/browser-final-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-child-metadata-20261029/role-probe-tests/role-after-metadata.spec.cjs": "4fffa8e3fce4700180283a87be2420cb3853d52c02592c8b5d1ad2c146f8b97a",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first-results/.last-run.json": "aa8ca8dd9712eff31da272324298b71f7f7c44265c4f5370842b8dd2393cac46",
+    ".artifacts/manual-price-child-metadata-20261029/browser-owner-final-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first-results/price-child-metadata-expli-833d5-d-projected-type-change-390/test-failed-1.png": "81078ffadb302b02625d16c0c5e83144831a2988c47f71a431a8c16e7ea2b389",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first-results/price-child-metadata-cance-22113-rent-node-and-metadata-1280/test-failed-1.png": "8420e590a3f3245d21ff1346f5807b2636a5cefe436c2508e98c7395b60e8a5a",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first-results/price-child-metadata-expli-4d143--projected-type-change-1280/test-failed-1.png": "3fb464c32ce1e8a93b2bd7461087d7ca6a3582f377d4c2368ea62e0ec9d534dc",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first-results/price-child-metadata-cance-21b9f-arent-node-and-metadata-390/test-failed-1.png": "3d4ba8e52de7ec9a756b8a02d50fbb94c19abfcfb4d1d4dcf0d5125a98801674",
+    ".artifacts/manual-price-child-metadata-20261029/browser-expanded-first-results/price-child-metadata-metad-61826-quick-draft-and-scroll-1280/test-failed-1.png": "c7638820bfba30d7d325fab854f4eb34b6e120d9e799c7085e1046f9665cbf60",
+    ".artifacts/manual-price-child-metadata-20261029/role-probe-browser-results/role-after-metadata-role-c-b9eda-loses-into-fresh-role-scope/test-failed-1.png": "976df469f22934d2c490559518e92709908f1f10fea06e1f1f8cf7d6a31b4b1e",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after-results/price-child-metadata-expli-833d5-d-projected-type-change-390/test-failed-1.png": "81078ffadb302b02625d16c0c5e83144831a2988c47f71a431a8c16e7ea2b389",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after-results/price-child-metadata-cance-22113-rent-node-and-metadata-1280/test-failed-1.png": "8420e590a3f3245d21ff1346f5807b2636a5cefe436c2508e98c7395b60e8a5a",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after-results/price-child-metadata-expli-4d143--projected-type-change-1280/test-failed-1.png": "3fb464c32ce1e8a93b2bd7461087d7ca6a3582f377d4c2368ea62e0ec9d534dc",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after-results/price-child-metadata-cance-21b9f-arent-node-and-metadata-390/test-failed-1.png": "3d4ba8e52de7ec9a756b8a02d50fbb94c19abfcfb4d1d4dcf0d5125a98801674",
+    ".artifacts/manual-price-child-metadata-20261029/browser-after-results/price-child-metadata-metad-61826-quick-draft-and-scroll-1280/test-failed-1.png": "c7638820bfba30d7d325fab854f4eb34b6e120d9e799c7085e1046f9665cbf60",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/rea/rea-summary.json": "5adc295322def0ea53fc58076f2a962943b381121c56fcf64a9affe167916d7e",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/rea/stderr.log": "909a36e47812b473755eac59bfe1ba0843a7063a05b7173514626a750e96606a",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/rea/result.json": "f06a958df212255cf943e233e2053154031bb54655661998850b250453cb2dd7",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/evidence/release-validation.json": "5c35b4810623686d366ed6e422f24d909113afbce6909377490a713f756ce6d4",
+    ".artifacts/manual-price-child-metadata-20261029/before-owner-snapshot/tests/browser/price-child-metadata.spec.cjs": "9ab8d0dd34dd3725e0f8dfd9c8272f74a951bd52e248b01335293e9c0445d915",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-repea-3138e-eadonly-default-meaning-390/test-failed-1.png": "e258dd8e232b6e5438ad82bee41558ce624ca298247e185671678b391412d603",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-expli-833d5-d-projected-type-change-390/test-failed-1.png": "2a432685d65f9d76838a03ec9a7afc89e62196429b5fdcd0733aa9c9bff0c205",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-incom-80d91-number-refuses-metadata-390/test-failed-1.png": "2a432685d65f9d76838a03ec9a7afc89e62196429b5fdcd0733aa9c9bff0c205",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-incom-53dfc-umber-refuses-metadata-1280/test-failed-1.png": "5aee4a849ec222b9d861552c16be2525a3795e101daa57172fce3b958e56f513",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-exter-abed0-adata-without-overwrite-390/test-failed-1.png": "ef6827d70c58ee1a8aee79160af05d74b36ff3e81d6bcf33c99252928ea31888",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-exter-71bd2-data-without-overwrite-1280/test-failed-1.png": "8a0f78e3052c0683c0694860db911af87d61e8df54304da3cb43cc234ca22ee8",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-child-78d97-es-metadata-before-loss-390/test-failed-1.png": "3b3820f2a572dc2eac37e2440e770ea58f3342b399ee744ab5d01fe2844cd547",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-empty-305e5-it-child-field-removal-1280/test-failed-1.png": "364d01d6553cb1d8204300f0520ca8340b2fc3bcffb17ebb7b6b7742254c42d5",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-child-9f0d6-s-metadata-before-loss-1280/test-failed-1.png": "5ffb31181713b8601cc18e435c37ac6e701a5845eb758f577d92c9865021bc0c",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-compa-47697-ps-filter-and-documents-390/test-failed-1.png": "abbe8fa56d286ced54ee3c1dd76c346358685c4d361953abd15356eb58400504",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-expli-4d143--projected-type-change-1280/test-failed-1.png": "5aee4a849ec222b9d861552c16be2525a3795e101daa57172fce3b958e56f513",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-child-3f03c-ithout-resetting-search-390/test-failed-1.png": "2211fae3a7fb9d37f3cb3b93cbbd90fb40decd3382fc81cff5d3469a97ffa5c1",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-child-0a796-thout-resetting-search-1280/test-failed-1.png": "5c2bce0463cf20425b0c0415e3b5538e64b7eb446cbb10d582fbcaa251c8c23c",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-empty-d1977-cit-child-field-removal-390/test-failed-1.png": "acc444d3e55c48e9ac8d460a336ca4325177f1888cab5435b195ffa52e4c764e",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-repea-6a337-adonly-default-meaning-1280/test-failed-1.png": "5c2bce0463cf20425b0c0415e3b5538e64b7eb446cbb10d582fbcaa251c8c23c",
+    ".artifacts/manual-price-child-metadata-20261029/browser-baseline22-results/price-child-metadata-compa-3a4b1-s-filter-and-documents-1280/test-failed-1.png": "5c2bce0463cf20425b0c0415e3b5538e64b7eb446cbb10d582fbcaa251c8c23c"
+  }
+}
