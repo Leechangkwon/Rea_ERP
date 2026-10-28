@@ -2252,17 +2252,17 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-MASTER-OTHER-INPUT-PRESERVATION-AUDIT",
-      "title": "다른 기초등록 입력·저장·백업 경계 대조",
+      "sourceId": "OWN-MASTER-CODE-REFERENCE-PRESERVATION-AUDIT",
+      "title": "각종코드변경 참조·사용자값·양식 보존 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-master-other-csv-audit-20261028.json",
-      "latestEvidence": "evidence/manual-master-other-csv-audit-20261028.json",
-      "description": "나머지11개 기초등록의 조회양식 CSV 경계는 합성 대조로 확인했다. 다음은 같은 기초자료의 입력 양식에서 사용자 문자/숫자/계산 항목을 수정·취소·명시 저장·재조회·백업했을 때 값과 양식이 유지되는지 별도로 대조한다. 왜: 조회/CSV와 입력/저장은 다른 경로라11종 CSV 합격을 저장/오류 복구 합격으로 확대할 수 없기 때문이다. 기존 품목/거래처 검사는 반복하지 않고 확인된 새로운 차이만 보완한다. 남은 기초등록의 계산값 검색은 현재 원문 검색을 유지한 범위로 구분하며 원본 동등성으로 주장하지 않는다. 원본 Chrome 연결은 현재 미노출이라 세션 만료로 판정하거나 로그인/연결 요구를 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장의 기존 재개 조건은 보존한다.",
+      "evidence": "evidence/manual-master-other-input-audit-20261028.json",
+      "latestEvidence": "evidence/manual-master-other-input-audit-20261028.json",
+      "description": "기존 P1의 코드/필드ID 호환 기준에 따라 각종코드변경의 연결 참조·사용자값·양식 보존을 대조한다. 기존 품목/전표/BOM·구매 관련 rename 근거를 먼저 읽고 미검증한 참조와 자체 UI 경계만 선정해 검사한다. 왜: 입력 저장 보존 합격으로 코드변경의 참조 갱신/금지 범위를 입증할 수 없기 때문이다. 같은11종 입력/CSV 검사는 반복하지 않고, 원본 미확인 변환 규칙을 추정 추가하지 않는다. 확인된 새 차이만 보완하며 원본 Chrome 미노출을 세션 만료로 판정하지 않는다. TC101P_01/VAT5/최소구매단위/업로드 저장 재개 조건과 미배포 후보를 보존한다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
-      "completedPreviousAudit": "OWN-MASTER-CSV-OTHER-CONTEXT-AUDIT"
+      "completedPreviousAudit": "OWN-MASTER-OTHER-INPUT-PRESERVATION-AUDIT"
     },
     "priceRequestComparisonView": {
       "requirement": "REQ-PUR-PRICE-001",
@@ -2996,17 +2996,17 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-MASTER-OTHER-INPUT-PRESERVATION-AUDIT",
-      "title": "다른 기초등록 입력·저장·백업 경계 대조",
+      "sourceId": "OWN-MASTER-CODE-REFERENCE-PRESERVATION-AUDIT",
+      "title": "각종코드변경 참조·사용자값·양식 보존 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-master-other-csv-audit-20261028.json",
-      "latestEvidence": "evidence/manual-master-other-csv-audit-20261028.json",
-      "description": "나머지11개 기초등록의 조회양식 CSV 경계는 합성 대조로 확인했다. 다음은 같은 기초자료의 입력 양식에서 사용자 문자/숫자/계산 항목을 수정·취소·명시 저장·재조회·백업했을 때 값과 양식이 유지되는지 별도로 대조한다. 왜: 조회/CSV와 입력/저장은 다른 경로라11종 CSV 합격을 저장/오류 복구 합격으로 확대할 수 없기 때문이다. 기존 품목/거래처 검사는 반복하지 않고 확인된 새로운 차이만 보완한다. 남은 기초등록의 계산값 검색은 현재 원문 검색을 유지한 범위로 구분하며 원본 동등성으로 주장하지 않는다. 원본 Chrome 연결은 현재 미노출이라 세션 만료로 판정하거나 로그인/연결 요구를 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장의 기존 재개 조건은 보존한다.",
+      "evidence": "evidence/manual-master-other-input-audit-20261028.json",
+      "latestEvidence": "evidence/manual-master-other-input-audit-20261028.json",
+      "description": "기존 P1의 코드/필드ID 호환 기준에 따라 각종코드변경의 연결 참조·사용자값·양식 보존을 대조한다. 기존 품목/전표/BOM·구매 관련 rename 근거를 먼저 읽고 미검증한 참조와 자체 UI 경계만 선정해 검사한다. 왜: 입력 저장 보존 합격으로 코드변경의 참조 갱신/금지 범위를 입증할 수 없기 때문이다. 같은11종 입력/CSV 검사는 반복하지 않고, 원본 미확인 변환 규칙을 추정 추가하지 않는다. 확인된 새 차이만 보완하며 원본 Chrome 미노출을 세션 만료로 판정하지 않는다. TC101P_01/VAT5/최소구매단위/업로드 저장 재개 조건과 미배포 후보를 보존한다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
-      "completedPreviousAudit": "OWN-MASTER-CSV-OTHER-CONTEXT-AUDIT"
+      "completedPreviousAudit": "OWN-MASTER-OTHER-INPUT-PRESERVATION-AUDIT"
     },
     "currencyRegistration": {
       "requirement": "REQ-COM-CURRENCY-001",
@@ -4041,7 +4041,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-master-other-csv-audit-approved-20261028.json",
+      "latestRecordedP1Evidence": "evidence/moa-master-other-input-audit-preauthorized-20261028.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4055,11 +4055,11 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "audit-done-no-runtime-patch",
-      "followupProposal": ".artifacts/manual-master-other-csv-audit-20261028/moa-proposed-packet.json",
+      "followupProposal": ".artifacts/manual-master-other-input-audit-20261028/moa-proposed-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 6,
+      "lastConfirmedP1Version": 8,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-master-other-csv-audit-20261028.json",
+      "currentPatchReference": "evidence/manual-master-other-input-audit-20261028.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
@@ -4094,6 +4094,17 @@
       "sourceBodiesReviewed": 47,
       "officialRequirements": 44,
       "done": 0
+    },
+    "masterOtherInputAudit": {
+      "reference": "evidence/manual-master-other-input-audit-20261028.json",
+      "operatingVersion": "0.89.22",
+      "status": "bounded-synthetic-input-save-backup-audit-done-no-new-runtime-patch",
+      "syntheticChecks": 66,
+      "done": true,
+      "newGapFound": false,
+      "runtimeChanged": false,
+      "hostedBusinessSaveVerified": false,
+      "originalEquivalenceVerified": false
     }
   },
   "preparedCandidate": {

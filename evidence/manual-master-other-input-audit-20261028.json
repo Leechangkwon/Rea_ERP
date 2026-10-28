@@ -1,0 +1,157 @@
+{
+  "sourceId": "OWN-MASTER-OTHER-INPUT-PRESERVATION-AUDIT",
+  "date": "2026-10-28",
+  "status": "bounded-synthetic-input-save-backup-audit-done-no-new-runtime-patch",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "timezone": "Asia/Seoul",
+  "actualStart": "2026-10-28T18:31:08.352813+09:00",
+  "actualEnd": "2026-10-28T18:38:31.969250+09:00",
+  "operatingVersion": "0.89.22",
+  "contexts": [
+    "approvals",
+    "controls",
+    "currencies",
+    "departments",
+    "employees",
+    "pricegroups",
+    "processes",
+    "projects",
+    "resources",
+    "shops",
+    "warehouses"
+  ],
+  "checks": {
+    "contexts": 11,
+    "flowsPerContext": 6,
+    "passed": 66,
+    "failed": 0,
+    "implementation": "jsdom UI click and native own core; isolated synthetic localStorage fixtures",
+    "deployedSourceScopeIdentity": [
+      {
+        "file": "inventory-ui.js",
+        "name": "configureGrid",
+        "sha256": "19f876d801dd594a6fa5705acda20c6d0db6a4698209cca99335c1ef004630fe",
+        "deployedSourceExact": true
+      },
+      {
+        "file": "inventory-ui.js",
+        "name": "masterForm",
+        "sha256": "6dcf5f783639eb884a44d51d52d7611800f6f33ad53a21cf8661d7743b0c0f01",
+        "deployedSourceExact": true
+      },
+      {
+        "file": "inventory-ui.js",
+        "name": "masterEditor",
+        "sha256": "840f557676be685fa66ad89a5443e2ee0f36b75247ad28781640be56f52a13ed",
+        "deployedSourceExact": true
+      },
+      {
+        "file": "inventory-core.js",
+        "name": "saveMaster",
+        "sha256": "614b644b6264d503eaf58a7c133feba1c755bfef7602cd3d01fadf678d1fe528",
+        "deployedSourceExact": true
+      }
+    ]
+  },
+  "verifiedBoundaries": [
+    "existing edit -> explicit save -> new UI reread -> validated JSON backup",
+    "text zero-prefix / multiline / quotes / finite negative number / false / select / calculated values",
+    "close cancellation and confirmed close retain draft without persistent writes",
+    "unrepresentable numeric original blocks save; text form returns cached calculation; explicit correction saves",
+    "division error blocks save and preserves cached value; correction recalculates",
+    "fresh required field error then explicit save",
+    "simulated native badInput blocks save/close until corrected",
+    "unknown nested custom values and inactive form definitions retained"
+  ],
+  "failuresAndRecovery": [
+    {
+      "cause": "신규 버튼 표시명을 신규로 가정했으나 실제 명칭은 신규(F2)",
+      "applicationFailure": false,
+      "failedChecks": 11,
+      "rerunOnlyFailedCases": true
+    },
+    {
+      "cause": "acorn module not installed in repository",
+      "applicationFailure": false,
+      "resolution": "reused existing REA dependency Babel parser without install or package changes"
+    },
+    {
+      "cause": "Windows entry working directory absent, unified exec default cwd invalid",
+      "applicationFailure": false,
+      "resolution": "explicit existing Windows parent directory for WSL commands; real Linux source unchanged",
+      "windowsEntryRecreated": false
+    }
+  ],
+  "validationScope": {
+    "synthetic": true,
+    "actualShellBrowser": false,
+    "productionSave": false,
+    "originalEquivalence": false,
+    "wholeModuleIdentityClaimed": false
+  },
+  "sourceFilesChanged": [],
+  "runtimeWorkerSha256Before": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+  "runtimeWorkerSha256After": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+  "runtimeBuilds": 0,
+  "deployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "newInputPreservationGapFound": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "basis": [
+    "docs/manual-parity/PRD.md",
+    "docs/manual-parity/ARCHITECTURE.md",
+    "docs/manual-parity/ROADMAP.md",
+    "docs/plan-master-number-transition-20261024.md",
+    "evidence/manual-master-other-csv-audit-20261028.json"
+  ],
+  "preservedCandidates": {
+    "workerExact": true,
+    "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+    "dirtyFilesExact": 12,
+    "dirtyStatusExact": true,
+    "cleanCandidateCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanCandidateStatusExact": true,
+    "checkedAt": "2026-10-28T18:35:32.382043+09:00"
+  },
+  "moa": {
+    "evidence": "evidence/moa-master-other-input-audit-preauthorized-20261028.json",
+    "version": 8,
+    "blocks": 111,
+    "startSavedBeforeAudit": true,
+    "bodyStatus": "audit-done/P1-doing",
+    "actualMetadataConfigured": false,
+    "routineStandingAuthorizationUsed": true
+  },
+  "artifactHashes": {
+    ".artifacts/manual-master-other-input-audit-20261028/start.json": "498203acc2e5910087d3d413125a94b5a7836680bd5e676a4d48df8f530548ca",
+    ".artifacts/manual-master-other-input-audit-20261028/audit.cjs": "ea1223f60f87148fb4aacd770ee007473674bc02b478d2eed054cba1342d9881",
+    ".artifacts/manual-master-other-input-audit-20261028/input-audit-initial.json": "2da0602d117f3fe0a4a57eaaa6e6b08bf281ace2d456445fe4344acb9ac7fc90",
+    ".artifacts/manual-master-other-input-audit-20261028/input-audit.json": "41c24b385a14424c57711b8108b73dd06b4f91438274413ba8d9903bd70a96e6",
+    ".artifacts/manual-master-other-input-audit-20261028/input-audit-verified.json": "da9eb8a2f7ed44d5df9b2e59f8ac761652a66a915252e7e6bc7531cb74f172eb",
+    ".artifacts/manual-master-other-input-audit-20261028/scope-identity.cjs": "143e430c96cb271d585f7676eb81ee35937f86a21e53fb1f06bbcc51dbff350b",
+    ".artifacts/manual-master-other-input-audit-20261028/scope-identity.json": "89be0fcece3a40a7ad35e6fa3c6daf8a71776e7714c5d9359913db2e75b80f1d",
+    ".artifacts/manual-master-other-input-audit-20261028/preservation.json": "93374c4e06769600721de4e10cc55ec7718b9911a6eaeb1f3e775495333b1605",
+    ".artifacts/manual-master-other-input-audit-20261028/moa-proposed-packet.json": "3337930a432e3b62b7f63471304aaf0e5b906466e704354eb87e86986937c723"
+  },
+  "nextWork": {
+    "sourceId": "OWN-MASTER-CODE-REFERENCE-PRESERVATION-AUDIT",
+    "title": "각종코드변경 참조·사용자값·양식 보존 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-master-other-input-audit-20261028.json",
+    "latestEvidence": "evidence/manual-master-other-input-audit-20261028.json",
+    "description": "기존 P1의 코드/필드ID 호환 기준에 따라 각종코드변경의 연결 참조·사용자값·양식 보존을 대조한다. 기존 품목/전표/BOM·구매 관련 rename 근거를 먼저 읽고 미검증한 참조와 자체 UI 경계만 선정해 검사한다. 왜: 입력 저장 보존 합격으로 코드변경의 참조 갱신/금지 범위를 입증할 수 없기 때문이다. 같은11종 입력/CSV 검사는 반복하지 않고, 원본 미확인 변환 규칙을 추정 추가하지 않는다. 확인된 새 차이만 보완하며 원본 Chrome 미노출을 세션 만료로 판정하지 않는다. TC101P_01/VAT5/최소구매단위/업로드 저장 재개 조건과 미배포 후보를 보존한다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "completedPreviousAudit": "OWN-MASTER-OTHER-INPUT-PRESERVATION-AUDIT"
+  },
+  "wholeManualDone": false
+}
