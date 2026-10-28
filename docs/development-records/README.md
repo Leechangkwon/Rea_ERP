@@ -118,3 +118,6 @@
 2026-10-28: 기존 P1 문서에0.89.22 CSV 계약 대조·실패 안내 수정 결과8블록을 승인 후 저장·재조회했다. v4→5·기존91exact·신규8exact·총99블록·제목1회. 예정10/28~10/29 KST, 패치done/P1doing·실제 일정/상태 메타데이터 미설정. 다른15문서/모아 색인 변경0·신규문서0·중복게시0. 근거 evidence/moa-master-csv-feedback-approved-20261028.json.
 
 2026-10-28: 기존 P1에 다른 기초등록11종 CSV 대조·누계 명칭 정정5블록을 저장·재조회했다. v5→6·기존99exact·추가5exact·총104블록. 사용자 후속 지시로 기존16개 작업문서의 통상 개발 기록은 지속 승인 범위에서 별도 질문을 반복하지 않고 저장·재조회한다. 실제 일정/상태 필드는 미설정이다. 근거 evidence/moa-master-other-csv-audit-approved-20261028.json.
+
+
+2026-10-28 최신 기록: 코드변경 기본참조 보호0.89.23은 검증·push 후보(fdd8083/dde83ef)이며 운영 배포 전이다. 운영0.89.22는 기존 실행기로 복구·공개23검사/20해시 통과, 인증UI/최신 브라우저 백업은 도구 Transport closed로 미확인이다. P1 v11/121블록·운영 v2/31블록 저장/재조회 exact. 실제 일정/상태 필드 미설정과 본문doing 경과를 구분한다. 근거 evidence/manual-master-rename-defaults-20261028.json / evidence/moa-master-rename-defaults-preauthorized-20261028.json. Windows 진입점 F:\work\rea_erp·Linux 실제소스 /home/lck/projects/Rea_ERP.

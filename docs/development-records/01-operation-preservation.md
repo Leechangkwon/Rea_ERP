@@ -37,3 +37,16 @@ root에는 운영에 합격하지 않은 VAT5 연구가 포함돼 있다. 이후
 공개HTTP530/Error1033과 로컬8781 미대기·ERP/터널 프로세스 중단을 확인했다. WSL 로그에는 오늘10:45:36 KST의 정상 poweroff가 남지만 종료를 일으킨 주체는 미확인이다. 기존0.89.20 worker/runtime.env SHA를 대조한 뒤 기존 manager로 재시작하고 기존 rea-erp-local Tunnel 설정으로 cloudflared를 다시 실행했다. 왜: 정상 connector가 없어 공개 경로가 끊겼고 WSL의 ERP도 내려가 있었기 때문이다. 임시 exec93155는 manager stop으로 종료했고, 현재는 Windows 독립 숨김 wsl holder PID104664·cloudflared PID54288 / Linux manager PID1047·server group1058로 실행한다. 과거75511/PID2845016은 현재 실행 정보가 아니다. worker 버전/내용·설정·DNS·터널 경로는 그대로다.
 
 공개22검사/19자산hash일치·login200·로컬Supabase health200·기존 로그인으로 실제 메인0.89.20을 확인했다. 서버state는 복구 검사 동안 revision36으로 안정적이고10:37:07 KST의 기존 갱신을 유지했다. 이전 배포 revision34로 되돌리지 않았다. gateway는 동일하고 메일3함8통1첨부는 이전 배포와 일치한다. 소스/빌드/DB복원/진단 스크립트 자료쓰기/메일발송/인증정보 변경0이다. 자동시작 서비스/작업은 추가하지 않아 PC/WSL 전체 종료 뒤에는 기존 런타임 재시작이 필요하다. 근거 evidence/incident-rea-1033-20261026.json. 모아는 기존 운영 문서와 진행 색인에 추가할 구체안을 준비했고 미저장/확인 대기다. 실제 모아 일정/상태 필드는 변경하지 않았다. 전체 매뉴얼 합격0과 다음 CSV 기능은 미완료 그대로다.
+
+
+## 2026-10-28 · F 이전 인계와 기존0.89.22 실행 복구
+
+사용자는 Windows rea_erp 진입점을 F:\work\rea_erp(/mnt/f/work/rea_erp)로 이전하고 C 원본을 삭제했으며 Codex와 하위WSL 프로세스를 종료했다고 인계했다. F의 AGENTS.md와 실제 실재 확인 기준으로 개발 소스는 /home/lck/projects/Rea_ERP에 그대로 있다. C 진입점을 재생성하지 않고 F를 명령 workdir로 사용했다. 코드변경 패치의 예정10/28~10/29 KST·doing에 종속된 이번 실행 복구는 실제10/28에 수행했으며 원인 프로세스 종료의 정확한 귀속은 추가 추정하지 않는다. 본문 일정/경과와 실제 미설정 메타데이터를 구분한다.
+
+기존 수동 manager 상태가 stopped였다. 설치worker0.89.22의 SHA79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d와 기존runtime.env 해시를 대조한 뒤 Windows 숨김WSL 보유 프로세스로 기존 manager run을 실행했다. 즉시 첫 상태 조회는 시작 경합으로 stopped였고 이후 Linux PID40099/로컬health200을 확인했다. Windows 보유45800·자식50884, 기존Cloudflare121356은 유지했다. 자동시작 서비스/작업·설정/키·DNS·터널 경로 변경0이다.
+
+공개0.89.22의23검사/20정적자산 해시일치·login200·무인증 메일401·공개진단404·로컬Supabase health200을 확인했다. 복구 후 새 비공개 서버/메일 스냅샷을 만들고 앞선0.89.22 백업과 대조해 app36/gateway0의 본문/revision·메일3함8통1첨부 exact를 확인했다. 복원 미리보기 appliedfalse·자료복원0·운영 업무/설정 저장/메일발송0이며 과거 릴리스 백업 비교를 복구 직전/브라우저 전체 보존의 증명으로 확대하지 않는다. 운영 오류 해결은 공개 실행 복구까지이고 기존 인증 UI의 최신 확인은 보류다.
+
+0.89.23 코드변경 기본참조 보호는 별도 격리 후보에서 전체검증298브라우저/전체Node·빌드 후 fdd8083/dde83ef를push했지만 설치하지 않았다. 운영 브라우저 제어가 기존 탭/1회초기화 모두 Transport closed라 최신 브라우저 백업/인증 UI 검증을 확보한 뒤 배포한다. 같은 연결·계정/OAuth/웹 로그인 확인 반복0, 원본ERP 조작0, 미배포VAT5/매핑 및 별도new_ERP 포트3000/3001/4000 보존. 근거 evidence/manual-master-rename-defaults-20261028.json과 .artifacts/manual-master-code-reference-audit-20261028/runtime-recovery-preservation.json. 실행복구 범위done/새 후보배포·인증UI검증보류/P1doing을 구분한다.
+
+모아 운영 문서 v1→2·기존26블록 exact·추가5블록 문구/종류/수준 exact·총31블록·제목1회로 저장·재조회했다. 기존 과거 운영 초안의 중복 게시는 하지 않았다. 근거 evidence/moa-master-rename-defaults-preauthorized-20261028.json.

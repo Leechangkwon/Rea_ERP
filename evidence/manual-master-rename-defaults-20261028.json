@@ -1,0 +1,232 @@
+{
+  "sourceId": "OWN-MASTER-CODE-REFERENCE-PRESERVATION-AUDIT",
+  "date": "2026-10-28",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "timezone": "Asia/Seoul",
+  "actualStart": "2026-10-28T18:57:40.851992+09:00",
+  "recordedAt": "2026-10-28T19:17:51.585710+09:00",
+  "status": "validated-pushed-candidate-not-deployed",
+  "auditStatus": "done-with-confirmed-gap",
+  "patchStatus": "doing-awaiting-production-browser-preservation",
+  "p1Status": "doing",
+  "version": "0.89.23",
+  "operatingVersion": "0.89.22",
+  "basis": [
+    "docs/manual-parity/ROADMAP.md P1 code/field ID compatibility",
+    "docs/plan-master-number-transition-20261024.md",
+    "tests/item-integration.cjs",
+    "tests/purchasing-reference.cjs",
+    "tests/price-request-order-flow.cjs"
+  ],
+  "gap": "Successful partner rename left old native supplier default in item input form; new item supplier became empty",
+  "change": {
+    "file": "dist/inventory-core.js",
+    "helper": "guardRenameFormDefaults",
+    "preflight": "rename before all mutations",
+    "contexts": [
+      "master:items/input"
+    ],
+    "fieldIdsByMaster": {
+      "partners": [
+        "supplier",
+        "relatedPartner"
+      ],
+      "processes": [
+        "productionProcess"
+      ]
+    },
+    "activeAndInactiveFormsGuarded": true,
+    "action": "explicit refusal with form-default correction guidance; no inferred form rewrite",
+    "unknownCustomTextPreserved": true,
+    "outsidePatchPreservation": {
+      "/home/lck/projects/Rea_ERP": {
+        "baseline": "0650033cca1a4872b9938a7dc85e56a18e0b4e07",
+        "outsideHelperAndCallExact": true
+      },
+      "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.23-master-rename-defaults": {
+        "baseline": "c9e3cc33c2c02f8f3ef83b30426deddff005a88f",
+        "outsideHelperAndCallExact": true
+      }
+    }
+  },
+  "checks": {
+    "originalReleaseAudit": {
+      "total": 8,
+      "pass": 7,
+      "fail": 1
+    },
+    "newUnitPrePatch": {
+      "total": 12,
+      "pass": 6,
+      "fail": 6
+    },
+    "focusedNode": 70,
+    "newUnitAfterPatch": 12,
+    "postPatchReferenceAudit": {
+      "total": 8,
+      "pass": 8,
+      "fail": 0
+    },
+    "focusedActualShellSynthetic": 4,
+    "wholeVerifyExitCode": 0,
+    "wholeBrowserPassed": 298,
+    "wholeNodeAndBuildPassed": true,
+    "reaVersion": "6.4.0",
+    "reaOwnScopes": 2,
+    "reaParseFailures": 0,
+    "reaScopePairExact": true,
+    "reaCoverage": "unknown",
+    "reaTruncated": false,
+    "wholeModuleEquivalenceClaimed": false
+  },
+  "failuresAndRecovery": [
+    {
+      "applicationBug": false,
+      "scope": "new browser test helper",
+      "failure": "C.resolve returned null for non-inventory menu rows",
+      "resolution": "optional chaining in test-only menu selection; focused4 passed"
+    },
+    {
+      "applicationBug": false,
+      "scope": "initial whole verification candidate preparation",
+      "failure": "API manual data version0.89.22 differed from candidate0.89.23",
+      "resolution": "candidate manual/index/login version strings updated; whole verify rerun exit0"
+    },
+    {
+      "scope": "production browser tool",
+      "failure": "getTab and one js_reset both returned Transport closed",
+      "status": "unresolved; fresh production browser backup/UI unavailable",
+      "repeatedOriginalLoginOrConnectionProbes": false
+    }
+  ],
+  "release": {
+    "version": "0.89.23",
+    "sourceCommit": "fdd80834fb4df27cb61c3f5390d15e969546b18a",
+    "releaseCommit": "dde83efd835f87179a33543e4d20667d7ee31260",
+    "branch": "release/0.89.23-master-rename-defaults",
+    "baselineReleaseCommit": "c9e3cc33c2c02f8f3ef83b30426deddff005a88f",
+    "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.23-master-rename-defaults",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed"
+  },
+  "candidateInstalled": false,
+  "deployments": 0,
+  "sourceRootWholeBuilds": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "freshBrowserBackupCaptured": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "runtimeRecovery": {
+    "status": "existing0.89.22-restored-readonly-public-checked",
+    "linuxPid": 40099,
+    "windowsHolderPid": 45800,
+    "windowsHolderChildPid": 50884,
+    "cloudflaredWindowsPid": 121356,
+    "workerExact": true,
+    "runtimeConfigExact": true,
+    "autostartAdded": false,
+    "publicChecks": 23,
+    "publicAssetHashMatches": 20,
+    "localHealthStatus": 200,
+    "serverAndMailHistoricalComparison": {
+      "privateDirectory": "/home/lck/.local/share/rea-erp/backups/master-rename-preparation-0.89.23-1793182065789",
+      "preparedVersion": "0.89.23",
+      "operatingVersion": "0.89.22",
+      "historicalComparisonBaselineVersion": "0.89.22",
+      "historicalBaselineIsFreshPreRecoverySnapshot": false,
+      "remoteRevisions": {
+        "rea_app_state": 36,
+        "rea_gateway_state": 0
+      },
+      "remoteBodyAndRevisionExactToEarlierRelease": {
+        "rea_app_state": true,
+        "rea_gateway_state": true
+      },
+      "runtimeConfigExact": true,
+      "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExactToEarlierRelease": true,
+        "messagesExactToEarlierRelease": true,
+        "filesExactToEarlierRelease": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "browserBackupCaptured": false,
+      "productionUiVerified": false,
+      "restored": false
+    },
+    "historicalComparisonIsNotFreshPreRecoveryBrowserProof": true
+  },
+  "preservedCandidates": {
+    "checkedAt": "2026-10-28T19:10:02.656099+09:00",
+    "dirty12Exact": true,
+    "cleanMappingCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+    "workerExact": true,
+    "managerStatus": "Rea ERP is running: http://127.0.0.1:8781 (Linux PID 40099; backend: see /__rea/health)"
+  },
+  "otherProjectChanged": false,
+  "otherProject": "F:/work/new_ERP ports3000/3001/4000",
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "moa": {
+    "evidence": "evidence/moa-master-rename-defaults-preauthorized-20261028.json",
+    "p1Version": 11,
+    "p1Blocks": 121,
+    "operationsVersion": 2,
+    "operationsBlocks": 31,
+    "bodyScheduleOnly": true,
+    "actualMetadataConfigured": false
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-FORM-REFERENCE-CODE-CONTRACT-AUDIT",
+    "title": "전표 양식 참조 기본값·조건값의 코드 계약 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-master-rename-defaults-20261028.json",
+    "latestEvidence": "evidence/manual-master-rename-defaults-20261028.json",
+    "description": "0.89.23 검증/push 후보는 운영 브라우저 연결·최신 백업/인증 UI 검증을 확보한 뒤 배포하며 그 전에는 운영0.89.22를 유지한다. 이 대기 동안 다음 독립 감사로 전표 입력 양식의 참조형 기본값·조건양식 비교값에 쓰이는 코드종류/필드ID의 실제 metadata·소비자와 기존 rename 검사를 대조해 미검증 범위를 선정한다. 왜: 품목 입력3개 기본참조의 보호를 다른 화면의 참조/문자 비교까지 확대할 수 없기 때문이다. 문자 contains/사용자 추가문자 등을 추정 변환하지 않으며, 새 결함 재현 때만 별도 후보를 준비하고0.89.23을 덮어쓰지 않는다. 현재 브라우저 Transport closed가 그대로면 연결/로그인 재확인과 이번 전체 검사를 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장의 재개 조건은 보존한다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersion": "0.89.23",
+    "previousCandidateDeployed": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-master-code-reference-audit-20261028/start.json": "00ece35c3ea1fa6ecaf11269fe4d6d67ec52cd0940fea266bcacbb74096eb40e",
+    ".artifacts/manual-master-code-reference-audit-20261028/audit.cjs": "06754ba7c9014e252dc4b41dd65756711b8e45b6db427934a7131d1845f6c073",
+    ".artifacts/manual-master-code-reference-audit-20261028/audit-initial.json": "68c1a25b382c899255e8bbffe2eb9916025cd81163a7f6877bee9d7938af188c",
+    ".artifacts/manual-master-code-reference-audit-20261028/audit-after.cjs": "f57f1a464a0911673a3ef9aa745e1a9143964b3cd6caaa7a7a62aa25d0099bf6",
+    ".artifacts/manual-master-code-reference-audit-20261028/audit-after.json": "a3b64aeac83684543976a5e25cbdb5bb3ca6701463bfcb782cac55809a45afca",
+    ".artifacts/manual-master-code-reference-audit-20261028/patch-port.json": "5c595177d4d465678fd863d82a3b459e27abccd1990e00bcfb1623dcbe142fa7",
+    ".artifacts/manual-master-code-reference-audit-20261028/outside-patch-preservation.json": "e83008a9f0a6ebfec872945c5abbe8f2efeba6206e3776d97b5ea0c11bf78ea8",
+    ".artifacts/manual-master-code-reference-audit-20261028/verify-local-initial-exit.json": "d8e9b2c8324638907b621e97333ac57cd0992178ec12ebb2a1f121f78347e93e",
+    ".artifacts/manual-master-code-reference-audit-20261028/verify-local-exit.json": "e1ddf8266ec2c371b7c05995b9da747de6a7ba4890dbb8465254e182e4cf4f7a",
+    ".artifacts/manual-master-code-reference-audit-20261028/verify-local.log": "7ac590adb8a03b1586ea38d3d596192dcc591de939f90120bbfe4e5ba58c5e1d",
+    ".artifacts/manual-master-code-reference-audit-20261028/release.json": "6057db954a68935b8d0344befd69ac4e3700e3f05b4302a2c4cdbda8ee7ed9eb",
+    ".artifacts/manual-master-code-reference-audit-20261028/browser-control-unavailable.json": "b350ffd589b1afab187e766c744ca7e084c01cac3d902b176ef276efd0c1f942",
+    ".artifacts/manual-master-code-reference-audit-20261028/runtime-recovery-preservation.json": "bbc22932593aa58b40aeb90081d1285710cf2f1cb73e06ed2c55c483bb0dbb6b",
+    ".artifacts/manual-master-code-reference-audit-20261028/public-runtime-recovery.json": "d9ea45f7a30bb6c024d755625a9752c049a66e90ba7fbbb61414ebc7803b6e5b",
+    ".artifacts/manual-master-code-reference-audit-20261028/candidate-and-runtime-preservation.json": "a40bdf37c3d354ac6f3393f5437a49d3d428bf3d881d1e40f875420ba5bcd16e",
+    ".artifacts/manual-master-code-reference-audit-20261028/moa-record-packet.json": "760ccab89e39acb4a4129137b15baa0c6fc841d65f66da6e5832753b6a5179a2",
+    ".artifacts/manual-master-code-reference-audit-20261028/rea/rea-summary.json": "05418035622cc3c7a58aec048d5d3f168d04b81bec83ec4ab909a724bea5e99f"
+  },
+  "wholeManualDone": false
+}
