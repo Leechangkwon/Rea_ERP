@@ -1,0 +1,524 @@
+{
+  "sourceId": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "actualStart": "2026-10-28T23:25:04.993502+09:00",
+  "status": "validated-pushed-not-deployed",
+  "p1Status": "doing",
+  "recordedAt": "2026-10-28T23:56:07.324993+09:00",
+  "elapsedSeconds": 1862.331,
+  "version": "0.89.31",
+  "operatingVersion": "0.89.22",
+  "patchStatus": "doing",
+  "basis": [
+    "Actual common docList price-request consumer and its current live-filter/quick Enter behavior",
+    "Existing price-request comparison/storage/order-flow guards retained",
+    "No new original manual body or original UI actions"
+  ],
+  "change": {
+    "scope": "Only price-request common list; other common lists keep existing behavior",
+    "retained": [
+      "live criteria",
+      "unapplied quick text",
+      "include cancelled",
+      "progress",
+      "valid document selection",
+      "search expansion",
+      "page/scroll",
+      "current calculation error operand"
+    ],
+    "memory": "Existing scoped cache with explicit price-specific reset; actual app viewId only; forget on close",
+    "changedData": "Keep criteria, clear results/selection, require existing criteria change or quick Enter; no invented F8 action",
+    "guards": [
+      "owner view attached",
+      "identity/company/role/read/write/settings scope",
+      "backing storage",
+      "rendered data basis",
+      "active pagination",
+      "late CSV/print/comparison/conversion/cancel/complete",
+      "status confirmation open and connected"
+    ],
+    "unchanged": [
+      "schema/backup",
+      "core quote confirmation rules",
+      "supplier replies/send semantics",
+      "other generic list behavior",
+      "pending VAT/mapping candidates"
+    ]
+  },
+  "checks": {
+    "failureHistory": {
+      "initialBaseline": {
+        "tests": 21,
+        "passed": 6,
+        "failed": 15,
+        "containsFixtureErrors": true
+      },
+      "correctedImmutableBaseline": {
+        "version": "0.89.30",
+        "tests": 25,
+        "passed": 7,
+        "failed": 18
+      },
+      "firstFocused": {
+        "tests": 156,
+        "passed": 149,
+        "failed": 7
+      },
+      "secondFocused": {
+        "tests": 157,
+        "passed": 149,
+        "failed": 8
+      },
+      "fixtureCorrections": [
+        "Supply synthetic opening stock to unrelated sale fixture",
+        "Locate actual body-level modal and its aria-label 변경할 진행상태",
+        "Select input[data-form-field] rather than the preceding labelled wrapper"
+      ],
+      "finalNewTests": 25,
+      "finalFocused": 160,
+      "pagerBoundary": {
+        "before": {
+          "tests": 3,
+          "passed": 0,
+          "failed": 3
+        },
+        "fix": "Price-request table onPageChange revalidates owner/read scope/storage before another page is retained",
+        "initialFullVerification": "Pre-pager snapshot, not final program"
+      },
+      "finalBrowser": {
+        "tests": 8,
+        "passed": 8,
+        "activePagerGuardIncluded": true
+      },
+      "prePagerFullVerify": {
+        "exitCode": 0,
+        "browserTests": 354,
+        "finalProgram": false,
+        "snapshot": "before-pager-snapshot/manifest.json"
+      }
+    },
+    "newNodeTests": 25,
+    "focusedNodeTests": 160,
+    "ownActualShellBrowser": {
+      "tests": 8,
+      "passed": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "flows": [
+        "live criteria/pending quick/selection/status/include and CSV",
+        "changed data intentional Enter requery",
+        "121-doc second page and close/reopen",
+        "active pager plus detached cancel/CSV and closed/role-changed status confirmation and readonly"
+      ],
+      "harnessStorageEditCases": 2,
+      "appBusinessWrites": 0,
+      "remoteWrites": 0,
+      "pageErrors": 0
+    },
+    "fullVerifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.31-price-request-worktabs",
+      "startedAt": "2026-10-28T14:47:52.723245+00:00",
+      "finishedAt": "2026-10-28T14:55:08.457045+00:00",
+      "exitCode": 0,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "3580b43f5e5fae0b9ef3123e3dd796ea6e1c0c266e1f005b06bcacd46f301d4d",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-request-worktabs.cjs": "5fa169ed73df60550009dcaa0ad22962806453276648dc294d0263c701ab1a64",
+        "tests/browser/price-request-worktabs.spec.cjs": "803756fc6db1887920f3f345727276c1602b654d273dc97ace17373cb804ce78",
+        "package.json": "01d5e41f51a390adad9b7680c13ac409e539762ca276b73f40d53d748628ff94"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "3580b43f5e5fae0b9ef3123e3dd796ea6e1c0c266e1f005b06bcacd46f301d4d",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-request-worktabs.cjs": "5fa169ed73df60550009dcaa0ad22962806453276648dc294d0263c701ab1a64",
+        "tests/browser/price-request-worktabs.spec.cjs": "803756fc6db1887920f3f345727276c1602b654d273dc97ace17373cb804ce78",
+        "package.json": "01d5e41f51a390adad9b7680c13ac409e539762ca276b73f40d53d748628ff94"
+      }
+    },
+    "browserTests": 354,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 6,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "retainedPurchasingList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "15f32d17871e4727c6bf5cc9c8f54443c0f102c60098bdbb1befe47d1db71938",
+          "start": 2993,
+          "end": 3149,
+          "lineStart": 20,
+          "lineEnd": 20,
+          "fragmentSha256": "855820c29c895e4c29ce9f4b0c094e34b7df8375e2a005f0f3fdc1bed40d4ff0",
+          "inputFile": "own-retainedPurchasingList.js",
+          "inputSha256": "b986449826b2cb548fde5c524c8c41be974133c87ef4acc42ca3182f8ec48132",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "retainedPurchasingList",
+          "file": ".artifacts/releases/0.89.31-price-request-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "3580b43f5e5fae0b9ef3123e3dd796ea6e1c0c266e1f005b06bcacd46f301d4d",
+          "start": 2527,
+          "end": 2683,
+          "lineStart": 16,
+          "lineEnd": 16,
+          "fragmentSha256": "855820c29c895e4c29ce9f4b0c094e34b7df8375e2a005f0f3fdc1bed40d4ff0",
+          "inputFile": "candidate-retainedPurchasingList.js",
+          "inputSha256": "b986449826b2cb548fde5c524c8c41be974133c87ef4acc42ca3182f8ec48132",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "resumeList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "15f32d17871e4727c6bf5cc9c8f54443c0f102c60098bdbb1befe47d1db71938",
+          "start": 3883,
+          "end": 5008,
+          "lineStart": 30,
+          "lineEnd": 36,
+          "fragmentSha256": "bfd9e60909e495d96e75056478761ce86d13f70899b822b8bca941ce45f70767",
+          "inputFile": "own-resumeList.js",
+          "inputSha256": "67c4b4fc3f08477122a71af221fffbcaafe70bd8db93bbbd19654520ea5eb4bc",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "resumeList",
+          "file": ".artifacts/releases/0.89.31-price-request-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "3580b43f5e5fae0b9ef3123e3dd796ea6e1c0c266e1f005b06bcacd46f301d4d",
+          "start": 3417,
+          "end": 4542,
+          "lineStart": 26,
+          "lineEnd": 32,
+          "fragmentSha256": "bfd9e60909e495d96e75056478761ce86d13f70899b822b8bca941ce45f70767",
+          "inputFile": "candidate-resumeList.js",
+          "inputSha256": "67c4b4fc3f08477122a71af221fffbcaafe70bd8db93bbbd19654520ea5eb4bc",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "15f32d17871e4727c6bf5cc9c8f54443c0f102c60098bdbb1befe47d1db71938",
+          "start": 149387,
+          "end": 160874,
+          "lineStart": 593,
+          "lineEnd": 626,
+          "fragmentSha256": "73d95e44ef952ac0ac05d694339ed4a812404bfa88d97431ee93e059edae614f",
+          "inputFile": "own-docList.js",
+          "inputSha256": "77c140a2c73791fab379699cd1ff4a92e5e71c8e00bb31a1bc4be56d5851c100",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.31-price-request-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "3580b43f5e5fae0b9ef3123e3dd796ea6e1c0c266e1f005b06bcacd46f301d4d",
+          "start": 144641,
+          "end": 156128,
+          "lineStart": 570,
+          "lineEnd": 603,
+          "fragmentSha256": "73d95e44ef952ac0ac05d694339ed4a812404bfa88d97431ee93e059edae614f",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "77c140a2c73791fab379699cd1ff4a92e5e71c8e00bb31a1bc4be56d5851c100",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "0889859a14f42ddaaccf9ecbf136ef240c32425c9575b4dfc1d5d4d6b9c9d721",
+      "statistics": {
+        "relevant_files": 6,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 27922,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 6,
+        "visited_ast_nodes": 5762,
+        "findings": 2,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "otherCommonRendererGuardDisabled": true,
+      "existingApiVatDifferenceRetained": true,
+      "scopes": [
+        {
+          "name": "retainedPurchasingList",
+          "sourceHash": "855820c29c895e4c29ce9f4b0c094e34b7df8375e2a005f0f3fdc1bed40d4ff0",
+          "candidateHash": "855820c29c895e4c29ce9f4b0c094e34b7df8375e2a005f0f3fdc1bed40d4ff0"
+        },
+        {
+          "name": "resumeList",
+          "sourceHash": "bfd9e60909e495d96e75056478761ce86d13f70899b822b8bca941ce45f70767",
+          "candidateHash": "bfd9e60909e495d96e75056478761ce86d13f70899b822b8bca941ce45f70767"
+        },
+        {
+          "name": "docList",
+          "sourceHash": "73d95e44ef952ac0ac05d694339ed4a812404bfa88d97431ee93e059edae614f",
+          "candidateHash": "73d95e44ef952ac0ac05d694339ed4a812404bfa88d97431ee93e059edae614f"
+        }
+      ]
+    }
+  },
+  "release": {
+    "version": "0.89.31",
+    "sourceCommit": "213c639be0d552147bcd9fc4723f5cbcf7e009c5",
+    "releaseCommit": "0f140578de2e541462609db88ed18fd65eda54c5",
+    "branch": "release/0.89.31-price-request-worktabs",
+    "baselineReleaseCommit": "36936db7ee9a034d469509084465b090e4263037",
+    "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.31-price-request-worktabs",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.30",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "originalListTabSetupSaveIntegrated": false,
+  "wholePriceSearchEventContractAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
+    "title": "단가요청 검색 키·사용자항목 실제 이벤트 경계 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-request-worktabs-20261028.json",
+    "latestEvidence": "evidence/manual-price-request-worktabs-20261028.json",
+    "description": "작업탭 snapshot 보존을 단가요청의 실제 검색 이벤트 전체 합격으로 확대하지 않는다. 기존 quick Enter는 isComposing만 검사하며 native/plan과 키 조합·repeat 처리 형태가 다르다. 검색 전용 사용자항목/숫자 입력은 원문 보존, input/change, badInput, 계산 오류와 CSV/인쇄·수정 복구를 각각 대조한다. 저장 schema가 거부하는 값과 실제 DOM에서 소실/중복 적용되는 값을 구분하고 새 차이만 재현한다. 다른 공통목록·원본 키 동작·공급처 회신/확정/저장을 추정하지 않는다. 운영0.89.22/기존0.89.23~31 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준 확보 후 최신0.89.31 배포/읽기UI/보존 검증을 재개한다. 완료된 작업탭/plan/native행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "transport": "configured-moa-mcp",
+    "preauthorized": true,
+    "start": {
+      "beforeVersion": 25,
+      "afterVersion": 26,
+      "beforeBlocks": 195,
+      "afterBlocks": 197,
+      "prefixExact": true,
+      "appendExact": true,
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-28 · 단가요청 공통 목록 작업탭 경계 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-28·마감일2026-10-29 KST·한정 감사doing/P1 전체doing. current-release.json의 OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT를 이어 공통 docList의 단가요청 조회에 실제 연결된 조건 즉시변경/빠른검색·진행상태/취소포함·선택/페이지와 작업탭 왕복·계정/회사/권한/자료변경/닫기 경계를 대조한다. 왜: 앞선 native3종·plan의 적용조건/초안 형태를 이 공통 목록에 그대로 연결할 수 없기 때문이다. 기존 요구사항/검사·실제 소비자에서 확인된 새 차이만 보완하고 다른 공통목록·공급처 회신/확정/발송/원본 저장 합격으로 확대하지 않는다. 운영0.89.22·기존0.89.23~30 후보·자료/양식/메일·dirty12/매핑을 보존한다. 예정/진행상태는 본문 기록이며 실제 일정/상태 메타데이터는 미설정이다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "fac3288a-1bfe-405f-a1f4-a34f24665407",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-28 · 단가요청 공통 목록 작업탭 경계 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "9de301e7-dfef-48b7-883e-00dcd98326c6",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-28·마감일2026-10-29 KST·한정 감사doing/P1 전체doing. current-release.json의 OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT를 이어 공통 docList의 단가요청 조회에 실제 연결된 조건 즉시변경/빠른검색·진행상태/취소포함·선택/페이지와 작업탭 왕복·계정/회사/권한/자료변경/닫기 경계를 대조한다. 왜: 앞선 native3종·plan의 적용조건/초안 형태를 이 공통 목록에 그대로 연결할 수 없기 때문이다. 기존 요구사항/검사·실제 소비자에서 확인된 새 차이만 보완하고 다른 공통목록·공급처 회신/확정/발송/원본 저장 합격으로 확대하지 않는다. 운영0.89.22·기존0.89.23~30 후보·자료/양식/메일·dirty12/매핑을 보존한다. 예정/진행상태는 본문 기록이며 실제 일정/상태 메타데이터는 미설정이다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 27,
+    "p1FinalBlocks": 207,
+    "evidence": "evidence/moa-price-request-worktabs-preauthorized-20261028.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-request-worktabs-20261028/release.json": "deca7f60af1d4e6d35b67703befad979f1f1885628058198c5e4d01f928522f4",
+    ".artifacts/manual-price-request-worktabs-20261028/node-before.log": "5c16b3be327819c8d67bfe789930386a94ff46132db20446cf3310dada4eb19a",
+    ".artifacts/manual-price-request-worktabs-20261028/verify-local-before-pager.log": "627bc4cbaba723133ee2a87dfb28cd0134cf17186a2992d90dd50c8a6f01f3cd",
+    ".artifacts/manual-price-request-worktabs-20261028/custom-event-diagnostic.cjs": "77c3055f14ec74725ace624cb538f130dfd26b8ef1834454888977babf3b5edc",
+    ".artifacts/manual-price-request-worktabs-20261028/verify-local.log": "9802ef6a763a547b5e051c52decf7ed840c41558d029c79cd4c2471a2a7b0903",
+    ".artifacts/manual-price-request-worktabs-20261028/current-release-before.json": "5985e001bd64ef68140d9b4facd2f4ccf5a925fda1bfdea468388c422265edf5",
+    ".artifacts/manual-price-request-worktabs-20261028/candidate-focused-final.log": "afdbb683b1054bb31d42102e5eb4270c96ae04ace88108c12e695362d40f8fde",
+    ".artifacts/manual-price-request-worktabs-20261028/node-focused-final.log": "a84cd26262467bfd23fa27a0d7db62e18f7a34a6a11d1e4ef41c5eed2eb0cfcd",
+    ".artifacts/manual-price-request-worktabs-20261028/node-before-final-pager.log": "5968896c659f645b3f1db3f1205372089f788d2d0eccab46be389f32387ae7ce",
+    ".artifacts/manual-price-request-worktabs-20261028/focused-browser.log": "c42aa501279376443bc798d54b4b5ee4d20a97c6375b54e25efd781eb421465a",
+    ".artifacts/manual-price-request-worktabs-20261028/focused-browser-final.log": "de2394e73e41f399e0ff63cac30eafe60e41dd3ee7e2d94409cdfc86ec43769a",
+    ".artifacts/manual-price-request-worktabs-20261028/node-before-final.log": "6299d398e86cf743042bead256a2063c51334b579f737276f49992b8ad50f0c1",
+    ".artifacts/manual-price-request-worktabs-20261028/pager-before.log": "eedb137f5d8f2b3a5cd1bb0903a1afbbec81c6b117c11f4fdcdece691a0f1a07",
+    ".artifacts/manual-price-request-worktabs-20261028/custom-event-diagnostic.log": "6f0b3e061f4070a50c880fe1b952f78da03238b899d1f9cd80e4b23d64171f9c",
+    ".artifacts/manual-price-request-worktabs-20261028/patch-port.json": "1e4287dc7ab3452397581effe6fb79e8961d97e40cdc04a3388a6c8fa56bcc76",
+    ".artifacts/manual-price-request-worktabs-20261028/node-before-corrected.log": "9c224f2e3abc4707d7d7cd94438bff6604474233fc2c2f02a92952481f4b6af1",
+    ".artifacts/manual-price-request-worktabs-20261028/candidate-focused-node.log": "4294bc63e6a7aa352ba384d90dc6b9cb7de4b9e0cdb52ebd0f3433ac8e74ae21",
+    ".artifacts/manual-price-request-worktabs-20261028/verify-local-before-pager-exit.json": "648e5468b6ab21aa41eeb6d3d2cba0fb54f4dbfd2a40214a655313d6acbbb426",
+    ".artifacts/manual-price-request-worktabs-20261028/moa-start.json": "25b011c58abcbb06fb3753a2f292bc624b2450a9d8aed1ff1c5a18c8e1e4ec4b",
+    ".artifacts/manual-price-request-worktabs-20261028/baseline-replay.cjs": "a5ca74bf63b69557ed0c5b471f2d983ea6605d8f134c4ea08fb9d72fc6e186ea",
+    ".artifacts/manual-price-request-worktabs-20261028/node-focused.log": "3b4d23c5bf6983701a60109d1eabe29add9fc8a7cb1053f5158aa6168bbfb38e",
+    ".artifacts/manual-price-request-worktabs-20261028/next-work.json": "6fdb794289eefac87c5fcc62f45310a8c6953642aefb7d497575f17711342cca",
+    ".artifacts/manual-price-request-worktabs-20261028/harness-notes.json": "2ecd58e85079ad3d615932d54c31d8b2a05559e9452d3d11a495e6d84c5361d5",
+    ".artifacts/manual-price-request-worktabs-20261028/node-after-first.log": "2a5240994b1c25ce80c64563f34bc9e3a96f57b98964d499aa7af7668afc8d2c",
+    ".artifacts/manual-price-request-worktabs-20261028/port.cjs": "e97a417a28133c22d8af1bc1acd60533e0896125cc1c820edf455badb4fe57c7",
+    ".artifacts/manual-price-request-worktabs-20261028/focused-browser-exit.json": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+    ".artifacts/manual-price-request-worktabs-20261028/node-final-pager.log": "46b7781984dfbf242fcd91ccc4aae50ffb113460e4bc30d6d0d183ba613721e4",
+    ".artifacts/manual-price-request-worktabs-20261028/preservation.json": "91d1fedbf7830e02807006c441b8ba27657d3a2549c7d4bf1398f866a7eaf319",
+    ".artifacts/manual-price-request-worktabs-20261028/node-after-modal-fixture.log": "82d919e97b9b2502e39ac1d9b8fccf7b40729877e3cfe17c7a03cc4cd1b3e8f2",
+    ".artifacts/manual-price-request-worktabs-20261028/analyze.mjs": "47b7f859e29de50ce8e6cbe8c90732f0488621b174c2089ec9e49895e2d0cf8b",
+    ".artifacts/manual-price-request-worktabs-20261028/start.json": "3f83f53faea0f6b803d961a4ecefafdff045535477eb4256bd310653f4582276",
+    ".artifacts/manual-price-request-worktabs-20261028/verify-local-exit.json": "367e70b5c8f3e3228b70aaec8983eabf01445c1b3f42b6e84bed684227fedef4",
+    ".artifacts/manual-price-request-worktabs-20261028/browser-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/manifest.json": "3b8c5eb0736c71b7742adf43f2376d3e46867e3275f2f6a9460202f6f0f99eca",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/package.json": "01d5e41f51a390adad9b7680c13ac409e539762ca276b73f40d53d748628ff94",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/package-lock.json": "df3769e9fbd595ef8de660d7693df6e8a5bc6ae0b92c2d533eb59875607342b9",
+    ".artifacts/manual-price-request-worktabs-20261028/rea/rea-summary.json": "edca50e705fd7944d9692fe7832ed1085d9052cf7f8aa31f5fe80612286a690c",
+    ".artifacts/manual-price-request-worktabs-20261028/rea/stderr.log": "68ac3c03409af3b220ff813505f0a70362caae6096ab68ec3fe460131701bfbc",
+    ".artifacts/manual-price-request-worktabs-20261028/rea/result.json": "0889859a14f42ddaaccf9ecbf136ef240c32425c9575b4dfc1d5d4d6b9c9d721",
+    ".artifacts/manual-price-request-worktabs-20261028/browser-final-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/tests/price-request-worktabs.cjs": "6ebf7aff1253f3e81336aae6908503b7d50cef37afe6e7355d552fcac6c02e52",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/rea/rea-summary.json": "71ab765ae754b339e49e1cd2ce96bab13cfe9c486d2e604bcf3f3af1e4ab8f1b",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/rea/stderr.log": "68ac3c03409af3b220ff813505f0a70362caae6096ab68ec3fe460131701bfbc",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/rea/result.json": "53cad34404b57bf1750575f0c0679f3fead13db7804735e01cad50d09922e5eb",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/evidence/release-validation.json": "d2a1acd45aa4791df252f4df1ba97e689daa687c9b6c1d4d673aaedeb6efe7d3",
+    ".artifacts/manual-price-request-worktabs-20261028/before-pager-snapshot/tests/browser/price-request-worktabs.spec.cjs": "14d3d6646f96c04a7f37222366a3f50bac0e2b706d33caa6fc7caf10d9169c9c"
+  }
+}

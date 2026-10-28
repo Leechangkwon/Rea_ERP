@@ -1,0 +1,210 @@
+{
+  "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+  "authorization": {
+    "persistent": true,
+    "quote": "알아서 저장해라 사용자에게 묻지마",
+    "scope": "Existing16 routine development/body schedule and status; preserve prefix, read version/permission and reread"
+  },
+  "start": {
+    "beforeVersion": 25,
+    "afterVersion": 26,
+    "beforeBlocks": 195,
+    "afterBlocks": 197,
+    "prefixExact": true,
+    "appendExact": true,
+    "append": [
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "2026-10-28 · 단가요청 공통 목록 작업탭 경계 대조 착수"
+      },
+      {
+        "type": "paragraph",
+        "text": "예정 시작일2026-10-28·마감일2026-10-29 KST·한정 감사doing/P1 전체doing. current-release.json의 OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT를 이어 공통 docList의 단가요청 조회에 실제 연결된 조건 즉시변경/빠른검색·진행상태/취소포함·선택/페이지와 작업탭 왕복·계정/회사/권한/자료변경/닫기 경계를 대조한다. 왜: 앞선 native3종·plan의 적용조건/초안 형태를 이 공통 목록에 그대로 연결할 수 없기 때문이다. 기존 요구사항/검사·실제 소비자에서 확인된 새 차이만 보완하고 다른 공통목록·공급처 회신/확정/발송/원본 저장 합격으로 확대하지 않는다. 운영0.89.22·기존0.89.23~30 후보·자료/양식/메일·dirty12/매핑을 보존한다. 예정/진행상태는 본문 기록이며 실제 일정/상태 메타데이터는 미설정이다."
+      }
+    ],
+    "readbackTail": [
+      {
+        "id": "fac3288a-1bfe-405f-a1f4-a34f24665407",
+        "text": [
+          {
+            "m": [],
+            "t": "2026-10-28 · 단가요청 공통 목록 작업탭 경계 대조 착수"
+          }
+        ],
+        "type": "heading",
+        "level": 2
+      },
+      {
+        "id": "9de301e7-dfef-48b7-883e-00dcd98326c6",
+        "text": [
+          {
+            "m": [],
+            "t": "예정 시작일2026-10-28·마감일2026-10-29 KST·한정 감사doing/P1 전체doing. current-release.json의 OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT를 이어 공통 docList의 단가요청 조회에 실제 연결된 조건 즉시변경/빠른검색·진행상태/취소포함·선택/페이지와 작업탭 왕복·계정/회사/권한/자료변경/닫기 경계를 대조한다. 왜: 앞선 native3종·plan의 적용조건/초안 형태를 이 공통 목록에 그대로 연결할 수 없기 때문이다. 기존 요구사항/검사·실제 소비자에서 확인된 새 차이만 보완하고 다른 공통목록·공급처 회신/확정/발송/원본 저장 합격으로 확대하지 않는다. 운영0.89.22·기존0.89.23~30 후보·자료/양식/메일·dirty12/매핑을 보존한다. 예정/진행상태는 본문 기록이며 실제 일정/상태 메타데이터는 미설정이다."
+          }
+        ],
+        "type": "paragraph"
+      }
+    ]
+  },
+  "result": {
+    "beforeVersion": 26,
+    "afterVersion": 27,
+    "beforeBlocks": 197,
+    "afterBlocks": 207,
+    "prefixExact": true,
+    "appendExact": true,
+    "titleOccurrences": 1,
+    "canEdit": true
+  },
+  "append": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2026-10-28 · 단가요청 작업탭 보존0.89.31 후보 결과"
+    },
+    {
+      "type": "paragraph",
+      "text": "예정2026-10-28~2026-10-29 KST·실제착수2026-10-28T23:25:04.993502+09:00·결과기록2026-10-28T23:56:07.324993+09:00·패치doing/P1 전체doing. 실제 공통docList의 단가요청 조회와 조건 즉시변경/빠른검색 Enter·진행상태/취소포함·선택/페이지를 대조했다. 앞선 native3종·plan 상태 형태와 원본 리스트탭 SETUP/SAVE는 별도 계약이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "단가요청 공통 목록에만 현재 조건·미적용 빠른문자·진행상태/취소포함·정확한 전표 선택·검색창/페이지/스크롤과 현재 계산오류 피연산자를 실제 앱 ctx.viewId 메모리에 보존한다. 탭 닫기 때 제거하고 영구 cache를 만들지 않는다. 다른 공통목록은 guard와 cache 연결을 비활성으로 유지했으며 sale의 기존 비보존 복귀를 검사했다. 공급처 회신/확정/발송/원본 저장 계약을 추정 변경하지 않았다."
+    },
+    {
+      "type": "paragraph",
+      "text": "계정/회사/역할/읽기·쓰기권한/기존 설정 scope와 소유화면·저장 원문·표시자료 기준을 확인한다. 분리된 화면의 늦은 CSV/인쇄/비교/변환/취소/선택완료와 닫힌·권한이 바뀐 상태 확인창의 실행을 막는다. 자료변경/손상 시 조건은 유지하되 결과·선택을 비우고 기존 조건변경 또는 빠른검색 Enter로 새 자료를 조회하게 했다. 기존에 없는 F8 동작은 추가하지 않았고 정상 자체저장 뒤 refresh는 새 표시기준을 사용한다."
+    },
+    {
+      "type": "paragraph",
+      "text": "계산오류의 원문0이 탭 복귀 때 저장된 성공 기본값1로 바뀌던 경계도 보존·오류·CSV 차단·수정 복구로 확인했다. 이는 이번 피연산자/작업탭 검사이며 숫자 badInput·검색 전용 사용자항목의 모든 input/change·키 조합/반복 이벤트와 원본 키 동작까지 합격한 것은 아니다. schema/backup/계산기 자체·영구양식·기존 단가요청 core 확인/생성 규칙은 유지했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "보정한 불변0.89.30의22검사는7통과/15실패였고 추가한 활성 페이지 가드3개를 포함한 최종25는7통과/18실패였다. 수정후 신규25·관련160이 통과했다. 초기21개6통과/15실패에는 재고 없는 판매 fixture와 잘못 지정한 모달 선택항목이 섞여 있었다. 첫관련156의7실패와 추가후157의8실패는 전역 모달을 메뉴영역에서 찾거나 실제 aria-label 변경할 진행상태 대신 wrapper 문구를 쓴 검사, label[data-form-field]를 input으로 오인한 검사였다. 합성 opening/실제 전역모달/정확한 input을 지정하고 실패 로그와 진단 원고를 보존했다. 추가 대조에서는 활성 페이지 이동의 역할/읽기권한/자료변경3개가 실행을 계속하는 결함을 재현했다. 단가요청 table의 onPageChange에만 소유자/자료 가드를 연결해 재현3실패→3통과를 확인했고 보완 전후 전체검사 근거를 구분했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "390/1280px×4흐름 실제 자체셸8이 통과했다. 현재조건과 미적용 빠른문자·선택/상태/취소포함·CSV exact·자료변경 뒤 Enter·121전표 페이지·닫기/재열기·활성페이지 권한 변경·늦은 취소/상태확인/읽기전용과 pageerror/원격쓰기0을 확인했다. 자료변경2개는 검사기가 의도적으로 저장 원문을 바꾼 흐름이다. 전체verify:local exit0/354브라우저·전체Node·릴리스검사/빌드, 자체REA6.4 대응3함수 root/candidate6범위·3해시쌍exact·parse0·coverageunknown/truncatedfalse다. 원본/전체모듈 동등성은 아니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "source 213c639 / release 0f14057 / branch release/0.89.31-price-request-worktabs를 커밋·push했다. 후보worker 9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881은 미설치다. 두 기준의 함수밖 코드/API VAT차이·운영0.89.22 worker79222ea6…·기존0.89.23~30 커밋/worker/clean·dirty12/깨끗한 매핑07bdfb3를exact 보존했다. root전체빌드/운영배포/원본조작/운영 업무·설정 저장/메일발송/new_ERP변경/자동시작추가0이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "새 연결 근거가 없어 같은 브라우저 연결/로그인 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준 확보 후 앞선 보호를 포함한0.89.31의 배포·읽기UI·자료/양식 보존 검증을 재개한다. 예정/doing은 본문 기록이며 실제 일정/상태 메타데이터 미설정이다. 원본/운영 업무 저장·전체P1 합격으로 확대하지 않는다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-price-request-worktabs-20261028.json."
+    },
+    {
+      "type": "paragraph",
+      "text": "다음은 단가요청 검색 키·사용자항목의 실제 이벤트 경계 대조다. 왜: 현재 quick Enter는 isComposing만 검사해 native/plan의 키 조합·repeat 처리와 다르고, 이번 작업탭 보존만으로 input/change·숫자 badInput·계산 표시/오류·출력·수정 복구 전체를 대신할 수 없기 때문이다. 저장 schema가 거부하는 값과 실제 DOM의 소실/중복 적용을 구분해 미검증 경계만 재현한다. 다른 공통목록·원본 키 동작·회신/확정/저장은 추정하지 않고 완료된 작업탭/날짜/계산 행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다."
+    }
+  ],
+  "readbackTail": [
+    {
+      "id": "6e90ced1-0e7b-4121-bc7a-02b4fc397595",
+      "text": [
+        {
+          "m": [],
+          "t": "2026-10-28 · 단가요청 작업탭 보존0.89.31 후보 결과"
+        }
+      ],
+      "type": "heading",
+      "level": 2
+    },
+    {
+      "id": "48df384a-ac76-4630-a211-21213dfe1959",
+      "text": [
+        {
+          "m": [],
+          "t": "예정2026-10-28~2026-10-29 KST·실제착수2026-10-28T23:25:04.993502+09:00·결과기록2026-10-28T23:56:07.324993+09:00·패치doing/P1 전체doing. 실제 공통docList의 단가요청 조회와 조건 즉시변경/빠른검색 Enter·진행상태/취소포함·선택/페이지를 대조했다. 앞선 native3종·plan 상태 형태와 원본 리스트탭 SETUP/SAVE는 별도 계약이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "57d96c7b-423c-44fb-9d48-833d80bad1e1",
+      "text": [
+        {
+          "m": [],
+          "t": "단가요청 공통 목록에만 현재 조건·미적용 빠른문자·진행상태/취소포함·정확한 전표 선택·검색창/페이지/스크롤과 현재 계산오류 피연산자를 실제 앱 ctx.viewId 메모리에 보존한다. 탭 닫기 때 제거하고 영구 cache를 만들지 않는다. 다른 공통목록은 guard와 cache 연결을 비활성으로 유지했으며 sale의 기존 비보존 복귀를 검사했다. 공급처 회신/확정/발송/원본 저장 계약을 추정 변경하지 않았다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "77f312a1-7213-4829-af20-934bf5dde5f2",
+      "text": [
+        {
+          "m": [],
+          "t": "계정/회사/역할/읽기·쓰기권한/기존 설정 scope와 소유화면·저장 원문·표시자료 기준을 확인한다. 분리된 화면의 늦은 CSV/인쇄/비교/변환/취소/선택완료와 닫힌·권한이 바뀐 상태 확인창의 실행을 막는다. 자료변경/손상 시 조건은 유지하되 결과·선택을 비우고 기존 조건변경 또는 빠른검색 Enter로 새 자료를 조회하게 했다. 기존에 없는 F8 동작은 추가하지 않았고 정상 자체저장 뒤 refresh는 새 표시기준을 사용한다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "bf6697fa-402a-4aa4-a199-1ccbd34bd98e",
+      "text": [
+        {
+          "m": [],
+          "t": "계산오류의 원문0이 탭 복귀 때 저장된 성공 기본값1로 바뀌던 경계도 보존·오류·CSV 차단·수정 복구로 확인했다. 이는 이번 피연산자/작업탭 검사이며 숫자 badInput·검색 전용 사용자항목의 모든 input/change·키 조합/반복 이벤트와 원본 키 동작까지 합격한 것은 아니다. schema/backup/계산기 자체·영구양식·기존 단가요청 core 확인/생성 규칙은 유지했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "f64ed13d-e981-4999-94ca-db89b10fb12a",
+      "text": [
+        {
+          "m": [],
+          "t": "보정한 불변0.89.30의22검사는7통과/15실패였고 추가한 활성 페이지 가드3개를 포함한 최종25는7통과/18실패였다. 수정후 신규25·관련160이 통과했다. 초기21개6통과/15실패에는 재고 없는 판매 fixture와 잘못 지정한 모달 선택항목이 섞여 있었다. 첫관련156의7실패와 추가후157의8실패는 전역 모달을 메뉴영역에서 찾거나 실제 aria-label 변경할 진행상태 대신 wrapper 문구를 쓴 검사, label[data-form-field]를 input으로 오인한 검사였다. 합성 opening/실제 전역모달/정확한 input을 지정하고 실패 로그와 진단 원고를 보존했다. 추가 대조에서는 활성 페이지 이동의 역할/읽기권한/자료변경3개가 실행을 계속하는 결함을 재현했다. 단가요청 table의 onPageChange에만 소유자/자료 가드를 연결해 재현3실패→3통과를 확인했고 보완 전후 전체검사 근거를 구분했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "93e87526-97b5-4501-bacb-ea0c58becdd6",
+      "text": [
+        {
+          "m": [],
+          "t": "390/1280px×4흐름 실제 자체셸8이 통과했다. 현재조건과 미적용 빠른문자·선택/상태/취소포함·CSV exact·자료변경 뒤 Enter·121전표 페이지·닫기/재열기·활성페이지 권한 변경·늦은 취소/상태확인/읽기전용과 pageerror/원격쓰기0을 확인했다. 자료변경2개는 검사기가 의도적으로 저장 원문을 바꾼 흐름이다. 전체verify:local exit0/354브라우저·전체Node·릴리스검사/빌드, 자체REA6.4 대응3함수 root/candidate6범위·3해시쌍exact·parse0·coverageunknown/truncatedfalse다. 원본/전체모듈 동등성은 아니다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "2fbd230d-0453-47bf-8573-14482e12ea59",
+      "text": [
+        {
+          "m": [],
+          "t": "source 213c639 / release 0f14057 / branch release/0.89.31-price-request-worktabs를 커밋·push했다. 후보worker 9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881은 미설치다. 두 기준의 함수밖 코드/API VAT차이·운영0.89.22 worker79222ea6…·기존0.89.23~30 커밋/worker/clean·dirty12/깨끗한 매핑07bdfb3를exact 보존했다. root전체빌드/운영배포/원본조작/운영 업무·설정 저장/메일발송/new_ERP변경/자동시작추가0이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "819eec88-c245-40a3-b45b-8253067d9d91",
+      "text": [
+        {
+          "m": [],
+          "t": "새 연결 근거가 없어 같은 브라우저 연결/로그인 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준 확보 후 앞선 보호를 포함한0.89.31의 배포·읽기UI·자료/양식 보존 검증을 재개한다. 예정/doing은 본문 기록이며 실제 일정/상태 메타데이터 미설정이다. 원본/운영 업무 저장·전체P1 합격으로 확대하지 않는다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-price-request-worktabs-20261028.json."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "f8fce7d2-310e-4f05-9808-889e29171e9c",
+      "text": [
+        {
+          "m": [],
+          "t": "다음은 단가요청 검색 키·사용자항목의 실제 이벤트 경계 대조다. 왜: 현재 quick Enter는 isComposing만 검사해 native/plan의 키 조합·repeat 처리와 다르고, 이번 작업탭 보존만으로 input/change·숫자 badInput·계산 표시/오류·출력·수정 복구 전체를 대신할 수 없기 때문이다. 저장 schema가 거부하는 값과 실제 DOM의 소실/중복 적용을 구분해 미검증 경계만 재현한다. 다른 공통목록·원본 키 동작·회신/확정/저장은 추정하지 않고 완료된 작업탭/날짜/계산 행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다."
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "actualMetadataConfigured": false,
+  "otherWorkDocumentsChanged": false,
+  "duplicateQuestions": 0,
+  "duplicateAppends": 0
+}

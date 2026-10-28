@@ -2023,8 +2023,8 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-plan-list-worktabs-20261028.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.29",
+    "pendingDeploymentCandidateReference": "evidence/manual-price-request-worktabs-20261028.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.30",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
@@ -2032,7 +2032,8 @@
       "0.89.26",
       "0.89.27",
       "0.89.28",
-      "0.89.29"
+      "0.89.29",
+      "0.89.30"
     ]
   },
   "manualParity": {
@@ -2273,13 +2274,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
-      "title": "단가요청 공통 목록 작업탭 상태·권한·자료 변경 경계 대조",
+      "sourceId": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
+      "title": "단가요청 검색 키·사용자항목 실제 이벤트 경계 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-plan-list-worktabs-20261028.json",
-      "latestEvidence": "evidence/manual-plan-list-worktabs-20261028.json",
-      "description": "전용 발주계획과 native3종의 상태 보존을 단가요청 공통 docList 경로에 확대하지 않는다. 실제 단가요청 조회는 공통 목록의 즉시 조건 변경/빠른검색·진행상태/취소 포함·선택/페이지와 별도 동작을 사용한다. 기존 단가요청 요구사항/검사·실제 소비자에서 작업탭 왕복·권한/자료변경/닫기 경계를 먼저 대조하고 새 차이만 재현한다. 공급처 회신/확정/발송/저장 원본 계약을 추정하거나 다른 공통목록에 무조건 연결하지 않는다. 운영0.89.22/기존0.89.23~30 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.30 배포·읽기UI·보존 검증을 재개한다. 완료된 plan/native목록/계산/날짜 행렬과 같은 연결 확인·전체검사를 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-request-worktabs-20261028.json",
+      "latestEvidence": "evidence/manual-price-request-worktabs-20261028.json",
+      "description": "작업탭 snapshot 보존을 단가요청의 실제 검색 이벤트 전체 합격으로 확대하지 않는다. 기존 quick Enter는 isComposing만 검사하며 native/plan과 키 조합·repeat 처리 형태가 다르다. 검색 전용 사용자항목/숫자 입력은 원문 보존, input/change, badInput, 계산 오류와 CSV/인쇄·수정 복구를 각각 대조한다. 저장 schema가 거부하는 값과 실제 DOM에서 소실/중복 적용되는 값을 구분하고 새 차이만 재현한다. 다른 공통목록·원본 키 동작·공급처 회신/확정/저장을 추정하지 않는다. 운영0.89.22/기존0.89.23~31 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준 확보 후 최신0.89.31 배포/읽기UI/보존 검증을 재개한다. 완료된 작업탭/plan/native행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2291,7 +2292,8 @@
         "0.89.27",
         "0.89.28",
         "0.89.29",
-        "0.89.30"
+        "0.89.30",
+        "0.89.31"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3027,13 +3029,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
-      "title": "단가요청 공통 목록 작업탭 상태·권한·자료 변경 경계 대조",
+      "sourceId": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
+      "title": "단가요청 검색 키·사용자항목 실제 이벤트 경계 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-plan-list-worktabs-20261028.json",
-      "latestEvidence": "evidence/manual-plan-list-worktabs-20261028.json",
-      "description": "전용 발주계획과 native3종의 상태 보존을 단가요청 공통 docList 경로에 확대하지 않는다. 실제 단가요청 조회는 공통 목록의 즉시 조건 변경/빠른검색·진행상태/취소 포함·선택/페이지와 별도 동작을 사용한다. 기존 단가요청 요구사항/검사·실제 소비자에서 작업탭 왕복·권한/자료변경/닫기 경계를 먼저 대조하고 새 차이만 재현한다. 공급처 회신/확정/발송/저장 원본 계약을 추정하거나 다른 공통목록에 무조건 연결하지 않는다. 운영0.89.22/기존0.89.23~30 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.30 배포·읽기UI·보존 검증을 재개한다. 완료된 plan/native목록/계산/날짜 행렬과 같은 연결 확인·전체검사를 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-request-worktabs-20261028.json",
+      "latestEvidence": "evidence/manual-price-request-worktabs-20261028.json",
+      "description": "작업탭 snapshot 보존을 단가요청의 실제 검색 이벤트 전체 합격으로 확대하지 않는다. 기존 quick Enter는 isComposing만 검사하며 native/plan과 키 조합·repeat 처리 형태가 다르다. 검색 전용 사용자항목/숫자 입력은 원문 보존, input/change, badInput, 계산 오류와 CSV/인쇄·수정 복구를 각각 대조한다. 저장 schema가 거부하는 값과 실제 DOM에서 소실/중복 적용되는 값을 구분하고 새 차이만 재현한다. 다른 공통목록·원본 키 동작·공급처 회신/확정/저장을 추정하지 않는다. 운영0.89.22/기존0.89.23~31 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준 확보 후 최신0.89.31 배포/읽기UI/보존 검증을 재개한다. 완료된 작업탭/plan/native행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3045,7 +3047,8 @@
         "0.89.27",
         "0.89.28",
         "0.89.29",
-        "0.89.30"
+        "0.89.30",
+        "0.89.31"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4082,7 +4085,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-plan-list-worktabs-preauthorized-20261028.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-request-worktabs-preauthorized-20261028.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4096,11 +4099,11 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-plan-list-worktabs-20261028/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-request-worktabs-20261028/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 25,
+      "lastConfirmedP1Version": 27,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-plan-list-worktabs-20261028.json",
+      "currentPatchReference": "evidence/manual-price-request-worktabs-20261028.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
@@ -4245,7 +4248,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4408,6 +4411,53 @@
         1280
       ],
       "native3CandidatePreserved": true,
+      "originalAccepted": false,
+      "productionAccepted": false
+    },
+    "priceRequestWorktabsCandidate": {
+      "version": "0.89.31",
+      "sourceCommit": "213c639be0d552147bcd9fc4723f5cbcf7e009c5",
+      "releaseCommit": "0f140578de2e541462609db88ed18fd65eda54c5",
+      "branch": "release/0.89.31-price-request-worktabs",
+      "baselineReleaseCommit": "36936db7ee9a034d469509084465b090e4263037",
+      "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.31-price-request-worktabs",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.30",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "remoteRefsVerified": true,
+      "reference": "evidence/manual-price-request-worktabs-20261028.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29",
+        "0.89.30"
+      ],
+      "priceRequestWorktabStateImplemented": true,
+      "otherCommonListBehaviorUnchanged": true,
+      "originalListTabSetupSaveIntegrated": false,
+      "wholePriceSearchEventContractAccepted": false
+    },
+    "priceRequestListWorktabAudit": {
+      "reference": "evidence/manual-price-request-worktabs-20261028.json",
+      "status": "common-price-request-local-candidate-verified-not-deployed",
+      "newNodeTests": 25,
+      "ownActualShellBrowserCases": 8,
+      "widths": [
+        390,
+        1280
+      ],
       "originalAccepted": false,
       "productionAccepted": false
     }
