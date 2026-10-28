@@ -1,0 +1,529 @@
+{
+  "sourceId": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T00:05:39.565968+09:00",
+  "status": "validated-pushed-not-deployed",
+  "p1Status": "doing",
+  "recordedAt": "2026-10-29T00:29:24.134590+09:00",
+  "elapsedSeconds": 1424.569,
+  "version": "0.89.32",
+  "operatingVersion": "0.89.22",
+  "patchStatus": "doing",
+  "basis": [
+    "Actual price-request quick keyboard implementation and search-only controls",
+    "Real Chromium badInput observation: value empty does not mean explicit clear",
+    "No new original bodies or original actions"
+  ],
+  "change": {
+    "scope": "Price-request common list only",
+    "keyboard": "Ignore defaultPrevented/repeat/modifiers/composition; apply plain Enter; other generic sale remains unchanged",
+    "numeric": "Inspect live badInput before query; explicit numeric error/results cleared; numeric input events recover; distinguish valid zero formula error from incomplete input",
+    "controls": "Collect actual DOM search-only controls as well as mapped controls; change/input and false checkbox survive memory snapshots",
+    "lifecycle": "Retain live invalid number DOM and reject cooperative internal navigation/rebuild until correction or explicit clear; allow changed ownership to leave",
+    "limits": [
+      "No inference of DOM-inaccessible numeric token",
+      "No raw-token JSON serialization or reload preservation claim",
+      "Settings-save/conditional-form/parent-refresh actual business flow remains next audit"
+    ],
+    "unchanged": [
+      "schema/evaluator/backup",
+      "other common-list key behavior",
+      "quote reply/confirmation/send semantics",
+      "pending VAT/mapping candidates"
+    ]
+  },
+  "checks": {
+    "failureHistory": {
+      "nodeBefore": {
+        "tests": 14,
+        "passed": 3,
+        "failed": 11
+      },
+      "nodeAfter": {
+        "tests": 14,
+        "passed": 14,
+        "failed": 0
+      },
+      "focusedNode": 142,
+      "workTabsInternalChecks": 17,
+      "probe": {
+        "beforeObservation": "badinput-observation-before.json",
+        "observedRows": "1 -> 2 after invalid numeric blur; 2 after work-tab return",
+        "badInput": "true before leave, false after return while value empty",
+        "csvDownloadObservedWithin500ms": false,
+        "unboundedDownloadWaitProbeFailedByTimeout": true,
+        "boundedProbePassed": true,
+        "classification": "Measurement wait corrected; no export widening claim"
+      },
+      "browserFinal": {
+        "tests": 8,
+        "passed": 8
+      },
+      "rawTokenPolicy": "Do not infer DOM-inaccessible numeric text; retain live control and block internal navigation until valid or intentionally cleared; not raw-token JSON serialization"
+    },
+    "badInputBefore": {
+      "states": [
+        {
+          "phase": "initial",
+          "value": "1",
+          "badInput": false,
+          "connected": true,
+          "summary": "1건 · 합계 200 원",
+          "rows": 1,
+          "downloads": 0
+        },
+        {
+          "phase": "typed-1e",
+          "value": "",
+          "badInput": true,
+          "connected": true,
+          "summary": "1건 · 합계 200 원",
+          "rows": 1,
+          "downloads": 0
+        },
+        {
+          "phase": "after-blur-and-csv",
+          "value": "",
+          "badInput": true,
+          "connected": true,
+          "summary": "2건 · 합계 500 원",
+          "rows": 2,
+          "downloads": 0
+        },
+        {
+          "phase": "after-tab-return",
+          "value": "",
+          "badInput": false,
+          "connected": true,
+          "summary": "2건 · 합계 500 원",
+          "rows": 2,
+          "downloads": 0
+        }
+      ],
+      "storedUnchanged": true,
+      "errors": [],
+      "posts": []
+    },
+    "newNodeTests": 14,
+    "focusedNodeTests": 142,
+    "workTabsInternalChecks": 17,
+    "ownActualShellBrowser": {
+      "tests": 8,
+      "passed": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "flows": [
+        "modifier and real held Enter repeat",
+        "real 1e badInput error, output block, navigation block, correction and clear",
+        "valid zero compute failure through tabs and correction",
+        "readonly search-only numeric and false checkbox persistence"
+      ],
+      "appBusinessWrites": 0,
+      "remoteWrites": 0,
+      "pageErrors": 0
+    },
+    "fullVerifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.32-price-search-events",
+      "startedAt": "2026-10-28T15:19:42.920167+00:00",
+      "finishedAt": "2026-10-28T15:27:10.618772+00:00",
+      "exitCode": 0,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "6d56301b310049d73fe907149125f7496c897092d7d4f04f3f6f4ba3d5791385",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-search-events.cjs": "0df36bee01ad41eae5632937bd0c4c806a2e08a8ee196c42e148381ede46b556",
+        "tests/browser/price-search-events.spec.cjs": "ee34c9347bb0adf2074581421e76dff5434288020ea4699e59ee82980770165d",
+        "package.json": "1a86180c2a8f600b65da0ab31e03133f89cd741cfe67315b1e8317935faaf783"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "6d56301b310049d73fe907149125f7496c897092d7d4f04f3f6f4ba3d5791385",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-search-events.cjs": "0df36bee01ad41eae5632937bd0c4c806a2e08a8ee196c42e148381ede46b556",
+        "tests/browser/price-search-events.spec.cjs": "ee34c9347bb0adf2074581421e76dff5434288020ea4699e59ee82980770165d",
+        "package.json": "1a86180c2a8f600b65da0ab31e03133f89cd741cfe67315b1e8317935faaf783"
+      }
+    },
+    "browserTests": 362,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 6,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "refreshCurrentView",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "674421513830075c58a2f2cd80a31dae20bdaabdf9048113b7c24a0b83c7a85c",
+          "start": 26330,
+          "end": 28253,
+          "lineStart": 164,
+          "lineEnd": 174,
+          "fragmentSha256": "9b061167d936dc33f27ab9366147d8061b9b219fd128e6bd081b3690f4e31842",
+          "inputFile": "own-refreshCurrentView.js",
+          "inputSha256": "40361463aa1bfc56adbf58a5d9b6234704c85153abb413b67290b76222c98148",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "refreshCurrentView",
+          "file": ".artifacts/releases/0.89.32-price-search-events/dist/inventory-ui.js",
+          "sourceSha256": "6d56301b310049d73fe907149125f7496c897092d7d4f04f3f6f4ba3d5791385",
+          "start": 26307,
+          "end": 28230,
+          "lineStart": 164,
+          "lineEnd": 174,
+          "fragmentSha256": "9b061167d936dc33f27ab9366147d8061b9b219fd128e6bd081b3690f4e31842",
+          "inputFile": "candidate-refreshCurrentView.js",
+          "inputSha256": "40361463aa1bfc56adbf58a5d9b6234704c85153abb413b67290b76222c98148",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "renderCurrent",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "674421513830075c58a2f2cd80a31dae20bdaabdf9048113b7c24a0b83c7a85c",
+          "start": 182226,
+          "end": 185056,
+          "lineStart": 701,
+          "lineEnd": 705,
+          "fragmentSha256": "eb065ffe13927305979dc61ac073aecc0f96eca5c9938f371f8892280ce95265",
+          "inputFile": "own-renderCurrent.js",
+          "inputSha256": "17d6b4c2b926d04df0d210272259714aac12159d148198628348d7dcd5de4838",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "renderCurrent",
+          "file": ".artifacts/releases/0.89.32-price-search-events/dist/inventory-ui.js",
+          "sourceSha256": "6d56301b310049d73fe907149125f7496c897092d7d4f04f3f6f4ba3d5791385",
+          "start": 177480,
+          "end": 180310,
+          "lineStart": 678,
+          "lineEnd": 682,
+          "fragmentSha256": "eb065ffe13927305979dc61ac073aecc0f96eca5c9938f371f8892280ce95265",
+          "inputFile": "candidate-renderCurrent.js",
+          "inputSha256": "17d6b4c2b926d04df0d210272259714aac12159d148198628348d7dcd5de4838",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "674421513830075c58a2f2cd80a31dae20bdaabdf9048113b7c24a0b83c7a85c",
+          "start": 149464,
+          "end": 162542,
+          "lineStart": 593,
+          "lineEnd": 630,
+          "fragmentSha256": "725699151c4e05d5d62ef66d17b580e7528210be9d211519cd8f4842f93f4b4b",
+          "inputFile": "own-docList.js",
+          "inputSha256": "6567a37664fa11fb40795a3861b60ea56e9d4d958c76de939a780230ad9028fb",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.32-price-search-events/dist/inventory-ui.js",
+          "sourceSha256": "6d56301b310049d73fe907149125f7496c897092d7d4f04f3f6f4ba3d5791385",
+          "start": 144718,
+          "end": 157796,
+          "lineStart": 570,
+          "lineEnd": 607,
+          "fragmentSha256": "725699151c4e05d5d62ef66d17b580e7528210be9d211519cd8f4842f93f4b4b",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "6567a37664fa11fb40795a3861b60ea56e9d4d958c76de939a780230ad9028fb",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "2f3b06dcc315ea39aa1495576115caa4e078f2fe252c3615c64286587407bd17",
+      "statistics": {
+        "relevant_files": 6,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 38384,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 6,
+        "visited_ast_nodes": 7762,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "priceOnlyNumberAndKeyboardBehavior": true,
+      "apiNavigationHookOnly": true,
+      "existingApiVatDifferenceRetained": true,
+      "scopes": [
+        {
+          "name": "refreshCurrentView",
+          "sourceHash": "9b061167d936dc33f27ab9366147d8061b9b219fd128e6bd081b3690f4e31842",
+          "candidateHash": "9b061167d936dc33f27ab9366147d8061b9b219fd128e6bd081b3690f4e31842"
+        },
+        {
+          "name": "renderCurrent",
+          "sourceHash": "eb065ffe13927305979dc61ac073aecc0f96eca5c9938f371f8892280ce95265",
+          "candidateHash": "eb065ffe13927305979dc61ac073aecc0f96eca5c9938f371f8892280ce95265"
+        },
+        {
+          "name": "docList",
+          "sourceHash": "725699151c4e05d5d62ef66d17b580e7528210be9d211519cd8f4842f93f4b4b",
+          "candidateHash": "725699151c4e05d5d62ef66d17b580e7528210be9d211519cd8f4842f93f4b4b"
+        }
+      ]
+    }
+  },
+  "release": {
+    "version": "0.89.32",
+    "sourceCommit": "95ddd5a5729a8439f38684e8795f2ff2de251560",
+    "releaseCommit": "952b069d80e00f9515d753fd101a970b17a4d552",
+    "branch": "release/0.89.32-price-search-events",
+    "baselineReleaseCommit": "0f140578de2e541462609db88ed18fd65eda54c5",
+    "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.32-price-search-events",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.31",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "formRepaintBusinessFlowAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT",
+    "title": "단가요청 검색양식 재구성·입력 수명 경계 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-search-events-20261029.json",
+    "latestEvidence": "evidence/manual-price-search-events-20261029.json",
+    "description": "이번 실제UI 합격은 키/숫자/내부메뉴 이동과 유효한 검색전용 항목 복귀다. 검색양식 설정·조건양식의 취소/명시 저장과 부모 in-place refresh는 다른 재구성 경로이므로 그 입출력 수명을 실제 사용자흐름으로 대조한다. raw number의 DOM을 보존하는 협조 guard와 메타데이터 저장/재표시·필드소멸/readonly 전환·취소·권한/자료변경을 구분하고 새 차이만 재현한다. 원본 설정 저장을 하지 않고 schema/계산/backup과 기존0.89.23~32 후보를 보존한다. 운영0.89.22와 새 운영브라우저 백업/인증UI·서버/메일 배포 gate를 유지하며 같은 키/작업탭/전체검사를 변화없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "transport": "configured-moa-mcp",
+    "preauthorized": true,
+    "start": {
+      "beforeVersion": 27,
+      "afterVersion": 28,
+      "beforeBlocks": 207,
+      "afterBlocks": 209,
+      "prefixExact": true,
+      "appendExact": true,
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 검색 키·숫자 실제 이벤트 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "이번 한정 작업의 예정 시작일2026-10-29·마감일2026-10-30 KST·doing/P1 전체doing이다. 앞선10/28~10/29 작업 기간과 별도로 정하며 실제 일정/상태 메타데이터는 미설정이다. current-release.json의 OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT에 따라 기존 단가요청 quick Enter의 조합키/반복/IME와 검색 사용자 숫자의 input/change·badInput·계산 오류·CSV/인쇄·수정/비움·화면이동 경계를 실제 DOM에서 대조한다. 왜: 저장 schema나 이전 작업탭 snapshot 합격으로 입력 중인 불완전 숫자와 키 이벤트를 대신할 수 없기 때문이다. 확인된 새 차이만 보완하고 원문을 추측 재구성하거나 다른 공통목록/원본 키동작/회신·확정·저장을 추정하지 않는다. 운영0.89.22·기존0.89.23~31/dirty12/매핑 후보·자료/양식/메일을 보존한다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "471e7d6b-e965-46fb-a178-26f0ebcba3f1",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 검색 키·숫자 실제 이벤트 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "1243cfb0-dc43-43d5-af35-a14cb43f4c44",
+          "text": [
+            {
+              "m": [],
+              "t": "이번 한정 작업의 예정 시작일2026-10-29·마감일2026-10-30 KST·doing/P1 전체doing이다. 앞선10/28~10/29 작업 기간과 별도로 정하며 실제 일정/상태 메타데이터는 미설정이다. current-release.json의 OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT에 따라 기존 단가요청 quick Enter의 조합키/반복/IME와 검색 사용자 숫자의 input/change·badInput·계산 오류·CSV/인쇄·수정/비움·화면이동 경계를 실제 DOM에서 대조한다. 왜: 저장 schema나 이전 작업탭 snapshot 합격으로 입력 중인 불완전 숫자와 키 이벤트를 대신할 수 없기 때문이다. 확인된 새 차이만 보완하고 원문을 추측 재구성하거나 다른 공통목록/원본 키동작/회신·확정·저장을 추정하지 않는다. 운영0.89.22·기존0.89.23~31/dirty12/매핑 후보·자료/양식/메일을 보존한다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 29,
+    "p1FinalBlocks": 219,
+    "evidence": "evidence/moa-price-search-events-preauthorized-20261029.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-search-events-20261029/release.json": "e7e3775bd68ffeccef337c1ad91f22602ec71f446989324de08a06175ff0f2ba",
+    ".artifacts/manual-price-search-events-20261029/node-before.log": "2153029410d58bb503395c37d3ae730606dba29b93c41adfc03833e7427b535f",
+    ".artifacts/manual-price-search-events-20261029/badinput-immediate-observation-before.json": "e5d053eee5aefb1727f8b23b419cb5e441401b2ceb68daa7b7bbe65c5e6a398f",
+    ".artifacts/manual-price-search-events-20261029/verify-local.log": "6e28fc284fa0751b64956b8173921eeec12e248862cf4e3ae4dfa6e01705bc0b",
+    ".artifacts/manual-price-search-events-20261029/current-release-before.json": "8acf24b184bcf047fd0f839e0906de4bd2174968dd27da59cab998499977d562",
+    ".artifacts/manual-price-search-events-20261029/node-focused-final.log": "4fea736c5c871d1d1853ae8e9fdc3c385cf2f6c5701e66ee2dddf0c30e5afd30",
+    ".artifacts/manual-price-search-events-20261029/focused-browser.log": "e854b3fc77ce4392ed49cbac30f508ba96773670bb279de8762d3bfa30dc55d8",
+    ".artifacts/manual-price-search-events-20261029/browser-probe-confirmed.spec.cjs": "6929e4d9e083f2d3aecb8582480fb34e31d9ff9b1d51fa74604f72fcf667f9a9",
+    ".artifacts/manual-price-search-events-20261029/browser-probe-bounded.spec.cjs": "340caf187bbd5fe08263bf837c158984a4768825239d78449352ef080226c607",
+    ".artifacts/manual-price-search-events-20261029/patch-port.json": "240bdbba76584614f1236b126b8b14a68542e9948ed3654f07146e7d21a6548a",
+    ".artifacts/manual-price-search-events-20261029/browser-fixture-prefix.cjs": "4f912f798c32f5f4016c568e808b5008600e2c83a32ade9d7b7f55b9e8bb72d6",
+    ".artifacts/manual-price-search-events-20261029/moa-start.json": "77f039c987560165b0c825b67de1311ff32da7c7d23ce1303eec88572b5abb10",
+    ".artifacts/manual-price-search-events-20261029/browser-probe-before.spec.cjs": "106b3468b8e1baa6712f019e68011d15901ea92264b85d94913a7d4e19a85e48",
+    ".artifacts/manual-price-search-events-20261029/badinput-observation-before.json": "e5d053eee5aefb1727f8b23b419cb5e441401b2ceb68daa7b7bbe65c5e6a398f",
+    ".artifacts/manual-price-search-events-20261029/next-work.json": "9ef3531ba11ed29f0ed5de081ba8df1b28df3f478f47f944c7ee8df2017263e4",
+    ".artifacts/manual-price-search-events-20261029/harness-notes.json": "000f01f299ccce42cbead1d9b363c14781da7eba51d1b15e89dc0e61d057d3f3",
+    ".artifacts/manual-price-search-events-20261029/node-after-first.log": "38b6b8d14442c0c28d530cd1389a2020bfa509f9e82cc1021c39a61f8a47cfaf",
+    ".artifacts/manual-price-search-events-20261029/port.cjs": "dacaff51e8bb12a3fa59d68121b9408b7b0e920971fb1d4ce63df9f74f166829",
+    ".artifacts/manual-price-search-events-20261029/browser-probe-before.log": "ce97bf8eaa7d7ae64cfb75e7d3f6785f95780394439086c84ceb94d561785cd4",
+    ".artifacts/manual-price-search-events-20261029/focused-browser-exit.json": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+    ".artifacts/manual-price-search-events-20261029/browser-probe-confirmed.log": "7255d61085a03dc0024cd1bfc12129a9987990c22813393f7403fb816d5a8b52",
+    ".artifacts/manual-price-search-events-20261029/preservation.json": "df26c6c6fde08e0feca197edb40b5a884bbec718a2840aa4cbc8a516e373de2b",
+    ".artifacts/manual-price-search-events-20261029/analyze.mjs": "c99d0d962d4b42a7e02783ea523a3c73e5d576b525b1d7d9f5cf83d9a552ffd0",
+    ".artifacts/manual-price-search-events-20261029/start.json": "33c6fd84806b3dcafc6bad3725de6dee0ef0d9f7a8fdf02aa085bc894e584623",
+    ".artifacts/manual-price-search-events-20261029/browser-probe-bounded.log": "d7ebdd9a49fa8b0ba2e20c19541886f6e29ea33d04b44fc21db8188e9fdc95e2",
+    ".artifacts/manual-price-search-events-20261029/verify-local-exit.json": "46976944c37762b49c49142084e511de4adb6490ad2a7642e80d4801a4e0b3f2",
+    ".artifacts/manual-price-search-events-20261029/browser-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-search-events-20261029/probe-browser-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-search-events-20261029/probe-confirmed-results/.last-run.json": "2f882b3a191340832aedbf4792e6fb21720960dee087098c2d6b96ff7b414332",
+    ".artifacts/manual-price-search-events-20261029/rea/rea-summary.json": "f0bb1ba09c64bbce1931fa5b692c43a38e671031cd3813c419cbdb273c5887cb",
+    ".artifacts/manual-price-search-events-20261029/rea/stderr.log": "6a0e163026091d5284dcba7201d0b0a88b2fadee0c3f910404d29441915e9bde",
+    ".artifacts/manual-price-search-events-20261029/rea/result.json": "2f3b06dcc315ea39aa1495576115caa4e078f2fe252c3615c64286587407bd17",
+    ".artifacts/manual-price-search-events-20261029/probe-bounded-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-search-events-20261029/probe-confirmed-results/price-search-probe-observe-fa1f2--number-before-modification/test-failed-1.png": "b299f75738a1d7828842bfdcb4b5778b39efc74c507026516807c31a3b0107ad",
+    ".artifacts/manual-price-search-events-20261029/probe-confirmed-results/price-search-probe-observe-fa1f2--number-before-modification/error-context.md": "b669190c6bccb17dcceaf17724e42247e0a0fe5cf72def3916afb0fc259fe2f2"
+  }
+}

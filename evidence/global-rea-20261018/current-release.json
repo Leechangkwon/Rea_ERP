@@ -2023,8 +2023,8 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-price-request-worktabs-20261028.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.30",
+    "pendingDeploymentCandidateReference": "evidence/manual-price-search-events-20261029.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.31",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
@@ -2033,7 +2033,8 @@
       "0.89.27",
       "0.89.28",
       "0.89.29",
-      "0.89.30"
+      "0.89.30",
+      "0.89.31"
     ]
   },
   "manualParity": {
@@ -2274,13 +2275,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
-      "title": "단가요청 검색 키·사용자항목 실제 이벤트 경계 대조",
+      "sourceId": "OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT",
+      "title": "단가요청 검색양식 재구성·입력 수명 경계 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-request-worktabs-20261028.json",
-      "latestEvidence": "evidence/manual-price-request-worktabs-20261028.json",
-      "description": "작업탭 snapshot 보존을 단가요청의 실제 검색 이벤트 전체 합격으로 확대하지 않는다. 기존 quick Enter는 isComposing만 검사하며 native/plan과 키 조합·repeat 처리 형태가 다르다. 검색 전용 사용자항목/숫자 입력은 원문 보존, input/change, badInput, 계산 오류와 CSV/인쇄·수정 복구를 각각 대조한다. 저장 schema가 거부하는 값과 실제 DOM에서 소실/중복 적용되는 값을 구분하고 새 차이만 재현한다. 다른 공통목록·원본 키 동작·공급처 회신/확정/저장을 추정하지 않는다. 운영0.89.22/기존0.89.23~31 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준 확보 후 최신0.89.31 배포/읽기UI/보존 검증을 재개한다. 완료된 작업탭/plan/native행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-search-events-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-events-20261029.json",
+      "description": "이번 실제UI 합격은 키/숫자/내부메뉴 이동과 유효한 검색전용 항목 복귀다. 검색양식 설정·조건양식의 취소/명시 저장과 부모 in-place refresh는 다른 재구성 경로이므로 그 입출력 수명을 실제 사용자흐름으로 대조한다. raw number의 DOM을 보존하는 협조 guard와 메타데이터 저장/재표시·필드소멸/readonly 전환·취소·권한/자료변경을 구분하고 새 차이만 재현한다. 원본 설정 저장을 하지 않고 schema/계산/backup과 기존0.89.23~32 후보를 보존한다. 운영0.89.22와 새 운영브라우저 백업/인증UI·서버/메일 배포 gate를 유지하며 같은 키/작업탭/전체검사를 변화없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2293,7 +2294,8 @@
         "0.89.28",
         "0.89.29",
         "0.89.30",
-        "0.89.31"
+        "0.89.31",
+        "0.89.32"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3029,13 +3031,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
-      "title": "단가요청 검색 키·사용자항목 실제 이벤트 경계 대조",
+      "sourceId": "OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT",
+      "title": "단가요청 검색양식 재구성·입력 수명 경계 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-request-worktabs-20261028.json",
-      "latestEvidence": "evidence/manual-price-request-worktabs-20261028.json",
-      "description": "작업탭 snapshot 보존을 단가요청의 실제 검색 이벤트 전체 합격으로 확대하지 않는다. 기존 quick Enter는 isComposing만 검사하며 native/plan과 키 조합·repeat 처리 형태가 다르다. 검색 전용 사용자항목/숫자 입력은 원문 보존, input/change, badInput, 계산 오류와 CSV/인쇄·수정 복구를 각각 대조한다. 저장 schema가 거부하는 값과 실제 DOM에서 소실/중복 적용되는 값을 구분하고 새 차이만 재현한다. 다른 공통목록·원본 키 동작·공급처 회신/확정/저장을 추정하지 않는다. 운영0.89.22/기존0.89.23~31 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준 확보 후 최신0.89.31 배포/읽기UI/보존 검증을 재개한다. 완료된 작업탭/plan/native행렬과 같은 연결/전체검사를 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-price-search-events-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-events-20261029.json",
+      "description": "이번 실제UI 합격은 키/숫자/내부메뉴 이동과 유효한 검색전용 항목 복귀다. 검색양식 설정·조건양식의 취소/명시 저장과 부모 in-place refresh는 다른 재구성 경로이므로 그 입출력 수명을 실제 사용자흐름으로 대조한다. raw number의 DOM을 보존하는 협조 guard와 메타데이터 저장/재표시·필드소멸/readonly 전환·취소·권한/자료변경을 구분하고 새 차이만 재현한다. 원본 설정 저장을 하지 않고 schema/계산/backup과 기존0.89.23~32 후보를 보존한다. 운영0.89.22와 새 운영브라우저 백업/인증UI·서버/메일 배포 gate를 유지하며 같은 키/작업탭/전체검사를 변화없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3048,7 +3050,8 @@
         "0.89.28",
         "0.89.29",
         "0.89.30",
-        "0.89.31"
+        "0.89.31",
+        "0.89.32"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4085,7 +4088,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-price-request-worktabs-preauthorized-20261028.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-search-events-preauthorized-20261029.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4093,22 +4096,23 @@
       "routeCorrectionEvidence": "evidence/moa-mcp-recording-route-approved-20261026.json",
       "temporaryBodyTrackingAuthorizedOn": "2026-10-28",
       "trackingMode": "existing-document-body-until-mcp-metadata-supported",
-      "bodyPlannedStart": "2026-10-28",
-      "bodyDeadline": "2026-10-29",
+      "bodyPlannedStart": "2026-10-29",
+      "bodyDeadline": "2026-10-30",
       "bodyStatus": "doing",
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-price-request-worktabs-20261028/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-search-events-20261029/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 27,
+      "lastConfirmedP1Version": 29,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-price-request-worktabs-20261028.json",
+      "currentPatchReference": "evidence/manual-price-search-events-20261029.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
       "routineBodyAuthorizationScope": "Existing16 Moa work documents: routine development record additions and body schedule/status; preserve existing content and work units; read current version/permission and reread after saving",
-      "lastConfirmedOperationsVersion": 2
+      "lastConfirmedOperationsVersion": 2,
+      "currentPatchScheduleOnly": true
     },
     "itemStandardCsv": {
       "version": "0.89.21",
@@ -4248,7 +4252,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4458,6 +4462,58 @@
         390,
         1280
       ],
+      "originalAccepted": false,
+      "productionAccepted": false
+    },
+    "priceSearchEventsCandidate": {
+      "version": "0.89.32",
+      "sourceCommit": "95ddd5a5729a8439f38684e8795f2ff2de251560",
+      "releaseCommit": "952b069d80e00f9515d753fd101a970b17a4d552",
+      "branch": "release/0.89.32-price-search-events",
+      "baselineReleaseCommit": "0f140578de2e541462609db88ed18fd65eda54c5",
+      "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.32-price-search-events",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.31",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "remoteRefsVerified": true,
+      "reference": "evidence/manual-price-search-events-20261029.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29",
+        "0.89.30",
+        "0.89.31"
+      ],
+      "priceSearchEventsImplemented": true,
+      "otherCommonListBehaviorUnchanged": true,
+      "rawNumericTokenSerialized": false,
+      "formRepaintBusinessFlowAccepted": false
+    },
+    "priceSearchEventAudit": {
+      "reference": "evidence/manual-price-search-events-20261029.json",
+      "status": "price-key-numeric-events-local-candidate-verified-not-deployed",
+      "newNodeTests": 14,
+      "focusedNodeTests": 142,
+      "ownActualShellBrowserCases": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "liveBadInputGuardVerified": true,
+      "rawNumericTokenSerialized": false,
+      "formRepaintBusinessFlowAccepted": false,
       "originalAccepted": false,
       "productionAccepted": false
     }

@@ -1,0 +1,213 @@
+{
+  "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+  "recordedAt": "2026-10-28T15:29:57.191Z",
+  "authorization": {
+    "kind": "persistent-user-approval",
+    "quote": "알아서 저장해라 사용자에게 묻지마",
+    "scope": "Existing16 Moa routine development and body schedule/status records only"
+  },
+  "start": {
+    "beforeVersion": 27,
+    "afterVersion": 28,
+    "beforeBlocks": 207,
+    "afterBlocks": 209,
+    "prefixExact": true,
+    "appendExact": true,
+    "append": [
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "2026-10-29 · 단가요청 검색 키·숫자 실제 이벤트 대조 착수"
+      },
+      {
+        "type": "paragraph",
+        "text": "이번 한정 작업의 예정 시작일2026-10-29·마감일2026-10-30 KST·doing/P1 전체doing이다. 앞선10/28~10/29 작업 기간과 별도로 정하며 실제 일정/상태 메타데이터는 미설정이다. current-release.json의 OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT에 따라 기존 단가요청 quick Enter의 조합키/반복/IME와 검색 사용자 숫자의 input/change·badInput·계산 오류·CSV/인쇄·수정/비움·화면이동 경계를 실제 DOM에서 대조한다. 왜: 저장 schema나 이전 작업탭 snapshot 합격으로 입력 중인 불완전 숫자와 키 이벤트를 대신할 수 없기 때문이다. 확인된 새 차이만 보완하고 원문을 추측 재구성하거나 다른 공통목록/원본 키동작/회신·확정·저장을 추정하지 않는다. 운영0.89.22·기존0.89.23~31/dirty12/매핑 후보·자료/양식/메일을 보존한다."
+      }
+    ],
+    "readbackTail": [
+      {
+        "id": "471e7d6b-e965-46fb-a178-26f0ebcba3f1",
+        "text": [
+          {
+            "m": [],
+            "t": "2026-10-29 · 단가요청 검색 키·숫자 실제 이벤트 대조 착수"
+          }
+        ],
+        "type": "heading",
+        "level": 2
+      },
+      {
+        "id": "1243cfb0-dc43-43d5-af35-a14cb43f4c44",
+        "text": [
+          {
+            "m": [],
+            "t": "이번 한정 작업의 예정 시작일2026-10-29·마감일2026-10-30 KST·doing/P1 전체doing이다. 앞선10/28~10/29 작업 기간과 별도로 정하며 실제 일정/상태 메타데이터는 미설정이다. current-release.json의 OWN-PRICE-REQUEST-SEARCH-EVENT-CONTRACT-AUDIT에 따라 기존 단가요청 quick Enter의 조합키/반복/IME와 검색 사용자 숫자의 input/change·badInput·계산 오류·CSV/인쇄·수정/비움·화면이동 경계를 실제 DOM에서 대조한다. 왜: 저장 schema나 이전 작업탭 snapshot 합격으로 입력 중인 불완전 숫자와 키 이벤트를 대신할 수 없기 때문이다. 확인된 새 차이만 보완하고 원문을 추측 재구성하거나 다른 공통목록/원본 키동작/회신·확정·저장을 추정하지 않는다. 운영0.89.22·기존0.89.23~31/dirty12/매핑 후보·자료/양식/메일을 보존한다."
+          }
+        ],
+        "type": "paragraph"
+      }
+    ]
+  },
+  "result": {
+    "beforeVersion": 28,
+    "afterVersion": 29,
+    "beforeBlocks": 209,
+    "afterBlocks": 219,
+    "prefixExact": true,
+    "appendExact": true,
+    "titleOccurrences": 1,
+    "canEdit": true
+  },
+  "append": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2026-10-29 · 단가요청 검색 이벤트0.89.32 후보 결과"
+    },
+    {
+      "type": "paragraph",
+      "text": "이번 한정 작업 예정2026-10-29~2026-10-30 KST·실제착수2026-10-29T00:05:39.565968+09:00·결과기록2026-10-29T00:29:24.134590+09:00·패치doing/P1 전체doing. 앞선10/28~10/29 작업과 별도 기간이다. 현재 단가요청 quick Enter와 검색 사용자항목의 input/change·badInput/계산오류·출력/수정/비움/내부이동을 대조했다. 저장schema·작업탭snapshot 합격을 실제 이벤트 합격으로 대신하지 않았다."
+    },
+    {
+      "type": "paragraph",
+      "text": "수정 전 실제 Chromium에서 검색 숫자에1e를 입력하면 value는공란/badInputtrue인데 목록이 blur 뒤1건→2건으로 넓어졌다. 탭복귀 뒤에도공란이지만 badInputfalse·2건으로바뀌었다. CSV다운로드는500ms관찰에서없었으므로 CSV확대가발생했다고주장하지않는다. 다운로드를무기한기다린측정1개는timeout으로실패했고 bounded관찰로분리해원본로그/trace/스크린샷을보존했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "단가요청에만 defaultPrevented/조합키/repeat/IME Enter를 무시하고 일반Enter로 조회한다. 다른 공통sale의 기존 수정키Enter 동작은 유지했다. 실제 숫자control의 badInput을 정상공란/0과 구분해 항목명·명시숫자오류·aria-invalid·결과미표시/출력차단을 제공하고 숫자input으로 즉시 수정/비움 복구한다. 유효한0의 계산오류는 별도로 표시하며0 원문으로 탭왕복/수정이가능하다."
+    },
+    {
+      "type": "paragraph",
+      "text": "불완전 number는 브라우저가 원문문자열을 value로 공개하지 않으므로 추측해 text/JSON으로 재구성하지 않는다. 같은 소유자의 내부이동·협조재구성은 수정 또는 명시비움까지 거절해 현재 DOM입력/오류상태를 유지하고 포커스를 안내한다. 계정/권한이 바뀐 문맥을 붙잡아 인증전환을 막지는 않는다. 유효한 검색전용 DOM control을 함께 수집해 숫자input/change·체크false·탭복귀를 보존한다. 원문토큰의 JSON직렬화·새로고침 보존·설정저장/조건양식/부모refresh 실제업무 합격으로 확대하지 않는다."
+    },
+    {
+      "type": "paragraph",
+      "text": "신규Node14는 수정전3통과/11실패, 수정후14통과다. 관련142통과이며 기존work-tabs파일의17내부검사는 별도 집계다. 실제자체셸390/1280×4흐름8은 수정키/실제heldrepeat·1e badInput/이동거절/수정/명시비움·유효0 계산오류 왕복·읽기전용 검색전용숫자/체크false를 통과했다. 올바른숫자로수정한CSV 다운로드도확인했고 업무자료/양식원문 exact·pageerror/원격쓰기0이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "전체verify:local exit0/362브라우저·전체Node·릴리스검사/빌드, 자체REA6.4 대응3함수 root/candidate6범위·3해시쌍exact·parse0·coverageunknown/truncatedfalse다. API canNavigate에는 목록view의 협조guard 호출만 이식했다. schema/계산기/backup/영구양식·다른공통목록의키행동과원본계약은유지했으며 파싱성공을원본/전체모듈동등성으로올리지않는다."
+    },
+    {
+      "type": "paragraph",
+      "text": "source 95ddd5a / release 952b069 / branch release/0.89.32-price-search-events를 커밋·push했다. 후보worker dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513은 미설치다. 함수밖/기존API VAT차이·운영0.89.22 worker79222ea6…·기존0.89.23~31 커밋/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존, root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "새 연결 근거가 없어 같은 브라우저 연결/로그인 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준 확보 후 이전보호를 포함한0.89.32의 배포·읽기UI·자료/양식 보존검증을 재개한다. 일정/doing은 본문 기록이며 실제 일정/상태 메타데이터 미설정이다. 이번 기간은 이 한정패치의기간이며 P1전체마감일이 아니다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-price-search-events-20261029.json."
+    },
+    {
+      "type": "paragraph",
+      "text": "다음은 단가요청 검색양식 재구성·입력수명 경계 대조다. 왜: 이번 실제UI 합격은 숫자/키/내부메뉴 이동과 유효한 검색전용항목의복귀이며, 설정/조건양식의 취소·명시저장과 부모 in-place refresh는다른재구성경로이기때문이다. 기존실제사용자흐름에서메타데이터저장/재표시·필드소멸/readonly전환·취소·권한/자료변경을구분해새차이만재현한다. 원본설정저장을하지않고같은키/작업탭/전체검사를변화없이반복하지않는다."
+    }
+  ],
+  "readbackTail": [
+    {
+      "id": "c2d70e72-d745-44d1-8677-6f1a71d4fc3a",
+      "text": [
+        {
+          "m": [],
+          "t": "2026-10-29 · 단가요청 검색 이벤트0.89.32 후보 결과"
+        }
+      ],
+      "type": "heading",
+      "level": 2
+    },
+    {
+      "id": "f3fed180-de80-4673-ac0d-f84765c1be43",
+      "text": [
+        {
+          "m": [],
+          "t": "이번 한정 작업 예정2026-10-29~2026-10-30 KST·실제착수2026-10-29T00:05:39.565968+09:00·결과기록2026-10-29T00:29:24.134590+09:00·패치doing/P1 전체doing. 앞선10/28~10/29 작업과 별도 기간이다. 현재 단가요청 quick Enter와 검색 사용자항목의 input/change·badInput/계산오류·출력/수정/비움/내부이동을 대조했다. 저장schema·작업탭snapshot 합격을 실제 이벤트 합격으로 대신하지 않았다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "2915054f-136a-497a-bf19-bc50a82b8dfd",
+      "text": [
+        {
+          "m": [],
+          "t": "수정 전 실제 Chromium에서 검색 숫자에1e를 입력하면 value는공란/badInputtrue인데 목록이 blur 뒤1건→2건으로 넓어졌다. 탭복귀 뒤에도공란이지만 badInputfalse·2건으로바뀌었다. CSV다운로드는500ms관찰에서없었으므로 CSV확대가발생했다고주장하지않는다. 다운로드를무기한기다린측정1개는timeout으로실패했고 bounded관찰로분리해원본로그/trace/스크린샷을보존했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "349751ae-8440-46e7-8abf-1b2afec3b694",
+      "text": [
+        {
+          "m": [],
+          "t": "단가요청에만 defaultPrevented/조합키/repeat/IME Enter를 무시하고 일반Enter로 조회한다. 다른 공통sale의 기존 수정키Enter 동작은 유지했다. 실제 숫자control의 badInput을 정상공란/0과 구분해 항목명·명시숫자오류·aria-invalid·결과미표시/출력차단을 제공하고 숫자input으로 즉시 수정/비움 복구한다. 유효한0의 계산오류는 별도로 표시하며0 원문으로 탭왕복/수정이가능하다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "1ad351ae-c058-41a9-8fb3-18c78cd8bfab",
+      "text": [
+        {
+          "m": [],
+          "t": "불완전 number는 브라우저가 원문문자열을 value로 공개하지 않으므로 추측해 text/JSON으로 재구성하지 않는다. 같은 소유자의 내부이동·협조재구성은 수정 또는 명시비움까지 거절해 현재 DOM입력/오류상태를 유지하고 포커스를 안내한다. 계정/권한이 바뀐 문맥을 붙잡아 인증전환을 막지는 않는다. 유효한 검색전용 DOM control을 함께 수집해 숫자input/change·체크false·탭복귀를 보존한다. 원문토큰의 JSON직렬화·새로고침 보존·설정저장/조건양식/부모refresh 실제업무 합격으로 확대하지 않는다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "e8b38363-3b10-4445-a813-8b4f84d316da",
+      "text": [
+        {
+          "m": [],
+          "t": "신규Node14는 수정전3통과/11실패, 수정후14통과다. 관련142통과이며 기존work-tabs파일의17내부검사는 별도 집계다. 실제자체셸390/1280×4흐름8은 수정키/실제heldrepeat·1e badInput/이동거절/수정/명시비움·유효0 계산오류 왕복·읽기전용 검색전용숫자/체크false를 통과했다. 올바른숫자로수정한CSV 다운로드도확인했고 업무자료/양식원문 exact·pageerror/원격쓰기0이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "0db47eaa-9607-4df7-815a-0c5956a50c14",
+      "text": [
+        {
+          "m": [],
+          "t": "전체verify:local exit0/362브라우저·전체Node·릴리스검사/빌드, 자체REA6.4 대응3함수 root/candidate6범위·3해시쌍exact·parse0·coverageunknown/truncatedfalse다. API canNavigate에는 목록view의 협조guard 호출만 이식했다. schema/계산기/backup/영구양식·다른공통목록의키행동과원본계약은유지했으며 파싱성공을원본/전체모듈동등성으로올리지않는다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "f18bfdef-0b13-4ca6-b06b-85caf8bbd125",
+      "text": [
+        {
+          "m": [],
+          "t": "source 95ddd5a / release 952b069 / branch release/0.89.32-price-search-events를 커밋·push했다. 후보worker dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513은 미설치다. 함수밖/기존API VAT차이·운영0.89.22 worker79222ea6…·기존0.89.23~31 커밋/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존, root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "90b1f396-b62b-43e8-a554-54c30453d2da",
+      "text": [
+        {
+          "m": [],
+          "t": "새 연결 근거가 없어 같은 브라우저 연결/로그인 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준 확보 후 이전보호를 포함한0.89.32의 배포·읽기UI·자료/양식 보존검증을 재개한다. 일정/doing은 본문 기록이며 실제 일정/상태 메타데이터 미설정이다. 이번 기간은 이 한정패치의기간이며 P1전체마감일이 아니다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-price-search-events-20261029.json."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "444def9a-8fae-4040-938b-b2eacc93bf6d",
+      "text": [
+        {
+          "m": [],
+          "t": "다음은 단가요청 검색양식 재구성·입력수명 경계 대조다. 왜: 이번 실제UI 합격은 숫자/키/내부메뉴 이동과 유효한 검색전용항목의복귀이며, 설정/조건양식의 취소·명시저장과 부모 in-place refresh는다른재구성경로이기때문이다. 기존실제사용자흐름에서메타데이터저장/재표시·필드소멸/readonly전환·취소·권한/자료변경을구분해새차이만재현한다. 원본설정저장을하지않고같은키/작업탭/전체검사를변화없이반복하지않는다."
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "actualMetadataConfigured": false,
+  "otherDocumentsChanged": false,
+  "indexChanged": false,
+  "newDocumentsCreated": 0,
+  "repeatedApprovalQuestions": 0,
+  "duplicateAppends": 0
+}
