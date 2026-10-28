@@ -1,0 +1,578 @@
+{
+  "actualStart": "2026-10-29T00:33:33.369746+09:00",
+  "plannedStart": "2026-10-29",
+  "plannedDeadline": "2026-10-30",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "recordedAt": "2026-10-29T00:47:54.649334+09:00",
+  "elapsedSeconds": 861.28,
+  "version": "0.89.33",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "basis": [
+    "OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT",
+    "Actual local synthetic form entry/selection/save observation",
+    "No new original observation or original actions"
+  ],
+  "change": {
+    "scope": "Price-request FormOptions entry and commit preflight, current parent host only",
+    "checksBeforeMetadata": [
+      "current owner/form/data",
+      "live editable numeric badInput"
+    ],
+    "outcome": "Refuse settings/conditional entry, selection and late commit before metadata mutation; retain live input and allow correction/cancel",
+    "unchanged": [
+      "FormOptions schema/logic",
+      "other common lists",
+      "separate editor form flow",
+      "numeric token serialization",
+      "valid draft repaint reset still unresolved"
+    ]
+  },
+  "checks": {
+    "newNodeTests": 8,
+    "newNodeBefore": {
+      "passed": 3,
+      "failed": 5
+    },
+    "focusedNodeTests": 90,
+    "actualBrowser": {
+      "tests": 8,
+      "beforePassed": 2,
+      "beforeFailed": 6,
+      "afterPassed": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "flows": [
+        "badInput search-settings entry/correction/cancel",
+        "badInput conditional entry/correction/cancel",
+        "badInput applied-form selection/correction/cancel",
+        "valid search settings edit/cancel without write"
+      ],
+      "pageErrors": 0,
+      "remoteWrites": 0,
+      "businessWrites": 0
+    },
+    "separateBrowserObservation": {
+      "tests": 1,
+      "purpose": "Valid2 search label explicit save becomes default1 and different matching document",
+      "knownDefectStillOpen": true,
+      "data": {
+        "before": {
+          "value": "2",
+          "summary": "1건 · 합계 300 원",
+          "documents": [
+            {
+              "type": "pricerequest",
+              "date": "2026-10-01",
+              "warehouse": "W001",
+              "partner": "V001",
+              "vatRate": 0,
+              "custom": {
+                "x_num": 1,
+                "x_flag": true,
+                "x_den": 1,
+                "x_calc": 1
+              },
+              "lines": [
+                {
+                  "item": "M001",
+                  "qty": 2,
+                  "price": 100,
+                  "discount": 0,
+                  "supply": 200,
+                  "tax": 0,
+                  "total": 200
+                }
+              ],
+              "consumption": [],
+              "status": "진행",
+              "id": "PRICEREQUEST-20261001-00001",
+              "accounted": false
+            },
+            {
+              "type": "pricerequest",
+              "date": "2026-10-02",
+              "warehouse": "W001",
+              "partner": "V001",
+              "vatRate": 0,
+              "custom": {
+                "x_num": 2,
+                "x_flag": false,
+                "x_den": 1,
+                "x_calc": 1
+              },
+              "lines": [
+                {
+                  "item": "M001",
+                  "qty": 3,
+                  "price": 100,
+                  "discount": 0,
+                  "supply": 300,
+                  "tax": 0,
+                  "total": 300
+                }
+              ],
+              "consumption": [],
+              "status": "진행",
+              "id": "PRICEREQUEST-20261002-00003",
+              "accounted": false
+            }
+          ]
+        },
+        "after": {
+          "value": "1",
+          "summary": "1건 · 합계 200 원",
+          "documents": [
+            {
+              "type": "pricerequest",
+              "date": "2026-10-01",
+              "warehouse": "W001",
+              "partner": "V001",
+              "vatRate": 0,
+              "custom": {
+                "x_num": 1,
+                "x_flag": true,
+                "x_den": 1,
+                "x_calc": 1
+              },
+              "lines": [
+                {
+                  "item": "M001",
+                  "qty": 2,
+                  "price": 100,
+                  "discount": 0,
+                  "supply": 200,
+                  "tax": 0,
+                  "total": 200
+                }
+              ],
+              "consumption": [],
+              "status": "진행",
+              "id": "PRICEREQUEST-20261001-00001",
+              "accounted": false
+            },
+            {
+              "type": "pricerequest",
+              "date": "2026-10-02",
+              "warehouse": "W001",
+              "partner": "V001",
+              "vatRate": 0,
+              "custom": {
+                "x_num": 2,
+                "x_flag": false,
+                "x_den": 1,
+                "x_calc": 1
+              },
+              "lines": [
+                {
+                  "item": "M001",
+                  "qty": 3,
+                  "price": 100,
+                  "discount": 0,
+                  "supply": 300,
+                  "tax": 0,
+                  "total": 300
+                }
+              ],
+              "consumption": [],
+              "status": "진행",
+              "id": "PRICEREQUEST-20261002-00003",
+              "accounted": false
+            }
+          ],
+          "label": "변경한 숫자 제목"
+        },
+        "errors": [],
+        "posts": []
+      },
+      "syntheticMetadataSave": 1,
+      "productionWrites": 0
+    },
+    "lateCommitTests": "2 jsdom cases inject validity.badInput; not real user typing outside an open native modal",
+    "fullVerifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.33-price-search-form-preflight",
+      "startedAt": "2026-10-28T15:39:35.408434+00:00",
+      "finishedAt": "2026-10-28T15:47:08.411803+00:00",
+      "exitCode": 0,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "b65671ae3eb84fbbf63efad61c80f353f41700bbd428626ba1d4d84f96dac814",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-search-form-preflight.cjs": "0b6ec8a22ad2b681ed02594a206fea416d667386b23bd96add262c6a7c7d492b",
+        "tests/browser/price-search-form-preflight.spec.cjs": "6109d3204ce9a0684db694770029cb72afa88f671046ca7437ef929a83a14dd3",
+        "package.json": "e5284aa2472d082099a24d345562b6b4ce7bf3425b7b09c4861dbaa4724488a9"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "b65671ae3eb84fbbf63efad61c80f353f41700bbd428626ba1d4d84f96dac814",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/price-search-form-preflight.cjs": "0b6ec8a22ad2b681ed02594a206fea416d667386b23bd96add262c6a7c7d492b",
+        "tests/browser/price-search-form-preflight.spec.cjs": "6109d3204ce9a0684db694770029cb72afa88f671046ca7437ef929a83a14dd3",
+        "package.json": "e5284aa2472d082099a24d345562b6b4ce7bf3425b7b09c4861dbaa4724488a9"
+      }
+    },
+    "browserTests": 370,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 4,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "ensureOptions",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "14977d722a9a049ac21b0a6a6ac6879708ed37aa5973946fd1a5c27488008cdd",
+          "start": 8601,
+          "end": 9418,
+          "lineStart": 63,
+          "lineEnd": 66,
+          "fragmentSha256": "b2e5efeb99acc454f0b1a449615f16a15c46723e707cffc4bacd6e77c36e8bad",
+          "inputFile": "own-ensureOptions.js",
+          "inputSha256": "bc92cee889c94616af69d9fa4fa6702ec1350360adeacf66d2357c0b8511eb5f",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "ensureOptions",
+          "file": ".artifacts/releases/0.89.33-price-search-form-preflight/dist/inventory-ui.js",
+          "sourceSha256": "b65671ae3eb84fbbf63efad61c80f353f41700bbd428626ba1d4d84f96dac814",
+          "start": 8578,
+          "end": 9395,
+          "lineStart": 63,
+          "lineEnd": 66,
+          "fragmentSha256": "b2e5efeb99acc454f0b1a449615f16a15c46723e707cffc4bacd6e77c36e8bad",
+          "inputFile": "candidate-ensureOptions.js",
+          "inputSha256": "bc92cee889c94616af69d9fa4fa6702ec1350360adeacf66d2357c0b8511eb5f",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "14977d722a9a049ac21b0a6a6ac6879708ed37aa5973946fd1a5c27488008cdd",
+          "start": 149617,
+          "end": 162872,
+          "lineStart": 593,
+          "lineEnd": 630,
+          "fragmentSha256": "9d7894f04734ba8a544e3acef7f2458802cab016e96c7262ace88640d58ce775",
+          "inputFile": "own-docList.js",
+          "inputSha256": "1cc62f640f1462c0dac151b881871abfaf06d462770edceecf121534fa9a718a",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.33-price-search-form-preflight/dist/inventory-ui.js",
+          "sourceSha256": "b65671ae3eb84fbbf63efad61c80f353f41700bbd428626ba1d4d84f96dac814",
+          "start": 144871,
+          "end": 158126,
+          "lineStart": 570,
+          "lineEnd": 607,
+          "fragmentSha256": "9d7894f04734ba8a544e3acef7f2458802cab016e96c7262ace88640d58ce775",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "1cc62f640f1462c0dac151b881871abfaf06d462770edceecf121534fa9a718a",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "b65bb3750d3aa40b25d8f35878bb237782324bdb5dda32b179c0fb5dd6015d11",
+      "statistics": {
+        "relevant_files": 4,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 30462,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 4,
+        "visited_ast_nodes": 6280,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "priorApiVatDifferenceRetained": true,
+      "scope": "Price-request FormOptions preflight only",
+      "scopes": [
+        {
+          "name": "ensureOptions",
+          "sourceHash": "b2e5efeb99acc454f0b1a449615f16a15c46723e707cffc4bacd6e77c36e8bad",
+          "candidateHash": "b2e5efeb99acc454f0b1a449615f16a15c46723e707cffc4bacd6e77c36e8bad"
+        },
+        {
+          "name": "docList",
+          "sourceHash": "9d7894f04734ba8a544e3acef7f2458802cab016e96c7262ace88640d58ce775",
+          "candidateHash": "9d7894f04734ba8a544e3acef7f2458802cab016e96c7262ace88640d58ce775"
+        }
+      ]
+    },
+    "preparationFailures": {
+      "readWrongFile": "dist/form-ui.js does not exist; corrected to form-options.js",
+      "metadataPreparationAssertion": "Expected1 version occurrence but index2/api-manual5; inspection confirmed version markers and all were updated before build",
+      "applicationFailure": false
+    }
+  },
+  "release": {
+    "version": "0.89.33",
+    "sourceCommit": "96c7a43b485cdbbfa5c6bd3a7844ef7149354a9f",
+    "releaseCommit": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+    "branch": "release/0.89.33-price-search-form-preflight",
+    "baselineReleaseCommit": "952b069d80e00f9515d753fd101a970b17a4d552",
+    "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.33-price-search-form-preflight",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.32",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "formRepaintBusinessFlowAccepted": false,
+  "validDraftRepaintPreservationAccepted": false,
+  "parentRefreshBusinessFlowAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-SEARCH-VALID-DRAFT-FORM-CHANGE-PRESERVATION",
+    "title": "단가요청 정상 검색초안의 양식 변경 후 보존",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-search-form-preflight-20261029.json",
+    "latestEvidence": "evidence/manual-price-search-form-preflight-20261029.json",
+    "description": "실제 자체셸의 검색 숫자2에서 검색항목 제목만 저장했는데 기본값1로 돌아가 1건/300원 대상이 다른1건/200원 대상으로 바뀌었다. 업무 전표 원문은 exact다. 이번 preflight는 미완성 숫자 전 설정 변경을 막지만 유효 초안 재적용을 해결하지 않는다. 기존 snapshot/refresh와 명시 양식 변경의 기본값·타입·readonly·필드 소멸 의미를 대조하고 이 재현 차이부터 보완한다. 조건양식/부모 in-place refresh 합격을 추정하지 않고 동일 키/미완성 입력 행렬은 반복하지 않는다. 운영0.89.22·기존 후보·브라우저 배포 gate를 유지한다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "transport": "configured-moa-mcp",
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 29,
+        "afterVersion": 30,
+        "beforeBlocks": 219,
+        "afterBlocks": 221,
+        "prefixExact": true,
+        "appendExact": true,
+        "canEdit": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 검색양식 재구성·입력수명 경계 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "이번 한정 감사의 예정 시작일2026-10-29·마감일2026-10-30 KST·doing/P1 전체doing이다. 실제 일정/상태 메타데이터는 미설정이다. current-release.json의 OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT에 따라 단가요청 검색양식의 실제 설정 진입/취소/명시 저장·조건양식 선택·부모 화면 갱신과 입력 수명을 대조한다. 왜: 앞선0.89.32의 숫자/키/내부메뉴 이동 검증은 별도 양식 재구성 경로의 저장 순서·필드 소멸/readonly·초안 보존을 대신하지 못하기 때문이다. 기존 요구사항/소비자에서 새 차이만 재현하고 원본 설정 저장·다른 공통목록 동등성·DOM 비공개 숫자토큰 직렬화를 추정하지 않는다. 운영0.89.22·기존0.89.23~32와 dirty12/매핑 후보·자료/양식/메일을 보존하며 이미 완료된 키/작업탭/숫자 행렬과 같은 연결 검사는 반복하지 않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "78586675-8cb6-4eb1-b07b-109cc442ca94",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 검색양식 재구성·입력수명 경계 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "4826903b-6757-435c-a840-f70b6511fe4b",
+          "text": [
+            {
+              "m": [],
+              "t": "이번 한정 감사의 예정 시작일2026-10-29·마감일2026-10-30 KST·doing/P1 전체doing이다. 실제 일정/상태 메타데이터는 미설정이다. current-release.json의 OWN-PRICE-SEARCH-FORM-REPAINT-INPUT-LIFECYCLE-AUDIT에 따라 단가요청 검색양식의 실제 설정 진입/취소/명시 저장·조건양식 선택·부모 화면 갱신과 입력 수명을 대조한다. 왜: 앞선0.89.32의 숫자/키/내부메뉴 이동 검증은 별도 양식 재구성 경로의 저장 순서·필드 소멸/readonly·초안 보존을 대신하지 못하기 때문이다. 기존 요구사항/소비자에서 새 차이만 재현하고 원본 설정 저장·다른 공통목록 동등성·DOM 비공개 숫자토큰 직렬화를 추정하지 않는다. 운영0.89.22·기존0.89.23~32와 dirty12/매핑 후보·자료/양식/메일을 보존하며 이미 완료된 키/작업탭/숫자 행렬과 같은 연결 검사는 반복하지 않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 31,
+    "p1FinalBlocks": 231,
+    "evidence": "evidence/moa-price-search-form-preflight-preauthorized-20261029.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-search-repaint-20261029/release.json": "8aacdc2254c8ea45fd5aac3ce31ac6810a7ab17d13c4feda8994db1831cf2384",
+    ".artifacts/manual-price-search-repaint-20261029/node-before.log": "3a56e282ccd105282976226f3736c6e07608c1a83fbd6e535b3d034f476bae42",
+    ".artifacts/manual-price-search-repaint-20261029/node-after-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-search-repaint-20261029/node-after.log": "50b97e3a6dc0eac599e22de241c87ef41f0d843e5e642554bea2767b2cf4d599",
+    ".artifacts/manual-price-search-repaint-20261029/verify-local.log": "06e91fb4199e630b9ddb3f715c91cddce1f2ae6fb0b1706690b28c5e0886d4b8",
+    ".artifacts/manual-price-search-repaint-20261029/current-release-before.json": "aabb6fc8c929dd3c13967ec897310e4f1faa314f2c53643868a60c1497166cb0",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before.log": "e4c649f33f76a391d3aaa498554a71ca9a7088c617505e945fc763ce2822e614",
+    ".artifacts/manual-price-search-repaint-20261029/patch-port.json": "5411a7e66fab29390f2e1b41ff19603b8ba1262bf1739dbd71300efd9daed333",
+    ".artifacts/manual-price-search-repaint-20261029/browser-after.log": "c6537f376195e629b604e5a97d8c9738f647d4ad9846917c64c70a971e1d8131",
+    ".artifacts/manual-price-search-repaint-20261029/moa-start.json": "8515fdb51fd1820c14e303fb4b532c42bbb59ca52fca058cea64286c562b79fc",
+    ".artifacts/manual-price-search-repaint-20261029/repaint-observation.spec.cjs": "5f84678d2228d3efe3c4b7b79ae48762aaf316eb6bca5089227f883a5c0111cf",
+    ".artifacts/manual-price-search-repaint-20261029/node-focused.log": "d365ba0266f935967abf82f103d5a241e4dd23ff4bf7d3fd3e7f870b7ec6b6fe",
+    ".artifacts/manual-price-search-repaint-20261029/port.cjs": "241da4435ffde244c8533c70b74e2f001f7214084b625dd16550eaa0e193172d",
+    ".artifacts/manual-price-search-repaint-20261029/node-focused-exit.json": "b3952d4d405bf28a4a8be15c9e49f4fdcab3744dfe8530a946792abafd4aa2e5",
+    ".artifacts/manual-price-search-repaint-20261029/preservation.json": "e0a9e8f39ac6589d3a2494368b6339234ab8cf21f1b18c1f87458a9b93f8342a",
+    ".artifacts/manual-price-search-repaint-20261029/browser-after-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-search-repaint-20261029/preparation-failures.json": "a8ea837289111dc5939ce0d954fc5e24895e8490e861305d709bf790f096dea8",
+    ".artifacts/manual-price-search-repaint-20261029/valid-label-save-observation.json": "86b18dc6248f9cd56ee91aa76d97bfbf416ebc43c0bd27c80467f62f4a3b528a",
+    ".artifacts/manual-price-search-repaint-20261029/analyze.mjs": "50b70fec153df6a97b2c193313d1d9fc01daf915993e90ad35ce9e63360f5fd4",
+    ".artifacts/manual-price-search-repaint-20261029/start.json": "42dcd55537e0492c44185c495920c97d0c970c0c4b7f6f584d64d0372c42bb06",
+    ".artifacts/manual-price-search-repaint-20261029/verify-local-exit.json": "202c97db16d32b0af8861e6bba18ab98a6d5d5276e9b56d17a334875e08dfde1",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/.last-run.json": "9724ae42f733fbb990f1a1ec23969d3ad6dedbbfe540d6d6ccf9acdedaa4486a",
+    ".artifacts/manual-price-search-repaint-20261029/rea/rea-summary.json": "f225b1e99966437a10f2e46f78ed3ddcaaba624f40ee1e68afacda2bc8c24ef5",
+    ".artifacts/manual-price-search-repaint-20261029/rea/stderr.log": "6d65a30cdf59c163986ef2f3cb325251294299de18f31bc5aea1cc2a88450e49",
+    ".artifacts/manual-price-search-repaint-20261029/rea/result.json": "b65bb3750d3aa40b25d8f35878bb237782324bdb5dda32b179c0fb5dd6015d11",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/price-search-form-prefligh-5b7de-lights-form-conditional-390/test-failed-1.png": "227488cfc8e5943128f7a563b20536330ecab5f67c02f2c33ada8f2633ec2059",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/price-search-form-prefligh-02eab--preflights-form-picker-390/test-failed-1.png": "8a99bc10f6c0a811a03eb9d06d562b3436fe4fc555228e181889d629652786fe",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/price-search-form-prefligh-6213f-preflights-form-picker-1280/test-failed-1.png": "19f5579c1eb3228b21644262664e74fb3ae236c0e0c4342ce9d92877b104d653",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/price-search-form-prefligh-f7749--preflights-form-search-390/test-failed-1.png": "1e93e3e8c01b9ed0516bbccf10b2cb5ecfa1c253bfb15afc89691ffdbe0d6052",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/price-search-form-prefligh-42163-preflights-form-search-1280/test-failed-1.png": "e62052799b2fb0836acfd83bf754ab625b7663f7f4fb0e731e6a55e1c18368e5",
+    ".artifacts/manual-price-search-repaint-20261029/browser-before-results/price-search-form-prefligh-147c9-ights-form-conditional-1280/test-failed-1.png": "059ddd95665c363faaad3412f0e50a0103646af3f735ac446584a11018f863c3"
+  }
+}
