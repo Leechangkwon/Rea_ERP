@@ -1073,3 +1073,14 @@ source 54ed518 / release 12f073e / branch release/0.89.40-price-input-nonnumeric
 다음은단가요청실제날짜입력이벤트·부분값수명대조다. 왜: 이번합격은원문이이미있는잘못된일자/선택의text/임시선택지보존이며, 정상datecontrol의키/세그먼트와input/change·미완성값·명시비움/재구성/닫기·권한문맥은다른경로이기때문이다. value/badInput을실제관찰하고숫자1e나이번문자fallback으로대신판정하지않는다. DOM비공개원문은추측재구성/JSON저장하지않고확인된새손실만기존원문/양식/자료·18후보/운영gate를보존하며보완한다. 기존업무값선택지변경·계산참조결합/신규F2·다른전표/원본·운영은미확인으로유지하고이번정상추가24/원문복구16과같은전체검사를변화없이반복하지않는다.
 
 모아P1은지속승인으로v45→46→47·기존314exact·착수2/결과9 문구/종류/수준exact·총325블록/결과제목1회를저장·재조회했다. 이어v47→48에서겹치는검사집계설명한문장만정정했고나머지324블록exact·추가0·총325유지를재조회했다. 검사/요구사항숫자는변경하지않았다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-input-nonnumeric-preauthorized-20261029.json.
+
+
+## 2026-10-29 · 단가요청 날짜 native 부분입력0.89.41 후보 착수
+
+예정10/29~10/30KST·실제착수2026-10-29T05:50:14.853886+09:00·감사/패치doing/P1doing·실제메타데이터미설정이다. 모아P1v48→49·기존325exact·착수2exact·총327을저장·재조회했다. 불변40에서실제키1의value공란/badInputtrue가F8뒤기존사용자일자2026-10-22를공란으로저장하는합성2사건을확인했다. 사용자일자6/기본전표일자6관찰에서양식저장/닫기뒤private조각이정상공란으로사라졌고기본일자는기존업무검사가공란저장을거절했다. 초기명시fill비움input/change는isTrustedfalse,이후키1/Backspace/연도키는trustedtrue다. 미완성·Backspace에는input/change없이keyup만발생했고완성중브라우저는0002 등유효한중간연도를공개했다. 사용자최종의도를추정해이를private부분입력으로판정하지않는다.
+
+41은단가요청의실제number/date badInput을raw/strict읽기전에구분한다. native date가badInput이거나이미invalid일때만keyup에서기존검사를호출해즉시표시/명시비움복구를제공하며유효일자단순방향키는다른저장오류를지우지않는다. 같은소유자는저장/메타데이터/조건재구성/닫기를거절해DOM을유지한다. hasIncompleteInput으로소유자변경뒤닫기만읽기/공란초안저장없이허용하고원래업무날짜를보존한다. 불완전숫자정책·공통schema/계산기/backup/FormOptions는유지한다. custom24첫검증소스/REA/로그는before-native-header-snapshot에보존했고추가실관찰뒤native기본전표일자로가드를확장했다. 이중간소스의전체빌드/새worker합격은없다.
+
+최초불변24는22개부분입력보호실패/2개창고공란선택지없는fixture timeout이었다. 입력가능한기본일자비움으로준비를고쳐정상방향키2개만불변40에서재검사해통과했고,추가헤더10개는불변40에서모두실패했다. baseline24/fixture보정2/헤더10은단일34실행으로표시하지않는다. 최종17흐름×390/1280의34개·관련Node99·자체REA8범위4raw해시쌍parse0/coverageunknown/truncatedfalse가통과했다. 첫custom24/초기관찰/키보드2는최종34의요구사항수에합산하지않는다. 원고/로그/실패trace/스크린샷/이벤트JSON을분리보존했다. root/candidate6공유수정밖/VAT·API차이와기존18후보/운영worker·dirty12/매핑을보존하며격리후보전체검사/빌드를진행한다.
+
+최종0.89.41 전체verify:local exit0/558브라우저·전체Node·릴리스검사/빌드가통과했다. UI/FormCore/FormOptions/새검사/package의전후해시exact·자체REA8범위4raw해시쌍parse0와공통코드/운영22worker·기존18후보/dirty12/매핑보존을확인했다. 원본/운영인증UI합격·붙여넣기/조합입력/달력/다른로캘·기기는미확인이다. 한정17흐름감사done/미배포패치doing/P1doing으로커밋·push/모아결과저장을진행한다.
