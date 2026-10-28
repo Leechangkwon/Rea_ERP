@@ -1,0 +1,611 @@
+{
+  "sourceId": "OWN-PRICE-INPUT-NONNUMERIC-ADDITION-LIFECYCLE-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T05:18:02.995816+09:00",
+  "auditStatus": "done-for-twenty-local-flows",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "operatingVersion": "0.89.22",
+  "recordedAt": "2026-10-29T05:38:05.886097+09:00",
+  "elapsedSeconds": 1202.89,
+  "version": "0.89.40",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "patchStatus": "doing",
+  "release": {
+    "version": "0.89.40",
+    "sourceCommit": "54ed5181aabc8967f58a8b130d10862a2388d732",
+    "releaseCommit": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+    "branch": "release/0.89.40-price-input-nonnumeric-values",
+    "baselineReleaseCommit": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+    "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.40-price-input-nonnumeric-values",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.39",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "sourceRemoteRef": "54ed5181aabc8967f58a8b130d10862a2388d732",
+    "releaseRemoteRef": "12f073e5f9711c2f61edebb7c3493a462e35f1f4"
+  },
+  "checks": {
+    "actualShellCases": 40,
+    "flowCount": 20,
+    "widths": [
+      390,
+      1280
+    ],
+    "initialNormalCases": 24,
+    "initialObservationCases": 4,
+    "initialObservations": [
+      {
+        "type": "date",
+        "width": 390,
+        "def": "2026-02-30",
+        "id": "x_mvsk85pp_1",
+        "before": {
+          "value": "",
+          "type": "date",
+          "badInput": false
+        },
+        "childClosed": true,
+        "afterValue": "",
+        "sourceBefore": null,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "type": "select",
+        "width": 390,
+        "def": "MISSING",
+        "id": "x_mvsk86a2_1",
+        "before": {
+          "value": "",
+          "type": "select-one",
+          "badInput": false
+        },
+        "childClosed": true,
+        "afterValue": "",
+        "sourceBefore": null,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "type": "date",
+        "width": 1280,
+        "def": "2026-02-30",
+        "id": "x_mvsk86uv_1",
+        "before": {
+          "value": "",
+          "type": "date",
+          "badInput": false
+        },
+        "childClosed": true,
+        "afterValue": "",
+        "sourceBefore": null,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "type": "select",
+        "width": 1280,
+        "def": "MISSING",
+        "id": "x_mvsk87eb_1",
+        "before": {
+          "value": "",
+          "type": "select-one",
+          "badInput": false
+        },
+        "childClosed": true,
+        "afterValue": "",
+        "sourceBefore": null,
+        "pageErrors": [],
+        "remoteWrites": []
+      }
+    ],
+    "baseline": {
+      "passed": 24,
+      "failed": 16
+    },
+    "firstAfter": {
+      "passed": 40,
+      "failed": 0
+    },
+    "focusedNode": 99,
+    "permanentNewNodeFiles": 0,
+    "wholeBrowser": 524,
+    "allNodeAndBuildPassed": true,
+    "fullVerification": {
+      "exitCode": 0,
+      "elapsedSeconds": 560.7663025856018,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "tests/browser/price-input-nonnumeric-values.spec.cjs": "ee0a722178bd74dd940810305b8d001f6fa3bb847a1b45c9186220c5e0c07925",
+        "package.json": "26a33a3011f1a5c887f8db0a71a12466e7b8abfdcaf2a1fbbfca4c368f32b83a"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "tests/browser/price-input-nonnumeric-values.spec.cjs": "ee0a722178bd74dd940810305b8d001f6fa3bb847a1b45c9186220c5e0c07925",
+        "package.json": "26a33a3011f1a5c887f8db0a71a12466e7b8abfdcaf2a1fbbfca4c368f32b83a"
+      }
+    },
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 6,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "customControl",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "933241dd17558b1b71342ba70061c9fcb96593009eb1d381dad5a353b89fa8b6",
+          "start": 9984,
+          "end": 11176,
+          "lineStart": 69,
+          "lineEnd": 69,
+          "fragmentSha256": "4e0d1228015420f99b7721ea4df775f656fd6207c75796acb40a9df1d954d6b8",
+          "inputFile": "own-customControl.js",
+          "inputSha256": "64f8be33b53edfb0cd930acc7e5b9e28cc43950659ec32ebbdc2475137bfdc99",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "customControl",
+          "file": ".artifacts/releases/0.89.40-price-input-nonnumeric-values/dist/inventory-ui.js",
+          "sourceSha256": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+          "start": 9961,
+          "end": 11153,
+          "lineStart": 69,
+          "lineEnd": 69,
+          "fragmentSha256": "4e0d1228015420f99b7721ea4df775f656fd6207c75796acb40a9df1d954d6b8",
+          "inputFile": "candidate-customControl.js",
+          "inputSha256": "64f8be33b53edfb0cd930acc7e5b9e28cc43950659ec32ebbdc2475137bfdc99",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "configureGrid",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "933241dd17558b1b71342ba70061c9fcb96593009eb1d381dad5a353b89fa8b6",
+          "start": 11935,
+          "end": 18094,
+          "lineStart": 78,
+          "lineEnd": 111,
+          "fragmentSha256": "34df83db06dd72b71a1f608559bd033687a87a8d13b84a8f5b795e718273f8a7",
+          "inputFile": "own-configureGrid.js",
+          "inputSha256": "7c2b1f19ff5ad54206a933b3eeeebeee2bd4469e032a1ea36b4fa9d11f761dc3",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "configureGrid",
+          "file": ".artifacts/releases/0.89.40-price-input-nonnumeric-values/dist/inventory-ui.js",
+          "sourceSha256": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+          "start": 11912,
+          "end": 18071,
+          "lineStart": 78,
+          "lineEnd": 111,
+          "fragmentSha256": "34df83db06dd72b71a1f608559bd033687a87a8d13b84a8f5b795e718273f8a7",
+          "inputFile": "candidate-configureGrid.js",
+          "inputSha256": "7c2b1f19ff5ad54206a933b3eeeebeee2bd4469e032a1ea36b4fa9d11f761dc3",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-configure",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "933241dd17558b1b71342ba70061c9fcb96593009eb1d381dad5a353b89fa8b6",
+          "start": 84082,
+          "end": 84413,
+          "lineStart": 388,
+          "lineEnd": 388,
+          "fragmentSha256": "68989ce4e5a5e665501bb9d58c94fb99b60608c21b4aeea7e627fd87515bbdcd",
+          "inputFile": "own-price-configure.js",
+          "inputSha256": "8f614376db33108db392abe7e4a08972e33b7b8376616525a79c188a92fa748e",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-configure",
+          "file": ".artifacts/releases/0.89.40-price-input-nonnumeric-values/dist/inventory-ui.js",
+          "sourceSha256": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6",
+          "start": 83837,
+          "end": 84168,
+          "lineStart": 387,
+          "lineEnd": 387,
+          "fragmentSha256": "68989ce4e5a5e665501bb9d58c94fb99b60608c21b4aeea7e627fd87515bbdcd",
+          "inputFile": "candidate-price-configure.js",
+          "inputSha256": "8f614376db33108db392abe7e4a08972e33b7b8376616525a79c188a92fa748e",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "203e2257405a14be2aead1337bfa2b9417937cc4a7bd86ef6009df02e1e3bc83",
+      "statistics": {
+        "relevant_files": 6,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 16066,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 6,
+        "visited_ast_nodes": 3976,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "port": {
+      "root": {
+        "outsideSharedEditsExact": true,
+        "beforeSha256": "861f7e97ec06e948273b196f92f6e3c084f51201f36c80d6f3c09c3508e80791",
+        "afterSha256": "933241dd17558b1b71342ba70061c9fcb96593009eb1d381dad5a353b89fa8b6"
+      },
+      "candidate": {
+        "outsideSharedEditsExact": true,
+        "beforeSha256": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+        "afterSha256": "6ceed8dc1e6f9dfcd62fd716a217638826d471a73e5f1e9cb210aa4b66b131a6"
+      }
+    },
+    "syntheticMetadataSaves": 48,
+    "syntheticBusinessSaves": 12,
+    "refusedBusinessSaveAndPrintAttempts": 8,
+    "pageErrors": 0,
+    "remoteWrites": 0
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "remainingWork": [
+    "Native date partial input event lifecycle",
+    "Existing business values and changed selection options",
+    "Date/select fields referenced by input calculations",
+    "New entry F2 and other document contexts"
+  ],
+  "originalAccepted": false,
+  "productionAccepted": false,
+  "actualAccountAccepted": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "browserConnectionRetried": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "newErpChanged": false,
+  "automaticStartupAdded": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-INPUT-DATE-NATIVE-EVENT-LIFECYCLE-AUDIT",
+    "title": "단가요청 실제 날짜 입력 이벤트·부분값 수명 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-input-nonnumeric-20261029.json",
+    "latestEvidence": "evidence/manual-price-input-nonnumeric-20261029.json",
+    "description": "이번은 원문이 주어진 잘못된 일자/미등록 선택 기본값을 표시·검증·수정하는20흐름 한정검증이다. 정상 native date control의 실제 키/세그먼트·input/change·미완성값/명시비움·양식재구성·닫기/권한문맥에서 브라우저가공개하는value/badInput과저장시점을 먼저관찰한다. 숫자1e/기존문자fallback결과를날짜부분입력의증거로대신하지않고 DOM비공개토큰을추측재구성/JSON저장하지않는다. 실제로새손실이확인된경계만기존원문/양식/자료·18후보/운영gate를보존하며보완한다. 기존업무값/선택지변경·입력계산과일자참조결합·신규F2/다른전표·원본/운영은미확인으로유지하고 이번정상추가24/원문복구16과같은전체검사를변화없이반복하지않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 45,
+        "afterVersion": 46,
+        "beforeBlocks": 314,
+        "afterBlocks": 316,
+        "prefixExact": true,
+        "appendExact": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 비숫자 사용자항목 추가·초안·검색 투영 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T05:18:02.995816+09:00·한정감사doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 문자/일자/선택/체크 사용자항목 추가의 취소·명시저장·기본값/readonly·자식초안·부모검색/재진입을 기존 지원UI/저장schema와 대조한다. input기본값/계산/readonly를 검색에 자동상속하지 않고 schema거부와 실제소실을 구분해 확인된 새차이만 보완한다. 기존17후보/자료·양식과 기록상운영0.89.22/배포gate를 보존하며, 이전숫자/계산오류/역할/작업탭 행렬과같은전체검사를반복하지않는다. 입력보조applyDraft/행계산·다른전표/원본·운영합격으로확대하지않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "e2fee68a-eefa-4612-8155-031ea524da86",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 비숫자 사용자항목 추가·초안·검색 투영 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "3ac99820-12f2-45ae-9e5c-c814b7904a68",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T05:18:02.995816+09:00·한정감사doing/P1doing이며 실제 일정/상태 메타데이터는 미설정이다. 문자/일자/선택/체크 사용자항목 추가의 취소·명시저장·기본값/readonly·자식초안·부모검색/재진입을 기존 지원UI/저장schema와 대조한다. input기본값/계산/readonly를 검색에 자동상속하지 않고 schema거부와 실제소실을 구분해 확인된 새차이만 보완한다. 기존17후보/자료·양식과 기록상운영0.89.22/배포gate를 보존하며, 이전숫자/계산오류/역할/작업탭 행렬과같은전체검사를반복하지않는다. 입력보조applyDraft/행계산·다른전표/원본·운영합격으로확대하지않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 47,
+    "p1FinalBlocks": 325,
+    "evidence": "evidence/moa-price-input-nonnumeric-preauthorized-20261029.json"
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-input-nonnumeric-20261029/release.json": "03c2fb37d7df5a08bbae7e352b7e45a2b6ab733c8d626908818a5db062c2af0b",
+    ".artifacts/manual-price-input-nonnumeric-20261029/build-automation.py": "5fe118555b508cea9541582a1559030d5df6b516490a9d145844703838ece462",
+    ".artifacts/manual-price-input-nonnumeric-20261029/verify-local.log": "5f7df3403a92debfefb65565a8ffac228437c9b292407ee319012d7db4b6dc8e",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit.log": "073fe2d57bceae0d8ee0e3606e472d1819b9d7fdad7dae87a154a63331a7e3a8",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-exit.json": "352182aaeaff8102c306ea51b96816b4e65d1b2ae721f76b9d34000b68c35f2d",
+    ".artifacts/manual-price-input-nonnumeric-20261029/inventory-ui-root-before.js": "861f7e97ec06e948273b196f92f6e3c084f51201f36c80d6f3c09c3508e80791",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before.log": "4913d893b506c7b7a96bdc030051f7ad665135f6458a6014432d876b52369596",
+    ".artifacts/manual-price-input-nonnumeric-20261029/patch-port.json": "897ea178beefbdd41ea5fbe2860b3f20e4078d85128ab5976229428cc8a9a1be",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit.cjs": "39c43884af58548f0f06ddef2b4c97cdb5e856c24e6c66146d76f42f95b5f66e",
+    ".artifacts/manual-price-input-nonnumeric-20261029/preserve.py": "bd29e515783a5f6d7557e7d953f74cc517fcd49bcc244026f8b708a5484117bb",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-after.log": "90997d1f44d33894ed46192a9b44cb76e0b3ac1d610d0493c05fdc18090b0814",
+    ".artifacts/manual-price-input-nonnumeric-20261029/release-stage.py": "c99dffa3f25925f1e7ab97aa36f8fcd3dc234d062b76cb164ba16b8e7da31582",
+    ".artifacts/manual-price-input-nonnumeric-20261029/prepare-record.py": "1f949c80bfd7dcfcce7bc4ed9e96f8d72972c0457fc31674c810306a61a4aa10",
+    ".artifacts/manual-price-input-nonnumeric-20261029/moa-start.json": "82318c58aefd8a7b8348b1b3b38527c1864c48c58e27e0783b42d9d2b16709fb",
+    ".artifacts/manual-price-input-nonnumeric-20261029/finalize-records.py": "d871a88e86391b93d298fc8041dd813db260a54f78e241caf20c9ba6e1a5683d",
+    ".artifacts/manual-price-input-nonnumeric-20261029/node-focused.log": "fefd59c1b139fe07156925e83d28cb7a0998213d39d56b4af5b7d42b80ab0cbd",
+    ".artifacts/manual-price-input-nonnumeric-20261029/initial-observations.json": "f95578140b0a14ba290c0e6171cb8ee45f788d519f4eddf2a035d10772b086f2",
+    ".artifacts/manual-price-input-nonnumeric-20261029/node-focused-exit.json": "30ebeee3f7fb25052980db8b0179e84bbbb2dc55fc80f681f68e19e9f0ee480a",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before.cjs": "ee0a722178bd74dd940810305b8d001f6fa3bb847a1b45c9186220c5e0c07925",
+    ".artifacts/manual-price-input-nonnumeric-20261029/shared-edits.json": "7dadf540644fd19f92f09f6d13fecc4ae560a9345ac0bb2126423baf359074c9",
+    ".artifacts/manual-price-input-nonnumeric-20261029/inventory-ui-candidate-before.js": "ca85cb1ba18178e8f82b86dbc160c0acaa750567a1ab89311bee6a973046961e",
+    ".artifacts/manual-price-input-nonnumeric-20261029/preservation.json": "356ddb3bfcc0f5c10e415f7caaaa01094ae5635d6201d4e5de29ad7591dc2ae3",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-after-exit.json": "8c3e4d7d13ff41fdf7584076ebc8a1f96bd58cb32494c3740aee3c6c3ffd5d9d",
+    ".artifacts/manual-price-input-nonnumeric-20261029/unchanged-common-and-baseline-sources.json": "90ec8529f3af486df933010afa38f7aae04a7c2183fe1cab6132fa160c8810c2",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit-exit.json": "65c3f47ed130a768c383e8071032d4d4e295fa96790e1390f786f043edd2834f",
+    ".artifacts/manual-price-input-nonnumeric-20261029/analyze.mjs": "c46ee2879bfc07b96431ef9fdc3d322d63cb5c36f19ac623d6b9255c06fae413",
+    ".artifacts/manual-price-input-nonnumeric-20261029/start.json": "249eddb1a6040ad2d377c42f9f4341af4685b1fad8aa074d575367af0771233b",
+    ".artifacts/manual-price-input-nonnumeric-20261029/verify-local-exit.json": "a24de70b979f4e9867523f144684bb86393691f88ed4bd5ef6e55df2d7340482",
+    ".artifacts/manual-price-input-nonnumeric-20261029/audit-completion.py": "bf8e4cb62fbb37e8120cdd1a53db0af01cf23cea790b73598eb889d49d8ed6c9",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/.last-run.json": "426cf04abe5716c9be5166bc20e10e8d9befa96d1f2eae1d73b5624a7d52b61a",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-after-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/rea-summary.json": "230a8cd8586d97ff783148583f825e9e58961d7f46da099101e2c22274d92ca3",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/stderr.log": "c4676a3d2dda6a3e436055eae6a1743c1dd73f54f8daf7b9c7c4faca4bcb5e31",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/result.json": "203e2257405a14be2aead1337bfa2b9417937cc4a7bd86ef6009df02e1e3bc83",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit-results/price-input-nonnumeric-aud-5b6ae-resentable-default-date-390/observation.json": "e0fe1014f68bfd21da2db35a4425df657a233581137be804269d25480ec6f82b",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit-results/price-input-nonnumeric-aud-1dd7f-sentable-default-select-390/observation.json": "3e3d162026260c484c29d9f732b5be37bce7edfe46b391e5a97aefdc022dcb39",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit-results/price-input-nonnumeric-aud-c58ed-esentable-default-date-1280/observation.json": "247d966f088dabb576d7cd65a43df2baabb8980e833c31ac9d216b59507c11ee",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-audit-results/price-input-nonnumeric-aud-bf93c-entable-default-select-1280/observation.json": "c8bc3e5141c30b9d94a1b1cfc129ce91244909b1d131fed9e2087a4022ec0c08",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/input/candidate-price-configure.js": "8f614376db33108db392abe7e4a08972e33b7b8376616525a79c188a92fa748e",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/input/candidate-customControl.js": "64f8be33b53edfb0cd930acc7e5b9e28cc43950659ec32ebbdc2475137bfdc99",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/input/candidate-configureGrid.js": "7c2b1f19ff5ad54206a933b3eeeebeee2bd4469e032a1ea36b4fa9d11f761dc3",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/input/own-price-configure.js": "8f614376db33108db392abe7e4a08972e33b7b8376616525a79c188a92fa748e",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/input/own-configureGrid.js": "7c2b1f19ff5ad54206a933b3eeeebeee2bd4469e032a1ea36b4fa9d11f761dc3",
+    ".artifacts/manual-price-input-nonnumeric-20261029/rea/input/own-customControl.js": "64f8be33b53edfb0cd930acc7e5b9e28cc43950659ec32ebbdc2475137bfdc99",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-c4c29-d-value-correction-date-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-c4c29-d-value-correction-date-390/trace.zip": "9883c39e5d7302405cc47db1fab242820d605fde6a787cce5737a806bed37767",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-1b875-nded-custom-value-date-1280/test-failed-1.png": "91fc0bb4bf3b473b9f574705f69e748ca0f9a5551789f5485694b97ad5c3fa82",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-1b875-nded-custom-value-date-1280/trace.zip": "415a6b3cdcda20ab29416ae890259ed74ab5797a06db99419a4e33bd2403aede",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-0f45c-nt-through-draft-select-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-0f45c-nt-through-draft-select-390/trace.zip": "2e6abd5c040b9ebdd16fae110504f7ac1d8d940d895f68270df19647b2e2aa91",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-f474b-metadata-and-draft-date-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-f474b-metadata-and-draft-date-390/trace.zip": "3326bdf6871fe7785e3f1627efa68b8031ee87a8eb3bcf03bf8bc1c846630d80",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-d99d4-ed-custom-value-select-1280/test-failed-1.png": "fbb58bd6afe10ce7bc3598017efbbb50d694fe287f4551d0db7ba1d928d6bf71",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-d99d4-ed-custom-value-select-1280/trace.zip": "9f02bc44dbc3f561ff3be51bfc1d5871de9b3adcbfd90718441d9fa27a4defe6",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-3888a-t-through-draft-select-1280/test-failed-1.png": "fbb58bd6afe10ce7bc3598017efbbb50d694fe287f4551d0db7ba1d928d6bf71",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-3888a-t-through-draft-select-1280/trace.zip": "40ffa8b1da7b008d03041f55eda2fbe27adbc10594f3793bb7b11de6a8379fb1",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-5476e-etadata-and-draft-date-1280/test-failed-1.png": "91fc0bb4bf3b473b9f574705f69e748ca0f9a5551789f5485694b97ad5c3fa82",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-5476e-etadata-and-draft-date-1280/trace.zip": "357a8351ec75537b9c5a9682eb4b3b9a28cb89aa48c686c7148225d93f2d097b",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-f5218-ended-custom-value-date-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-f5218-ended-custom-value-date-390/trace.zip": "0b00eb4fd89840c074ccdefb3f2a70c9118d02d86aa6fd2742640a1d3a58b418",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-9cd33-rint-through-draft-date-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-9cd33-rint-through-draft-date-390/trace.zip": "d74f8dfeb00ebb69b3b589cc0dfe73f3d894d20eece3d26f784668a8b0f8cb67",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-bbf7b-int-through-draft-date-1280/test-failed-1.png": "91fc0bb4bf3b473b9f574705f69e748ca0f9a5551789f5485694b97ad5c3fa82",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-bbf7b-int-through-draft-date-1280/trace.zip": "314f5887d5dcab280242a2724da5615e4de3cc3667abd37a9a1ae113ed405a12",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-a319d-value-correction-select-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-a319d-value-correction-select-390/trace.zip": "988a765d9761984c941cf19bc0b59fcd243d284ee3dc6eee2cc4f97176f7dba9",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-976f2-ded-custom-value-select-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-976f2-ded-custom-value-select-390/trace.zip": "ff302c85a919d9438e8e39b5b41bf7db54334f6ad4a223ed1b57c1f737532eb9",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-ecae1-adata-and-draft-select-1280/test-failed-1.png": "fbb58bd6afe10ce7bc3598017efbbb50d694fe287f4551d0db7ba1d928d6bf71",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-ecae1-adata-and-draft-select-1280/trace.zip": "de956ad13ba7ecfaa54734b684522a533ddf567b3c7aa4bde9805f039f8beb7a",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-6a542-alue-correction-select-1280/test-failed-1.png": "3b69b9d3a3c3dc1f8a515312395a3c61bf63260a178c7d947ee66ff26e573213",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-6a542-alue-correction-select-1280/trace.zip": "a338e15aa8821492549766ed5edec74d566f956ec4ca994a48917f1a01c1ff60",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-203c5--value-correction-date-1280/test-failed-1.png": "51934207e3ef330b8bb17e61d1a3937ea4e3249948e858a691314a9ce68f619a",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-203c5--value-correction-date-1280/trace.zip": "84a18246f282a6bc9e220cce7d122b97d3df6011ace86749316cbdaf760c47f2",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-ccdb5-tadata-and-draft-select-390/test-failed-1.png": "ef8ab1bf9c97727c1f3e7603e15b31f809ac16e1dee7efb84fe5232652528d17",
+    ".artifacts/manual-price-input-nonnumeric-20261029/browser-before-results/price-input-nonnumeric-val-ccdb5-tadata-and-draft-select-390/trace.zip": "39976d333686bff93324ee484c2eb65330d68c00c5dbb73223e4683d444d1fb9"
+  }
+}
