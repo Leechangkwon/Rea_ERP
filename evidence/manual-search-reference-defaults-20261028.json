@@ -1,0 +1,216 @@
+{
+  "sourceId": "OWN-REPORT-REFERENCE-DEFAULT-CONTRACT-AUDIT",
+  "date": "2026-10-28",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "timezone": "Asia/Seoul",
+  "actualStart": "2026-10-28T19:57:49.187841+09:00",
+  "recordedAt": "2026-10-28T20:17:04.813388+09:00",
+  "status": "validated-pushed-candidate-not-deployed",
+  "auditStatus": "done-with-confirmed-search-default-loss",
+  "patchStatus": "doing-awaiting-production-browser-preservation",
+  "p1Status": "doing",
+  "version": "0.89.25",
+  "operatingVersion": "0.89.22",
+  "baselineCandidateVersion": "0.89.24",
+  "basis": [
+    "docs/manual-parity/PRD.md",
+    "docs/manual-parity/ARCHITECTURE.md",
+    "docs/manual-parity/ROADMAP.md",
+    "docs/plan-master-number-transition-20261024.md",
+    "evidence/manual-document-rename-defaults-20261028.json"
+  ],
+  "gap": {
+    "attemptedCases": 36,
+    "applicableGenericSearchCases": 30,
+    "excludedDedicatedPlanCases": 6,
+    "preservedBefore": 22,
+    "lostDefaultsBefore": 8,
+    "expectedReportRows": [
+      0,
+      1
+    ],
+    "actualReportRowsBefore": 2,
+    "scope": "sale generic list/report partner/warehouse stopped or absent codes"
+  },
+  "change": {
+    "file": "dist/inventory-ui.js",
+    "helper": "preserveSearchReferenceDefault",
+    "callSite": "configureGrid fresh default application",
+    "context": "search",
+    "control": "plain native SELECT with reference metadata and missing string option",
+    "behavior": "append literal saved-search-value option before applying default",
+    "referencePickerSkipped": true,
+    "normalOptionsUntouched": true,
+    "inputAndOtherContextsUntouched": true,
+    "coreComparatorAndRenameUnchanged": true,
+    "persistentFormOrDataWrites": 0,
+    "outsidePatchPreservation": {
+      "/home/lck/projects/Rea_ERP": {
+        "baseline": "1d88670c11e7a2a2d520e2656670e6e41349ffa4",
+        "outsideHelperAndCallExact": true
+      },
+      "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.25-search-default-codes": {
+        "baseline": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "outsideHelperAndCallExact": true
+      }
+    }
+  },
+  "checks": {
+    "newUnitPrePatch": {
+      "total": 18,
+      "passed": 7,
+      "failed": 11
+    },
+    "newUnitAfterPatch": 18,
+    "focusedNode": 76,
+    "applicableSearchCasesAfter": 30,
+    "applicableSearchCasesPreservedAfter": 30,
+    "focusedActualShellSynthetic": 4,
+    "wholeVerifyExitCode": 0,
+    "wholeBrowserPassed": 306,
+    "wholeNodeAndBuildPassed": true,
+    "explicitClearValidSelectionReloadBackupVerified": true,
+    "stringPrefixAndMarkupLiteralVerified": true,
+    "reaVersion": "6.4.0",
+    "reaOwnScopes": 4,
+    "reaScopePairsExact": 2,
+    "reaParseFailures": 0,
+    "reaCoverage": "unknown",
+    "reaTruncated": false,
+    "wholeModuleOrOriginalEquivalenceClaimed": false
+  },
+  "consumerBoundaries": [
+    {
+      "type": "plan",
+      "kind": "list",
+      "reportCalls": 0,
+      "planCalls": 1,
+      "searchFormRegistered": false
+    },
+    {
+      "type": "request",
+      "kind": "report",
+      "reportCalls": 1,
+      "planCalls": 0,
+      "searchFormRegistered": false
+    },
+    {
+      "type": "plan",
+      "kind": "report",
+      "reportCalls": 1,
+      "planCalls": 0,
+      "searchFormRegistered": false
+    },
+    {
+      "type": "purchaseorder",
+      "kind": "report",
+      "reportCalls": 1,
+      "planCalls": 0,
+      "searchFormRegistered": false
+    },
+    {
+      "type": "purchase",
+      "kind": "report",
+      "reportCalls": 1,
+      "planCalls": 0,
+      "searchFormRegistered": false
+    }
+  ],
+  "testHarnessCorrection": {
+    "initialMissingControl": "plan list uses dedicated renderer; excluded from generic search defaults after actual-consumer tracing",
+    "nativeCases": 36,
+    "applicable": 30,
+    "excludedDedicatedPlanCases": 6,
+    "dedicatedReportCallsTraced": 4,
+    "hostClassLabelCorrected": true,
+    "hostClassIsNotConsumerIdentity": true
+  },
+  "release": {
+    "version": "0.89.25",
+    "sourceCommit": "bdb8495e0bfb6a558eeb36ce254ec9e0005d0280",
+    "releaseCommit": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+    "branch": "release/0.89.25-search-default-codes",
+    "baselineReleaseCommit": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+    "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.25-search-default-codes",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.24",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed"
+  },
+  "candidateInstalled": false,
+  "deployments": 0,
+  "sourceRootWholeBuilds": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "productionBrowserControlRetriedThisTurn": false,
+  "lastBrowserFailureReference": "evidence/manual-master-rename-defaults-20261028.json",
+  "freshBrowserBackupCaptured": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "preservedCandidates": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "pending08923Exact": true,
+    "pending08924Exact": true,
+    "dirty12Exact": true,
+    "mappingCleanCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+  },
+  "otherProjectChanged": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "moa": {
+    "evidence": "evidence/moa-search-reference-defaults-preauthorized-20261028.json",
+    "p1Version": 15,
+    "p1Blocks": 139,
+    "bodyScheduleOnly": true,
+    "actualMetadataConfigured": false,
+    "otherDocumentsWritten": 0
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-SEARCH-TYPED-DEFAULT-PRESERVATION-AUDIT",
+    "title": "검색 양식 기본값의 타입·오류 복구 경계 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-search-reference-defaults-20261028.json",
+    "latestEvidence": "evidence/manual-search-reference-defaults-20261028.json",
+    "description": "0.89.23/24/25 검증·push 후보를 보존하고 운영0.89.22를 유지한다. 최신 운영 브라우저 백업/인증UI와 서버·메일 새 기준을 확보한 뒤 이전 보호를 포함한 최신 검증 후보의 배포/보존 검증을 재개한다. 다음 독립 감사는 검색 양식 날짜·숫자·체크/사용자 항목 기본값의 타입과 오류 복구 경계를 대조한다. 왜: 일반 참조 문자열 보존을 다른 입력형 기본값의 적용·미완성값·복구까지 확장할 수 없기 때문이다. 저장 schema가 이미 거부하는 값과 실제 화면에서 사라지는 값을 구분하고 기존 비교/양식/자료를 보존하며 새 차이만 보완한다. 같은 전체검사·원본/브라우저 연결 확인을 반복하지 않고 기존 후보를 덮어쓰지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장 gate는 유지한다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-report-reference-default-audit-20261028/start.json": "f5cbae6ae360e8b6305a29241d774cfb93d08c0d8e786126d39094f11b116c2c",
+    ".artifacts/manual-report-reference-default-audit-20261028/audit.cjs": "1f973d7997275078693888a71cf60c19823f6da99d9612a74fa0347fd12555b9",
+    ".artifacts/manual-report-reference-default-audit-20261028/search-audit.json": "fb0b36f290ea925c6fa8dc074ae87c9387c5b689f709b5588d843727318294b8",
+    ".artifacts/manual-report-reference-default-audit-20261028/audit-after.cjs": "4ac0e243b410c69bf51a6b95130652692c93d0fd595010437075e1d5ace461a9",
+    ".artifacts/manual-report-reference-default-audit-20261028/search-audit-after.json": "e8aecf33ac00c6cc6128c0c8df9e420494e7ffa7fb07721daeead24537e8bb03",
+    ".artifacts/manual-report-reference-default-audit-20261028/dedicated-consumer-trace.cjs": "043da6d040a1c10376f27fb3fde7c08c9809c3fa5da53b0c8f6a12e2668d8501",
+    ".artifacts/manual-report-reference-default-audit-20261028/dedicated-consumer-trace.json": "afc37aa42d6c7f08a2e641c5c3330ff59de4078cc6b5d5d2e137077b56d2bedc",
+    ".artifacts/manual-report-reference-default-audit-20261028/audit-harness-notes.json": "86aafce0a8e8323248e5ff86c19f7aee17015524dafa77e8e20f7d5e32960aee",
+    ".artifacts/manual-report-reference-default-audit-20261028/new-node-before.log": "5b6fb4d76df2d90648172cf9746d5499ead7e9049ee2df0e737f98674ec0a00f",
+    ".artifacts/manual-report-reference-default-audit-20261028/new-node-after-root.log": "0fb2c541061ada1cd9ea94849bc353a6eb82145c3a514594a287995d16af8184",
+    ".artifacts/manual-report-reference-default-audit-20261028/patch-port.json": "26ce90f21fdcd9ee9333c40f4732b4b1f18fbbfe76c6020e02e2ba89f30e291e",
+    ".artifacts/manual-report-reference-default-audit-20261028/outside-patch-preservation.json": "6aaac98353dd034f8b3af8f8441ff5e3161ecc0ebf8b4b8fe1c7a8dfe8c7145c",
+    ".artifacts/manual-report-reference-default-audit-20261028/verify-local-exit.json": "f405287e00ebbfc39746efe907a78bcbacbe103cec66d41959196bcd2798930f",
+    ".artifacts/manual-report-reference-default-audit-20261028/verify-local.log": "cbc4096b4601046a5ba1297995f7ff06c25795a05dd9a077d12d77fa12983989",
+    ".artifacts/manual-report-reference-default-audit-20261028/release.json": "1b0b2b0d50fc8bab8ddaef19b2bf349403f35d3c8f8c355c7dfd72fc00c2daf0",
+    ".artifacts/manual-report-reference-default-audit-20261028/preservation.json": "eb954ae1cd5b01c0c3795dc3c509465b1403aa7cbc993dd3c2f1447fae52be2c",
+    ".artifacts/manual-report-reference-default-audit-20261028/moa-record-packet.json": "74996f2d827f83e5d5ce232b1d78038e09ae7f0d048346487d63f4100b588dab",
+    ".artifacts/manual-report-reference-default-audit-20261028/rea/rea-summary.json": "79cfd2e4d11ecdac7bd15ae2c676edc0b4c0bd9d53f3ad871994e8874c68e102"
+  },
+  "wholeManualDone": false
+}

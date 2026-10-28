@@ -124,3 +124,6 @@
 
 
 2026-10-28 후속:0.89.24(b10beed/1589a78)는20종/101개 기본참조 대조 후 전체302브라우저·전체Node/빌드로 검증·push한 후보이며 미배포다.0.89.23 dde83ef와 운영0.89.22를 보존했다. P1 v13/130블록 저장/재조회 exact·본문doing/P1doing·실제메타데이터미설정. 근거 evidence/manual-document-rename-defaults-20261028.json / evidence/moa-document-rename-defaults-preauthorized-20261028.json.
+
+
+2026-10-28 후속:0.89.25(bdb8495/76d0f96)는 search기본값 손실8개를 보완해30개 적용조합/전체306브라우저·전체Node/빌드로 검증·push한 후보이며 미배포다.0.89.23/24와운영0.89.22를 보존했다. P1 v15/139블록 저장·재조회 exact·본문doing/P1doing·실제메타데이터미설정. 근거 evidence/manual-search-reference-defaults-20261028.json / evidence/moa-search-reference-defaults-preauthorized-20261028.json.
