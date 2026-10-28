@@ -1,0 +1,335 @@
+{
+  "actualStart": "2026-10-29T02:39:33.147108+09:00",
+  "plannedStart": "2026-10-29",
+  "plannedDeadline": "2026-10-30",
+  "auditStatus": "done",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "recordedAt": "2026-10-29T02:47:56.959833+09:00",
+  "elapsedSeconds": 503.813,
+  "workSourceId": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
+  "status": "done-for-thirteen-local-consumer-flows",
+  "candidateVersionUnderAudit": "0.89.36",
+  "candidateCommitUnderAudit": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+  "operatingVersion": "0.89.22",
+  "applicationChanged": false,
+  "versionChanged": false,
+  "buildsThisTurn": 0,
+  "deploymentsThisTurn": 0,
+  "newPermanentTests": 0,
+  "limitedLocalContractAccepted": true,
+  "originalAccepted": false,
+  "productionAccepted": false,
+  "actualAccountRoleAccepted": false,
+  "basis": [
+    "Existing standalone role-conditional-forms and form-role-boundary tests",
+    "Current FormOptions.editRules/fetchRoles/run and price-request ensureOptions/preserveForm consumer",
+    "Separate synthetic candidate36 actual shell via intercepted local role API"
+  ],
+  "checks": {
+    "existingRelatedNode": {
+      "files": [
+        "tests/role-conditional-forms.cjs",
+        "tests/form-role-boundary.cjs",
+        "tests/price-search-form-draft.cjs"
+      ],
+      "passed": 34,
+      "newRequirementsCount": false
+    },
+    "browser": {
+      "passed": 26,
+      "failed": 0,
+      "widths": [
+        390,
+        1280
+      ],
+      "flowCount": 13,
+      "initial16SubsetOfFinal26": true,
+      "flows": [
+        "Condition cancel retains parent search2, quick draft and selection",
+        "Fresh role save keeps current2 and chooses admin conditional search; new viewer scope chooses base default1",
+        "Condition name changed during fresh verification refuses stale commit",
+        "Target form changed during fresh verification refuses stale selection",
+        "External business data change refuses commit and preserves injected raw",
+        "External form metadata change refuses commit and preserves injected raw",
+        "Role change during fresh verification refuses ownership and retains dialog draft",
+        "Close during fresh verification prevents late commit",
+        "Account change refuses fresh commit",
+        "Company change refuses fresh commit",
+        "Read permission change refuses fresh commit",
+        "Write permission change refuses fresh commit",
+        "Config-read permission change refuses fresh commit"
+      ],
+      "explicitSyntheticConditionSaves": 2,
+      "businessSaves": 0,
+      "pageErrors": 0,
+      "remoteWrites": 0,
+      "externalBusinessMutations": 2,
+      "externalFormMutations": 2,
+      "scopeChanges": "Injected synthetic identities/permissions; not actual account administration",
+      "roleApi": "Intercepted localhost HTTP structured fixture with me/company/permissions/roles; not real authenticated server proof",
+      "parentInputMetadataRepaintAccepted": false
+    },
+    "fullVerificationRepeated": false,
+    "fullVerificationReason": "No application/source/dependency changes; existing candidate36 full414 retained, not claimed as new pass",
+    "newReaExecution": false,
+    "sourceEquality": {
+      "dist/inventory-ui.js": {
+        "validation": "98262be59964b0469308933760b19e0f9b0da3a88229ee24ff49e0ed31cedec1",
+        "candidate": "98262be59964b0469308933760b19e0f9b0da3a88229ee24ff49e0ed31cedec1"
+      },
+      "dist/form-options.js": {
+        "validation": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "candidate": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659"
+      },
+      "dist/form-core.js": {
+        "validation": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "candidate": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e"
+      },
+      "dist/inventory-core.js": {
+        "validation": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "candidate": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570"
+      },
+      "package.json": {
+        "validation": "6f07b305cd880a7400a4aee1b012427088309a60885794ca8ed5cf182a00dffc",
+        "candidate": "6f07b305cd880a7400a4aee1b012427088309a60885794ca8ed5cf182a00dffc"
+      }
+    }
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "rootSourceCommitBefore": "eafebedc59dc6230d9155942debeb8fc3f9c4eff",
+  "productionBrowserRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "originalActions": 0,
+  "productionWrites": 0,
+  "newErpChanged": false,
+  "automaticStartupAdded": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-SEARCH-CHILD-INPUT-METADATA-PARENT-REPAINT-AUDIT",
+    "title": "단가요청 자식 입력양식 변경 뒤 부모 검색 재구성 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-role-save-audit-20261029.json",
+    "latestEvidence": "evidence/manual-price-role-save-audit-20261029.json",
+    "description": "이번 권한그룹 저장·분기는 후보0.89.36의 부모 검색양식 조건 흐름을 한정 검증했다. 자식 상세창의 input양식 메타데이터 변경/취소/명시저장 뒤 부모 갱신은 다른 host/registry/투영 경로다. 기존 ensureOptions/docFilters/docList/documentDialog/refreshCurrentView와 관련 메모저장·양식검사에서 이미 검증한 범위를 먼저 읽고, input사용자항목 타입/readonly/제거·추가/기본값/계산 변경 때 부모의 현재검색·미적용빠른문자·선택/페이지/초안·양식/업무원문과 계정/자료/닫기 경계의 새 차이만 대조한다. 지원하는 UI 동작과 schema거부를 구분하고 충돌 시 임의초기화/자동조건삭제로 원문을 잃지 않는다. 원본 설정/업무저장·다른 공통목록·숫자 비공개토큰 재구성·운영 합격은 추정하지 않으며 기존14후보와운영gate를 유지한다. 완료된 등록그룹fresh/조건저장/F2/change 행렬과 같은 전체검사를 변화없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 37,
+        "afterVersion": 38,
+        "beforeBlocks": 267,
+        "afterBlocks": 269,
+        "prefixExact": true,
+        "appendExact": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 등록 권한그룹 조건 저장·분기 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT에 따라 기존 role-conditional-forms/form-role-boundary가 이미 검증한 일반 양식 경계와 단가요청 실제 소비자를 구분한다. 등록 권한그룹 fresh 목록을 기다리는 명시 조건저장, 현재 검색초안/자료/양식/역할/닫기/선택 변화 및 실제 역할조건 분기의 미검증 범위만 대조한다. 왜: 이전 실제 조건전환은 userId였고 역할변경은 소유자 거절 합성이어서 등록그룹 저장·분기 전체 합격을 대신하지 못하기 때문이다. 로컬 역할API fixture와 원본/실제계정 검증을 구분하고 업무·양식 원문/기존0.89.23~36 후보/운영0.89.22/dirty12·매핑을 보존한다. 완료된 F2/change/입력중복 행렬이나 같은 운영 연결 확인은 반복하지 않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "44c526a7-2262-408c-abb4-c2aa793a4405",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 등록 권한그룹 조건 저장·분기 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "7511963b-50a3-4f9d-aa7d-716fbcb6732f",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT에 따라 기존 role-conditional-forms/form-role-boundary가 이미 검증한 일반 양식 경계와 단가요청 실제 소비자를 구분한다. 등록 권한그룹 fresh 목록을 기다리는 명시 조건저장, 현재 검색초안/자료/양식/역할/닫기/선택 변화 및 실제 역할조건 분기의 미검증 범위만 대조한다. 왜: 이전 실제 조건전환은 userId였고 역할변경은 소유자 거절 합성이어서 등록그룹 저장·분기 전체 합격을 대신하지 못하기 때문이다. 로컬 역할API fixture와 원본/실제계정 검증을 구분하고 업무·양식 원문/기존0.89.23~36 후보/운영0.89.22/dirty12·매핑을 보존한다. 완료된 F2/change/입력중복 행렬이나 같은 운영 연결 확인은 반복하지 않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 39,
+    "p1FinalBlocks": 277,
+    "evidence": "evidence/moa-price-role-save-audit-preauthorized-20261029.json"
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-role-save-20261029/browser-audit.log": "39022354852973761a39ca6d4803175c7debfb43936430fbccaa1e1f477e5b75",
+    ".artifacts/manual-price-role-save-20261029/browser-spec-original.cjs": "c0620d655cd7cfcbea94ffcf95c65c46383198b7ed738e52f5b7f410455a9b1d",
+    ".artifacts/manual-price-role-save-20261029/browser-first16.log": "fe99e0b30dd01cf1245944ccce765047c4548d35c4a92321856ce3a966f0c79b",
+    ".artifacts/manual-price-role-save-20261029/browser-first16-exit.json": "dc78cd5c80b6fe811316b9e77f3340e0b5dc96923ccabf7cb2ddd91c416cd0fc",
+    ".artifacts/manual-price-role-save-20261029/source-equality.json": "b1afdeca12e610020f4ed95af5b8676410596f56c1ab48f8a97c24c2426a38aa",
+    ".artifacts/manual-price-role-save-20261029/moa-start.json": "721787f474cf3fc395e939b5337bfbc1e66fbbb30fe08266525c8ee09c5c1e68",
+    ".artifacts/manual-price-role-save-20261029/browser-spec-final.cjs": "74ebc6e3d2545499182b110f4ef6ce03963bab0850628bbfa1580663183b0245",
+    ".artifacts/manual-price-role-save-20261029/existing-related.log": "c5cb39e0fba456df20b090a9276960c9a79b25378264adcf19839857a92fbdd4",
+    ".artifacts/manual-price-role-save-20261029/preservation.json": "eadcc0f5d7090e683830b40a6367a83fc0945a402b34b1a8715fa99eb5627749",
+    ".artifacts/manual-price-role-save-20261029/existing-related-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-role-save-20261029/browser-audit-exit.json": "7841363731dbc5f917138371fd526d501ed49c37682edf8be98145301e495eb6",
+    ".artifacts/manual-price-role-save-20261029/start.json": "d1d3f911167c1194cabf6308328286f13a37e22690b8438b300918c9d5c2bcd1"
+  }
+}

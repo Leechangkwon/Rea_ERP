@@ -2279,13 +2279,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
-      "title": "단가요청 등록 권한그룹 조건 저장·분기 대조",
+      "sourceId": "OWN-PRICE-SEARCH-CHILD-INPUT-METADATA-PARENT-REPAINT-AUDIT",
+      "title": "단가요청 자식 입력양식 변경 뒤 부모 검색 재구성 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-f2-boundary-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-f2-boundary-20261029.json",
-      "description": "이전 실제 조건전환은 userId였고 역할변경은 소유자거절 합성이다. 등록 권한그룹 fresh 응답을 기다리는 단가요청 조건저장과 그 사이 검색초안/자료/양식/역할/닫기/선택변화의 계약은 별도다. 기존 tests/role-conditional-forms.cjs, tests/form-role-boundary.cjs, dist/form-options.js의 이미 검증한 범위를 먼저 읽고 단가요청 소비자의 미검증 경계만 대조한다. 순수 로컬 역할 API fixture와 원본/실제계정 검증을 구분하며 자식 입력메타데이터/부모재구성 미확인도 보존한다. 기존 후보/자료/양식/운영gate를 유지하고 완료된 F2/change/입력중복 행렬은 반복하지 않는다.",
+      "evidence": "evidence/manual-price-role-save-audit-20261029.json",
+      "latestEvidence": "evidence/manual-price-role-save-audit-20261029.json",
+      "description": "이번 권한그룹 저장·분기는 후보0.89.36의 부모 검색양식 조건 흐름을 한정 검증했다. 자식 상세창의 input양식 메타데이터 변경/취소/명시저장 뒤 부모 갱신은 다른 host/registry/투영 경로다. 기존 ensureOptions/docFilters/docList/documentDialog/refreshCurrentView와 관련 메모저장·양식검사에서 이미 검증한 범위를 먼저 읽고, input사용자항목 타입/readonly/제거·추가/기본값/계산 변경 때 부모의 현재검색·미적용빠른문자·선택/페이지/초안·양식/업무원문과 계정/자료/닫기 경계의 새 차이만 대조한다. 지원하는 UI 동작과 schema거부를 구분하고 충돌 시 임의초기화/자동조건삭제로 원문을 잃지 않는다. 원본 설정/업무저장·다른 공통목록·숫자 비공개토큰 재구성·운영 합격은 추정하지 않으며 기존14후보와운영gate를 유지한다. 완료된 등록그룹fresh/조건저장/F2/change 행렬과 같은 전체검사를 변화없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3039,13 +3039,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
-      "title": "단가요청 등록 권한그룹 조건 저장·분기 대조",
+      "sourceId": "OWN-PRICE-SEARCH-CHILD-INPUT-METADATA-PARENT-REPAINT-AUDIT",
+      "title": "단가요청 자식 입력양식 변경 뒤 부모 검색 재구성 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-f2-boundary-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-f2-boundary-20261029.json",
-      "description": "이전 실제 조건전환은 userId였고 역할변경은 소유자거절 합성이다. 등록 권한그룹 fresh 응답을 기다리는 단가요청 조건저장과 그 사이 검색초안/자료/양식/역할/닫기/선택변화의 계약은 별도다. 기존 tests/role-conditional-forms.cjs, tests/form-role-boundary.cjs, dist/form-options.js의 이미 검증한 범위를 먼저 읽고 단가요청 소비자의 미검증 경계만 대조한다. 순수 로컬 역할 API fixture와 원본/실제계정 검증을 구분하며 자식 입력메타데이터/부모재구성 미확인도 보존한다. 기존 후보/자료/양식/운영gate를 유지하고 완료된 F2/change/입력중복 행렬은 반복하지 않는다.",
+      "evidence": "evidence/manual-price-role-save-audit-20261029.json",
+      "latestEvidence": "evidence/manual-price-role-save-audit-20261029.json",
+      "description": "이번 권한그룹 저장·분기는 후보0.89.36의 부모 검색양식 조건 흐름을 한정 검증했다. 자식 상세창의 input양식 메타데이터 변경/취소/명시저장 뒤 부모 갱신은 다른 host/registry/투영 경로다. 기존 ensureOptions/docFilters/docList/documentDialog/refreshCurrentView와 관련 메모저장·양식검사에서 이미 검증한 범위를 먼저 읽고, input사용자항목 타입/readonly/제거·추가/기본값/계산 변경 때 부모의 현재검색·미적용빠른문자·선택/페이지/초안·양식/업무원문과 계정/자료/닫기 경계의 새 차이만 대조한다. 지원하는 UI 동작과 schema거부를 구분하고 충돌 시 임의초기화/자동조건삭제로 원문을 잃지 않는다. 원본 설정/업무저장·다른 공통목록·숫자 비공개토큰 재구성·운영 합격은 추정하지 않으며 기존14후보와운영gate를 유지한다. 완료된 등록그룹fresh/조건저장/F2/change 행렬과 같은 전체검사를 변화없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -4100,7 +4100,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-price-search-f2-boundary-preauthorized-20261029.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-role-save-audit-preauthorized-20261029.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4114,9 +4114,9 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-price-search-change-20261029/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-role-save-20261029/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 37,
+      "lastConfirmedP1Version": 39,
       "bodyScheduleAndStatusReread": true,
       "currentPatchReference": "evidence/manual-price-search-f2-boundary-20261029.json",
       "routineBodyUpdatesPreauthorized": true,
@@ -4124,7 +4124,10 @@
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
       "routineBodyAuthorizationScope": "Existing16 Moa work documents: routine development record additions and body schedule/status; preserve existing content and work units; read current version/permission and reread after saving",
       "lastConfirmedOperationsVersion": 2,
-      "currentPatchScheduleOnly": true
+      "currentPatchScheduleOnly": true,
+      "currentAuditReference": "evidence/manual-price-role-save-audit-20261029.json",
+      "currentAuditStatus": "done-for-thirteen-local-consumer-flows",
+      "currentAuditScheduleOnly": true
     },
     "itemStandardCsv": {
       "version": "0.89.21",
@@ -4264,7 +4267,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-CHILD-INPUT-METADATA-PARENT-REPAINT-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4756,6 +4759,27 @@
       "changeOnlyFilterActionsAccepted": "nine-measured-local-flows-only",
       "originalAccepted": false,
       "productionAccepted": false
+    },
+    "priceRoleConditionalSaveAudit": {
+      "reference": "evidence/manual-price-role-save-audit-20261029.json",
+      "status": "done-thirteen-local-candidate36-consumer-flows",
+      "candidateVersionUnderAudit": "0.89.36",
+      "existingRelatedNodeTests": 34,
+      "actualShellCases": 26,
+      "widths": [
+        390,
+        1280
+      ],
+      "roleCatalogConditionalSwitchLocalAccepted": true,
+      "freshSaveRaceConsumerLocalAccepted": true,
+      "applicationChanged": false,
+      "versionChanged": false,
+      "wholeRegressionRepeated": false,
+      "roleApiInterceptedFixture": true,
+      "realAccountAccepted": false,
+      "originalAccepted": false,
+      "productionAccepted": false,
+      "parentInputMetadataRepaintAccepted": false
     }
   },
   "preparedCandidate": {
