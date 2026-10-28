@@ -2023,8 +2023,8 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-price-search-form-preflight-20261029.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.32",
+    "pendingDeploymentCandidateReference": "evidence/manual-price-search-form-draft-20261029.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.33",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
@@ -2035,7 +2035,8 @@
       "0.89.29",
       "0.89.30",
       "0.89.31",
-      "0.89.32"
+      "0.89.32",
+      "0.89.33"
     ]
   },
   "manualParity": {
@@ -2276,13 +2277,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-SEARCH-VALID-DRAFT-FORM-CHANGE-PRESERVATION",
-      "title": "단가요청 정상 검색초안의 양식 변경 후 보존",
+      "sourceId": "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
+      "title": "단가요청 조건양식 전환·부모 갱신 입력수명 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-form-preflight-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-form-preflight-20261029.json",
-      "description": "실제 자체셸의 검색 숫자2에서 검색항목 제목만 저장했는데 기본값1로 돌아가 1건/300원 대상이 다른1건/200원 대상으로 바뀌었다. 업무 전표 원문은 exact다. 이번 preflight는 미완성 숫자 전 설정 변경을 막지만 유효 초안 재적용을 해결하지 않는다. 기존 snapshot/refresh와 명시 양식 변경의 기본값·타입·readonly·필드 소멸 의미를 대조하고 이 재현 차이부터 보완한다. 조건양식/부모 in-place refresh 합격을 추정하지 않고 동일 키/미완성 입력 행렬은 반복하지 않는다. 운영0.89.22·기존 후보·브라우저 배포 gate를 유지한다.",
+      "evidence": "evidence/manual-price-search-form-draft-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-form-draft-20261029.json",
+      "description": "이번 실제12흐름은 동일 항목의 제목/기본값·readonly/계산식·유형거절·적용양식과 미변경 조건저장이다. 실제 조건규칙을 바꾸어 다른 검색양식을 적용하는 경로와 삭제 항목의 실제 UI 복구·상세 저장 뒤 부모 refresh는 별도다. 기존 역할/화면/업무 조건값 계약과 실제 명시저장/취소·소유자/자료/권한 변경에서 미검증 손실만 대조한다. 원본 설정/업무 저장은 하지 않고 기존 양식/자료·후보·운영gate를 보존한다. 완료된 정상초안/키/미완성입력 행렬과 같은 전체검사를 변화 없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2297,7 +2298,8 @@
         "0.89.30",
         "0.89.31",
         "0.89.32",
-        "0.89.33"
+        "0.89.33",
+        "0.89.34"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3033,13 +3035,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-SEARCH-VALID-DRAFT-FORM-CHANGE-PRESERVATION",
-      "title": "단가요청 정상 검색초안의 양식 변경 후 보존",
+      "sourceId": "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
+      "title": "단가요청 조건양식 전환·부모 갱신 입력수명 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-form-preflight-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-form-preflight-20261029.json",
-      "description": "실제 자체셸의 검색 숫자2에서 검색항목 제목만 저장했는데 기본값1로 돌아가 1건/300원 대상이 다른1건/200원 대상으로 바뀌었다. 업무 전표 원문은 exact다. 이번 preflight는 미완성 숫자 전 설정 변경을 막지만 유효 초안 재적용을 해결하지 않는다. 기존 snapshot/refresh와 명시 양식 변경의 기본값·타입·readonly·필드 소멸 의미를 대조하고 이 재현 차이부터 보완한다. 조건양식/부모 in-place refresh 합격을 추정하지 않고 동일 키/미완성 입력 행렬은 반복하지 않는다. 운영0.89.22·기존 후보·브라우저 배포 gate를 유지한다.",
+      "evidence": "evidence/manual-price-search-form-draft-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-form-draft-20261029.json",
+      "description": "이번 실제12흐름은 동일 항목의 제목/기본값·readonly/계산식·유형거절·적용양식과 미변경 조건저장이다. 실제 조건규칙을 바꾸어 다른 검색양식을 적용하는 경로와 삭제 항목의 실제 UI 복구·상세 저장 뒤 부모 refresh는 별도다. 기존 역할/화면/업무 조건값 계약과 실제 명시저장/취소·소유자/자료/권한 변경에서 미검증 손실만 대조한다. 원본 설정/업무 저장은 하지 않고 기존 양식/자료·후보·운영gate를 보존한다. 완료된 정상초안/키/미완성입력 행렬과 같은 전체검사를 변화 없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3054,7 +3056,8 @@
         "0.89.30",
         "0.89.31",
         "0.89.32",
-        "0.89.33"
+        "0.89.33",
+        "0.89.34"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4091,7 +4094,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-price-search-form-preflight-preauthorized-20261029.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-search-form-draft-preauthorized-20261029.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4105,11 +4108,11 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-price-search-repaint-20261029/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-search-draft-20261029/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 31,
+      "lastConfirmedP1Version": 33,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-price-search-form-preflight-20261029.json",
+      "currentPatchReference": "evidence/manual-price-search-form-draft-20261029.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
@@ -4255,7 +4258,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-VALID-DRAFT-FORM-CHANGE-PRESERVATION",
+      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-CONDITIONAL-SWITCH-AND-PARENT-REFRESH-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4569,6 +4572,65 @@
       ],
       "validDraftResetObserved": true,
       "validDraftRepaintPreservationAccepted": false,
+      "parentRefreshBusinessFlowAccepted": false,
+      "originalAccepted": false,
+      "productionAccepted": false,
+      "originalAuditDone": false
+    },
+    "priceSearchFormDraftCandidate": {
+      "version": "0.89.34",
+      "sourceCommit": "ec11f96a937344a7b6ce9cd5f74a1c050986cf67",
+      "releaseCommit": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+      "branch": "release/0.89.34-price-search-form-draft",
+      "baselineReleaseCommit": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+      "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.34-price-search-form-draft",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.33",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "remoteRefsVerified": true,
+      "reference": "evidence/manual-price-search-form-draft-20261029.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29",
+        "0.89.30",
+        "0.89.31",
+        "0.89.32",
+        "0.89.33"
+      ],
+      "validDraftFormRepaintImplemented": true,
+      "validDraftLocalAcceptedScope": "Tested compatible metadata changes and incompatible-type refusal only",
+      "validDraftRepaintPreservationAccepted": true,
+      "formRepaintBusinessFlowAccepted": false
+    },
+    "priceSearchValidDraftAudit": {
+      "reference": "evidence/manual-price-search-form-draft-20261029.json",
+      "status": "compatible-draft-local-verified-conditional-parent-ui-open",
+      "newNodeTests": 12,
+      "focusedNodeTests": 102,
+      "ownActualShellBrowserCases": 12,
+      "additionalObservationCases": 1,
+      "widths": [
+        390,
+        1280
+      ],
+      "validDraftResetObserved": true,
+      "validDraftResetFixedLocally": true,
+      "conditionalRuleChangeAccepted": false,
+      "fieldRemovalActualUiAccepted": false,
+      "validDraftRepaintPreservationAccepted": true,
       "parentRefreshBusinessFlowAccepted": false,
       "originalAccepted": false,
       "productionAccepted": false,
