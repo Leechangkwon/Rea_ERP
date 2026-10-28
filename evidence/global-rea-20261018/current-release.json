@@ -2023,8 +2023,8 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-price-search-blur-actions-20261029.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.34",
+    "pendingDeploymentCandidateReference": "evidence/manual-price-search-f2-boundary-20261029.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.35",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
@@ -2037,7 +2037,8 @@
       "0.89.31",
       "0.89.32",
       "0.89.33",
-      "0.89.34"
+      "0.89.34",
+      "0.89.35"
     ]
   },
   "manualParity": {
@@ -2278,13 +2279,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
-      "title": "단가요청 change 전용 검색필터와 행 동작 시점 대조",
+      "sourceId": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
+      "title": "단가요청 등록 권한그룹 조건 저장·분기 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-blur-actions-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-blur-actions-20261029.json",
-      "description": "이번 중복 생략은 input에서 이미 적용한 숫자/기본자료검색만 해당한다. 검색전용 문자·일자·선택/체크는 change에서 처음 조건을 적용할 수 있어 같은 skip을 복사하면 새 검색을 누락하거나 과거행 동작을 실행할 수 있다. 기존 실제 이벤트/적용 시점·행 식별자·첫 클릭/키보드·수정/비움과 자료/권한 가드에서 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 입력메타데이터 변경 후 부모재구성도 아직 별도 미확인으로 유지한다. 원본 저장/발송 없이 기존 후보/운영gate를 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다.",
+      "evidence": "evidence/manual-price-search-f2-boundary-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-f2-boundary-20261029.json",
+      "description": "이전 실제 조건전환은 userId였고 역할변경은 소유자거절 합성이다. 등록 권한그룹 fresh 응답을 기다리는 단가요청 조건저장과 그 사이 검색초안/자료/양식/역할/닫기/선택변화의 계약은 별도다. 기존 tests/role-conditional-forms.cjs, tests/form-role-boundary.cjs, dist/form-options.js의 이미 검증한 범위를 먼저 읽고 단가요청 소비자의 미검증 경계만 대조한다. 순수 로컬 역할 API fixture와 원본/실제계정 검증을 구분하며 자식 입력메타데이터/부모재구성 미확인도 보존한다. 기존 후보/자료/양식/운영gate를 유지하고 완료된 F2/change/입력중복 행렬은 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2301,7 +2302,8 @@
         "0.89.32",
         "0.89.33",
         "0.89.34",
-        "0.89.35"
+        "0.89.35",
+        "0.89.36"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3037,13 +3039,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
-      "title": "단가요청 change 전용 검색필터와 행 동작 시점 대조",
+      "sourceId": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
+      "title": "단가요청 등록 권한그룹 조건 저장·분기 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-price-search-blur-actions-20261029.json",
-      "latestEvidence": "evidence/manual-price-search-blur-actions-20261029.json",
-      "description": "이번 중복 생략은 input에서 이미 적용한 숫자/기본자료검색만 해당한다. 검색전용 문자·일자·선택/체크는 change에서 처음 조건을 적용할 수 있어 같은 skip을 복사하면 새 검색을 누락하거나 과거행 동작을 실행할 수 있다. 기존 실제 이벤트/적용 시점·행 식별자·첫 클릭/키보드·수정/비움과 자료/권한 가드에서 미검증 경계만 대조한다. 등록권한그룹fresh분기와 자식 입력메타데이터 변경 후 부모재구성도 아직 별도 미확인으로 유지한다. 원본 저장/발송 없이 기존 후보/운영gate를 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다.",
+      "evidence": "evidence/manual-price-search-f2-boundary-20261029.json",
+      "latestEvidence": "evidence/manual-price-search-f2-boundary-20261029.json",
+      "description": "이전 실제 조건전환은 userId였고 역할변경은 소유자거절 합성이다. 등록 권한그룹 fresh 응답을 기다리는 단가요청 조건저장과 그 사이 검색초안/자료/양식/역할/닫기/선택변화의 계약은 별도다. 기존 tests/role-conditional-forms.cjs, tests/form-role-boundary.cjs, dist/form-options.js의 이미 검증한 범위를 먼저 읽고 단가요청 소비자의 미검증 경계만 대조한다. 순수 로컬 역할 API fixture와 원본/실제계정 검증을 구분하며 자식 입력메타데이터/부모재구성 미확인도 보존한다. 기존 후보/자료/양식/운영gate를 유지하고 완료된 F2/change/입력중복 행렬은 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3060,7 +3062,8 @@
         "0.89.32",
         "0.89.33",
         "0.89.34",
-        "0.89.35"
+        "0.89.35",
+        "0.89.36"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4097,7 +4100,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-price-search-blur-actions-preauthorized-20261029.json",
+      "latestRecordedP1Evidence": "evidence/moa-price-search-f2-boundary-preauthorized-20261029.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4111,11 +4114,11 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-price-search-lifecycle-20261029/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-price-search-change-20261029/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 35,
+      "lastConfirmedP1Version": 37,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-price-search-blur-actions-20261029.json",
+      "currentPatchReference": "evidence/manual-price-search-f2-boundary-20261029.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
@@ -4261,7 +4264,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4692,6 +4695,65 @@
       "roleCatalogConditionalSwitchAccepted": false,
       "parentInputMetadataRepaintAccepted": false,
       "changeOnlyFilterActionsAccepted": false,
+      "originalAccepted": false,
+      "productionAccepted": false
+    },
+    "priceSearchF2BoundaryCandidate": {
+      "version": "0.89.36",
+      "sourceCommit": "795f496e47d6bd9f80bdacea0e6f94754120dff8",
+      "releaseCommit": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+      "branch": "release/0.89.36-price-search-f2-boundary",
+      "baselineReleaseCommit": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+      "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.36-price-search-f2-boundary",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.35",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "remoteRefsVerified": {
+        "refs/heads/main": "795f496e47d6bd9f80bdacea0e6f94754120dff8",
+        "refs/heads/release/0.89.36-price-search-f2-boundary": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d"
+      },
+      "reference": "evidence/manual-price-search-f2-boundary-20261029.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29",
+        "0.89.30",
+        "0.89.31",
+        "0.89.32",
+        "0.89.33",
+        "0.89.34",
+        "0.89.35"
+      ],
+      "pendingSearchBeforeF2Implemented": true,
+      "changeOnlyFilterActionsAccepted": "nine-measured-local-flows-only"
+    },
+    "priceSearchChangeOnlyAudit": {
+      "reference": "evidence/manual-price-search-f2-boundary-20261029.json",
+      "status": "nine-local-flows-audited-f2-candidate-not-deployed",
+      "newNodeTests": 0,
+      "supplementalFocusProbe": 1,
+      "focusedNodeTests": 110,
+      "ownActualShellBrowserCases": 18,
+      "widths": [
+        390,
+        1280
+      ],
+      "cancelSearchFocusRestored": true,
+      "roleCatalogConditionalSwitchAccepted": false,
+      "parentInputMetadataRepaintAccepted": false,
+      "changeOnlyFilterActionsAccepted": "nine-measured-local-flows-only",
       "originalAccepted": false,
       "productionAccepted": false
     }

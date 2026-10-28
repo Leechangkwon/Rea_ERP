@@ -1,0 +1,484 @@
+{
+  "actualStart": "2026-10-29T02:07:11.850715+09:00",
+  "plannedStart": "2026-10-29",
+  "plannedDeadline": "2026-10-30",
+  "auditStatus": "done-for-nine-tested-local-flows",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "recordedAt": "2026-10-29T02:36:23.442874+09:00",
+  "elapsedSeconds": 1751.592,
+  "version": "0.89.36",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "patchStatus": "doing",
+  "basis": [
+    "OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT",
+    "Immutable35 actual pointer/keyboard/change timing matrix",
+    "Existing docList guardView and editorDialog host ownership"
+  ],
+  "change": {
+    "scope": "Price-request New/F2 only",
+    "sequence": [
+      "Existing guard before changing focus",
+      "Blur current parent search input while parent still owns host",
+      "Refocus connected initiating input so editorDialog can restore it on cancellation",
+      "Revalidate guard after native change",
+      "Open new document modal"
+    ],
+    "preserved": [
+      "First-change search application, not duplicate-skip",
+      "Invalid numeric correction focus on first guard refusal",
+      "Changed data and role refusal",
+      "Pointer New flow and other common lists",
+      "schema/evaluator/backup/metadata and source text"
+    ]
+  },
+  "checks": {
+    "newNodeTests": 0,
+    "newNodeTestReason": "No permanent Node test file added; existing109 plus one supplemental cancel-focus diagnostic is110; native event order remains actual-browser verified",
+    "focusedNodeTests": 110,
+    "existingFocusedTests": 109,
+    "supplementalFocusProbe": 1,
+    "focusRegression": {
+      "firstFull414": "intermediate saved in before-focus-snapshot; not final",
+      "correctTargetNodeProbeFailed": true,
+      "actualNativeBefore": {
+        "focused": false,
+        "activeTag": "BODY",
+        "activeLabel": null
+      },
+      "finalFocusedNodeExit": {
+        "exitCode": 0,
+        "testsExpected": 110
+      },
+      "finalActualBrowserExit": {
+        "exitCode": 0
+      },
+      "fixtureErrorsPreserved": [
+        "outer event target instead of initiating input",
+        "supplemental webServer cwd module resolution"
+      ]
+    },
+    "actualBrowser": {
+      "tests": 18,
+      "beforePassed": 16,
+      "beforeFailed": 2,
+      "passed": 18,
+      "widths": [
+        390,
+        1280
+      ],
+      "flows": [
+        "Pending text first blur applies new result without executing old row; explicit fresh-row Enter opens correct document",
+        "Keyboard F2 applies pending condition before modal and close retains current result and original search focus",
+        "Pointer New applies condition and cancel retains rows",
+        "Date apply and explicit clear then fresh row action",
+        "Checkbox applies current result before first row action",
+        "Native select empty result and restoration",
+        "Changed source denies F2 and retains pending text",
+        "Changed role denies F2 and retains pending text",
+        "Invalid number denies F2 and preserves correction focus"
+      ],
+      "pageErrors": 0,
+      "remoteWrites": 0,
+      "businessWrites": 0,
+      "metadataWrites": 0,
+      "externalDataFixtureMutations": 2,
+      "roleFixtureMutations": 2
+    },
+    "baselineFalseOwnershipAlerts": [
+      {
+        "path": ".artifacts/manual-price-search-change-20261029/browser-before-results/price-search-change-action-22a98-odal-ownership-changes-1280/error-context.md",
+        "falseOwnershipAlert": true
+      },
+      {
+        "path": ".artifacts/manual-price-search-change-20261029/browser-before-results/price-search-change-action-389b6-modal-ownership-changes-390/error-context.md",
+        "falseOwnershipAlert": true
+      }
+    ],
+    "fullVerifyLocal": {
+      "exitCode": 0,
+      "elapsedSeconds": 477.564,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "98262be59964b0469308933760b19e0f9b0da3a88229ee24ff49e0ed31cedec1",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/browser/price-search-change-actions.spec.cjs": "69737a95ca7cef01fdc19714148f865162166b92afc15090cb197a7ae785de15",
+        "package.json": "6f07b305cd880a7400a4aee1b012427088309a60885794ca8ed5cf182a00dffc"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "98262be59964b0469308933760b19e0f9b0da3a88229ee24ff49e0ed31cedec1",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/browser/price-search-change-actions.spec.cjs": "69737a95ca7cef01fdc19714148f865162166b92afc15090cb197a7ae785de15",
+        "package.json": "6f07b305cd880a7400a4aee1b012427088309a60885794ca8ed5cf182a00dffc"
+      },
+      "finalCodeIncludesCancelFocusRestore": true
+    },
+    "browserTests": 414,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 2,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "81cfb5f3dd3e5796bb599e70af8c58006521644fe03c0801c9caebbb3c3e341e",
+          "start": 149664,
+          "end": 165494,
+          "lineStart": 593,
+          "lineEnd": 630,
+          "fragmentSha256": "1d7be79fdfee899ac7c95df3e31b99fec7654a6c5a3225d8ccc2995ab2bccfc0",
+          "inputFile": "own-docList.js",
+          "inputSha256": "c3260685eec73589d8cbeeb8374bb47261f9ed79203211a5a5ed3c46220dd5b2",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.36-price-search-f2-boundary/dist/inventory-ui.js",
+          "sourceSha256": "98262be59964b0469308933760b19e0f9b0da3a88229ee24ff49e0ed31cedec1",
+          "start": 144918,
+          "end": 160748,
+          "lineStart": 570,
+          "lineEnd": 607,
+          "fragmentSha256": "1d7be79fdfee899ac7c95df3e31b99fec7654a6c5a3225d8ccc2995ab2bccfc0",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "c3260685eec73589d8cbeeb8374bb47261f9ed79203211a5a5ed3c46220dd5b2",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "665b7254c7665a482cc4ad536f5a97580e1717838dd6dd334027385daa044089",
+      "statistics": {
+        "relevant_files": 2,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 34092,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 2,
+        "visited_ast_nodes": 7232,
+        "findings": 4,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "priorApiVatDifferenceRetained": true,
+      "scope": "Price-request F2 validates and blurs pending search before modal ownership",
+      "scopes": [
+        {
+          "name": "docList",
+          "sourceHash": "1d7be79fdfee899ac7c95df3e31b99fec7654a6c5a3225d8ccc2995ab2bccfc0",
+          "candidateHash": "1d7be79fdfee899ac7c95df3e31b99fec7654a6c5a3225d8ccc2995ab2bccfc0"
+        }
+      ]
+    }
+  },
+  "release": {
+    "version": "0.89.36",
+    "sourceCommit": "795f496e47d6bd9f80bdacea0e6f94754120dff8",
+    "releaseCommit": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+    "branch": "release/0.89.36-price-search-f2-boundary",
+    "baselineReleaseCommit": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+    "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.36-price-search-f2-boundary",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.35",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": {
+      "refs/heads/main": "795f496e47d6bd9f80bdacea0e6f94754120dff8",
+      "refs/heads/release/0.89.36-price-search-f2-boundary": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d"
+    }
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "changeOnlyLocalAcceptedScope": "Nine measured flows only; old-row first click can apply a pending new query without executing the old row; no original equivalence claim",
+  "roleCatalogConditionalSwitchAccepted": false,
+  "parentInputMetadataRepaintAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-SEARCH-ROLE-CONDITIONAL-SAVE-CONTRACT-AUDIT",
+    "title": "단가요청 등록 권한그룹 조건 저장·분기 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-search-f2-boundary-20261029.json",
+    "latestEvidence": "evidence/manual-price-search-f2-boundary-20261029.json",
+    "description": "이전 실제 조건전환은 userId였고 역할변경은 소유자거절 합성이다. 등록 권한그룹 fresh 응답을 기다리는 단가요청 조건저장과 그 사이 검색초안/자료/양식/역할/닫기/선택변화의 계약은 별도다. 기존 tests/role-conditional-forms.cjs, tests/form-role-boundary.cjs, dist/form-options.js의 이미 검증한 범위를 먼저 읽고 단가요청 소비자의 미검증 경계만 대조한다. 순수 로컬 역할 API fixture와 원본/실제계정 검증을 구분하며 자식 입력메타데이터/부모재구성 미확인도 보존한다. 기존 후보/자료/양식/운영gate를 유지하고 완료된 F2/change/입력중복 행렬은 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "transport": "configured-moa-mcp",
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 35,
+        "afterVersion": 36,
+        "beforeBlocks": 255,
+        "afterBlocks": 257,
+        "prefixExact": true,
+        "appendExact": true,
+        "canEdit": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 단가요청 change 전용 필터와 행 동작 시점 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT에 따라 검색전용 문자·일자·선택/체크가 change에서 처음 적용되는 시점과 첫 행 클릭/키보드·수정/비움·자료/권한 가드를 실제 자체셸에서 대조한다. 왜: 이미 input으로 적용한 숫자/자료검색의 중복change 생략을 이 필터에 복사하면 새 조건을 누락하거나 과거행을 실행할 수 있기 때문이다. 기존 소비자와 원문/행식별자를 근거로 확인된 새 차이만 보완하고 원본 키동작/저장 동등성을 추정하지 않는다. 운영0.89.22·기존0.89.23~35 후보·dirty12/매핑·자료/양식/메일을 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "3847aca5-8e97-454c-9c07-b203e6172cae",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 단가요청 change 전용 필터와 행 동작 시점 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "987a2e35-65a2-4aba-bd39-bb0de08a75d3",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-CHANGE-ONLY-FILTER-ACTION-AUDIT에 따라 검색전용 문자·일자·선택/체크가 change에서 처음 적용되는 시점과 첫 행 클릭/키보드·수정/비움·자료/권한 가드를 실제 자체셸에서 대조한다. 왜: 이미 input으로 적용한 숫자/자료검색의 중복change 생략을 이 필터에 복사하면 새 조건을 누락하거나 과거행을 실행할 수 있기 때문이다. 기존 소비자와 원문/행식별자를 근거로 확인된 새 차이만 보완하고 원본 키동작/저장 동등성을 추정하지 않는다. 운영0.89.22·기존0.89.23~35 후보·dirty12/매핑·자료/양식/메일을 보존하며 완료된 입력중복/조건userId/제거/메모부모갱신 행렬을 반복하지 않는다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 37,
+    "p1FinalBlocks": 267,
+    "evidence": "evidence/moa-price-search-f2-boundary-preauthorized-20261029.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-search-change-20261029/release.json": "b82d5c2ebf9c63ae0dc5891bf2ccbee14b92e37effa489e7dd4d798acfd44d83",
+    ".artifacts/manual-price-search-change-20261029/native-focus-probe.log": "74bc4fc0ce438d256616697aca82d679a46ad89689f5b9b31e4732f0eb593953",
+    ".artifacts/manual-price-search-change-20261029/node-focused-final-exit.json": "887eb0db7ec241ea8e87997a8c4d5e7b1cd1015c8a58726aaefffa7389fe3b13",
+    ".artifacts/manual-price-search-change-20261029/native-focus-before.json": "7c320c030eaf896ea40fe0a798f98d8a399d17a298c0766e6fc3cbf3aeacd60a",
+    ".artifacts/manual-price-search-change-20261029/verify-local.log": "39882a7a3b85a844417ce0f6d4e19d4be0029667d4a7987b8911476d31d8f292",
+    ".artifacts/manual-price-search-change-20261029/current-release-before.json": "750389cd36b2a1c553113596e0fc29cfea513826239919b5c8ee400689cbe34f",
+    ".artifacts/manual-price-search-change-20261029/browser-spec-before.cjs": "a58d453534b0bb7d6469e22ff210204bf9e7682abe2c70adb339a95733e15a5d",
+    ".artifacts/manual-price-search-change-20261029/node-focused-final.log": "149ebf6160d9533038868a6eb0b42b3048086868832c98901e258af06df7134e",
+    ".artifacts/manual-price-search-change-20261029/browser-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-search-change-20261029/focus-probe.cjs": "c254ac5d6189ff6fa3c0e9f10f39515f15861fd7bd78379b8dcd5f92ec576bb8",
+    ".artifacts/manual-price-search-change-20261029/native-focus-probe-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-search-change-20261029/baseline-alerts.json": "2e392cc0d56ca799c076ef62f1b5dd8c8334f12c68809be0a407f9a0d7a9adce",
+    ".artifacts/manual-price-search-change-20261029/browser-before.log": "3d0774df2924f69d8a19dca038dcfccdaa3660b18c723bf33f840b028cc4094f",
+    ".artifacts/manual-price-search-change-20261029/browser-after-final.log": "53a88df914fda3a335c7d227a7c7e9ba07f498666e4f2e4050cc7c27da3bd993",
+    ".artifacts/manual-price-search-change-20261029/patch-port.json": "9a5badfe2ee828523b406f3f7a19072bb6c0b38ea422399978e5b93054b7620b",
+    ".artifacts/manual-price-search-change-20261029/focus-probe-correct-target.log": "ccc53cdf59f35d1fe7a12c22b1694958000d718c9a975ba5d3ff3ed53475c2f4",
+    ".artifacts/manual-price-search-change-20261029/browser-after-final-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-search-change-20261029/browser-after.log": "5e416cf4eb82fda9c4658636e9ec1e58c07d038c06e1cefb5aaf4ba32dee60a8",
+    ".artifacts/manual-price-search-change-20261029/focus-probe.log": "9e889946eaeafbc3262f7167c37853ed89f9f91fb9ef47aea6106fca94e2e956",
+    ".artifacts/manual-price-search-change-20261029/moa-start.json": "7aa7a7b3f90cd07bff5f591f008617748fd0edec717c4fd33ee8e6e372432d03",
+    ".artifacts/manual-price-search-change-20261029/automation-before.json": "572b992a23dc01be412dbb8d1d166e8ce8541748c53cac05352deb0824b2a8f5",
+    ".artifacts/manual-price-search-change-20261029/node-focused.log": "4ebfb96c02a5b474a648100f05afab2f37adf8af1a4b3ba97c2ea0dfdd7a4967",
+    ".artifacts/manual-price-search-change-20261029/port.cjs": "6d02a671dd5370bbeb67b18aec90e50b601a8cff51ee1e0a9c6d890292474eaf",
+    ".artifacts/manual-price-search-change-20261029/node-focused-exit.json": "86c90b66fb1c88b6e54f1a0ab7abf7569978ef77a746421407ffc590ec44656c",
+    ".artifacts/manual-price-search-change-20261029/preservation.json": "5e5e70a8990050ec318fa6faefe756a867525825223ba2319b874096d259102a",
+    ".artifacts/manual-price-search-change-20261029/browser-after-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-search-change-20261029/focus.config.cjs": "9e01c75a831981feb80b69a34efd2a1b2630e12a2ab9b8d0c8a50a738616e38a",
+    ".artifacts/manual-price-search-change-20261029/analyze.mjs": "bdc2abe4a55279cfbe892ba122a744c4c6166744e9696203d37bd6d961b18e88",
+    ".artifacts/manual-price-search-change-20261029/start.json": "7dcc95efaed70c38a96085be0d0983d08e0459008346b8382e618ebca2bd99eb",
+    ".artifacts/manual-price-search-change-20261029/verify-local-exit.json": "cc26ac001fc73ef83937a695fe508bcf85e9d124bb23be53578ec8cd690d27a5",
+    ".artifacts/manual-price-search-change-20261029/native-focus-probe-second.log": "8519bd250e86a10db134767085b643f6b352858c38c77c459b594bb8ef8d9dc6",
+    ".artifacts/manual-price-search-change-20261029/focus-browser-results/.last-run.json": "0e218b70b0cbc855356de5c3e8211b817b2594fd0acf23ae172acc714267befd",
+    ".artifacts/manual-price-search-change-20261029/browser-before-results/.last-run.json": "295b4871dce6c1986e0656739f8a866426a63f202c619e4bd1397ccef0ec8fce",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/verify-local.log": "4746d0edcaf6e9574f6b9d0377e30873da5e04a0ddcc0bf3d695b77ca650ea9e",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/patch-port.json": "571f47bbf79f33603e23e6cac153b512192fb3d04c146c2f0f27c987fcd8f263",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/status.json": "fa5300cf46e8691440cb4486ccd61ba721ebedd8d479d17b66305f69503c7215",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/verify-local-exit.json": "0ef42638295a3535ea5000756c6f68502973ccb411cf9fcb6c13cbc2a20ae26c",
+    ".artifacts/manual-price-search-change-20261029/rea/rea-summary.json": "394aa04a23f3318a8ac57e77ee0812cdac95622fcf8003231d36bedfb9565a3f",
+    ".artifacts/manual-price-search-change-20261029/rea/stderr.log": "d664a7634ee3f473d273c7256e0f8a9db218d21667f14156b6edeeaee5d29aca",
+    ".artifacts/manual-price-search-change-20261029/rea/result.json": "665b7254c7665a482cc4ad536f5a97580e1717838dd6dd334027385daa044089",
+    ".artifacts/manual-price-search-change-20261029/focus-tests/focus.spec.cjs": "a50e06bb8208b3eb64429291cd457463be8d4791dc6428c8081641a269eb8971",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/rea/rea-summary.json": "3fb1a39b8dd616646e740a18ddd2587229a287a37f795efb9adecfff49f67840",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/rea/stderr.log": "d664a7634ee3f473d273c7256e0f8a9db218d21667f14156b6edeeaee5d29aca",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/rea/result.json": "f916ab745a2b977a517c2d6c73e2479cd2cbb3fb0d3c0270218490e08e5bc7ed",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/evidence/release-validation.json": "26fff4fd9688f17476525e6309f0df4334d01b011d8ee32f36420fa7c3158cc1",
+    ".artifacts/manual-price-search-change-20261029/before-focus-snapshot/tests/browser/price-search-change-actions.spec.cjs": "a58d453534b0bb7d6469e22ff210204bf9e7682abe2c70adb339a95733e15a5d",
+    ".artifacts/manual-price-search-change-20261029/browser-before-results/price-search-change-action-22a98-odal-ownership-changes-1280/test-failed-1.png": "5eddaffff93b0557a521fb59cfb23375cca34cd1942021fb7f4e799a45c1d6fa",
+    ".artifacts/manual-price-search-change-20261029/browser-before-results/price-search-change-action-389b6-modal-ownership-changes-390/test-failed-1.png": "ba95a85cfe7a4370bf49e915508b0ad87238ce146d48fe66e7d079258a22f6f8",
+    ".artifacts/manual-price-search-change-20261029/focus-browser-results/focus-native-F2-cancel-restores-initiating-search-focus/test-failed-1.png": "b6c9fc122c92bb75582903de888c2d2defca573a2eff3ee1c621d740f9e56ae6"
+  }
+}
