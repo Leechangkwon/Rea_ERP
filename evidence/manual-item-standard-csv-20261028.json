@@ -1,0 +1,203 @@
+{
+  "version": "0.89.21",
+  "sourceCommit": "697d8f275deb9f9504c9f362cf1c27a7602907d1",
+  "releaseCommit": "a1d8169c11d36d9cb2be5ec49718666ab0c8dc79",
+  "branch": "release/0.89.21-item-standard-csv",
+  "workerSha256": "a3f4f26014418b4be6b874117f0107fee17d892e2c4976ba59c57f59ba80c060",
+  "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.21-item-standard-csv",
+  "sourcePushed": true,
+  "releasePushed": true,
+  "baselineReleaseCommit": "f2bdef0f2cbbfd693250a2a1199fc1b76722920b",
+  "date": "2026-10-28",
+  "status": "deployed-item-standard-csv",
+  "changes": [
+    "Only version-marked REA CSV decodes exactly one reversible safety prefix; leading apostrophe literals are encoded reversibly",
+    "Typed finite negative numbers and JSON string arrays preserve allowed values and delimiter-bearing hierarchy groups",
+    "Visible exported cells remain authoritative after editing; no hidden shadow record is restored",
+    "Legacy CSV trimming/apostrophe/delimiter behavior, typed custom merge, recalculation, whole-batch validation, permissions and stale-preview guards retained"
+  ],
+  "why": "Previously confirmed own CSV export/import changed literal text, rejected allowed negative numbers and split hierarchy values containing delimiters. Typed version-marked transfer fixes only this confirmed gap.",
+  "validation": {
+    "preFixNodeTests": 22,
+    "preFixNodeFailed": 20,
+    "preFixNodePassed": 2,
+    "focusedNodePassed": 50,
+    "focusedBrowserPassed": 22,
+    "newBrowserCases": 12,
+    "viewports": [
+      390,
+      1280
+    ],
+    "fullBrowserPassed": 290,
+    "fullNodeSuitePassed": true,
+    "verifyLocalExitCode": 0,
+    "releaseChecks": 4,
+    "build": true,
+    "selfReview": true,
+    "externalSpreadsheetEditingVerified": false
+  },
+  "failuresAndRecovery": [
+    "First browser attempt could not load existing libnspr4 because isolated candidate lacked .artifacts/browser-libs link. Linked existing root libraries; focused browser passed.",
+    "First verify:local failed environment check because candidate lacked node_modules link. Linked existing root dependencies; full verification restarted.",
+    "Initial focused iteration exposed missing relatedItems empty-array default and a synthetic self-relation fixture. Both corrected before final focused pass.",
+    "WSL credential helper could not launch the installed Windows executable (Exec format error). Existing Windows Git credential-manager path pushed source and release successfully without exposing credentials or changing authentication.",
+    "First public version probe ran during managed server startup and failed; local health and subsequent22 public checks passed."
+  ],
+  "sourceScopeVerification": {
+    "baselineReleaseCommit": "f2bdef0f2cbbfd693250a2a1199fc1b76722920b",
+    "rootModuleMatchedBaselineBeforePatch": true,
+    "rootAndCandidateModuleExact": true,
+    "changedModuleOnly": "dist/item-list-ui.js",
+    "rootFullBuildPerformed": false,
+    "unshippedVatOrMappingInstalled": false,
+    "ownReaScopePairs": 6,
+    "ownReaInputs": 12,
+    "sourceCandidateFragmentHashesExact": true,
+    "protectedDirtyFiles": 12,
+    "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+  },
+  "rea": {
+    "version": "6.4.0",
+    "summary": ".artifacts/manual-item-standard-csv-20261028/rea/rea-summary.json",
+    "newOwnScopes": 12,
+    "newOriginalScopes": 0,
+    "parseFailures": 0,
+    "coverage": "unknown",
+    "truncated": false,
+    "wholeModuleCoverage": false,
+    "runtimeEquivalence": false
+  },
+  "runtime": {
+    "version": "0.89.21",
+    "pid": 13093,
+    "windowsHolderPid": 83472,
+    "cloudflaredWindowsPid": 121356,
+    "manager": "/home/lck/.local/bin/rea-erp-dev",
+    "health": {
+      "runtime": "standalone",
+      "backend": "supabase",
+      "publicOrigin": "https://rea.qaredi.com",
+      "supabaseProjectRef": "bzyvdergqijwswnjvozs"
+    },
+    "workerSha256": "a3f4f26014418b4be6b874117f0107fee17d892e2c4976ba59c57f59ba80c060",
+    "persistentExecSession": null,
+    "independentHiddenWindowsWslHolder": true,
+    "autostartAdded": false,
+    "checkedAt": "2026-10-28T16:49:57.331146+09:00"
+  },
+  "deployment": {
+    "url": "https://rea.qaredi.com",
+    "publicChecks": 22,
+    "assetsMatched": 19,
+    "hostedBusinessOrSettingsWrites": 0,
+    "actualMailSends": 0,
+    "restoresApplied": 0
+  },
+  "preservation": {
+    "browser": {
+      "version": "0.89.21",
+      "browserInventoryByteEqual": true,
+      "documents": 8,
+      "formHashExact": true,
+      "authenticatedSessionRetained": true,
+      "hostedVersionVerified": true,
+      "hostedCsvDownloaded": true,
+      "hostedImportDialogReadAndCancel": true,
+      "hostedBusinessOrSettingsWrites": 0,
+      "sourceActions": 0,
+      "actualSpreadsheetEditingVerified": false,
+      "csvFileSha256": "2778b79a18d8e801698d17f51fd1edca4669e6fd94f9843859e86a92fd7ced93"
+    },
+    "server": {
+      "version": "0.89.21",
+      "remote": {
+        "rea_app_state": {
+          "beforeRevision": 36,
+          "afterRevision": 36,
+          "exactBodyAndRevisionEqual": true
+        },
+        "rea_gateway_state": {
+          "beforeRevision": 0,
+          "afterRevision": 0,
+          "exactBodyAndRevisionEqual": true
+        }
+      },
+      "runtimeConfigExact": true,
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "boxesExact": true,
+        "messagesExact": true,
+        "filesExact": true,
+        "restorePreview": {
+          "verified": true,
+          "addMailboxes": 0,
+          "addMessages": 0,
+          "conflicts": 0,
+          "applied": false
+        }
+      },
+      "restored": false
+    },
+    "protectedCandidates": {
+      "baselineReleaseCommit": "f2bdef0f2cbbfd693250a2a1199fc1b76722920b",
+      "rootModuleMatchedBaselineBeforePatch": true,
+      "rootAndCandidateModuleExact": true,
+      "changedModuleOnly": "dist/item-list-ui.js",
+      "rootFullBuildPerformed": false,
+      "unshippedVatOrMappingInstalled": false,
+      "ownReaScopePairs": 6,
+      "ownReaInputs": 12,
+      "sourceCandidateFragmentHashesExact": true,
+      "protectedDirtyFiles": 12,
+      "integrationCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0"
+    }
+  },
+  "hostedDownloadedExport": {
+    "rows": 4,
+    "allExportedFieldsExact": true,
+    "downloadedFromHostedBrowser": true,
+    "parsedLocallyWithoutApply": true,
+    "hostedBusinessWrites": 0
+  },
+  "moa": {
+    "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+    "lastReadDocVersion": 3,
+    "existingBlocks": 84,
+    "canEdit": true,
+    "bodyPlannedStart": "2026-10-28",
+    "bodyDeadline": "2026-10-29",
+    "stageStatus": "doing",
+    "patchStatus": "done",
+    "actualMetadataFieldsConfigured": false,
+    "bodyTrackingAuthorizedByUserOn": "2026-10-28",
+    "bodySaved": true,
+    "newProposalOnly": true,
+    "proposalFile": ".artifacts/manual-item-standard-csv-20261028/moa-proposed-packet.json",
+    "approvalRequested": true,
+    "previous16And55And3AlreadySaved": true,
+    "savedAndReread": true,
+    "savedDocVersion": 4,
+    "totalBlocks": 91,
+    "existing84Exact": true,
+    "new7Exact": true,
+    "approvalPending": false,
+    "reference": "evidence/moa-item-standard-csv-approved-20261028.json"
+  },
+  "limitations": [
+    "Actual spreadsheet-application editing unverified",
+    "Core save normalization remains unchanged; CSV decoding preserves raw text but outer whitespace follows existing save validation",
+    "Original source execution and hosted business writes zero; independent own CSV fix does not complete P1 or P0-P10"
+  ],
+  "manualCounts": {
+    "requirements": 77,
+    "bodies": 47,
+    "independent": 44,
+    "done": 0
+  },
+  "originalActions": 0,
+  "originalApiCalls": 0,
+  "wholeManualDone": false,
+  "nextWork": "기존 기초자료 CSV 경로의 조회양식 CSV와 전체필드 내보내기·가져오기 계약을 확보된 P1 근거 및 현재 구현과 대조한다. 품목 표준 CSV 보존 수정은 완료했으므로 같은 검사를 반복하지 않는다. 다음 착수 시 기존 P1 본문에 현재 KST의 예정 기간과 doing을 기록하고, 검색/선택/조회열/전체필드/원문·숫자 형식·사용자 추가항목 경계에서 새로 확인한 차이만 작은 단위로 보완한다. 왜: 한 품목 이동 경로의 합격을 다른 기초자료 또는 조회양식 CSV의 자료 이동 합격으로 확대할 수 없기 때문이다. 새 차이가 없으면 결과를 기록하고 다음 미충족 P1 항목을 선택한다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 없이 재개하지 않는다."
+}
