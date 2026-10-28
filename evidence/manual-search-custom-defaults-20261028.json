@@ -1,0 +1,438 @@
+{
+  "sourceId": "OWN-SEARCH-TYPED-DEFAULT-PRESERVATION-AUDIT",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "timezone": "Asia/Seoul",
+  "status": "validated-pushed-not-deployed",
+  "auditStatus": "custom-number-local-slice-verified; native-date-recovery-pending",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "version": "0.89.26",
+  "operatingVersion": "0.89.22",
+  "baselineCandidateVersion": "0.89.25",
+  "basis": [
+    "Existing Moa P1/FORM001/FORM002 plan; no new original manual body or original UI actions",
+    "Own FormCore.validateForm/merge/compute/check and FormOptions default editor versus actual generic list/report consumers",
+    "0.89.25 baseline; separate isolated candidate; root whole build prohibited"
+  ],
+  "gap": {
+    "inputProjectionMissingControlsBefore": 22,
+    "inputProjectionMissingControlsAfter": 0,
+    "searchOnlyNumericDropBefore": 4,
+    "searchOnlyNumericDropAfter": 0,
+    "nativeInvalidDateGapsStillRemaining": 6
+  },
+  "change": {
+    "docFilters": "Build controls for already declared input custom fields using existing number-or-text search projection; do not inherit input defaults",
+    "configureGrid": "Search/fresh/number only: recover a finite accepted default if HTML number sanitized it to blank; use existing Number meaning",
+    "unchanged": [
+      "core comparisons",
+      "merge contract",
+      "backup schema",
+      "stored form raw defaults",
+      "normal number display spelling",
+      "non-search input defaults"
+    ],
+    "nativeDateRecoveryImplemented": false
+  },
+  "checks": {
+    "newNode": {
+      "before": {
+        "tests": 23,
+        "passed": 6,
+        "failed": 17
+      },
+      "after": {
+        "tests": 23,
+        "passed": 23,
+        "failed": 0
+      }
+    },
+    "focusedNode": 89,
+    "typedMatrices": {
+      "inputProjection": {
+        "attempts": 38,
+        "schemaAccepted": 34,
+        "schemaRejected": 4,
+        "missingControlsBefore": 22,
+        "missingControlsAfter": 0,
+        "unchangedBackups": true
+      },
+      "searchOnly": {
+        "attempts": 38,
+        "schemaAccepted": 34,
+        "schemaRejected": 4,
+        "numericDroppedBefore": 4,
+        "numericDroppedAfter": 0
+      },
+      "nativeInvalidDatesRemaining": [
+        {
+          "kind": "list",
+          "id": "from",
+          "value": "2023-02-29",
+          "actual": ""
+        },
+        {
+          "kind": "list",
+          "id": "from",
+          "value": "2026-13-01",
+          "actual": ""
+        },
+        {
+          "kind": "list",
+          "id": "from",
+          "value": "not-a-date",
+          "actual": ""
+        },
+        {
+          "kind": "report",
+          "id": "from",
+          "value": "2023-02-29",
+          "actual": ""
+        },
+        {
+          "kind": "report",
+          "id": "from",
+          "value": "2026-13-01",
+          "actual": ""
+        },
+        {
+          "kind": "report",
+          "id": "from",
+          "value": "not-a-date",
+          "actual": ""
+        }
+      ],
+      "nativeDateRecoveryDone": false,
+      "countingNote": "Two overlapping 38-attempt synthetic matrices; not 76 independent requirements."
+    },
+    "nativeTyped": {
+      "nativeCheckbox": [
+        {
+          "value": true,
+          "actual": true,
+          "consumed": true,
+          "expected": true,
+          "unchanged": true
+        },
+        {
+          "value": "true",
+          "actual": true,
+          "consumed": true,
+          "expected": true,
+          "unchanged": true
+        },
+        {
+          "value": false,
+          "actual": false,
+          "consumed": false,
+          "expected": false,
+          "unchanged": true
+        },
+        {
+          "value": "false",
+          "actual": false,
+          "consumed": false,
+          "expected": false,
+          "unchanged": true
+        }
+      ],
+      "allNativeCheckboxAsDeclared": true,
+      "invalidDates": [
+        {
+          "value": "2023-02-29",
+          "schemaAccepted": true,
+          "runtimeCheckRejected": true,
+          "validationError": "시작일 일자를 확인하세요."
+        },
+        {
+          "value": "2026-13-01",
+          "schemaAccepted": true,
+          "runtimeCheckRejected": true,
+          "validationError": "시작일 일자를 확인하세요."
+        },
+        {
+          "value": "not-a-date",
+          "schemaAccepted": true,
+          "runtimeCheckRejected": true,
+          "validationError": "시작일 일자를 확인하세요."
+        }
+      ]
+    },
+    "fullVerifyLocal": {
+      "exitCode": 0,
+      "testedSourceHashes": {
+        "dist/inventory-ui.js": "74c2393983590b429748bc1462629281b2335429a76324e11b92f956ed70c043",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/search-custom-typed-defaults.cjs": "68349c7a19f88a28aaf55f9ae393dbcd5354cd20cf470677ffd45e18f677ff18",
+        "tests/browser/search-custom-typed-defaults.spec.cjs": "330c4e343a7587d2aa5f31d13540bc62ab3b96bbd811bd3d25970bb862e860e9",
+        "package.json": "2ba4262172e148c247fac372174737932974c42df7eb3e55c689656428e07fff"
+      },
+      "previousFailureRetained": "verify-local-first-failed.log",
+      "reasonForRetry": "New browser tests omitted intentional list Search(F3) expand action; test-only correction"
+    },
+    "browserTests": 310,
+    "wholeNodeSuitePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 4,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "docFilters",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "1c5f3edf80b511a8d55e62338f7742a2cd4defd124ac65a6e1de5aacde9c79a6",
+          "start": 64119,
+          "end": 66969,
+          "lineStart": 322,
+          "lineEnd": 331,
+          "fragmentSha256": "b28f2a937329519305e3283bd81fb40a97a18c1fec48957b27c4090edba008ce",
+          "inputFile": "own-docFilters.js",
+          "inputSha256": "51781d966778cc5e45b9823196a27eabb5994854aa8cc664ec50b9c4aa2c4647",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docFilters",
+          "file": ".artifacts/releases/0.89.26-search-custom-defaults/dist/inventory-ui.js",
+          "sourceSha256": "74c2393983590b429748bc1462629281b2335429a76324e11b92f956ed70c043",
+          "start": 64071,
+          "end": 66921,
+          "lineStart": 322,
+          "lineEnd": 331,
+          "fragmentSha256": "b28f2a937329519305e3283bd81fb40a97a18c1fec48957b27c4090edba008ce",
+          "inputFile": "candidate-docFilters.js",
+          "inputSha256": "51781d966778cc5e45b9823196a27eabb5994854aa8cc664ec50b9c4aa2c4647",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "configureGrid",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "1c5f3edf80b511a8d55e62338f7742a2cd4defd124ac65a6e1de5aacde9c79a6",
+          "start": 8501,
+          "end": 12913,
+          "lineStart": 56,
+          "lineEnd": 86,
+          "fragmentSha256": "3aff7b2b63174dc5bbecdd99c7efd05d75a3b45b73df21c828501da825df57e3",
+          "inputFile": "own-configureGrid.js",
+          "inputSha256": "216e0da228bf03f2ef36adbd023114c853019739993371fd5d89bf93829757d8",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "configureGrid",
+          "file": ".artifacts/releases/0.89.26-search-custom-defaults/dist/inventory-ui.js",
+          "sourceSha256": "74c2393983590b429748bc1462629281b2335429a76324e11b92f956ed70c043",
+          "start": 8478,
+          "end": 12890,
+          "lineStart": 56,
+          "lineEnd": 86,
+          "fragmentSha256": "3aff7b2b63174dc5bbecdd99c7efd05d75a3b45b73df21c828501da825df57e3",
+          "inputFile": "candidate-configureGrid.js",
+          "inputSha256": "216e0da228bf03f2ef36adbd023114c853019739993371fd5d89bf93829757d8",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "29e14bbf6e444f47464d531dd6e74ecc44a89bd26faa321d0d5deac160e4560b",
+      "statistics": {
+        "relevant_files": 4,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 15532,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 4,
+        "visited_ast_nodes": 3434,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "scopes": [
+        {
+          "symbol": "configureGrid",
+          "beforeEqual": true,
+          "sourceHash": "3aff7b2b63174dc5bbecdd99c7efd05d75a3b45b73df21c828501da825df57e3"
+        },
+        {
+          "symbol": "docFilters",
+          "beforeEqual": true,
+          "sourceHash": "b28f2a937329519305e3283bd81fb40a97a18c1fec48957b27c4090edba008ce"
+        }
+      ],
+      "candidateOutsideExact": true,
+      "rootOutsideExact": true
+    }
+  },
+  "candidateInstalled": false,
+  "deployments": 0,
+  "sourceRootWholeBuilds": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "productionBrowserControlRetriedThisTurn": false,
+  "lastBrowserFailureReference": "evidence/manual-master-rename-defaults-20261028.json",
+  "freshBrowserBackupCaptured": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-SEARCH-DATE-DEFAULT-RECOVERY",
+    "title": "잘못된 검색 날짜 원문·오류·초기 결과 복구",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-search-custom-defaults-20261028.json",
+    "latestEvidence": "evidence/manual-search-custom-defaults-20261028.json",
+    "description": "검증한 사용자 항목/숫자 수정과 별도로 남은 native 검색 날짜를 보완한다. schema가 허용하는 잘못된 날짜가 date control에서 공란으로 탈락하는6개 경계를 재현했다. 원문 보존·명시 오류·수정/해제 복구와 초기 목록/현황·CSV/인쇄 실패 경계를 검증한다. 공통 저장/백업 validator를 무조건 강화하거나 초기 read() throw로 화면을 깨뜨리지 않는다. 기존0.89.23/24/25/26 후보와 운영0.89.22를 보존하고 최신 운영 브라우저 백업/인증UI·새 서버/메일 기준이 확보된 뒤 최신 후보의 배포/보존 검증을 재개한다. 같은 전체검사/브라우저 연결/로그인 확인을 반복하지 않는다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장 gate는 유지한다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "date": "2026-10-28",
+  "actualStart": "2026-10-28T20:29:00.985346+09:00",
+  "recordedAt": "2026-10-28T20:55:22.649156+09:00",
+  "release": {
+    "version": "0.89.26",
+    "sourceCommit": "aebe6705849861a4fbc285a3644b9b4ca934e563",
+    "releaseCommit": "5cf628da1900b3e01b5314f4d32040d47726a757",
+    "branch": "release/0.89.26-search-custom-defaults",
+    "baselineReleaseCommit": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+    "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.26-search-custom-defaults",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.25",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed"
+  },
+  "preservedCandidates": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "pending08923Exact": true,
+    "pending08924Exact": true,
+    "pending08925Exact": true,
+    "dirty12Exact": true,
+    "mappingCleanCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "mappingClean": true
+  },
+  "moa": {
+    "recordTransport": "configured-moa-mcp",
+    "routineUpdatesPreauthorized": true,
+    "start": {
+      "beforeVersion": 15,
+      "afterVersion": 16,
+      "beforeCount": 139,
+      "afterCount": 141,
+      "canEdit": true,
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-28 · 검색 양식 기본값 타입·오류 복구 경계 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와 검증미배포0.89.23/24/25를 보존하고, 이번에는 검색 양식 날짜·숫자·체크/사용자 항목의 기본값 적용·미완성값·오류 복구를 대조한다. 왜: 참조 문자열 보존 검증을 다른 입력형까지 확대할 수 없기 때문이다. 저장 schema가 이미 거부하는 값과 실제 화면에서 사라지는 값을 구분하고, 기존 비교·양식·자료를 보존하며 새 차이가 재현된 경우만 보완한다. 같은 전체검사·원본/브라우저 연결·로그인 확인을 반복하지 않고 기존 후보를 덮어쓰지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "cf00118b-1fd8-42d6-9be7-153c291e1925",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-28 · 검색 양식 기본값 타입·오류 복구 경계 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "38ab12b9-b253-4632-bb19-ea015e31e2f8",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와 검증미배포0.89.23/24/25를 보존하고, 이번에는 검색 양식 날짜·숫자·체크/사용자 항목의 기본값 적용·미완성값·오류 복구를 대조한다. 왜: 참조 문자열 보존 검증을 다른 입력형까지 확대할 수 없기 때문이다. 저장 schema가 이미 거부하는 값과 실제 화면에서 사라지는 값을 구분하고, 기존 비교·양식·자료를 보존하며 새 차이가 재현된 경우만 보완한다. 같은 전체검사·원본/브라우저 연결·로그인 확인을 반복하지 않고 기존 후보를 덮어쓰지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "verification": {
+        "version": 16,
+        "count": 141,
+        "prefix": true,
+        "appendExact": true
+      }
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 17,
+    "p1FinalBlocks": 149,
+    "evidence": "evidence/moa-search-custom-defaults-preauthorized-20261028.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-search-typed-default-audit-20261028/typed-audit-search-only.json": "08062a0728c6e3d242d900a33d9b7d1a091582b0b109b51eef3e59d7fab18284",
+    ".artifacts/manual-search-typed-default-audit-20261028/typed-audit-after.json": "d3ef16968a85652da84bb2f14c18b94bab0909708bedcb5cbe05cf2e6bc064bd",
+    ".artifacts/manual-search-typed-default-audit-20261028/release.json": "99ad2241333640df47fe4307e48a49813c32f83dfc04df0c737da7bb988db9ef",
+    ".artifacts/manual-search-typed-default-audit-20261028/focused-node.log": "b6fb293d8f41b14b6035e538abb03c7917fb9a3c697252a47c93176f59b12e04",
+    ".artifacts/manual-search-typed-default-audit-20261028/native-audit.cjs": "af59321a70d4db7893aa9c4b9ea2d241cdf3b6742e1d4a1127627a579fb95f82",
+    ".artifacts/manual-search-typed-default-audit-20261028/verify-local-first-failed.log": "67cf0b617926c067f852c5fc9a3894921be82b969b06cf733f5d984e4033f80d",
+    ".artifacts/manual-search-typed-default-audit-20261028/audit-after.cjs": "8a42e5efa4ac44710fc78945b8d57a6fbb33b3198721bd6e6856230f163936f2",
+    ".artifacts/manual-search-typed-default-audit-20261028/verify-local.log": "fdf010d4d69e61eb7cd160262b5937e405b60ca07cd5a14f8f0d9fe66855e9bf",
+    ".artifacts/manual-search-typed-default-audit-20261028/typed-audit-search-only-after.json": "c3bbaa08fd76e816e22de4c9a5aa0d8fa006424d18daa160363e66f4e43c7c91",
+    ".artifacts/manual-search-typed-default-audit-20261028/native-typed-audit.json": "83ce5cfba3140cdb6cebd29a9999b70039fb856ce9cafc882054079568a81b7c",
+    ".artifacts/manual-search-typed-default-audit-20261028/audit-search-only.cjs": "62c70bb08e6a73ae0ea41574d5ae5ab77fd73047d313ea39bc1c23325e4034f8",
+    ".artifacts/manual-search-typed-default-audit-20261028/patch-port.json": "a77fac82fa1bad80773a43467a1c455b1cfe75ced26489ba3e94ec4497fabc52",
+    ".artifacts/manual-search-typed-default-audit-20261028/verify-local-first-failed-exit.json": "81c0db5f08440a7fd24ca48d97e5933dc629d55be0292b927d046dc6b381c3cd",
+    ".artifacts/manual-search-typed-default-audit-20261028/new-node-after-root.log": "8986dd85f54f6aea578dc74307e7533a7efc671d932f755fc13afe913d1685d0",
+    ".artifacts/manual-search-typed-default-audit-20261028/inspect.cjs": "cacff617dafcc075738f064c9ba15241e6303dccd5e6079e1eea089c680c7658",
+    ".artifacts/manual-search-typed-default-audit-20261028/moa-start.json": "79907a139c77e8e0e3548830ef624f5e5da4717cd5a1f4e6e2420ce14d88b3bd",
+    ".artifacts/manual-search-typed-default-audit-20261028/audit.cjs": "4598d68fe6d90345e55fd574dc4b0fe5faea4c8119f2b052e88725db8bfbc21a",
+    ".artifacts/manual-search-typed-default-audit-20261028/audit-summary.json": "c47dae9ba9c916435571c830d8128a9b90c34977cd9222398b2d3a09958a3137",
+    ".artifacts/manual-search-typed-default-audit-20261028/next-work.json": "eff7e6e6fa108758d78254605c71299f23610fae063b0ca8141a919deca52315",
+    ".artifacts/manual-search-typed-default-audit-20261028/port.cjs": "1f083733ed6cbd99f0efcb9de1819a25d742a2b541e998d9d989d351939865c1",
+    ".artifacts/manual-search-typed-default-audit-20261028/new-node-before.log": "cd9825f326b7952e2a623e593b3671053572feac0137058b4beab0f5d0256a0b",
+    ".artifacts/manual-search-typed-default-audit-20261028/audit-search-only-after.cjs": "d592fb8ed9768ecc14395aa7d3442a34ac571fad1d863936281ff9ba91c1e353",
+    ".artifacts/manual-search-typed-default-audit-20261028/preservation.json": "0d93aa77c383f4454e2bb14521eda83d246bf9f2e16e96ebed794e80567746de",
+    ".artifacts/manual-search-typed-default-audit-20261028/analyze.mjs": "982b7fad778281ecbdb6c75b1eccb9f7c9e4efe47d2b43e64872493f38ebb752",
+    ".artifacts/manual-search-typed-default-audit-20261028/start.json": "01c74780f0a7f986d9a5e1e67a693cad69bd3d92c154f2b417699a85607c4bbf",
+    ".artifacts/manual-search-typed-default-audit-20261028/verify-local-exit.json": "2917f8207f2cd32359b56062267cc5b5a777bf995460f7dc30fe1b61f804385b",
+    ".artifacts/manual-search-typed-default-audit-20261028/typed-audit-before.json": "14706a8abcd6e4c7ad8e3f07f718e274b037e78330fce860752607bb173229ee",
+    ".artifacts/manual-search-typed-default-audit-20261028/audit-harness-notes.json": "9b93a2b399f12f611a09742650e23804159caed2ad2621513fbd2efb96eaab61",
+    ".artifacts/manual-search-typed-default-audit-20261028/rea/rea-summary.json": "2cd39c4620efe377127dabc45ea2baeafcfcfbf01a28481c5e1df4a31ba1f5e1",
+    ".artifacts/manual-search-typed-default-audit-20261028/rea/stderr.log": "812a98daf1b2a81de31065c7895f8175a8bde80bcc0616f4e1cfaad6ed7b6aad",
+    ".artifacts/manual-search-typed-default-audit-20261028/rea/result.json": "29e14bbf6e444f47464d531dd6e74ecc44a89bd26faa321d0d5deac160e4560b"
+  },
+  "elapsedSecondsThroughRecordPreparation": 1581.664
+}
