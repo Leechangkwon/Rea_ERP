@@ -984,3 +984,28 @@ source dd7d53b / release 409adff / branch release/0.89.37-price-child-metadata�
 추가권한경계의실제4187probe에서쓰기권한이있는manager역할로바꾼뒤F8이기존custom숫자2를공란으로저장했고child가닫혔다. 이는첫38의getDoc(raw/strict)검사를원래소유자로만한정한공백이었다. 최종코드는단가요청custom숫자badInput의모든raw/strict읽기를거절한다. 문맥이바뀌고비직렬화입력이남은닫기만editor.ownerCurrent/hasIncompleteNumber로읽기없이종료해공란초안을만들지않는다. 유효한입력의기존닫기정책은유지한다. 원본/운영이아닌합성자료의before값2→공란JSON/trace를보존했다. 첫전체466은수정전intermediate로before-serialization-snapshot에보존했다. 최종Node91(기존88+validity주입late2/역할1)·실제28은통과했으며소유문맥이바뀌어도업무원문2와재진입초안2가유지된다. root기존VAT/API차이는5공유구간역변환exact, 자체REA14범위7raw해시쌍parse0/unknown/truncatedfalse다.
 
 최종역할/직렬화보완코드의전체verify:local exit0/468브라우저·전체Node·릴리스검사/빌드가통과했다. 검사전후 UI/FormOptions/FormCore/새브라우저검사/package 해시는exact이며자체REA14범위7raw해시쌍parse0·coverageunknown/truncatedfalse와root5공유구간밖/VAT·API차이·운영22worker/기존15후보/dirty12/매핑보존을확인했다. 첫466은중간결과로구분한다. 추가숫자/계산투영과불완전숫자14흐름의한정로컬감사done이나계산오류시readonly옛값1표시·비숫자추가수명과원본/운영합격은미완료다. 패치doing/P1doing으로후보커밋·push/모아기록을진행한다.
+
+
+## 2026-10-29 · 0.89.38 입력 숫자 원문·재구성 보호 한정 후보·운영0.89.22 유지
+
+예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T03:49:17.981823+09:00·결과 기록2026-10-29T04:44:31.192994+09:00다. 이번14흐름 한정 로컬 감사done/미배포패치doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. 이 일정은 P1 전체 마감이 아니다. 새 숫자추가/정상계산 투영을 확인하고 입력수명 손실을 보완했지만 계산오류표시·비숫자 추가항목 전체수명은 미확인으로 남긴다.
+
+변경 없는0.89.37에서 새 숫자기본값9/readonly는 자식에만 적용되고 부모검색은 공란/입력가능으로 투영되며, 입력계산식을 바꿔도 타이핑한 피연산자·자식초안·기존부모필터가 유지되는 것을 실제 확인했다. 그러나 새 숫자에1e를 입력한 value공란/badInputtrue가 두번째 양식저장·재표시 후 badInputfalse의 정상공란으로 사라졌다. 초기 관찰은 전표원문exact·pageerror/원격쓰기0이었다. 불변37의26검사는14통과/12실패, 추가 쓰기역할2검사는0통과/2실패다. 같은26의 재실행과 부분관찰을 독립요구사항으로 더하지 않는다.
+
+단가요청 docEditor의 실제 editable custom number control에서만 native badInput을 raw/strict 읽기 앞에 구분해 명시 숫자오류·aria-invalid와 기존DOM을 유지한다. FormOptions guard는 현재 editor.read를 동적으로 호출해 양식재표시 뒤 옛control을 검사하지 않는다. custom입력 input 시점에도 같은검사를 실행해 오류를 클릭 전에 보여주고 유효하게 고치면 지운다. 양식진입/적용·메타데이터저장·업무저장·같은소유자의 닫기/조건자동재구성이 미완성 입력을 공란으로 바꾸지 않는다. 공통FormOptions/parser/evaluator/schema/backup·다른입력화면/검색소비자는 그대로다.
+
+추가 실제검사에서 첫38은 쓰기권한이 남은manager역할로 바꾼 뒤F8이 기존custom숫자2를공란으로저장하고창을닫았다. 원래소유자로만읽기검사를한 공백이었다. 최종코드는 모든raw/strict숫자읽기를 거절한다. 소유문맥이바뀌고비직렬화입력이남은닫기만 ownerCurrent/hasIncompleteNumber로 읽기없이종료해 공란초안을 만들지 않는다. 유효한입력의기존닫기정책은유지한다. 수정 후에는 역할변경 뒤 저장을 거절하고 닫기·새문맥재진입에서 업무원문2와입력2를유지했다. 수정전 쓰기는 고립합성자료이며 원본/운영 사건이 아니다. 첫전체466 통과 산출물은 수정전intermediate로 before-serialization-snapshot에 보존했다.
+
+최종390/1280×14흐름 실제자체셸28이 통과했다. 숫자추가/취소·기본값/readonly의검색미상속·초안재진입, 입력계산식/피연산자 보존과잘못된식schema거절, 새부분숫자의양식진입·재적용·업무저장·닫기·조건전환 차단, 수정/명시비움/유효0/반복재구성, 읽기역할/쓰기역할로바뀐문맥이동과원문보존을확인했다. 최종합성설정저장24·성공한업무저장0·거절한업무저장시도6·pageerror/원격쓰기0이다. 역할은검사기주입이며실제계정/원본로그인·권한합격으로올리지않는다.
+
+집중Node91은기존88과DOM validity를주입한late저장2/쓰기역할1이다. 이는열린모달밖에서실제사용자가입력한증명이아니며실제native28과구분한다. 새영구Node파일0이다. 전체verify:local exit0/468브라우저·전체Node·릴리스검사/빌드를최종코드로통과했다. 자체REA6.4는두함수내 새선언/호출·guard/입력callback/닫기분기를root/candidate14범위7raw해시쌍exact·parse0·coverageunknown/truncatedfalse로대조했다. root기존VAT/API차이를5공유구간의역변환exact로보존했으며docEditor/editorDialog전체나원본실행동등성은아니다.
+
+첫38 실제26은23통과/3실패였다. 유효새DOM의aria-invalid속성없음을false문자열로만요구한1개fixture를정정했다. 다른2개는blur후숫자오류로상세창위치가바뀌어첫Option클릭이빠지는입력수명회귀였으며입력즉시피드백으로보완했다. 검사config의outputDir가겹쳐최초37 실패trace가38실행때덮였고최초before.log는보존됐지만원래trace보존이라고주장하지않는다. 첫38실패trace를별도복사하고서로다른경로의기준37 재생성trace/최종38·추가역할case 근거와구분했다. 재생성26은같은14통과/12실패다. 단계별원고/로그/남은trace/스크린샷·2→공란관찰JSON을보존했다.
+
+source 3029687 / release ebc931b / branch release/0.89.38-price-input-number-preflight를커밋·push했다. 후보worker 86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346은미설치다. root5공유구간밖의원형·기존VAT/API차이·설치운영0.89.22 worker79222ea6…·기존0.89.23~37의15후보HEAD/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존이다. root전체빌드/운영배포/new_ERP 변경/자동시작추가0이다.
+
+새브라우저연결근거가없어같은연결/로그인확인을하지않았다. 최신운영브라우저백업/인증UI와서버·메일배포전기준을확보한뒤이전보호를포함한0.89.38배포·읽기UI·전후자료/양식을검증한다. 이번운영프로세스생존/공개health·새인증UI·서버/메일스냅샷합격은아니다. 한정패치/검사를P1/P0~P10전체완료로올리지않으며온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false다. 근거 evidence/manual-price-input-number-preflight-20261029.json.
+
+다음은단가요청입력계산오류표시·수정복구대조다. 왜: 별도실제관찰에서분모0은명시오류/업무저장차단·원문유지지만readonly계산칸에는이전1이남고aria-invalid가없었다. 이번미완성숫자보호와정상계산투영을계산오류표시전체합격으로대신하지않는다. 기존FormCore.compute/configureGrid.update·rawCustomValues와docEditor오류/합계/인쇄·초안경로및기초등록계산검사의이미확인한범위를먼저읽고대상귀속/표시/수정·해제/설정·재진입의새차이만재현한다. 입력원문/저장사용자값/양식·backup을보존하고공통validator강화나화면비움으로보관원문을지우지않는다. 비숫자추가항목/다른공통목록·원본/운영미확인도유지하고기존16후보/운영gate를보존하며정상추가/투영·부분숫자/소유자닫기와같은전체검사를변화없이반복하지않는다.
+
+모아 P1은 지속 승인으로 v41→42→43·기존290exact·착수2/결과11 문구/종류/수준exact·총303블록/결과제목1회를 저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0이며 실제 일정/상태 메타데이터는 미설정이다. 근거 evidence/moa-price-input-number-preflight-preauthorized-20261029.json.

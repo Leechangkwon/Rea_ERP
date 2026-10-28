@@ -1,0 +1,752 @@
+{
+  "actualStart": "2026-10-29T03:49:17.981823+09:00",
+  "plannedStart": "2026-10-29",
+  "plannedDeadline": "2026-10-30",
+  "auditStatus": "done-for-fourteen-local-flows",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "recordedAt": "2026-10-29T04:44:31.192994+09:00",
+  "elapsedSeconds": 3313.211,
+  "version": "0.89.38",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "remainingWork": [
+    "Input compute error display and recovery",
+    "Non-numeric added field full lifecycle"
+  ],
+  "patchStatus": "doing",
+  "checks": {
+    "actualShellCases": 28,
+    "widths": [
+      390,
+      1280
+    ],
+    "flowCount": 14,
+    "focusedNode": 91,
+    "existingRelatedNode": 88,
+    "validityInjectedCases": 3,
+    "permanentNewNodeFiles": 0,
+    "originalBaseline26": {
+      "passed": 14,
+      "failed": 12
+    },
+    "recreatedBaseline26": {
+      "passed": 14,
+      "failed": 12
+    },
+    "extraBaselineCases": {
+      "passed": 0,
+      "failed": 2
+    },
+    "initial38Actual26": {
+      "passed": 23,
+      "failed": 3,
+      "fixtureAriaExpectationFailure": 1,
+      "inputFeedbackTimingRegression": 2
+    },
+    "originalBaselineLogRetained": true,
+    "originalBaselineTracesPreserved": false,
+    "baselineTraceIssue": "Two configs reused one outputDir; first38 execution replaced original37 traces. Original log remains; separate recreated37 trace and extra-case evidence retained.",
+    "partialObservation": {
+      "before": {
+        "value": "",
+        "badInput": true
+      },
+      "opened": 1,
+      "after": {
+        "value": "",
+        "badInput": false
+      },
+      "documentsExact": true,
+      "pageErrors": [],
+      "remoteWrites": []
+    },
+    "computeErrorObservation": {
+      "first": {
+        "operand": "0",
+        "computed": "1",
+        "error": [
+          "0으로 나눌 수 없습니다."
+        ],
+        "invalid": null
+      },
+      "after": {
+        "computed": "1",
+        "error": [
+          "0으로 나눌 수 없습니다."
+        ],
+        "rawExact": true
+      }
+    },
+    "strictRoleBefore": {
+      "beforeValue": 2,
+      "afterValue": "",
+      "childCount": 0,
+      "rawExact": false,
+      "pageErrors": [],
+      "remoteWrites": []
+    },
+    "intermediate466": {
+      "status": "intermediate466-before-role-serialization-guard-not-installed",
+      "workerSha256": "18056e6b3fdc0b1971d3b2dd826f599936ee8f982e0ef4bbba1a873752fcec2e"
+    },
+    "finalFull": {
+      "exitCode": 0,
+      "elapsedSeconds": 513.200834274292,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/browser/price-input-projection.spec.cjs": "4b5bc69fdd69a11dbf0c7f64993a879d90ed1f3d5b36bebcc1b6865ede983511",
+        "package.json": "8278fcffcdb3f7a9ad22630edf3bcd13752edc50c93f2feeea018e472d351b26"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+        "dist/form-options.js": "04f582d54df6b9a5263fce0ad4557084a58afb9ce40acc49a45c14a3a3730659",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/browser/price-input-projection.spec.cjs": "4b5bc69fdd69a11dbf0c7f64993a879d90ed1f3d5b36bebcc1b6865ede983511",
+        "package.json": "8278fcffcdb3f7a9ad22630edf3bcd13752edc50c93f2feeea018e472d351b26"
+      },
+      "serializationGuardIncluded": true
+    },
+    "wholeBrowser": 468,
+    "allNodeAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 14,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "priceInputScope",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 72240,
+          "end": 72334,
+          "lineStart": 358,
+          "lineEnd": 358,
+          "fragmentSha256": "47f8caf639de8f16e341d84cdf4abc42f96f3628836ecc2d1bb7f4fab4969b87",
+          "inputFile": "own-priceInputScope.js",
+          "inputSha256": "a3bf981a80488a0d7d798cd2fb201362e67e2e90e4dcd32a8b6d810eba4b63bc",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "priceInputScope",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 72192,
+          "end": 72286,
+          "lineStart": 358,
+          "lineEnd": 358,
+          "fragmentSha256": "47f8caf639de8f16e341d84cdf4abc42f96f3628836ecc2d1bb7f4fab4969b87",
+          "inputFile": "candidate-priceInputScope.js",
+          "inputSha256": "a3bf981a80488a0d7d798cd2fb201362e67e2e90e4dcd32a8b6d810eba4b63bc",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "priceInputCurrent",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 72335,
+          "end": 72452,
+          "lineStart": 358,
+          "lineEnd": 358,
+          "fragmentSha256": "ae66292d94c8f60b13b5ee4d18afa0c049477b50a01448c4d7aea3e1c906362f",
+          "inputFile": "own-priceInputCurrent.js",
+          "inputSha256": "486494d4ab75fc93936f25a63982c680e91e3ccee1f00ee820fe58a0f4b9b849",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "priceInputCurrent",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 72287,
+          "end": 72404,
+          "lineStart": 358,
+          "lineEnd": 358,
+          "fragmentSha256": "ae66292d94c8f60b13b5ee4d18afa0c049477b50a01448c4d7aea3e1c906362f",
+          "inputFile": "candidate-priceInputCurrent.js",
+          "inputSha256": "486494d4ab75fc93936f25a63982c680e91e3ccee1f00ee820fe58a0f4b9b849",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-ensure",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 72453,
+          "end": 72632,
+          "lineStart": 358,
+          "lineEnd": 358,
+          "fragmentSha256": "96aa7c5b85ba77e340df43d531cfd723aea4e85f826587b2716843202acb13b5",
+          "inputFile": "own-price-ensure.js",
+          "inputSha256": "2028d56dcefa45269842d8e2ba45689fee04df6cd64aa44f87044b5f989e08c8",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-ensure",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 72405,
+          "end": 72584,
+          "lineStart": 358,
+          "lineEnd": 358,
+          "fragmentSha256": "96aa7c5b85ba77e340df43d531cfd723aea4e85f826587b2716843202acb13b5",
+          "inputFile": "candidate-price-ensure.js",
+          "inputSha256": "2028d56dcefa45269842d8e2ba45689fee04df6cd64aa44f87044b5f989e08c8",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-editor",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 72954,
+          "end": 73308,
+          "lineStart": 359,
+          "lineEnd": 359,
+          "fragmentSha256": "bbf89a2447f05d2146ba9c20d2fa3d205b46b1d24b945cc76a84ab9258ab2369",
+          "inputFile": "own-price-editor.js",
+          "inputSha256": "0af4eb08191af37c4f516ef293535df266aeb922c5d35d7087f42162665446fe",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-editor",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 72906,
+          "end": 73260,
+          "lineStart": 359,
+          "lineEnd": 359,
+          "fragmentSha256": "bbf89a2447f05d2146ba9c20d2fa3d205b46b1d24b945cc76a84ab9258ab2369",
+          "inputFile": "candidate-price-editor.js",
+          "inputSha256": "0af4eb08191af37c4f516ef293535df266aeb922c5d35d7087f42162665446fe",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-number-guard",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 88302,
+          "end": 88729,
+          "lineStart": 400,
+          "lineEnd": 400,
+          "fragmentSha256": "6c4ea186e3d1e5d6845ce30b1aa08893ee63ba027256307023bc7cdc82c1e08e",
+          "inputFile": "own-price-number-guard.js",
+          "inputSha256": "b74f99c5865c473ab576805ca66b04d9c73e1f2edc0faeab083d0ebb0cc4e234",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-number-guard",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 88038,
+          "end": 88465,
+          "lineStart": 399,
+          "lineEnd": 399,
+          "fragmentSha256": "6c4ea186e3d1e5d6845ce30b1aa08893ee63ba027256307023bc7cdc82c1e08e",
+          "inputFile": "candidate-price-number-guard.js",
+          "inputSha256": "b74f99c5865c473ab576805ca66b04d9c73e1f2edc0faeab083d0ebb0cc4e234",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-oninput",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 82089,
+          "end": 82245,
+          "lineStart": 386,
+          "lineEnd": 386,
+          "fragmentSha256": "f107bd6416be274614ae38d31bd528b01c878d1af43ca56d9913595cdfa5ac2e",
+          "inputFile": "own-price-oninput.js",
+          "inputSha256": "70fb76f9d9b29115b8f94e5140ac6e9b4f9b0f00ca7a5deffab9c2aef9da8277",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-oninput",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 81844,
+          "end": 82000,
+          "lineStart": 385,
+          "lineEnd": 385,
+          "fragmentSha256": "f107bd6416be274614ae38d31bd528b01c878d1af43ca56d9913595cdfa5ac2e",
+          "inputFile": "candidate-price-oninput.js",
+          "inputSha256": "70fb76f9d9b29115b8f94e5140ac6e9b4f9b0f00ca7a5deffab9c2aef9da8277",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "price-context-close",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+          "start": 29614,
+          "end": 29712,
+          "lineStart": 181,
+          "lineEnd": 181,
+          "fragmentSha256": "08b92e6bd3399a520d2cea26a73c637a3c1a74d728823f770923049b720da2ff",
+          "inputFile": "own-price-context-close.js",
+          "inputSha256": "fadab582cb48865ecf1bbf3e216c1123442eb7bad1a7afec51dcd067606d4317",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "price-context-close",
+          "file": ".artifacts/releases/0.89.38-price-input-number-preflight/dist/inventory-ui.js",
+          "sourceSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+          "start": 29591,
+          "end": 29689,
+          "lineStart": 181,
+          "lineEnd": 181,
+          "fragmentSha256": "08b92e6bd3399a520d2cea26a73c637a3c1a74d728823f770923049b720da2ff",
+          "inputFile": "candidate-price-context-close.js",
+          "inputSha256": "fadab582cb48865ecf1bbf3e216c1123442eb7bad1a7afec51dcd067606d4317",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "e711505d52861caa9efe46b2d1f1ec2b55625bad581657cf7001ebf70c2c3450",
+      "statistics": {
+        "relevant_files": 14,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 3078,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 14,
+        "visited_ast_nodes": 676,
+        "findings": 0,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "port": {
+      "sharedRegions": 5,
+      "functionsChanged": [
+        "docEditor",
+        "editorDialog"
+      ],
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "priorVatAndApiDifferencesRetained": true,
+      "root": {
+        "beforeSha256": "243594c552c0c8c0ee073f1cbb70ad3df9a10d5e4f0e42103f9a7d7e3d95b991",
+        "afterSha256": "703d4c8f01b5101e3a0a0c9576c5b369c94558e5cee0017dcd7378062de36261",
+        "reverseExact": true
+      },
+      "candidate": {
+        "beforeSha256": "218231bae6fc4c52a6d03aed88a32631cbf14c990c4f67530e5df7b89e2e36e1",
+        "afterSha256": "692e5adef139012c609bfb56d09333f86be7014cfe60eb8bc78bd65d2938dc5f",
+        "reverseExact": true
+      }
+    },
+    "syntheticMetadataSavesInFinal28": 24,
+    "successfulBusinessSavesInFinal28": 0,
+    "refusedBusinessSaveAttemptsInFinal28": 6,
+    "pageErrors": 0,
+    "remoteWrites": 0
+  },
+  "release": {
+    "version": "0.89.38",
+    "sourceCommit": "3029687643ca44ed29e025a6662348ba7f74a0a2",
+    "releaseCommit": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+    "branch": "release/0.89.38-price-input-number-preflight",
+    "baselineReleaseCommit": "409adff1844d9ec0e74babebdc1785a22183ad68",
+    "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.38-price-input-number-preflight",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.37",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "sourceRemoteRef": "3029687643ca44ed29e025a6662348ba7f74a0a2",
+    "releaseRemoteRef": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6"
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "normalNumericAdditionAndComputeProjectionLocalAccepted": true,
+  "computeErrorDisplayAccepted": false,
+  "nonNumericAdditionLifecycleAccepted": false,
+  "originalAccepted": false,
+  "productionAccepted": false,
+  "actualAccountAccepted": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "browserConnectionRetried": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "newErpChanged": false,
+  "automaticStartupAdded": false,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-INPUT-COMPUTE-ERROR-DISPLAY-RECOVERY-AUDIT",
+    "title": "단가요청 입력 계산오류 표시·수정 복구 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-input-number-preflight-20261029.json",
+    "latestEvidence": "evidence/manual-price-input-number-preflight-20261029.json",
+    "description": "새 숫자추가와 정상 입력계산식 변경의 부모투영/초안은 한정 확인했고 native 미완성숫자의 저장/재구성/닫기 손실을38로 보완했다. 별도관찰에서 분모0은 명시오류와업무저장차단·원문유지를 제공하지만 readonly계산칸은 이전1이 남고 aria-invalid가 없었다. 현재 입력계산 오류표시/수정·해제·계산대상 귀속·설정/재진입의 계약은 별도다. 기존 FormCore.compute와 configureGrid.update/rawCustomValues, docEditor의 오류/합계/인쇄·초안 경로 및 기초등록 계산오류 검사의 검증범위를 먼저 읽고, 입력원문·저장된사용자값·양식/backup을 보존하며 실제 잘못된표시와복구 차이만 재현한다. 공통validator 강화로 기존backup을 거부하거나 표시를 비우면서 보관원문까지 지우지 않는다. 비숫자 추가항목의 전체수명/다른공통목록/원본·운영은 미확인으로 유지한다. 기존16후보·자료/양식/운영gate를 보존하고 정상추가/계산투영·부분숫자/소유자닫기 행렬과 같은 전체검사를 변화없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "preauthorized": true,
+    "start": {
+      "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+      "proof": {
+        "beforeVersion": 41,
+        "afterVersion": 42,
+        "beforeBlocks": 290,
+        "afterBlocks": 292,
+        "prefixExact": true,
+        "appendExact": true
+      },
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-29 · 입력 사용자항목 추가·계산 변경의 부모 검색 투영 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-INPUT-PROJECTION-ADDITION-COMPUTE-AUDIT에 따라 FormCore.custom/effective/configureGrid와 docFilters/docEditor/getDoc 및 실제 항목카탈로그의 지원 UI·기존 검증 계약을 먼저 확인한다. 새 사용자항목 생성과 입력계산식 변경 때 부모 현재검색/검색메타데이터·기존 업무사용자값·자식초안과 취소/명시저장/복귀에서 확인된 새 소실·덮어쓰기만 대조한다. 왜: 앞선0.89.37은 이미 있는항목의 명칭/유형/제거/기본값/readonly·소유자복귀13흐름을 한정 보완했고 생성/계산원문/초안 수명은 별도이기 때문이다. 입력 기본값/readonly/계산식의 검색 자동상속을 추정하거나 schema거부를 실제소실로 분류하지 않는다. 기존15후보/운영0.89.22·dirty12/매핑·자료/양식/메일을 보존하고 원본/운영저장·발송·new_ERP 변경·자동시작 추가0을 유지한다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "2222362f-4163-488f-bf16-f06a8c9f536f",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-29 · 입력 사용자항목 추가·계산 변경의 부모 검색 투영 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "86b12c69-f4a5-41e2-a278-e61cdf9ca874",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-29·마감일2026-10-30 KST·이번 한정 감사doing/P1 전체doing이며 실제 일정/상태 메타데이터는 미설정이다. OWN-PRICE-SEARCH-INPUT-PROJECTION-ADDITION-COMPUTE-AUDIT에 따라 FormCore.custom/effective/configureGrid와 docFilters/docEditor/getDoc 및 실제 항목카탈로그의 지원 UI·기존 검증 계약을 먼저 확인한다. 새 사용자항목 생성과 입력계산식 변경 때 부모 현재검색/검색메타데이터·기존 업무사용자값·자식초안과 취소/명시저장/복귀에서 확인된 새 소실·덮어쓰기만 대조한다. 왜: 앞선0.89.37은 이미 있는항목의 명칭/유형/제거/기본값/readonly·소유자복귀13흐름을 한정 보완했고 생성/계산원문/초안 수명은 별도이기 때문이다. 입력 기본값/readonly/계산식의 검색 자동상속을 추정하거나 schema거부를 실제소실로 분류하지 않는다. 기존15후보/운영0.89.22·dirty12/매핑·자료/양식/메일을 보존하고 원본/운영저장·발송·new_ERP 변경·자동시작 추가0을 유지한다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 43,
+    "p1FinalBlocks": 303,
+    "evidence": "evidence/moa-price-input-number-preflight-preauthorized-20261029.json"
+  },
+  "artifactHashes": {
+    ".artifacts/manual-price-input-projection-20261029/late-metadata-probe.cjs": "ab400c5b8857411f544a192bf81202d2515c4420ca2ffddf7282d3ca6b7c371d",
+    ".artifacts/manual-price-input-projection-20261029/release.json": "edf264abdcee440e0705273b694ae6580eed0167c6f742a4ee8c571de94c24ff",
+    ".artifacts/manual-price-input-projection-20261029/node-before.log": "6c8511bea298bb43ed210bdb78f78d105ef197ea63a8042c0c5f02d0848e5a33",
+    ".artifacts/manual-price-input-projection-20261029/projection-audit.config-serialization-final.cjs": "4979ad28a7f8a2c7ea0bd94ac0b46e8ac2d73daa72428ac92428ee44258e2de2",
+    ".artifacts/manual-price-input-projection-20261029/node-focused-final-exit.json": "3646809d7df7a67e858da9db681c26182e47248677c9336c3c54e9dce728de8f",
+    ".artifacts/manual-price-input-projection-20261029/browser-final38-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-projection-20261029/strict-native-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-input-projection-20261029/browser-partial-observe.log": "374f0d372d97e4983e84529d66ada446a13a04fca805399f8d4d121addf7f291",
+    ".artifacts/manual-price-input-projection-20261029/late-and-scope-probe.cjs": "92e0ea7f22574a3bca7bec4a5a21fe76d3a28ed47ef295391426eb5ecf35aff1",
+    ".artifacts/manual-price-input-projection-20261029/final-shared-edits.json": "4f8be1fc2e5550528694e8f5316d96b7ea47064c00aac63e8fe8eaf238704a06",
+    ".artifacts/manual-price-input-projection-20261029/browser-initial.log": "35569427152561d16527ba34fa2c119a85d9e2a1d697f827b6ea98af84f39194",
+    ".artifacts/manual-price-input-projection-20261029/verify-local.log": "cb450cbf66378a4be36b0612e84154ef1da7333ed3677f06dd5c56ee0309feba",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-recreated-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-input-projection-20261029/node-focused-final.log": "56b10df8b37fd558f589e5b866750b98b68f6b2172e3f5030bc3ff3d063ea34a",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-input-projection-20261029/input-projection-compute-observation.json": "8a35b3d5fe20ae4619acaf50d948d3a5f078cb63cc00d7016ebf5ff0b49c0437",
+    ".artifacts/manual-price-input-projection-20261029/input-projection-partial-observation.json": "dad347600747b1f7767bcc7abc42ca9064fe252d09a204452000fdc4629c4584",
+    ".artifacts/manual-price-input-projection-20261029/patch.cpy": "0b08a8c0846d6dca71f11dd599c74581ee372f1b5d155c31ea0d2bc6ea9284e2",
+    ".artifacts/manual-price-input-projection-20261029/projection-audit.config-final.cjs": "e7227ce4d7f6fc2a05d3690b746a1ef1735d0fc7054cda6088077e6169ca84e0",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra-exit.json": "50fd2f1b83056ca4649d723786a10e6684aab4b05b86e2ce6f25a0cf5bca4929",
+    ".artifacts/manual-price-input-projection-20261029/browser-serialization-final-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-projection-20261029/browser-final.cjs": "cbb2edc1108b796d5f87a48363b0c7573b707fc0ebbc28b53b6026f0f7a2af0e",
+    ".artifacts/manual-price-input-projection-20261029/browser-initial.cjs": "08a0a4f52f6b93da15d2d2675e068168dbb22462fe479880f424695d5857b742",
+    ".artifacts/manual-price-input-projection-20261029/browser-before.log": "d3eb018aeeb5254781379d4417638740319ef8c7e26ad7af7061e0a5130e4aaf",
+    ".artifacts/manual-price-input-projection-20261029/strict-native-before.log": "551e06264059624f5d1cfb9b5f49ac2e3a350fd58efa5ab0ac61d5b7af8197ba",
+    ".artifacts/manual-price-input-projection-20261029/strict-native.config.cjs": "e1e58d8c847b0c49c92ac43e67887b4d400f74d8bd43b1c4ee31708ff41d3e58",
+    ".artifacts/manual-price-input-projection-20261029/patch-port.json": "874bc8447bab729c2c34c6617929fd965008c722314d9536686e525f9067b612",
+    ".artifacts/manual-price-input-projection-20261029/browser-partial-observe-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-projection-20261029/preserve.py": "b867601681793d18c4881b2863c249006e52a1b7cd66d85b60542c8ad4ded042",
+    ".artifacts/manual-price-input-projection-20261029/node-serialization-final-exit.json": "741e08f4cc11b2e93ac3637bcdbd9376889b9eecdf25ea41db440e2bbeab94f5",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38.cjs": "a8aca9a1d4b114f7e14ed8885525fa9390e3e951ae54424e4062ba3b8bf7afb1",
+    ".artifacts/manual-price-input-projection-20261029/browser-after.log": "1480aea26a31f87394fa73cc0105d9ec1d7251c6d376d950e5201b4b2b31f76d",
+    ".artifacts/manual-price-input-projection-20261029/release-stage.py": "59d8f1e85b0c7faa34b5233858e2596b5c243a28dece4352acba6dc9e0c2008d",
+    ".artifacts/manual-price-input-projection-20261029/prepare-record.py": "d0428fc3299db2749e7123e6c63af11a621f6a193b863e4cb59c1dda69d263b2",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra.log": "36d440ca4d39b8dceea3303debcec3300ddce5bc295420764ce258e4ee8591e4",
+    ".artifacts/manual-price-input-projection-20261029/moa-start.json": "41e826b3332836e647b958b431e738252568778e4f9c468effe4a9e00b2a8712",
+    ".artifacts/manual-price-input-projection-20261029/finalize-records.py": "fb691a83e3bed85df12e848eda17e7f236f252969ed27f5a9f197a2a64bb54d1",
+    ".artifacts/manual-price-input-projection-20261029/browser-final38.log": "e823524ed16113405b10b74622c87a2b6a6c343f76b98faee8149107a4e70945",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-recreated.log": "ac5e05d2601ef86bdec49c712663111c78d5a89624c39c04365e4c88ca713eb4",
+    ".artifacts/manual-price-input-projection-20261029/node-focused.log": "1d722eed8d6772466db07b88045007cb89b8bcfa1ba344c1559c4a12572b98f9",
+    ".artifacts/manual-price-input-projection-20261029/browser-serialization-final.log": "06d6623cdbc77fe2478110b793b374f58620f6aea0b7aa14c1c3ad16c7a13411",
+    ".artifacts/manual-price-input-projection-20261029/node-focused-exit.json": "5c25a943502ca1350607cb1ae2293098cb6df2968c4b98bd1982fafa0b79156a",
+    ".artifacts/manual-price-input-projection-20261029/node-serialization-final.log": "30cb5e4ce47c75a825640a3e607500e552530f56eb1dcae00647c4d19b7ed020",
+    ".artifacts/manual-price-input-projection-20261029/browser-initial-exit.json": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e",
+    ".artifacts/manual-price-input-projection-20261029/node-before-exit.json": "05a83f4d1ee0a0eceb9729c6e5544d39757eacf478026aaa508b4f8245dbff18",
+    ".artifacts/manual-price-input-projection-20261029/preservation.json": "a56b70e90534009464bc3ae1e86dff4ef4963bb80149f059e2f43d4c66045a44",
+    ".artifacts/manual-price-input-projection-20261029/browser-after-exit.json": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43",
+    ".artifacts/manual-price-input-projection-20261029/browser-partial-observe.cjs": "f7e596576732fbc81134c57f2212422a65c3c02ef6b4568232c52c01aa0bb10c",
+    ".artifacts/manual-price-input-projection-20261029/analyze.mjs": "86b3670fa9c8b0d533f58c0e837db05fd62aa95cf2963bc9b28d7244ef2908f6",
+    ".artifacts/manual-price-input-projection-20261029/start.json": "61a476010ba6f22ba98aea4d7aee3593e1f48c14a79b083eda6f26b6ceba9708",
+    ".artifacts/manual-price-input-projection-20261029/strict-native-before.json": "667438784739e9709b7d7571f2d02ebdf21ec4b5cdeda82d2c748118fe0174d5",
+    ".artifacts/manual-price-input-projection-20261029/verify-local-exit.json": "44d7898eddd46fd9b1270daec2cc723f0fa4eb9d596e198e8225436bf00019bb",
+    ".artifacts/manual-price-input-projection-20261029/audit-completion.py": "60db095f423f5acbc645dad25891784f4778070922dcdfe14549f0d20b42d00f",
+    ".artifacts/manual-price-input-projection-20261029/browser-final-serialization.cjs": "4b5bc69fdd69a11dbf0c7f64993a879d90ed1f3d5b36bebcc1b6865ede983511",
+    ".artifacts/manual-price-input-projection-20261029/browser-initial-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-projection-20261029/strict-probe-tests/strict-role.spec.cjs": "ba2da4d97da9c2d6fdc610aa5de5fc51056a0f0e5f6d670ae5485d9393c22207",
+    ".artifacts/manual-price-input-projection-20261029/browser-serialization-final-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/.last-run.json": "00cd4533eb768f0dcaee28c6f12becceb716436ecc92b3481de0721b9564ca45",
+    ".artifacts/manual-price-input-projection-20261029/strict-probe-before-results/.last-run.json": "4841ab38146e63dc85453451a11f3541d5d85d4ab12181189885e5c48722253a",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/verify-local.log": "27acb13f56f22af0daf03506ea986da023211af9e29dde73ccd1749d9e6819a9",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/patch-port.json": "bd181164cffe873a472f43713d176cf96c4333a72990525b22966dee0c1ed025",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/status.json": "5e778d48b4c927bbaeb0415c5637115dd6d9bb7a4b93dc44dc726f2d55d1cadb",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/verify-local-exit.json": "a7eda7dc140597c456384e8aa89bfb5c9a5ad94f4a9feabd957c4d90e185d515",
+    ".artifacts/manual-price-input-projection-20261029/rea/rea-summary.json": "4ad3eaad34e6a4a96c767682a02460e89bccba19540d9f28566f69e287263dbe",
+    ".artifacts/manual-price-input-projection-20261029/rea/stderr.log": "235be4c68df7549c9582d020ebae3b28d001f192ecef1369e8c9a91332b6dccb",
+    ".artifacts/manual-price-input-projection-20261029/rea/result.json": "e711505d52861caa9efe46b2d1f1ec2b55625bad581657cf7001ebf70c2c3450",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/.last-run.json": "06f93bee15fca0fb8d5957b7aa793708177ff886c14a4d6ef621708670fc276d",
+    ".artifacts/manual-price-input-projection-20261029/browser-final38-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/.last-run.json": "00cd4533eb768f0dcaee28c6f12becceb716436ecc92b3481de0721b9564ca45",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra-results/.last-run.json": "1876245c83984a2ec7ba2899a29adab9dd3bc4f234eb342590b9bb825a2b064b",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra-results/price-input-projection-wri-538b8-partial-input-as-blank-1280/test-failed-1.png": "0778b9ffa88d26fcc4e9aa53a5c2ead64371fe4353a6feee8f074bb9917fa03b",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra-results/price-input-projection-wri-538b8-partial-input-as-blank-1280/trace.zip": "45d6ec148982197254d9229e0f9ea440e1ef4e4c281efbfc4f52ff4246a38d5c",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra-results/price-input-projection-wri-9e27d--partial-input-as-blank-390/test-failed-1.png": "ad34d498a500ca124c254ad0feb5bebdd4db5f2cf87118ab031955a85763e552",
+    ".artifacts/manual-price-input-projection-20261029/browser-baseline-extra-results/price-input-projection-wri-9e27d--partial-input-as-blank-390/trace.zip": "058877c879c8f50a3a1efaf45425ac35dfd4db61d6e72a9886ba7babf5e3fdb4",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/price-input-projection-cor-908fc-t-checks-latest-remount-390/test-failed-1.png": "bb144f30fdeb8ae6c283463215cc02a3e230824350f36b26dc74259cab970c81",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/price-input-projection-cor-908fc-t-checks-latest-remount-390/trace.zip": "7f0f9c38f0f5bee0be04b7a913b03d742b575d267537a8a4ca4cd52fff0e39af",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/price-input-projection-new-a7368-preserves-live-control-1280/test-failed-1.png": "1cbded5c11866179e8b2fca1dd78e942f2345b18b2f1169461c0496304dc146e",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/price-input-projection-new-a7368-preserves-live-control-1280/trace.zip": "ec91d9c26286062427b9e603fa685936e5fc36505af72d3ef29ff48482e607a9",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/price-input-projection-cor-85d66--checks-latest-remount-1280/test-failed-1.png": "1cbded5c11866179e8b2fca1dd78e942f2345b18b2f1169461c0496304dc146e",
+    ".artifacts/manual-price-input-projection-20261029/browser-first38-results/price-input-projection-cor-85d66--checks-latest-remount-1280/trace.zip": "7fe4bfd2a3c8dcb787b8abb5906511bfa789fa9941dc466e5911e05e1ec7f525",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-3e8d6-ecoming-a-normal-blank-1280/test-failed-1.png": "c930a239bc0a483d8d71090e27192e2c82873d0be3c0f9277e8934403413e030",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-3e8d6-ecoming-a-normal-blank-1280/trace.zip": "0765f92c8c7a076ab583b7c747263d39089116ebc555ea11db2f899a0383d91e",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-par-31f86-ar-permits-form-switch-1280/test-failed-1.png": "d66b9e653bd543ce8664656835a00a53f4da1064ed802710b1c7342da098c704",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-par-31f86-ar-permits-form-switch-1280/trace.zip": "d29aade56b77eaf0f60573ad44d9d8d774a4471ae1d5d4cc546f8eca9acbc1bc",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-67cb9-re-metadata-activation-1280/test-failed-1.png": "874ca7dd0f12ce8b655edc23a71fd4bb6ff19198a9e503cf77ef7453d6ac3884",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-67cb9-re-metadata-activation-1280/trace.zip": "4a0e2d5a452ad52dbdeb0a4d34ae9514334ef380c6f6f76e28c956d5413760f1",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-par-b3337-ear-permits-form-switch-390/test-failed-1.png": "b62eb05746ce57bbff28b62b19a8a772ea078f99691fe8b4f5bb144bd96ec5e5",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-par-b3337-ear-permits-form-switch-390/trace.zip": "11224a397aab9219d2708ddb00c48844105b6a29e14ea0514f1a8c4a9bfdc6e9",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-c2d54-clear-keeps-blank-draft-390/test-failed-1.png": "53a38d7a1dc67a0978b8a59ffcaa988a2764c17897b788d90d7b1919397f7bb8",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-c2d54-clear-keeps-blank-draft-390/trace.zip": "a9b103ca123acb33b0c16da40a41105d48ee24f1274cf96272baa4c3b8711aad",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-cor-908fc-t-checks-latest-remount-390/test-failed-1.png": "1560f8ced060e5b7ed1ba7f4a254e9d31c97cccba927fb08bfcd9d5f0d2a988b",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-cor-908fc-t-checks-latest-remount-390/trace.zip": "8413c0603bad3abec626b6ae2c94d349a793ce7a39d682f0ae899e050f4a32e7",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-d0f9c--preserves-live-control-390/test-failed-1.png": "1560f8ced060e5b7ed1ba7f4a254e9d31c97cccba927fb08bfcd9d5f0d2a988b",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-d0f9c--preserves-live-control-390/trace.zip": "fcac7f590604a8b34048a20cb7026e45ff3b2459b216e312621caf4d66305e39",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-a7368-preserves-live-control-1280/test-failed-1.png": "e5792261e24de46ae337257576ccfc75409b378f5948387e9370094d2d381347",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-a7368-preserves-live-control-1280/trace.zip": "b7cff52823a5eb2dfdce0d6b6029e7ce36fa03b0672a5b1722a1f5d1c3fbb426",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-5224e-lear-keeps-blank-draft-1280/test-failed-1.png": "c930a239bc0a483d8d71090e27192e2c82873d0be3c0f9277e8934403413e030",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-5224e-lear-keeps-blank-draft-1280/trace.zip": "0425593368088b4ba6a6135ab419a80d0b9163bdc939d219229ed8dc3fb28e5e",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-44a70-ore-metadata-activation-390/test-failed-1.png": "81dd7ad677bcec7f5c2d7b5a9d90a21334ee22190025e41ab1f742f010ea4fa5",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-44a70-ore-metadata-activation-390/trace.zip": "5334367070e337d490f6ac82fac6899bedf0c9f4f61ad1e21a0d4e38e2d3f6e4",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-83618-becoming-a-normal-blank-390/test-failed-1.png": "53a38d7a1dc67a0978b8a59ffcaa988a2764c17897b788d90d7b1919397f7bb8",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-new-83618-becoming-a-normal-blank-390/trace.zip": "d42df967c15113f9895db47c79f2edb0ed73bf398e0093bcf3a7fe89625db469",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-cor-85d66--checks-latest-remount-1280/test-failed-1.png": "e5792261e24de46ae337257576ccfc75409b378f5948387e9370094d2d381347",
+    ".artifacts/manual-price-input-projection-20261029/browser-recreated37-results/price-input-projection-cor-85d66--checks-latest-remount-1280/trace.zip": "bee68b9a48302f64b92ae1cfd54121b8ba30f11f90cfcc7c5965569b64d602a1",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/rea/rea-summary.json": "583b0132cc378f4ac818b546c5fc44ff33431748581b42477600df52469d0b80",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/rea/stderr.log": "a559c2a7099bf6334c7fe0a35df5598f46c354a174862dd2799ba6f2975b10aa",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/rea/result.json": "22d6c8eeb6b9fec3d302d07b2a15b44140468d3da857cfeaaa01985606d33347",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/evidence/release-validation.json": "974f3bdf6ff866bf8b2fb6f5672414b6b71a05da966a0696793b93f73a95849a",
+    ".artifacts/manual-price-input-projection-20261029/before-serialization-snapshot/tests/browser/price-input-projection.spec.cjs": "cbb2edc1108b796d5f87a48363b0c7573b707fc0ebbc28b53b6026f0f7a2af0e",
+    ".artifacts/manual-price-input-projection-20261029/strict-probe-before-results/strict-role-changed-writin-82bf9-tive-partial-input-as-blank/test-failed-1.png": "18c5c38230637448bd95163d803374666570b0aca1a47d22f75c6bad7ba170d8",
+    ".artifacts/manual-price-input-projection-20261029/strict-probe-before-results/strict-role-changed-writin-82bf9-tive-partial-input-as-blank/trace.zip": "6441cce26b4539b5e56c7c2f438feb01489dfdca35264220785cbb08ec54014b",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/price-input-projection-cor-908fc-t-checks-latest-remount-390/test-failed-1.png": "bb144f30fdeb8ae6c283463215cc02a3e230824350f36b26dc74259cab970c81",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/price-input-projection-cor-908fc-t-checks-latest-remount-390/trace.zip": "7f0f9c38f0f5bee0be04b7a913b03d742b575d267537a8a4ca4cd52fff0e39af",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/price-input-projection-new-a7368-preserves-live-control-1280/test-failed-1.png": "1cbded5c11866179e8b2fca1dd78e942f2345b18b2f1169461c0496304dc146e",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/price-input-projection-new-a7368-preserves-live-control-1280/trace.zip": "ec91d9c26286062427b9e603fa685936e5fc36505af72d3ef29ff48482e607a9",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/price-input-projection-cor-85d66--checks-latest-remount-1280/test-failed-1.png": "1cbded5c11866179e8b2fca1dd78e942f2345b18b2f1169461c0496304dc146e",
+    ".artifacts/manual-price-input-projection-20261029/browser-before-results/price-input-projection-cor-85d66--checks-latest-remount-1280/trace.zip": "7fe4bfd2a3c8dcb787b8abb5906511bfa789fa9941dc466e5911e05e1ec7f525"
+  }
+}
