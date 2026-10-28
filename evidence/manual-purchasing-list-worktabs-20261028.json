@@ -1,0 +1,678 @@
+{
+  "sourceId": "OWN-PURCHASING-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "actualStart": "2026-10-28T22:00:16.541154+09:00",
+  "status": "validated-pushed-not-deployed",
+  "p1Status": "doing",
+  "recordedAt": "2026-10-28T22:45:43.458137+09:00",
+  "elapsedSeconds": 2726.917,
+  "version": "0.89.29",
+  "operatingVersion": "0.89.22",
+  "patchStatus": "doing",
+  "basis": [
+    "Previous actual own-shell cross-menu failures 6 on 0.89.28",
+    "Existing app work-tabs/report work-tabs and native list snapshot/restore",
+    "Original EC-HELP-REQUEST-012 list-tab SETUP/SAVE is distinct and not integrated by this patch"
+  ],
+  "change": {
+    "scope": [
+      "request",
+      "purchaseorder",
+      "purchase"
+    ],
+    "actualAppViewIdRequired": true,
+    "state": [
+      "applied query",
+      "raw pending draft",
+      "applied error",
+      "selection",
+      "status tab",
+      "quick text",
+      "page",
+      "scroll",
+      "search expanded state"
+    ],
+    "scopeGuard": [
+      "identity",
+      "company",
+      "role",
+      "read permission",
+      "write permission",
+      "commonDefaults",
+      "conveniences"
+    ],
+    "dataGuard": "Changed or corrupt backing storage never restores stale applied results/selection; retain draft and require explicit requery after reentry",
+    "lifecycle": "Memory only; close forgets; stale detached or revoked view cannot query/export/use selected actions",
+    "legacy": "Explicit standalone module replace/render/conditional return printing retained; no work-tab cache without ctx.viewId",
+    "unchanged": [
+      "original list-tab setup/save integration",
+      "dedicated plan renderer",
+      "price request renderer",
+      "backup/schema",
+      "persistent settings",
+      "existing report cache",
+      "unshipped VAT5 and mapping candidates"
+    ]
+  },
+  "checks": {
+    "correctedBaseline": {
+      "tests": 27,
+      "passed": 4,
+      "failed": 23,
+      "immutableVersion": "0.89.28"
+    },
+    "firstProgramPatch": {
+      "tests": 27,
+      "passed": 0,
+      "failed": 27,
+      "cause": "rememberList resolved the initial undefined route before checking for a mounted list; guard reordered"
+    },
+    "afterGuard": {
+      "tests": 27,
+      "passed": 20,
+      "failed": 7
+    },
+    "fixtureCorrections": [
+      "Explicit Search(F3) open before editing hidden criteria",
+      "Use actual 다음 페이지 button label",
+      "Delete unused C001 master; deleting referenced V001 is correctly rejected by backup validation"
+    ],
+    "candidateLegacyBoundary": {
+      "tests": 133,
+      "passed": 132,
+      "failed": 1,
+      "cause": "Explicit replace followed by standalone render incorrectly resumed work-tab state",
+      "fix": "Cache only when actual app passes ctx.viewId; preserve legacy replace/render/F8 contract"
+    },
+    "portPreflight": {
+      "guardRejectedWholeApiCopy": true,
+      "cause": "Existing root-only unshipped VAT cleanup differs from candidate baseline",
+      "fix": "Insert only forgetView/beforeNavigate list calls; preserve outside scopes and each baseline API",
+      "dependentBrowserNoTestsFound": true,
+      "classification": "Preflight/orchestration failure before test-file copy, not an application test failure"
+    },
+    "firstWholeNode": {
+      "exitCode": 1,
+      "groupTests": 128,
+      "groupPassed": 127,
+      "groupFailed": 1,
+      "cause": "Existing purchase return standalone print after explicit replace was blocked by work-tab rendered-data guard",
+      "fix": "Apply rendered-data requery guard only to actual app ctx.viewId; retain standalone explicit replace + conditional print contract and auth/storage checks",
+      "log": "verify-local-first.log"
+    },
+    "finalNewNode": 28,
+    "finalFocusedNode": 135,
+    "finalFocusedNote": "135 includes standalone work-tabs test file reporting its existing17 checks separately; not135 original requirements",
+    "focusedBrowser": {
+      "tests": 8,
+      "passed": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "roundtripTypes": [
+        "request",
+        "purchaseorder",
+        "purchase"
+      ],
+      "extraCases": "121-doc pagination/selection/scroll, controlled changed-data requery, close/reopen",
+      "scope": "Actual local app shell with synthetic data; not production/original; two cases deliberately edit local storage via harness"
+    },
+    "fullVerifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.29-purchasing-list-worktabs",
+      "startedAt": "2026-10-28T13:37:08.854024+00:00",
+      "finishedAt": "2026-10-28T13:44:42.135035+00:00",
+      "exitCode": 0,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/purchasing-list-worktabs.cjs": "22af80ac16f7b77fd36e9e07d3c0864ff8151b0ac91b05dbf589d99ce17da45e",
+        "tests/browser/purchasing-list-worktabs.spec.cjs": "d106a4627cfd7c9bb369551127af2eeb814700af0c96bf1c9e4714690c63d64f",
+        "package.json": "1344c855ce6fe129635c4d9f09874da06c1f75c8fc44849f2de3b99c67df2021"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/purchasing-list-worktabs.cjs": "22af80ac16f7b77fd36e9e07d3c0864ff8151b0ac91b05dbf589d99ce17da45e",
+        "tests/browser/purchasing-list-worktabs.spec.cjs": "d106a4627cfd7c9bb369551127af2eeb814700af0c96bf1c9e4714690c63d64f",
+        "package.json": "1344c855ce6fe129635c4d9f09874da06c1f75c8fc44849f2de3b99c67df2021"
+      }
+    },
+    "browserTests": 338,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 16,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "retainedPurchasingList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 2993,
+          "end": 3127,
+          "lineStart": 20,
+          "lineEnd": 20,
+          "fragmentSha256": "d31afd9cf40cd770e10afa5f37d51f5b926a01bd9a9891849c78fab0cc4a9560",
+          "inputFile": "own-retainedPurchasingList.js",
+          "inputSha256": "cc988a9f276c4acb95d3ea53a858c5c579188897e56a73e1909f68d0279de8fc",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "retainedPurchasingList",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 2527,
+          "end": 2661,
+          "lineStart": 16,
+          "lineEnd": 16,
+          "fragmentSha256": "d31afd9cf40cd770e10afa5f37d51f5b926a01bd9a9891849c78fab0cc4a9560",
+          "inputFile": "candidate-retainedPurchasingList.js",
+          "inputSha256": "cc988a9f276c4acb95d3ea53a858c5c579188897e56a73e1909f68d0279de8fc",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "listScope",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 3130,
+          "end": 3381,
+          "lineStart": 21,
+          "lineEnd": 24,
+          "fragmentSha256": "23dc3f889bee7bab1e3aaa6c833d8639fde44b683a21739b994405e24591729d",
+          "inputFile": "own-listScope.js",
+          "inputSha256": "7756f66438c5457a4b4d4efb21d04d266b93fda4b3926ca668ba647c8906ea9e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "listScope",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 2664,
+          "end": 2915,
+          "lineStart": 17,
+          "lineEnd": 20,
+          "fragmentSha256": "23dc3f889bee7bab1e3aaa6c833d8639fde44b683a21739b994405e24591729d",
+          "inputFile": "candidate-listScope.js",
+          "inputSha256": "7756f66438c5457a4b4d4efb21d04d266b93fda4b3926ca668ba647c8906ea9e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "rememberList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 3384,
+          "end": 3858,
+          "lineStart": 25,
+          "lineEnd": 29,
+          "fragmentSha256": "f83d0108a1c22df9ad85385e841024c9ca15e8c94162d2cda2561cb1b4425251",
+          "inputFile": "own-rememberList.js",
+          "inputSha256": "ae18ad6955ddc92973f2f29ea087767c24f01199580d7b6044b914e1b95342c0",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "rememberList",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 2918,
+          "end": 3392,
+          "lineStart": 21,
+          "lineEnd": 25,
+          "fragmentSha256": "f83d0108a1c22df9ad85385e841024c9ca15e8c94162d2cda2561cb1b4425251",
+          "inputFile": "candidate-rememberList.js",
+          "inputSha256": "ae18ad6955ddc92973f2f29ea087767c24f01199580d7b6044b914e1b95342c0",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "resumeList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 3861,
+          "end": 4613,
+          "lineStart": 30,
+          "lineEnd": 36,
+          "fragmentSha256": "fc5b8347e5913e404e599d92da02ba1cd7f38859023a7a3e0fb139d6cea69261",
+          "inputFile": "own-resumeList.js",
+          "inputSha256": "2a12cc8bd2503ad99906317b1b6e4cb3a6943d88cb62a135226f0be1b7dd750e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "resumeList",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 3395,
+          "end": 4147,
+          "lineStart": 26,
+          "lineEnd": 32,
+          "fragmentSha256": "fc5b8347e5913e404e599d92da02ba1cd7f38859023a7a3e0fb139d6cea69261",
+          "inputFile": "candidate-resumeList.js",
+          "inputSha256": "2a12cc8bd2503ad99906317b1b6e4cb3a6943d88cb62a135226f0be1b7dd750e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "requestList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 128622,
+          "end": 146425,
+          "lineStart": 543,
+          "lineEnd": 582,
+          "fragmentSha256": "63a30d77e6f5957615655db4e85814a8929dc9f5274373e0c60d2dad8dda6136",
+          "inputFile": "own-requestList.js",
+          "inputSha256": "06f595441392ed629af1a828d7be830e57170616397d4676760b192e2c75b5c1",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "requestList",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 123876,
+          "end": 141679,
+          "lineStart": 520,
+          "lineEnd": 559,
+          "fragmentSha256": "63a30d77e6f5957615655db4e85814a8929dc9f5274373e0c60d2dad8dda6136",
+          "inputFile": "candidate-requestList.js",
+          "inputSha256": "06f595441392ed629af1a828d7be830e57170616397d4676760b192e2c75b5c1",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "renderCurrent",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 176300,
+          "end": 179021,
+          "lineStart": 691,
+          "lineEnd": 695,
+          "fragmentSha256": "bf94a1fd5fc648f712064b0f23a6165b207526d5e3e8ae77a80fdf299d6f757a",
+          "inputFile": "own-renderCurrent.js",
+          "inputSha256": "ab29dc364349db42f20ba825cca79a1f4696bfcf95114b7d37f328d74a4e7afe",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "renderCurrent",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 171554,
+          "end": 174275,
+          "lineStart": 668,
+          "lineEnd": 672,
+          "fragmentSha256": "bf94a1fd5fc648f712064b0f23a6165b207526d5e3e8ae77a80fdf299d6f757a",
+          "inputFile": "candidate-renderCurrent.js",
+          "inputSha256": "ab29dc364349db42f20ba825cca79a1f4696bfcf95114b7d37f328d74a4e7afe",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "render",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 179024,
+          "end": 179840,
+          "lineStart": 696,
+          "lineEnd": 698,
+          "fragmentSha256": "9b01518024edba53e0660abc3837fd03cee402887b4788f337b964791fcb62f9",
+          "inputFile": "own-render.js",
+          "inputSha256": "dd82a3951ed98a1f432eedf3db883170f43b95a14dd4cc899729e22ee40e33c4",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "render",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 174278,
+          "end": 175094,
+          "lineStart": 673,
+          "lineEnd": 675,
+          "fragmentSha256": "9b01518024edba53e0660abc3837fd03cee402887b4788f337b964791fcb62f9",
+          "inputFile": "candidate-render.js",
+          "inputSha256": "dd82a3951ed98a1f432eedf3db883170f43b95a14dd4cc899729e22ee40e33c4",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "listMemory",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "74a34930d03609488fd8e63fc7806a61bfee1cfc17410deaa5a2f02accae0c87",
+          "start": 2472,
+          "end": 2523,
+          "lineStart": 15,
+          "lineEnd": 15,
+          "fragmentSha256": "e08c7d2e9f5de25707d90ba4b1b9fff4eb1fbfba744681a747dd6aec82139356",
+          "inputFile": "own-listMemory.js",
+          "inputSha256": "43b6346c5ae32fc0135d0ab03e5ca5dc1465c73decbc837b3e5bec7a7947eaba",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "listMemory",
+          "file": ".artifacts/releases/0.89.29-purchasing-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "658db00382a99637109954b6d9574cf35529f6ae97196be7673b2e39da4f7dad",
+          "start": 2472,
+          "end": 2523,
+          "lineStart": 15,
+          "lineEnd": 15,
+          "fragmentSha256": "e08c7d2e9f5de25707d90ba4b1b9fff4eb1fbfba744681a747dd6aec82139356",
+          "inputFile": "candidate-listMemory.js",
+          "inputSha256": "43b6346c5ae32fc0135d0ab03e5ca5dc1465c73decbc837b3e5bec7a7947eaba",
+          "wrapperAdded": true,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "61dd3e83e8e975d9da3746fda34d7e2523e9c8a49734afb948dfd5c139332eb9",
+      "statistics": {
+        "relevant_files": 16,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 50486,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 16,
+        "visited_ast_nodes": 10334,
+        "findings": 6,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "beforeExistingScopesExact": true,
+      "apiBridge": "Only list calls inserted; unshipped VAT cleanup retained in its original baseline",
+      "scopes": [
+        {
+          "symbol": "requestList",
+          "sourceHash": "63a30d77e6f5957615655db4e85814a8929dc9f5274373e0c60d2dad8dda6136",
+          "candidateHash": "63a30d77e6f5957615655db4e85814a8929dc9f5274373e0c60d2dad8dda6136",
+          "exact": true
+        },
+        {
+          "symbol": "renderCurrent",
+          "sourceHash": "bf94a1fd5fc648f712064b0f23a6165b207526d5e3e8ae77a80fdf299d6f757a",
+          "candidateHash": "bf94a1fd5fc648f712064b0f23a6165b207526d5e3e8ae77a80fdf299d6f757a",
+          "exact": true
+        },
+        {
+          "symbol": "render",
+          "sourceHash": "9b01518024edba53e0660abc3837fd03cee402887b4788f337b964791fcb62f9",
+          "candidateHash": "9b01518024edba53e0660abc3837fd03cee402887b4788f337b964791fcb62f9",
+          "exact": true
+        },
+        {
+          "symbol": "listMemory",
+          "sourceHash": "567a10e28d79a99828c7054512bb6a8d760a68ca9d4770aec96f1e0d8214abab",
+          "candidateHash": "567a10e28d79a99828c7054512bb6a8d760a68ca9d4770aec96f1e0d8214abab",
+          "exact": true
+        },
+        {
+          "symbol": "retainedPurchasingList",
+          "sourceHash": "d31afd9cf40cd770e10afa5f37d51f5b926a01bd9a9891849c78fab0cc4a9560",
+          "candidateHash": "d31afd9cf40cd770e10afa5f37d51f5b926a01bd9a9891849c78fab0cc4a9560",
+          "exact": true
+        },
+        {
+          "symbol": "listScope",
+          "sourceHash": "23dc3f889bee7bab1e3aaa6c833d8639fde44b683a21739b994405e24591729d",
+          "candidateHash": "23dc3f889bee7bab1e3aaa6c833d8639fde44b683a21739b994405e24591729d",
+          "exact": true
+        },
+        {
+          "symbol": "rememberList",
+          "sourceHash": "f83d0108a1c22df9ad85385e841024c9ca15e8c94162d2cda2561cb1b4425251",
+          "candidateHash": "f83d0108a1c22df9ad85385e841024c9ca15e8c94162d2cda2561cb1b4425251",
+          "exact": true
+        },
+        {
+          "symbol": "resumeList",
+          "sourceHash": "fc5b8347e5913e404e599d92da02ba1cd7f38859023a7a3e0fb139d6cea69261",
+          "candidateHash": "fc5b8347e5913e404e599d92da02ba1cd7f38859023a7a3e0fb139d6cea69261",
+          "exact": true
+        }
+      ]
+    }
+  },
+  "release": {
+    "version": "0.89.29",
+    "sourceCommit": "66f0cd9c0faefbaa476efc0de86b26e241d16585",
+    "releaseCommit": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+    "branch": "release/0.89.29-purchasing-list-worktabs",
+    "baselineReleaseCommit": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+    "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.29-purchasing-list-worktabs",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.28",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "originalListTabSetupSaveIntegrated": false,
+  "dedicatedRendererStateAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+    "title": "전용 발주계획 목록 작업 탭 상태·권한·자료 변경 경계 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-purchasing-list-worktabs-20261028.json",
+    "latestEvidence": "evidence/manual-purchasing-list-worktabs-20261028.json",
+    "description": "이번 보호는 요청/발주/구매 native목록3종에 한정했다. 전용 발주계획 renderer는 별도 snapshot/restore와 행 선택·수량 초안을 사용하므로 같은 cache를 추정 연결하지 않는다. 기존 전용목록 요구사항/검사와 실제 소비자부터 읽고 작업탭 왕복, 마지막 적용조건/원문초안/행선택/수량·페이지, 계정/회사/권한/자료변경/닫기 경계를 대조해 새 차이만 재현한다. 최소구매단위·생성 저장·원본 합격은 기존 재개 조건을 유지한다. 운영0.89.22/기존0.89.23~29 후보를 보존하고 새 운영브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.29 배포/읽기UI/보존 검증을 재개한다. 완료된 native목록/계산/날짜 행렬과 같은 연결 확인을 변화 없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "transport": "configured-moa-mcp",
+    "preauthorized": true,
+    "start": {
+      "beforeVersion": 21,
+      "afterVersion": 22,
+      "beforeBlocks": 171,
+      "afterBlocks": 173,
+      "prefixExact": true,
+      "appendExact": true,
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-28 · 구매 목록 작업 탭 이동 상태·권한·자료 경계 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와0.89.23~28 검증미배포 후보를 보존하고, 이전 실제셸에서 관찰한 요청/발주/구매×390/1280의 작업탭 복귀 초기화6개를 기존 작업탭/목록 요구사항·검사와 대조한다. 적용조건·원문초안·선택·페이지와 계정·역할·권한·자료 변경/닫기 조건을 확인한 뒤 새 차이만 작은 범위로 보완한다. 왜: 구매현황용 상태 보존 코드나 in-place 합성 검사만으로 목록 메뉴 이동 합격을 주장할 수 없기 때문이다. 기존 원본 재개 조건·자료·양식·메일·후보를 유지하며 원본/운영 합격으로 확대하지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "22effc35-41f8-403c-88b9-415b011e39af",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-28 · 구매 목록 작업 탭 이동 상태·권한·자료 경계 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "e37467c5-28f2-4bc1-a3ed-e549419c57f4",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와0.89.23~28 검증미배포 후보를 보존하고, 이전 실제셸에서 관찰한 요청/발주/구매×390/1280의 작업탭 복귀 초기화6개를 기존 작업탭/목록 요구사항·검사와 대조한다. 적용조건·원문초안·선택·페이지와 계정·역할·권한·자료 변경/닫기 조건을 확인한 뒤 새 차이만 작은 범위로 보완한다. 왜: 구매현황용 상태 보존 코드나 in-place 합성 검사만으로 목록 메뉴 이동 합격을 주장할 수 없기 때문이다. 기존 원본 재개 조건·자료·양식·메일·후보를 유지하며 원본/운영 합격으로 확대하지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 23,
+    "p1FinalBlocks": 183,
+    "evidence": "evidence/moa-purchasing-list-worktabs-preauthorized-20261028.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-purchasing-list-worktabs-20261028/release.json": "e6b8b9a46fa35d208b4c783d34b853f3c7a301f2baa5459aa6e944ed0ada9e21",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/node-before.log": "dab8f9e3ec5d5f8fd7d032aa06d12d3919a1a08e0736e1f6fb97746c020f87e9",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/node-after-fixture-errors.log": "264fd639bc0e9227bed81f7e7d8272379ba0f7edb75d45056f03d00f0d61efa4",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/verify-local.log": "a73d0c66983ae33276d2c25c90dd2941bea2392df004d840daf93cb3590a2e0c",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/focused-browser.log": "b984d80a2c1316741c1c07063f48c386124d0f2bdd3c48aa35584ec9999e48e0",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/patch-port.json": "b8bf410a303b6985b880c1041f196733e76ee9abccb690e665ca7535680961ed",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/candidate-regression-node-final.log": "8facc408884db83c1f886bbfe3ebb5847878a1ddd6813c7e90f7010a7a7d72fa",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/node-before-corrected.log": "da48f1ee4352d814e0474226c912614512a573d1f7f09c9626dc29627a29f7d4",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/candidate-focused-node.log": "298b9256f1410a9be716577c915c315df7af516f59a9a3dce731454b6c9e3b23",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/candidate-focused-node-final.log": "69510da3b3cd58d575f198bc75de25638b5914cf6a4170e6e052a62d0e5c65fc",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/moa-start.json": "15c2022546bb28e73fe16280de05e8e39f220a0cbed80475f448f8e49e1aa9fd",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/baseline-replay.cjs": "c5235d1207828c2ae61b1b2fcd1349ab070bd573b8fe0365ff4ede24682bf30c",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/node-focused.log": "8df51444c8cde44be4b335890d414006c5e9593c2e479ee3826c104e41a94970",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/next-work.json": "20e2caac4515513a5856126d70bac890e80eb781d4e13ac48e63f1edd3a27458",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/harness-notes.json": "ed2a1b9d2708b412c3641332873227ac428e75803a91c87abe88c82e97a05016",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/node-after-first.log": "41de9e2a8e8188ee3cf03f606de1b4743f87398b4b004e87cf57763393afcd49",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/port.cjs": "4033636e3c56909adeb6d3a1a5d1a8c5c30fa6840a68841fc8bde91a7c5829ce",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/node-after-root.log": "264fd639bc0e9227bed81f7e7d8272379ba0f7edb75d45056f03d00f0d61efa4",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/focused-browser-exit.json": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/preservation.json": "542016bc090d6b861b77b1f7cb7e4a2b6d0d2fc76651a5dc2385746183d2086b",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/verify-port.cjs": "6a241d25483194cc58f2335482aef7831a6f0ea81ecb6f8583e60a8c2e549d78",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/analyze.mjs": "6e4b094cb67e9dce738545679caed8c8bf659bbbc29a1a855a577231e0c39c75",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/start.json": "680c7b18dc4c80850e25dcf74ef49a079ee3a88bae4411197be34bf90ba23587",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/verify-local-exit.json": "9bbf4cf6e3e42fe0753cf0363d1fca3d053fb049e3f90dca9cad02df53c10df5",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/verify-local-first-exit.json": "c9a7a36fbfc1239bd439dc03f39b452c53fcda64b1d9b1c1d526a757e0e0d09a",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/verify-local-first.log": "b2218003712c8733f799fd676d0f62b8db08fceb4c84e57997d485d59c6d4c19",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/rea/rea-summary.json": "b568c4c0ccd3490b21c30e185bef0db0383f6f0ae8f6303202afe09ba5557b2f",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/rea/stderr.log": "5ffcb16e38e48ef69b674a024925f945727e10dc002c3d1abe139913202e0ef4",
+    ".artifacts/manual-purchasing-list-worktabs-20261028/rea/result.json": "61dd3e83e8e975d9da3746fda34d7e2523e9c8a49734afb948dfd5c139332eb9"
+  },
+  "documentationConsistency": {
+    "historicalMappingHeadingReclassified": true,
+    "bodyPreserved": true,
+    "reason": "Old 0.88.14 historical section also carried current-handoff label; only label changed to previous"
+  }
+}
