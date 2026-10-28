@@ -1165,3 +1165,10 @@ source 8c18ff0 / release 02f3c0e / branch release/0.89.43-price-select-number-tr
 다음은단가요청기존숫자항목원문의native표현·보존대조다. 왜: 이번보호는현재select를number로바꾸는metadata변경전이지만처음부터숫자인기존원문/기본값은customControl의다른옵션경로에서시작하므로같은합격으로대신할수없기때문이다. preserveNumeric옵션·docEditor활성값·유한숫자기본값schema와실제DOM표현/부분입력을구분하고readonly·설정/초안재진입·F8/F7·수정/비움의새손실만대조한다. 원문을임의정규화/공란초기화로숨기지않고기존21후보/원문/양식/자료·운영gate를보존한다. 계산식변경/자동조건분기·입력보조·다른전표/원본/운영은미확인으로유지하며이번28과완료된행렬을변화없이반복하지않는다.
 
 모아P1은지속승인으로v52→53→54·기존348exact·착수2/결과10 문구/종류/수준exact·총360블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-select-number-transition-preauthorized-20261029.json.
+
+
+## 2026-10-29 기존 숫자 원문 보존 · 0.89.44 한정 후보 설계/검증
+
+예정10/29~10/30 KST·실제착수07:30:30.374947+09. 한정17흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변43에서기존숫자형저장B/0x10/false와유한숫자기본값0x10이native value공란/badInputfalse로탈락해F8이공란을저장하는합성8관찰을확인했다. 저장원문변경6과기본값탈락2를구분한다. 단가요청input의preserveInputValues옵션에서비계산number를text/inputModedecimal로원문보존하고비문자primitive의미편집타입도유지한다. strict collect가실제number표현/유한값을검사해저장/전표를거절하되raw초안은읽을수있다. 숫자오류때계산출력을비우고마지막raw계산값을분리보관한다. 초기품목행양식판정만숫자오류의rawheader를허용해화면을유지하고strict저장은완화하지않는다.
+
+최종390/1280×17흐름 실제자체셸34·기존관련Node99·격리후보verify:local전체650/전체Node/빌드·자체REA6범위3raw쌍exact/parse0을확인했다. 미수정기본값의새기본값재열기와사용자가수정한초안재진입을구분한다. 공통schema/FormCore/FormOptions/backup·기존21후보/운영22worker/dirty12/매핑07bdfb3를보존했다. 원본/운영·업무조건자동유형전환·입력보조/행계산전체합격이아니다. 실패/보완과근거는.artifacts/manual-price-numeric-legacy-20261029및후속JSON에보존한다.
