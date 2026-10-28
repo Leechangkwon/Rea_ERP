@@ -453,7 +453,14 @@
     db.bom=[...db.bom.filter(b=>b.product!==p.product),...components];
     const visit=(item,path)=>{if(path.includes(item))throw Error('BOM 순환 참조가 있습니다.');for(const b of db.bom.filter(b=>b.product===item))visit(b.material,[...path,item]);};visit(p.product,[]);validateStock(db);log(db,'BOM 저장: '+p.product);return components;
   }
+  function guardRenameFormDefaults(db,key,from){
+    const ids={partners:['supplier','relatedPartner'],processes:['productionProcess']}[key];if(!ids)return;
+    const forms=db.settings.customization?.screens?.['master:items']?.forms||[];
+    const used=forms.find(form=>form.context==='input'&&form.fields.some(field=>!field.custom&&ids.includes(field.id)&&field.defaultValue===from));
+    if(used)throw Error('품목 입력 양식 '+used.name+'의 기본값에 사용 중인 코드입니다. 해당 양식의 기본값을 먼저 변경하거나 비운 뒤 코드변경을 다시 시도하세요.');
+  }
   function rename(db,{key,from,to}){
+    guardRenameFormDefaults(db,key,from);
     if(['items','partners'].includes(key)&&db.documents.some(doc=>doc.lines.some(line=>line.priceRequestBasis&&(key==='items'?line.priceRequestBasis.item===from:line.priceRequestBasis.vendorCode===from))))throw Error('발주 확정단가 근거에 사용된 코드는 변경할 수 없습니다. 기존 발주 근거를 보존하세요.');
     const x=requireCode(db,key,from);to=String(to||'').trim();if(!to||master(db,key,to))throw Error('변경할 코드를 확인하세요.');x.code=to;
     const field={items:'item',partners:'partner',warehouses:'warehouse',employees:'employee',projects:'project',departments:'department',currencies:'currency'}[key];
