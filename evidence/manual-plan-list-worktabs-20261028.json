@@ -1,0 +1,597 @@
+{
+  "sourceId": "OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "actualStart": "2026-10-28T22:51:42.091737+09:00",
+  "status": "validated-pushed-not-deployed",
+  "p1Status": "doing",
+  "recordedAt": "2026-10-28T23:13:57.927313+09:00",
+  "elapsedSeconds": 1335.836,
+  "version": "0.89.30",
+  "operatingVersion": "0.89.22",
+  "patchStatus": "doing",
+  "basis": [
+    "Existing dedicated plan snapshot/restore and app work-tab consumers",
+    "Existing plan lineId/quantity explicit-save and 100-line generation constraints",
+    "No new original manual or original UI actions"
+  ],
+  "change": {
+    "memory": "Plan-specific snapshot adapter uses existing scoped cache only for actual app viewId; no persistent cache",
+    "retained": [
+      "applied query",
+      "raw pending search",
+      "balance/status",
+      "lineId selection",
+      "raw quantity and price edits",
+      "expected source document snapshot",
+      "page/scroll",
+      "search expansion/error"
+    ],
+    "ownerGuard": "Identity/company/role/read/write/settings scoped; guard detached and closed confirmations",
+    "changedData": "Keep pending criteria and edit snapshots in memory; clear results/selection; require explicit edit discard then F8 for conflicting edits",
+    "invalidDraft": "Restore raw invalid price without crashing, display saved-line amounts during restoration; search and CSV errors remain explicit",
+    "ownSave": "Rendered baseline updates after valid internal refresh; own explicit save survives later work-tab return",
+    "unchanged": [
+      "schema and backup",
+      "minimum purchase unit gate",
+      "original list-tab setup/save integration",
+      "core generation quantities and limits",
+      "supplier reply and confirmation contracts",
+      "native3 list behavior",
+      "pending VAT/mapping candidates"
+    ]
+  },
+  "checks": {
+    "failureHistory": {
+      "initialBaseline": {
+        "tests": 17,
+        "passed": 6,
+        "failed": 11
+      },
+      "finalCorrectedImmutableBaseline": {
+        "version": "0.89.29",
+        "tests": 24,
+        "passed": 7,
+        "failed": 17
+      },
+      "firstFocused": {
+        "tests": 41,
+        "passed": 37,
+        "failed": 4
+      },
+      "programCorrection": "Enable explicit cancel when conflicting edits are retained without results",
+      "fixtureCorrections": [
+        "Plan restore recalculates staged amount; compare applied row identities, raw controls and exact CSV rather than stale pre-refresh amount",
+        "Changed owner/company may correctly deny the whole screen; assert old fields absent instead of requiring fresh controls"
+      ],
+      "finalNewTests": 24,
+      "focusedTests": 76,
+      "firstBrowser": {
+        "tests": 8,
+        "passed": 6,
+        "failed": 2,
+        "cause": "Clicked hidden F8 button after successful query collapsed Search(F3); add actual expand step",
+        "applicationChangedForThisFailure": false
+      },
+      "finalBrowser": {
+        "tests": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "sourceRootWholeBuilds": 0
+    },
+    "newNodeTests": 24,
+    "focusedNodeTests": 76,
+    "ownActualShellBrowser": {
+      "tests": 8,
+      "passed": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "flows": [
+        "raw invalid price and pending criteria plus staged quantity/line selection",
+        "conflicting changed-data discard/requery",
+        "122-line second page and close/reopen",
+        "closed/role-changed confirmation and readonly search"
+      ],
+      "harnessStorageEditCases": 2,
+      "appBusinessWrites": 0,
+      "remoteWrites": 0,
+      "pageErrors": 0
+    },
+    "localSyntheticExplicitSaveNodeCases": 1,
+    "fullVerifyLocal": {
+      "command": "npm run verify:local",
+      "cwd": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.30-plan-list-worktabs",
+      "startedAt": "2026-10-28T14:05:31.930304+00:00",
+      "finishedAt": "2026-10-28T14:12:42.302201+00:00",
+      "exitCode": 0,
+      "sourceHashesBefore": {
+        "dist/inventory-ui.js": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+        "dist/purchasing-plan-list-ui.js": "f34599553789e2aafaf4341110a8681eab9c863c108f3edaf06cb103025f7fbf",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "tests/plan-list-worktabs.cjs": "af860fc862fc08ad4058fc8d49d44c6fa95ac82c972bb1154dc966a48c7ec06c",
+        "tests/browser/plan-list-worktabs.spec.cjs": "1efcf82a75abbfe707d5fa28ecee7b56fe572b9e51157868d8fc163a102a7f19",
+        "package.json": "4f52526180084d57c00fb7addf577b05d6a62831356d3219773ce2bc626bd65b"
+      },
+      "sourceHashesAfter": {
+        "dist/inventory-ui.js": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+        "dist/purchasing-plan-list-ui.js": "f34599553789e2aafaf4341110a8681eab9c863c108f3edaf06cb103025f7fbf",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "tests/plan-list-worktabs.cjs": "af860fc862fc08ad4058fc8d49d44c6fa95ac82c972bb1154dc966a48c7ec06c",
+        "tests/browser/plan-list-worktabs.spec.cjs": "1efcf82a75abbfe707d5fa28ecee7b56fe572b9e51157868d8fc163a102a7f19",
+        "package.json": "4f52526180084d57c00fb7addf577b05d6a62831356d3219773ce2bc626bd65b"
+      }
+    },
+    "browserTests": 346,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 12,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "retainedPurchasingList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "a11ae51a41ebc14f7fbbe401454ae17e540a4ce15b9180945fa9cdab4c2e5f8b",
+          "start": 2993,
+          "end": 3134,
+          "lineStart": 20,
+          "lineEnd": 20,
+          "fragmentSha256": "a264a2442aead048de3dc41897529e20efeac8219735beaf6ca94e3934fbcee1",
+          "inputFile": "own-retainedPurchasingList.js",
+          "inputSha256": "6f3dc733fc052adbe0b69206f9b60ceb9e5e7bf6f3aafab6dbb7029e1547c5c9",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "retainedPurchasingList",
+          "file": ".artifacts/releases/0.89.30-plan-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+          "start": 2527,
+          "end": 2668,
+          "lineStart": 16,
+          "lineEnd": 16,
+          "fragmentSha256": "a264a2442aead048de3dc41897529e20efeac8219735beaf6ca94e3934fbcee1",
+          "inputFile": "candidate-retainedPurchasingList.js",
+          "inputSha256": "6f3dc733fc052adbe0b69206f9b60ceb9e5e7bf6f3aafab6dbb7029e1547c5c9",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "resumeList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "a11ae51a41ebc14f7fbbe401454ae17e540a4ce15b9180945fa9cdab4c2e5f8b",
+          "start": 3868,
+          "end": 4781,
+          "lineStart": 30,
+          "lineEnd": 36,
+          "fragmentSha256": "5bcd17de059935c1f9c0c57aa6241ad597a5c0a05bf57f142f0f223642ef9f6f",
+          "inputFile": "own-resumeList.js",
+          "inputSha256": "51de5b38763bea5fb07169442d56046d1a58d0761e4b4249c5f0f291aac6c5fa",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "resumeList",
+          "file": ".artifacts/releases/0.89.30-plan-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+          "start": 3402,
+          "end": 4315,
+          "lineStart": 26,
+          "lineEnd": 32,
+          "fragmentSha256": "5bcd17de059935c1f9c0c57aa6241ad597a5c0a05bf57f142f0f223642ef9f6f",
+          "inputFile": "candidate-resumeList.js",
+          "inputSha256": "51de5b38763bea5fb07169442d56046d1a58d0761e4b4249c5f0f291aac6c5fa",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "renderPlanList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "a11ae51a41ebc14f7fbbe401454ae17e540a4ce15b9180945fa9cdab4c2e5f8b",
+          "start": 147655,
+          "end": 149157,
+          "lineStart": 592,
+          "lineEnd": 592,
+          "fragmentSha256": "4647c6be9d5886d7cfeac227530b331d550717288bf1b14132700298171531f5",
+          "inputFile": "own-renderPlanList.js",
+          "inputSha256": "00c60b27f5b9495deab6415586774360cc402809b6de1e85b943c1d2ec8a962b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "renderPlanList",
+          "file": ".artifacts/releases/0.89.30-plan-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+          "start": 142909,
+          "end": 144411,
+          "lineStart": 569,
+          "lineEnd": 569,
+          "fragmentSha256": "4647c6be9d5886d7cfeac227530b331d550717288bf1b14132700298171531f5",
+          "inputFile": "candidate-renderPlanList.js",
+          "inputSha256": "00c60b27f5b9495deab6415586774360cc402809b6de1e85b943c1d2ec8a962b",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "a11ae51a41ebc14f7fbbe401454ae17e540a4ce15b9180945fa9cdab4c2e5f8b",
+          "start": 149160,
+          "end": 157502,
+          "lineStart": 593,
+          "lineEnd": 621,
+          "fragmentSha256": "cacb111ce97dbfbf22066705f90a02d8ff1fcd8841d409c70ea53bb582ddc9b6",
+          "inputFile": "own-docList.js",
+          "inputSha256": "768eca4ae85d730789765f259536bd3091f05f5b2fda7f0638fc7121e5b10bed",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.30-plan-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+          "start": 144414,
+          "end": 152756,
+          "lineStart": 570,
+          "lineEnd": 598,
+          "fragmentSha256": "cacb111ce97dbfbf22066705f90a02d8ff1fcd8841d409c70ea53bb582ddc9b6",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "768eca4ae85d730789765f259536bd3091f05f5b2fda7f0638fc7121e5b10bed",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "renderCurrent",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "a11ae51a41ebc14f7fbbe401454ae17e540a4ce15b9180945fa9cdab4c2e5f8b",
+          "start": 177186,
+          "end": 179939,
+          "lineStart": 692,
+          "lineEnd": 696,
+          "fragmentSha256": "b6a0f2de2361fdc512b6d2862bbb6fd61ef1eb9030e06452cd494217ccfcd4a3",
+          "inputFile": "own-renderCurrent.js",
+          "inputSha256": "dfc60d2338bf230ff48a892c0efa6f105242ea92bf55b784439889c58a1cab3a",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "renderCurrent",
+          "file": ".artifacts/releases/0.89.30-plan-list-worktabs/dist/inventory-ui.js",
+          "sourceSha256": "6b17cc98e1a6a4f400129cb52e0fec30d41f84989be956ce89a8294b74442ab2",
+          "start": 172440,
+          "end": 175193,
+          "lineStart": 669,
+          "lineEnd": 673,
+          "fragmentSha256": "b6a0f2de2361fdc512b6d2862bbb6fd61ef1eb9030e06452cd494217ccfcd4a3",
+          "inputFile": "candidate-renderCurrent.js",
+          "inputSha256": "dfc60d2338bf230ff48a892c0efa6f105242ea92bf55b784439889c58a1cab3a",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "render",
+          "file": "dist/purchasing-plan-list-ui.js",
+          "sourceSha256": "f34599553789e2aafaf4341110a8681eab9c863c108f3edaf06cb103025f7fbf",
+          "start": 788,
+          "end": 19054,
+          "lineStart": 8,
+          "lineEnd": 39,
+          "fragmentSha256": "312ff0b6881ca3eeba0f6615db3465a486aa3f2939ab8ded67f3e0ebc336b7f5",
+          "inputFile": "own-render.js",
+          "inputSha256": "602a30a6ab802bdf2ca0269cba76b71fad31c7c73ec5629af2772057ea5eb07e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "render",
+          "file": ".artifacts/releases/0.89.30-plan-list-worktabs/dist/purchasing-plan-list-ui.js",
+          "sourceSha256": "f34599553789e2aafaf4341110a8681eab9c863c108f3edaf06cb103025f7fbf",
+          "start": 788,
+          "end": 19054,
+          "lineStart": 8,
+          "lineEnd": 39,
+          "fragmentSha256": "312ff0b6881ca3eeba0f6615db3465a486aa3f2939ab8ded67f3e0ebc336b7f5",
+          "inputFile": "candidate-render.js",
+          "inputSha256": "602a30a6ab802bdf2ca0269cba76b71fad31c7c73ec5629af2772057ea5eb07e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "6db213c9882b44eed6053ae19df9711b098566f69eb33973f5fbc2971f8b0a45",
+      "statistics": {
+        "relevant_files": 12,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 70262,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 12,
+        "visited_ast_nodes": 14908,
+        "findings": 2,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "rootOutsideExact": true,
+      "candidateOutsideExact": true,
+      "planModuleOutsideRenderExact": true,
+      "apiBridge": "Only plan view destroy after remember inserted; each baseline VAT cleanup retained",
+      "scopes": [
+        {
+          "file": "dist/inventory-ui.js",
+          "name": "retainedPurchasingList",
+          "sourceHash": "a264a2442aead048de3dc41897529e20efeac8219735beaf6ca94e3934fbcee1",
+          "candidateHash": "a264a2442aead048de3dc41897529e20efeac8219735beaf6ca94e3934fbcee1"
+        },
+        {
+          "file": "dist/inventory-ui.js",
+          "name": "resumeList",
+          "sourceHash": "5bcd17de059935c1f9c0c57aa6241ad597a5c0a05bf57f142f0f223642ef9f6f",
+          "candidateHash": "5bcd17de059935c1f9c0c57aa6241ad597a5c0a05bf57f142f0f223642ef9f6f"
+        },
+        {
+          "file": "dist/inventory-ui.js",
+          "name": "renderCurrent",
+          "sourceHash": "b6a0f2de2361fdc512b6d2862bbb6fd61ef1eb9030e06452cd494217ccfcd4a3",
+          "candidateHash": "b6a0f2de2361fdc512b6d2862bbb6fd61ef1eb9030e06452cd494217ccfcd4a3"
+        },
+        {
+          "file": "dist/inventory-ui.js",
+          "name": "docList",
+          "sourceHash": "cacb111ce97dbfbf22066705f90a02d8ff1fcd8841d409c70ea53bb582ddc9b6",
+          "candidateHash": "cacb111ce97dbfbf22066705f90a02d8ff1fcd8841d409c70ea53bb582ddc9b6"
+        },
+        {
+          "file": "dist/inventory-ui.js",
+          "name": "renderPlanList",
+          "sourceHash": "4647c6be9d5886d7cfeac227530b331d550717288bf1b14132700298171531f5",
+          "candidateHash": "4647c6be9d5886d7cfeac227530b331d550717288bf1b14132700298171531f5"
+        },
+        {
+          "file": "dist/purchasing-plan-list-ui.js",
+          "name": "render",
+          "sourceHash": "312ff0b6881ca3eeba0f6615db3465a486aa3f2939ab8ded67f3e0ebc336b7f5",
+          "candidateHash": "312ff0b6881ca3eeba0f6615db3465a486aa3f2939ab8ded67f3e0ebc336b7f5"
+        }
+      ]
+    }
+  },
+  "release": {
+    "version": "0.89.30",
+    "sourceCommit": "ec69cd82663aa70fef4b48f199da9a94b3f54a5b",
+    "releaseCommit": "36936db7ee9a034d469509084465b090e4263037",
+    "branch": "release/0.89.30-plan-list-worktabs",
+    "baselineReleaseCommit": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+    "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.30-plan-list-worktabs",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.29",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "automaticStartupAdded": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "originalListTabSetupSaveIntegrated": false,
+  "otherRendererStateAccepted": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+    "title": "단가요청 공통 목록 작업탭 상태·권한·자료 변경 경계 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-plan-list-worktabs-20261028.json",
+    "latestEvidence": "evidence/manual-plan-list-worktabs-20261028.json",
+    "description": "전용 발주계획과 native3종의 상태 보존을 단가요청 공통 docList 경로에 확대하지 않는다. 실제 단가요청 조회는 공통 목록의 즉시 조건 변경/빠른검색·진행상태/취소 포함·선택/페이지와 별도 동작을 사용한다. 기존 단가요청 요구사항/검사·실제 소비자에서 작업탭 왕복·권한/자료변경/닫기 경계를 먼저 대조하고 새 차이만 재현한다. 공급처 회신/확정/발송/저장 원본 계약을 추정하거나 다른 공통목록에 무조건 연결하지 않는다. 운영0.89.22/기존0.89.23~30 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.30 배포·읽기UI·보존 검증을 재개한다. 완료된 plan/native목록/계산/날짜 행렬과 같은 연결 확인·전체검사를 변화 없이 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "transport": "configured-moa-mcp",
+    "preauthorized": true,
+    "start": {
+      "beforeVersion": 23,
+      "afterVersion": 24,
+      "beforeBlocks": 183,
+      "afterBlocks": 185,
+      "prefixExact": true,
+      "appendExact": true,
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-28 · 전용 발주계획 목록 작업탭 상태 경계 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-28·마감일2026-10-29 KST·한정 감사doing/P1 전체doing. current-release.json의 OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT를 이어 전용 발주계획 renderer의 기존 snapshot/restore·행선택·수량 초안과 작업탭 왕복·계정/회사/권한/자료변경/닫기 경계를 대조한다. 왜: 앞선 native 요청/발주/구매3종 cache를 별도 화면에 그대로 연결하면 선택과 생성 수량 의미가 달라질 수 있기 때문이다. 기존 전용목록 요구사항/검사·실제 소비자에서 확인된 새 차이만 보완하고 운영0.89.22·기존0.89.23~29 후보·자료/양식/메일·dirty12/매핑 후보를 보존한다. 최소구매단위·생성 저장·원본/운영 합격은 기존 재개 조건을 유지한다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "8744113c-870e-4406-8380-b64d64c5e4b2",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-28 · 전용 발주계획 목록 작업탭 상태 경계 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "58dd5786-89dc-4e07-b3aa-1456d96e39c1",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-28·마감일2026-10-29 KST·한정 감사doing/P1 전체doing. current-release.json의 OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT를 이어 전용 발주계획 renderer의 기존 snapshot/restore·행선택·수량 초안과 작업탭 왕복·계정/회사/권한/자료변경/닫기 경계를 대조한다. 왜: 앞선 native 요청/발주/구매3종 cache를 별도 화면에 그대로 연결하면 선택과 생성 수량 의미가 달라질 수 있기 때문이다. 기존 전용목록 요구사항/검사·실제 소비자에서 확인된 새 차이만 보완하고 운영0.89.22·기존0.89.23~29 후보·자료/양식/메일·dirty12/매핑 후보를 보존한다. 최소구매단위·생성 저장·원본/운영 합격은 기존 재개 조건을 유지한다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 25,
+    "p1FinalBlocks": 195,
+    "evidence": "evidence/moa-plan-list-worktabs-preauthorized-20261028.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-plan-list-worktabs-20261028/release.json": "8fb32a4c35e84f25b8256a44010888e3a8db7827931d1dab11637070af967ab4",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-before.log": "5ae39b3bb266ae4b1c0eadd4585b384692210dd370e61493631d3418ef3570f9",
+    ".artifacts/manual-plan-list-worktabs-20261028/verify-local.log": "a7b2b187d130a771da5b167215b444fe9d8d7cb30a01a64698d1754d750a3b80",
+    ".artifacts/manual-plan-list-worktabs-20261028/current-release-before.json": "9e3b8ff66b305f3c3f8fd7ad08b74c1117454ab66e44e8dd5191edac84eb3653",
+    ".artifacts/manual-plan-list-worktabs-20261028/focused-browser-first-exit.json": "f468f8bf84d59a390a40e5d5ac0291111e0e6eeb79821864810ae628cbd3507e",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-focused-final.log": "f45c51f159ea567e448d0198caceb7f6ff8b30af402fa986d6487be86d116d33",
+    ".artifacts/manual-plan-list-worktabs-20261028/focused-browser.log": "478665e06470e877467236249c1527f718f85d2ce6102bf7f0a4929a7d6fa1ce",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-after-corrections.log": "077e9f7e1adcfff4a361f6847849a2d66cf9b71b09a7addf00cfc98239d66811",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-before-final.log": "553583f2b032a9dbba2b72a433c66626f614621d71d857cc276cc35d8dc043f3",
+    ".artifacts/manual-plan-list-worktabs-20261028/patch-port.json": "1187ccda7507ce7b10c68213f7cd67ad6ebd7456e6c2b6441debc67dff0dcae9",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-before-corrected.log": "0436d1ae3865366fd192797ed94b76b69558f08a9e6c58d5a41ef0d6dd87eaed",
+    ".artifacts/manual-plan-list-worktabs-20261028/candidate-focused-node.log": "cb1039ce7385b3cbf689340151d1d6e412b260f934e63dbed4c5a9409f2583b2",
+    ".artifacts/manual-plan-list-worktabs-20261028/moa-start.json": "40008b822605f43fb652d4af5637de5fa639ad1192f25a895acc63ce85813c19",
+    ".artifacts/manual-plan-list-worktabs-20261028/baseline-replay.cjs": "847ca90eb777b24e4a1475893599c4b27490d80ef623d40bbb4f2246256e416e",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-focused.log": "0c7db689fec528cad8e27256c295c23dadc778069707587527a4b845ccb1f6cc",
+    ".artifacts/manual-plan-list-worktabs-20261028/next-work.json": "3f837a1352b88f997886caa4f1eed2fa7807c92aaa8b795dcc03de668f2ea598",
+    ".artifacts/manual-plan-list-worktabs-20261028/harness-notes.json": "a60d1a2d1184bb24d4e7d0302dd998ef11a8eebc1823c5acd8fe0b9106f9d043",
+    ".artifacts/manual-plan-list-worktabs-20261028/node-after-first.log": "f9d0a007a338770e85a00177374343346e84fab49f949915d70c09d45ac26587",
+    ".artifacts/manual-plan-list-worktabs-20261028/port.cjs": "854b936be1110ee73a47569a82375b18ed84f2dfa07f6c419918a1927ef7185d",
+    ".artifacts/manual-plan-list-worktabs-20261028/focused-browser-exit.json": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+    ".artifacts/manual-plan-list-worktabs-20261028/focused-browser-first.log": "ecb8cab1ac3ed77d59aa80dd32d0aa7ae26210d2017c35aab66329575cd59ae6",
+    ".artifacts/manual-plan-list-worktabs-20261028/preservation.json": "e2e1702a0e6cfa1a562b0ab3f9e5c5c2a23a7dfa5eedf01e41fc4f9647a7e35b",
+    ".artifacts/manual-plan-list-worktabs-20261028/analyze.mjs": "eb29509612d1c2d8fce358bab1032137df547dd25b4a99ac34d76a3054eff340",
+    ".artifacts/manual-plan-list-worktabs-20261028/start.json": "4465b9c14bd896f17e338d6d2470fae2ad2bf7aebbd0fe8267266e6c01093126",
+    ".artifacts/manual-plan-list-worktabs-20261028/verify-local-exit.json": "7c0ba09c2f8fc80fbd61228da1299b573bf54bcf138bb85186aef24052036769",
+    ".artifacts/manual-plan-list-worktabs-20261028/browser-results/.last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    ".artifacts/manual-plan-list-worktabs-20261028/rea/rea-summary.json": "319c6c8176d09cd021ea5bce1868542ab15350ca1c9dc28d56ea5e9d35ae4c9c",
+    ".artifacts/manual-plan-list-worktabs-20261028/rea/stderr.log": "4e9c7a99875ca493d528bfec2575ddd8f51f97a07dd52c20e56ea6fec673a482",
+    ".artifacts/manual-plan-list-worktabs-20261028/rea/result.json": "6db213c9882b44eed6053ae19df9711b098566f69eb33973f5fbc2971f8b0a45",
+    ".artifacts/manual-plan-list-worktabs-20261028/browser-first-results/.last-run.json": "31b391edf2d9424165a6fa5db37f54772b1051a98d5533920179b1a5c22d544a",
+    ".artifacts/manual-plan-list-worktabs-20261028/browser-first-results/plan-list-worktabs-plan-wo-b9a4a-act-same-item-selection-390/test-failed-1.png": "688619081af614c89773aaaa8aea430fe96bfa92c57f03f357f7dfc360f6cf40",
+    ".artifacts/manual-plan-list-worktabs-20261028/browser-first-results/plan-list-worktabs-plan-wo-b9a4a-act-same-item-selection-390/error-context.md": "ee0b0f45b95f2fdfce6a0be94403b61d7ca4d59030a60dc0ac0053d92c97495b",
+    ".artifacts/manual-plan-list-worktabs-20261028/browser-first-results/plan-list-worktabs-plan-wo-53a48-ct-same-item-selection-1280/test-failed-1.png": "da008b286a7485acf62527fb2f7db79eb4c1b9af9fbe0a1dd046a669b554dcf8",
+    ".artifacts/manual-plan-list-worktabs-20261028/browser-first-results/plan-list-worktabs-plan-wo-53a48-ct-same-item-selection-1280/error-context.md": "860eeb7c482af7ad586cfa54e15e97f3b09b62bcbf79e06dc823e4076c392659"
+  }
+}

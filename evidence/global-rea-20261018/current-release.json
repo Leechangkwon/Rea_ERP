@@ -2023,15 +2023,16 @@
       "authenticatedUiVerified": false
     },
     "postMigrationAuthenticatedUiVerificationPending": true,
-    "pendingDeploymentCandidateReference": "evidence/manual-purchasing-list-worktabs-20261028.json",
-    "pendingDeploymentCandidateIncludesVersion": "0.89.28",
+    "pendingDeploymentCandidateReference": "evidence/manual-plan-list-worktabs-20261028.json",
+    "pendingDeploymentCandidateIncludesVersion": "0.89.29",
     "pendingDeploymentCandidateIncludesVersions": [
       "0.89.23",
       "0.89.24",
       "0.89.25",
       "0.89.26",
       "0.89.27",
-      "0.89.28"
+      "0.89.28",
+      "0.89.29"
     ]
   },
   "manualParity": {
@@ -2272,13 +2273,13 @@
       "hostedWriteAcceptancePending": true
     },
     "nextIndependentWork": {
-      "sourceId": "OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
-      "title": "전용 발주계획 목록 작업 탭 상태·권한·자료 변경 경계 대조",
+      "sourceId": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+      "title": "단가요청 공통 목록 작업탭 상태·권한·자료 변경 경계 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-purchasing-list-worktabs-20261028.json",
-      "latestEvidence": "evidence/manual-purchasing-list-worktabs-20261028.json",
-      "description": "이번 보호는 요청/발주/구매 native목록3종에 한정했다. 전용 발주계획 renderer는 별도 snapshot/restore와 행 선택·수량 초안을 사용하므로 같은 cache를 추정 연결하지 않는다. 기존 전용목록 요구사항/검사와 실제 소비자부터 읽고 작업탭 왕복, 마지막 적용조건/원문초안/행선택/수량·페이지, 계정/회사/권한/자료변경/닫기 경계를 대조해 새 차이만 재현한다. 최소구매단위·생성 저장·원본 합격은 기존 재개 조건을 유지한다. 운영0.89.22/기존0.89.23~29 후보를 보존하고 새 운영브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.29 배포/읽기UI/보존 검증을 재개한다. 완료된 native목록/계산/날짜 행렬과 같은 연결 확인을 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-plan-list-worktabs-20261028.json",
+      "latestEvidence": "evidence/manual-plan-list-worktabs-20261028.json",
+      "description": "전용 발주계획과 native3종의 상태 보존을 단가요청 공통 docList 경로에 확대하지 않는다. 실제 단가요청 조회는 공통 목록의 즉시 조건 변경/빠른검색·진행상태/취소 포함·선택/페이지와 별도 동작을 사용한다. 기존 단가요청 요구사항/검사·실제 소비자에서 작업탭 왕복·권한/자료변경/닫기 경계를 먼저 대조하고 새 차이만 재현한다. 공급처 회신/확정/발송/저장 원본 계약을 추정하거나 다른 공통목록에 무조건 연결하지 않는다. 운영0.89.22/기존0.89.23~30 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.30 배포·읽기UI·보존 검증을 재개한다. 완료된 plan/native목록/계산/날짜 행렬과 같은 연결 확인·전체검사를 변화 없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -2289,7 +2290,8 @@
         "0.89.26",
         "0.89.27",
         "0.89.28",
-        "0.89.29"
+        "0.89.29",
+        "0.89.30"
       ],
       "previousCandidatesDeployed": false
     },
@@ -3025,13 +3027,13 @@
       "done": false
     },
     "nextExecutableWork": {
-      "sourceId": "OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
-      "title": "전용 발주계획 목록 작업 탭 상태·권한·자료 변경 경계 대조",
+      "sourceId": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+      "title": "단가요청 공통 목록 작업탭 상태·권한·자료 변경 경계 대조",
       "plan": "docs/plan-master-number-transition-20261024.md",
       "operatingVersion": "0.89.22",
-      "evidence": "evidence/manual-purchasing-list-worktabs-20261028.json",
-      "latestEvidence": "evidence/manual-purchasing-list-worktabs-20261028.json",
-      "description": "이번 보호는 요청/발주/구매 native목록3종에 한정했다. 전용 발주계획 renderer는 별도 snapshot/restore와 행 선택·수량 초안을 사용하므로 같은 cache를 추정 연결하지 않는다. 기존 전용목록 요구사항/검사와 실제 소비자부터 읽고 작업탭 왕복, 마지막 적용조건/원문초안/행선택/수량·페이지, 계정/회사/권한/자료변경/닫기 경계를 대조해 새 차이만 재현한다. 최소구매단위·생성 저장·원본 합격은 기존 재개 조건을 유지한다. 운영0.89.22/기존0.89.23~29 후보를 보존하고 새 운영브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.29 배포/읽기UI/보존 검증을 재개한다. 완료된 native목록/계산/날짜 행렬과 같은 연결 확인을 변화 없이 반복하지 않는다.",
+      "evidence": "evidence/manual-plan-list-worktabs-20261028.json",
+      "latestEvidence": "evidence/manual-plan-list-worktabs-20261028.json",
+      "description": "전용 발주계획과 native3종의 상태 보존을 단가요청 공통 docList 경로에 확대하지 않는다. 실제 단가요청 조회는 공통 목록의 즉시 조건 변경/빠른검색·진행상태/취소 포함·선택/페이지와 별도 동작을 사용한다. 기존 단가요청 요구사항/검사·실제 소비자에서 작업탭 왕복·권한/자료변경/닫기 경계를 먼저 대조하고 새 차이만 재현한다. 공급처 회신/확정/발송/저장 원본 계약을 추정하거나 다른 공통목록에 무조건 연결하지 않는다. 운영0.89.22/기존0.89.23~30 후보를 보존하고 새 운영 브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.30 배포·읽기UI·보존 검증을 재개한다. 완료된 plan/native목록/계산/날짜 행렬과 같은 연결 확인·전체검사를 변화 없이 반복하지 않는다.",
       "implementationStarted": false,
       "done": false,
       "blockedByMoaMetadataUnsupported": false,
@@ -3042,7 +3044,8 @@
         "0.89.26",
         "0.89.27",
         "0.89.28",
-        "0.89.29"
+        "0.89.29",
+        "0.89.30"
       ],
       "previousCandidatesDeployed": false
     },
@@ -4079,7 +4082,7 @@
       "schedulePreferenceAwaited": false,
       "preStartPreparationEvidence": "evidence/moa-workflow-preparation-20261025.json",
       "implementationStartedBeforeDatesConfigured": true,
-      "latestRecordedP1Evidence": "evidence/moa-purchasing-list-worktabs-preauthorized-20261028.json",
+      "latestRecordedP1Evidence": "evidence/moa-plan-list-worktabs-preauthorized-20261028.json",
       "followupRecordConfirmationPending": false,
       "recordTransport": "configured-moa-mcp",
       "webLoginIsPrerequisite": false,
@@ -4093,11 +4096,11 @@
       "bodyRecordSaved": true,
       "authorizedTemporaryBodyExceptionApplied": true,
       "currentPatchStatus": "validated-pushed-not-deployed",
-      "followupProposal": ".artifacts/manual-purchasing-list-worktabs-20261028/moa-record-packet.json",
+      "followupProposal": ".artifacts/manual-plan-list-worktabs-20261028/moa-record-packet.json",
       "noDevelopmentBlockWhileMcpSaveConfirmationPending": true,
-      "lastConfirmedP1Version": 23,
+      "lastConfirmedP1Version": 25,
       "bodyScheduleAndStatusReread": true,
-      "currentPatchReference": "evidence/manual-purchasing-list-worktabs-20261028.json",
+      "currentPatchReference": "evidence/manual-plan-list-worktabs-20261028.json",
       "routineBodyUpdatesPreauthorized": true,
       "routineBodyAuthorizationDate": "2026-10-28",
       "routineBodyAuthorizationQuote": "알아서 저장해라 사용자에게 묻지마",
@@ -4242,7 +4245,7 @@
       "nativeInvalidDateGapsRemainingInValidatedCandidate": 0,
       "nativeDateRecoveryDeployed": false,
       "wholeTypedDefaultAuditDone": false,
-      "nextIndependentContractAudit": "OWN-PLAN-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+      "nextIndependentContractAudit": "OWN-PRICE-REQUEST-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
       "searchComputeErrorRecoveryDeployed": false,
       "searchComputeErrorValidatedCandidate": "0.89.28"
     },
@@ -4360,6 +4363,53 @@
       ],
       "originalListTabSetupSaveIntegrated": false,
       "dedicatedRenderersAccepted": false
+    },
+    "planListWorktabsCandidate": {
+      "version": "0.89.30",
+      "sourceCommit": "ec69cd82663aa70fef4b48f199da9a94b3f54a5b",
+      "releaseCommit": "36936db7ee9a034d469509084465b090e4263037",
+      "branch": "release/0.89.30-plan-list-worktabs",
+      "baselineReleaseCommit": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+      "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+      "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.30-plan-list-worktabs",
+      "sourcePushed": true,
+      "releasePushed": true,
+      "deployed": false,
+      "operatingVersion": "0.89.22",
+      "parentCandidateVersion": "0.89.29",
+      "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+      "remoteRefsVerified": true,
+      "reference": "evidence/manual-plan-list-worktabs-20261028.json",
+      "status": "validated-pushed-not-deployed",
+      "patchStatus": "doing",
+      "productionAuthenticatedUiVerified": false,
+      "freshBrowserBackupCaptured": false,
+      "previousCandidatesRetained": [
+        "0.89.23",
+        "0.89.24",
+        "0.89.25",
+        "0.89.26",
+        "0.89.27",
+        "0.89.28",
+        "0.89.29"
+      ],
+      "planWorktabStateImplemented": true,
+      "originalListTabSetupSaveIntegrated": false,
+      "minimumPurchaseUnitOrGenerationSaveAccepted": false,
+      "otherRendererStateAccepted": false
+    },
+    "planListWorktabAudit": {
+      "reference": "evidence/manual-plan-list-worktabs-20261028.json",
+      "status": "dedicated-plan-local-candidate-verified-not-deployed",
+      "newNodeTests": 24,
+      "ownActualShellBrowserCases": 8,
+      "widths": [
+        390,
+        1280
+      ],
+      "native3CandidatePreserved": true,
+      "originalAccepted": false,
+      "productionAccepted": false
     }
   },
   "preparedCandidate": {
