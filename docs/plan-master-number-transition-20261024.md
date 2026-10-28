@@ -1135,3 +1135,10 @@ source 99b6f47 / release 87ad2a1 / branch release/0.89.42-price-input-select-val
 다음은단가요청선택값의숫자유형변경·복구경계대조다. 왜: 이번유형전환거절은checkbox이고number전환은문자기본값을그대로남겨schema가거부하는경로와기본값을명시비운뒤기존선택원문을DOM이표현하는경로를구분해야하기때문이다. 기존customControl 숫자fallback옵션과docEditor의활성옵션·현재원문/초안·취소/수정/비움·readonly복구를먼저읽고새소실만재현한다. 숫자/일자/문자유형전환전체와업무조건자동양식분기는미확인으로유지하고임의값치환/초기화로숨기지않으며기존20후보/원문/양식/운영gate를보존한다. 이번선택30과완료된날짜/비숫자행렬을변화없이반복하지않는다.
 
 모아P1은지속승인으로v50→51→52·기존336exact·착수2/결과10 문구/종류/수준exact·총348블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-input-select-existing-preauthorized-20261029.json.
+
+
+## 2026-10-29 선택→숫자 유형 전환 · 0.89.43 한정 후보 설계/검증
+
+예정10/29~10/30 KST·실제착수06:59:59.695222+09. 한정14흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변42에서숫자기본값A는schema가거절했지만기본값을명시비우면저장선택B/false가native number 공란으로탈락해F8이공란을저장하는합성4사건을확인했다. 현재custom select→비계산number의명시metadata저장/적용전에실제HTML number표현과유한숫자를함께확인해표현불가원문을거절한다. 등록숫자선택/명시비움뒤전환,0/음수/지수표기/00123의명시숫자저장계약은유지한다. 기존checkbox가드/primitive보존·공통schema/FormCore/FormOptions/backup은유지했다.
+
+최종390/1280×14흐름 실제자체셸28·기존관련Node99·격리후보verify:local전체616/전체Node/빌드·자체REA2범위1raw쌍exact/parse0을확인했다. 원본/운영합격이아니며기존부터숫자형인legacy원문·업무조건자동분기/입력보조/계산식전환전체는별도다. 기존20후보/운영22worker/dirty12/매핑07bdfb3를보존한다. 세부실패/원고/결과는.artifacts/manual-price-select-number-transition-20261029와후속근거JSON에기록한다.
