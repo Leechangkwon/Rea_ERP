@@ -1195,3 +1195,10 @@ source 513e03e / release ba745fc / branch release/0.89.44-price-numeric-legacy-r
 다음은단가요청업무조건에의한입력양식유형전환보존대조다. 왜: 이번기존숫자원문보호와FormOptions의명시metadata변경가드와별개로grid change는업무/사용자조건에따른다른input/lines양식으로docEditor를직접재구성하기때문이다. 기존조건양식/실제지원UI와소비자부터읽고저장선택값/미저장초안의조건변경·취소/복구·readonly/역할/자료문맥의새손실만대조한다. 조건/값자동삭제로숨기지않고기존22후보/원문·양식·자료·운영gate를보존한다. 입력보조applyCustom/행계산전체·다른전표/원본/운영은미확인으로유지하며이번34와완료된행렬을변화없이반복하지않는다.
 
 모아P1은지속승인으로v54→55→56·기존360exact·착수2/결과10 문구/종류/수준exact·총372블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-numeric-legacy-preauthorized-20261029.json.
+
+
+## 2026-10-29 업무조건 체크 전환 원문 보존 · 0.89.45 한정 후보 설계/검증
+
+예정10/29~10/30 KST·실제착수08:04:35.524245+09. 한정20흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변44의업무조건input양식전환에서선택문자B/수치0/문자false가checkbox false로조용히덮이는합성손실을확인했다. 숫자/일자전환은기존보호를유지한다. 단가요청header input의명시preserveInputValues에서checkbox의호환되지않는기존원문을checked와별도로보관하고항목명/ID·표시원문·aria-invalid를제공한다. 실제input/change로체크를명시하기전strict저장/출력을거절하되raw초안/설정/닫기재진입은보존한다. 조건을되돌리면기존select원문/primitive를복구하고실제Boolean/일반checkbox기본값은기존의미를유지한다. 계산오류전파와초기품목행양식판정은기존raw분리정책에checkbox오류를명시추가했으며strict업무저장을완화하지않는다.
+
+최종390/1280×20흐름 실제자체셸40·기존관련Node99·격리후보verify:local전체690/전체Node/빌드·자체REA6범위3raw쌍exact/parse0을확인한다. 지원UI의조건되돌리기/제목저장/readonly해제/선택양식복구·실제Boolean/명시true/false·required체크·권한/자료거절을구분한다. 역할조건/자료/권한은검사기주입이며원본/실계정합격이아니다. header한정으로lines/입력보조/모든유형/다른전표/원본/운영합격으로확대하지않는다. 공통FormCore/FormOptions/schema/backup·기존22후보/운영22worker/dirty12/매핑07bdfb3보존. 근거.artifacts/manual-price-conditional-types-20261029및후속JSON.
