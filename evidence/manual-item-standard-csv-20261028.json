@@ -191,13 +191,25 @@
     "Original source execution and hosted business writes zero; independent own CSV fix does not complete P1 or P0-P10"
   ],
   "manualCounts": {
-    "requirements": 77,
-    "bodies": 47,
-    "independent": 44,
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
     "done": 0
   },
   "originalActions": 0,
   "originalApiCalls": 0,
   "wholeManualDone": false,
-  "nextWork": "기존 기초자료 CSV 경로의 조회양식 CSV와 전체필드 내보내기·가져오기 계약을 확보된 P1 근거 및 현재 구현과 대조한다. 품목 표준 CSV 보존 수정은 완료했으므로 같은 검사를 반복하지 않는다. 다음 착수 시 기존 P1 본문에 현재 KST의 예정 기간과 doing을 기록하고, 검색/선택/조회열/전체필드/원문·숫자 형식·사용자 추가항목 경계에서 새로 확인한 차이만 작은 단위로 보완한다. 왜: 한 품목 이동 경로의 합격을 다른 기초자료 또는 조회양식 CSV의 자료 이동 합격으로 확대할 수 없기 때문이다. 새 차이가 없으면 결과를 기록하고 다음 미충족 P1 항목을 선택한다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 없이 재개하지 않는다."
+  "nextWork": "기존 기초자료 CSV 경로의 조회양식 CSV와 전체필드 내보내기·가져오기 계약을 확보된 P1 근거 및 현재 구현과 대조한다. 품목 표준 CSV 보존 수정은 완료했으므로 같은 검사를 반복하지 않는다. 다음 착수 시 기존 P1 본문에 현재 KST의 예정 기간과 doing을 기록하고, 검색/선택/조회열/전체필드/원문·숫자 형식·사용자 추가항목 경계에서 새로 확인한 차이만 작은 단위로 보완한다. 왜: 한 품목 이동 경로의 합격을 다른 기초자료 또는 조회양식 CSV의 자료 이동 합격으로 확대할 수 없기 때문이다. 새 차이가 없으면 결과를 기록하고 다음 미충족 P1 항목을 선택한다. 원본 TC101P_01/VAT5/최소구매단위/업로드 저장은 새 근거 없이 재개하지 않는다.",
+  "manualCountsLabelCorrection": {
+    "date": "2026-10-28",
+    "previousLabelsAndValues": {
+      "requirements": 77,
+      "bodies": 47,
+      "independent": 44,
+      "done": 0
+    },
+    "reason": "Names were incorrect:77 is the online manual index count,47 reviewed bodies,44 official requirements; numerical values and done0 are unchanged.",
+    "source": "evidence/global-rea-20261018/current-release.json manualParity",
+    "runtimeOrAcceptanceChanged": false
+  }
 }

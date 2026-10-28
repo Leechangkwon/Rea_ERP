@@ -166,9 +166,9 @@
     "reference": "evidence/moa-master-csv-feedback-approved-20261028.json"
   },
   "manualCounts": {
-    "requirements": 77,
-    "bodies": 47,
-    "independent": 44,
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
     "done": 0
   },
   "wholeManualDone": false,
@@ -177,5 +177,17 @@
   "limitations": [
     "Failure and valid-filter recovery are synthetic actual-shell evidence. Hosted checks only compare normal CSV downloads and unchanged backups.",
     "No actual source ERP actions, operational data/settings writes or external spreadsheet edits were performed."
-  ]
+  ],
+  "manualCountsLabelCorrection": {
+    "date": "2026-10-28",
+    "previousLabelsAndValues": {
+      "requirements": 77,
+      "bodies": 47,
+      "independent": 44,
+      "done": 0
+    },
+    "reason": "Names were incorrect:77 is the online manual index count,47 reviewed bodies,44 official requirements; numerical values and done0 are unchanged.",
+    "source": "evidence/global-rea-20261018/current-release.json manualParity",
+    "runtimeOrAcceptanceChanged": false
+  }
 }
