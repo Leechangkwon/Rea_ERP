@@ -121,3 +121,6 @@
 
 
 2026-10-28 최신 기록: 코드변경 기본참조 보호0.89.23은 검증·push 후보(fdd8083/dde83ef)이며 운영 배포 전이다. 운영0.89.22는 기존 실행기로 복구·공개23검사/20해시 통과, 인증UI/최신 브라우저 백업은 도구 Transport closed로 미확인이다. P1 v11/121블록·운영 v2/31블록 저장/재조회 exact. 실제 일정/상태 필드 미설정과 본문doing 경과를 구분한다. 근거 evidence/manual-master-rename-defaults-20261028.json / evidence/moa-master-rename-defaults-preauthorized-20261028.json. Windows 진입점 F:\work\rea_erp·Linux 실제소스 /home/lck/projects/Rea_ERP.
+
+
+2026-10-28 후속:0.89.24(b10beed/1589a78)는20종/101개 기본참조 대조 후 전체302브라우저·전체Node/빌드로 검증·push한 후보이며 미배포다.0.89.23 dde83ef와 운영0.89.22를 보존했다. P1 v13/130블록 저장/재조회 exact·본문doing/P1doing·실제메타데이터미설정. 근거 evidence/manual-document-rename-defaults-20261028.json / evidence/moa-document-rename-defaults-preauthorized-20261028.json.
