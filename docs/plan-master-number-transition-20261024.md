@@ -1105,3 +1105,10 @@ source 54c15a2 / release 80527d8 / branch release/0.89.41-price-input-date-event
 다음은단가요청기존선택사용자값·선택지변경보존대조다. 왜: 40의미등록선택기본값과이번날짜키입력보호는이미전표에저장된선택값/현재초안이선택지삭제·명칭/유형/readonly·적용양식변경을만나는경계를대신하지못하기때문이다. 기존customControl/configureGrid·F.merge/effective/check와FormOptions/부모preserveForm의검증범위부터읽고지원UI의취소/명시저장·선택수정/비움·초안재진입의새소실만재현한다. 미등록값을자동삭제/다른값으로치환하지않고같은ID의문자/수치/0/false와schema거부를구분한다. 날짜붙여넣기/조합입력/달력/다른로캘·기기/입력보조·원본/운영은미확인으로유지하며기존19후보/원문·양식·자료/운영gate를보존한다. 이번날짜34/비숫자40과같은전체검사를변화없이반복하지않는다.
 
 모아P1은지속승인으로v48→49→50·기존325exact·착수2/결과9 문구/종류/수준exact·총336블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-input-date-events-preauthorized-20261029.json.
+
+
+## 2026-10-29 기존 선택값 보존 · 0.89.42 한정 후보 설계/검증
+
+예정10/29~10/30 KST, 실제착수06:32:13+09. 한정 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 기존41의선택B→checkbox false 덮어쓰기와 미편집선택의수치0/boolean false→문자열변환을합성UI에서확인했다. 단가요청input의select에만DOM이벤트편집여부를두어미편집primitive를유지하고 명시선택은기존문자열계약을유지한다. metadata commit전현재input/다음effective양식을대조해비어있지않은비boolean 선택의checkbox전환을거절하고명시비움뒤허용한다. formSave/formActivate 등기존연산·현재소유자가드뒤에서실행한다. parent검색규칙/공통schema/FormCore/FormOptions/backup은유지했다.
+
+15흐름×390/1280 실제자체셸30·기존관련Node99·격리후보verify:local전체588/전체Node/빌드·자체REA8범위4raw쌍exact/parse0을확인했다. 원본/운영합격이아니며자료/조건에의한자동양식분기·입력보조·새로고침수명은별도다. 기존19후보/운영22worker/dirty12/매핑07bdfb3를보존한다. 세부실패/원고/결과는.artifacts/manual-price-input-select-existing-20261029와후속근거JSON에기록한다.
