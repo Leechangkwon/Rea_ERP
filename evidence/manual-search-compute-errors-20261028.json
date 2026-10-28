@@ -1,0 +1,444 @@
+{
+  "sourceId": "OWN-SEARCH-COMPUTE-ERROR-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-28",
+  "deadline": "2026-10-29",
+  "actualStart": "2026-10-28T21:29:38.065648+09:00",
+  "status": "validated-pushed-not-deployed",
+  "p1Status": "doing",
+  "recordedAt": "2026-10-28T21:55:47.745989+09:00",
+  "elapsedSeconds": 1569.68,
+  "version": "0.89.28",
+  "operatingVersion": "0.89.22",
+  "patchStatus": "doing",
+  "basis": [
+    "Existing FORM001/002 plan and own config.read/F.compute consumers",
+    "No new original manual body or original UI actions"
+  ],
+  "change": {
+    "query": "Explicit values/error result with field label/ID and aria-invalid; computation failure never becomes an empty successful filter",
+    "generic": "Keep filter UI, clear failed results, block CSV/print and recover on valid operand",
+    "purchasing": "Separate initial appliedError from pending errors; preserve previous applied values/results/selection and export them",
+    "inPlaceSnapshot": "Keep nullable applied values, appliedError and raw draft; safe batch-print signature includes raw draft and query state",
+    "unchanged": [
+      "formula parser/evaluator",
+      "schema",
+      "backup rules",
+      "stored formulas/defaults",
+      "other contexts",
+      "cross-menu list state linkage"
+    ]
+  },
+  "checks": {
+    "initialAudit": {
+      "acceptedRuntimeCases": 15,
+      "initialFailuresBefore": 15,
+      "initialFailuresAfter": 0,
+      "schemaRejectedAuditCases": 2,
+      "schemaRejectedUnitTests": 3
+    },
+    "initialNode": {
+      "tests": 29,
+      "passed": 3,
+      "failed": 26
+    },
+    "firstPatchNode": {
+      "tests": 29,
+      "passed": 28,
+      "failed": 1,
+      "cause": "Combined fixture edited inactive search_default instead of active compute_search"
+    },
+    "finalNode": {
+      "tests": 32,
+      "passed": 32,
+      "addedInstrumentedPrivateRefreshTests": 3
+    },
+    "focusedNode": 105,
+    "firstBrowser": {
+      "tests": 10,
+      "passed": 4,
+      "failed": 6,
+      "cause": "Cross-menu list work-tab restoration unsupported; retained as separate pending contract, not accepted"
+    },
+    "finalBrowser": {
+      "tests": 10,
+      "passed": 10,
+      "scope": "Current-screen error/recovery/export, purchasing applied/pending state and detail open/close; no cross-menu acceptance"
+    },
+    "fullVerifyLocal": {
+      "exitCode": 0,
+      "testedSourceHashes": {
+        "dist/inventory-ui.js": "d87392fb90bb7c2eeaa718f8f399231b70189de00f4cfe85e318508f67e479e2",
+        "dist/inventory-core.js": "5f0dce2ad54c092d229f677a75587494b91615841e29e8361aa43251f286b570",
+        "dist/form-core.js": "1140ac6830a0bce5223ffce9391bb0d5062b3b1ac67733f0011d2b63f97a4a7e",
+        "tests/search-compute-errors.cjs": "7e0271e0401f117aa9014edc18074685c434b91c04a8c4c8f82b0a370c85aa15",
+        "tests/browser/search-compute-errors.spec.cjs": "34d4d2d0c4cdc017b3a78dfa084e289172cf4a33d3de03bf353d4ed93caf374e",
+        "package.json": "392bafd268e3775f93004d0b71cfd277fa1c0c4d3102fa3d8efb169b9404ab5a"
+      }
+    },
+    "browserTests": 330,
+    "wholeNodePassed": true,
+    "releaseAndBuildPassed": true,
+    "ownRea": {
+      "reaVersion": "6.4.0",
+      "newOriginalScopes": 0,
+      "newOwnScopes": 8,
+      "originalSources": [],
+      "scopes": [
+        {
+          "category": "own",
+          "symbol": "docFilters",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "e0fabc5569bee5ff7e461b70a1ca681c08d2f720915b2f9b59b26c44b72adbb9",
+          "start": 64636,
+          "end": 68693,
+          "lineStart": 327,
+          "lineEnd": 336,
+          "fragmentSha256": "82eec8b789c632e5e63aeb8e70b0b3f76b2b69a0bc95c31ad5eca6123534a6a1",
+          "inputFile": "own-docFilters.js",
+          "inputSha256": "70202cc84e2681740a70fbeecf00a272a7e48574659685a29183b37e1d9eb97e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docFilters",
+          "file": ".artifacts/releases/0.89.28-search-compute-errors/dist/inventory-ui.js",
+          "sourceSha256": "d87392fb90bb7c2eeaa718f8f399231b70189de00f4cfe85e318508f67e479e2",
+          "start": 64588,
+          "end": 68645,
+          "lineStart": 327,
+          "lineEnd": 336,
+          "fragmentSha256": "82eec8b789c632e5e63aeb8e70b0b3f76b2b69a0bc95c31ad5eca6123534a6a1",
+          "inputFile": "candidate-docFilters.js",
+          "inputSha256": "70202cc84e2681740a70fbeecf00a272a7e48574659685a29183b37e1d9eb97e",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "docList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "e0fabc5569bee5ff7e461b70a1ca681c08d2f720915b2f9b59b26c44b72adbb9",
+          "start": 144288,
+          "end": 153417,
+          "lineStart": 570,
+          "lineEnd": 598,
+          "fragmentSha256": "4430107e69ee0085ebd709ef082f9af15231193b0dda72faa09f4c66a9ca63a7",
+          "inputFile": "own-docList.js",
+          "inputSha256": "a5209d1ed009031b836c664de56f35a27b84ff408bf8f270df092646b0b43911",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "docList",
+          "file": ".artifacts/releases/0.89.28-search-compute-errors/dist/inventory-ui.js",
+          "sourceSha256": "d87392fb90bb7c2eeaa718f8f399231b70189de00f4cfe85e318508f67e479e2",
+          "start": 139542,
+          "end": 148671,
+          "lineStart": 547,
+          "lineEnd": 575,
+          "fragmentSha256": "4430107e69ee0085ebd709ef082f9af15231193b0dda72faa09f4c66a9ca63a7",
+          "inputFile": "candidate-docList.js",
+          "inputSha256": "a5209d1ed009031b836c664de56f35a27b84ff408bf8f270df092646b0b43911",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "renderReport",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "e0fabc5569bee5ff7e461b70a1ca681c08d2f720915b2f9b59b26c44b72adbb9",
+          "start": 156719,
+          "end": 161861,
+          "lineStart": 615,
+          "lineEnd": 624,
+          "fragmentSha256": "c683eef7afcbcc97a4a8c736df2f567e0136d06c8bce92dcb1ce55f4ceb0cc6d",
+          "inputFile": "own-renderReport.js",
+          "inputSha256": "0185752b57ebe91c711991b74526804502b73f7b63527f6f297402bf73e3b384",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "renderReport",
+          "file": ".artifacts/releases/0.89.28-search-compute-errors/dist/inventory-ui.js",
+          "sourceSha256": "d87392fb90bb7c2eeaa718f8f399231b70189de00f4cfe85e318508f67e479e2",
+          "start": 151973,
+          "end": 157115,
+          "lineStart": 592,
+          "lineEnd": 601,
+          "fragmentSha256": "c683eef7afcbcc97a4a8c736df2f567e0136d06c8bce92dcb1ce55f4ceb0cc6d",
+          "inputFile": "candidate-renderReport.js",
+          "inputSha256": "0185752b57ebe91c711991b74526804502b73f7b63527f6f297402bf73e3b384",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "own",
+          "symbol": "requestList",
+          "file": "dist/inventory-ui.js",
+          "sourceSha256": "e0fabc5569bee5ff7e461b70a1ca681c08d2f720915b2f9b59b26c44b72adbb9",
+          "start": 126938,
+          "end": 143226,
+          "lineStart": 525,
+          "lineEnd": 560,
+          "fragmentSha256": "aeb13e871400b204648745b3a98f832c96d43e19bc73ff8ead50de78495c9442",
+          "inputFile": "own-requestList.js",
+          "inputSha256": "781a2b65b6421100834d1d7c8ae466d9ef38dadd77f3e99b6f7a9a5835a0a5c2",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        },
+        {
+          "category": "candidate",
+          "symbol": "requestList",
+          "file": ".artifacts/releases/0.89.28-search-compute-errors/dist/inventory-ui.js",
+          "sourceSha256": "d87392fb90bb7c2eeaa718f8f399231b70189de00f4cfe85e318508f67e479e2",
+          "start": 122192,
+          "end": 138480,
+          "lineStart": 502,
+          "lineEnd": 537,
+          "fragmentSha256": "aeb13e871400b204648745b3a98f832c96d43e19bc73ff8ead50de78495c9442",
+          "inputFile": "candidate-requestList.js",
+          "inputSha256": "781a2b65b6421100834d1d7c8ae466d9ef38dadd77f3e99b6f7a9a5835a0a5c2",
+          "wrapperAdded": false,
+          "bindingsOutsideScopeUnresolved": true
+        }
+      ],
+      "resultSha256": "f8b9eae7daf5fc0b6f79c3112717cd1e3ef724b09f305b57ee1d190166650a14",
+      "statistics": {
+        "relevant_files": 8,
+        "nested_asar_containers": 0,
+        "text_bytes_read": 76096,
+        "invalid_utf8_files": 0,
+        "parsed_javascript_files": 8,
+        "visited_ast_nodes": 16178,
+        "findings": 2,
+        "modules": 0,
+        "parse_failures": 0
+      },
+      "coverage": "unknown",
+      "truncated": false,
+      "fullModuleCoverage": false,
+      "newOriginalBodies": 0,
+      "originalExecuted": false,
+      "runtimeEquivalence": false
+    },
+    "scopePort": {
+      "scopes": [
+        {
+          "symbol": "docFilters",
+          "beforeEqual": true,
+          "sourceHash": "82eec8b789c632e5e63aeb8e70b0b3f76b2b69a0bc95c31ad5eca6123534a6a1"
+        },
+        {
+          "symbol": "docList",
+          "beforeEqual": true,
+          "sourceHash": "4430107e69ee0085ebd709ef082f9af15231193b0dda72faa09f4c66a9ca63a7"
+        },
+        {
+          "symbol": "renderReport",
+          "beforeEqual": true,
+          "sourceHash": "c683eef7afcbcc97a4a8c736df2f567e0136d06c8bce92dcb1ce55f4ceb0cc6d"
+        },
+        {
+          "symbol": "requestList",
+          "beforeEqual": true,
+          "sourceHash": "aeb13e871400b204648745b3a98f832c96d43e19bc73ff8ead50de78495c9442"
+        }
+      ],
+      "candidateOutsideExact": true,
+      "rootOutsideExact": true
+    }
+  },
+  "release": {
+    "version": "0.89.28",
+    "sourceCommit": "a7223fa88a90405d6bb84bc1a9a52cee2deb06c6",
+    "releaseCommit": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+    "branch": "release/0.89.28-search-compute-errors",
+    "baselineReleaseCommit": "0699c73c5ff1f6102ee9b6621233c95176166028",
+    "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.28-search-compute-errors",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.27",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed"
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "pending08923Exact": true,
+    "pending08924Exact": true,
+    "pending08925Exact": true,
+    "pending08926Exact": true,
+    "pending08927Exact": true,
+    "dirty12Exact": true,
+    "mappingCleanCommit": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "mappingClean": true
+  },
+  "worktabObservation": {
+    "status": "observed-not-implemented-not-accepted",
+    "firstRun": {
+      "tests": 10,
+      "passed": 4,
+      "failed": 6
+    },
+    "scope": "Cross-menu tab return for request/purchaseorder/purchase at 390/1280",
+    "preservedEvidence": [
+      "focused-browser-first.log",
+      "focused-browser-first-exit.json",
+      "browser-first-results"
+    ],
+    "programEvidence": "inventory-ui rememberReport/resumeReport target purchasingReportView only, not purchasingListView",
+    "pendingTestSource": "worktab-observed-failure.spec.cjs",
+    "pendingTestSha256": "7f8d5cbf8c0fc1483d6161952b788d486b0401e90f5675aae08711a882734a39",
+    "pendingSourceReconstructedFromSingleKnownReplacement": true,
+    "reexecuted": false,
+    "currentPatchClaimsCrossMenuRestoration": false
+  },
+  "candidateInstalled": false,
+  "sourceRootWholeBuilds": 0,
+  "productionDeployments": 0,
+  "productionWrites": 0,
+  "originalActions": 0,
+  "browserConnectionRetried": false,
+  "freshProductionBrowserBackup": false,
+  "productionAuthenticatedUiVerifiedThisTurn": false,
+  "serverMailSnapshotRecheckedThisTurn": false,
+  "otherProjectChanged": false,
+  "newOriginalBodies": 0,
+  "manualCounts": {
+    "onlineManualIndexItems": 77,
+    "sourceBodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0
+  },
+  "wholeManualDone": false,
+  "wholeTypedDefaultRecoveryDone": false,
+  "nextIndependentWork": {
+    "sourceId": "OWN-PURCHASING-LIST-WORKTAB-STATE-CONTRACT-AUDIT",
+    "title": "구매 목록 작업 탭 이동 상태·권한·자료 변경 경계 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-search-compute-errors-20261028.json",
+    "latestEvidence": "evidence/manual-search-compute-errors-20261028.json",
+    "description": "이번 실제 자체셸에서 요청/발주/구매×390/1280의 다른메뉴→목록작업탭 복귀6개가 기본조건으로 초기화되는 미지원 경계를 관찰했다. rememberReport/resumeReport는 구매현황에만 연결되고 목록에는 연결되지 않는다. 기존 작업탭/목록 요구사항·검사부터 읽고 적용조건/원문초안/선택/페이지와 계정·역할·권한·자료변경/닫기 경계를 대조한다. 계산식 복구나 in-place private 함수검사 합격을 메뉴 이동 합격으로 확대하지 않는다. 새로운 연결을 만들기 전에 기존 세션/소유자/자료 가드를 보존하는 범위를 정하고 확인된 차이만 작은 단위로 보완한다. 운영0.89.22와0.89.23~28 후보를 보존하고 새 운영브라우저 백업/인증UI·서버/메일 기준이 확보되면 최신0.89.28 배포/보존 검증을 재개한다. 같은 연결/로그인 확인·완료된 계산/날짜 행렬·전체검사를 변화 없이 반복하지 않는다. 원본TC101P_01/VAT5/최소구매단위/업로드 저장 gate 유지.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "moa": {
+    "transport": "configured-moa-mcp",
+    "preauthorized": true,
+    "start": {
+      "beforeVersion": 19,
+      "afterVersion": 20,
+      "beforeBlocks": 160,
+      "afterBlocks": 162,
+      "prefixExact": true,
+      "appendExact": true,
+      "append": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2026-10-28 · 검색 계산식 오류 초기화·조회·출력 경계 대조 착수"
+        },
+        {
+          "type": "paragraph",
+          "text": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와0.89.23~27 검증미배포 후보를 보존하고, 기존 계획의 검색 계산식 config.read()/F.compute 실행 오류가 초기 목록/현황·CSV/인쇄에 전파되는 경계를 대조한다. 저장 schema가 이미 거부하는 식과 실행할 때 발생하는 오류를 구분하고 새 차이가 재현된 범위만 기존 양식/원문/자료/마지막 적용조건을 보존하며 보완한다. 왜: 날짜 검사 앞에서 값 계산이 실행되므로 날짜 복구 합격을 계산식 오류에도 확대할 수 없기 때문이다. 숫자 badInput·다른 전용 renderer·원본/운영 합격을 추정하지 않고 같은 연결/로그인 확인과 완료된 날짜 행렬을 반복하지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+        }
+      ],
+      "readbackTail": [
+        {
+          "id": "2adaf533-f0c1-47d7-ad88-5b6b7167960e",
+          "text": [
+            {
+              "m": [],
+              "t": "2026-10-28 · 검색 계산식 오류 초기화·조회·출력 경계 대조 착수"
+            }
+          ],
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "id": "98e0aeb4-5440-43bb-93ae-d398a649c4d6",
+          "text": [
+            {
+              "m": [],
+              "t": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와0.89.23~27 검증미배포 후보를 보존하고, 기존 계획의 검색 계산식 config.read()/F.compute 실행 오류가 초기 목록/현황·CSV/인쇄에 전파되는 경계를 대조한다. 저장 schema가 이미 거부하는 식과 실행할 때 발생하는 오류를 구분하고 새 차이가 재현된 범위만 기존 양식/원문/자료/마지막 적용조건을 보존하며 보완한다. 왜: 날짜 검사 앞에서 값 계산이 실행되므로 날짜 복구 합격을 계산식 오류에도 확대할 수 없기 때문이다. 숫자 badInput·다른 전용 renderer·원본/운영 합격을 추정하지 않고 같은 연결/로그인 확인과 완료된 날짜 행렬을 반복하지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    },
+    "resultSaved": true,
+    "actualMetadataConfigured": false,
+    "readbackVerified": true,
+    "p1FinalVersion": 21,
+    "p1FinalBlocks": 171,
+    "evidence": "evidence/moa-search-compute-errors-preauthorized-20261028.json",
+    "operationsDocumentChanged": false
+  },
+  "artifactHashes": {
+    ".artifacts/manual-search-compute-error-audit-20261028/release.json": "52ba1465f42448a97a528f84ba6971ee416b63e8e7798eba0b9edb33885dab68",
+    ".artifacts/manual-search-compute-error-audit-20261028/node-before.log": "4e227668131d98fb71ead4c136ce7d7f0066d6d06a3ae6d86f0fcc3a55e4304c",
+    ".artifacts/manual-search-compute-error-audit-20261028/audit-after.cjs": "923a847a8c7d9a5a3a0fbb863096490fa3e4c698644c03ed79059eef2d71f5eb",
+    ".artifacts/manual-search-compute-error-audit-20261028/verify-local.log": "95ee5162a71e3dd8cfcbaa24a12433b6a613afdc4fa5e17b357ef9522435e2ca",
+    ".artifacts/manual-search-compute-error-audit-20261028/focused-browser-first-exit.json": "f468f8bf84d59a390a40e5d5ac0291111e0e6eeb79821864810ae628cbd3507e",
+    ".artifacts/manual-search-compute-error-audit-20261028/node-focused-final.log": "a28c33118af4cd087435d54361ddf3979b521b6994b4f1490b7083b6f48c6f4f",
+    ".artifacts/manual-search-compute-error-audit-20261028/focused-browser.log": "6b0ee7cf66819e4a5b91672888eace1f0892f6a0329703ceb5e9949b3b243474",
+    ".artifacts/manual-search-compute-error-audit-20261028/audit-after.json": "967c32ce95fada4bc9f7ee5053f179a4bd2bad83fe2a23ac4a5240083e3463aa",
+    ".artifacts/manual-search-compute-error-audit-20261028/audit-before.json": "6371905a17b32264733aa1493d352929c8ce5c487e78bfef9c2d1564e87f3d41",
+    ".artifacts/manual-search-compute-error-audit-20261028/patch-port.json": "60a138aa03260f90a422d9878fe0d4f69c880414f46b5a1f0b57b546f0c3e6f6",
+    ".artifacts/manual-search-compute-error-audit-20261028/worktab-observed-failure.spec.cjs": "7f8d5cbf8c0fc1483d6161952b788d486b0401e90f5675aae08711a882734a39",
+    ".artifacts/manual-search-compute-error-audit-20261028/moa-start.json": "2559a171a852162bf98521979877ee65dc72684a1351b41795d624f7792a3f94",
+    ".artifacts/manual-search-compute-error-audit-20261028/audit.cjs": "dd9f3c329bcc3186d4bc279ea01395aa14174eeee038ec5660276265959e288b",
+    ".artifacts/manual-search-compute-error-audit-20261028/node-focused.log": "d050baaedc4bf3661de188c710b689d4a565f1d90b6625f7e155a1c85e34e777",
+    ".artifacts/manual-search-compute-error-audit-20261028/next-work.json": "7f8a2cc394ab7b20f68798f28e40f7ced1f4d0cd018e8585f1a9a2380b613382",
+    ".artifacts/manual-search-compute-error-audit-20261028/harness-notes.json": "78d49938c9764e56ca9ad16944337c541e55d68a7113b0140f76c3bde9617b34",
+    ".artifacts/manual-search-compute-error-audit-20261028/node-after-first.log": "21194fb76efa6ebdec60ee065043d60ea4491c20f2399819f6d647229d0b40da",
+    ".artifacts/manual-search-compute-error-audit-20261028/port.cjs": "ef47d9febff5624291a8a42299a91a53074dbe77a85059a8c7371847e76f6e7e",
+    ".artifacts/manual-search-compute-error-audit-20261028/node-after-root.log": "21194fb76efa6ebdec60ee065043d60ea4491c20f2399819f6d647229d0b40da",
+    ".artifacts/manual-search-compute-error-audit-20261028/focused-browser-exit.json": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+    ".artifacts/manual-search-compute-error-audit-20261028/focused-browser-first.log": "afcf8ee105fb0b5a9a14e473475266a6f21e3f901a73ef25da2f843f018d03df",
+    ".artifacts/manual-search-compute-error-audit-20261028/preservation.json": "98a82ab266779f43a3f045c84efe074c69dd158a1388bf6f29daeddc0e38bccf",
+    ".artifacts/manual-search-compute-error-audit-20261028/analyze.mjs": "b873a2ca0bb65b0f09e2e0b8dfb30236bcceff088a594644c390b1ff5a9de732",
+    ".artifacts/manual-search-compute-error-audit-20261028/node-before-28.log": "add6773cfefb09bd68231f1b58aaa9099d63b94448f4f3d44ebb70ad5bc90b5c",
+    ".artifacts/manual-search-compute-error-audit-20261028/start.json": "55305c6169835f377dd07ef7719fa6861868fde32e4e41d6ac245c9ed79189a4",
+    ".artifacts/manual-search-compute-error-audit-20261028/verify-local-exit.json": "14776c8fa83c060bf3a10bbded194f4c07f6c403c11102e5c519659da27017ac",
+    ".artifacts/manual-search-compute-error-audit-20261028/worktab-state-observation.json": "c1a5a6c4a7400a4d3b886e09cca7eb9c9b004cb62816b0fee4deeaad9df52f97",
+    ".artifacts/manual-search-compute-error-audit-20261028/rea/rea-summary.json": "ffaf63dae365995a9d077ad62370a4d8439f1db21de11597f4e16d7b7c37ac6d",
+    ".artifacts/manual-search-compute-error-audit-20261028/rea/stderr.log": "045827e34ae0b4f914c5bba1c6a4b31c9eb2e5767ccc1004205a25ee02199786",
+    ".artifacts/manual-search-compute-error-audit-20261028/rea/result.json": "f8b9eae7daf5fc0b6f79c3112717cd1e3ef724b09f305b57ee1d190166650a14",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/.last-run.json": "b12129218ddba38b3c6bf1bdcb644877b4eb9105485f29c2cfa114f3f3c3a447",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/search-compute-errors-sear-2f6f9-ied-state-390-purchase-list/error-context.md": "fafeef9a9ff08a1984dca5f7bfbd0757211cf6d7140c606fc14f1a3af8d0bf11",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/search-compute-errors-sear-602c7-ed-state-1280-purchase-list/error-context.md": "f94f56da179cb938d8e63fc44b49bedb4ec84d65f58e2d68735c72e0f2258ab8",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/search-compute-errors-sear-72103-ate-1280-purchaseorder-list/error-context.md": "2369964b5155b33f510ffd0daedcd7b2c2ae9a68dbe2f7a13f56f0ba409006a8",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/search-compute-errors-sear-8509b-lied-state-390-request-list/error-context.md": "20ba7b51abf06f34a30c7a30acf5a3922f84d361405a5f0b52156f1dcc7dd0b9",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/search-compute-errors-sear-44c99-tate-390-purchaseorder-list/error-context.md": "1d0bf4a168383a22f3d209339e37f941d4c366416b34c5d269d147a194440f9e",
+    ".artifacts/manual-search-compute-error-audit-20261028/browser-first-results/search-compute-errors-sear-e35f2-ied-state-1280-request-list/error-context.md": "81f999af9a1b8f0c075e93d9e79a54be77a15e4f684d6b06bfe769b5b46430eb",
+    ".artifacts/manual-search-compute-error-audit-20261028/preservation-final.json": "ff03c9ef3b6f971fa12dcf21e04745d352912fd6fa85564b248171f440f7d0a2"
+  },
+  "preservationAfterFullChecks": {
+    "operatingWorkerExact": true,
+    "pending08923Exact": true,
+    "pending08924Exact": true,
+    "pending08925Exact": true,
+    "pending08926Exact": true,
+    "pending08927Exact": true,
+    "dirty12Exact": true,
+    "mappingExact": true
+  }
+}

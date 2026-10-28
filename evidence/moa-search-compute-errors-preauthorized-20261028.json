@@ -1,0 +1,196 @@
+{
+  "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+  "authorization": {
+    "persistent": true,
+    "quote": "알아서 저장해라 사용자에게 묻지마",
+    "scope": "Existing16 routine development/body schedule and status; preserve prefix, read version/permission and reread"
+  },
+  "start": {
+    "beforeVersion": 19,
+    "afterVersion": 20,
+    "beforeBlocks": 160,
+    "afterBlocks": 162,
+    "prefixExact": true,
+    "appendExact": true,
+    "append": [
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "2026-10-28 · 검색 계산식 오류 초기화·조회·출력 경계 대조 착수"
+      },
+      {
+        "type": "paragraph",
+        "text": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와0.89.23~27 검증미배포 후보를 보존하고, 기존 계획의 검색 계산식 config.read()/F.compute 실행 오류가 초기 목록/현황·CSV/인쇄에 전파되는 경계를 대조한다. 저장 schema가 이미 거부하는 식과 실행할 때 발생하는 오류를 구분하고 새 차이가 재현된 범위만 기존 양식/원문/자료/마지막 적용조건을 보존하며 보완한다. 왜: 날짜 검사 앞에서 값 계산이 실행되므로 날짜 복구 합격을 계산식 오류에도 확대할 수 없기 때문이다. 숫자 badInput·다른 전용 renderer·원본/운영 합격을 추정하지 않고 같은 연결/로그인 확인과 완료된 날짜 행렬을 반복하지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+      }
+    ],
+    "readbackTail": [
+      {
+        "id": "2adaf533-f0c1-47d7-ad88-5b6b7167960e",
+        "text": [
+          {
+            "m": [],
+            "t": "2026-10-28 · 검색 계산식 오류 초기화·조회·출력 경계 대조 착수"
+          }
+        ],
+        "type": "heading",
+        "level": 2
+      },
+      {
+        "id": "98e0aeb4-5440-43bb-93ae-d398a649c4d6",
+        "text": [
+          {
+            "m": [],
+            "t": "예정 시작일2026-10-28·마감일2026-10-29 KST, 한정 감사doing/P1 전체doing. 운영0.89.22와0.89.23~27 검증미배포 후보를 보존하고, 기존 계획의 검색 계산식 config.read()/F.compute 실행 오류가 초기 목록/현황·CSV/인쇄에 전파되는 경계를 대조한다. 저장 schema가 이미 거부하는 식과 실행할 때 발생하는 오류를 구분하고 새 차이가 재현된 범위만 기존 양식/원문/자료/마지막 적용조건을 보존하며 보완한다. 왜: 날짜 검사 앞에서 값 계산이 실행되므로 날짜 복구 합격을 계산식 오류에도 확대할 수 없기 때문이다. 숫자 badInput·다른 전용 renderer·원본/운영 합격을 추정하지 않고 같은 연결/로그인 확인과 완료된 날짜 행렬을 반복하지 않는다. 일정/상태는 본문 기록이며 실제 메타데이터는 미설정이다."
+          }
+        ],
+        "type": "paragraph"
+      }
+    ]
+  },
+  "result": {
+    "beforeVersion": 20,
+    "afterVersion": 21,
+    "beforeBlocks": 162,
+    "afterBlocks": 171,
+    "prefixExact": true,
+    "appendExact": true,
+    "titleOccurrences": 1,
+    "canEdit": true
+  },
+  "append": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2026-10-28 · 검색 계산식 오류 복구 0.89.28 후보 결과"
+    },
+    {
+      "type": "paragraph",
+      "text": "예정2026-10-28~2026-10-29 KST·실제착수2026-10-28T21:29:38.065648+09:00·결과기록2026-10-28T21:55:47.745989+09:00·패치doing/P1 전체doing. FORM001/002의 양식 계산/기본값 계획과0.89.27의 값 읽기 지점을 대조했다. 저장이 허용되는0분모/범위초과/ROUND 자릿수 오류3종×일반조회·현황·요청·발주·구매5소비자15개가 초기화를 중단했다. 문법/미등록참조/순환참조는 기존 schema가 이미 거부하므로 UI 손실로 세지 않는다."
+    },
+    {
+      "type": "paragraph",
+      "text": "docFilters.query가 계산 값과 오류를 분리해 문제 항목의 label/ID·원인과 aria-invalid를 표시한다. 실패를 빈 검색조건이나 성공한0값으로 대체하지 않는다. 일반 조회/현황은 화면·입력값을 유지하고 결과 미표시·CSV/인쇄 차단과 수정 복구를 제공한다. 구매 조회는 초기 적용조건의 실패와 잘못된 미적용 초안을 구분해 마지막 적용조건·결과·선택을 보존하고 출력은 적용조건을 검증한다. 계산식·parser/evaluator·공통schema·backup·저장 양식/기본값·다른context는 유지했다."
+    },
+    {
+      "type": "paragraph",
+      "text": "in-place 목록 snapshot/restore에 appliedError와 원문 초안을 보존하고, 요청 다중 인쇄의 변경 감지 서명에는 원문 초안+안전한 query 상태를 넣었다. 실패한 초안 계산이 인쇄창을 깨뜨리거나 서로 다른 초안 변경을 같은 상태로 취급하지 않도록 했다. 이를 메뉴 이동 보존으로 확대하지 않는다. in-place 경로3개는 JSDOM에서 private refreshCurrentView를 테스트 전용으로 노출해 호출한 합성 검사이며 운영 코드에 테스트 hook을 추가하지 않았다."
+    },
+    {
+      "type": "paragraph",
+      "text": "신규29검사 수정 전26실패/3schema통과, 첫 보완 후28통과/1실패는 복합 날짜/계산 fixture가 활성 compute_search가 아닌 비활성 search_default를 바꾼 검사 문제였다. 활성 fixture를 정정하고 실패 로그를 보존했다. in-place3개를 추가한 최종신규32·관련105 통과, 초기 실패15→0·자료/백업exact다. 최종 실제셸390/1280px×5소비자10은 초기 오류·분모 수정→2건/행·잘못된F8거부·단일 전표로 좁힌 적용조건의 CSV 유지·요청 다중 인쇄·상세창 열기/닫기·새로고침→저장한 오류 복귀·pageerror/원격쓰기0을 통과했다. 전체verify:local exit0/330브라우저·전체Node·릴리스검사·빌드, 자체REA6.4 변경4함수 root/candidate8범위·4해시쌍exact·parse0·coverageunknown/truncatedfalse다. 원본/전체모듈 동등성은 아니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "첫 실제셸10은4통과/6실패였고 실패6개는 요청/발주/구매×390/1280의 다른메뉴→목록 작업탭 복귀였다. rememberReport/resumeReport는 현재 구매현황에만 연결되고 목록에는 연결되지 않으므로 이 미지원 경계를 이번 계산 오류 보완의 합격으로 처리하지 않았다. 첫 로그/스크린샷/trace와 단일 변경에서 재구성한 실패 검사 원고를 별도artifact로 보존했다. 최종 실제셸은 현재화면/상세창 흐름으로 구분했으며 메뉴 이동 상태 보존은 미완료로 남겼다."
+    },
+    {
+      "type": "paragraph",
+      "text": "source a7223fa / releasefded080 / branch release/0.89.28-search-compute-errors를 커밋·push했다. 후보workere81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5은 미설치다. 두 기준의 대응4함수 밖 코드·운영0.89.22 worker79222ea6…·기존0.89.23~27의 커밋/worker/clean 상태·dirty12·매핑07bdfb3를exact 보존했다. root전체빌드/운영배포/원본조작/운영 업무·설정 저장/메일발송/new_ERP변경/자동시작추가0이다."
+    },
+    {
+      "type": "paragraph",
+      "text": "직전 Transport closed 이후 새 연결 근거가 없어 같은 연결/로그인/서버·메일 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준이 확보되면 앞선 보호를 포함한0.89.28의 배포·읽기UI·보존 검증을 재개한다. 본문 예정/doing과 실제 일정/상태 메타데이터 미설정은 구분하며 P1 전체·숫자badInput·검색전용 사용자 항목 이벤트·전용renderer·원본/운영 업무 합격으로 확대하지 않는다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-search-compute-errors-20261028.json."
+    },
+    {
+      "type": "paragraph",
+      "text": "다음 독립 감사는 구매 목록의 작업 탭 이동 상태·권한·자료 변경 계약이다. 왜: 이번에 실제 관찰한 목록 복귀 초기화6개를 현재화면 계산 오류 복구나 in-place 합성 검사로 대신할 수 없기 때문이다. 기존 작업탭/목록 요구사항과 검사부터 읽고 적용조건/원문초안/선택/페이지 및 계정·역할·권한·자료변경/닫기 가드를 대조해 범위를 정한 뒤 새 차이만 보완한다. 기존 후보나 원본 재개 조건을 덮어쓰지 않고 완료된 계산/날짜 행렬·전체검사·연결 확인을 변화 없이 반복하지 않는다."
+    }
+  ],
+  "readbackTail": [
+    {
+      "id": "a7a00f4f-a4ef-46f4-8528-9c3d0075f2e4",
+      "text": [
+        {
+          "m": [],
+          "t": "2026-10-28 · 검색 계산식 오류 복구 0.89.28 후보 결과"
+        }
+      ],
+      "type": "heading",
+      "level": 2
+    },
+    {
+      "id": "8bc34e0e-6a48-40b5-8863-f80a75559dbb",
+      "text": [
+        {
+          "m": [],
+          "t": "예정2026-10-28~2026-10-29 KST·실제착수2026-10-28T21:29:38.065648+09:00·결과기록2026-10-28T21:55:47.745989+09:00·패치doing/P1 전체doing. FORM001/002의 양식 계산/기본값 계획과0.89.27의 값 읽기 지점을 대조했다. 저장이 허용되는0분모/범위초과/ROUND 자릿수 오류3종×일반조회·현황·요청·발주·구매5소비자15개가 초기화를 중단했다. 문법/미등록참조/순환참조는 기존 schema가 이미 거부하므로 UI 손실로 세지 않는다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "f0a1a8dd-8426-4f16-aaa5-47f14b9d95cd",
+      "text": [
+        {
+          "m": [],
+          "t": "docFilters.query가 계산 값과 오류를 분리해 문제 항목의 label/ID·원인과 aria-invalid를 표시한다. 실패를 빈 검색조건이나 성공한0값으로 대체하지 않는다. 일반 조회/현황은 화면·입력값을 유지하고 결과 미표시·CSV/인쇄 차단과 수정 복구를 제공한다. 구매 조회는 초기 적용조건의 실패와 잘못된 미적용 초안을 구분해 마지막 적용조건·결과·선택을 보존하고 출력은 적용조건을 검증한다. 계산식·parser/evaluator·공통schema·backup·저장 양식/기본값·다른context는 유지했다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "b41f6dea-5aa5-4160-ab69-ccd9762d4fb5",
+      "text": [
+        {
+          "m": [],
+          "t": "in-place 목록 snapshot/restore에 appliedError와 원문 초안을 보존하고, 요청 다중 인쇄의 변경 감지 서명에는 원문 초안+안전한 query 상태를 넣었다. 실패한 초안 계산이 인쇄창을 깨뜨리거나 서로 다른 초안 변경을 같은 상태로 취급하지 않도록 했다. 이를 메뉴 이동 보존으로 확대하지 않는다. in-place 경로3개는 JSDOM에서 private refreshCurrentView를 테스트 전용으로 노출해 호출한 합성 검사이며 운영 코드에 테스트 hook을 추가하지 않았다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "c10f631e-8303-4b5a-a2b0-be218818cf51",
+      "text": [
+        {
+          "m": [],
+          "t": "신규29검사 수정 전26실패/3schema통과, 첫 보완 후28통과/1실패는 복합 날짜/계산 fixture가 활성 compute_search가 아닌 비활성 search_default를 바꾼 검사 문제였다. 활성 fixture를 정정하고 실패 로그를 보존했다. in-place3개를 추가한 최종신규32·관련105 통과, 초기 실패15→0·자료/백업exact다. 최종 실제셸390/1280px×5소비자10은 초기 오류·분모 수정→2건/행·잘못된F8거부·단일 전표로 좁힌 적용조건의 CSV 유지·요청 다중 인쇄·상세창 열기/닫기·새로고침→저장한 오류 복귀·pageerror/원격쓰기0을 통과했다. 전체verify:local exit0/330브라우저·전체Node·릴리스검사·빌드, 자체REA6.4 변경4함수 root/candidate8범위·4해시쌍exact·parse0·coverageunknown/truncatedfalse다. 원본/전체모듈 동등성은 아니다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "af0a634a-573f-4cf6-9e7d-72aed9793151",
+      "text": [
+        {
+          "m": [],
+          "t": "첫 실제셸10은4통과/6실패였고 실패6개는 요청/발주/구매×390/1280의 다른메뉴→목록 작업탭 복귀였다. rememberReport/resumeReport는 현재 구매현황에만 연결되고 목록에는 연결되지 않으므로 이 미지원 경계를 이번 계산 오류 보완의 합격으로 처리하지 않았다. 첫 로그/스크린샷/trace와 단일 변경에서 재구성한 실패 검사 원고를 별도artifact로 보존했다. 최종 실제셸은 현재화면/상세창 흐름으로 구분했으며 메뉴 이동 상태 보존은 미완료로 남겼다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "8e8c63c6-a882-4916-9cc3-4cde343215dc",
+      "text": [
+        {
+          "m": [],
+          "t": "source a7223fa / releasefded080 / branch release/0.89.28-search-compute-errors를 커밋·push했다. 후보workere81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5은 미설치다. 두 기준의 대응4함수 밖 코드·운영0.89.22 worker79222ea6…·기존0.89.23~27의 커밋/worker/clean 상태·dirty12·매핑07bdfb3를exact 보존했다. root전체빌드/운영배포/원본조작/운영 업무·설정 저장/메일발송/new_ERP변경/자동시작추가0이다."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "4189fd8b-50ad-447e-80ff-d05474fdb3f0",
+      "text": [
+        {
+          "m": [],
+          "t": "직전 Transport closed 이후 새 연결 근거가 없어 같은 연결/로그인/서버·메일 확인을 반복하지 않았다. 최신 운영 브라우저 백업/인증UI와 새 서버·메일 기준이 확보되면 앞선 보호를 포함한0.89.28의 배포·읽기UI·보존 검증을 재개한다. 본문 예정/doing과 실제 일정/상태 메타데이터 미설정은 구분하며 P1 전체·숫자badInput·검색전용 사용자 항목 이벤트·전용renderer·원본/운영 업무 합격으로 확대하지 않는다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false. 근거 evidence/manual-search-compute-errors-20261028.json."
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "id": "66c9ef41-481f-4698-a381-e25c1cbfaa02",
+      "text": [
+        {
+          "m": [],
+          "t": "다음 독립 감사는 구매 목록의 작업 탭 이동 상태·권한·자료 변경 계약이다. 왜: 이번에 실제 관찰한 목록 복귀 초기화6개를 현재화면 계산 오류 복구나 in-place 합성 검사로 대신할 수 없기 때문이다. 기존 작업탭/목록 요구사항과 검사부터 읽고 적용조건/원문초안/선택/페이지 및 계정·역할·권한·자료변경/닫기 가드를 대조해 범위를 정한 뒤 새 차이만 보완한다. 기존 후보나 원본 재개 조건을 덮어쓰지 않고 완료된 계산/날짜 행렬·전체검사·연결 확인을 변화 없이 반복하지 않는다."
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "actualMetadataConfigured": false,
+  "otherWorkDocumentsChanged": false,
+  "duplicateQuestions": 0,
+  "duplicateAppends": 0
+}
