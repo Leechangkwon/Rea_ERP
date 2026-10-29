@@ -1292,3 +1292,26 @@ source 515c4fd / release 157fca9 / branch release/0.89.47-price-line-number-date
 예정10/29~10/30 KST·실제착수10:06:15.410951+09. 한정24흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변47의5항목×4동작×2너비40관찰에서추가숫자/일자는F8을거절해도양식/닫기/복사뒤각6회native DOM과badInput이사라졌다. 날짜키1에는trusted keyup만있고즉시aria/오류가없었다. 기본수량/단가/할인율은별도미해결이며단가100→0 업무저장2와할인율0유지/선택속성추가2를구분한다. 이번보완은추가항목number/date만이다. lineNativeControls/assertLineNativeInput이편집가능하고등록된native컨트롤의badInput을raw/strict읽기전에구분한다. 같은소유자는DOM을유지하며재구성/초안/닫기를거절하고hasIncompleteInput을확장해owner문맥변경후닫기만읽기/공란초안저장없이허용한다. 날짜keyup은badInput/own오류표시때만기존검사를실행해Backspace복구와유효키의다른오류보존을제공한다. lineAction은확인된행추가/복사/삭제/단가적용/다시작성/재고/보류를설정/값변경앞에서검사하고오류를화면에표시한다. 다른전표콜백은기존함수그대로다.
 
 최종390/1280×24흐름48·기존관련Node99·격리전체822/전체Node/빌드·자체REA18범위9raw쌍exact/parse0을검증한다. 첫48은44통과/4실패로접힌기존입력보조를펼치지않은fixture였다. actual details summary로고쳐앱변경없이최종48통과. 기본수량/단가/할인율·모든입력보조/다중유효행·자동조건재적용/원본/운영합격은아니다. DOM비공개조각을재구성/JSON보존하지않으며원문/양식/기존25후보/운영22worker/dirty12/매핑07bdfb3·공통FormCore/FormOptions/schema/backup·기존VAT/API차이를보존한다. 근거.artifacts/manual-price-line-native-input-20261029및후속JSON.
+
+
+## 2026-10-29 · 0.89.48 추가항목 native 부분입력 보호 한정 후보·운영0.89.22 유지
+
+예정 시작일2026-10-29·마감일2026-10-30 KST·실제 착수2026-10-29T10:06:15.410951+09:00·결과 기록2026-10-29T10:40:19.503247+09:00다. 이번추가항목숫자/일자24흐름 한정 로컬 감사done/미배포패치doing/P1doing이며 실제 일정·상태 메타데이터는 미설정이다. 이 기간은P1전체마감이 아니다. 기본수량/단가/할인율과추가항목native 컨트롤을구분하고품목행전체완료로확대하지않는다.
+
+불변0.89.47의추가숫자/추가일자/수량/단가/할인율5항목×저장/양식/닫기/복사4동작×390/1280 관찰40을수행했다. 추가항목두종은F8이거절됐지만양식명시저장/닫기재진입/복사뒤각6회DOM교체와badInput해제를확인했다. 날짜키1에는trusted keydown/keyup만있고input/change는없어즉시오류/aria가없었다. 비움준비fill은untrusted 이벤트이고이후키만trusted임을구분했다. 기본단가100→0 저장2, 할인율0유지와선택헤더속성/행적요빈값추가저장2를구분하며할인율숫자변경으로세지않는다. 수량F8은기존규칙이거절했지만재구성의부분조각소실은남았다. 이기본3종은이번미보완이다. 관찰40통과는기능합격40개/원본·운영사건이아니다.
+
+단가요청등록추가항목의편집가능number/date native 컨트롤만lineNativeControls로수집한다. assertLineNativeInput은badInput을읽어행번호/항목명/ID·aria-invalid·완성/직접비움안내를제공하고raw/strict 읽기전에거절한다. 같은소유자는설정/적용양식/재구성/초안/닫기에서live DOM을유지하며비공개조각을문자열로추측재구성하거나JSON초안으로저장하지않는다. 공개원문의기존fallback은같은타입native 컨트롤이아니므로기존보존정책을유지한다.
+
+hasIncompleteInput은이추가항목들을포함해소유문맥변경뒤닫기만읽기/공란초안저장없이허용한다. 유효입력의기존닫기정책은그대로다. 날짜keyup은badInput또는자신이표시한native 오류일때만기존검사를호출해Backspace비움복구를제공하고유효방향키가다른저장오류를지우지않는다. lineAction은행추가/복사/삭제·단가적용·다시작성·재고표시·보류를변경전에검사하고오류를화면에표시해uncaught 예외를막는다. 다른전표에는기존콜백을그대로반환한다. 공통FormCore/parser/evaluator/schema/backup/FormOptions는변경하지않았다.
+
+최종390/1280×추가숫자/일자각12흐름=48검사는trusted 이벤트·F8/F7거절·설정진입/적용양식·닫기/Escape·명시비움과초안재진입·실제키완성뒤명시저장·7행동작·쓰기철회/쓰기가능manager/회사변경뒤안전종료·유효방향키의다른오류보존·수정뒤조건명시재적용을확인했다. 부분입력1e에2를완성한1e2는명시저장100, 날짜는2026-01-02로저장했다. 설정쓰기0·합성업무쓰기12·거절F8/F7 16(부분입력12/유효값의권한거절4)·pageerror/원격업무쓰기0이다. 다른사용자값00123/다른전표/기초자료/양식·부모검색2를대응exact로확인했다. 역할/회사/권한은검사기주입이며닫기뒤복귀는원래합성문맥을복원한검사다. 실제계정/원본권한합격이아니다.
+
+불변기준48은14통과/34실패였다. 첫보완48은44통과/4실패로접힌기존입력보조의보류버튼을직접찾은준비오류였다. 실제details summary를펼치고재고표시/보류까지수행하도록검사를정정해앱추가변경없이최종48을통과했다. 추가진단의첫kind=input 메뉴조회는존재하지않아실패했고실제메뉴분류form으로정정한1진단은업무원문exact/오류0이었다. 진단은최종48과독립요구사항으로합산하지않는다. probe/baseline/첫보완/진단/최종원고·로그와실패trace/스크린샷·이벤트JSON을분리보존했다. 이벤트키기록은검사입력근거이며비공개원문의업무초안직렬화가아니다.
+
+최종기존관련Node99·전체verify:local exit0/822브라우저·전체Node·릴리스검사/빌드를통과했고검사전후UI/core/options/새검사/package해시가exact다. 새영구Node파일0/새실제셸파일1이며99/822를새독립요구사항으로세지않는다. 자체REA6.4는editor할당/lineNativeControls/assertLineNativeInput/lineAction/readLines/renderLines/stockToggle/form.append/보류호출의root/candidate18범위9raw해시쌍exact·parse0·coverageunknown/truncatedfalse를대조했다. 전체docEditor/모듈·원본실행동등성은아니다. root/candidate10공유수정밖원형·기존VAT/API차이를역변환exact로보존했다. 원본새관찰/본문추가0이다.
+
+source 3fb7fe0 / release ed6dbde / branch release/0.89.48-price-line-native-input를커밋·push했다. 후보worker 901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22은미설치다. 설치운영0.89.22 worker79222ea6…·기존0.89.23~47의25후보HEAD/worker/clean·dirty12/깨끗한매핑07bdfb3 exact보존이다. 새연결근거가없어같은브라우저/로그인을재확인하지않았다. 최신운영브라우저백업/인증UI·서버/메일배포전기준확보뒤48후보의배포·읽기UI/자료·양식을검증한다. 이번운영생존/공개health/새인증UI·서버/메일합격은아니다. root전체빌드/운영배포/원본조작/운영쓰기/발송/new_ERP변경/자동시작추가0이다. 온라인매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체매뉴얼완료false다. 근거 evidence/manual-price-line-native-input-20261029.json.
+
+다음은단가요청기본수량/단가/할인율의native 부분입력보호대조다. 왜: 이번40관찰에서기본단가100이0으로저장된2사건과기본3종의양식/닫기/복사부분조각소실은추가항목만수집하는이번보완의대상이아니기때문이다. 기존nativeControls/readLines/행동작과기본수량/단가/할인규칙·품목변경의부분적용을먼저읽고실제키/value/badInput·명시0/비움·완성·재구성/초안·권한문맥의확인된새소실만보완한다. 정상0과비공개빈값을구분하고기존업무규칙을완화하거나비공개조각을추측/JSON저장하지않는다. 자동조건재적용·모든입력보조/다중유효행·다른전표/원본/운영미확인을유지하고기존26후보/자료·양식·운영gate를보존한다. 이번추가항목48과기존공개원문/상단행렬·같은전체검사를변화없이반복하지않는다.
+
+모아P1은지속승인으로v62→63→64·기존408exact·착수2/결과10 문구/종류/수준exact·총420블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-line-native-input-preauthorized-20261029.json.

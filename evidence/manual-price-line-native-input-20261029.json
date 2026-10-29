@@ -1,0 +1,731 @@
+{
+  "sourceId": "OWN-PRICE-LINE-NATIVE-PARTIAL-INPUT-LIFECYCLE-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T10:06:15.410951+09:00",
+  "recordedAt": "2026-10-29T10:40:19.503247+09:00",
+  "auditStatus": "done-for-twenty-four-local-custom-native-flows",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "version": "0.89.48",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.48",
+    "sourceCommit": "3fb7fe0f6241f1e0384832383f888de1a476e804",
+    "releaseCommit": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+    "branch": "release/0.89.48-price-line-native-input",
+    "baselineReleaseCommit": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+    "workerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.48-price-line-native-input",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.47",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "behavior": {
+    "customNativePartialGuardBeforeRawReads": true,
+    "sameOwnerLiveDomRetained": true,
+    "ownerChangeCloseWithoutRawRead": true,
+    "dateKeyupFeedbackAndBackspaceRecovery": true,
+    "unrelatedErrorPreservedForValidKeys": true,
+    "knownRowActionsPreflighted": true,
+    "privateRawReconstructedOrSerialized": false,
+    "baseNativeQtyPriceDiscountAccepted": false,
+    "automaticConditionalReapplyAccepted": false,
+    "allLineSelectionAndIdentityAccepted": false,
+    "commonSchemaUnchanged": true
+  },
+  "validation": {
+    "actualShellFlows": 24,
+    "actualShellCases": 48,
+    "viewports": [
+      390,
+      1280
+    ],
+    "focusedExistingNode": 99,
+    "wholeBrowser": 822,
+    "wholeVerifyExitCode": 0,
+    "newPermanentNodeFiles": 0,
+    "newPermanentBrowserFiles": 1,
+    "writes": {
+      "cases": 48,
+      "localSettingsWrites": 0,
+      "localBusinessWrites": 12,
+      "fixtureInjectedWrites": 0,
+      "pageErrors": 0,
+      "remoteBusinessWrites": 0
+    },
+    "refusedBusinessOrPrintAttempts": 16,
+    "nativePartialRefusals": 12,
+    "unrelatedPermissionRefusals": 4,
+    "initialObservations": 40,
+    "probeSummary": {
+      "custom-date": {
+        "cases": 8,
+        "saveChanged": 0,
+        "saveClosed": 0,
+        "metadataSaved": 2,
+        "liveDomReplaced": 6,
+        "lostBadInputAfterOtherActions": 6,
+        "immediateAria": {
+          "false": 8
+        }
+      },
+      "custom-number": {
+        "cases": 8,
+        "saveChanged": 0,
+        "saveClosed": 0,
+        "metadataSaved": 2,
+        "liveDomReplaced": 6,
+        "lostBadInputAfterOtherActions": 6,
+        "immediateAria": {
+          "true": 8
+        }
+      },
+      "discount": {
+        "cases": 8,
+        "saveChanged": 2,
+        "saveClosed": 2,
+        "metadataSaved": 2,
+        "liveDomReplaced": 6,
+        "lostBadInputAfterOtherActions": 6,
+        "immediateAria": {
+          "None": 8
+        }
+      },
+      "price": {
+        "cases": 8,
+        "saveChanged": 2,
+        "saveClosed": 2,
+        "metadataSaved": 2,
+        "liveDomReplaced": 6,
+        "lostBadInputAfterOtherActions": 6,
+        "immediateAria": {
+          "None": 8
+        }
+      },
+      "qty": {
+        "cases": 8,
+        "saveChanged": 0,
+        "saveClosed": 0,
+        "metadataSaved": 2,
+        "liveDomReplaced": 6,
+        "lostBadInputAfterOtherActions": 6,
+        "immediateAria": {
+          "None": 8
+        }
+      }
+    },
+    "observedBasePrice100ToZero": 2,
+    "acceptedDiscountSavesWithoutNumericDiscountChange": 2,
+    "baseNativeProtectionUnresolved": true,
+    "baseline": {
+      "pass": 14,
+      "fail": 34,
+      "cases": 48
+    },
+    "firstAfter": {
+      "pass": 44,
+      "fail": 4,
+      "reason": "fixture searched deferred helper inside closed existing-assist details"
+    },
+    "final": {
+      "pass": 48,
+      "fail": 0
+    },
+    "debugWarmupFirstInvalidMenuKind": "input",
+    "debugWarmupCorrectedKind": "form",
+    "debugWarmupCorrectedCases": 1,
+    "pageErrors": 0,
+    "remoteBusinessWrites": 0,
+    "originalAccepted": false,
+    "productionAccepted": false
+  },
+  "ownRea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 18,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "editor",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 77477,
+        "end": 77951,
+        "lineStart": 366,
+        "lineEnd": 366,
+        "fragmentSha256": "ed843457ceffdde28e71db837daeeeb12de4412d04dc4358686473d58a35ffab",
+        "inputFile": "own-editor.js",
+        "inputSha256": "fb1eafc9331f2ccb2fa285ece18aa1c9aafe04bd5377f883dbcf18bba6d528ba",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "editor",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 77429,
+        "end": 77903,
+        "lineStart": 366,
+        "lineEnd": 366,
+        "fragmentSha256": "ed843457ceffdde28e71db837daeeeb12de4412d04dc4358686473d58a35ffab",
+        "inputFile": "candidate-editor.js",
+        "inputSha256": "fb1eafc9331f2ccb2fa285ece18aa1c9aafe04bd5377f883dbcf18bba6d528ba",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "lineNativeControls",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 93638,
+        "end": 93945,
+        "lineStart": 412,
+        "lineEnd": 412,
+        "fragmentSha256": "5aa442f65cab3c5c281c975f2fc429045eb3b3907fc164bbf242eb165bd65983",
+        "inputFile": "own-lineNativeControls.js",
+        "inputSha256": "58f734d43fc341dd6cae02d71b40abe5f2746ce419430e0cab5002a7990a0d01",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "lineNativeControls",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 93374,
+        "end": 93681,
+        "lineStart": 411,
+        "lineEnd": 411,
+        "fragmentSha256": "5aa442f65cab3c5c281c975f2fc429045eb3b3907fc164bbf242eb165bd65983",
+        "inputFile": "candidate-lineNativeControls.js",
+        "inputSha256": "58f734d43fc341dd6cae02d71b40abe5f2746ce419430e0cab5002a7990a0d01",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "assertLineNativeInput",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 93957,
+        "end": 94511,
+        "lineStart": 413,
+        "lineEnd": 413,
+        "fragmentSha256": "0a34b3115e0a78166ad1f58e7e628d786c0d5051310aebca6628a1c04e6a8f05",
+        "inputFile": "own-assertLineNativeInput.js",
+        "inputSha256": "39d57c93078964a47e0f0305e45d3d3ddd35c546081a6281b0a884a6fbf0321d",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "assertLineNativeInput",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 93693,
+        "end": 94247,
+        "lineStart": 412,
+        "lineEnd": 412,
+        "fragmentSha256": "0a34b3115e0a78166ad1f58e7e628d786c0d5051310aebca6628a1c04e6a8f05",
+        "inputFile": "candidate-assertLineNativeInput.js",
+        "inputSha256": "39d57c93078964a47e0f0305e45d3d3ddd35c546081a6281b0a884a6fbf0321d",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "lineAction",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 94523,
+        "end": 94694,
+        "lineStart": 414,
+        "lineEnd": 414,
+        "fragmentSha256": "70d004e1ff2523a5fb98503386f427b0043b5eb5b79c6b61c831e2ffdd0fda88",
+        "inputFile": "own-lineAction.js",
+        "inputSha256": "db6b02f7a5c8f58828382220b1214214bf2c9664870a15c9f7d4e86ad3712216",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "lineAction",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 94259,
+        "end": 94430,
+        "lineStart": 413,
+        "lineEnd": 413,
+        "fragmentSha256": "70d004e1ff2523a5fb98503386f427b0043b5eb5b79c6b61c831e2ffdd0fda88",
+        "inputFile": "candidate-lineAction.js",
+        "inputSha256": "db6b02f7a5c8f58828382220b1214214bf2c9664870a15c9f7d4e86ad3712216",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "readLines",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 94706,
+        "end": 96349,
+        "lineStart": 415,
+        "lineEnd": 415,
+        "fragmentSha256": "cf612f24f20091cc01b59aa6b5f11d934c3d4f347e9af4d431b0c5fdb215796f",
+        "inputFile": "own-readLines.js",
+        "inputSha256": "f24923769fb3515975104c060e9eea2d7179ee7205f3826ba015df5394c5addf",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "readLines",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 94442,
+        "end": 96085,
+        "lineStart": 414,
+        "lineEnd": 414,
+        "fragmentSha256": "cf612f24f20091cc01b59aa6b5f11d934c3d4f347e9af4d431b0c5fdb215796f",
+        "inputFile": "candidate-readLines.js",
+        "inputSha256": "f24923769fb3515975104c060e9eea2d7179ee7205f3826ba015df5394c5addf",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "renderLines",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 100616,
+        "end": 108194,
+        "lineStart": 424,
+        "lineEnd": 432,
+        "fragmentSha256": "4048b9bcf5476bee9e9362a74658e75604a1b8ea8dd1ab26c44bb3d941ce8b0f",
+        "inputFile": "own-renderLines.js",
+        "inputSha256": "cbcdc50ede61bb68933f5a1b88c0c727e8476e2f764cceeacdc961f9d605192e",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "renderLines",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 99360,
+        "end": 106938,
+        "lineStart": 423,
+        "lineEnd": 431,
+        "fragmentSha256": "4048b9bcf5476bee9e9362a74658e75604a1b8ea8dd1ab26c44bb3d941ce8b0f",
+        "inputFile": "candidate-renderLines.js",
+        "inputSha256": "cbcdc50ede61bb68933f5a1b88c0c727e8476e2f764cceeacdc961f9d605192e",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "stockToggle",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 124100,
+        "end": 124268,
+        "lineStart": 519,
+        "lineEnd": 519,
+        "fragmentSha256": "67af38a02d17f9b99132dd052615966e9e0618982ab74f8c5b4a1a2baf5e42db",
+        "inputFile": "own-stockToggle.js",
+        "inputSha256": "1c2605e7a058ae8b99ae22e6fdc0efb9017e0d5954b4774d6aae3b1cf762e1f9",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "stockToggle",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 119409,
+        "end": 119577,
+        "lineStart": 496,
+        "lineEnd": 496,
+        "fragmentSha256": "67af38a02d17f9b99132dd052615966e9e0618982ab74f8c5b4a1a2baf5e42db",
+        "inputFile": "candidate-stockToggle.js",
+        "inputSha256": "1c2605e7a058ae8b99ae22e6fdc0efb9017e0d5954b4774d6aae3b1cf762e1f9",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "lineFormAppend",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 132245,
+        "end": 133509,
+        "lineStart": 535,
+        "lineEnd": 535,
+        "fragmentSha256": "6c231918970ec6b495df86aaa66c21a473703e639e9ed5121da6b183c2f75847",
+        "inputFile": "own-lineFormAppend.js",
+        "inputSha256": "a812c6231acb735b759bb7ebde3811c50d81a6bbd9a04fa55bcbb3afc2042ca5",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "lineFormAppend",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 127554,
+        "end": 128818,
+        "lineStart": 512,
+        "lineEnd": 512,
+        "fragmentSha256": "6c231918970ec6b495df86aaa66c21a473703e639e9ed5121da6b183c2f75847",
+        "inputFile": "candidate-lineFormAppend.js",
+        "inputSha256": "a812c6231acb735b759bb7ebde3811c50d81a6bbd9a04fa55bcbb3afc2042ca5",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "lineDefer",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+        "start": 126597,
+        "end": 126736,
+        "lineStart": 523,
+        "lineEnd": 523,
+        "fragmentSha256": "388a0e2f205a32999d83aed6b2f8e72287609d3cb52d6986ae2fa39d2ff8cdb7",
+        "inputFile": "own-lineDefer.js",
+        "inputSha256": "40508b2644f69ffc4dd468eade02dfa11b20bc89fb0cd965cf5553502f3bdc14",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "lineDefer",
+        "file": ".artifacts/releases/0.89.48-price-line-native-input/dist/inventory-ui.js",
+        "sourceSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+        "start": 121906,
+        "end": 122045,
+        "lineStart": 500,
+        "lineEnd": 500,
+        "fragmentSha256": "388a0e2f205a32999d83aed6b2f8e72287609d3cb52d6986ae2fa39d2ff8cdb7",
+        "inputFile": "candidate-lineDefer.js",
+        "inputSha256": "40508b2644f69ffc4dd468eade02dfa11b20bc89fb0cd965cf5553502f3bdc14",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "bd7e7d88f54a6d7ee6fedd41250267f9faf1672e48fae6327b43046cd418f04f",
+    "statistics": {
+      "relevant_files": 18,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 26166,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 18,
+      "visited_ast_nodes": 6264,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      },
+      "0.89.41": {
+        "head": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "expectedHead": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "status": "",
+        "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "expectedWorkerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "exact": true
+      },
+      "0.89.42": {
+        "head": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "expectedHead": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "status": "",
+        "workerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "expectedWorkerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "exact": true
+      },
+      "0.89.43": {
+        "head": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "expectedHead": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "status": "",
+        "workerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "expectedWorkerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "exact": true
+      },
+      "0.89.44": {
+        "head": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "expectedHead": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "status": "",
+        "workerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "expectedWorkerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "exact": true
+      },
+      "0.89.45": {
+        "head": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "expectedHead": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "status": "",
+        "workerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "expectedWorkerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "exact": true
+      },
+      "0.89.46": {
+        "head": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "expectedHead": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "status": "",
+        "workerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "expectedWorkerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "exact": true
+      },
+      "0.89.47": {
+        "head": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "expectedHead": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "status": "",
+        "workerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "expectedWorkerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "sourceEquality": {
+    "/home/lck/projects/Rea_ERP": {
+      "outsideEditsExact": true,
+      "sharedEdits": 10,
+      "sha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442",
+      "baselineSha256": "1e5186039fe616b5e1824924d07381e39857fea1384742e46e7fda288a247a14"
+    },
+    "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.48-price-line-native-input": {
+      "outsideEditsExact": true,
+      "sharedEdits": 10,
+      "sha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853",
+      "baselineSha256": "1182514aab8aa9c551aaf5bb33692326403c7cca89494b2be442fb2c68ee1719"
+    }
+  },
+  "manualCounts": {
+    "onlineIndex": 77,
+    "bodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "wholeManualComplete": false
+  },
+  "moa": {
+    "startSaved": true,
+    "startReadbackExact": true,
+    "resultSaved": true,
+    "readbackVerified": true,
+    "actualMetadataSet": false,
+    "p1FinalVersion": 64,
+    "p1FinalBlocks": 420,
+    "evidence": "evidence/moa-price-line-native-input-preauthorized-20261029.json"
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-LINE-BASE-NUMERIC-PARTIAL-INPUT-RECOVERY-AUDIT",
+    "title": "단가요청 기본 수량·단가·할인율 부분입력 보호 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-line-native-input-20261029.json",
+    "latestEvidence": "evidence/manual-price-line-native-input-20261029.json",
+    "description": "이번40관찰의기본단가100->0 저장2와기본3종의양식/닫기/복사부분조각소실은custom만수집하는48후보의대상이아니다. 기존nativeControls/readLines/행동작·수량/단가/할인업무규칙과품목변경의부분적용부터읽고실제키/value/badInput·정상0/명시비움/완성·재구성/초안·소유문맥의새차이만대조한다. 기존규칙을완화하거나비공개조각을추측재구성/JSON저장하지않는다. 자동조건재적용·모든입력보조/다중유효행·다른전표/원본/운영미확인과기존26후보/자료·양식·운영gate를보존하고이번custom48/공개원문/상단완료행렬과같은전체검사를변화없이반복하지않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41",
+      "0.89.42",
+      "0.89.43",
+      "0.89.44",
+      "0.89.45",
+      "0.89.46",
+      "0.89.47",
+      "0.89.48"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifacts": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-line-native-input-20261029",
+  "productionGate": "Fresh authenticated browser backup/UI and server/mail prebasis required; no new connection evidence"
+}
