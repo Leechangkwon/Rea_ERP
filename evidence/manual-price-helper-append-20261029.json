@@ -1,0 +1,688 @@
+{
+  "sourceId": "OWN-PRICE-HELPER-APPEND-REPLACE-DRAFT-LIFECYCLE-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T11:47:16.081144+09:00",
+  "recordedAt": "2026-10-30T03:03:22.525675+09:00",
+  "elapsedSeconds": 54966.445,
+  "auditStatus": "done-for-twenty-eight-local-plain-append-and-confirmed-replace-flows",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "version": "0.89.51",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.51",
+    "sourceCommit": "cf7fe9e727aa2864ca2224f2ddf5a01a718b2a63",
+    "releaseCommit": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+    "branch": "release/0.89.51-price-helper-append-drafts",
+    "baselineReleaseCommit": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+    "workerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.51-price-helper-append-drafts",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.50",
+    "deploymentGate": "Fresh authenticated production browser backup/UI and server/mail prebasis required; no new connection evidence",
+    "remoteRefsVerified": true
+  },
+  "behavior": {
+    "directPriceFindBarcodePlainDocumentsOnly": true,
+    "explicitReplaceContextFromUI": true,
+    "replaceConfirmationAndCancellationRetained": true,
+    "strictHelperDraftAndMoneyScopeRetained": true,
+    "emptyItemDraftsRetainedAtOriginalPositionsOnAppend": true,
+    "incomingRowsAppendedAfterExistingRows": true,
+    "decreasingFilledCountRefusedBeforeApply": true,
+    "sortAndAmountSameCountConstraintRetained": true,
+    "ownerGuardBeforeRawRead": true,
+    "nativePartialReadGuardRetained": true,
+    "businessSaveEmptyItemExclusionRetained": true,
+    "commonCoreOptionsSchemaBackupUnchanged": true,
+    "allHelpersAccepted": false,
+    "historyCopyAccepted": false,
+    "linkedHeaderAdoptionAndAsyncMappingAllAccepted": false,
+    "allLineIdentitySelectionScrollAccepted": false
+  },
+  "validation": {
+    "actualShellFlows": 28,
+    "actualShellCases": 56,
+    "viewports": [
+      390,
+      1280
+    ],
+    "focusedExistingNode": 217,
+    "wholeBrowser": 982,
+    "wholeVerifyExitCode": 0,
+    "newPermanentNodeFiles": 0,
+    "newPermanentBrowserFiles": 1,
+    "writes": {
+      "cases": 56,
+      "localSettingsWrites": 0,
+      "localBusinessWrites": 6,
+      "fixtureInjectedWrites": 6,
+      "errorAndRemoteAssertionsCases": 54,
+      "errorAndRemoteAssertionsNotRunCases": 2,
+      "errorAndRemoteAssertionScope": "All 48 tool flows plus six document replace/F8/mode-switch cases; only-empty document append two cases do not assert captured errors/posts",
+      "pageErrorsAssertedZero": 0,
+      "remoteBusinessWritesAssertedZero": 0
+    },
+    "initialObservations": 8,
+    "probeSummary": [
+      {
+        "mode": "documents-append",
+        "beforeRows": 2,
+        "afterRows": 2,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 0,
+        "sourceExact": true
+      },
+      {
+        "mode": "find",
+        "beforeRows": 2,
+        "afterRows": 2,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 0,
+        "sourceExact": true
+      },
+      {
+        "mode": "documents-replace",
+        "beforeRows": 2,
+        "afterRows": 1,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 2,
+        "sourceExact": true
+      },
+      {
+        "mode": "barcode",
+        "beforeRows": 2,
+        "afterRows": 2,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 0,
+        "sourceExact": true
+      },
+      {
+        "mode": "barcode",
+        "beforeRows": 2,
+        "afterRows": 2,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 0,
+        "sourceExact": true
+      },
+      {
+        "mode": "find",
+        "beforeRows": 2,
+        "afterRows": 2,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 0,
+        "sourceExact": true
+      },
+      {
+        "mode": "documents-append",
+        "beforeRows": 2,
+        "afterRows": 2,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 0,
+        "sourceExact": true
+      },
+      {
+        "mode": "documents-replace",
+        "beforeRows": 2,
+        "afterRows": 1,
+        "blankMemoPresent": false,
+        "cancelExact": true,
+        "confirms": 2,
+        "sourceExact": true
+      }
+    ],
+    "baselineInitial": {
+      "pass": 16,
+      "fail": 40,
+      "cases": 56
+    },
+    "baselineAligned": {
+      "pass": 16,
+      "fail": 40,
+      "cases": 56
+    },
+    "firstAfter": {
+      "pass": 56,
+      "fail": 0
+    },
+    "final": {
+      "pass": 56,
+      "fail": 0
+    },
+    "testExpectationCorrection": "Repeated document same-item custom mismatch is refused by retained EntryCore.mergeLines; initial expectation corrected before first patched browser run with no app/fixture change. Initial/aligned baseline and final logs preserved separately.",
+    "detachedCallbackClickAndOwnerStorageChangesAreFixtures": true,
+    "pageErrorsAssertedZeroCases": 54,
+    "remoteWritesAssertedZeroCases": 54,
+    "errorRemoteAssertionsUnknownCases": 2,
+    "originalAccepted": false,
+    "productionAccepted": false
+  },
+  "ownRea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 8,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "applyDraftKeepingEmptyLines",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "1c1f86f9bebb00a623df9c79242ca24b669e64168d87a5e1122a0ff4523f644a",
+        "start": 122739,
+        "end": 123302,
+        "lineStart": 513,
+        "lineEnd": 513,
+        "fragmentSha256": "6f25e391561af9a1ab242b52f480490ab21dbc4fc8ad697d4c3a796d448f966e",
+        "inputFile": "own-applyDraftKeepingEmptyLines.js",
+        "inputSha256": "ae3a2281f56c967f58264eb9e42c2b2af8209c3fb70f1be9fee909f982312b62",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "applyDraftKeepingEmptyLines",
+        "file": ".artifacts/releases/0.89.51-price-helper-append-drafts/dist/inventory-ui.js",
+        "sourceSha256": "55a292ec593c33211b97f325032c150af926bdd903845c3bad3b0142a55212f4",
+        "start": 118087,
+        "end": 118650,
+        "lineStart": 490,
+        "lineEnd": 490,
+        "fragmentSha256": "6f25e391561af9a1ab242b52f480490ab21dbc4fc8ad697d4c3a796d448f966e",
+        "inputFile": "candidate-applyDraftKeepingEmptyLines.js",
+        "inputSha256": "ae3a2281f56c967f58264eb9e42c2b2af8209c3fb70f1be9fee909f982312b62",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "helperApplySelector",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "1c1f86f9bebb00a623df9c79242ca24b669e64168d87a5e1122a0ff4523f644a",
+        "start": 123387,
+        "end": 123587,
+        "lineStart": 514,
+        "lineEnd": 514,
+        "fragmentSha256": "b217d785bd31f61a426a4a31a6620eefa56563ecb05ff88948322068c0a98d18",
+        "inputFile": "own-helperApplySelector.js",
+        "inputSha256": "ee8c1db07aa22321ff847bd5b989354bfad01ba0dcbacf088135d89d6e97b050",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "helperApplySelector",
+        "file": ".artifacts/releases/0.89.51-price-helper-append-drafts/dist/inventory-ui.js",
+        "sourceSha256": "55a292ec593c33211b97f325032c150af926bdd903845c3bad3b0142a55212f4",
+        "start": 118735,
+        "end": 118935,
+        "lineStart": 491,
+        "lineEnd": 491,
+        "fragmentSha256": "b217d785bd31f61a426a4a31a6620eefa56563ecb05ff88948322068c0a98d18",
+        "inputFile": "candidate-helperApplySelector.js",
+        "inputSha256": "ee8c1db07aa22321ff847bd5b989354bfad01ba0dcbacf088135d89d6e97b050",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "entryActions",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "1c1f86f9bebb00a623df9c79242ca24b669e64168d87a5e1122a0ff4523f644a",
+        "start": 125538,
+        "end": 126939,
+        "lineStart": 522,
+        "lineEnd": 522,
+        "fragmentSha256": "c2b0323638ddac511976328682682741a3b86adc2f5865ab0c4ec2fa4ce629e5",
+        "inputFile": "own-entryActions.js",
+        "inputSha256": "4e9c9a611acdd41b375ef26bef6d08e30a3823995dacf632c116384f2e082f75",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "entryActions",
+        "file": ".artifacts/releases/0.89.51-price-helper-append-drafts/dist/inventory-ui.js",
+        "sourceSha256": "55a292ec593c33211b97f325032c150af926bdd903845c3bad3b0142a55212f4",
+        "start": 120847,
+        "end": 122248,
+        "lineStart": 499,
+        "lineEnd": 499,
+        "fragmentSha256": "c2b0323638ddac511976328682682741a3b86adc2f5865ab0c4ec2fa4ce629e5",
+        "inputFile": "candidate-entryActions.js",
+        "inputSha256": "4e9c9a611acdd41b375ef26bef6d08e30a3823995dacf632c116384f2e082f75",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "applyReplaceContext",
+        "file": "dist/entry-ui.js",
+        "sourceSha256": "1e2f1bac139f2439f6b26eb26c4791f9f7ac795cee7549cafc262fd2440b2a9e",
+        "start": 8435,
+        "end": 8468,
+        "lineStart": 54,
+        "lineEnd": 54,
+        "fragmentSha256": "b598fde6aef380f404da5dee0480d7bdc1ae60487a363f992641aafee89ae15f",
+        "inputFile": "own-applyReplaceContext.js",
+        "inputSha256": "554eb344d72bd57911bca0a05f1f00a038ea6577e874946b1a9cb0ef3cb03783",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "applyReplaceContext",
+        "file": ".artifacts/releases/0.89.51-price-helper-append-drafts/dist/entry-ui.js",
+        "sourceSha256": "1e2f1bac139f2439f6b26eb26c4791f9f7ac795cee7549cafc262fd2440b2a9e",
+        "start": 8435,
+        "end": 8468,
+        "lineStart": 54,
+        "lineEnd": 54,
+        "fragmentSha256": "b598fde6aef380f404da5dee0480d7bdc1ae60487a363f992641aafee89ae15f",
+        "inputFile": "candidate-applyReplaceContext.js",
+        "inputSha256": "554eb344d72bd57911bca0a05f1f00a038ea6577e874946b1a9cb0ef3cb03783",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "21bc031c510f392952257f92b3705dfeb7cc073c26092228a4425932a0d9fa12",
+    "statistics": {
+      "relevant_files": 8,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 4766,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 8,
+      "visited_ast_nodes": 848,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      },
+      "0.89.41": {
+        "head": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "expectedHead": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "status": "",
+        "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "expectedWorkerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "exact": true
+      },
+      "0.89.42": {
+        "head": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "expectedHead": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "status": "",
+        "workerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "expectedWorkerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "exact": true
+      },
+      "0.89.43": {
+        "head": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "expectedHead": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "status": "",
+        "workerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "expectedWorkerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "exact": true
+      },
+      "0.89.44": {
+        "head": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "expectedHead": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "status": "",
+        "workerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "expectedWorkerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "exact": true
+      },
+      "0.89.45": {
+        "head": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "expectedHead": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "status": "",
+        "workerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "expectedWorkerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "exact": true
+      },
+      "0.89.46": {
+        "head": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "expectedHead": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "status": "",
+        "workerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "expectedWorkerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "exact": true
+      },
+      "0.89.47": {
+        "head": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "expectedHead": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "status": "",
+        "workerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "expectedWorkerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "exact": true
+      },
+      "0.89.48": {
+        "head": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "expectedHead": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "status": "",
+        "workerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "expectedWorkerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "exact": true
+      },
+      "0.89.49": {
+        "head": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "expectedHead": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "status": "",
+        "workerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "expectedWorkerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "exact": true
+      },
+      "0.89.50": {
+        "head": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "expectedHead": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "status": "",
+        "workerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "expectedWorkerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "sourceEquality": {
+    "/home/lck/projects/Rea_ERP": {
+      "outsideEditsExact": true,
+      "sharedEdits": 6,
+      "sha256": "1c1f86f9bebb00a623df9c79242ca24b669e64168d87a5e1122a0ff4523f644a",
+      "files": {
+        "dist/inventory-ui.js": {
+          "outsideEditsExact": true,
+          "sharedEdits": 5,
+          "sha256": "1c1f86f9bebb00a623df9c79242ca24b669e64168d87a5e1122a0ff4523f644a",
+          "baselineSha256": "181f142b6ac5a17aed58ca78df0ab7290cc66eedd400dcf2d6660d6b5c5ba420"
+        },
+        "dist/entry-ui.js": {
+          "outsideEditsExact": true,
+          "sharedEdits": 1,
+          "sha256": "1e2f1bac139f2439f6b26eb26c4791f9f7ac795cee7549cafc262fd2440b2a9e",
+          "baselineSha256": "5249fdfc11786d7b8fe093e0b9671940eb782bb4a81e3bdce203aeecc7125ddb"
+        }
+      }
+    },
+    "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.51-price-helper-append-drafts": {
+      "outsideEditsExact": true,
+      "sharedEdits": 6,
+      "sha256": "55a292ec593c33211b97f325032c150af926bdd903845c3bad3b0142a55212f4",
+      "files": {
+        "dist/inventory-ui.js": {
+          "outsideEditsExact": true,
+          "sharedEdits": 5,
+          "sha256": "55a292ec593c33211b97f325032c150af926bdd903845c3bad3b0142a55212f4",
+          "baselineSha256": "b4f4ab62ee1b059e0ec2b8319e140fd8b1bb7e85841d4d447edf20ceadd5819e"
+        },
+        "dist/entry-ui.js": {
+          "outsideEditsExact": true,
+          "sharedEdits": 1,
+          "sha256": "1e2f1bac139f2439f6b26eb26c4791f9f7ac795cee7549cafc262fd2440b2a9e",
+          "baselineSha256": "5249fdfc11786d7b8fe093e0b9671940eb782bb4a81e3bdce203aeecc7125ddb"
+        }
+      }
+    }
+  },
+  "manualCounts": {
+    "onlineIndex": 77,
+    "bodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "wholeManualComplete": false
+  },
+  "moa": {
+    "startSaved": true,
+    "startReadbackExact": true,
+    "lastConfirmedVersion": 69,
+    "lastConfirmedBlocks": 446,
+    "resultSaved": false,
+    "readbackVerified": false,
+    "actualMetadataSet": false,
+    "evidence": "evidence/moa-price-helper-append-preauthorized-20261029.json",
+    "pendingResultBlocks": 10,
+    "postingBlockedBy": "work-document-tools-not-exposed",
+    "authenticationExpiredEvidence": false
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-HISTORY-COPY-EMPTY-LINE-DRAFT-CONTRACT-AUDIT",
+    "title": "단가요청 거래내역보기의 빈 품목행·출처별 복사 보존 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-helper-append-20261029.json",
+    "latestEvidence": "evidence/manual-price-helper-append-20261029.json",
+    "description": "이번51의56건은 직접 품목 추가/바코드/일반전표 복사와 명시교체다. 거래내역보기는 출처행 식별자/customSnapshot·소유자/자료 지문을 가진 별도 경로이므로 기존 historyOptions·소비자·검사를 읽고 빈 품목행/사용자값/취소·출처별 복사·권한/자료/닫기의 확인된 새 손실만 대조한다. append병합을 무조건 복사하거나 출처/권한/지문 조건을 약화하지 않는다. 연결/헤더채택/매핑 비동기 전체·모든 입력보조/행계산/다중행전체/다른 전표·원본/운영 미확인과29후보/자료·양식·운영gate·최소구매단위/생성저장 재개조건을 유지한다. 변화 없는56/32/기본72/추가48 전체검사와 같은 연결/로그인/도구목록 확인을 반복하지 않는다. 모아 결과 게시 미완료는 보존된 승인 패킷으로 도구 재노출 근거가 생기면 신선한 본문/버전/can_edit/중복을 확인하고 저장·재조회하며 독립 개발을 막지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "blockedByMoaToolUnavailable": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41",
+      "0.89.42",
+      "0.89.43",
+      "0.89.44",
+      "0.89.45",
+      "0.89.46",
+      "0.89.47",
+      "0.89.48",
+      "0.89.49",
+      "0.89.50",
+      "0.89.51"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifacts": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-helper-append-20261029",
+  "productionGate": "Fresh authenticated browser backup/UI and server/mail prebasis required; no new connection evidence",
+  "recordValidation": {
+    "initialCheckPassed": false,
+    "initialFailure": "Naive whole old file substring did not account for new handoff section inserted after first heading",
+    "correction": "Remove exactly new current section and reverse first previous header; full old bytes equal. Appended documents retain old prefix. No application change or rerun.",
+    "files": {
+      "docs/manual-parity/PROGRESS.md": {
+        "historyExactAfterRemovingNewSection": true
+      },
+      "docs/manual-parity/ROADMAP.md": {
+        "historyExactAfterRemovingNewSection": true
+      },
+      "docs/handoff-windows-controller.md": {
+        "historyExactAfterRemovingNewSection": true
+      },
+      "docs/release-workflow.md": {
+        "historyExactAfterRemovingNewSection": true
+      },
+      "docs/development-records/03-p1-foundation.md": {
+        "oldPrefixExact": true
+      },
+      "docs/plan-master-number-transition-20261024.md": {
+        "oldPrefixExact": true
+      }
+    },
+    "correctedCheckPassed": true
+  }
+}
