@@ -1285,3 +1285,10 @@ source 515c4fd / release 157fca9 / branch release/0.89.47-price-line-number-date
 다음은단가요청품목행native 숫자/일자부분입력의실제이벤트·수명대조다. 왜: 이번48은이미공개된원문과fallback복구이고정상native 컨트롤이value공란/badInputtrue의비공개조각을가질때input/change/keyup·메타데이터재구성·raw초안/닫기와소유문맥은다른경로이기때문이다. 기존hasIncompleteInput/getDoc/readLines·owner닫기와상단에서이미검증한범위를먼저읽고행컨트롤의실제값/이벤트부터관찰해새차이만보완한다. DOM비공개원문을추측재구성/JSON저장하지않고같은소유자의live DOM과권한변경후안전한종료를구분한다. 미등록선택·행계산표시/입력보조·다중유효행ID/선택/스크롤·다른전표/원본/운영미확인을보존하며기존25후보/양식·자료·운영gate를유지한다. 이번공개원문48과기존상단행렬/같은전체검사를변화없이반복하지않는다.
 
 모아P1은지속승인으로v60→61→62·기존396exact·착수2/결과10 문구/종류/수준exact·총408블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-line-number-date-preauthorized-20261029.json.
+
+
+## 2026-10-29 추가항목 native 부분입력 수명 · 0.89.48 한정 후보 설계/검증
+
+예정10/29~10/30 KST·실제착수10:06:15.410951+09. 한정24흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변47의5항목×4동작×2너비40관찰에서추가숫자/일자는F8을거절해도양식/닫기/복사뒤각6회native DOM과badInput이사라졌다. 날짜키1에는trusted keyup만있고즉시aria/오류가없었다. 기본수량/단가/할인율은별도미해결이며단가100→0 업무저장2와할인율0유지/선택속성추가2를구분한다. 이번보완은추가항목number/date만이다. lineNativeControls/assertLineNativeInput이편집가능하고등록된native컨트롤의badInput을raw/strict읽기전에구분한다. 같은소유자는DOM을유지하며재구성/초안/닫기를거절하고hasIncompleteInput을확장해owner문맥변경후닫기만읽기/공란초안저장없이허용한다. 날짜keyup은badInput/own오류표시때만기존검사를실행해Backspace복구와유효키의다른오류보존을제공한다. lineAction은확인된행추가/복사/삭제/단가적용/다시작성/재고/보류를설정/값변경앞에서검사하고오류를화면에표시한다. 다른전표콜백은기존함수그대로다.
+
+최종390/1280×24흐름48·기존관련Node99·격리전체822/전체Node/빌드·자체REA18범위9raw쌍exact/parse0을검증한다. 첫48은44통과/4실패로접힌기존입력보조를펼치지않은fixture였다. actual details summary로고쳐앱변경없이최종48통과. 기본수량/단가/할인율·모든입력보조/다중유효행·자동조건재적용/원본/운영합격은아니다. DOM비공개조각을재구성/JSON보존하지않으며원문/양식/기존25후보/운영22worker/dirty12/매핑07bdfb3·공통FormCore/FormOptions/schema/backup·기존VAT/API차이를보존한다. 근거.artifacts/manual-price-line-native-input-20261029및후속JSON.
