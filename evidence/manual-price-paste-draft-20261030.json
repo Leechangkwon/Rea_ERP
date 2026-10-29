@@ -1,0 +1,700 @@
+{
+  "sourceId": "OWN-PRICE-PASTE-PREVIEW-EMPTY-LINE-DRAFT-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-30",
+  "deadline": "2026-10-31",
+  "actualStart": "2026-10-30T07:22:26.980532+09:00",
+  "recordedAt": "2026-10-30T07:51:08.969901+09:00",
+  "elapsedSeconds": 1721.989,
+  "auditStatus": "done-for-twentyfour-local-empty-line-paste-flows-single-line-save-only",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "version": "0.89.60",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.60",
+    "sourceCommit": "7fc33eb4b7a3d43056a79e8b1b2277c622532e86",
+    "releaseCommit": "d31737dd6fd378ea267fef6021d870a5ee297f19",
+    "branch": "release/0.89.60-price-paste-drafts",
+    "baselineReleaseCommit": "87d46a15a038184a3c440d177ec968fc27d00750",
+    "workerSha256": "479436df67dae6df2585b032d8de5491964400b70d8993e03af38834bae0a492",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.60-price-paste-drafts",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.59",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "basis": {
+    "currentPlan": "docs/plan-master-number-transition-20261024.md",
+    "prd": "docs/manual-parity/PRD.md",
+    "architecture": "docs/manual-parity/ARCHITECTURE.md",
+    "roadmap": "docs/manual-parity/ROADMAP.md",
+    "existingToolbar": "docs/entry-toolbar-0.12.0.md",
+    "priorAppendContract": "evidence/manual-price-helper-append-20261029.json",
+    "comparison": "Generic paste text parse/preview/apply consumer vs existing raw draft preservation. Immutable59 confirms empty-line loss; separate no-blank LF-memo observation confirms unresolved text-field loss. No new original/manual body.",
+    "sourceLocations": [
+      "dist/inventory-ui.js:522",
+      "dist/entry-tools.js:15",
+      "dist/entry-tools.js:91",
+      "dist/entry-tools.js:100",
+      "dist/entry-tools.js:107",
+      "dist/inventory-ui.js:426"
+    ],
+    "priorUnit": "evidence/manual-price-order-plan-draft-20261030.json"
+  },
+  "behavior": {
+    "onePriceRequestPasteConsumerOnly": true,
+    "explicitReplacementContextCapturedLocally": true,
+    "commonDialogAndParserUnchanged": true,
+    "emptyItemDraftsRetainedAtOriginalPositionsOnAppend": true,
+    "explicitConfirmedReplaceRetained": true,
+    "strictHelperMoneyAndBusinessSaveBlankExclusionRetained": true,
+    "textAndModeInvalidatePreviewRetained": true,
+    "dbAndDraftFingerprintGuardsRetained": true,
+    "existingDuplicateItemRejectionRetained": true,
+    "f8DoesNotApplyOrSave": true,
+    "singleLineMemoSaveAcceptedLocally": true,
+    "multilineMemoSaveAccepted": false,
+    "allHelpersAccepted": false,
+    "parentKeyboardF8Accepted": false,
+    "allLineIdentitySelectionScrollAccepted": false,
+    "closedDialogResidueCleanupAccepted": false
+  },
+  "knownUnresolvedGap": {
+    "sourceId": "OWN-PRICE-LINE-MEMO-MULTILINE-RAW-CONTRACT-AUDIT",
+    "multilineMemoLfLossConfirmed": true,
+    "originalTwoSaveFailuresPreserved": true,
+    "independentImmutableWithoutBlankObservations": [
+      {
+        "input": "쉼표, 포함\n두 줄",
+        "visible": "쉼표, 포함두 줄",
+        "saved": "쉼표, 포함두 줄",
+        "blankRowsAdded": 0,
+        "localSyntheticBusinessSaved": true,
+        "errors": [],
+        "posts": []
+      },
+      {
+        "input": "쉼표, 포함\n두 줄",
+        "visible": "쉼표, 포함두 줄",
+        "saved": "쉼표, 포함두 줄",
+        "blankRowsAdded": 0,
+        "localSyntheticBusinessSaved": true,
+        "errors": [],
+        "posts": []
+      }
+    ],
+    "accepted": false,
+    "nextIndependentAuditRequired": true
+  },
+  "validation": {
+    "actualShellFlows": 24,
+    "actualShellCases": 48,
+    "viewports": [
+      390,
+      1280
+    ],
+    "focusedExistingNode": 102,
+    "wholeBrowser": 1376,
+    "wholeVerifyExitCode": 0,
+    "final48VerifiedTogetherWithinWholeRun": true,
+    "newPermanentNodeFiles": 0,
+    "newPermanentBrowserFiles": 1,
+    "writes": {
+      "cases": 48,
+      "localSettingsWrites": 0,
+      "localBusinessWrites": 2,
+      "fixtureInjectedWrites": 2,
+      "pageErrors": 0,
+      "remoteBusinessWrites": 0
+    },
+    "initialEmptyLineObservations": 4,
+    "additionalIndependentMemoLossObservations": 2,
+    "memoObservationSyntheticBusinessWritesSeparate": 2,
+    "baselineInitial": {
+      "pass": 20,
+      "fail": 28,
+      "cases": 48
+    },
+    "firstAfter": {
+      "pass": 46,
+      "fail": 2
+    },
+    "editedSingleLineSaveBaseline": {
+      "pass": 0,
+      "fail": 2
+    },
+    "editedSingleLineSaveAfter": {
+      "pass": 2,
+      "fail": 0
+    },
+    "finalScopedWithinWhole": {
+      "pass": 48,
+      "fail": 0
+    },
+    "scopeSplit": {
+      "firstCandidate": {
+        "pass": 46,
+        "fail": 2,
+        "cases": 48
+      },
+      "failure": "CSV parser/preview retains quoted LF, but actual line text input removes it on apply; explicit business save persists collapsed memo. A separate existing text-field contract defect, not an invalid assertion.",
+      "noApplicationOrInitialMasterFixtureChanges": true,
+      "originalFailingBrowserSource": "browser-original.cjs",
+      "originalFailedTestsAndTrace": "first-patch.log / first-patch-results",
+      "scopeChange": "Only the two explicit-save cases now use a single-line quoted comma memo and are named single-line. Multiline LF-save acceptance is explicitly false, independently observed on immutable59 with no blank rows and scheduled next. Other46 cases, including LF preview, are unchanged.",
+      "noNormalizationOfExpectedMultilineValue": true,
+      "nextSourceId": "OWN-PRICE-LINE-MEMO-MULTILINE-RAW-CONTRACT-AUDIT",
+      "whySeparate": "Memo control rendering/reading and raw string preservation affect a different line-input boundary; do not broaden empty-row consumer patch or silently declare LF preservation done."
+    },
+    "appAndMasterFixtureUnchangedAfterFirstPatch": true,
+    "twoBusinessSavePayloadsNarrowedExplicitly": true,
+    "versionLabelPrecheck": {
+      "dist/index.html": {
+        "beforeVersionOccurrences": 2,
+        "onlyVersionLabelsChanged": true
+      },
+      "dist/login.html": {
+        "beforeVersionOccurrences": 1,
+        "onlyVersionLabelsChanged": true
+      },
+      "dist/api-manual-data.js": {
+        "beforeVersionOccurrences": 5,
+        "onlyVersionLabelsChanged": true
+      },
+      "package.json": {
+        "onlyTopLevelVersionAndRootPackageVersionChanged": true
+      },
+      "package-lock.json": {
+        "onlyTopLevelVersionAndRootPackageVersionChanged": true
+      }
+    },
+    "roleAccountCompanyPermissionStorageParentDraftDetachedCallbacksAreFixtureInjections": true,
+    "originalAccepted": false,
+    "productionAccepted": false
+  },
+  "ownRea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 4,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "pasteAppendConsumer",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "1b444ffff3ade4b575b64ab2789945e9e7232565d7d8229d42c41b5d6309207f",
+        "start": 126852,
+        "end": 126897,
+        "lineStart": 522,
+        "lineEnd": 522,
+        "fragmentSha256": "08413f2c8672afa9726fae707c47a727d04b6e6d4712b0ed9fcc87f2df5a79d5",
+        "inputFile": "own-pasteAppendConsumer.js",
+        "inputSha256": "23e972988f80ecb892b286496cdc28eb16c53d6413a160d2baefa876a1bab83a",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "pasteAppendConsumer",
+        "file": ".artifacts/releases/0.89.60-price-paste-drafts/dist/inventory-ui.js",
+        "sourceSha256": "7595f7107485f3975e4fba183e63924bd4037a21cdb4328145bcfdc2c7f414af",
+        "start": 122161,
+        "end": 122206,
+        "lineStart": 499,
+        "lineEnd": 499,
+        "fragmentSha256": "08413f2c8672afa9726fae707c47a727d04b6e6d4712b0ed9fcc87f2df5a79d5",
+        "inputFile": "candidate-pasteAppendConsumer.js",
+        "inputSha256": "23e972988f80ecb892b286496cdc28eb16c53d6413a160d2baefa876a1bab83a",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "openPaste",
+        "file": "dist/entry-tools.js",
+        "sourceSha256": "9d90ad51408b56c06b1f4136194511e7e8129f4736aa2a5005478036061d658f",
+        "start": 21016,
+        "end": 23343,
+        "lineStart": 107,
+        "lineEnd": 113,
+        "fragmentSha256": "f201d49dd9dc0b06b91e9cbc5c200f37c745305f175b938527d9e3091844eb3b",
+        "inputFile": "own-openPaste.js",
+        "inputSha256": "cb4d509944330fbc2f19a5771010c34b1b44b24f3b27cba46b24cfc643df6050",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "openPaste",
+        "file": ".artifacts/releases/0.89.60-price-paste-drafts/dist/entry-tools.js",
+        "sourceSha256": "9d90ad51408b56c06b1f4136194511e7e8129f4736aa2a5005478036061d658f",
+        "start": 21016,
+        "end": 23343,
+        "lineStart": 107,
+        "lineEnd": 113,
+        "fragmentSha256": "f201d49dd9dc0b06b91e9cbc5c200f37c745305f175b938527d9e3091844eb3b",
+        "inputFile": "candidate-openPaste.js",
+        "inputSha256": "cb4d509944330fbc2f19a5771010c34b1b44b24f3b27cba46b24cfc643df6050",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "b9bc82ab678d95c5bbbaf201b32fa4898c42fc2c9747757ad34c17053eacb8e5",
+    "statistics": {
+      "relevant_files": 4,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 5832,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 4,
+      "visited_ast_nodes": 980,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      },
+      "0.89.41": {
+        "head": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "expectedHead": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "status": "",
+        "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "expectedWorkerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "exact": true
+      },
+      "0.89.42": {
+        "head": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "expectedHead": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "status": "",
+        "workerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "expectedWorkerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "exact": true
+      },
+      "0.89.43": {
+        "head": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "expectedHead": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "status": "",
+        "workerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "expectedWorkerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "exact": true
+      },
+      "0.89.44": {
+        "head": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "expectedHead": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "status": "",
+        "workerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "expectedWorkerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "exact": true
+      },
+      "0.89.45": {
+        "head": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "expectedHead": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "status": "",
+        "workerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "expectedWorkerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "exact": true
+      },
+      "0.89.46": {
+        "head": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "expectedHead": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "status": "",
+        "workerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "expectedWorkerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "exact": true
+      },
+      "0.89.47": {
+        "head": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "expectedHead": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "status": "",
+        "workerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "expectedWorkerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "exact": true
+      },
+      "0.89.48": {
+        "head": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "expectedHead": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "status": "",
+        "workerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "expectedWorkerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "exact": true
+      },
+      "0.89.49": {
+        "head": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "expectedHead": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "status": "",
+        "workerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "expectedWorkerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "exact": true
+      },
+      "0.89.50": {
+        "head": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "expectedHead": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "status": "",
+        "workerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "expectedWorkerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "exact": true
+      },
+      "0.89.51": {
+        "head": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+        "expectedHead": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+        "status": "",
+        "workerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+        "expectedWorkerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+        "exact": true
+      },
+      "0.89.52": {
+        "head": "71d50288aae9db80e30a53a048a475ba01cefc89",
+        "expectedHead": "71d50288aae9db80e30a53a048a475ba01cefc89",
+        "status": "",
+        "workerSha256": "69b2224c29affde2dd8e887b4e8fa69ca386c2da0812b5297f1385e672dfdc42",
+        "expectedWorkerSha256": "69b2224c29affde2dd8e887b4e8fa69ca386c2da0812b5297f1385e672dfdc42",
+        "exact": true
+      },
+      "0.89.53": {
+        "head": "ff4c152934b1ff237862e646e28eab61170f8a06",
+        "expectedHead": "ff4c152934b1ff237862e646e28eab61170f8a06",
+        "status": "",
+        "workerSha256": "6534b8310e4e6c8bde58543f5cb11085f9d14708d1f44eb41e61a5c781e8d9df",
+        "expectedWorkerSha256": "6534b8310e4e6c8bde58543f5cb11085f9d14708d1f44eb41e61a5c781e8d9df",
+        "exact": true
+      },
+      "0.89.54": {
+        "head": "503cb31a5e12670881edf365f26f3df6d64b673c",
+        "expectedHead": "503cb31a5e12670881edf365f26f3df6d64b673c",
+        "status": "",
+        "workerSha256": "8d10eb9eebea9934dddd3b4ab507974dda9384531e1df7bf7f67b8f29d6c4fd4",
+        "expectedWorkerSha256": "8d10eb9eebea9934dddd3b4ab507974dda9384531e1df7bf7f67b8f29d6c4fd4",
+        "exact": true
+      },
+      "0.89.55": {
+        "head": "6f01174c69b09fe6bc3a6aa2b702d9d85d003a80",
+        "expectedHead": "6f01174c69b09fe6bc3a6aa2b702d9d85d003a80",
+        "status": "",
+        "workerSha256": "7f993c51fff2f5dd063cf7bf6f6f8f9cd5c191cc92cb7d3d5da7d0834aa830ed",
+        "expectedWorkerSha256": "7f993c51fff2f5dd063cf7bf6f6f8f9cd5c191cc92cb7d3d5da7d0834aa830ed",
+        "exact": true
+      },
+      "0.89.56": {
+        "head": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+        "expectedHead": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+        "status": "",
+        "workerSha256": "3f70af390a3a0548b5ee1b6a4fd865072e1424c28ff6604148da37696fdccd91",
+        "expectedWorkerSha256": "3f70af390a3a0548b5ee1b6a4fd865072e1424c28ff6604148da37696fdccd91",
+        "exact": true
+      },
+      "0.89.57": {
+        "head": "a97aa8a184f44e420f6f3f8c34025bffa03d6c24",
+        "expectedHead": "a97aa8a184f44e420f6f3f8c34025bffa03d6c24",
+        "status": "",
+        "workerSha256": "1f4629364f14dc0bef8ad7ed8b2f75554bd4dc44c9c46f67d508c046ab888fd6",
+        "expectedWorkerSha256": "1f4629364f14dc0bef8ad7ed8b2f75554bd4dc44c9c46f67d508c046ab888fd6",
+        "exact": true
+      },
+      "0.89.58": {
+        "head": "94f8b31d5206e0ce148f41abcff4753cd1f581ed",
+        "expectedHead": "94f8b31d5206e0ce148f41abcff4753cd1f581ed",
+        "status": "",
+        "workerSha256": "2dccd504df0245e80774ae7a703ffc97433ad0200a16d3e4cbb93136b61ace66",
+        "expectedWorkerSha256": "2dccd504df0245e80774ae7a703ffc97433ad0200a16d3e4cbb93136b61ace66",
+        "exact": true
+      },
+      "0.89.59": {
+        "head": "87d46a15a038184a3c440d177ec968fc27d00750",
+        "expectedHead": "87d46a15a038184a3c440d177ec968fc27d00750",
+        "status": "",
+        "workerSha256": "c41ac792a43dde1942063b8ed1920519d6ca2c17aac3b3ca9a943614475f1571",
+        "expectedWorkerSha256": "c41ac792a43dde1942063b8ed1920519d6ca2c17aac3b3ca9a943614475f1571",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "sourceEquality": {
+    "/home/lck/projects/Rea_ERP": {
+      "dist/inventory-ui.js": {
+        "sha256": "1b444ffff3ade4b575b64ab2789945e9e7232565d7d8229d42c41b5d6309207f",
+        "beforeSha256": "638982cfb86950a6a2c9fdbe793505f0fca4494ffeef69fa35a811a67f69b639",
+        "outsideEditsExact": true
+      },
+      "dist/entry-tools.js": {
+        "sha256": "9d90ad51408b56c06b1f4136194511e7e8129f4736aa2a5005478036061d658f",
+        "beforeSha256": "360904211cb1ca1ea95f95d3f6da1664f66fdc7e2d5f2a11b70c56ce081dd83d",
+        "outsideEditsExact": true
+      }
+    },
+    "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.60-price-paste-drafts": {
+      "dist/inventory-ui.js": {
+        "sha256": "7595f7107485f3975e4fba183e63924bd4037a21cdb4328145bcfdc2c7f414af",
+        "beforeSha256": "2acae888094d40fd5831de0f4facf77329fe3f3f0515473bd7f4a3078445751a",
+        "outsideEditsExact": true
+      },
+      "dist/entry-tools.js": {
+        "sha256": "9d90ad51408b56c06b1f4136194511e7e8129f4736aa2a5005478036061d658f",
+        "beforeSha256": "360904211cb1ca1ea95f95d3f6da1664f66fdc7e2d5f2a11b70c56ce081dd83d",
+        "outsideEditsExact": true
+      }
+    }
+  },
+  "visualReadback": {
+    "images": [
+      "/home/lck/projects/Rea_ERP/.artifacts/manual-price-paste-draft-20261030/first-patch-results/price-paste-draft-paste-pr-f3aaa-icit-append-keeps-blank-390/retained-draft.png",
+      "/home/lck/projects/Rea_ERP/.artifacts/manual-price-paste-draft-20261030/first-patch-results/price-paste-draft-paste-pr-26707-cit-append-keeps-blank-1280/retained-draft.png"
+    ],
+    "actuallyViewed": true,
+    "viewports": [
+      390,
+      1280
+    ],
+    "observed": "390 M0013 / blank7 / P0012.5 visible. 1280 blankqty7/price13/memo/custom4; pasted P0012.5 price80 discount10, total480 excludes blank91. New pasted multiline memo is visibly collapsed and explicitly not accepted.",
+    "scope": "Synthetic own ERP success screen, blank preservation only. No layout/original/production acceptance or all cells/scroll identity."
+  },
+  "manualCounts": {
+    "onlineIndex": 77,
+    "bodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "wholeManualComplete": false
+  },
+  "moa": {
+    "startSaved": false,
+    "lastConfirmedVersion": 69,
+    "lastConfirmedBlocks": 446,
+    "resultSaved": false,
+    "readbackVerified": false,
+    "actualMetadataSet": false,
+    "evidence": "evidence/moa-price-paste-draft-preauthorized-20261030.json",
+    "pendingStartBlocks": 2,
+    "pendingResultBlocks": 10,
+    "previousPendingReferences": [
+      "evidence/moa-price-helper-append-preauthorized-20261029.json",
+      "evidence/moa-price-history-draft-preauthorized-20261030.json",
+      "evidence/moa-price-stock-draft-preauthorized-20261030.json",
+      "evidence/moa-price-myitem-draft-preauthorized-20261030.json",
+      "evidence/moa-price-voucher-draft-preauthorized-20261030.json",
+      "evidence/moa-price-safety-draft-preauthorized-20261030.json",
+      "evidence/moa-price-requirements-draft-preauthorized-20261030.json",
+      "evidence/moa-price-myitem-settings-draft-preauthorized-20261030.json",
+      "evidence/moa-price-order-plan-draft-preauthorized-20261030.json"
+    ],
+    "postingBlockedBy": "work-document-tools-not-exposed",
+    "authenticationExpiredEvidence": false
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-LINE-MEMO-MULTILINE-RAW-CONTRACT-AUDIT",
+    "title": "단가요청 행 적요의 여러줄 문자값 보존 계약 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-paste-draft-20261030.json",
+    "latestEvidence": "evidence/manual-price-paste-draft-20261030.json",
+    "description": "이번60은 빈행보존24흐름과 한줄 적요 저장만 한정 검증했다. 첫 후보의 LF 저장2실패와 빈행 없는 불변59의 별도 관찰2에서 parser/미리보기 LF 유지→행 input 표시/명시 업무저장 LF 소실을 확인했다. 여러줄 적요 저장은 미완료다. readLines/행 메타데이터·초기 저장문자값·명시 편집·소유자/자료 경계를 먼저 읽고 확인된 손실만 작은 단위로 대조한다. 숨은 문자열/비공개 입력조각을 추측 재구성하거나 다른 전표/모든 문자필드를 무조건 변경하지 않는다. 모든입력보조/다중행전체/원본/운영/미표시dialog정리 미완료와38후보·자료/양식·TC101P_01/VAT5/최소구매단위/생성저장/업로드 저장 재개조건을 보존한다. 모아 재노출 시 현재본문/버전/can_edit/중복 확인 뒤51결과10→52/53/54/55/56/57/58/59/60착수2/결과10을 기존 지속승인으로 순서대로 저장·재조회하며 같은 연결/로그인/도구목록/승인을 반복하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "blockedByMoaToolUnavailable": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41",
+      "0.89.42",
+      "0.89.43",
+      "0.89.44",
+      "0.89.45",
+      "0.89.46",
+      "0.89.47",
+      "0.89.48",
+      "0.89.49",
+      "0.89.50",
+      "0.89.51",
+      "0.89.52",
+      "0.89.53",
+      "0.89.54",
+      "0.89.55",
+      "0.89.56",
+      "0.89.57",
+      "0.89.58",
+      "0.89.59",
+      "0.89.60"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifacts": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-paste-draft-20261030",
+  "productionGate": "Fresh authenticated browser backup/UI and server/mail prebasis required; no new connection evidence"
+}
