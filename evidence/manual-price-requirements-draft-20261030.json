@@ -1,0 +1,650 @@
+{
+  "sourceId": "OWN-PRICE-REQUIREMENTS-EMPTY-LINE-DRAFT-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-30",
+  "deadline": "2026-10-31",
+  "actualStart": "2026-10-30T05:45:48.257987+09:00",
+  "recordedAt": "2026-10-30T06:11:18.897485+09:00",
+  "elapsedSeconds": 1530.639,
+  "auditStatus": "done-for-eighteen-local-price-requirements-draft-flows",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "version": "0.89.57",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.57",
+    "sourceCommit": "5427aa272266385f927bd3c3ab3cf1d4cba64f5c",
+    "releaseCommit": "a97aa8a184f44e420f6f3f8c34025bffa03d6c24",
+    "branch": "release/0.89.57-price-requirements-drafts",
+    "baselineReleaseCommit": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+    "workerSha256": "1f4629364f14dc0bef8ad7ed8b2f75554bd4dc44c9c46f67d508c046ab888fd6",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.57-price-requirements-drafts",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.56",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "behavior": {
+    "directRequirementsConsumerOnly": true,
+    "explicitReplacementResultCapturedForApply": true,
+    "existingModalOptionalContextUsed": true,
+    "strictHelperDraftAndMoneyScopeRetained": true,
+    "emptyItemDraftsRetainedAtOriginalPositionsOnAppend": true,
+    "defaultReplaceAndConfirmationRetained": true,
+    "f8CalculatesOnlyAndExplicitApplyRetained": true,
+    "stagedDraftAndBomFingerprintsRetained": true,
+    "existingSingleItemQuantityMergeAndSplitGuardRetained": true,
+    "businessSaveEmptyItemExclusionRetained": true,
+    "coreFormSchemaBackupUnchanged": true,
+    "allBomDepthsAndOtherDocumentsAccepted": false,
+    "allHelpersAccepted": false,
+    "parentKeyboardF8Accepted": false,
+    "allLineIdentitySelectionScrollAccepted": false,
+    "closedDialogResidueCleanupAccepted": false
+  },
+  "validation": {
+    "actualShellFlows": 22,
+    "actualShellCases": 44,
+    "viewports": [
+      390,
+      1280
+    ],
+    "focusedExistingNode": 128,
+    "wholeBrowser": 1206,
+    "wholeVerifyExitCode": 0,
+    "final44VerifiedTogetherWithinWholeRun": true,
+    "newPermanentNodeFiles": 0,
+    "newPermanentBrowserFiles": 1,
+    "writes": {
+      "cases": 44,
+      "localSettingsWrites": 0,
+      "localBusinessWrites": 2,
+      "fixtureInjectedWrites": 2,
+      "pageErrors": 0,
+      "remoteBusinessWrites": 0
+    },
+    "initialObservations": 4,
+    "probeSummary": {
+      "cases": 4,
+      "appendLossObserved": 2,
+      "defaultReplaceObserved": 2,
+      "calcAndCancelPreserveDraft": true,
+      "storedExact": true,
+      "pageErrors": 0,
+      "remoteWrites": 0,
+      "originalProductionObservation": false
+    },
+    "syntheticBasis": {
+      "bom": [
+        {
+          "product": "P002",
+          "material": "P001",
+          "qty": 2,
+          "loss": 10
+        },
+        {
+          "product": "S001",
+          "material": "P001",
+          "qty": 1,
+          "loss": 0
+        }
+      ],
+      "productionQty": 3,
+      "required": 6.6,
+      "stockW001": 2,
+      "stockW002": 17,
+      "shortage": 4.6,
+      "combinedProductionS001": 2,
+      "combinedRequired": 8.6,
+      "combinedShortage": 6.6,
+      "settingsUiSave": false
+    },
+    "baselineInitial": {
+      "pass": 16,
+      "fail": 28,
+      "cases": 44
+    },
+    "firstAfter": {
+      "pass": 42,
+      "fail": 2
+    },
+    "correctedCasesCandidate": {
+      "pass": 2,
+      "fail": 0
+    },
+    "correctedCasesBaseline": {
+      "pass": 0,
+      "fail": 2
+    },
+    "finalWithinWhole": {
+      "pass": 44,
+      "fail": 0
+    },
+    "testCorrection": {
+      "initialBaseline": {
+        "passed": 16,
+        "failed": 28
+      },
+      "firstCandidate": {
+        "passed": 42,
+        "failed": 2
+      },
+      "reason": "Selecting P001 invokes existing item change handler and C.priceFor, replacing old M001 price100 with P001 buy price12000. Original two assertions wrongly assumed100 remained. Explicitly enter user price100 after item selection and assert the precondition, retaining original preservation assertion.",
+      "appAndFixtureDataChanged": false,
+      "correctedFlows": 1,
+      "correctedCases": 2,
+      "existingHandlerEvidence": "dist/inventory-ui.js docEditor c.item change assigns c.price.value=C.priceFor(...)"
+    },
+    "applicationAndFixtureDataUnchangedAfterFirstPatch": true,
+    "versionLabelPrecheck": {
+      "dist/index.html": 2,
+      "dist/login.html": 1,
+      "dist/api-manual-data.js": 5
+    },
+    "roleParentDraftBomMemoryStorageAndDetachedCallbacksAreFixtures": true,
+    "originalAccepted": false,
+    "productionAccepted": false
+  },
+  "ownRea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 4,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "requirementsAppendConsumer",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "3b92d58bce26da57b8997c1ec0fc308aefd9327fc581f03189d4299e940cad4a",
+        "start": 127393,
+        "end": 127447,
+        "lineStart": 524,
+        "lineEnd": 524,
+        "fragmentSha256": "e2ddf9568c8eba648639d407bcb739596b754ce5a3863bc78b7ce8c1b3767713",
+        "inputFile": "own-requirementsAppendConsumer.js",
+        "inputSha256": "50ed18d65a10942d91e4148698527d08e7d0c6b024b2b01642d81c92cb92337c",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "requirementsAppendConsumer",
+        "file": ".artifacts/releases/0.89.57-price-requirements-drafts/dist/inventory-ui.js",
+        "sourceSha256": "6b4023ed02d06e86ada15f8526fdc8ffafb95fe2ccb4e30d42e3a5c7d13e9f8b",
+        "start": 122702,
+        "end": 122756,
+        "lineStart": 501,
+        "lineEnd": 501,
+        "fragmentSha256": "e2ddf9568c8eba648639d407bcb739596b754ce5a3863bc78b7ce8c1b3767713",
+        "inputFile": "candidate-requirementsAppendConsumer.js",
+        "inputSha256": "50ed18d65a10942d91e4148698527d08e7d0c6b024b2b01642d81c92cb92337c",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "openRequirements",
+        "file": "dist/entry-extra-ui.js",
+        "sourceSha256": "640a00fe04f64aecfeef9c297181e18b2f6b0de846b03c9def65b2dfa013eb7d",
+        "start": 27142,
+        "end": 30330,
+        "lineStart": 74,
+        "lineEnd": 81,
+        "fragmentSha256": "2c6b69d95a2455cd4c7e60538fea2f0506818c3438af37fbbb91a49d327958ed",
+        "inputFile": "own-openRequirements.js",
+        "inputSha256": "978009963fe2aa20822dbd58100c68050f2440f9618df4ca016326d1e87a6584",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "openRequirements",
+        "file": ".artifacts/releases/0.89.57-price-requirements-drafts/dist/entry-extra-ui.js",
+        "sourceSha256": "640a00fe04f64aecfeef9c297181e18b2f6b0de846b03c9def65b2dfa013eb7d",
+        "start": 27142,
+        "end": 30330,
+        "lineStart": 74,
+        "lineEnd": 81,
+        "fragmentSha256": "2c6b69d95a2455cd4c7e60538fea2f0506818c3438af37fbbb91a49d327958ed",
+        "inputFile": "candidate-openRequirements.js",
+        "inputSha256": "978009963fe2aa20822dbd58100c68050f2440f9618df4ca016326d1e87a6584",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "649cd8647be298118492d8c6745e9a2d23fcd91b2af6a5a1286cdf226f786f71",
+    "statistics": {
+      "relevant_files": 4,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 7974,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 4,
+      "visited_ast_nodes": 1366,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      },
+      "0.89.41": {
+        "head": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "expectedHead": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "status": "",
+        "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "expectedWorkerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "exact": true
+      },
+      "0.89.42": {
+        "head": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "expectedHead": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "status": "",
+        "workerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "expectedWorkerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "exact": true
+      },
+      "0.89.43": {
+        "head": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "expectedHead": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "status": "",
+        "workerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "expectedWorkerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "exact": true
+      },
+      "0.89.44": {
+        "head": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "expectedHead": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "status": "",
+        "workerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "expectedWorkerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "exact": true
+      },
+      "0.89.45": {
+        "head": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "expectedHead": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "status": "",
+        "workerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "expectedWorkerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "exact": true
+      },
+      "0.89.46": {
+        "head": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "expectedHead": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "status": "",
+        "workerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "expectedWorkerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "exact": true
+      },
+      "0.89.47": {
+        "head": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "expectedHead": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "status": "",
+        "workerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "expectedWorkerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "exact": true
+      },
+      "0.89.48": {
+        "head": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "expectedHead": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "status": "",
+        "workerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "expectedWorkerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "exact": true
+      },
+      "0.89.49": {
+        "head": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "expectedHead": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "status": "",
+        "workerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "expectedWorkerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "exact": true
+      },
+      "0.89.50": {
+        "head": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "expectedHead": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "status": "",
+        "workerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "expectedWorkerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "exact": true
+      },
+      "0.89.51": {
+        "head": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+        "expectedHead": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+        "status": "",
+        "workerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+        "expectedWorkerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+        "exact": true
+      },
+      "0.89.52": {
+        "head": "71d50288aae9db80e30a53a048a475ba01cefc89",
+        "expectedHead": "71d50288aae9db80e30a53a048a475ba01cefc89",
+        "status": "",
+        "workerSha256": "69b2224c29affde2dd8e887b4e8fa69ca386c2da0812b5297f1385e672dfdc42",
+        "expectedWorkerSha256": "69b2224c29affde2dd8e887b4e8fa69ca386c2da0812b5297f1385e672dfdc42",
+        "exact": true
+      },
+      "0.89.53": {
+        "head": "ff4c152934b1ff237862e646e28eab61170f8a06",
+        "expectedHead": "ff4c152934b1ff237862e646e28eab61170f8a06",
+        "status": "",
+        "workerSha256": "6534b8310e4e6c8bde58543f5cb11085f9d14708d1f44eb41e61a5c781e8d9df",
+        "expectedWorkerSha256": "6534b8310e4e6c8bde58543f5cb11085f9d14708d1f44eb41e61a5c781e8d9df",
+        "exact": true
+      },
+      "0.89.54": {
+        "head": "503cb31a5e12670881edf365f26f3df6d64b673c",
+        "expectedHead": "503cb31a5e12670881edf365f26f3df6d64b673c",
+        "status": "",
+        "workerSha256": "8d10eb9eebea9934dddd3b4ab507974dda9384531e1df7bf7f67b8f29d6c4fd4",
+        "expectedWorkerSha256": "8d10eb9eebea9934dddd3b4ab507974dda9384531e1df7bf7f67b8f29d6c4fd4",
+        "exact": true
+      },
+      "0.89.55": {
+        "head": "6f01174c69b09fe6bc3a6aa2b702d9d85d003a80",
+        "expectedHead": "6f01174c69b09fe6bc3a6aa2b702d9d85d003a80",
+        "status": "",
+        "workerSha256": "7f993c51fff2f5dd063cf7bf6f6f8f9cd5c191cc92cb7d3d5da7d0834aa830ed",
+        "expectedWorkerSha256": "7f993c51fff2f5dd063cf7bf6f6f8f9cd5c191cc92cb7d3d5da7d0834aa830ed",
+        "exact": true
+      },
+      "0.89.56": {
+        "head": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+        "expectedHead": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+        "status": "",
+        "workerSha256": "3f70af390a3a0548b5ee1b6a4fd865072e1424c28ff6604148da37696fdccd91",
+        "expectedWorkerSha256": "3f70af390a3a0548b5ee1b6a4fd865072e1424c28ff6604148da37696fdccd91",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "sourceEquality": {
+    "/home/lck/projects/Rea_ERP": {
+      "dist/inventory-ui.js": {
+        "beforeSha256": "9016854851d39efa00bba745347daf7331906594efa9c5f282c8e3ccf376b7ea",
+        "sha256": "3b92d58bce26da57b8997c1ec0fc308aefd9327fc581f03189d4299e940cad4a",
+        "outsideEditsExact": true
+      },
+      "dist/entry-extra-ui.js": {
+        "beforeSha256": "9442e13a41bd0d97463135f9a426ef89bad243f77909bc851375c1fe457688a0",
+        "sha256": "640a00fe04f64aecfeef9c297181e18b2f6b0de846b03c9def65b2dfa013eb7d",
+        "outsideEditsExact": true
+      }
+    },
+    "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.57-price-requirements-drafts": {
+      "dist/inventory-ui.js": {
+        "beforeSha256": "f4a4492ae4cd3740ea55deb79736f8dc0ab91efb2cdb4df568be2a92f17c4d3d",
+        "sha256": "6b4023ed02d06e86ada15f8526fdc8ffafb95fe2ccb4e30d42e3a5c7d13e9f8b",
+        "outsideEditsExact": true
+      },
+      "dist/entry-extra-ui.js": {
+        "beforeSha256": "9442e13a41bd0d97463135f9a426ef89bad243f77909bc851375c1fe457688a0",
+        "sha256": "640a00fe04f64aecfeef9c297181e18b2f6b0de846b03c9def65b2dfa013eb7d",
+        "outsideEditsExact": true
+      }
+    }
+  },
+  "visualReadback": {
+    "readAt": "2026-10-30T05:57:22.431135+09:00",
+    "screens": [
+      {
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-requirements-draft-20261030/final-results/price-requirements-draft-r-20ad4-n-append-retains-blank-1280/requirements-applied.png",
+        "sha256": "85ce2ea847d1d16acfaa6d4c67be04ff52e67eb48c9f2b349a780ab69a61ac14"
+      },
+      {
+        "file": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-requirements-draft-20261030/final-results/price-requirements-draft-r-26627-en-append-retains-blank-390/requirements-applied.png",
+        "sha256": "759dae0dae28669ce799c07a6d7a94a25a5a414097faa483740ea058d58b72de"
+      }
+    ],
+    "actualImageReadback": true,
+    "captureRun": "first patched44 run; these two append captures passed; corrected merge precondition does not affect this flow",
+    "mobile390": "Three item rows M001 qty3, unselected-item qty7, P001 required6.6 visible; other horizontal columns not visually accepted.",
+    "desktop1280": "Middle blank row retains7/13/memo/custom4; new P0016.6 at12000; totalqty9.6 and amount79500 exclude blank-item row.",
+    "newLayoutRequirementsAccepted": false,
+    "allScrollColumnsAccepted": false,
+    "originalProductionAccepted": false
+  },
+  "manualCounts": {
+    "onlineIndex": 77,
+    "bodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "wholeManualComplete": false
+  },
+  "moa": {
+    "startSaved": false,
+    "startReadbackExact": false,
+    "lastConfirmedVersion": 69,
+    "lastConfirmedBlocks": 446,
+    "resultSaved": false,
+    "readbackVerified": false,
+    "actualMetadataSet": false,
+    "evidence": "evidence/moa-price-requirements-draft-preauthorized-20261030.json",
+    "pendingStartBlocks": 2,
+    "pendingResultBlocks": 10,
+    "previousPendingReferences": [
+      "evidence/moa-price-helper-append-preauthorized-20261029.json",
+      "evidence/moa-price-history-draft-preauthorized-20261030.json",
+      "evidence/moa-price-stock-draft-preauthorized-20261030.json",
+      "evidence/moa-price-myitem-draft-preauthorized-20261030.json",
+      "evidence/moa-price-voucher-draft-preauthorized-20261030.json",
+      "evidence/moa-price-safety-draft-preauthorized-20261030.json"
+    ],
+    "postingBlockedBy": "work-document-tools-not-exposed",
+    "authenticationExpiredEvidence": false
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-MYITEM-SETTINGS-LOAD-EMPTY-LINE-DRAFT-CONTRACT-AUDIT",
+    "title": "단가요청 My품목설정 창의 명시 불러오기·빈 품목행 계약 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-requirements-draft-20261030.json",
+    "latestEvidence": "evidence/manual-price-requirements-draft-20261030.json",
+    "description": "이번57은 소요량 계산/추가/명시교체22흐름만 대상이다. 완료한54의 기본목록 직접적용과 달리 openMyItems는 그룹선택/미저장 편집·기존행 처리·계정별 개인원문 재확인의 별도 소비자이므로 실제 지원UI/기존 검사를 먼저 읽고 명시 불러오기/추가/교체·닫기/빈행/사용자값·권한/개인원문/자료의 확인된 새 소실만 재현한다. 개인그룹 저장/기본그룹 자동생성이나 병합 무조건 복사/기존값 삭제는 하지 않는다. 모든입력보조/다중행전체/원본/운영/미표시dialog정리 미확인과35후보·자료/양식·TC101P_01/VAT5/최소구매단위/업로드 저장 재개조건을 유지한다. 같은 연결/로그인/도구목록/승인 또는 변화 없는 전체검사를 반복하지 않는다. 모아 도구 재노출 시 현재본문/버전/can_edit/중복 확인 뒤51결과10→52/53/54/55/56/57착수2/결과10 순서로 기존 승인으로 저장·재조회한다. 게시 미완료 때문에 독립개발을 중단하지 않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "blockedByMoaToolUnavailable": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41",
+      "0.89.42",
+      "0.89.43",
+      "0.89.44",
+      "0.89.45",
+      "0.89.46",
+      "0.89.47",
+      "0.89.48",
+      "0.89.49",
+      "0.89.50",
+      "0.89.51",
+      "0.89.52",
+      "0.89.53",
+      "0.89.54",
+      "0.89.55",
+      "0.89.56",
+      "0.89.57"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifacts": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-requirements-draft-20261030",
+  "productionGate": "Fresh authenticated browser backup/UI and server/mail prebasis required; no new connection evidence"
+}

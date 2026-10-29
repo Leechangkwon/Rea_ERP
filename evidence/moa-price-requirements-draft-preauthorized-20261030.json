@@ -1,0 +1,94 @@
+{
+  "status": "start2-result10-pending-tool-unavailable",
+  "pageId": "ddf1c5d3-6301-405b-ad88-6fa828182595",
+  "authorization": "2026-10-28 persistent approval for routine existing sixteen work records",
+  "authorizationQuote": "알아서 저장해라 사용자에게 묻지마",
+  "lastConfirmedP1Version": 69,
+  "lastConfirmedP1Blocks": 446,
+  "start": {
+    "saved": false,
+    "readbackVerified": false,
+    "beforeVersion": null,
+    "afterVersion": null,
+    "append": [
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "2026-10-30 단가요청 소요량 계산의 빈 품목행·명시적용 계약 대조 착수"
+      },
+      {
+        "type": "paragraph",
+        "text": "예정 시작일2026-10-30·마감일2026-10-31 KST·실제 착수2026-10-30T05:45:48.257987+09:00다. 해당 독립 소요량 계약 대조/수정·검증 단위 doing/P1doing이며 P1 전체 마감이 아니다. 실제 일정·상태 메타데이터 미설정, 모아 업무문서 도구 미노출에 새 근거가 없어 착수2블록은 미게시 초안이다. 최신56 후보의 openRequirements/stageRequirements와 실제 지원UI/기존 검사를 읽고 BOM/로스율·전체소요/재고차감·기본교체·계산(F8) 미리보기와 별도 적용·전표/BOM 지문을 유지하며 빈 품목행/사용자값의 확인된 새 소실만 재현한다. 추가 병합을 무조건 복사하거나 기본교체/계산재확인·소유자/자료 가드를 약화하지 않는다. 기존34후보·운영22worker·자료/양식·기존 재개조건과51결과10→52/53/54/55/56착수2/결과10의 미게시 승인 패킷을 보존하고 같은 연결/로그인/도구목록/승인 확인 없이 독립 개발한다."
+      }
+    ]
+  },
+  "result": {
+    "saved": false,
+    "readbackVerified": false,
+    "append": [
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "2026-10-30 단가요청 소요량 빈 품목행·명시적용 보존 · 0.89.57 한정 후보 결과"
+      },
+      {
+        "type": "paragraph",
+        "text": "예정 시작일2026-10-30·마감일2026-10-31 KST·실제 착수2026-10-30T05:45:48.257987+09:00·결과 기록2026-10-30T06:11:18.897485+09:00·착수부터 벽시계 경과1530.639초다. 해당 독립22흐름의 로컬 감사만 done이며 미배포 패치/P1은 doing이다. P1 전체 마감이 아니다. 실제 일정·상태 메타데이터 미설정, 이번57 착수2/결과10과 앞선51 결과10→52/53/54/55/56착수2/결과10은 모아 업무문서 도구 미노출로 모두 미게시·미재조회 초안이다. 기존 P1용 지속승인 패킷을 순서대로 보존했다."
+      },
+      {
+        "type": "paragraph",
+        "text": "불변0.89.56의 단가요청 소요량×390/1280 관찰2에서 계산과 닫기는 전체 초안 exact였지만 추가 방식의 명시 소요량 적용은 빈 품목행 수량7/단가13/적요/사용자값4를 버려 기존2→새 품목 포함2행이 됐다. 기본 교체 관찰2는 확인 취소 시 전체 유지, 동의 시 P0016.6 한 행으로2→1행인 기존 정책을 확인했다. 관찰4의 업무원문 exact·pageerror/원격쓰기0이다. 원본 ERP/실제 계정/운영 사건이 아니다."
+      },
+      {
+        "type": "paragraph",
+        "text": "직접 EntryExtraUI.openRequirements 소비자 한 곳만 helperOptions(append)로 지정했다. type===pricerequest인 경우만 기존 소유자→현재raw 읽기→빈행 원위치 유지→유효행 배치/새행 추가 경로를 사용한다. 소요량 적용 실행의 replacement 확인 결과를 shouldReplace에 포착하고55의 기존 modal.apply 선택적 application 경로로 onApply 두 번째 인자에 전달한다. 기본 교체 선택과 명시 동의한 전체 적용을 유지하고 계산/F8을 적용으로 바꾸지 않는다. 다른 전표는 기존 전체 적용 callback을 사용하며 계산/기본교체 정책은 그대로다. modal 공통부/EntryCore/EntryExtraCore/FormCore/options/parser/evaluator/schema/backup 변경0이다."
+      },
+      {
+        "type": "paragraph",
+        "text": "현재 전표/BOM 지문 재확인·제품 추가/삭제 뒤 계산 무효화·생산 수량/분할 기존행 거절·계정/권한/자료/닫기와 적용 직전 가드를 유지했다. 기존 JSON.stringify는 엄격 업무초안/BOM 지문에만 그대로 쓰며 새 비공개 입력조각 추측이나 raw 부분입력 직렬화·자동저장을 추가하지 않았다. 합성 BOM P002→P001수량2/로스10%와 생산3은 전체소요6.6이다. 현재창고W001재고2/다른창고17을 구분해 부족4.6, S001제품2의 같은 자재2를 합산한 전체8.6/부족6.6을 대조했다. 같은 품목1행은 수량 합산과 기존 단가/사용자값 유지, 분할 기존행은 거절한다. 재고선택의 조건불일치 정책을 소요량에 임의 복사하지 않았다."
+      },
+      {
+        "type": "paragraph",
+        "text": "최종44건=22흐름×390/1280은 계산/닫기/추가·기본교체 취소/동의·F8 계산만 실행/별도 적용·전체/부족 기준·반복13.2/기존9.6 합산·명시 저장과 requirements 출처/생산제품·빈 중간행/빈행만·native부분수량/잘못된 생산수량 회복을 확인했다. 분할행 원자 거절·역할/외부자료/미리보기 뒤 부모초안/BOM 메모리 변화·닫힌 보조창/분리 부모 콜백·다중제품 합산·제품삭제 후 재계산·교체→추가·BOM없음도 대조했다. 유효 사용자값00123/헤더false와 다른 전표·BOM/기초자료/양식을 대응 보존했다. 부모창 키보드F8·모든 행ID/선택/스크롤·모든 BOM깊이/다른 전표의 전체 소요량 동작은 이번 합격 범위가 아니다."
+      },
+      {
+        "type": "paragraph",
+        "text": "ERP설정쓰기0·합성 업무쓰기2·외부업무 검사기 주입2·44건 모두 pageerror/원격쓰기0이다. 부모초안/BOM 메모리 변경·역할/분리 콜백과 외부자료는 검사기 주입이며 실제 계정권한·실제 동시 사용자 합격이 아니다. BOM/창고 재고는 검사 전 합성 초기자료이고 실제 BOM/재고 설정 저장·원격 업무저장/발송0이다. 엄격 getDraft·빈행 제외 금액계산/명시 업무저장과 기존VAT/매핑/API 차이, TC101P_01/VAT5/최소구매단위/생성저장/업로드 저장 재개조건을 보존했다. 다른 보조의 미표시dialog 잔존 정리는 이번 수정/합격 범위가 아니다."
+      },
+      {
+        "type": "paragraph",
+        "text": "초기 불변44는16통과28실패, 첫 패치44는42통과2실패였다. 기존 단일품목 합산2건이 품목을M001→P001로 선택한 뒤 이전 단가100이 남는다고 가정했지만 실제 기존 item change/C.priceFor가12000을 적용했다. 품목 선택 뒤 사용자 단가100을 명시 입력하고 사전조건100을 확인하도록 해당2건의 UI 동작만 정정해 원래의 단가100 보존 assertion을 유지했다. 정정2건은 불변0/2·후보2/0이었다. 앱/fixture자료 추가수정0이며 나머지42건을 별도 반복하지 않고 최종44는 같은 최종 검사파일로 전체1206에서 함께 통과했다. 초기/정정 원고·관찰/각 실패 로그·trace·스크린샷/정정2건/전체 로그를 분리 보존하고 겹친 실행을 새 요구사항으로 합산하지 않는다."
+      },
+      {
+        "type": "paragraph",
+        "text": "관련 기존 Node128·격리 후보 전체 verify:local exit0/1206 브라우저·전체Node·릴리스 검사/빌드를 통과했다. UI/EntryUI/ExtraUI·Core/Form/options/새검사/package 등10파일 검사 전후 해시 exact, 새 영구 Node파일0/새 실제셸 브라우저파일1이다. 자체 REA6.4는 편집한 소요량 소비자 호출/openRequirements 선언의 root/candidate4범위·2raw쌍 exact·parse0·coverageunknown/truncatedfalse다. 바깥 helper/Core·전체모듈·원본 실행 동등성이 아니며 원본 새 관찰/본문 추가0이다. 성공 합성 화면390/1280 두 개를 실제 읽어 빈행과 소요수량 잔존을 확인했으며 새 레이아웃 요구사항/원본/운영 합격으로 세지 않는다. 버전표시는 index2/login1/API5를 먼저 확인했고 package/lock은 최상위 두 version 필드만 올렸다."
+      },
+      {
+        "type": "paragraph",
+        "text": "source 5427aa2 / release a97aa8a / branch release/0.89.57-price-requirements-drafts를 커밋·push하고 원격ref를 확인했다. 후보0.89.57 worker 1f4629364f14dc0bef8ad7ed8b2f75554bd4dc44c9c46f67d508c046ab888fd6는 미설치다. root/candidate 두 파일의2공유수정 밖 원형과 운영0.89.22 worker79222ea6…·이전0.89.23~56의34후보 HEAD/worker/clean·dirty12/깨끗한 매핑07bdfb3 exact를 보존했다. 새 연결 근거가 없어 같은 브라우저/로그인/도구목록 재확인0이다. 새 인증 운영UI/브라우저 백업·서버/메일 배포전 기준 확보 뒤57후보 배포·읽기UI/자료·양식 보존을 검증한다. root 전체빌드/운영배포/원본조작/원격쓰기/발송/new_ERP 변경/자동시작 추가0이며 새 운영 생존/health/인증UI/서버/메일 합격은 아니다. 매뉴얼77·검토본문47·공식요구사항44·최종합격0·전체완료false다. 다음은 단가요청 My품목설정 창의 명시 불러오기·빈 품목행 계약 대조다. 완료한54의 기본목록 직접적용과 달리 openMyItems의 그룹 선택/미저장 편집·기존행 처리·계정별 개인원문 가드를 가진 별도 소비자이므로 기존 지원UI/검사를 먼저 읽고 명시 불러오기/추가/교체·닫기/빈행의 확인된 새 소실만 재현한다. 개인 그룹 저장/기본그룹 자동생성이나 추가 병합의 무조건 복사는 하지 않는다. 모든 입력보조/다중행전체/원본/운영 미확인과35후보·자료/양식·기존 재개조건을 유지한다. 모아 재노출 시 현재본문/버전/can_edit/중복 확인 뒤51결과10→52/53/54/55/56/57착수2/결과10을 기존 지속승인으로 순서대로 저장·재조회한다."
+      }
+    ],
+    "beforeVersion": null,
+    "afterVersion": null,
+    "beforeBlocks": null,
+    "afterBlocks": null,
+    "plannedAppendBlocks": 10
+  },
+  "actualMetadataSet": false,
+  "authFailureObserved": false,
+  "previousPendingReferences": [
+    "evidence/moa-price-helper-append-preauthorized-20261029.json",
+    "evidence/moa-price-history-draft-preauthorized-20261030.json",
+    "evidence/moa-price-stock-draft-preauthorized-20261030.json",
+    "evidence/moa-price-myitem-draft-preauthorized-20261030.json",
+    "evidence/moa-price-voucher-draft-preauthorized-20261030.json",
+    "evidence/moa-price-safety-draft-preauthorized-20261030.json"
+  ],
+  "newToolAvailabilityCheckPerformed": false,
+  "resume": "Actual tool reexposure: current body/version/can_edit/duplicate check; prior51 result10 then52/53/54/55/56/57 start2/result10, read each save.",
+  "routineBodyUpdatesPreauthorized": true,
+  "other15DocumentsChanged": false,
+  "indexChanged": false,
+  "newDocumentCreated": false,
+  "duplicatePosted": false
+}
