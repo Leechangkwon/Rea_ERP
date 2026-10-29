@@ -51,7 +51,7 @@
         const draft=options.getDraft(),draftRaw=JSON.stringify(draft),modeValue=mode.value,replace=modeValue==='replace';
         if(replace&&(draft.lines||[]).some(row=>row.item)&&!root.confirm('작성 중인 품목 행을 선택한 자료로 덮어쓸까요?'))return;if(!ui.guard())return;
         busy=true;apply.disabled=true;
-        const accept=(result,asyncResult=false)=>{if(!active()||!ui.guard())return;if(asyncResult&&(mode.value!==modeValue||JSON.stringify(options.getDraft())!==draftRaw))throw Error('확인 중 작성 내용 또는 기존 행 처리가 변경됐습니다. 현재 초안과 선택을 유지했습니다.');const accepted=options.onApply(result);if(accepted!==false)ui.close();};
+        const accept=(result,asyncResult=false)=>{if(!active()||!ui.guard())return;if(asyncResult&&(mode.value!==modeValue||JSON.stringify(options.getDraft())!==draftRaw))throw Error('확인 중 작성 내용 또는 기존 행 처리가 변경됐습니다. 현재 초안과 선택을 유지했습니다.');const accepted=options.onApply(result,{replace});if(accepted!==false)ui.close();};
         const result=run(draft,replace);
         if(result&&typeof result.then==='function'){
           pending=true;ui.d.setAttribute('aria-busy','true');ui.error.textContent='최신 계정·매핑 설정을 확인 중입니다…';
