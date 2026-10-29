@@ -1225,3 +1225,10 @@ source 7729e58 / release 02e31bd / branch release/0.89.45-price-conditional-chec
 다음은단가요청조건품목행사용자값·초안수명대조다. 왜: 이번20흐름은header이고lines의customControl/readRow/renderLines·행양식snapshot은별도경로여서같은보호/합격으로확대할수없기때문이다. 기존지원UI와조건품목행검사부터읽고저장사용자값·행초안/선택/수량/단가·취소/명시저장·부모복귀의새차이만재현한다. schema거부와실제DOM소실을구분하고임의조건삭제/값치환은하지않는다. 계산식/입력보조·최소구매단위/생성저장·다른전표/원본/운영미확인을유지하며기존23후보/자료·양식/운영gate를보존한다. 이번40과완료된행렬/같은전체검사를변화없이반복하지않는다.
 
 모아P1은지속승인으로v56→57→58·기존372exact·착수2/결과10 문구/종류/수준exact·총384블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-conditional-types-preauthorized-20261029.json.
+
+
+## 2026-10-29 조건 품목행 체크 원문 보존 · 0.89.46 한정 후보 설계/검증
+
+예정10/29~10/30 KST·실제착수09:03:07.898810+09. 한정18흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변45의실제12관찰에서조건품목행선택B/수치0/문자false가boolean false로저장되는6사건과number/date B가공란으로저장되는4사건을구분했다. 이번patch는비계산checkbox전환과유효select의미편집primitive보존만다루며number/date는미해결로남긴다. 가격요청행customControl에checkbox보존옵션만명시적용하고유효select의수치/boolean 원문을실제input/change전까지보관한다. readLines는raw/strict를분리하고getDoc의strict업무저장/전표와refreshTotals의오류안내를연결한다. 실제체크전의원문/aria-invalid/항목ID/행번호안내와숨은오류칸을보이되visible/readonly메타데이터는보존한다. 공개원문은초안/제목저장/조건되돌리기/닫기재진입·빈품목복사초안에도보존한다.
+
+첫보완36의8통과/28실패는후보refreshTotals의기존VAT분기차이때문에getDoc이매번호출되지않아명시행오류가안내되지않은실제연결누락이었다. 공통행검사if만앞에추가하고기존VAT분기는그대로유지했다. 최종390/1280×18흐름36·기존Node99·격리전체726/전체Node/빌드·자체REA8범위4raw쌍exact/parse0을검증한다. 이전23후보·운영22worker/dirty12/매핑07bdfb3·FormCore/FormOptions/schema/backup보존. 숫자/일자행원문·private부분입력·행선택/스크롤·계산표시/입력보조·다른전표·원본/운영합격으로확대하지않는다. 근거.artifacts/manual-price-line-raw-20261029및후속JSON.
