@@ -1,0 +1,698 @@
+{
+  "sourceId": "OWN-PRICE-LINE-BASE-NUMERIC-PARTIAL-INPUT-RECOVERY-AUDIT",
+  "plannedStart": "2026-10-29",
+  "deadline": "2026-10-30",
+  "actualStart": "2026-10-29T10:43:49.729670+09:00",
+  "recordedAt": "2026-10-29T11:09:39.857610+09:00",
+  "auditStatus": "done-for-thirty-six-local-base-native-flows",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "version": "0.89.49",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.49",
+    "sourceCommit": "a2fb693563a2ef1012a5b29e1be0d38b00b29e2a",
+    "releaseCommit": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+    "branch": "release/0.89.49-price-line-base-native",
+    "baselineReleaseCommit": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+    "workerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.49-price-line-base-native",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.48",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "behavior": {
+    "registeredEditableQtyPriceDiscountNativeGuarded": true,
+    "sameOwnerLiveDomRetained": true,
+    "ownerChangeCloseWithoutRawRead": true,
+    "itemChangePreflightBeforeDerivedPrice": true,
+    "rejectedItemChoiceRestored": true,
+    "explicitZeroAndBlankBusinessRulesRetained": true,
+    "trustedCompletion100ExplicitSave": true,
+    "privateRawReconstructedOrSerialized": false,
+    "publicLegacyBasicRawAccepted": false,
+    "automaticConditionalReapplyAccepted": false,
+    "allLineSelectionAndIdentityAccepted": false,
+    "commonSchemaUnchanged": true
+  },
+  "validation": {
+    "actualShellFlows": 36,
+    "actualShellCases": 72,
+    "viewports": [
+      390,
+      1280
+    ],
+    "focusedExistingNode": 99,
+    "wholeBrowser": 894,
+    "wholeVerifyExitCode": 0,
+    "newPermanentNodeFiles": 0,
+    "newPermanentBrowserFiles": 1,
+    "writes": {
+      "cases": 72,
+      "localSettingsWrites": 0,
+      "localBusinessWrites": 20,
+      "fixtureInjectedWrites": 0,
+      "pageErrors": 0,
+      "remoteBusinessWrites": 0
+    },
+    "refusedBusinessOrPrintAttempts": 34,
+    "nativePartialRefusals": 12,
+    "ownerContextRefusals": 18,
+    "existingQuantityRuleRefusals": 4,
+    "itemChangeObservations": 6,
+    "itemChangeProbe": [
+      {
+        "kind": "qty",
+        "before": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "",
+          "badInput": true
+        },
+        "item": "P001",
+        "price": "12000",
+        "nodeConnected": true,
+        "businessExact": true,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "kind": "discount",
+        "before": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "",
+          "badInput": true
+        },
+        "item": "P001",
+        "price": "12000",
+        "nodeConnected": true,
+        "businessExact": true,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "kind": "discount",
+        "before": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "",
+          "badInput": true
+        },
+        "item": "P001",
+        "price": "12000",
+        "nodeConnected": true,
+        "businessExact": true,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "kind": "qty",
+        "before": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "",
+          "badInput": true
+        },
+        "item": "P001",
+        "price": "12000",
+        "nodeConnected": true,
+        "businessExact": true,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "kind": "price",
+        "before": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "12000",
+          "badInput": false
+        },
+        "item": "P001",
+        "price": "12000",
+        "nodeConnected": true,
+        "businessExact": true,
+        "pageErrors": [],
+        "remoteWrites": []
+      },
+      {
+        "kind": "price",
+        "before": {
+          "value": "",
+          "badInput": true
+        },
+        "after": {
+          "value": "12000",
+          "badInput": false
+        },
+        "item": "P001",
+        "price": "12000",
+        "nodeConnected": true,
+        "businessExact": true,
+        "pageErrors": [],
+        "remoteWrites": []
+      }
+    ],
+    "previous48ClearEventReview": {
+      "discount": [
+        {
+          "event": "keydown",
+          "trusted": true,
+          "key": "Delete",
+          "value": "0",
+          "badInput": false
+        },
+        {
+          "event": "input",
+          "trusted": true,
+          "key": null,
+          "value": "",
+          "badInput": false
+        },
+        {
+          "event": "keyup",
+          "trusted": true,
+          "key": "Delete",
+          "value": "",
+          "badInput": false
+        }
+      ],
+      "custom-number": [
+        {
+          "event": "keydown",
+          "trusted": true,
+          "key": "Delete",
+          "value": "2",
+          "badInput": false
+        },
+        {
+          "event": "input",
+          "trusted": true,
+          "key": null,
+          "value": "",
+          "badInput": false
+        },
+        {
+          "event": "keyup",
+          "trusted": true,
+          "key": "Delete",
+          "value": "",
+          "badInput": false
+        }
+      ],
+      "qty": [
+        {
+          "event": "keydown",
+          "trusted": true,
+          "key": "Delete",
+          "value": "3",
+          "badInput": false
+        },
+        {
+          "event": "input",
+          "trusted": true,
+          "key": null,
+          "value": "",
+          "badInput": false
+        },
+        {
+          "event": "keyup",
+          "trusted": true,
+          "key": "Delete",
+          "value": "",
+          "badInput": false
+        }
+      ],
+      "price": [
+        {
+          "event": "keydown",
+          "trusted": true,
+          "key": "Delete",
+          "value": "100",
+          "badInput": false
+        },
+        {
+          "event": "input",
+          "trusted": true,
+          "key": null,
+          "value": "",
+          "badInput": false
+        },
+        {
+          "event": "keyup",
+          "trusted": true,
+          "key": "Delete",
+          "value": "",
+          "badInput": false
+        }
+      ],
+      "custom-date": [
+        {
+          "event": "input",
+          "trusted": false,
+          "key": null,
+          "value": "",
+          "badInput": false
+        },
+        {
+          "event": "change",
+          "trusted": false,
+          "key": null,
+          "value": "",
+          "badInput": false
+        }
+      ]
+    },
+    "baselineInitial": {
+      "pass": 6,
+      "fail": 66,
+      "fixtureTimeouts": 6,
+      "cases": 72
+    },
+    "baselineCorrected": {
+      "pass": 6,
+      "fail": 66,
+      "fixtureTimeouts": 0,
+      "cases": 72
+    },
+    "firstAfter": {
+      "pass": 66,
+      "fail": 6,
+      "reason": "fixture assumed number fill-clear untrusted; actual trusted Delete"
+    },
+    "final": {
+      "pass": 72,
+      "fail": 0
+    },
+    "twoFilledRowsScope": "Second-row partial prevents first-row item change only; not full row identity/selection/scroll acceptance",
+    "pageErrors": 0,
+    "remoteBusinessWrites": 0,
+    "originalAccepted": false,
+    "productionAccepted": false
+  },
+  "ownRea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 4,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "lineNativeControls",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "278acb771db9e6b85b35cec61d96dfe91c820def492db408089492a9acc92147",
+        "start": 93638,
+        "end": 94045,
+        "lineStart": 412,
+        "lineEnd": 412,
+        "fragmentSha256": "88fae6504282bc391b4e87e606e64add6854eb2d7448df18c3aca8308a0724e7",
+        "inputFile": "own-lineNativeControls.js",
+        "inputSha256": "81a0d8111a4a04262ff95acde9300753340fd0ff65b4cc7465c27fa1c3976bf9",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "lineNativeControls",
+        "file": ".artifacts/releases/0.89.49-price-line-base-native/dist/inventory-ui.js",
+        "sourceSha256": "d310e1a7a9d2d6f12a1934643e3b149274747e40cab585fcab794280c4fa8cd3",
+        "start": 93374,
+        "end": 93781,
+        "lineStart": 411,
+        "lineEnd": 411,
+        "fragmentSha256": "88fae6504282bc391b4e87e606e64add6854eb2d7448df18c3aca8308a0724e7",
+        "inputFile": "candidate-lineNativeControls.js",
+        "inputSha256": "81a0d8111a4a04262ff95acde9300753340fd0ff65b4cc7465c27fa1c3976bf9",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "renderLines",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "278acb771db9e6b85b35cec61d96dfe91c820def492db408089492a9acc92147",
+        "start": 100716,
+        "end": 108496,
+        "lineStart": 424,
+        "lineEnd": 432,
+        "fragmentSha256": "4c3282bb1bf9866a60cf95798dd59ec5a8b81585e3548773a325ad0d4a46c48b",
+        "inputFile": "own-renderLines.js",
+        "inputSha256": "9f671104de7a2e3a08b47ab6f0f89d3ffb443becbe73a067e71d0dcf76cb2f9d",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "renderLines",
+        "file": ".artifacts/releases/0.89.49-price-line-base-native/dist/inventory-ui.js",
+        "sourceSha256": "d310e1a7a9d2d6f12a1934643e3b149274747e40cab585fcab794280c4fa8cd3",
+        "start": 99460,
+        "end": 107240,
+        "lineStart": 423,
+        "lineEnd": 431,
+        "fragmentSha256": "4c3282bb1bf9866a60cf95798dd59ec5a8b81585e3548773a325ad0d4a46c48b",
+        "inputFile": "candidate-renderLines.js",
+        "inputSha256": "9f671104de7a2e3a08b47ab6f0f89d3ffb443becbe73a067e71d0dcf76cb2f9d",
+        "wrapperAdded": true,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "61db0970e76fb8c1c7f928d9996266da78522db3867a9af61dba052bf1aca16c",
+    "statistics": {
+      "relevant_files": 4,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 17096,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 4,
+      "visited_ast_nodes": 4280,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      },
+      "0.89.41": {
+        "head": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "expectedHead": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "status": "",
+        "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "expectedWorkerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "exact": true
+      },
+      "0.89.42": {
+        "head": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "expectedHead": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "status": "",
+        "workerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "expectedWorkerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "exact": true
+      },
+      "0.89.43": {
+        "head": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "expectedHead": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "status": "",
+        "workerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "expectedWorkerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "exact": true
+      },
+      "0.89.44": {
+        "head": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "expectedHead": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "status": "",
+        "workerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "expectedWorkerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "exact": true
+      },
+      "0.89.45": {
+        "head": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "expectedHead": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "status": "",
+        "workerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "expectedWorkerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "exact": true
+      },
+      "0.89.46": {
+        "head": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "expectedHead": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "status": "",
+        "workerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "expectedWorkerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "exact": true
+      },
+      "0.89.47": {
+        "head": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "expectedHead": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "status": "",
+        "workerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "expectedWorkerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "exact": true
+      },
+      "0.89.48": {
+        "head": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "expectedHead": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "status": "",
+        "workerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "expectedWorkerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "sourceEquality": {
+    "/home/lck/projects/Rea_ERP": {
+      "outsideEditsExact": true,
+      "sharedEdits": 2,
+      "sha256": "278acb771db9e6b85b35cec61d96dfe91c820def492db408089492a9acc92147",
+      "baselineSha256": "7b8ded36571b3846df98299e6833a6b9d13ddb2fd864ce5ccc88b06deadda442"
+    },
+    "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.49-price-line-base-native": {
+      "outsideEditsExact": true,
+      "sharedEdits": 2,
+      "sha256": "d310e1a7a9d2d6f12a1934643e3b149274747e40cab585fcab794280c4fa8cd3",
+      "baselineSha256": "6142a5891d8eba607f6789ea30eca9b8770027021d82a2f8e721de73ef91a853"
+    }
+  },
+  "manualCounts": {
+    "onlineIndex": 77,
+    "bodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "wholeManualComplete": false
+  },
+  "moa": {
+    "startSaved": true,
+    "startReadbackExact": true,
+    "resultSaved": true,
+    "readbackVerified": true,
+    "actualMetadataSet": false,
+    "previous48EventSentenceCorrection": {
+      "old_text": "비움준비fill은untrusted 이벤트이고이후키만trusted임을구분했다.",
+      "new_text": "비움준비fill은추가일자에서untrusted input/change였고추가숫자·수량·단가·할인율에서는trusted Delete/input/keyup이었다. 이후1/e/일자키의trusted 이벤트는각각구분했다.",
+      "reason": "Re-read previous48 preserved event JSON; blanket untrusted-clear wording was date-only. No change to protection, case counts, acceptance or original/production status.",
+      "evidence": ".artifacts/manual-price-line-base-native-20261029/previous48-clear-event-review.json"
+    },
+    "previous48EventSentenceCorrected": true,
+    "p1FinalVersion": 66,
+    "p1FinalBlocks": 432,
+    "evidence": "evidence/moa-price-line-base-native-preauthorized-20261029.json"
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-LINE-HELPER-DRAFT-APPLICATION-CONTRACT-AUDIT",
+    "title": "단가요청 입력보조 적용·초안·행 재구성 계약 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-line-base-native-20261029.json",
+    "latestEvidence": "evidence/manual-price-line-base-native-20261029.json",
+    "description": "이번49는등록native 숫자읽기/7행동작/품목change의한정보호다. 이미열린입력보조창의getDraft/onApply와helper/assertHistoryOwner/applyDraft/applyCustom는별도실행경로이므로실제지원UI와기존검사를읽고현재초안/부분입력·취소/명시적용·선택행·권한/자료/닫기·원문/양식의확인된새소실이나부분적용만대조한다. 자동조건재적용·행계산표시/모든입력보조·다중행전체/다른전표·원본/운영미확인과기존27후보/자료·양식·운영gate를보존하고이번기본72/추가48/공개원문/상단완료행렬과같은전체검사를변화없이반복하지않는다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41",
+      "0.89.42",
+      "0.89.43",
+      "0.89.44",
+      "0.89.45",
+      "0.89.46",
+      "0.89.47",
+      "0.89.48",
+      "0.89.49"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifacts": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-line-base-native-20261029",
+  "productionGate": "Fresh authenticated browser backup/UI and server/mail prebasis required; no new connection evidence"
+}
