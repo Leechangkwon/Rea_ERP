@@ -1255,3 +1255,10 @@ source 21117de / release 8bb5972 / branch release/0.89.46-price-line-checkbox-ra
 다음은단가요청품목행숫자/일자공개원문보존·복구대조다. 왜: 이번관찰12중number/date B가공란으로저장된4사건은checkbox전용보완으로해결되지않았기때문이다. 행customControl/readLines/refreshTotals·기존line저장/계산과양식검사부터읽고공개원문/기본값·readonly·수정/비움·설정/초안재진입·F8/F7의확인된새손실만보완한다. 상단옵션/strict정책을행에무조건복사하거나공통validator를강화해기존backup을거부하지않는다. native부분입력/private조각·미등록선택·행계산/입력보조·다중유효행ID/선택/스크롤·다른전표/원본/운영은미확인으로유지하고기존24후보/자료·양식·운영gate를보존한다. 이번행체크36과상단40/기존숫자·날짜행렬/전체검사를변화없이반복하지않는다.
 
 모아P1은지속승인으로v58→59→60·기존384exact·착수2/결과10 문구/종류/수준exact·총396블록/결과제목1회를저장·재조회했다. 다른15문서/색인·새문서·재질문·중복게시0, 실제일정/상태메타데이터미설정이다. 근거 evidence/moa-price-line-raw-preauthorized-20261029.json.
+
+
+## 2026-10-29 품목행 숫자·일자 공개원문 보존 · 0.89.47 한정 후보 설계/검증
+
+예정10/29~10/30 KST·실제착수09:34:27.908046+09. 한정24흐름 로컬감사done/미배포패치doing/P1doing·실제메타데이터미설정. 불변46의실제8관찰에서number/date B가공란으로저장되는4손실과정상숫자문자2가숫자2로정규화되는2사건/정상일자유지2를구분했다. core applyForm의compute/check 저장계약은그대로유지한다. 단가요청비계산행number/date에만기존customControl의공개원문fallback을명시적용하고readLines의raw와strict를분리한다. strict는실제HTML number표현/유한값과기존F.check 일자규칙을검사하고행번호/항목명/ID·aria-invalid·명시수정/비움을안내한다. 표현가능수치0와불리언false의미편집원문은실제input/change전까지별도로보존한다. fallback오류열은thead와각행cell을같이표시해열정렬과저장된visible/readonly를보존한다. 기존체크·상단보호/공통FormCore/FormOptions/schema/backup·VAT/API차이유지.
+
+최종390/1280×24흐름48·기존관련Node99·격리전체774/전체Node/빌드·자체REA readLines/renderLines선언4범위2raw쌍exact/parse0을검증한다. 수정/비움/조건되돌리기·기본값현재원문과clean재열기새기본값·수량/단가·제목/readonly·빈품목복사초안·권한/자료거절을확인한다. native부분입력/private조각·미등록선택·행계산표시/입력보조·다중유효행ID/선택/스크롤·다른전표/원본/운영합격이아니다. 기존24후보/운영22worker/dirty12/매핑07bdfb3 보존. 근거.artifacts/manual-price-line-number-date-20261029및후속JSON.
