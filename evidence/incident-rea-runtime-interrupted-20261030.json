@@ -1,0 +1,113 @@
+{
+  "dateKst": "2026-10-30",
+  "recordedAt": "2026-10-30T10:31:14.190824+09:00",
+  "kind": "interrupted-full-validation-and-unavailable-installed-runtime-after-WSL-restart",
+  "status": "restored-installed-runtime-only",
+  "versionUnchanged": "0.89.22",
+  "initialEvidence": {
+    "previousExecSessionUnavailable": 44759,
+    "wholeValidationExitFileAbsent": true,
+    "lastLoggedBrowserPassed": 40,
+    "wslInitElapsedSeconds": 17,
+    "localPort8781ConnectionRefused": true,
+    "initialWindowsWslAndCloudflaredProcessCount": 0,
+    "public1033Observed": false,
+    "shutdownCauseKnown": false,
+    "shutdownActorKnown": false,
+    "windowsLastBootUtc": "2026-10-28T23:14:31.5009210Z",
+    "windowsRebootAtInterruptionConfirmed": false
+  },
+  "recovery": {
+    "windowsHolderPid": 7536,
+    "cloudflaredWindowsPid": 32904,
+    "linuxServerProcessGroupPid": 1715,
+    "manager": "/home/lck/.local/bin/rea-erp-dev",
+    "independentHiddenWindowsProcesses": true,
+    "built": false,
+    "candidateDeployed": false,
+    "autostartAdded": false,
+    "dnsChanged": false
+  },
+  "preservation": {
+    "freshBefore": {
+      "phase": "before",
+      "at": "2026-10-30T01:29:49.670Z",
+      "privateDirectory": "/home/lck/.local/share/rea-erp/backups/runtime22-recovery64-20261030-before-1793323779024",
+      "operatingVersion": "0.89.22",
+      "runtimeHash": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+      "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+      "remoteRevisions": {
+        "rea_app_state": 36,
+        "rea_gateway_state": 0
+      },
+      "remoteHash": "5d4c1b764a431ec0cd1fded4eb2f7e2198284409d93d4f7e69bad05e58f2af36",
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "contentHash": "cc8ddba090e3732325831cff5f85dc8779ee8bf93898c5a6657788b78b6cf6a8"
+      },
+      "readOnlyRemote": true,
+      "restoreCalled": false,
+      "browserBackupCaptured": false,
+      "authenticatedUiVerified": false
+    },
+    "freshAfter": {
+      "phase": "after",
+      "at": "2026-10-30T01:30:37.463Z",
+      "privateDirectory": "/home/lck/.local/share/rea-erp/backups/runtime22-recovery64-20261030-after-1793323829039",
+      "operatingVersion": "0.89.22",
+      "runtimeHash": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+      "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+      "remoteRevisions": {
+        "rea_app_state": 36,
+        "rea_gateway_state": 0
+      },
+      "remoteHash": "5d4c1b764a431ec0cd1fded4eb2f7e2198284409d93d4f7e69bad05e58f2af36",
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "contentHash": "cc8ddba090e3732325831cff5f85dc8779ee8bf93898c5a6657788b78b6cf6a8"
+      },
+      "readOnlyRemote": true,
+      "restoreCalled": false,
+      "browserBackupCaptured": false,
+      "authenticatedUiVerified": false,
+      "exact": {
+        "runtime": true,
+        "worker": true,
+        "remote": true,
+        "mail": true
+      }
+    },
+    "tunnelConfigSha256": "f1fe1bacffe9840e0573259166d43a54040fe44da308a5fce1d5a6f3ee8d67f0",
+    "remoteRestoreCalled": false,
+    "schemaOrSettingsChanged": false,
+    "dataOrMailWrittenOrSent": false
+  },
+  "validation": {
+    "publicChecks": 23,
+    "assetHashesExactToInstalled22Snapshot": 20,
+    "login200AndVersion22": true,
+    "localHealth200": true,
+    "publicInternalHealth404": true,
+    "unauthenticatedMail401": true,
+    "authenticatedBrowserUiVerified": false,
+    "freshBrowserBackupCaptured": false,
+    "existingBrowserSessionPreservationVerified": false
+  },
+  "interruptedWholeNotAccepted": true,
+  "latestPreparedCandidateAtRecovery": "0.89.63",
+  "candidate64UncommittedAtRecovery": true,
+  "all41CandidatesRetained": true,
+  "newErpTouched": false,
+  "prohibitedPortsTouched": false,
+  "evidenceDirectory": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-base-memo-form-default-20261030",
+  "skillReference": "C:/Users/PL-PD-CHANGGWON-LEE/.codex/plugins/cache/openai-curated-remote/supabase/1.0.0/skills/supabase/SKILL.md",
+  "docsChecked": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/guides/api.md"
+  ],
+  "docsFinding": "Existing Data REST read/backup only; no table exposure/schema/auth/library changes required"
+}
