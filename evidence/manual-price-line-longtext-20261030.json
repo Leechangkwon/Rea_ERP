@@ -1,0 +1,769 @@
+{
+  "sourceId": "OWN-PRICE-LINE-LONGTEXT-MULTILINE-RAW-METADATA-CONTRACT-AUDIT",
+  "plannedStart": "2026-10-30",
+  "deadline": "2026-10-31",
+  "actualStart": "2026-10-30T08:36:45.850136+09:00",
+  "recordedAt": "2026-10-30T09:11:17.889109+09:00",
+  "elapsedSeconds": 2072.039,
+  "auditStatus": "done-for-eighteen-local-existing-longtext-body-flows",
+  "patchStatus": "doing",
+  "p1Status": "doing",
+  "actualMetadataConfigured": false,
+  "version": "0.89.62",
+  "operatingVersion": "0.89.22",
+  "status": "validated-pushed-not-deployed",
+  "sourceWorkComplete": false,
+  "release": {
+    "version": "0.89.62",
+    "sourceCommit": "e8bcdf7833b0768c4186385892020c598fd1944c",
+    "releaseCommit": "137e6feca35cd5dceea9a46407e3d6482e51eabe",
+    "branch": "release/0.89.62-price-line-longtext",
+    "baselineReleaseCommit": "e7c931eb9dbcd75e30435a025da9497c1cb9b52f",
+    "workerSha256": "289784fbc9c79e934b120b40907a07b21357fe837f782b042de49f0b2579e005",
+    "snapshot": "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.62-price-line-longtext",
+    "sourcePushed": true,
+    "releasePushed": true,
+    "deployed": false,
+    "operatingVersion": "0.89.22",
+    "parentCandidateVersion": "0.89.61",
+    "deploymentGate": "Fresh authenticated production browser backup and UI verification unavailable: browser tool Transport closed",
+    "remoteRefsVerified": true
+  },
+  "basis": {
+    "reviewed": [
+      {
+        "file": "docs/manual-parity/PRD.md",
+        "sha256": "afce002df28ee01f6d91ed1bff727cbe3be87ce9ddef3410f83a17713fd6a7dd",
+        "relevantMatches": [
+          {
+            "line": 45,
+            "excerpt": "발주요청 기본(수정불가) 인쇄에만 해당 상단 정보를 추가하고 제목을 발주요청서로 표시한다. 저장된 사용자/조건부 양식은 기존 상단과 배치를 유지한다. 요청서 인쇄 schema의 거래처명 열은 기본 양식에서 보이고 기존 사용자 양식에는 기본 숨김으로 추가해 원래 열을 유지한다. 사용자가 이미 명시한 supplier 열/숨김·명칭·폭·정렬은 우선한다. 새 저장이나 백업 마이그레이션은 하지 않는다."
+          },
+          {
+            "line": 49,
+            "excerpt": "모바일 상단은 한 쌍씩 쌓고 표는 기존 인쇄 미리보기의 내부 가로스크롤을 재사용한다. 운영0.86 기반 분리0.87에서 기본/기존/조건부·단건/다건·저장값/공란·기존 검증/역할/외부변경·사용자 양식의 명시 거래처 열·자료/양식 보존을 검증한 뒤 관련/전체 회귀와 REA 범위분석을 수행한다. 기존 원본 출력 연결2범위는 입력/설정/결과 해시를 검증해 재사용하며 새분석으로 세지 않는다. source/release commit/push 후 기존 운영에 반영·무저장 확인/보존 대조를 한다. root 전체빌드와 미배포 VAT5/mapping은 제외한다."
+          },
+          {
+            "line": 59,
+            "excerpt": "배치는 전표별 별도 페이지와 기존 제목/표시필드/너비/정렬·추가항목/계산식/소수점·회사/머리말/꼬리말/합계·용지/방향/여백을 보존한다. 배치창에서는 양식설정 쓰기를 추가하지 않으며 기존 등록 양식을 읽는다. 인쇄 직전 계정/회사/조회권한·설정/raw·원본 전표·조회/선택 및 창 수명을 검사한다. 닫기·경로이동·외부변경/계정변경 후 남은 callback은 인쇄하지 못한다. 인쇄 자체는 명시적인 버튼으로만 실행하며 저장/진행상태·업무 발송은 없다. 원본 전자결재 필터 동등성·PDF/메일·외화/전체 출력양식 합격은 미확인으로 남긴다."
+          },
+          {
+            "line": 75,
+            "excerpt": "발주요청에 한정해 native 통화 선택의 추가 항목으로 별도 외화등록 dialog를 연다. 선택 직후 이전 통화로 돌려놓아 부모 초안에 UI전용 값을 넣지 않는다. 0.84의 외화등록 필드/소수점·기존 양식 기본/readonly/숨김/추가항목을 공통 폼 생성기로 재사용한다. 닫기는 등록 쓰기 없이 부모를 유지하며, 성공한 신규 등록만 새 통화로 선택한다. 부모 전표는 별도 저장해야 한다. 합계는 기존 원화 계산을 유지하고 환율·외화금액/출력 적용은 확장하지 않는다."
+          },
+          {
+            "line": 101,
+            "excerpt": "발주요청의 기본 입력 reference를 비계산 일반 text로 바꾸고 기존 getDoc→document.save→재조회·빠른검색을 사용한다. 기존 수정/빈값으로 지우기·닫기취소·저장/내용유지·저장/신규, 사용자 양식의 표시/명칭/readonly/기본값·조건 및 원문/기존 자료를 보존한다. 발주계획/발주서의 미확인 참조 계약과 회사설정·금액·재고·영속 schema는 바꾸지 않는다. 자체 readonly 권한/CAS 검증은 그대로이며 공개영상은2024설명이지 현재 계정 전체 동등성 증거가 아니다."
+          }
+        ]
+      },
+      {
+        "file": "docs/manual-parity/ARCHITECTURE.md",
+        "sha256": "707a5af2f2e209863b02b1d9104584e420be4acb914cda6c7e8c72b6bb327421",
+        "relevantMatches": [
+          {
+            "line": 49,
+            "excerpt": "## 발주요청 인쇄의 기본/사용자 양식 보존"
+          },
+          {
+            "line": 51,
+            "excerpt": "printSchema는 type/record별 유효 print양식의 기본/사용자 여부만 읽어 신규 거래처 열의 기본 표시를 정한다. appendPrintDocument의 요청서 분기는 기본 양식에서만6개 상단 값을 DOM text로 출력한다. 거래처명은 기록된 line.supplier를 등록명/원문 코드로 해석하며 품목 기본값을 적용하지 않는다. 단건과 배치는 같은 함수를 쓰고 사용자 양식 metadata 자체는 쓰지 않는다. 새 page 옵션·공통 양식 스키마 변경은 없다."
+          },
+          {
+            "line": 83,
+            "excerpt": "masterEditor에 금액소수점 native select를 추가한다. 신규만2, 구자료는 미설정/기존값 보존 선택지를 사용하고 저장 시 해당 속성의 존재 여부와 원형을 유지한다. 기존 사용자 양식 readonly/hidden/명칭과 command/localStorage CAS·권한 검증은 그대로 사용한다. dropdown 추가는 부모의 DOM/미저장 값·권한/회사/CAS를 보존해야 하므로 별도2차로 다룬다. 원본 bridge의 ESA035M 신규창은 정적 근거이며 실행/서버 동등성은 미확인이다."
+          },
+          {
+            "line": 93,
+            "excerpt": "발주요청의 기본 입력 reference를 비계산 일반 text로 바꾸고 기존 getDoc→document.save→재조회·빠른검색을 사용한다. 기존 수정/빈값으로 지우기·닫기취소·저장/내용유지·저장/신규, 사용자 양식의 표시/명칭/readonly/기본값·조건 및 원문/기존 자료를 보존한다. 발주계획/발주서의 미확인 참조 계약과 회사설정·금액·재고·영속 schema는 바꾸지 않는다. 자체 readonly 권한/CAS 검증은 그대로이며 공개영상은2024설명이지 현재 계정 전체 동등성 증거가 아니다."
+          },
+          {
+            "line": 113,
+            "excerpt": "실제 셸 연결 중 한 줄 text 입력칸이 줄바꿈을 제거하는 문제가 발견돼 매핑 단계에서 차단했다. LF는 multiline 장문 대상으로만 적용하며 CR/CRLF처럼 native control이 원문을 바꾸는 값은 거부한다. 원문을 정규화하거나 잘라내지 않는다. 신규 UI Node17+core1=18·관련286/286·전체 npm test·전체 Playwright119(신규4,390/1280px)·도구7/릴리스4/환경/격리빌드 통과. 브라우저는 실제 AuthUI 모듈과 localhost 합성 HTTP만 사용했고 원본/실계정 운영 합격은 아니다. REA6.4 새 자체5범위 parse0·coverage unknown/truncated false, 기존 원본4범위 해시검증 재사용이다."
+          }
+        ]
+      },
+      {
+        "file": "evidence/manual-entry-required-guidance-20261022.json",
+        "sha256": "ad3ededf2558362033a848a1e24cad511114a9145b688c2d0fdc296db5c57de1",
+        "relevantMatches": [
+          {
+            "jsonPath": "$.nextWork",
+            "excerpt": "REQ-COM-FORMS-002(발주요청 우선): 새 본문의 상단 문자5/장문1·하단 적요3/금액2 한도와 원본 입력양식 추가목록의 실제 항목 종류·메뉴 예외를 읽기 전용 대조한다. 확인된 신규 추가 허용범위를 실제 FormOptions에 연결하되 기존 저장양식/추가값은 한도초과·미상종류여도 자동변환/삭제하지 않는다. 범용100개 제한을 원본 한도로 간주하지 않는다. 입력순서재정렬/공용사용자·회계/근태 예외도 미완료다. 업로드 Req005의 묶음 equality/기본값 순서·조건부필수/Validator/최신전표 초기값/통화none 인코딩/금액영속/실패재시도는 여전히 미확인이라 저장을 켜지 않는다. 같은 규칙 helper나 통과검사를 변화 없이 반복하지 않는다. 운영0.80.0/runtime42349/PID2429819 유지, mainVAT5 전체빌드·원본 입력행/행이동·설정/업무저장/발송 금지, 전체매뉴얼완료 false."
+          }
+        ]
+      },
+      {
+        "file": "evidence/manual-request-input-order-20261022.json",
+        "sha256": "aabea39f23c71d5af40c7ddd6ba23381c7b7c7f6cd3837dc3bc6252a9a5d3f72",
+        "relevantMatches": [
+          {
+            "jsonPath": "$.originalObservation.footerLabel",
+            "excerpt": "입력순서재정렬"
+          },
+          {
+            "jsonPath": "$.nextWork",
+            "excerpt": "REQ-COM-FORMS-002: 다음은 발주요청 하단 분리 위젯의 필드 입력순서와 bundle/복합항목 포커스 metadata를 읽기 전용 대조한다. ApplyWidgetUserAction의 bundle_prop_map/bundle_item_map과 실제 품목/거래처/관리항목 설정 공급원을 좁혀 확인하며, 상단의 평면 DOM/CSS 전략을 하단 표에 추정 적용하지 않는다. 원본 주입력행/행번호/설정저장 없이 확인하고 근거가 있는 흐름만 구현한다. 동일번호 tie·권한/조건별 포커스·회사공유/다른메뉴 예외와 실제 업무저장 합격은 미확인이다. 통과한 상단 helper/회귀를 변화 없이 반복하지 않는다. REQ-PUR-REQ-005 업로드 묶음 equality/조건부필수/저장·재시도 미확인으로 저장비활성 유지. 운영0.82.0/runtime57336/PID2454806 유지, mainVAT5 전체빌드·원본 업무/설정저장/주입력행·발송 금지, 전체매뉴얼완료 false."
+          }
+        ]
+      },
+      {
+        "file": "evidence/manual-parity-20261021/requirements.json",
+        "sha256": "b5575ada7a58dd425f22deaec630c02660f1fdfded60de05b3b5a2c3a63aabd1",
+        "relevantMatches": [
+          {
+            "jsonPath": "$.officialRequirements[17].title",
+            "excerpt": "같은 명칭 추가항목 승계"
+          },
+          {
+            "jsonPath": "$.officialRequirements[17].procedure[0]",
+            "excerpt": "발주서와 구매의 추가항목 명칭 일치"
+          },
+          {
+            "jsonPath": "$.officialRequirements[17].procedure[2]",
+            "excerpt": "적용한 추가항목 조회"
+          },
+          {
+            "jsonPath": "$.officialRequirements[17].sourceLocator.section",
+            "excerpt": "같은 명칭 추가항목 승계"
+          }
+        ]
+      }
+    ],
+    "sourceScope": "existing manuals/PRD/architecture do not prove new price BODY longtext creation UI; runtime preservation only",
+    "newOriginalObservation": 0,
+    "newManualBody": 0,
+    "officialRequirementsAdded": 0
+  },
+  "supportScope": {
+    "catalogPriceBodyLongAvailable": false,
+    "catalogRequestBodyLongAvailable": false,
+    "catalogRequestHeaderLongSlots": 1,
+    "existingFreeDefinitionValidated": true,
+    "existingDefinitionStorageRoundtripExact": true,
+    "uiCreationClaim": false,
+    "formOptionsMultilineControlPresent": false,
+    "scope": "existing validated free text/multiline BODY definition; no catalog or new creation UI added"
+  },
+  "behavior": {
+    "existingValidatedFreeCustomBodyTextMultilineTrueOnly": true,
+    "newCatalogOrUiCreationSupport": false,
+    "untouchedLfCrlfCrRawPreserved": true,
+    "explicitEditClearOrChangedNativeValueUsesCurrentText": true,
+    "readonlyRequiredHiddenDefaultsLocallyVerified": true,
+    "headerAndOtherDocumentPoliciesUnchanged": true,
+    "coreFormParserSchemaBackupUnchanged": true,
+    "formOptionsSaveRoundtripAccepted": false,
+    "allCustomLongTextAccepted": false,
+    "allHelpersAccepted": false,
+    "allLineIdentitySelectionScrollAccepted": false,
+    "originalAccepted": false,
+    "productionAccepted": false
+  },
+  "validation": {
+    "actualShellFlows": 18,
+    "actualShellCases": 36,
+    "viewports": [
+      390,
+      1280
+    ],
+    "focusedExistingNode": 128,
+    "wholeBrowser": 1460,
+    "wholeVerifyExitCode": 0,
+    "newPermanentNodeFiles": 0,
+    "newPermanentBrowserFiles": 1,
+    "writes": {
+      "cases": 36,
+      "localSettingsSnapshotWrites": 4,
+      "automaticNewPriceRequestMetadataWrites": 4,
+      "localBusinessWrites": 32,
+      "fixtureInjectedWrites": 0,
+      "pageErrors": 0,
+      "remoteBusinessWrites": 0,
+      "settingsSaveUiActions": 0
+    },
+    "initialBrowserLaunchBlockedCases": 36,
+    "initialBrowserLaunchApplicationsExecuted": 0,
+    "baseline": {
+      "pass": 16,
+      "fail": 20
+    },
+    "firstAfter": {
+      "pass": 36,
+      "fail": 0
+    },
+    "assertionsOrFixtureChangedAfterBaseline": false,
+    "fullRuns": 1,
+    "preNpmGateInterruption": true,
+    "roleCompanyAndNativeValueWithoutEventAreFixtureInjections": true
+  },
+  "ownRea": {
+    "reaVersion": "6.4.0",
+    "newOriginalScopes": 0,
+    "newOwnScopes": 6,
+    "originalSources": [],
+    "scopes": [
+      {
+        "category": "own",
+        "symbol": "lineCustomControl",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "01aebb70efe0f349475c55950f9265650e6fed541e204059992e70f141d8f278",
+        "start": 95639,
+        "end": 96430,
+        "lineStart": 424,
+        "lineEnd": 434,
+        "fragmentSha256": "b3d03e2938a80579ff6b1f831c799d91fc927af87ea051cb6bd7b9aed7d036ec",
+        "inputFile": "own-lineCustomControl.js",
+        "inputSha256": "b3b323858f287c339e1c3bd565d507a35cbc1dfa6dfbc86b34e87de9d5525cc3",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "lineCustomControl",
+        "file": ".artifacts/releases/0.89.62-price-line-longtext/dist/inventory-ui.js",
+        "sourceSha256": "4b428b340674068756d632899056de1ce81f894aeb69d53f05fdb352384cdb96",
+        "start": 95375,
+        "end": 96166,
+        "lineStart": 423,
+        "lineEnd": 433,
+        "fragmentSha256": "b3d03e2938a80579ff6b1f831c799d91fc927af87ea051cb6bd7b9aed7d036ec",
+        "inputFile": "candidate-lineCustomControl.js",
+        "inputSha256": "b3b323858f287c339e1c3bd565d507a35cbc1dfa6dfbc86b34e87de9d5525cc3",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "createCustomLongControl",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "01aebb70efe0f349475c55950f9265650e6fed541e204059992e70f141d8f278",
+        "start": 106914,
+        "end": 106936,
+        "lineStart": 449,
+        "lineEnd": 449,
+        "fragmentSha256": "7c7d408b8f892ebb28ac3a32e3efd5ff389cd25dab4ea0d66c682057d6d93ed8",
+        "inputFile": "own-createCustomLongControl.js",
+        "inputSha256": "85290a01d31a69f953448547c502d120dfd0b3cb29a0f1355dd34742417096ba",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "createCustomLongControl",
+        "file": ".artifacts/releases/0.89.62-price-line-longtext/dist/inventory-ui.js",
+        "sourceSha256": "4b428b340674068756d632899056de1ce81f894aeb69d53f05fdb352384cdb96",
+        "start": 105658,
+        "end": 105680,
+        "lineStart": 448,
+        "lineEnd": 448,
+        "fragmentSha256": "7c7d408b8f892ebb28ac3a32e3efd5ff389cd25dab4ea0d66c682057d6d93ed8",
+        "inputFile": "candidate-createCustomLongControl.js",
+        "inputSha256": "85290a01d31a69f953448547c502d120dfd0b3cb29a0f1355dd34742417096ba",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "own",
+        "symbol": "longFieldMetadata",
+        "file": "dist/inventory-ui.js",
+        "sourceSha256": "01aebb70efe0f349475c55950f9265650e6fed541e204059992e70f141d8f278",
+        "start": 107742,
+        "end": 107943,
+        "lineStart": 449,
+        "lineEnd": 449,
+        "fragmentSha256": "5997c06bbd2246fc9adb88f92159c7de61fab5f0bc2a3cf240f180c59d701c43",
+        "inputFile": "own-longFieldMetadata.js",
+        "inputSha256": "2466b1fa7dbcaed52467578d8046d2908438c485fba863917cf8ab047a2c8ec5",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      },
+      {
+        "category": "candidate",
+        "symbol": "longFieldMetadata",
+        "file": ".artifacts/releases/0.89.62-price-line-longtext/dist/inventory-ui.js",
+        "sourceSha256": "4b428b340674068756d632899056de1ce81f894aeb69d53f05fdb352384cdb96",
+        "start": 106486,
+        "end": 106687,
+        "lineStart": 448,
+        "lineEnd": 448,
+        "fragmentSha256": "5997c06bbd2246fc9adb88f92159c7de61fab5f0bc2a3cf240f180c59d701c43",
+        "inputFile": "candidate-longFieldMetadata.js",
+        "inputSha256": "2466b1fa7dbcaed52467578d8046d2908438c485fba863917cf8ab047a2c8ec5",
+        "wrapperAdded": false,
+        "bindingsOutsideScopeUnresolved": true
+      }
+    ],
+    "resultSha256": "af7e04a410a2eeb9c57ae99c5f7db65c63e6f3eee21caaba372cacda282f2e00",
+    "statistics": {
+      "relevant_files": 6,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 2034,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 6,
+      "visited_ast_nodes": 446,
+      "findings": 0,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "coverage": "unknown",
+    "truncated": false,
+    "fullModuleCoverage": false,
+    "newOriginalBodies": 0,
+    "originalExecuted": false,
+    "runtimeEquivalence": false
+  },
+  "preservation": {
+    "operatingVersion": "0.89.22",
+    "operatingWorkerExact": true,
+    "priorCandidates": {
+      "0.89.23": {
+        "head": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "expectedHead": "dde83efd835f87179a33543e4d20667d7ee31260",
+        "status": "",
+        "workerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "expectedWorkerSha256": "1feca122ae971b71d8415819df5a2ed922dea37e6571ee31f47fab2be003d8a6",
+        "exact": true
+      },
+      "0.89.24": {
+        "head": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "expectedHead": "1589a7809cacdc2c906fa5deeb5a300a71e39f6f",
+        "status": "",
+        "workerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "expectedWorkerSha256": "629e0406133fe3f142ba67fe1ebd3689e190ee79594494c4fbdc365bd6f01b16",
+        "exact": true
+      },
+      "0.89.25": {
+        "head": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "expectedHead": "76d0f96c791fb81d0c4acd9a153b4868f3b4418d",
+        "status": "",
+        "workerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "expectedWorkerSha256": "82f5dd453fc83c6fa8a783e0643d570dc10304f30ec590e53083ff133b14ff0f",
+        "exact": true
+      },
+      "0.89.26": {
+        "head": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "expectedHead": "5cf628da1900b3e01b5314f4d32040d47726a757",
+        "status": "",
+        "workerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "expectedWorkerSha256": "b31906188f44db3ad7dc98a641c6e2491cc246e94ae44673ad200428ed40137e",
+        "exact": true
+      },
+      "0.89.27": {
+        "head": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "expectedHead": "0699c73c5ff1f6102ee9b6621233c95176166028",
+        "status": "",
+        "workerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "expectedWorkerSha256": "909994eef274889f28da8dc954c84d2a6785ba4515220ab6294cdecce8fedcff",
+        "exact": true
+      },
+      "0.89.28": {
+        "head": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "expectedHead": "fded080c225f9c4aa95a423297eeba7df0cae8b9",
+        "status": "",
+        "workerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "expectedWorkerSha256": "e81c8e67cfa0f0c99d521fa3453eb4dd4ca1cbdce2b3c15cb179a7331cd80aa5",
+        "exact": true
+      },
+      "0.89.29": {
+        "head": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "expectedHead": "51ee075241e2deab19a8a750b31f0ddaa096ba2f",
+        "status": "",
+        "workerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "expectedWorkerSha256": "d1e974e59a68f1cd6a525912cdd3fa533f21c4d0fa58148e301343d03b3ceed4",
+        "exact": true
+      },
+      "0.89.30": {
+        "head": "36936db7ee9a034d469509084465b090e4263037",
+        "expectedHead": "36936db7ee9a034d469509084465b090e4263037",
+        "status": "",
+        "workerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "expectedWorkerSha256": "7891112417d2c91e576c310a053891baedf073535cfa97f41518a7d1704a1ca3",
+        "exact": true
+      },
+      "0.89.31": {
+        "head": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "expectedHead": "0f140578de2e541462609db88ed18fd65eda54c5",
+        "status": "",
+        "workerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "expectedWorkerSha256": "9c2d8d45766feb8cd75ae843c3e970f647330f869fd488120df1bbef68db9881",
+        "exact": true
+      },
+      "0.89.32": {
+        "head": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "expectedHead": "952b069d80e00f9515d753fd101a970b17a4d552",
+        "status": "",
+        "workerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "expectedWorkerSha256": "dfde0d16df789da5f2b7e4bf9794882763576f2574d661d33d40b27a18990513",
+        "exact": true
+      },
+      "0.89.33": {
+        "head": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "expectedHead": "2f958bad96b2a8ba906dc953cc7216edcf37f878",
+        "status": "",
+        "workerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "expectedWorkerSha256": "aec3d3c3f189db6d922d893508a11b6dcd49aabf2eb5a2eab55df2c4dd4bb771",
+        "exact": true
+      },
+      "0.89.34": {
+        "head": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "expectedHead": "d5e1da590788ef6034124b8d9b420ddf148381b1",
+        "status": "",
+        "workerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "expectedWorkerSha256": "3db0c867894eee0fd5ee73a8676d79f52c5bfb0ddbc7b214eb5d112a9b8c10a2",
+        "exact": true
+      },
+      "0.89.35": {
+        "head": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "expectedHead": "e7958f9acd999e86b415eb06ab76ea307ed91367",
+        "status": "",
+        "workerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "expectedWorkerSha256": "b9146a8348dd3c47b50fb7b4d9a9cb165dcc0436095ac261d26309d8967f72b8",
+        "exact": true
+      },
+      "0.89.36": {
+        "head": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "expectedHead": "8a4747c6921c3ee4b155e48e3f25bb1c9b9bf02d",
+        "status": "",
+        "workerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "expectedWorkerSha256": "c0bca4e6c806641082a8353170a4b096114d2287745610be10a4344fdc510979",
+        "exact": true
+      },
+      "0.89.37": {
+        "head": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "expectedHead": "409adff1844d9ec0e74babebdc1785a22183ad68",
+        "status": "",
+        "workerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "expectedWorkerSha256": "8468d2a531dd842c4a1ce5af0caafa97c918b334e11b2434dac132b779778fbf",
+        "exact": true
+      },
+      "0.89.38": {
+        "head": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "expectedHead": "ebc931b6d17fcc5ad66a9e8ab8164a2d17b6dce6",
+        "status": "",
+        "workerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "expectedWorkerSha256": "86f745f28b4f2a45464acca52ba80b6ab536e842026eda79d0f344f20ad42346",
+        "exact": true
+      },
+      "0.89.39": {
+        "head": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "expectedHead": "bcb42b151d3dece8c7ddd5b310fe2922683a223a",
+        "status": "",
+        "workerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "expectedWorkerSha256": "66fe7f540f166251a900bc75d595911400d511f531dd0c1bedcd87035fab2b7c",
+        "exact": true
+      },
+      "0.89.40": {
+        "head": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "expectedHead": "12f073e5f9711c2f61edebb7c3493a462e35f1f4",
+        "status": "",
+        "workerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "expectedWorkerSha256": "70259605d5aac95a22e04be89b6bd010a2d488f3facd023abc62b76e61ec6658",
+        "exact": true
+      },
+      "0.89.41": {
+        "head": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "expectedHead": "80527d8841d40b2f02854a02491a1a8e42e96b6b",
+        "status": "",
+        "workerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "expectedWorkerSha256": "3c4e4ea5e4acc90a488bb8db499d80dbe74ec8ba95a8c0a65e624bb917e44a43",
+        "exact": true
+      },
+      "0.89.42": {
+        "head": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "expectedHead": "87ad2a17231008a6a5ad3a80d2a8b6405d4c7e21",
+        "status": "",
+        "workerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "expectedWorkerSha256": "57a94b6f2713b47667d27384e524c0c8e6ebb44516339d40378b9b11c7bedf74",
+        "exact": true
+      },
+      "0.89.43": {
+        "head": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "expectedHead": "02f3c0e9c488594f848cd7ea71c1b922153e7311",
+        "status": "",
+        "workerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "expectedWorkerSha256": "53a8540ad058ac709307055f8b9e96d33021a32fdb18d5743091111c312ce97c",
+        "exact": true
+      },
+      "0.89.44": {
+        "head": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "expectedHead": "ba745fcf39c21aa5707cbbf8f9533233012bc969",
+        "status": "",
+        "workerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "expectedWorkerSha256": "220b65162e6216b1716cd366ecd92e6d7b194b329380951fa095bb4ca1960362",
+        "exact": true
+      },
+      "0.89.45": {
+        "head": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "expectedHead": "02e31bd85421f23ce2035af3c822652d860f0e89",
+        "status": "",
+        "workerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "expectedWorkerSha256": "5f3e5e5c2844505089575eeefe586535d029c281ab67ede6f196a603cb98c1bb",
+        "exact": true
+      },
+      "0.89.46": {
+        "head": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "expectedHead": "8bb59728129c8095d988422e30b9e53081c84c8e",
+        "status": "",
+        "workerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "expectedWorkerSha256": "3bab424a694a01093e758a2426c31b2eecff23f0705b257d1cf3b8c3f698a935",
+        "exact": true
+      },
+      "0.89.47": {
+        "head": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "expectedHead": "157fca9130f4e4df97a7d2a7b32a9d418795c686",
+        "status": "",
+        "workerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "expectedWorkerSha256": "147e4269330be3f548122d62666a94faed00ab052645a47d9a9d3a6ee9258932",
+        "exact": true
+      },
+      "0.89.48": {
+        "head": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "expectedHead": "ed6dbde52d5830a96d6beebbb0b83b357795cde5",
+        "status": "",
+        "workerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "expectedWorkerSha256": "901265d33629292fe649bcd7c5d2991170ee1d6cdcdcf2022ca3087e3aabfe22",
+        "exact": true
+      },
+      "0.89.49": {
+        "head": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "expectedHead": "d00673bbef0a60c3383f1cfbcc1bbea57880314f",
+        "status": "",
+        "workerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "expectedWorkerSha256": "7e180b889585e46fa1c6711422f55137e0bf16e9b9946d1c01b3fc3539d9576d",
+        "exact": true
+      },
+      "0.89.50": {
+        "head": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "expectedHead": "7de6eff18d65f5d65f69fccb2e50567489715c8d",
+        "status": "",
+        "workerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "expectedWorkerSha256": "d3900f8e6286cbc4a517eff8246b2a594f88e2568ec8562f6f293a177cc08b0d",
+        "exact": true
+      },
+      "0.89.51": {
+        "head": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+        "expectedHead": "cd9575a3a89477f2378cf50e1dbc259db3c61f05",
+        "status": "",
+        "workerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+        "expectedWorkerSha256": "019abbbe141d9c424fc256e3c319072b0c82c9906ab92b962cfac6bdd5a3cf80",
+        "exact": true
+      },
+      "0.89.52": {
+        "head": "71d50288aae9db80e30a53a048a475ba01cefc89",
+        "expectedHead": "71d50288aae9db80e30a53a048a475ba01cefc89",
+        "status": "",
+        "workerSha256": "69b2224c29affde2dd8e887b4e8fa69ca386c2da0812b5297f1385e672dfdc42",
+        "expectedWorkerSha256": "69b2224c29affde2dd8e887b4e8fa69ca386c2da0812b5297f1385e672dfdc42",
+        "exact": true
+      },
+      "0.89.53": {
+        "head": "ff4c152934b1ff237862e646e28eab61170f8a06",
+        "expectedHead": "ff4c152934b1ff237862e646e28eab61170f8a06",
+        "status": "",
+        "workerSha256": "6534b8310e4e6c8bde58543f5cb11085f9d14708d1f44eb41e61a5c781e8d9df",
+        "expectedWorkerSha256": "6534b8310e4e6c8bde58543f5cb11085f9d14708d1f44eb41e61a5c781e8d9df",
+        "exact": true
+      },
+      "0.89.54": {
+        "head": "503cb31a5e12670881edf365f26f3df6d64b673c",
+        "expectedHead": "503cb31a5e12670881edf365f26f3df6d64b673c",
+        "status": "",
+        "workerSha256": "8d10eb9eebea9934dddd3b4ab507974dda9384531e1df7bf7f67b8f29d6c4fd4",
+        "expectedWorkerSha256": "8d10eb9eebea9934dddd3b4ab507974dda9384531e1df7bf7f67b8f29d6c4fd4",
+        "exact": true
+      },
+      "0.89.55": {
+        "head": "6f01174c69b09fe6bc3a6aa2b702d9d85d003a80",
+        "expectedHead": "6f01174c69b09fe6bc3a6aa2b702d9d85d003a80",
+        "status": "",
+        "workerSha256": "7f993c51fff2f5dd063cf7bf6f6f8f9cd5c191cc92cb7d3d5da7d0834aa830ed",
+        "expectedWorkerSha256": "7f993c51fff2f5dd063cf7bf6f6f8f9cd5c191cc92cb7d3d5da7d0834aa830ed",
+        "exact": true
+      },
+      "0.89.56": {
+        "head": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+        "expectedHead": "d66965f41b0b94f5a210e6c77cbf205b3ec7f444",
+        "status": "",
+        "workerSha256": "3f70af390a3a0548b5ee1b6a4fd865072e1424c28ff6604148da37696fdccd91",
+        "expectedWorkerSha256": "3f70af390a3a0548b5ee1b6a4fd865072e1424c28ff6604148da37696fdccd91",
+        "exact": true
+      },
+      "0.89.57": {
+        "head": "a97aa8a184f44e420f6f3f8c34025bffa03d6c24",
+        "expectedHead": "a97aa8a184f44e420f6f3f8c34025bffa03d6c24",
+        "status": "",
+        "workerSha256": "1f4629364f14dc0bef8ad7ed8b2f75554bd4dc44c9c46f67d508c046ab888fd6",
+        "expectedWorkerSha256": "1f4629364f14dc0bef8ad7ed8b2f75554bd4dc44c9c46f67d508c046ab888fd6",
+        "exact": true
+      },
+      "0.89.58": {
+        "head": "94f8b31d5206e0ce148f41abcff4753cd1f581ed",
+        "expectedHead": "94f8b31d5206e0ce148f41abcff4753cd1f581ed",
+        "status": "",
+        "workerSha256": "2dccd504df0245e80774ae7a703ffc97433ad0200a16d3e4cbb93136b61ace66",
+        "expectedWorkerSha256": "2dccd504df0245e80774ae7a703ffc97433ad0200a16d3e4cbb93136b61ace66",
+        "exact": true
+      },
+      "0.89.59": {
+        "head": "87d46a15a038184a3c440d177ec968fc27d00750",
+        "expectedHead": "87d46a15a038184a3c440d177ec968fc27d00750",
+        "status": "",
+        "workerSha256": "c41ac792a43dde1942063b8ed1920519d6ca2c17aac3b3ca9a943614475f1571",
+        "expectedWorkerSha256": "c41ac792a43dde1942063b8ed1920519d6ca2c17aac3b3ca9a943614475f1571",
+        "exact": true
+      },
+      "0.89.60": {
+        "head": "d31737dd6fd378ea267fef6021d870a5ee297f19",
+        "expectedHead": "d31737dd6fd378ea267fef6021d870a5ee297f19",
+        "status": "",
+        "workerSha256": "479436df67dae6df2585b032d8de5491964400b70d8993e03af38834bae0a492",
+        "expectedWorkerSha256": "479436df67dae6df2585b032d8de5491964400b70d8993e03af38834bae0a492",
+        "exact": true
+      },
+      "0.89.61": {
+        "head": "e7c931eb9dbcd75e30435a025da9497c1cb9b52f",
+        "expectedHead": "e7c931eb9dbcd75e30435a025da9497c1cb9b52f",
+        "status": "",
+        "workerSha256": "fcc2b7fbf49811b1faaa71556799a8156a588d5d4114ff652139913bec1bef30",
+        "expectedWorkerSha256": "fcc2b7fbf49811b1faaa71556799a8156a588d5d4114ff652139913bec1bef30",
+        "exact": true
+      }
+    },
+    "dirtyCandidateStatusExact": true,
+    "dirtyCandidateFilesExact": true,
+    "dirtyCandidateFiles": 12,
+    "cleanMappingHead": "07bdfb38ffc796abd3958d192275d8acbffba8e0",
+    "cleanMappingClean": true
+  },
+  "sourceEquality": {
+    "/home/lck/projects/Rea_ERP": {
+      "beforeSha256": "593eed69127e5e6d8405482e6adb81ed5c522fb65eb5312750b6b6894b12a9af",
+      "afterSha256": "01aebb70efe0f349475c55950f9265650e6fed541e204059992e70f141d8f278",
+      "outsideEditsExact": true
+    },
+    "/home/lck/projects/Rea_ERP/.artifacts/releases/0.89.62-price-line-longtext": {
+      "beforeSha256": "6449ee365191d3ca2a23b93afc61ce9c210e5f92fdf5bc3356f27e779e3acc83",
+      "afterSha256": "4b428b340674068756d632899056de1ce81f894aeb69d53f05fdb352384cdb96",
+      "outsideEditsExact": true
+    }
+  },
+  "visualReadback": {
+    "imagesActuallyRead": 2,
+    "origin": "first-patch36 success; unchanged final app/assertions also enter whole validation",
+    "files": [
+      {
+        "path": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-line-longtext-20261030/first-patch-results/price-line-longtext-legacy-56fc9-ntouched-explicit-save-1280/long-retained.png",
+        "sha256": "bf9e9d53833a8a73a5cff7e960d0f7934417010a9ac33895ab51b8a93a4f8243"
+      },
+      {
+        "path": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-line-longtext-20261030/first-patch-results/price-line-longtext-legacy-67589-untouched-explicit-save-390/long-retained.png",
+        "sha256": "43e5f8f69bff5494aa8c412b5f9fe612e438a6c340a6d4b848f67f61a1b347b3"
+      }
+    ],
+    "observedLabels": [
+      "단가요청 상세 / 수정",
+      "행 적요",
+      "행 선택값",
+      "저장(F8)"
+    ],
+    "desktop1280": "existing row M001 quantity3 price100; base memo 원래/적요 and custom textarea 첫 줄/둘째 줄 both visible",
+    "mobile390": "scrollIntoView brought custom 행 선택값 textarea into internally scrolled BODY table; first and second lines visible; other columns clipped by current horizontal scroll",
+    "crlfByteEquivalenceProvenByPixels": false,
+    "crlfByteEquivalenceEvidence": "native displayed LF plus exact saved raw assertions in 36 tests",
+    "newLayoutRequirement": false,
+    "originalOrProductionUi": false
+  },
+  "operatingRecoveryReference": "evidence/incident-rea-runtime-unavailable-20261030.json",
+  "manualCounts": {
+    "onlineIndex": 77,
+    "bodiesReviewed": 47,
+    "officialRequirements": 44,
+    "done": 0,
+    "wholeManualComplete": false
+  },
+  "moa": {
+    "startSaved": false,
+    "lastConfirmedVersion": 69,
+    "lastConfirmedBlocks": 446,
+    "resultSaved": false,
+    "readbackVerified": false,
+    "actualMetadataSet": false,
+    "evidence": "evidence/moa-price-line-longtext-preauthorized-20261030.json",
+    "pendingStartBlocks": 2,
+    "pendingResultBlocks": 10,
+    "previousPendingReferences": [
+      "evidence/moa-price-helper-append-preauthorized-20261029.json",
+      "evidence/moa-price-history-draft-preauthorized-20261030.json",
+      "evidence/moa-price-stock-draft-preauthorized-20261030.json",
+      "evidence/moa-price-myitem-draft-preauthorized-20261030.json",
+      "evidence/moa-price-voucher-draft-preauthorized-20261030.json",
+      "evidence/moa-price-safety-draft-preauthorized-20261030.json",
+      "evidence/moa-price-requirements-draft-preauthorized-20261030.json",
+      "evidence/moa-price-myitem-settings-draft-preauthorized-20261030.json",
+      "evidence/moa-price-order-plan-draft-preauthorized-20261030.json",
+      "evidence/moa-price-paste-draft-preauthorized-20261030.json",
+      "evidence/moa-price-line-memo-preauthorized-20261030.json"
+    ],
+    "postingBlockedBy": "work-document-tools-not-exposed",
+    "authenticationExpiredEvidence": false
+  },
+  "nextIndependentWork": {
+    "sourceId": "OWN-PRICE-EXISTING-LONGTEXT-FORM-DEFAULT-EDITOR-RAW-CONTRACT-AUDIT",
+    "title": "단가요청 기존 장문 양식의 기본값 편집·메타데이터 왕복 계약 대조",
+    "plan": "docs/plan-master-number-transition-20261024.md",
+    "operatingVersion": "0.89.22",
+    "evidence": "evidence/manual-price-line-longtext-20261030.json",
+    "latestEvidence": "evidence/manual-price-line-longtext-20261030.json",
+    "description": "이번62는 validated 기존 자유양식 text/multiline=true BODY 정의의 입력18흐름만 로컬 검증했다. 단가요청 BODY 장문의 새 생성 UI/catalog는 없다. 다음은 FormOptions의 단일 기본값 input과 기존 multiline 플래그·label/readonly/hidden의 취소/명시 양식저장 왕복을 지원UI/기존검사·소유자/자료 경계로 먼저 대조한다. 확인된 새 손실만 보완하고 새 장문 생성 UI를 가정하지 않는다. 원본/운영 양식설정 저장0·40후보/자료/양식/기존 재개조건을 유지한다. 모아 도구 실제 재노출 전 같은 목록/로그인/승인/연결 확인을 반복하지 않는다. 재노출 시 현재본문/버전/can_edit/중복 확인 뒤51결과10→52~62착수2/결과10을 기존 승인으로 순서대로 저장·재조회한다. 새 인증 운영UI/브라우저백업과 그 시점 서버/메일 기준 확보 후62후보 배포 검증한다.",
+    "implementationStarted": false,
+    "done": false,
+    "blockedByMoaMetadataUnsupported": false,
+    "blockedByMoaToolUnavailable": false,
+    "previousCandidateVersions": [
+      "0.89.23",
+      "0.89.24",
+      "0.89.25",
+      "0.89.26",
+      "0.89.27",
+      "0.89.28",
+      "0.89.29",
+      "0.89.30",
+      "0.89.31",
+      "0.89.32",
+      "0.89.33",
+      "0.89.34",
+      "0.89.35",
+      "0.89.36",
+      "0.89.37",
+      "0.89.38",
+      "0.89.39",
+      "0.89.40",
+      "0.89.41",
+      "0.89.42",
+      "0.89.43",
+      "0.89.44",
+      "0.89.45",
+      "0.89.46",
+      "0.89.47",
+      "0.89.48",
+      "0.89.49",
+      "0.89.50",
+      "0.89.51",
+      "0.89.52",
+      "0.89.53",
+      "0.89.54",
+      "0.89.55",
+      "0.89.56",
+      "0.89.57",
+      "0.89.58",
+      "0.89.59",
+      "0.89.60",
+      "0.89.61",
+      "0.89.62"
+    ],
+    "previousCandidatesDeployed": false
+  },
+  "artifacts": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-line-longtext-20261030",
+  "productionGate": "Fresh authenticated browser backup/UI and then-current server/mail prebasis still required; runtime recovery is not candidate deployment"
+}

@@ -1,0 +1,103 @@
+{
+  "dateKst": "2026-10-30",
+  "recordedAt": "2026-10-30T08:50:40.916741+09:00",
+  "kind": "local8781-ECONNREFUSED-and-no-Windows-holder-or-tunnel",
+  "status": "restored-installed-runtime-only",
+  "versionUnchanged": "0.89.22",
+  "initialEvidence": {
+    "wslUserSessionWarning": true,
+    "subsequentUserSystemdRunning": true,
+    "localPort8781ConnectionRefused": true,
+    "windowsWslAndCloudflaredProcessCount": 0,
+    "public1033Observed": false,
+    "incorrectSpeculativePublicApiHealth403IsNotAuthenticationExpiryEvidence": true,
+    "shutdownCauseKnown": false
+  },
+  "recovery": {
+    "windowsHolderPid": 37528,
+    "cloudflaredWindowsPid": 38212,
+    "linuxServerProcessGroupPid": 1002,
+    "manager": "/home/lck/.local/bin/rea-erp-dev",
+    "independentHiddenWindowsProcesses": true,
+    "built": false,
+    "candidateDeployed": false,
+    "autostartAdded": false,
+    "dnsChanged": false
+  },
+  "preservation": {
+    "freshBefore": {
+      "phase": "before",
+      "at": "2026-10-29T23:44:13.775Z",
+      "privateDirectory": "/home/lck/.local/share/rea-erp/backups/runtime22-recovery-20261030-before-1793317443383",
+      "operatingVersion": "0.89.22",
+      "runtimeHash": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+      "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+      "remoteRevisions": {
+        "rea_app_state": 36,
+        "rea_gateway_state": 0
+      },
+      "remoteHash": "5d4c1b764a431ec0cd1fded4eb2f7e2198284409d93d4f7e69bad05e58f2af36",
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "contentHash": "cc8ddba090e3732325831cff5f85dc8779ee8bf93898c5a6657788b78b6cf6a8"
+      },
+      "readOnlyRemote": true,
+      "restoreCalled": false,
+      "browserBackupCaptured": false,
+      "authenticatedUiVerified": false
+    },
+    "freshAfter": {
+      "phase": "after",
+      "at": "2026-10-29T23:45:11.214Z",
+      "privateDirectory": "/home/lck/.local/share/rea-erp/backups/runtime22-recovery-20261030-after-1793317505131",
+      "operatingVersion": "0.89.22",
+      "runtimeHash": "02d47e6eb7f1aefa6f77021f1ef7511f37480387da6ca0276b94cc8f17fef928",
+      "workerSha256": "79222ea6a33fdcdd7191240749ca67e03795153336639fdca75fe5849ff7532d",
+      "remoteRevisions": {
+        "rea_app_state": 36,
+        "rea_gateway_state": 0
+      },
+      "remoteHash": "5d4c1b764a431ec0cd1fded4eb2f7e2198284409d93d4f7e69bad05e58f2af36",
+      "mail": {
+        "boxes": 3,
+        "messages": 8,
+        "files": 1,
+        "contentHash": "cc8ddba090e3732325831cff5f85dc8779ee8bf93898c5a6657788b78b6cf6a8"
+      },
+      "readOnlyRemote": true,
+      "restoreCalled": false,
+      "browserBackupCaptured": false,
+      "authenticatedUiVerified": false,
+      "exact": {
+        "runtime": true,
+        "worker": true,
+        "remote": true,
+        "mail": true
+      }
+    },
+    "tunnelConfigBeforeSha256": "f1fe1bacffe9840e0573259166d43a54040fe44da308a5fce1d5a6f3ee8d67f0",
+    "tunnelConfigAtLaunchSha256": "f1fe1bacffe9840e0573259166d43a54040fe44da308a5fce1d5a6f3ee8d67f0",
+    "workerVersion": "0.89.22",
+    "remoteRestoreCalled": false,
+    "schemaOrSettingsChanged": false,
+    "dataOrMailWrittenOrSent": false
+  },
+  "validation": {
+    "publicChecks": 23,
+    "assetHashesExactToInstalled22Snapshot": 20,
+    "login200AndVersion22": true,
+    "localHealth200": true,
+    "publicInternalHealth404": true,
+    "unauthenticatedMail401": true,
+    "authenticatedBrowserUiVerified": false,
+    "freshBrowserBackupCaptured": false,
+    "existingBrowserSessionPreservationVerified": false
+  },
+  "latestPreparedCandidateUnchangedAtRecovery": "0.89.61",
+  "all39CandidatesRetained": true,
+  "newErpTouched": false,
+  "prohibitedPortsTouched": false,
+  "evidenceDirectory": "/home/lck/projects/Rea_ERP/.artifacts/manual-price-line-longtext-20261030"
+}
