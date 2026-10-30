@@ -22,7 +22,7 @@
       const apply=(op,payload)=>{try{if(!d.open||!d.isConnected||generation!==openedGeneration)throw Error('양식 화면이 닫혔거나 교체됐습니다. 다시 열어주세요.');if(JSON.stringify(snapshot())!==expected)throw Error('양식 설정이 변경됐습니다. 다시 열어주세요.');return run(op,payload);}catch(e){error.textContent=e.message;return false;}};
       function defaultValueControl(field){
         const label='기본값 '+field.id;
-        if(api.key!=='doc:pricerequest'||contexts.value!=='lines'||!field.custom||field.type!=='text'||field.multiline!==true)return input(label,field.defaultValue);
+        if(api.key!=='doc:pricerequest'||contexts.value!=='lines'||field.type!=='text'||!(field.custom&&field.multiline===true||!field.custom&&field.id==='memo'))return input(label,field.defaultValue);
         const x=N('textarea'),raw=field.defaultValue??'';x.setAttribute('aria-label',label);x.rows=3;x.value=raw;
         const shown=x.value;let edited=false;const markEdited=()=>{edited=true;};
         x.addEventListener('input',markEdited);x.addEventListener('change',markEdited);
